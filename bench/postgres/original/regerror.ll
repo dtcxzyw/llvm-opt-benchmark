@@ -3,7 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rerr = type { i32, ptr, ptr }
 
-@rerrs = internal constant [21 x %struct.rerr] [%struct.rerr { i32 0, ptr @.str.2, ptr @.str.3 }, %struct.rerr { i32 1, ptr @.str.4, ptr @.str.5 }, %struct.rerr { i32 2, ptr @.str.6, ptr @.str.7 }, %struct.rerr { i32 3, ptr @.str.8, ptr @.str.9 }, %struct.rerr { i32 4, ptr @.str.10, ptr @.str.11 }, %struct.rerr { i32 5, ptr @.str.12, ptr @.str.13 }, %struct.rerr { i32 6, ptr @.str.14, ptr @.str.15 }, %struct.rerr { i32 7, ptr @.str.16, ptr @.str.17 }, %struct.rerr { i32 8, ptr @.str.18, ptr @.str.19 }, %struct.rerr { i32 9, ptr @.str.20, ptr @.str.21 }, %struct.rerr { i32 10, ptr @.str.22, ptr @.str.23 }, %struct.rerr { i32 11, ptr @.str.24, ptr @.str.25 }, %struct.rerr { i32 12, ptr @.str.26, ptr @.str.27 }, %struct.rerr { i32 13, ptr @.str.28, ptr @.str.29 }, %struct.rerr { i32 15, ptr @.str.30, ptr @.str.31 }, %struct.rerr { i32 16, ptr @.str.32, ptr @.str.33 }, %struct.rerr { i32 17, ptr @.str.34, ptr @.str.35 }, %struct.rerr { i32 18, ptr @.str.36, ptr @.str.37 }, %struct.rerr { i32 19, ptr @.str.38, ptr @.str.39 }, %struct.rerr { i32 20, ptr @.str.40, ptr @.str.41 }, %struct.rerr { i32 -1, ptr @.str.42, ptr @.str.43 }], align 16
 @.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"REG_%u\00", align 1
 @unk = internal constant [38 x i8] c"*** unknown regex error code 0x%x ***\00", align 16
@@ -49,6 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [16 x i8] c"too many colors\00", align 1
 @.str.42 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.43 = private unnamed_addr constant [5 x i8] c"oops\00", align 1
+@rerrs = internal constant [21 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.2, ptr @.str.3 }, { i32, [4 x i8], ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.4, ptr @.str.5 }, { i32, [4 x i8], ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.6, ptr @.str.7 }, { i32, [4 x i8], ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.8, ptr @.str.9 }, { i32, [4 x i8], ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.10, ptr @.str.11 }, { i32, [4 x i8], ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.12, ptr @.str.13 }, { i32, [4 x i8], ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.14, ptr @.str.15 }, { i32, [4 x i8], ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.16, ptr @.str.17 }, { i32, [4 x i8], ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.18, ptr @.str.19 }, { i32, [4 x i8], ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.20, ptr @.str.21 }, { i32, [4 x i8], ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.22, ptr @.str.23 }, { i32, [4 x i8], ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.24, ptr @.str.25 }, { i32, [4 x i8], ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.26, ptr @.str.27 }, { i32, [4 x i8], ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.28, ptr @.str.29 }, { i32, [4 x i8], ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.30, ptr @.str.31 }, { i32, [4 x i8], ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.32, ptr @.str.33 }, { i32, [4 x i8], ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.34, ptr @.str.35 }, { i32, [4 x i8], ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.36, ptr @.str.37 }, { i32, [4 x i8], ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.38, ptr @.str.39 }, { i32, [4 x i8], ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.40, ptr @.str.41 }, { i32, [4 x i8], ptr, ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.42, ptr @.str.43 }], align 16
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -65,6 +65,11 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 88, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   %14 = load i32, ptr %5, align 4
   switch i32 %14, label %74 [
     i32 101, label %15
@@ -77,17 +82,17 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 16:                                               ; preds = %30, %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.rerr, ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.rerr, ptr %17, i32 0, i32 0
   %19 = load i32, ptr %18, align 8
   %20 = icmp sge i32 %19, 0
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.rerr, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.rerr, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %7, align 8
-  %26 = call i32 @strcmp(ptr noundef %24, ptr noundef %25) #5
+  %26 = call i32 @strcmp(ptr noundef %24, ptr noundef %25) #8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %29
 
@@ -99,14 +104,14 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr %struct.rerr, ptr %31, i32 1
+  %32 = getelementptr inbounds nuw %struct.rerr, ptr %31, i32 1
   store ptr %32, ptr %9, align 8
-  br label %16, !llvm.loop !5
+  br label %16, !llvm.loop !4
 
 33:                                               ; preds = %28, %16
   %34 = getelementptr inbounds [88 x i8], ptr %11, i64 0, i64 0
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.rerr, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.rerr, ptr %35, i32 0, i32 0
   %37 = load i32, ptr %36, align 8
   %38 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %34, ptr noundef @.str, i32 noundef %37)
   %39 = getelementptr inbounds [88 x i8], ptr %11, i64 0, i64 0
@@ -115,21 +120,21 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 40:                                               ; preds = %4
   %41 = load ptr, ptr %7, align 8
-  %42 = call i32 @atoi(ptr noundef %41) #5
+  %42 = call i32 @atoi(ptr noundef %41) #8
   store i32 %42, ptr %13, align 4
   store ptr @rerrs, ptr %9, align 8
   br label %43
 
 43:                                               ; preds = %56, %40
   %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.rerr, ptr %44, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.rerr, ptr %44, i32 0, i32 0
   %46 = load i32, ptr %45, align 8
   %47 = icmp sge i32 %46, 0
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.rerr, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.rerr, ptr %49, i32 0, i32 0
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr %13, align 4
   %53 = icmp eq i32 %51, %52
@@ -143,20 +148,20 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr %struct.rerr, ptr %57, i32 1
+  %58 = getelementptr inbounds nuw %struct.rerr, ptr %57, i32 1
   store ptr %58, ptr %9, align 8
-  br label %43, !llvm.loop !7
+  br label %43, !llvm.loop !6
 
 59:                                               ; preds = %54, %43
   %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds %struct.rerr, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.rerr, ptr %60, i32 0, i32 0
   %62 = load i32, ptr %61, align 8
   %63 = icmp sge i32 %62, 0
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct.rerr, ptr %65, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.rerr, ptr %65, i32 0, i32 1
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %10, align 8
   br label %73
@@ -178,14 +183,14 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 75:                                               ; preds = %88, %74
   %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.rerr, ptr %76, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.rerr, ptr %76, i32 0, i32 0
   %78 = load i32, ptr %77, align 8
   %79 = icmp sge i32 %78, 0
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds %struct.rerr, ptr %81, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.rerr, ptr %81, i32 0, i32 0
   %83 = load i32, ptr %82, align 8
   %84 = load i32, ptr %5, align 4
   %85 = icmp eq i32 %83, %84
@@ -199,20 +204,20 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr %struct.rerr, ptr %89, i32 1
+  %90 = getelementptr inbounds nuw %struct.rerr, ptr %89, i32 1
   store ptr %90, ptr %9, align 8
-  br label %75, !llvm.loop !8
+  br label %75, !llvm.loop !7
 
 91:                                               ; preds = %86, %75
   %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.rerr, ptr %92, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %struct.rerr, ptr %92, i32 0, i32 0
   %94 = load i32, ptr %93, align 8
   %95 = icmp sge i32 %94, 0
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.rerr, ptr %97, i32 0, i32 2
+  %98 = getelementptr inbounds nuw %struct.rerr, ptr %97, i32 0, i32 2
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %10, align 8
   br label %105
@@ -230,7 +235,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 106:                                              ; preds = %105, %73, %33
   %107 = load ptr, ptr %10, align 8
-  %108 = call i64 @strlen(ptr noundef %107) #5
+  %108 = call i64 @strlen(ptr noundef %107) #8
   %109 = add i64 %108, 1
   store i64 %109, ptr %12, align 8
   %110 = load i64, ptr %8, align 8
@@ -246,7 +251,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 116:                                              ; preds = %112
   %117 = load ptr, ptr %7, align 8
   %118 = load ptr, ptr %10, align 8
-  %119 = call ptr @strcpy(ptr noundef %117, ptr noundef %118) #6
+  %119 = call ptr @strcpy(ptr noundef %117, ptr noundef %118) #7
   br label %129
 
 120:                                              ; preds = %112
@@ -258,7 +263,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %125 = load ptr, ptr %7, align 8
   %126 = load i64, ptr %8, align 8
   %127 = sub i64 %126, 1
-  %128 = getelementptr i8, ptr %125, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 %127
   store i8 0, ptr %128, align 1
   br label %129
 
@@ -267,42 +272,64 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 130:                                              ; preds = %129, %106
   %131 = load i64, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 88, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i64 %131
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
-
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
+
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) #3
+
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #7
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #3
+declare ptr @strcpy(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #5
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

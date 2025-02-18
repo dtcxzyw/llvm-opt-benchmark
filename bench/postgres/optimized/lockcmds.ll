@@ -30,52 +30,55 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph25, label %._crit_edge
 
+._crit_edge:                                      ; preds = %32, %.lr.ph, %1
+  ret void
+
 .lr.ph25:                                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load i8, ptr %13, align 8
+  %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
   %15 = load i32, ptr %6, align 8
-  %16 = load i8, ptr %7, align 4
-  %17 = trunc i8 %16 to i1
+  %16 = load i8, ptr %7, align 4, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %17, i32 2, i32 0
-  %19 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %12, i32 noundef %15, i32 noundef %18, ptr noundef nonnull @RangeVarCallbackForLockTable, ptr noundef nonnull %6) #4
-  %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #4
+  %19 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %12, i32 noundef %15, i32 noundef %18, ptr noundef nonnull @RangeVarCallbackForLockTable, ptr noundef nonnull %6) #5
+  %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #5
   %21 = icmp eq i8 %20, 118
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %.lr.ph25
   %23 = load i32, ptr %6, align 8
-  %24 = load i8, ptr %7, align 4
-  %25 = trunc i8 %24 to i1
+  %24 = load i8, ptr %7, align 4, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
   tail call fastcc void @LockViewRecurse(i32 noundef %19, i32 noundef %23, i1 noundef zeroext %25, ptr noundef null)
   br label %32
 
 26:                                               ; preds = %.lr.ph25
-  %27 = trunc i8 %14 to i1
+  %27 = trunc nuw i8 %14 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
   %29 = load i32, ptr %6, align 8
-  %30 = load i8, ptr %7, align 4
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr %7, align 4, !range !4, !noundef !5
+  %31 = trunc nuw i8 %30 to i1
   tail call fastcc void @LockTableRecurse(i32 noundef %19, i32 noundef %29, i1 noundef zeroext %31)
   br label %32
 
-32:                                               ; preds = %22, %28, %26
+32:                                               ; preds = %26, %28, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %4, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph25, label %._crit_edge
-
-._crit_edge:                                      ; preds = %32, %.lr.ph, %1
-  ret void
 }
 
-declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @RangeVarCallbackForLockTable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
@@ -84,7 +87,7 @@ define internal void @RangeVarCallbackForLockTable(ptr noundef readonly captures
   br i1 %.not, label %32, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #4
+  %7 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #5
   switch i8 %7, label %8 [
     i8 0, label %32
     i8 118, label %15
@@ -93,18 +96,18 @@ define internal void @RangeVarCallbackForLockTable(ptr noundef readonly captures
   ]
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 151027844) #4
+  %10 = tail call i32 @errcode(i32 noundef 151027844) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %12) #4
-  %14 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %7) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.RangeVarCallbackForLockTable) #4
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %12) #5
+  %14 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %7) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @__func__.RangeVarCallbackForLockTable) #5
   unreachable
 
 15:                                               ; preds = %6, %6, %6
-  %16 = tail call signext i8 @get_rel_persistence(i32 noundef %1) #4
+  %16 = tail call signext i8 @get_rel_persistence(i32 noundef %1) #5
   %17 = icmp eq i8 %16, 116
   br i1 %17, label %18, label %21
 
@@ -115,82 +118,83 @@ define internal void @RangeVarCallbackForLockTable(ptr noundef readonly captures
   br label %21
 
 21:                                               ; preds = %18, %15
-  %22 = tail call i32 @GetUserId() #4
+  %22 = tail call i32 @GetUserId() #5
   %23 = icmp slt i32 %5, 2
-  %spec.select.i = select i1 %23, i64 30, i64 28
+  %spec.select.i = select i1 %23, i64 16414, i64 16412
   %24 = icmp slt i32 %5, 4
   %25 = zext i1 %24 to i64
   %.1.i = or disjoint i64 %spec.select.i, %25
-  %26 = tail call i32 @pg_class_aclcheck(i32 noundef %1, i32 noundef %22, i64 noundef %.1.i) #4
+  %26 = tail call i32 @pg_class_aclcheck(i32 noundef %1, i32 noundef %22, i64 noundef %.1.i) #5
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %32, label %27
 
 27:                                               ; preds = %21
-  %28 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #4
-  %29 = tail call i32 @get_relkind_objtype(i8 noundef signext %28) #4
+  %28 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #5
+  %29 = tail call i32 @get_relkind_objtype(i8 noundef signext %28) #5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
-  tail call void @aclcheck_error(i32 noundef %26, i32 noundef %29, ptr noundef %31) #4
+  tail call void @aclcheck_error(i32 noundef %26, i32 noundef %29, ptr noundef %31) #5
   br label %32
 
-32:                                               ; preds = %6, %4, %27, %21
+32:                                               ; preds = %6, %21, %27, %4
   ret void
 }
 
-declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #1
+declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @LockViewRecurse(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.LockViewRecurse_context, align 8
   %6 = zext i1 %2 to i8
-  %7 = tail call ptr @table_open(i32 noundef %0, i32 noundef 0) #4
-  %8 = tail call ptr @get_view_query(ptr noundef %7) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  %7 = tail call ptr @table_open(i32 noundef %0, i32 noundef 0) #5
+  %8 = tail call ptr @get_view_query(ptr noundef %7) #5
   store i32 %1, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %6, ptr %9, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %.critedge, label %17
+  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %.critedge, label %16
 
-17:                                               ; preds = %12
-  %18 = tail call i32 @GetUserId() #4
-  br label %23
+16:                                               ; preds = %12
+  %17 = tail call i32 @GetUserId() #5
+  br label %22
 
 .critedge:                                        ; preds = %4, %12
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %22 = load i32, ptr %21, align 4
-  br label %23
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %21 = load i32, ptr %20, align 4
+  br label %22
 
-23:                                               ; preds = %.critedge, %17
-  %.sink = phi i32 [ %22, %.critedge ], [ %18, %17 ]
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %0, ptr %25, align 4
-  %26 = tail call ptr @lappend_oid(ptr noundef %3, i32 noundef %0) #4
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %26, ptr %27, align 8
-  %28 = call zeroext i1 @LockViewRecurse_walker(ptr noundef %8, ptr noundef nonnull %5)
-  %29 = load ptr, ptr %27, align 8
-  %30 = call ptr @list_delete_last(ptr noundef %29) #4
-  store ptr %30, ptr %27, align 8
-  call void @table_close(ptr noundef nonnull %7, i32 noundef 0) #4
+22:                                               ; preds = %.critedge, %16
+  %.sink = phi i32 [ %21, %.critedge ], [ %17, %16 ]
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sink, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %0, ptr %24, align 4
+  %25 = tail call ptr @lappend_oid(ptr noundef %3, i32 noundef %0) #5
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %25, ptr %26, align 8
+  %27 = call zeroext i1 @LockViewRecurse_walker(ptr noundef %8, ptr noundef nonnull %5)
+  %28 = load ptr, ptr %26, align 8
+  %29 = call ptr @list_delete_last(ptr noundef %28) #5
+  store ptr %29, ptr %26, align 8
+  call void @table_close(ptr noundef nonnull %7, i32 noundef 0) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %4 = tail call ptr @find_all_inheritors(i32 noundef %0, i32 noundef 0, ptr noundef null) #4
+  %4 = tail call ptr @find_all_inheritors(i32 noundef %0, i32 noundef 0, ptr noundef null) #5
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -202,119 +206,122 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph32, label %._crit_edge
+  br i1 %8, label %.lr.ph33, label %._crit_edge
 
-.lr.ph32:                                         ; preds = %.lr.ph.split.us.split, %21
-  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %21 ], [ 0, %.lr.ph.split.us.split ]
+.lr.ph33:                                         ; preds = %.lr.ph.split.us.split, %21
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %21 ], [ 0, %.lr.ph.split.us.split ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv35
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv36
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %21, label %13
 
-13:                                               ; preds = %.lr.ph32
-  %14 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %11, i32 noundef %1) #4
+13:                                               ; preds = %.lr.ph33
+  %14 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %11, i32 noundef %1) #5
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @get_rel_name(i32 noundef %11) #4
-  %.not23.us = icmp eq ptr %16, null
-  br i1 %.not23.us, label %21, label %.split.us
+  %16 = tail call ptr @get_rel_name(i32 noundef %11) #5
+  %.not24.us = icmp eq ptr %16, null
+  br i1 %.not24.us, label %21, label %.split.us
 
 17:                                               ; preds = %13
   %18 = zext i32 %11 to i64
-  %19 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 55, i64 noundef %18, i64 noundef 0, i64 noundef 0, i64 noundef 0) #4
+  %19 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %18, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @UnlockRelationOid(i32 noundef %11, i32 noundef %1) #4
+  tail call void @UnlockRelationOid(i32 noundef %11, i32 noundef %1) #5
   br label %21
 
-21:                                               ; preds = %20, %17, %15, %.lr.ph32
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+21:                                               ; preds = %20, %17, %15, %.lr.ph33
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %22 = load i32, ptr %5, align 4
   %23 = sext i32 %22 to i64
-  %24 = icmp slt i64 %indvars.iv.next36, %23
-  br i1 %24, label %.lr.ph32, label %._crit_edge
+  %24 = icmp slt i64 %indvars.iv.next37, %23
+  br i1 %24, label %.lr.ph33, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph30, label %._crit_edge
+  br i1 %8, label %.lr.ph31, label %._crit_edge
 
-.lr.ph30:                                         ; preds = %.lr.ph.split.split, %36
+._crit_edge:                                      ; preds = %36, %21, %.lr.ph.split.us.split, %.lr.ph.split.split, %3
+  ret void
+
+.lr.ph31:                                         ; preds = %.lr.ph.split.split, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.split.split ]
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %0
   br i1 %28, label %36, label %29
 
-29:                                               ; preds = %.lr.ph30
-  tail call void @LockRelationOid(i32 noundef %27, i32 noundef %1) #4
+29:                                               ; preds = %.lr.ph31
+  tail call void @LockRelationOid(i32 noundef %27, i32 noundef %1) #5
   %30 = zext i32 %27 to i64
-  %31 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 55, i64 noundef %30, i64 noundef 0, i64 noundef 0, i64 noundef 0) #4
+  %31 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %30, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   br i1 %31, label %36, label %35
 
 .split.us:                                        ; preds = %15
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 50463045) #4
-  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.LockTableRecurse) #4
+  %33 = tail call i32 @errcode(i32 noundef 50463045) #5
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.LockTableRecurse) #5
   unreachable
 
 35:                                               ; preds = %29
-  tail call void @UnlockRelationOid(i32 noundef %27, i32 noundef %1) #4
+  tail call void @UnlockRelationOid(i32 noundef %27, i32 noundef %1) #5
   br label %36
 
-36:                                               ; preds = %29, %.lr.ph30, %35
+36:                                               ; preds = %29, %.lr.ph31, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %5, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph30, label %._crit_edge
-
-._crit_edge:                                      ; preds = %36, %21, %.lr.ph.split.us.split, %.lr.ph.split.split, %3
-  ret void
+  br i1 %39, label %.lr.ph31, label %._crit_edge
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail_relkind_not_supported(i8 noundef signext) local_unnamed_addr #1
+declare i32 @errdetail_relkind_not_supported(i8 noundef signext) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare signext i8 @get_rel_persistence(i32 noundef) local_unnamed_addr #1
+declare signext i8 @get_rel_persistence(i32 noundef) local_unnamed_addr #2
 
-declare i32 @GetUserId() local_unnamed_addr #1
+declare i32 @GetUserId() local_unnamed_addr #2
 
-declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_relkind_objtype(i8 noundef signext) local_unnamed_addr #1
+declare i32 @get_relkind_objtype(i8 noundef signext) local_unnamed_addr #2
 
-declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @find_all_inheritors(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @find_all_inheritors(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ConditionalLockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @ConditionalLockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
+declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @get_view_query(ptr noundef) local_unnamed_addr #1
+declare ptr @get_view_query(ptr noundef) local_unnamed_addr #2
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %1) #0 {
@@ -323,7 +330,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
-  %6 = icmp eq i32 %5, 59
+  %6 = icmp eq i32 %5, 67
   br i1 %6, label %7, label %68
 
 7:                                                ; preds = %4
@@ -342,135 +349,137 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph60, label %._crit_edge
 
-.lr.ph60:                                         ; preds = %.lr.ph, %63
-  %indvars.iv59 = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv59
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %23 = load i8, ptr %22, align 4
-  %24 = tail call ptr @get_rel_name(i32 noundef %21) #4
-  switch i8 %23, label %63 [
-    i8 118, label %25
-    i8 114, label %25
-    i8 112, label %25
-  ]
-
-25:                                               ; preds = %.lr.ph60, %.lr.ph60, %.lr.ph60
-  %26 = load ptr, ptr %12, align 8
-  %27 = tail call zeroext i1 @list_member_oid(ptr noundef %26, i32 noundef %21) #4
-  br i1 %27, label %63, label %28
-
-28:                                               ; preds = %25
-  %29 = load i32, ptr %1, align 8
-  %30 = load i32, ptr %13, align 8
-  %31 = icmp slt i32 %29, 2
-  %spec.select.i = select i1 %31, i64 30, i64 28
-  %32 = icmp slt i32 %29, 4
-  %33 = zext i1 %32 to i64
-  %.1.i = or disjoint i64 %spec.select.i, %33
-  %34 = tail call i32 @pg_class_aclcheck(i32 noundef %21, i32 noundef %30, i64 noundef %.1.i) #4
-  %.not53 = icmp eq i32 %34, 0
-  br i1 %.not53, label %37, label %35
-
-35:                                               ; preds = %28
-  %36 = tail call i32 @get_relkind_objtype(i8 noundef signext %23) #4
-  tail call void @aclcheck_error(i32 noundef %34, i32 noundef %36, ptr noundef %24) #4
-  br label %37
-
-37:                                               ; preds = %35, %28
-  %38 = load i8, ptr %14, align 4
-  %39 = trunc i8 %38 to i1
-  %40 = load i32, ptr %1, align 8
-  br i1 %39, label %42, label %41
-
-41:                                               ; preds = %37
-  tail call void @LockRelationOid(i32 noundef %21, i32 noundef %40) #4
-  br label %48
-
-42:                                               ; preds = %37
-  %43 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %21, i32 noundef %40) #4
-  br i1 %43, label %48, label %44
-
-44:                                               ; preds = %42
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 @errcode(i32 noundef 50463045) #4
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %24) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 225, ptr noundef nonnull @__func__.LockViewRecurse_walker) #4
-  unreachable
-
-48:                                               ; preds = %42, %41
-  %49 = icmp eq i8 %23, 118
-  br i1 %49, label %50, label %55
-
-50:                                               ; preds = %48
-  %51 = load i32, ptr %1, align 8
-  %52 = load i8, ptr %14, align 4
-  %53 = trunc i8 %52 to i1
-  %54 = load ptr, ptr %12, align 8
-  tail call fastcc void @LockViewRecurse(i32 noundef %21, i32 noundef %51, i1 noundef zeroext %53, ptr noundef %54)
-  br label %63
-
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %19, i64 201
-  %57 = load i8, ptr %56, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %63
-
-59:                                               ; preds = %55
-  %60 = load i32, ptr %1, align 8
-  %61 = load i8, ptr %14, align 4
-  %62 = trunc i8 %61 to i1
-  tail call fastcc void @LockTableRecurse(i32 noundef %21, i32 noundef %60, i1 noundef zeroext %62)
-  br label %63
-
-63:                                               ; preds = %.lr.ph60, %50, %59, %55, %25
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
-  %64 = load i32, ptr %10, align 4
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph60, label %._crit_edge
-
-._crit_edge:                                      ; preds = %63, %.lr.ph, %7
-  %67 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #4
+._crit_edge:                                      ; preds = %64, %.lr.ph, %7
+  %17 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #5
   br label %70
 
+.lr.ph60:                                         ; preds = %.lr.ph, %64
+  %indvars.iv59 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv59
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 33
+  %24 = load i8, ptr %23, align 1
+  %25 = tail call ptr @get_rel_name(i32 noundef %22) #5
+  switch i8 %24, label %64 [
+    i8 118, label %26
+    i8 114, label %26
+    i8 112, label %26
+  ]
+
+26:                                               ; preds = %.lr.ph60, %.lr.ph60, %.lr.ph60
+  %27 = load ptr, ptr %12, align 8
+  %28 = tail call zeroext i1 @list_member_oid(ptr noundef %27, i32 noundef %22) #5
+  br i1 %28, label %64, label %29
+
+29:                                               ; preds = %26
+  %30 = load i32, ptr %1, align 8
+  %31 = load i32, ptr %13, align 8
+  %32 = icmp slt i32 %30, 2
+  %spec.select.i = select i1 %32, i64 16414, i64 16412
+  %33 = icmp slt i32 %30, 4
+  %34 = zext i1 %33 to i64
+  %.1.i = or disjoint i64 %spec.select.i, %34
+  %35 = tail call i32 @pg_class_aclcheck(i32 noundef %22, i32 noundef %31, i64 noundef %.1.i) #5
+  %.not53 = icmp eq i32 %35, 0
+  br i1 %.not53, label %38, label %36
+
+36:                                               ; preds = %29
+  %37 = tail call i32 @get_relkind_objtype(i8 noundef signext %24) #5
+  tail call void @aclcheck_error(i32 noundef %35, i32 noundef %37, ptr noundef %25) #5
+  br label %38
+
+38:                                               ; preds = %36, %29
+  %39 = load i8, ptr %14, align 4, !range !4, !noundef !5
+  %40 = trunc nuw i8 %39 to i1
+  %41 = load i32, ptr %1, align 8
+  br i1 %40, label %43, label %42
+
+42:                                               ; preds = %38
+  tail call void @LockRelationOid(i32 noundef %22, i32 noundef %41) #5
+  br label %49
+
+43:                                               ; preds = %38
+  %44 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %22, i32 noundef %41) #5
+  br i1 %44, label %49, label %45
+
+45:                                               ; preds = %43
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %46)
+  %47 = tail call i32 @errcode(i32 noundef 50463045) #5
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %25) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.LockViewRecurse_walker) #5
+  unreachable
+
+49:                                               ; preds = %43, %42
+  %50 = icmp eq i8 %24, 118
+  br i1 %50, label %51, label %56
+
+51:                                               ; preds = %49
+  %52 = load i32, ptr %1, align 8
+  %53 = load i8, ptr %14, align 4, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
+  %55 = load ptr, ptr %12, align 8
+  tail call fastcc void @LockViewRecurse(i32 noundef %22, i32 noundef %52, i1 noundef zeroext %54, ptr noundef %55)
+  br label %64
+
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %58 = load i8, ptr %57, align 8, !range !4, !noundef !5
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %60, label %64
+
+60:                                               ; preds = %56
+  %61 = load i32, ptr %1, align 8
+  %62 = load i8, ptr %14, align 4, !range !4, !noundef !5
+  %63 = trunc nuw i8 %62 to i1
+  tail call fastcc void @LockTableRecurse(i32 noundef %22, i32 noundef %61, i1 noundef zeroext %63)
+  br label %64
+
+64:                                               ; preds = %51, %60, %56, %26, %.lr.ph60
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
+  %65 = load i32, ptr %10, align 4
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph60, label %._crit_edge
+
 68:                                               ; preds = %4
-  %69 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #4
+  %69 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #5
   br label %70
 
 70:                                               ; preds = %2, %68, %._crit_edge
-  %.0 = phi i1 [ %67, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
+  %.0 = phi i1 [ %17, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
   ret i1 %.0
 }
 
-declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #1
+declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #2
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { cold nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

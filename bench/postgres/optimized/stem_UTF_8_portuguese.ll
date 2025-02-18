@@ -3,22 +3,16 @@ source_filename = "bench/postgres/original/stem_UTF_8_portuguese.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
-
-@a_0 = internal constant [3 x %struct.among] [%struct.among { i32 0, ptr null, i32 -1, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_1, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_2, i32 0, i32 2, ptr null }], align 16
 @s_0 = internal constant [2 x i8] c"a~", align 1
 @s_1 = internal constant [2 x i8] c"o~", align 1
 @s_0_1 = internal constant [2 x i8] c"\C3\A3", align 1
 @s_0_2 = internal constant [2 x i8] c"\C3\B5", align 1
+@a_0 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_2, i32 0, i32 2, ptr null }], align 16
 @g_v = internal constant [20 x i8] c"\11A\10\00\00\00\00\00\00\00\00\00\00\00\00\00\03\13\0C\02", align 16
-@a_5 = internal constant [45 x %struct.among] [%struct.among { i32 3, ptr @s_5_0, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_1, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_2, i32 -1, i32 4, ptr null }, %struct.among { i32 5, ptr @s_5_3, i32 -1, i32 2, ptr null }, %struct.among { i32 3, ptr @s_5_4, i32 -1, i32 9, ptr null }, %struct.among { i32 5, ptr @s_5_5, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_5_6, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_7, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_5_8, i32 -1, i32 8, ptr null }, %struct.among { i32 3, ptr @s_5_9, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_10, i32 -1, i32 7, ptr null }, %struct.among { i32 4, ptr @s_5_11, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_12, i32 -1, i32 6, ptr null }, %struct.among { i32 6, ptr @s_5_13, i32 12, i32 5, ptr null }, %struct.among { i32 5, ptr @s_5_14, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_15, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_5_16, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_17, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_5_18, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_19, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_20, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_5_21, i32 -1, i32 8, ptr null }, %struct.among { i32 6, ptr @s_5_22, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_23, i32 -1, i32 3, ptr null }, %struct.among { i32 4, ptr @s_5_24, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_25, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_5_26, i32 -1, i32 4, ptr null }, %struct.among { i32 6, ptr @s_5_27, i32 -1, i32 2, ptr null }, %struct.among { i32 4, ptr @s_5_28, i32 -1, i32 9, ptr null }, %struct.among { i32 6, ptr @s_5_29, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_30, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_31, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_32, i32 -1, i32 8, ptr null }, %struct.among { i32 4, ptr @s_5_33, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_5_34, i32 -1, i32 7, ptr null }, %struct.among { i32 6, ptr @s_5_35, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_36, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_5_37, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_5_38, i32 -1, i32 3, ptr null }, %struct.among { i32 4, ptr @s_5_39, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_5_40, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_41, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_5_42, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_5_43, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_5_44, i32 -1, i32 8, ptr null }], align 16
 @s_4 = internal constant [3 x i8] c"log", align 1
 @s_5 = internal constant [1 x i8] c"u", align 1
 @s_6 = internal constant [4 x i8] c"ente", align 1
-@a_2 = internal constant [4 x %struct.among] [%struct.among { i32 2, ptr @s_2_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_2_1, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_2_2, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_2_3, i32 -1, i32 1, ptr null }], align 16
 @s_7 = internal constant [2 x i8] c"at", align 1
-@a_3 = internal constant [3 x %struct.among] [%struct.among { i32 4, ptr @s_3_0, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_1, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_2, i32 -1, i32 1, ptr null }], align 16
-@a_4 = internal constant [3 x %struct.among] [%struct.among { i32 2, ptr @s_4_0, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_4_1, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_2, i32 -1, i32 1, ptr null }], align 16
 @s_8 = internal constant [2 x i8] c"at", align 1
 @s_9 = internal constant [2 x i8] c"ir", align 1
 @s_5_0 = internal constant [3 x i8] c"ica", align 1
@@ -66,17 +60,20 @@ target triple = "x86_64-pc-linux-gnu"
 @s_5_42 = internal constant [7 x i8] c"amentos", align 1
 @s_5_43 = internal constant [7 x i8] c"imentos", align 1
 @s_5_44 = internal constant [4 x i8] c"ivos", align 1
+@a_5 = internal constant [45 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_2, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_3, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_4, i32 -1, i32 9, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_5, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_7, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_8, i32 -1, i32 8, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_9, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_10, i32 -1, i32 7, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_11, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_12, i32 -1, i32 6, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_13, i32 12, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_17, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_18, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_19, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_20, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_5_21, i32 -1, i32 8, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_22, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_23, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_24, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_25, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_5_26, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_27, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_28, i32 -1, i32 9, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_29, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_30, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_31, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_32, i32 -1, i32 8, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_33, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_34, i32 -1, i32 7, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_5_35, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_36, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_5_37, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_5_38, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_39, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_5_40, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_41, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_5_42, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_5_43, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_5_44, i32 -1, i32 8, ptr null }], align 16
 @s_2_0 = internal constant [2 x i8] c"ic", align 1
 @s_2_1 = internal constant [2 x i8] c"ad", align 1
 @s_2_2 = internal constant [2 x i8] c"os", align 1
 @s_2_3 = internal constant [2 x i8] c"iv", align 1
+@a_2 = internal constant [4 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_1, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_2, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_3, i32 -1, i32 1, ptr null }], align 16
 @s_3_0 = internal constant [4 x i8] c"ante", align 1
 @s_3_1 = internal constant [4 x i8] c"avel", align 1
 @s_3_2 = internal constant [5 x i8] c"\C3\ADvel", align 1
+@a_3 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_2, i32 -1, i32 1, ptr null }], align 16
 @s_4_0 = internal constant [2 x i8] c"ic", align 1
 @s_4_1 = internal constant [4 x i8] c"abil", align 1
 @s_4_2 = internal constant [2 x i8] c"iv", align 1
-@a_6 = internal constant [120 x %struct.among] [%struct.among { i32 3, ptr @s_6_0, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_1, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_2, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_3, i32 2, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_4, i32 2, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_5, i32 2, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_6, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_7, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_8, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_9, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_10, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_11, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_12, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_13, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_14, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_15, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_16, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_17, i32 16, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_18, i32 16, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_19, i32 16, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_20, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_21, i32 20, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_22, i32 21, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_23, i32 21, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_24, i32 21, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_25, i32 20, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_26, i32 20, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_27, i32 20, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_28, i32 20, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_29, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_30, i32 29, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_31, i32 29, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_32, i32 29, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_33, i32 29, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_34, i32 29, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_35, i32 29, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_36, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_37, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_38, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_39, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_40, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_41, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_42, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_43, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_44, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_45, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_46, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_47, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_48, i32 47, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_49, i32 47, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_50, i32 47, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_51, i32 50, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_52, i32 50, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_53, i32 50, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_54, i32 47, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_55, i32 47, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_56, i32 47, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_57, i32 47, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_58, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_59, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_60, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_61, i32 58, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_62, i32 58, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_63, i32 58, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_64, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_65, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_66, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_67, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_68, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_69, i32 58, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_70, i32 58, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_71, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_72, i32 71, i32 1, ptr null }, %struct.among { i32 3, ptr @s_6_73, i32 71, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_74, i32 73, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_75, i32 73, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_76, i32 73, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_77, i32 73, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_78, i32 73, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_79, i32 73, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_80, i32 73, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_81, i32 73, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_82, i32 73, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_83, i32 73, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_84, i32 73, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_85, i32 84, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_86, i32 84, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_87, i32 84, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_88, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_89, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_90, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_91, i32 90, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_92, i32 90, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_93, i32 90, i32 1, ptr null }, %struct.among { i32 7, ptr @s_6_94, i32 90, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_95, i32 90, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_96, i32 95, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_97, i32 95, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_98, i32 95, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_99, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_100, i32 99, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_101, i32 99, i32 1, ptr null }, %struct.among { i32 6, ptr @s_6_102, i32 99, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_103, i32 99, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_104, i32 99, i32 1, ptr null }, %struct.among { i32 8, ptr @s_6_105, i32 99, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_106, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_107, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_108, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_109, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_110, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_111, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_112, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_6_113, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_114, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_115, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_6_116, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_117, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_118, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_6_119, i32 -1, i32 1, ptr null }], align 16
+@a_4 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_4_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_2, i32 -1, i32 1, ptr null }], align 16
 @s_6_0 = internal constant [3 x i8] c"ada", align 1
 @s_6_1 = internal constant [3 x i8] c"ida", align 1
 @s_6_2 = internal constant [2 x i8] c"ia", align 1
@@ -197,7 +194,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_6_117 = internal constant [4 x i8] c"ar\C3\A1", align 1
 @s_6_118 = internal constant [4 x i8] c"er\C3\A1", align 1
 @s_6_119 = internal constant [4 x i8] c"ir\C3\A1", align 1
-@a_7 = internal constant [7 x %struct.among] [%struct.among { i32 1, ptr @s_7_0, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_7_1, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_7_2, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_7_3, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_7_4, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_7_5, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_7_6, i32 -1, i32 1, ptr null }], align 16
+@a_6 = internal constant [120 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_3, i32 2, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_4, i32 2, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_5, i32 2, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_7, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_8, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_9, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_10, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_11, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_12, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_13, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_17, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_18, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_19, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_20, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_21, i32 20, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_22, i32 21, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_23, i32 21, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_24, i32 21, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_25, i32 20, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_26, i32 20, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_27, i32 20, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_28, i32 20, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_29, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_30, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_31, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_32, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_33, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_34, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_35, i32 29, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_36, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_37, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_38, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_39, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_40, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_41, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_42, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_43, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_44, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_45, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_46, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_47, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_48, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_49, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_50, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_51, i32 50, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_52, i32 50, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_53, i32 50, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_54, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_55, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_56, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_57, i32 47, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_58, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_59, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_60, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_61, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_62, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_63, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_64, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_65, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_66, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_67, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_68, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_69, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_70, i32 58, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_71, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_72, i32 71, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_6_73, i32 71, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_74, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_75, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_76, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_77, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_78, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_79, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_80, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_81, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_82, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_83, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_84, i32 73, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_85, i32 84, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_86, i32 84, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_87, i32 84, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_88, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_89, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_90, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_91, i32 90, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_92, i32 90, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_93, i32 90, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_6_94, i32 90, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_95, i32 90, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_96, i32 95, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_97, i32 95, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_98, i32 95, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_99, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_100, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_101, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_6_102, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_103, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_104, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_6_105, i32 99, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_106, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_107, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_108, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_109, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_110, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_111, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_112, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_6_113, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_114, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_115, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_6_116, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_117, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_118, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_6_119, i32 -1, i32 1, ptr null }], align 16
 @s_7_0 = internal constant [1 x i8] c"a", align 1
 @s_7_1 = internal constant [1 x i8] c"i", align 1
 @s_7_2 = internal constant [1 x i8] c"o", align 1
@@ -205,17 +202,18 @@ target triple = "x86_64-pc-linux-gnu"
 @s_7_4 = internal constant [2 x i8] c"\C3\A1", align 1
 @s_7_5 = internal constant [2 x i8] c"\C3\AD", align 1
 @s_7_6 = internal constant [2 x i8] c"\C3\B3", align 1
-@a_8 = internal constant [4 x %struct.among] [%struct.among { i32 1, ptr @s_8_0, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_8_1, i32 -1, i32 2, ptr null }, %struct.among { i32 2, ptr @s_8_2, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_8_3, i32 -1, i32 1, ptr null }], align 16
+@a_7 = internal constant [7 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_7_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_7_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_7_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_7_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_7_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_7_5, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_7_6, i32 -1, i32 1, ptr null }], align 16
 @s_10 = internal constant [1 x i8] c"c", align 1
 @s_8_0 = internal constant [1 x i8] c"e", align 1
 @s_8_1 = internal constant [2 x i8] c"\C3\A7", align 1
 @s_8_2 = internal constant [2 x i8] c"\C3\A9", align 1
 @s_8_3 = internal constant [2 x i8] c"\C3\AA", align 1
-@a_1 = internal constant [3 x %struct.among] [%struct.among { i32 0, ptr null, i32 -1, i32 3, ptr null }, %struct.among { i32 2, ptr @s_1_1, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_2, i32 0, i32 2, ptr null }], align 16
+@a_8 = internal constant [4 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_8_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_8_1, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_8_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_8_3, i32 -1, i32 1, ptr null }], align 16
 @s_2 = internal constant [2 x i8] c"\C3\A3", align 1
 @s_3 = internal constant [2 x i8] c"\C3\B5", align 1
 @s_1_1 = internal constant [2 x i8] c"a~", align 1
 @s_1_2 = internal constant [2 x i8] c"o~", align 1
+@a_1 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_2, i32 0, i32 2, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
@@ -226,37 +224,37 @@ define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %7
 
-7:                                                ; preds = %33, %1
-  %8 = phi i32 [ %.pre, %33 ], [ %3, %1 ]
+7:                                                ; preds = %32, %1
+  %8 = phi i32 [ %.pre, %32 ], [ %3, %1 ]
   store i32 %8, ptr %4, align 4
   %9 = add i32 %8, 1
   %10 = load i32, ptr %5, align 4
   %.not.i = icmp slt i32 %9, %10
-  br i1 %.not.i, label %11, label %.thread40.i
+  br i1 %.not.i, label %11, label %.thread51.i
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
   %13 = sext i32 %9 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
-  switch i8 %15, label %.thread40.i [
+  switch i8 %15, label %.thread51.i [
     i8 -93, label %16
     i8 -75, label %16
   ]
 
-.thread40.i:                                      ; preds = %11, %7
+.thread51.i:                                      ; preds = %11, %7
   store i32 %8, ptr %6, align 8
   br label %26
 
 16:                                               ; preds = %11, %11
   %17 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 3) #2
-  %.not36.i = icmp eq i32 %17, 0
-  br i1 %.not36.i, label %34, label %18
+  %.not45.i = icmp eq i32 %17, 0
+  br i1 %.not45.i, label %33, label %18
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %2, align 8
   store i32 %19, ptr %6, align 8
-  switch i32 %17, label %33 [
+  switch i32 %17, label %32 [
     i32 1, label %20
     i32 2, label %23
     i32 3, label %._crit_edge.i
@@ -268,757 +266,757 @@ define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef i
 
 20:                                               ; preds = %18
   %21 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_0) #2
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %r_residual_suffix.exit, label %33
+  %22 = icmp sgt i32 %21, -1
+  br i1 %22, label %32, label %.thread217
 
 23:                                               ; preds = %18
   %24 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #2
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %r_residual_suffix.exit, label %33
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %32, label %.thread217
 
-26:                                               ; preds = %._crit_edge.i, %.thread40.i
-  %27 = phi i32 [ %10, %.thread40.i ], [ %.pre.i, %._crit_edge.i ]
-  %28 = phi i32 [ %8, %.thread40.i ], [ %19, %._crit_edge.i ]
+26:                                               ; preds = %._crit_edge.i, %.thread51.i
+  %27 = phi i32 [ %10, %.thread51.i ], [ %.pre.i, %._crit_edge.i ]
+  %28 = phi i32 [ %8, %.thread51.i ], [ %19, %._crit_edge.i ]
   %29 = load ptr, ptr %0, align 8
   %30 = tail call i32 @skip_utf8(ptr noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef 1) #2
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %34, label %32
+  br i1 %31, label %33, label %.thread53.i
 
-32:                                               ; preds = %26
+.thread53.i:                                      ; preds = %26
   store i32 %30, ptr %2, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %23, %20, %18
+32:                                               ; preds = %.thread53.i, %23, %20, %18
   %.pre = load i32, ptr %2, align 8
   br label %7
 
-34:                                               ; preds = %26, %16
+33:                                               ; preds = %16, %26
   store i32 %3, ptr %2, align 8
-  %35 = load i32, ptr %5, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr i8, ptr %37, i64 8
-  store i32 %35, ptr %38, align 4
-  %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr i8, ptr %39, i64 4
-  store i32 %35, ptr %40, align 4
-  %41 = load i32, ptr %5, align 4
-  %42 = load ptr, ptr %36, align 8
-  store i32 %41, ptr %42, align 4
-  %43 = load i32, ptr %2, align 8
-  %44 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not.i108 = icmp eq i32 %44, 0
-  br i1 %.not.i108, label %45, label %56
+  %34 = load i32, ptr %5, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i32 %34, ptr %37, align 4
+  %38 = load ptr, ptr %35, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 %34, ptr %39, align 4
+  %40 = load i32, ptr %5, align 4
+  %41 = load ptr, ptr %35, align 8
+  store i32 %40, ptr %41, align 4
+  %42 = load i32, ptr %2, align 8
+  %43 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not.i156 = icmp eq i32 %43, 0
+  br i1 %.not.i156, label %44, label %55
 
-45:                                               ; preds = %34
-  %46 = load i32, ptr %2, align 8
-  %47 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not73.i = icmp eq i32 %47, 0
-  br i1 %.not73.i, label %48, label %51
+44:                                               ; preds = %33
+  %45 = load i32, ptr %2, align 8
+  %46 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not87.i = icmp eq i32 %46, 0
+  br i1 %.not87.i, label %47, label %50
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %.sink.split.i
+47:                                               ; preds = %44
+  %48 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %.sink.split.i
 
-51:                                               ; preds = %48, %45
-  store i32 %46, ptr %2, align 8
-  %52 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not74.i = icmp eq i32 %52, 0
-  br i1 %.not74.i, label %53, label %56
+50:                                               ; preds = %47, %44
+  store i32 %45, ptr %2, align 8
+  %51 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not88.i = icmp eq i32 %51, 0
+  br i1 %.not88.i, label %52, label %55
 
-53:                                               ; preds = %51
-  %54 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %.sink.split.i
+52:                                               ; preds = %50
+  %53 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %.sink.split.i
 
-56:                                               ; preds = %53, %51, %34
-  store i32 %43, ptr %2, align 8
-  %57 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not75.i = icmp eq i32 %57, 0
-  br i1 %.not75.i, label %58, label %78
+55:                                               ; preds = %52, %50, %33
+  store i32 %42, ptr %2, align 8
+  %56 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not89.i = icmp eq i32 %56, 0
+  br i1 %.not89.i, label %57, label %.thread106.i
 
-58:                                               ; preds = %56
-  %59 = load i32, ptr %2, align 8
-  %60 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not76.i = icmp eq i32 %60, 0
-  br i1 %.not76.i, label %61, label %64
+57:                                               ; preds = %55
+  %58 = load i32, ptr %2, align 8
+  %59 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not90.i = icmp eq i32 %59, 0
+  br i1 %.not90.i, label %60, label %63
 
-61:                                               ; preds = %58
-  %62 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %.sink.split.i
+60:                                               ; preds = %57
+  %61 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %.sink.split.i
 
-64:                                               ; preds = %61, %58
-  store i32 %59, ptr %2, align 8
-  %65 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not77.i = icmp eq i32 %65, 0
-  br i1 %.not77.i, label %66, label %78
+63:                                               ; preds = %60, %57
+  store i32 %58, ptr %2, align 8
+  %64 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not91.i = icmp eq i32 %64, 0
+  br i1 %.not91.i, label %65, label %.thread106.i
 
-66:                                               ; preds = %64
-  %67 = load ptr, ptr %0, align 8
-  %68 = load i32, ptr %2, align 8
-  %69 = load i32, ptr %5, align 4
-  %70 = tail call i32 @skip_utf8(ptr noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef 1) #2
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %78, label %74
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %0, align 8
+  %67 = load i32, ptr %2, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = tail call i32 @skip_utf8(ptr noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef 1) #2
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.thread106.i, label %73
 
-.sink.split.i:                                    ; preds = %61, %53, %48
-  %.sink78.i = phi i32 [ %49, %48 ], [ %54, %53 ], [ %62, %61 ]
-  %72 = load i32, ptr %2, align 8
-  %73 = add i32 %72, %.sink78.i
-  br label %74
+.sink.split.i:                                    ; preds = %60, %52, %47
+  %.sink125.i = phi i32 [ %48, %47 ], [ %53, %52 ], [ %61, %60 ]
+  %71 = load i32, ptr %2, align 8
+  %72 = add i32 %71, %.sink125.i
+  br label %73
 
-74:                                               ; preds = %.sink.split.i, %66
-  %75 = phi i32 [ %70, %66 ], [ %73, %.sink.split.i ]
-  %76 = load ptr, ptr %36, align 8
-  %77 = getelementptr i8, ptr %76, i64 8
-  store i32 %75, ptr %77, align 4
-  br label %78
+73:                                               ; preds = %.sink.split.i, %65
+  %74 = phi i32 [ %69, %65 ], [ %72, %.sink.split.i ]
+  %75 = load ptr, ptr %35, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i32 %74, ptr %76, align 4
+  br label %.thread106.i
 
-78:                                               ; preds = %74, %66, %64, %56
-  store i32 %43, ptr %2, align 8
-  %79 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %r_mark_regions.exit, label %81
+.thread106.i:                                     ; preds = %73, %65, %63, %55
+  store i32 %42, ptr %2, align 8
+  %77 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %r_mark_regions.exit, label %79
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %2, align 8
-  %83 = add i32 %82, %79
-  store i32 %83, ptr %2, align 8
-  %84 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %r_mark_regions.exit, label %86
+79:                                               ; preds = %.thread106.i
+  %80 = load i32, ptr %2, align 8
+  %81 = add i32 %80, %77
+  store i32 %81, ptr %2, align 8
+  %82 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %r_mark_regions.exit, label %84
 
-86:                                               ; preds = %81
-  %87 = load i32, ptr %2, align 8
-  %88 = add i32 %87, %84
-  store i32 %88, ptr %2, align 8
-  %89 = load ptr, ptr %36, align 8
-  %90 = getelementptr i8, ptr %89, i64 4
-  store i32 %88, ptr %90, align 4
-  %91 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %r_mark_regions.exit, label %93
+84:                                               ; preds = %79
+  %85 = load i32, ptr %2, align 8
+  %86 = add i32 %85, %82
+  store i32 %86, ptr %2, align 8
+  %87 = load ptr, ptr %35, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  store i32 %86, ptr %88, align 4
+  %89 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %r_mark_regions.exit, label %91
 
-93:                                               ; preds = %86
-  %94 = load i32, ptr %2, align 8
-  %95 = add i32 %94, %91
-  store i32 %95, ptr %2, align 8
-  %96 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %r_mark_regions.exit, label %98
+91:                                               ; preds = %84
+  %92 = load i32, ptr %2, align 8
+  %93 = add i32 %92, %89
+  store i32 %93, ptr %2, align 8
+  %94 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %r_mark_regions.exit, label %96
 
-98:                                               ; preds = %93
-  %99 = load i32, ptr %2, align 8
-  %100 = add i32 %99, %96
-  %101 = load ptr, ptr %36, align 8
-  store i32 %100, ptr %101, align 4
+96:                                               ; preds = %91
+  %97 = load i32, ptr %2, align 8
+  %98 = add i32 %97, %94
+  %99 = load ptr, ptr %35, align 8
+  store i32 %98, ptr %99, align 4
   br label %r_mark_regions.exit
 
-r_mark_regions.exit:                              ; preds = %78, %81, %86, %93, %98
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %43, ptr %102, align 8
-  %103 = load i32, ptr %5, align 4
-  store i32 %103, ptr %2, align 8
-  store i32 %103, ptr %6, align 8
-  %104 = add i32 %103, -2
-  %.not.i109 = icmp sgt i32 %104, %43
-  br i1 %.not.i109, label %105, label %242
+r_mark_regions.exit:                              ; preds = %.thread106.i, %79, %84, %91, %96
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %42, ptr %100, align 8
+  %101 = load i32, ptr %5, align 4
+  store i32 %101, ptr %2, align 8
+  store i32 %101, ptr %6, align 8
+  %102 = add i32 %101, -2
+  %.not.i157 = icmp sgt i32 %102, %42
+  br i1 %.not.i157, label %103, label %r_standard_suffix.exit.thread
 
-105:                                              ; preds = %r_mark_regions.exit
-  %106 = load ptr, ptr %0, align 8
-  %107 = add i32 %103, -1
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr i8, ptr %106, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %.mask.i = and i32 %111, 224
-  %.not233.i = icmp eq i32 %.mask.i, 96
-  br i1 %.not233.i, label %112, label %242
+103:                                              ; preds = %r_mark_regions.exit
+  %104 = load ptr, ptr %0, align 8
+  %105 = add i32 %101, -1
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %104, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i32
+  %.mask.i = and i32 %109, 224
+  %.not315.i = icmp eq i32 %.mask.i, 96
+  br i1 %.not315.i, label %110, label %r_standard_suffix.exit.thread
 
-112:                                              ; preds = %105
-  %113 = and i32 %111, 31
-  %114 = shl nuw i32 1, %113
-  %115 = and i32 %114, 823330
-  %.not234.i = icmp eq i32 %115, 0
-  br i1 %.not234.i, label %242, label %116
+110:                                              ; preds = %103
+  %111 = and i32 %109, 31
+  %112 = shl nuw i32 1, %111
+  %113 = and i32 %112, 823330
+  %.not316.i = icmp eq i32 %113, 0
+  br i1 %.not316.i, label %r_standard_suffix.exit.thread, label %114
 
-116:                                              ; preds = %112
-  %117 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_5, i32 noundef 45) #2
-  %.not235.i = icmp eq i32 %117, 0
-  br i1 %.not235.i, label %242, label %118
+114:                                              ; preds = %110
+  %115 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_5, i32 noundef 45) #2
+  %.not317.i = icmp eq i32 %115, 0
+  br i1 %.not317.i, label %r_standard_suffix.exit.thread, label %116
+
+116:                                              ; preds = %114
+  %117 = load i32, ptr %2, align 8
+  store i32 %117, ptr %4, align 4
+  switch i32 %115, label %.thread185 [
+    i32 1, label %118
+    i32 2, label %122
+    i32 3, label %126
+    i32 4, label %130
+    i32 5, label %134
+    i32 6, label %169
+    i32 7, label %190
+    i32 8, label %215
+    i32 9, label %227
+  ]
 
 118:                                              ; preds = %116
-  %119 = load i32, ptr %2, align 8
-  store i32 %119, ptr %4, align 4
-  switch i32 %117, label %r_standard_suffix.exit [
-    i32 1, label %120
-    i32 2, label %124
-    i32 3, label %128
-    i32 4, label %132
-    i32 5, label %136
-    i32 6, label %171
-    i32 7, label %192
-    i32 8, label %217
-    i32 9, label %229
-  ]
+  %.val353.i = load ptr, ptr %35, align 8
+  %.val353.val.i = load i32, ptr %.val353.i, align 4
+  %.not.i.not.i = icmp sgt i32 %.val353.val.i, %117
+  br i1 %.not.i.not.i, label %r_standard_suffix.exit.thread, label %119
 
-120:                                              ; preds = %118
-  %.val263.i = load ptr, ptr %36, align 8
-  %.val263.val.i = load i32, ptr %.val263.i, align 4
-  %.not.i.not.i = icmp sgt i32 %.val263.val.i, %119
-  br i1 %.not.i.not.i, label %242, label %121
+119:                                              ; preds = %118
+  %120 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %121 = icmp sgt i32 %120, -1
+  br i1 %121, label %.thread185, label %.thread217
 
-121:                                              ; preds = %120
-  %122 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+122:                                              ; preds = %116
+  %.val355.i = load ptr, ptr %35, align 8
+  %.val355.val.i = load i32, ptr %.val355.i, align 4
+  %.not.i380.not.i = icmp sgt i32 %.val355.val.i, %117
+  br i1 %.not.i380.not.i, label %r_standard_suffix.exit.thread, label %123
 
-124:                                              ; preds = %118
-  %.val265.i = load ptr, ptr %36, align 8
-  %.val265.val.i = load i32, ptr %.val265.i, align 4
-  %.not.i290.not.i = icmp sgt i32 %.val265.val.i, %119
-  br i1 %.not.i290.not.i, label %242, label %125
+123:                                              ; preds = %122
+  %124 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_4) #2
+  %125 = icmp sgt i32 %124, -1
+  br i1 %125, label %.thread185, label %.thread217
 
-125:                                              ; preds = %124
-  %126 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_4) #2
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+126:                                              ; preds = %116
+  %.val357.i = load ptr, ptr %35, align 8
+  %.val357.val.i = load i32, ptr %.val357.i, align 4
+  %.not.i382.not.i = icmp sgt i32 %.val357.val.i, %117
+  br i1 %.not.i382.not.i, label %r_standard_suffix.exit.thread, label %127
 
-128:                                              ; preds = %118
-  %.val267.i = load ptr, ptr %36, align 8
-  %.val267.val.i = load i32, ptr %.val267.i, align 4
-  %.not.i292.not.i = icmp sgt i32 %.val267.val.i, %119
-  br i1 %.not.i292.not.i, label %242, label %129
+127:                                              ; preds = %126
+  %128 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_5) #2
+  %129 = icmp sgt i32 %128, -1
+  br i1 %129, label %.thread185, label %.thread217
 
-129:                                              ; preds = %128
-  %130 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_5) #2
-  %131 = icmp slt i32 %130, 0
-  br i1 %131, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+130:                                              ; preds = %116
+  %.val359.i = load ptr, ptr %35, align 8
+  %.val359.val.i = load i32, ptr %.val359.i, align 4
+  %.not.i384.not.i = icmp sgt i32 %.val359.val.i, %117
+  br i1 %.not.i384.not.i, label %r_standard_suffix.exit.thread, label %131
 
-132:                                              ; preds = %118
-  %.val269.i = load ptr, ptr %36, align 8
-  %.val269.val.i = load i32, ptr %.val269.i, align 4
-  %.not.i294.not.i = icmp sgt i32 %.val269.val.i, %119
-  br i1 %.not.i294.not.i, label %242, label %133
+131:                                              ; preds = %130
+  %132 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_6) #2
+  %133 = icmp sgt i32 %132, -1
+  br i1 %133, label %.thread185, label %.thread217
 
-133:                                              ; preds = %132
-  %134 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_6) #2
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+134:                                              ; preds = %116
+  %.val377.i = load ptr, ptr %35, align 8
+  %135 = getelementptr i8, ptr %.val377.i, i64 4
+  %.val377.val.i = load i32, ptr %135, align 4
+  %.not.i386.not.i = icmp sgt i32 %.val377.val.i, %117
+  br i1 %.not.i386.not.i, label %r_standard_suffix.exit.thread, label %136
 
-136:                                              ; preds = %118
-  %.val287.i = load ptr, ptr %36, align 8
-  %137 = getelementptr i8, ptr %.val287.i, i64 4
-  %.val287.val.i = load i32, ptr %137, align 4
-  %.not.i296.not.i = icmp sgt i32 %.val287.val.i, %119
-  br i1 %.not.i296.not.i, label %242, label %138
+136:                                              ; preds = %134
+  %137 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %138 = icmp sgt i32 %137, -1
+  br i1 %138, label %139, label %.thread217
 
-138:                                              ; preds = %136
-  %139 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %r_residual_suffix.exit, label %141
+139:                                              ; preds = %136
+  %140 = load i32, ptr %2, align 8
+  store i32 %140, ptr %6, align 8
+  %141 = add i32 %140, -1
+  %142 = load i32, ptr %100, align 8
+  %.not335.i = icmp sgt i32 %141, %142
+  br i1 %.not335.i, label %143, label %.thread185
 
-141:                                              ; preds = %138
-  %142 = load i32, ptr %2, align 8
-  store i32 %142, ptr %6, align 8
-  %143 = add i32 %142, -1
-  %144 = load i32, ptr %102, align 8
-  %.not253.i = icmp sgt i32 %143, %144
-  br i1 %.not253.i, label %145, label %r_standard_suffix.exit
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %0, align 8
+  %145 = sext i32 %141 to i64
+  %146 = getelementptr inbounds i8, ptr %144, i64 %145
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %.mask337.i = and i32 %148, 224
+  %.not336.i = icmp eq i32 %.mask337.i, 96
+  br i1 %.not336.i, label %149, label %.thread185
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %0, align 8
-  %147 = sext i32 %143 to i64
-  %148 = getelementptr i8, ptr %146, i64 %147
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %.mask255.i = and i32 %150, 224
-  %.not254.i = icmp eq i32 %.mask255.i, 96
-  br i1 %.not254.i, label %151, label %r_standard_suffix.exit
+149:                                              ; preds = %143
+  %150 = and i32 %148, 31
+  %151 = shl nuw i32 1, %150
+  %152 = and i32 %151, 4718616
+  %.not338.i = icmp eq i32 %152, 0
+  br i1 %.not338.i, label %.thread185, label %153
 
-151:                                              ; preds = %145
-  %152 = and i32 %150, 31
-  %153 = shl nuw i32 1, %152
-  %154 = and i32 %153, 4718616
-  %.not256.i = icmp eq i32 %154, 0
-  br i1 %.not256.i, label %r_standard_suffix.exit, label %155
+153:                                              ; preds = %149
+  %154 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 4) #2
+  %.not339.i = icmp eq i32 %154, 0
+  br i1 %.not339.i, label %.thread185, label %155
 
-155:                                              ; preds = %151
-  %156 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 4) #2
-  %.not257.i = icmp eq i32 %156, 0
-  br i1 %.not257.i, label %r_standard_suffix.exit, label %157
+155:                                              ; preds = %153
+  %156 = load i32, ptr %2, align 8
+  store i32 %156, ptr %4, align 4
+  %.val361.i = load ptr, ptr %35, align 8
+  %.val361.val.i = load i32, ptr %.val361.i, align 4
+  %.not.i388.not.i = icmp sgt i32 %.val361.val.i, %156
+  br i1 %.not.i388.not.i, label %.thread185, label %157
 
 157:                                              ; preds = %155
-  %158 = load i32, ptr %2, align 8
-  store i32 %158, ptr %4, align 4
-  %.val271.i = load ptr, ptr %36, align 8
-  %.val271.val.i = load i32, ptr %.val271.i, align 4
-  %.not.i298.not.i = icmp sgt i32 %.val271.val.i, %158
-  br i1 %.not.i298.not.i, label %r_standard_suffix.exit, label %159
+  %158 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %159 = icmp sgt i32 %158, -1
+  br i1 %159, label %160, label %.thread217
 
-159:                                              ; preds = %157
-  %160 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %r_residual_suffix.exit, label %162
+160:                                              ; preds = %157
+  %cond18.i = icmp eq i32 %154, 1
+  br i1 %cond18.i, label %161, label %.thread185
 
-162:                                              ; preds = %159
-  %cond.i = icmp eq i32 %156, 1
-  br i1 %cond.i, label %163, label %r_standard_suffix.exit
+161:                                              ; preds = %160
+  %162 = load i32, ptr %2, align 8
+  store i32 %162, ptr %6, align 8
+  %163 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_7) #2
+  %.not340.i = icmp eq i32 %163, 0
+  br i1 %.not340.i, label %.thread185, label %164
 
-163:                                              ; preds = %162
-  %164 = load i32, ptr %2, align 8
-  store i32 %164, ptr %6, align 8
-  %165 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_7) #2
-  %.not258.i = icmp eq i32 %165, 0
-  br i1 %.not258.i, label %r_standard_suffix.exit, label %166
+164:                                              ; preds = %161
+  %165 = load i32, ptr %2, align 8
+  store i32 %165, ptr %4, align 4
+  %.val363.i = load ptr, ptr %35, align 8
+  %.val363.val.i = load i32, ptr %.val363.i, align 4
+  %.not.i390.not.i = icmp sgt i32 %.val363.val.i, %165
+  br i1 %.not.i390.not.i, label %.thread185, label %166
 
-166:                                              ; preds = %163
-  %167 = load i32, ptr %2, align 8
-  store i32 %167, ptr %4, align 4
-  %.val273.i = load ptr, ptr %36, align 8
-  %.val273.val.i = load i32, ptr %.val273.i, align 4
-  %.not.i300.not.i = icmp sgt i32 %.val273.val.i, %167
-  br i1 %.not.i300.not.i, label %r_standard_suffix.exit, label %168
+166:                                              ; preds = %164
+  %167 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %168 = icmp sgt i32 %167, -1
+  br i1 %168, label %.thread185, label %.thread217
 
-168:                                              ; preds = %166
-  %169 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %170 = icmp slt i32 %169, 0
-  br i1 %170, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+169:                                              ; preds = %116
+  %.val365.i = load ptr, ptr %35, align 8
+  %.val365.val.i = load i32, ptr %.val365.i, align 4
+  %.not.i392.not.i = icmp sgt i32 %.val365.val.i, %117
+  br i1 %.not.i392.not.i, label %r_standard_suffix.exit.thread, label %170
 
-171:                                              ; preds = %118
-  %.val275.i = load ptr, ptr %36, align 8
-  %.val275.val.i = load i32, ptr %.val275.i, align 4
-  %.not.i302.not.i = icmp sgt i32 %.val275.val.i, %119
-  br i1 %.not.i302.not.i, label %242, label %172
+170:                                              ; preds = %169
+  %171 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %172 = icmp sgt i32 %171, -1
+  br i1 %172, label %173, label %.thread217
 
-172:                                              ; preds = %171
-  %173 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %r_residual_suffix.exit, label %175
+173:                                              ; preds = %170
+  %174 = load i32, ptr %2, align 8
+  store i32 %174, ptr %6, align 8
+  %175 = add i32 %174, -3
+  %176 = load i32, ptr %100, align 8
+  %.not330.i = icmp sgt i32 %175, %176
+  br i1 %.not330.i, label %177, label %.thread185
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr %2, align 8
-  store i32 %176, ptr %6, align 8
-  %177 = add i32 %176, -3
-  %178 = load i32, ptr %102, align 8
-  %.not248.i = icmp sgt i32 %177, %178
-  br i1 %.not248.i, label %179, label %r_standard_suffix.exit
-
-179:                                              ; preds = %175
-  %180 = load ptr, ptr %0, align 8
-  %181 = add i32 %176, -1
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr i8, ptr %180, i64 %182
-  %184 = load i8, ptr %183, align 1
-  switch i8 %184, label %r_standard_suffix.exit [
-    i8 101, label %185
-    i8 108, label %185
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %0, align 8
+  %179 = add i32 %174, -1
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds i8, ptr %178, i64 %180
+  %182 = load i8, ptr %181, align 1
+  switch i8 %182, label %.thread185 [
+    i8 101, label %183
+    i8 108, label %183
   ]
 
-185:                                              ; preds = %179, %179
-  %186 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 3) #2
-  %.not251.i = icmp eq i32 %186, 0
-  br i1 %.not251.i, label %r_standard_suffix.exit, label %187
+183:                                              ; preds = %177, %177
+  %184 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 3) #2
+  %.not333.i = icmp eq i32 %184, 0
+  br i1 %.not333.i, label %.thread185, label %185
+
+185:                                              ; preds = %183
+  %186 = load i32, ptr %2, align 8
+  store i32 %186, ptr %4, align 4
+  %.val367.i = load ptr, ptr %35, align 8
+  %.val367.val.i = load i32, ptr %.val367.i, align 4
+  %.not.i394.not.i = icmp sgt i32 %.val367.val.i, %186
+  br i1 %.not.i394.not.i, label %.thread185, label %187
 
 187:                                              ; preds = %185
-  %188 = load i32, ptr %2, align 8
-  store i32 %188, ptr %4, align 4
-  %.val277.i = load ptr, ptr %36, align 8
-  %.val277.val.i = load i32, ptr %.val277.i, align 4
-  %.not.i304.not.i = icmp sgt i32 %.val277.val.i, %188
-  br i1 %.not.i304.not.i, label %r_standard_suffix.exit, label %189
+  %188 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %189 = icmp sgt i32 %188, -1
+  br i1 %189, label %.thread185, label %.thread217
 
-189:                                              ; preds = %187
-  %190 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %191 = icmp slt i32 %190, 0
-  br i1 %191, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+190:                                              ; preds = %116
+  %.val369.i = load ptr, ptr %35, align 8
+  %.val369.val.i = load i32, ptr %.val369.i, align 4
+  %.not.i396.not.i = icmp sgt i32 %.val369.val.i, %117
+  br i1 %.not.i396.not.i, label %r_standard_suffix.exit.thread, label %191
 
-192:                                              ; preds = %118
-  %.val279.i = load ptr, ptr %36, align 8
-  %.val279.val.i = load i32, ptr %.val279.i, align 4
-  %.not.i306.not.i = icmp sgt i32 %.val279.val.i, %119
-  br i1 %.not.i306.not.i, label %242, label %193
+191:                                              ; preds = %190
+  %192 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %193 = icmp sgt i32 %192, -1
+  br i1 %193, label %194, label %.thread217
 
-193:                                              ; preds = %192
-  %194 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %195 = icmp slt i32 %194, 0
-  br i1 %195, label %r_residual_suffix.exit, label %196
+194:                                              ; preds = %191
+  %195 = load i32, ptr %2, align 8
+  store i32 %195, ptr %6, align 8
+  %196 = add i32 %195, -1
+  %197 = load i32, ptr %100, align 8
+  %.not324.i = icmp sgt i32 %196, %197
+  br i1 %.not324.i, label %198, label %.thread185
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr %2, align 8
-  store i32 %197, ptr %6, align 8
-  %198 = add i32 %197, -1
-  %199 = load i32, ptr %102, align 8
-  %.not242.i = icmp sgt i32 %198, %199
-  br i1 %.not242.i, label %200, label %r_standard_suffix.exit
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %0, align 8
+  %200 = sext i32 %196 to i64
+  %201 = getelementptr inbounds i8, ptr %199, i64 %200
+  %202 = load i8, ptr %201, align 1
+  %203 = zext i8 %202 to i32
+  %.mask326.i = and i32 %203, 224
+  %.not325.i = icmp eq i32 %.mask326.i, 96
+  br i1 %.not325.i, label %204, label %.thread185
 
-200:                                              ; preds = %196
-  %201 = load ptr, ptr %0, align 8
-  %202 = sext i32 %198 to i64
-  %203 = getelementptr i8, ptr %201, i64 %202
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %.mask244.i = and i32 %205, 224
-  %.not243.i = icmp eq i32 %.mask244.i, 96
-  br i1 %.not243.i, label %206, label %r_standard_suffix.exit
+204:                                              ; preds = %198
+  %205 = and i32 %203, 31
+  %206 = shl nuw i32 1, %205
+  %207 = and i32 %206, 4198408
+  %.not327.i = icmp eq i32 %207, 0
+  br i1 %.not327.i, label %.thread185, label %208
 
-206:                                              ; preds = %200
-  %207 = and i32 %205, 31
-  %208 = shl nuw i32 1, %207
-  %209 = and i32 %208, 4198408
-  %.not245.i = icmp eq i32 %209, 0
-  br i1 %.not245.i, label %r_standard_suffix.exit, label %210
+208:                                              ; preds = %204
+  %209 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 3) #2
+  %.not328.i = icmp eq i32 %209, 0
+  br i1 %.not328.i, label %.thread185, label %210
 
-210:                                              ; preds = %206
-  %211 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 3) #2
-  %.not246.i = icmp eq i32 %211, 0
-  br i1 %.not246.i, label %r_standard_suffix.exit, label %212
+210:                                              ; preds = %208
+  %211 = load i32, ptr %2, align 8
+  store i32 %211, ptr %4, align 4
+  %.val371.i = load ptr, ptr %35, align 8
+  %.val371.val.i = load i32, ptr %.val371.i, align 4
+  %.not.i398.not.i = icmp sgt i32 %.val371.val.i, %211
+  br i1 %.not.i398.not.i, label %.thread185, label %212
 
 212:                                              ; preds = %210
-  %213 = load i32, ptr %2, align 8
-  store i32 %213, ptr %4, align 4
-  %.val281.i = load ptr, ptr %36, align 8
-  %.val281.val.i = load i32, ptr %.val281.i, align 4
-  %.not.i308.not.i = icmp sgt i32 %.val281.val.i, %213
-  br i1 %.not.i308.not.i, label %r_standard_suffix.exit, label %214
+  %213 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %214 = icmp sgt i32 %213, -1
+  br i1 %214, label %.thread185, label %.thread217
 
-214:                                              ; preds = %212
-  %215 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %216 = icmp slt i32 %215, 0
-  br i1 %216, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+215:                                              ; preds = %116
+  %.val373.i = load ptr, ptr %35, align 8
+  %.val373.val.i = load i32, ptr %.val373.i, align 4
+  %.not.i400.not.i = icmp sgt i32 %.val373.val.i, %117
+  br i1 %.not.i400.not.i, label %r_standard_suffix.exit.thread, label %216
 
-217:                                              ; preds = %118
-  %.val283.i = load ptr, ptr %36, align 8
-  %.val283.val.i = load i32, ptr %.val283.i, align 4
-  %.not.i310.not.i = icmp sgt i32 %.val283.val.i, %119
-  br i1 %.not.i310.not.i, label %242, label %218
+216:                                              ; preds = %215
+  %217 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %218 = icmp sgt i32 %217, -1
+  br i1 %218, label %219, label %.thread217
 
-218:                                              ; preds = %217
-  %219 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %220 = icmp slt i32 %219, 0
-  br i1 %220, label %r_residual_suffix.exit, label %221
+219:                                              ; preds = %216
+  %220 = load i32, ptr %2, align 8
+  store i32 %220, ptr %6, align 8
+  %221 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_8) #2
+  %.not322.i = icmp eq i32 %221, 0
+  br i1 %.not322.i, label %.thread185, label %222
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr %2, align 8
-  store i32 %222, ptr %6, align 8
-  %223 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_8) #2
-  %.not240.i = icmp eq i32 %223, 0
-  br i1 %.not240.i, label %r_standard_suffix.exit, label %224
+222:                                              ; preds = %219
+  %223 = load i32, ptr %2, align 8
+  store i32 %223, ptr %4, align 4
+  %.val375.i = load ptr, ptr %35, align 8
+  %.val375.val.i = load i32, ptr %.val375.i, align 4
+  %.not.i402.not.i = icmp sgt i32 %.val375.val.i, %223
+  br i1 %.not.i402.not.i, label %.thread185, label %224
 
-224:                                              ; preds = %221
-  %225 = load i32, ptr %2, align 8
-  store i32 %225, ptr %4, align 4
-  %.val285.i = load ptr, ptr %36, align 8
-  %.val285.val.i = load i32, ptr %.val285.i, align 4
-  %.not.i312.not.i = icmp sgt i32 %.val285.val.i, %225
-  br i1 %.not.i312.not.i, label %r_standard_suffix.exit, label %226
+224:                                              ; preds = %222
+  %225 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %226 = icmp sgt i32 %225, -1
+  br i1 %226, label %.thread185, label %.thread217
 
-226:                                              ; preds = %224
-  %227 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %228 = icmp slt i32 %227, 0
-  br i1 %228, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+227:                                              ; preds = %116
+  %.val379.i = load ptr, ptr %35, align 8
+  %228 = getelementptr i8, ptr %.val379.i, i64 8
+  %.val379.val.i = load i32, ptr %228, align 4
+  %.not.i404.not.i = icmp sgt i32 %.val379.val.i, %117
+  br i1 %.not.i404.not.i, label %r_standard_suffix.exit.thread, label %229
 
-229:                                              ; preds = %118
-  %.val289.i = load ptr, ptr %36, align 8
-  %230 = getelementptr i8, ptr %.val289.i, i64 8
-  %.val289.val.i = load i32, ptr %230, align 4
-  %.not.i314.not.i = icmp sgt i32 %.val289.val.i, %119
-  br i1 %.not.i314.not.i, label %242, label %231
+229:                                              ; preds = %227
+  %230 = load i32, ptr %100, align 8
+  %.not319.i = icmp sgt i32 %117, %230
+  br i1 %.not319.i, label %231, label %r_standard_suffix.exit.thread
 
 231:                                              ; preds = %229
-  %232 = load i32, ptr %102, align 8
-  %.not237.i = icmp sgt i32 %119, %232
-  br i1 %.not237.i, label %233, label %242
+  %232 = load ptr, ptr %0, align 8
+  %233 = add nsw i32 %117, -1
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %232, i64 %234
+  %236 = load i8, ptr %235, align 1
+  %.not320.i = icmp eq i8 %236, 101
+  br i1 %.not320.i, label %237, label %r_standard_suffix.exit.thread
 
-233:                                              ; preds = %231
-  %234 = load ptr, ptr %0, align 8
-  %235 = add nsw i32 %119, -1
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr i8, ptr %234, i64 %236
-  %238 = load i8, ptr %237, align 1
-  %.not238.i = icmp eq i8 %238, 101
-  br i1 %.not238.i, label %239, label %242
+237:                                              ; preds = %231
+  store i32 %233, ptr %2, align 8
+  %238 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_9) #2
+  %239 = icmp sgt i32 %238, -1
+  br i1 %239, label %.thread185, label %.thread217
 
-239:                                              ; preds = %233
-  store i32 %235, ptr %2, align 8
-  %240 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_9) #2
-  %241 = icmp slt i32 %240, 0
-  br i1 %241, label %r_residual_suffix.exit, label %r_standard_suffix.exit
+r_standard_suffix.exit.thread:                    ; preds = %229, %231, %114, %r_mark_regions.exit, %103, %110, %118, %122, %126, %130, %134, %169, %190, %215, %227
+  %240 = load i32, ptr %5, align 4
+  store i32 %240, ptr %2, align 8
+  %241 = load ptr, ptr %35, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load i32, ptr %242, align 4
+  %244 = icmp slt i32 %240, %243
+  br i1 %244, label %.thread198, label %245
 
-242:                                              ; preds = %112, %105, %r_mark_regions.exit, %116, %120, %124, %128, %132, %136, %171, %192, %217, %229, %233, %231
-  %243 = load i32, ptr %5, align 4
-  store i32 %243, ptr %2, align 8
-  %244 = load ptr, ptr %36, align 8
-  %245 = getelementptr i8, ptr %244, i64 8
-  %246 = load i32, ptr %245, align 4
-  %247 = icmp slt i32 %243, %246
-  br i1 %247, label %r_verb_suffix.exit.thread, label %248
+245:                                              ; preds = %r_standard_suffix.exit.thread
+  %246 = load i32, ptr %100, align 8
+  store i32 %243, ptr %100, align 8
+  store i32 %240, ptr %6, align 8
+  %247 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_6, i32 noundef 120) #2
+  %.not.i158 = icmp eq i32 %247, 0
+  br i1 %.not.i158, label %r_verb_suffix.exit.thread243, label %248
 
-248:                                              ; preds = %242
-  %249 = load i32, ptr %102, align 8
-  store i32 %246, ptr %102, align 8
-  store i32 %243, ptr %6, align 8
-  %250 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_6, i32 noundef 120) #2
-  %.not.i112 = icmp eq i32 %250, 0
-  br i1 %.not.i112, label %r_verb_suffix.exit.thread140, label %251
+r_verb_suffix.exit.thread243:                     ; preds = %245
+  store i32 %246, ptr %100, align 8
+  %.pre288 = load i32, ptr %5, align 4
+  br label %.thread198
 
-r_verb_suffix.exit.thread140:                     ; preds = %248
-  store i32 %249, ptr %102, align 8
-  %.pre151 = load i32, ptr %5, align 4
-  br label %r_verb_suffix.exit.thread
+248:                                              ; preds = %245
+  %249 = load i32, ptr %2, align 8
+  store i32 %249, ptr %4, align 4
+  %250 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %251 = icmp sgt i32 %250, -1
+  br i1 %251, label %.thread253, label %.thread217
 
-251:                                              ; preds = %248
-  %252 = load i32, ptr %2, align 8
-  store i32 %252, ptr %4, align 4
-  %253 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %254 = icmp slt i32 %253, 0
-  br i1 %254, label %r_residual_suffix.exit, label %255
+.thread253:                                       ; preds = %248
+  store i32 %246, ptr %100, align 8
+  br label %.thread185
 
-255:                                              ; preds = %251
-  store i32 %249, ptr %102, align 8
-  br label %r_standard_suffix.exit
+.thread185:                                       ; preds = %153, %155, %161, %164, %183, %185, %208, %210, %219, %222, %237, %224, %212, %204, %198, %194, %187, %177, %173, %166, %160, %149, %143, %139, %131, %127, %123, %119, %116, %.thread253
+  %252 = load i32, ptr %5, align 4
+  store i32 %252, ptr %2, align 8
+  store i32 %252, ptr %6, align 8
+  %253 = load i32, ptr %100, align 8
+  %.not = icmp sgt i32 %252, %253
+  br i1 %.not, label %254, label %.thread212
 
-r_standard_suffix.exit:                           ; preds = %155, %157, %163, %166, %185, %187, %210, %212, %221, %224, %255, %239, %226, %214, %206, %200, %196, %189, %179, %175, %168, %162, %151, %145, %141, %133, %129, %125, %121, %118
-  %256 = load i32, ptr %5, align 4
+254:                                              ; preds = %.thread185
+  %255 = load ptr, ptr %0, align 8
+  %256 = add nsw i32 %252, -1
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds i8, ptr %255, i64 %257
+  %259 = load i8, ptr %258, align 1
+  %.not142 = icmp eq i8 %259, 105
+  br i1 %.not142, label %260, label %.thread212
+
+260:                                              ; preds = %254
   store i32 %256, ptr %2, align 8
-  store i32 %256, ptr %6, align 8
-  %257 = load i32, ptr %102, align 8
-  %.not = icmp sgt i32 %256, %257
-  br i1 %.not, label %258, label %r_residual_suffix.exit.thread
+  store i32 %256, ptr %4, align 4
+  %.not143 = icmp sgt i32 %256, %253
+  br i1 %.not143, label %261, label %.thread212
 
-258:                                              ; preds = %r_standard_suffix.exit
-  %259 = load ptr, ptr %0, align 8
-  %260 = add nsw i32 %256, -1
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr i8, ptr %259, i64 %261
-  %263 = load i8, ptr %262, align 1
-  %.not104 = icmp eq i8 %263, 105
-  br i1 %.not104, label %264, label %r_residual_suffix.exit.thread
+261:                                              ; preds = %260
+  %262 = sext i32 %252 to i64
+  %263 = getelementptr i8, ptr %255, i64 %262
+  %264 = getelementptr i8, ptr %263, i64 -2
+  %265 = load i8, ptr %264, align 1
+  %.not144 = icmp eq i8 %265, 99
+  br i1 %.not144, label %266, label %.thread212
 
-264:                                              ; preds = %258
-  store i32 %260, ptr %2, align 8
-  store i32 %260, ptr %4, align 4
-  %.not105 = icmp sgt i32 %260, %257
-  br i1 %.not105, label %265, label %r_residual_suffix.exit.thread
+266:                                              ; preds = %261
+  %.val155 = load ptr, ptr %35, align 8
+  %267 = getelementptr i8, ptr %.val155, i64 8
+  %.val155.val = load i32, ptr %267, align 4
+  %.not.i159.not = icmp slt i32 %.val155.val, %252
+  br i1 %.not.i159.not, label %268, label %.thread212
 
-265:                                              ; preds = %264
-  %266 = sext i32 %256 to i64
-  %267 = getelementptr i8, ptr %259, i64 %266
-  %268 = getelementptr i8, ptr %267, i64 -2
-  %269 = load i8, ptr %268, align 1
-  %.not106 = icmp eq i8 %269, 99
-  br i1 %.not106, label %270, label %r_residual_suffix.exit.thread
+268:                                              ; preds = %266
+  %269 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %270 = icmp sgt i32 %269, -1
+  br i1 %270, label %.thread212, label %.thread217
 
-270:                                              ; preds = %265
-  %.val107 = load ptr, ptr %36, align 8
-  %271 = getelementptr i8, ptr %.val107, i64 8
-  %.val107.val = load i32, ptr %271, align 4
-  %.not.i115.not = icmp slt i32 %.val107.val, %256
-  br i1 %.not.i115.not, label %272, label %r_residual_suffix.exit.thread
+.thread198:                                       ; preds = %r_standard_suffix.exit.thread, %r_verb_suffix.exit.thread243
+  %271 = phi i32 [ %240, %r_standard_suffix.exit.thread ], [ %.pre288, %r_verb_suffix.exit.thread243 ]
+  store i32 %271, ptr %2, align 8
+  store i32 %271, ptr %6, align 8
+  %272 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_7, i32 noundef 7) #2
+  %.not.i160 = icmp eq i32 %272, 0
+  br i1 %.not.i160, label %.thread212, label %273
 
-272:                                              ; preds = %270
-  %273 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %274 = icmp slt i32 %273, 0
-  br i1 %274, label %r_residual_suffix.exit, label %r_residual_suffix.exit.thread
+273:                                              ; preds = %.thread198
+  %274 = load i32, ptr %2, align 8
+  store i32 %274, ptr %4, align 4
+  %.val19.i = load ptr, ptr %35, align 8
+  %275 = getelementptr i8, ptr %.val19.i, i64 8
+  %.val19.val.i = load i32, ptr %275, align 4
+  %.not.i.not.i161 = icmp sgt i32 %.val19.val.i, %274
+  br i1 %.not.i.not.i161, label %.thread212, label %276
 
-r_verb_suffix.exit.thread:                        ; preds = %242, %r_verb_suffix.exit.thread140
-  %275 = phi i32 [ %243, %242 ], [ %.pre151, %r_verb_suffix.exit.thread140 ]
-  store i32 %275, ptr %2, align 8
-  store i32 %275, ptr %6, align 8
-  %276 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_7, i32 noundef 7) #2
-  %.not.i116 = icmp eq i32 %276, 0
-  br i1 %.not.i116, label %r_residual_suffix.exit.thread, label %277
+276:                                              ; preds = %273
+  %277 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %278 = icmp sgt i32 %277, -1
+  br i1 %278, label %.thread212, label %.thread217
 
-277:                                              ; preds = %r_verb_suffix.exit.thread
-  %278 = load i32, ptr %2, align 8
-  store i32 %278, ptr %4, align 4
-  %.val14.i = load ptr, ptr %36, align 8
-  %279 = getelementptr i8, ptr %.val14.i, i64 8
-  %.val14.val.i = load i32, ptr %279, align 4
-  %.not.i.not.i117 = icmp sgt i32 %.val14.val.i, %278
-  br i1 %.not.i.not.i117, label %r_residual_suffix.exit.thread, label %280
+.thread212:                                       ; preds = %260, %261, %266, %.thread185, %254, %268, %276, %273, %.thread198
+  %279 = load i32, ptr %5, align 4
+  store i32 %279, ptr %2, align 8
+  store i32 %279, ptr %6, align 8
+  %280 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_8, i32 noundef 4) #2
+  %.not.i163 = icmp eq i32 %280, 0
+  br i1 %.not.i163, label %318, label %281
 
-280:                                              ; preds = %277
-  %281 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %r_residual_suffix.exit, label %r_residual_suffix.exit.thread
-
-r_residual_suffix.exit.thread:                    ; preds = %258, %r_standard_suffix.exit, %265, %264, %270, %272, %280, %277, %r_verb_suffix.exit.thread
-  %283 = load i32, ptr %5, align 4
-  store i32 %283, ptr %2, align 8
-  store i32 %283, ptr %6, align 8
-  %284 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_8, i32 noundef 4) #2
-  %.not.i120 = icmp eq i32 %284, 0
-  br i1 %.not.i120, label %323, label %285
-
-285:                                              ; preds = %r_residual_suffix.exit.thread
-  %286 = load i32, ptr %2, align 8
-  store i32 %286, ptr %4, align 4
-  switch i32 %284, label %323 [
-    i32 1, label %287
-    i32 2, label %320
+281:                                              ; preds = %.thread212
+  %282 = load i32, ptr %2, align 8
+  store i32 %282, ptr %4, align 4
+  switch i32 %280, label %318 [
+    i32 1, label %283
+    i32 2, label %315
   ]
 
-287:                                              ; preds = %285
-  %.val87.i = load ptr, ptr %36, align 8
-  %288 = getelementptr i8, ptr %.val87.i, i64 8
-  %.val87.val.i = load i32, ptr %288, align 4
-  %.not.i.not.i122 = icmp sgt i32 %.val87.val.i, %286
-  br i1 %.not.i.not.i122, label %323, label %289
+283:                                              ; preds = %281
+  %.val106.i = load ptr, ptr %35, align 8
+  %284 = getelementptr i8, ptr %.val106.i, i64 8
+  %.val106.val.i = load i32, ptr %284, align 4
+  %.not.i.not.i165 = icmp sgt i32 %.val106.val.i, %282
+  br i1 %.not.i.not.i165, label %318, label %285
 
-289:                                              ; preds = %287
-  %290 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %r_residual_suffix.exit, label %292
+285:                                              ; preds = %283
+  %286 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %287 = icmp sgt i32 %286, -1
+  br i1 %287, label %288, label %.thread217
 
-292:                                              ; preds = %289
-  %293 = load i32, ptr %2, align 8
-  store i32 %293, ptr %6, align 8
-  %294 = load i32, ptr %102, align 8
-  %.not74.i123 = icmp sgt i32 %293, %294
-  br i1 %.not74.i123, label %295, label %323
+288:                                              ; preds = %285
+  %289 = load i32, ptr %2, align 8
+  store i32 %289, ptr %6, align 8
+  %290 = load i32, ptr %100, align 8
+  %.not93.i = icmp sgt i32 %289, %290
+  br i1 %.not93.i, label %291, label %318
 
-295:                                              ; preds = %292
-  %296 = load ptr, ptr %0, align 8
-  %297 = add nsw i32 %293, -1
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr i8, ptr %296, i64 %298
-  %300 = load i8, ptr %299, align 1
-  %.not75.i124 = icmp eq i8 %300, 117
-  br i1 %.not75.i124, label %301, label %307
+291:                                              ; preds = %288
+  %292 = load ptr, ptr %0, align 8
+  %293 = add nsw i32 %289, -1
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds i8, ptr %292, i64 %294
+  %296 = load i8, ptr %295, align 1
+  %.not94.i = icmp eq i8 %296, 117
+  br i1 %.not94.i, label %297, label %.thread.i
 
-301:                                              ; preds = %295
-  store i32 %297, ptr %2, align 8
-  store i32 %297, ptr %4, align 4
-  %.not76.i125 = icmp sgt i32 %297, %294
-  br i1 %.not76.i125, label %302, label %307
-
-302:                                              ; preds = %301
-  %303 = sext i32 %293 to i64
-  %304 = getelementptr i8, ptr %296, i64 %303
-  %305 = getelementptr i8, ptr %304, i64 -2
-  %306 = load i8, ptr %305, align 1
-  %.not77.i126 = icmp eq i8 %306, 103
-  br i1 %.not77.i126, label %315, label %307
-
-307:                                              ; preds = %302, %301, %295
+297:                                              ; preds = %291
   store i32 %293, ptr %2, align 8
-  %308 = load i8, ptr %299, align 1
-  %.not80.i = icmp eq i8 %308, 105
-  br i1 %.not80.i, label %309, label %323
+  store i32 %293, ptr %4, align 4
+  %.not95.i = icmp sgt i32 %293, %290
+  br i1 %.not95.i, label %298, label %.thread.i
 
-309:                                              ; preds = %307
-  store i32 %297, ptr %2, align 8
-  store i32 %297, ptr %4, align 4
-  %.not81.i = icmp sgt i32 %297, %294
-  br i1 %.not81.i, label %310, label %323
+298:                                              ; preds = %297
+  %299 = sext i32 %289 to i64
+  %300 = getelementptr i8, ptr %292, i64 %299
+  %301 = getelementptr i8, ptr %300, i64 -2
+  %302 = load i8, ptr %301, align 1
+  %.not96.i = icmp eq i8 %302, 103
+  br i1 %.not96.i, label %310, label %.thread.i
 
-310:                                              ; preds = %309
-  %311 = sext i32 %293 to i64
-  %312 = getelementptr i8, ptr %296, i64 %311
-  %313 = getelementptr i8, ptr %312, i64 -2
-  %314 = load i8, ptr %313, align 1
-  %.not82.i = icmp eq i8 %314, 99
-  br i1 %.not82.i, label %315, label %323
+.thread.i:                                        ; preds = %298, %297, %291
+  store i32 %289, ptr %2, align 8
+  %303 = load i8, ptr %295, align 1
+  %.not99.i = icmp eq i8 %303, 105
+  br i1 %.not99.i, label %304, label %318
 
-315:                                              ; preds = %310, %302
-  store i32 %297, ptr %2, align 8
-  %.val85.i = load ptr, ptr %36, align 8
-  %316 = getelementptr i8, ptr %.val85.i, i64 8
-  %.val85.val.i = load i32, ptr %316, align 4
-  %.not.i88.not.not.i = icmp slt i32 %.val85.val.i, %293
-  br i1 %.not.i88.not.not.i, label %317, label %323
+304:                                              ; preds = %.thread.i
+  store i32 %293, ptr %2, align 8
+  store i32 %293, ptr %4, align 4
+  %.not100.i = icmp sgt i32 %293, %290
+  br i1 %.not100.i, label %305, label %318
 
-317:                                              ; preds = %315
-  %318 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %319 = icmp slt i32 %318, 0
-  br i1 %319, label %r_residual_suffix.exit, label %323
+305:                                              ; preds = %304
+  %306 = sext i32 %289 to i64
+  %307 = getelementptr i8, ptr %292, i64 %306
+  %308 = getelementptr i8, ptr %307, i64 -2
+  %309 = load i8, ptr %308, align 1
+  %.not101.i = icmp eq i8 %309, 99
+  br i1 %.not101.i, label %310, label %318
 
-320:                                              ; preds = %285
-  %321 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
-  %322 = icmp slt i32 %321, 0
-  br i1 %322, label %r_residual_suffix.exit, label %323
+310:                                              ; preds = %305, %298
+  store i32 %293, ptr %2, align 8
+  %.val104.i = load ptr, ptr %35, align 8
+  %311 = getelementptr i8, ptr %.val104.i, i64 8
+  %.val104.val.i = load i32, ptr %311, align 4
+  %.not.i107.not.not.i = icmp slt i32 %.val104.val.i, %289
+  br i1 %.not.i107.not.not.i, label %312, label %318
 
-323:                                              ; preds = %285, %317, %320, %r_residual_suffix.exit.thread, %287, %307, %310, %309, %315, %292
-  %324 = load i32, ptr %5, align 4
-  %325 = load i32, ptr %102, align 8
-  store i32 %325, ptr %2, align 8
-  br label %326
+312:                                              ; preds = %310
+  %313 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %314 = icmp sgt i32 %313, -1
+  br i1 %314, label %318, label %.thread217
 
-326:                                              ; preds = %352, %323
-  %327 = phi i32 [ %.pre153, %352 ], [ %324, %323 ]
-  %328 = phi i32 [ %.pre152, %352 ], [ %325, %323 ]
-  store i32 %328, ptr %4, align 4
-  %329 = add i32 %328, 1
-  %.not.i127 = icmp slt i32 %329, %327
-  br i1 %.not.i127, label %330, label %.thread36.i
+315:                                              ; preds = %281
+  %316 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
+  %317 = icmp sgt i32 %316, -1
+  br i1 %317, label %318, label %.thread217
 
-330:                                              ; preds = %326
-  %331 = load ptr, ptr %0, align 8
-  %332 = sext i32 %329 to i64
-  %333 = getelementptr i8, ptr %331, i64 %332
-  %334 = load i8, ptr %333, align 1
-  %.not31.i = icmp eq i8 %334, 126
-  br i1 %.not31.i, label %335, label %.thread36.i
+318:                                              ; preds = %281, %312, %315, %288, %304, %305, %.thread.i, %.thread212, %283, %310
+  %319 = load i32, ptr %5, align 4
+  %320 = load i32, ptr %100, align 8
+  store i32 %320, ptr %2, align 8
+  br label %321
 
-.thread36.i:                                      ; preds = %330, %326
-  store i32 %328, ptr %6, align 8
-  br label %345
+321:                                              ; preds = %346, %318
+  %322 = phi i32 [ %.pre290, %346 ], [ %319, %318 ]
+  %323 = phi i32 [ %.pre289, %346 ], [ %320, %318 ]
+  store i32 %323, ptr %4, align 4
+  %324 = add i32 %323, 1
+  %.not.i166 = icmp slt i32 %324, %322
+  br i1 %.not.i166, label %325, label %.thread47.i
 
-335:                                              ; preds = %330
-  %336 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
-  %.not32.i = icmp eq i32 %336, 0
-  br i1 %.not32.i, label %353, label %337
+325:                                              ; preds = %321
+  %326 = load ptr, ptr %0, align 8
+  %327 = sext i32 %324 to i64
+  %328 = getelementptr inbounds i8, ptr %326, i64 %327
+  %329 = load i8, ptr %328, align 1
+  %.not40.i = icmp eq i8 %329, 126
+  br i1 %.not40.i, label %330, label %.thread47.i
 
-337:                                              ; preds = %335
-  %338 = load i32, ptr %2, align 8
-  store i32 %338, ptr %6, align 8
-  switch i32 %336, label %352 [
-    i32 1, label %339
-    i32 2, label %342
-    i32 3, label %._crit_edge.i129
+.thread47.i:                                      ; preds = %325, %321
+  store i32 %323, ptr %6, align 8
+  br label %340
+
+330:                                              ; preds = %325
+  %331 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
+  %.not41.i = icmp eq i32 %331, 0
+  br i1 %.not41.i, label %347, label %332
+
+332:                                              ; preds = %330
+  %333 = load i32, ptr %2, align 8
+  store i32 %333, ptr %6, align 8
+  switch i32 %331, label %346 [
+    i32 1, label %334
+    i32 2, label %337
+    i32 3, label %._crit_edge.i169
   ]
 
-._crit_edge.i129:                                 ; preds = %337
-  %.pre.i130 = load i32, ptr %5, align 4
-  br label %345
+._crit_edge.i169:                                 ; preds = %332
+  %.pre.i170 = load i32, ptr %5, align 4
+  br label %340
 
-339:                                              ; preds = %337
-  %340 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #2
-  %341 = icmp slt i32 %340, 0
-  br i1 %341, label %r_residual_suffix.exit, label %352
+334:                                              ; preds = %332
+  %335 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #2
+  %336 = icmp sgt i32 %335, -1
+  br i1 %336, label %346, label %.thread217
 
-342:                                              ; preds = %337
-  %343 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_3) #2
-  %344 = icmp slt i32 %343, 0
-  br i1 %344, label %r_residual_suffix.exit, label %352
+337:                                              ; preds = %332
+  %338 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_3) #2
+  %339 = icmp sgt i32 %338, -1
+  br i1 %339, label %346, label %.thread217
 
-345:                                              ; preds = %._crit_edge.i129, %.thread36.i
-  %346 = phi i32 [ %327, %.thread36.i ], [ %.pre.i130, %._crit_edge.i129 ]
-  %347 = phi i32 [ %328, %.thread36.i ], [ %338, %._crit_edge.i129 ]
-  %348 = load ptr, ptr %0, align 8
-  %349 = tail call i32 @skip_utf8(ptr noundef %348, i32 noundef %347, i32 noundef %346, i32 noundef 1) #2
-  %350 = icmp slt i32 %349, 0
-  br i1 %350, label %353, label %351
+340:                                              ; preds = %._crit_edge.i169, %.thread47.i
+  %341 = phi i32 [ %322, %.thread47.i ], [ %.pre.i170, %._crit_edge.i169 ]
+  %342 = phi i32 [ %323, %.thread47.i ], [ %333, %._crit_edge.i169 ]
+  %343 = load ptr, ptr %0, align 8
+  %344 = tail call i32 @skip_utf8(ptr noundef %343, i32 noundef %342, i32 noundef %341, i32 noundef 1) #2
+  %345 = icmp slt i32 %344, 0
+  br i1 %345, label %347, label %.thread49.i
 
-351:                                              ; preds = %345
-  store i32 %349, ptr %2, align 8
-  br label %352
+.thread49.i:                                      ; preds = %340
+  store i32 %344, ptr %2, align 8
+  br label %346
 
-352:                                              ; preds = %351, %342, %339, %337
-  %.pre152 = load i32, ptr %2, align 8
-  %.pre153 = load i32, ptr %5, align 4
-  br label %326
+346:                                              ; preds = %.thread49.i, %337, %334, %332
+  %.pre289 = load i32, ptr %2, align 8
+  %.pre290 = load i32, ptr %5, align 4
+  br label %321
 
-353:                                              ; preds = %345, %335
-  store i32 %325, ptr %2, align 8
-  br label %r_residual_suffix.exit
+347:                                              ; preds = %330, %340
+  store i32 %320, ptr %2, align 8
+  br label %.thread217
 
-r_residual_suffix.exit:                           ; preds = %20, %23, %339, %342, %251, %239, %226, %218, %214, %193, %189, %172, %168, %159, %138, %133, %129, %125, %121, %320, %317, %289, %280, %272, %353
-  %.0 = phi i32 [ 1, %353 ], [ %273, %272 ], [ %281, %280 ], [ %290, %289 ], [ %318, %317 ], [ %321, %320 ], [ %240, %239 ], [ %227, %226 ], [ %219, %218 ], [ %215, %214 ], [ %194, %193 ], [ %190, %189 ], [ %173, %172 ], [ %169, %168 ], [ %160, %159 ], [ %139, %138 ], [ %134, %133 ], [ %130, %129 ], [ %126, %125 ], [ %122, %121 ], [ %253, %251 ], [ %343, %342 ], [ %340, %339 ], [ %24, %23 ], [ %21, %20 ]
-  ret i32 %.0
+.thread217:                                       ; preds = %20, %23, %337, %334, %224, %212, %187, %157, %166, %119, %123, %127, %131, %136, %170, %191, %216, %237, %285, %312, %315, %248, %276, %268, %347
+  %.1 = phi i32 [ 1, %347 ], [ %269, %268 ], [ %250, %248 ], [ %277, %276 ], [ %316, %315 ], [ %313, %312 ], [ %286, %285 ], [ %225, %224 ], [ %213, %212 ], [ %188, %187 ], [ %158, %157 ], [ %167, %166 ], [ %120, %119 ], [ %124, %123 ], [ %128, %127 ], [ %132, %131 ], [ %137, %136 ], [ %171, %170 ], [ %192, %191 ], [ %217, %216 ], [ %238, %237 ], [ %338, %337 ], [ %335, %334 ], [ %24, %23 ], [ %21, %20 ]
+  ret i32 %.1
 }
 
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
@@ -1053,13 +1051,12 @@ declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -12,7 +12,7 @@ define dso_local ptr @make_restrictinfo(ptr noundef %0, ptr noundef %1, i1 nound
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %1, align 4
-  %13 = icmp eq i32 %12, 19
+  %13 = icmp eq i32 %12, 21
   br i1 %13, label %is_orclause.exit, label %is_orclause.exit.thread
 
 is_orclause.exit:                                 ; preds = %11
@@ -26,7 +26,7 @@ is_orclause.exit:                                 ; preds = %11
   br label %20
 
 is_orclause.exit.thread:                          ; preds = %10, %11, %is_orclause.exit
-  %19 = tail call fastcc ptr @make_restrictinfo_internal(ptr noundef %0, ptr noundef %1, ptr noundef null, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %19 = tail call ptr @make_plain_restrictinfo(ptr noundef %0, ptr noundef %1, ptr noundef null, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %20
 
 20:                                               ; preds = %is_orclause.exit.thread, %17
@@ -41,7 +41,7 @@ define internal fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %1, align 4
-  %13 = icmp eq i32 %12, 19
+  %13 = icmp eq i32 %12, 21
   br i1 %13, label %is_orclause.exit, label %is_andclause.exit.thread
 
 is_orclause.exit:                                 ; preds = %11
@@ -56,34 +56,34 @@ is_orclause.exit:                                 ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %.not64 = icmp eq ptr %18, null
-  br i1 %.not64, label %._crit_edge89, label %.lr.ph88
+  %.not65 = icmp eq ptr %18, null
+  br i1 %.not65, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph88:                                         ; preds = %16
+.lr.ph89:                                         ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph97, label %._crit_edge89
+  br i1 %22, label %.lr.ph98, label %._crit_edge90
 
-.lr.ph97:                                         ; preds = %.lr.ph88, %.lr.ph97
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph97 ], [ 0, %.lr.ph88 ]
-  %.0598695 = phi ptr [ %27, %.lr.ph97 ], [ null, %.lr.ph88 ]
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv101
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %25, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef null, ptr noundef %8, ptr noundef %9)
-  %27 = tail call ptr @lappend(ptr noundef %.0598695, ptr noundef %26) #5
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %28 = load i32, ptr %19, align 4
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next102, %29
-  br i1 %30, label %.lr.ph97, label %._crit_edge89
-
-._crit_edge89:                                    ; preds = %.lr.ph97, %.lr.ph88, %16
-  %.059.lcssa = phi ptr [ null, %16 ], [ null, %.lr.ph88 ], [ %27, %.lr.ph97 ]
-  %31 = tail call ptr @make_orclause(ptr noundef %.059.lcssa) #5
-  %32 = tail call fastcc ptr @make_restrictinfo_internal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+._crit_edge90:                                    ; preds = %.lr.ph98, %.lr.ph89, %16
+  %.058.lcssa = phi ptr [ null, %16 ], [ null, %.lr.ph89 ], [ %29, %.lr.ph98 ]
+  %23 = tail call ptr @make_orclause(ptr noundef %.058.lcssa) #5
+  %24 = tail call ptr @make_plain_restrictinfo(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %23, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %50
+
+.lr.ph98:                                         ; preds = %.lr.ph89, %.lr.ph98
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph98 ], [ 0, %.lr.ph89 ]
+  %.0588796 = phi ptr [ %29, %.lr.ph98 ], [ null, %.lr.ph89 ]
+  %25 = load ptr, ptr %20, align 8
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv102
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %27, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef null, ptr noundef %8, ptr noundef %9)
+  %29 = tail call ptr @lappend(ptr noundef %.0588796, ptr noundef %28) #5
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %30 = load i32, ptr %19, align 4
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next103, %31
+  br i1 %32, label %.lr.ph98, label %._crit_edge90
 
 33:                                               ; preds = %is_orclause.exit
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -96,44 +96,44 @@ is_orclause.exit:                                 ; preds = %11
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i32, ptr %36, align 4
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph83, label %._crit_edge
+  br i1 %39, label %.lr.ph84, label %._crit_edge
 
-.lr.ph83:                                         ; preds = %.lr.ph, %.lr.ph83
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph83 ], [ 0, %.lr.ph ]
-  %.0587682 = phi ptr [ %44, %.lr.ph83 ], [ null, %.lr.ph ]
-  %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr %union.ListCell, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %42, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %44 = tail call ptr @lappend(ptr noundef %.0587682, ptr noundef %43) #5
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load i32, ptr %36, align 4
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph83, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph83, %.lr.ph, %33
-  %.058.lcssa = phi ptr [ null, %33 ], [ null, %.lr.ph ], [ %44, %.lr.ph83 ]
-  %48 = tail call ptr @make_andclause(ptr noundef %.058.lcssa) #5
+._crit_edge:                                      ; preds = %.lr.ph84, %.lr.ph, %33
+  %.060.lcssa = phi ptr [ null, %33 ], [ null, %.lr.ph ], [ %45, %.lr.ph84 ]
+  %40 = tail call ptr @make_andclause(ptr noundef %.060.lcssa) #5
   br label %50
+
+.lr.ph84:                                         ; preds = %.lr.ph, %.lr.ph84
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph84 ], [ 0, %.lr.ph ]
+  %.0607783 = phi ptr [ %45, %.lr.ph84 ], [ null, %.lr.ph ]
+  %41 = load ptr, ptr %37, align 8
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %43, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %45 = tail call ptr @lappend(ptr noundef %.0607783, ptr noundef %44) #5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %46 = load i32, ptr %36, align 4
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next, %47
+  br i1 %48, label %.lr.ph84, label %._crit_edge
 
 is_andclause.exit.thread:                         ; preds = %is_orclause.exit, %11, %10
-  %49 = tail call fastcc ptr @make_restrictinfo_internal(ptr noundef %0, ptr noundef %1, ptr noundef null, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %49 = tail call ptr @make_plain_restrictinfo(ptr noundef %0, ptr noundef %1, ptr noundef null, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %50
 
-50:                                               ; preds = %is_andclause.exit.thread, %._crit_edge, %._crit_edge89
-  %.0 = phi ptr [ %32, %._crit_edge89 ], [ %48, %._crit_edge ], [ %49, %is_andclause.exit.thread ]
+50:                                               ; preds = %is_andclause.exit.thread, %._crit_edge, %._crit_edge90
+  %.0 = phi ptr [ %24, %._crit_edge90 ], [ %40, %._crit_edge ], [ %49, %is_andclause.exit.thread ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_restrictinfo_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define dso_local noundef ptr @make_plain_restrictinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = zext i1 %3 to i8
   %13 = zext i1 %4 to i8
   %14 = zext i1 %5 to i8
   %15 = zext i1 %6 to i8
   %16 = tail call noundef ptr @palloc0(i64 noundef 240) #5
-  store i32 302, ptr %16, align 4
+  store i32 317, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 88
@@ -174,7 +174,7 @@ define internal fastcc noundef ptr @make_restrictinfo_internal(ptr noundef %0, p
 
 is_opclause.exit:                                 ; preds = %31
   %34 = load i32, ptr %1, align 4
-  %35 = icmp eq i32 %34, 15
+  %35 = icmp eq i32 %34, 17
   br i1 %35, label %36, label %is_opclause.exit.thread
 
 36:                                               ; preds = %is_opclause.exit
@@ -209,7 +209,7 @@ list_length.exit.i:                               ; preds = %get_leftop.exit
 49:                                               ; preds = %list_length.exit.i
   %50 = getelementptr i8, ptr %.val78, i64 16
   %.val.i82 = load ptr, ptr %50, align 8
-  %51 = getelementptr i8, ptr %.val.i82, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.val.i82, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %get_rightop.exit
 
@@ -294,12 +294,26 @@ is_opclause.exit.thread:                          ; preds = %36, %31, %list_leng
   ret ptr %16
 }
 
+declare zeroext i1 @contain_leaked_vars(ptr noundef) local_unnamed_addr #1
+
+declare ptr @pull_varnos(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
+
+declare void @bms_free(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @commute_restrictinfo(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @palloc0(i64 noundef 48) #5
-  store i32 15, ptr %5, align 4
+  store i32 17, ptr %5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
@@ -309,14 +323,14 @@ define dso_local noundef ptr @commute_restrictinfo(ptr noundef readonly captures
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 16
   %.val = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %.val, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %.val, align 8
   %14 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %12, ptr %13) #5
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %14, ptr %15, align 8
   %16 = tail call noundef ptr @palloc0(i64 noundef 240) #5
-  store i32 302, ptr %16, align 4
+  store i32 317, ptr %16, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %16, ptr noundef nonnull align 8 dereferenceable(240) %0, i64 240, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %5, ptr %17, align 8
@@ -378,9 +392,9 @@ define dso_local noundef ptr @commute_restrictinfo(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @restriction_is_or_clause(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
@@ -401,8 +415,8 @@ define dso_local zeroext i1 @restriction_is_securely_promotable(ptr noundef read
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %9 = load i8, ptr %8, align 1
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %10 = trunc nuw i8 %9 to i1
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -422,11 +436,15 @@ define dso_local ptr @get_actual_clauses(ptr noundef readonly captures(address_i
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph21, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph21, %.lr.ph, %1
+  %.0.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %11, %.lr.ph21 ]
+  ret ptr %.0.lcssa
+
 .lr.ph21:                                         ; preds = %.lr.ph, %.lr.ph21
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph21 ], [ 0, %.lr.ph ]
   %.01519 = phi ptr [ %11, %.lr.ph21 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -436,13 +454,9 @@ define dso_local ptr @get_actual_clauses(ptr noundef readonly captures(address_i
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph21, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph21, %.lr.ph, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %11, %.lr.ph21 ]
-  ret ptr %.0.lcssa
 }
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @extract_actual_clauses(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -452,25 +466,29 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly captures(addre
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %3, align 4
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph24, label %._crit_edge
+  %5 = zext i1 %1 to i8
+  %6 = load i32, ptr %3, align 4
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph24, label %._crit_edge
+
+._crit_edge:                                      ; preds = %26, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.1, %26 ]
+  ret ptr %.0.lcssa
 
 .lr.ph24:                                         ; preds = %.lr.ph, %26
-  %7 = phi i32 [ %27, %26 ], [ %5, %.lr.ph ]
+  %8 = phi i32 [ %27, %26 ], [ %6, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph ]
   %.01822 = phi ptr [ %.1, %26 ], [ null, %.lr.ph ]
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  %12 = load i8, ptr %11, align 2
-  %13 = trunc i8 %12 to i1
-  %14 = xor i1 %1, %13
-  br i1 %14, label %26, label %15
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  %13 = load i8, ptr %12, align 2, !range !4, !noundef !5
+  %14 = icmp eq i8 %13, %5
+  br i1 %14, label %15, label %26
 
 15:                                               ; preds = %.lr.ph24
-  %16 = getelementptr i8, ptr %10, i64 8
+  %16 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %16, align 8
   %17 = load i32, ptr %.val, align 4
   %18 = icmp eq i32 %17, 7
@@ -478,8 +496,8 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly captures(addre
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %rinfo_is_constant_true.exit.thread, label %rinfo_is_constant_true.exit
 
 rinfo_is_constant_true.exit:                      ; preds = %19
@@ -493,17 +511,13 @@ rinfo_is_constant_true.exit.thread:               ; preds = %15, %19, %rinfo_is_
   %.pre = load i32, ptr %3, align 4
   br label %26
 
-26:                                               ; preds = %.lr.ph24, %rinfo_is_constant_true.exit, %rinfo_is_constant_true.exit.thread
-  %27 = phi i32 [ %7, %rinfo_is_constant_true.exit ], [ %.pre, %rinfo_is_constant_true.exit.thread ], [ %7, %.lr.ph24 ]
+26:                                               ; preds = %rinfo_is_constant_true.exit.thread, %rinfo_is_constant_true.exit, %.lr.ph24
+  %27 = phi i32 [ %8, %rinfo_is_constant_true.exit ], [ %.pre, %rinfo_is_constant_true.exit.thread ], [ %8, %.lr.ph24 ]
   %.1 = phi ptr [ %.01822, %rinfo_is_constant_true.exit ], [ %25, %rinfo_is_constant_true.exit.thread ], [ %.01822, %.lr.ph24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
   br i1 %29, label %.lr.ph24, label %._crit_edge
-
-._crit_edge:                                      ; preds = %26, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.1, %26 ]
-  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -520,14 +534,17 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly captures
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph31, label %._crit_edge
 
+._crit_edge:                                      ; preds = %45, %.lr.ph, %4
+  ret void
+
 .lr.ph31:                                         ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
+  %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.lr.ph31
@@ -538,8 +555,8 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly captures
 
 19:                                               ; preds = %15, %.lr.ph31
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  %21 = load i8, ptr %20, align 2
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 2, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %45, label %23
 
 23:                                               ; preds = %19
@@ -551,8 +568,8 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly captures
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.val22, i64 32
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
+  %29 = load i8, ptr %28, align 8, !range !4, !noundef !5
+  %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %.sink.split, label %rinfo_is_constant_true.exit
 
 rinfo_is_constant_true.exit:                      ; preds = %27
@@ -570,8 +587,8 @@ rinfo_is_constant_true.exit:                      ; preds = %27
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %39 = load i8, ptr %38, align 8
-  %40 = trunc i8 %39 to i1
+  %39 = load i8, ptr %38, align 8, !range !4, !noundef !5
+  %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.sink.split, label %rinfo_is_constant_true.exit23
 
 rinfo_is_constant_true.exit23:                    ; preds = %37
@@ -582,24 +599,21 @@ rinfo_is_constant_true.exit23:                    ; preds = %37
 
 .sink.split:                                      ; preds = %rinfo_is_constant_true.exit23, %37, %33, %rinfo_is_constant_true.exit, %27, %23
   %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit23 ]
-  %.val22.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
+  %.val.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
   %43 = load ptr, ptr %.sink, align 8
-  %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val22.sink) #5
+  %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val.sink) #5
   store ptr %44, ptr %.sink, align 8
   br label %45
 
-45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.exit, %19, %rinfo_is_constant_true.exit23
+45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.exit23, %19, %rinfo_is_constant_true.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %5, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph31, label %._crit_edge
-
-._crit_edge:                                      ; preds = %45, %.lr.ph, %4
-  ret void
 }
 
-declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @join_clause_is_movable_to(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -633,8 +647,8 @@ define dso_local zeroext i1 @join_clause_is_movable_to(ptr noundef readonly capt
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
+  %25 = load i8, ptr %24, align 4, !range !4, !noundef !5
+  %26 = trunc nuw i8 %25 to i1
   %not. = xor i1 %26, true
   br label %27
 
@@ -643,9 +657,7 @@ define dso_local zeroext i1 @join_clause_is_movable_to(ptr noundef readonly capt
   ret i1 %.0
 }
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @join_clause_is_movable_into(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -671,38 +683,27 @@ define dso_local zeroext i1 @join_clause_is_movable_into(ptr noundef readonly ca
   ret i1 %.0
 }
 
-declare zeroext i1 @contain_leaked_vars(ptr noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @pull_varnos(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @make_orclause(ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #2
-
-declare void @bms_free(ptr noundef) local_unnamed_addr #2
-
-declare ptr @make_orclause(ptr noundef) local_unnamed_addr #2
-
-declare ptr @make_andclause(ptr noundef) local_unnamed_addr #2
-
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @make_andclause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

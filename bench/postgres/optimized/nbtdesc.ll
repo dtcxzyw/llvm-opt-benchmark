@@ -100,8 +100,8 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %29, i32 noundef %32) #3
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 135
-  %35 = load i8, ptr %34, align 1
-  %36 = trunc i8 %35 to i1
+  %35 = load i8, ptr %34, align 1, !range !4, !noundef !5
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %109
 
 37:                                               ; preds = %27
@@ -120,14 +120,14 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %50 = load i8, ptr %49, align 4
-  %51 = trunc i8 %50 to i1
+  %50 = load i8, ptr %49, align 4, !range !4, !noundef !5
+  %51 = trunc nuw i8 %50 to i1
   %52 = select i1 %51, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %52) #3
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 135
-  %55 = load i8, ptr %54, align 1
-  %56 = trunc i8 %55 to i1
+  %55 = load i8, ptr %54, align 1, !range !4, !noundef !5
+  %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %109
 
 57:                                               ; preds = %41
@@ -188,8 +188,8 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %97 to i32
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %102 = load i8, ptr %101, align 8
-  %103 = trunc i8 %102 to i1
+  %102 = load i8, ptr %101, align 8, !range !4, !noundef !5
+  %103 = trunc nuw i8 %102 to i1
   %104 = select i1 %103, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef %99, i32 noundef %100, i32 noundef %104) #3
   br label %109
@@ -204,7 +204,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
 default.unreachable:                              ; preds = %2
   unreachable
 
-109:                                              ; preds = %2, %41, %57, %27, %37, %105, %90, %87, %70, %61, %24, %13, %10
+109:                                              ; preds = %41, %57, %27, %37, %2, %105, %90, %87, %70, %61, %24, %13, %10
   ret void
 }
 
@@ -218,7 +218,7 @@ define internal fastcc void @delvacuum_desc(ptr noundef %0, ptr noundef %1, i16 
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.27) #3
   %6 = zext i16 %2 to i64
   %7 = shl nuw nsw i64 %6, 1
-  %8 = getelementptr i8, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %.not = icmp eq i16 %3, 0
   br i1 %.not, label %._crit_edge42, label %.lr.ph41
 
@@ -226,16 +226,20 @@ define internal fastcc void @delvacuum_desc(ptr noundef %0, ptr noundef %1, i16 
   %9 = zext i16 %3 to i64
   %10 = zext i16 %3 to i64
   %11 = shl nuw nsw i64 %10, 1
-  %12 = getelementptr i8, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = add nuw nsw i64 %9, 4294967295
   %14 = and i64 %13, 4294967295
   %wide.trip.count = zext i16 %3 to i64
   br label %15
 
+._crit_edge42:                                    ; preds = %38, %4
+  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 93) #3
+  ret void
+
 15:                                               ; preds = %.lr.ph41, %38
   %indvars.iv45 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next46, %38 ]
   %.039 = phi ptr [ %12, %.lr.ph41 ], [ %43, %38 ]
-  %16 = getelementptr i16, ptr %8, i64 %indvars.iv45
+  %16 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv45
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = load i16, ptr %.039, align 2
@@ -246,57 +250,53 @@ define internal fastcc void @delvacuum_desc(ptr noundef %0, ptr noundef %1, i16 
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %22 = getelementptr i8, ptr %.039, i64 2
-  br label %23
+  %22 = getelementptr inbounds nuw i8, ptr %.039, i64 2
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %24 = getelementptr i16, ptr %22, i64 %indvars.iv
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %26) #3
-  %27 = load i16, ptr %.039, align 2
-  %28 = zext i16 %27 to i32
-  %29 = add nsw i32 %28, -1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv, %30
-  br i1 %31, label %32, label %33
+._crit_edge:                                      ; preds = %34, %15
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.31) #3
+  %23 = icmp samesign ult i64 %indvars.iv45, %14
+  br i1 %23, label %37, label %38
 
-32:                                               ; preds = %23
+24:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %26 = load i16, ptr %25, align 2
+  %27 = zext i16 %26 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %27) #3
+  %28 = load i16, ptr %.039, align 2
+  %29 = zext i16 %28 to i32
+  %30 = add nsw i32 %29, -1
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv, %31
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %24
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.30) #3
   %.pre = load i16, ptr %.039, align 2
   %.pre48 = zext i16 %.pre to i32
-  br label %33
+  br label %34
 
-33:                                               ; preds = %23, %32
-  %.pre-phi = phi i32 [ %28, %23 ], [ %.pre48, %32 ]
+34:                                               ; preds = %33, %24
+  %.pre-phi = phi i32 [ %.pre48, %33 ], [ %29, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = zext nneg i32 %.pre-phi to i64
-  %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %23, label %._crit_edge, !llvm.loop !5
-
-._crit_edge:                                      ; preds = %33, %15
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.31) #3
-  %36 = icmp samesign ult i64 %indvars.iv45, %14
-  br i1 %36, label %37, label %38
+  %35 = zext nneg i32 %.pre-phi to i64
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
+  br i1 %36, label %24, label %._crit_edge, !llvm.loop !6
 
 37:                                               ; preds = %._crit_edge
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.30) #3
   br label %38
 
 38:                                               ; preds = %37, %._crit_edge
-  %39 = getelementptr i8, ptr %.039, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.039, i64 2
   %40 = load i16, ptr %.039, align 2
   %41 = zext i16 %40 to i64
   %42 = shl nuw nsw i64 %41, 1
-  %43 = getelementptr i8, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge42, label %15, !llvm.loop !7
-
-._crit_edge42:                                    ; preds = %38, %4
-  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 93) #3
-  ret void
+  br i1 %exitcond.not, label %._crit_edge42, label %15, !llvm.loop !8
 }
 
 declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -319,18 +319,19 @@ declare void @offset_elem_desc(ptr noundef, ptr noundef, ptr noundef) #1
 
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

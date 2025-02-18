@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_euc_kr_to_mic.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @pg_finfo_mic_to_euc_kr.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 
@@ -28,21 +28,21 @@ define noundef nonnull ptr @pg_finfo_mic_to_euc_kr() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = getelementptr i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, 0
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   tail call void @check_encoding_conversion_args(i32 noundef %15, i32 noundef %18, i32 noundef %11, i32 noundef 3, i32 noundef 7) #4
@@ -70,13 +70,13 @@ define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonl
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.02741.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 1
   store i8 -109, ptr %.02741.i, align 1
-  %27 = getelementptr i8, ptr %.02741.i, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 2
   store i8 %20, ptr %26, align 1
-  %28 = getelementptr i8, ptr %.042.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.042.i, i64 1
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr i8, ptr %.02741.i, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 3
   store i8 %29, ptr %27, align 1
   br label %37
 
@@ -92,7 +92,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonl
   unreachable
 
 35:                                               ; preds = %31
-  %36 = getelementptr i8, ptr %.02741.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 1
   store i8 %20, ptr %.02741.i, align 1
   br label %37
 
@@ -100,10 +100,10 @@ define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonl
   %.sink56.i = phi i64 [ 1, %35 ], [ 2, %25 ]
   %.sink.i = phi i32 [ -1, %35 ], [ -2, %25 ]
   %.128.i = phi ptr [ %36, %35 ], [ %30, %25 ]
-  %38 = getelementptr i8, ptr %.042.i, i64 %.sink56.i
+  %38 = getelementptr inbounds nuw i8, ptr %.042.i, i64 %.sink56.i
   %39 = add nsw i32 %.sink.i, %.02940.i
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.i, label %euc_kr2mic.exit, !llvm.loop !4
+  br i1 %40, label %.lr.ph.i, label %euc_kr2mic.exit, !llvm.loop !3
 
 euc_kr2mic.exit:                                  ; preds = %37, %1, %23, %33
   %.02737.i = phi ptr [ %.02741.i, %33 ], [ %.02741.i, %23 ], [ %8, %1 ], [ %.128.i, %37 ]
@@ -121,21 +121,21 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = getelementptr i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, 0
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   tail call void @check_encoding_conversion_args(i32 noundef %15, i32 noundef %18, i32 noundef %11, i32 noundef 7, i32 noundef 3) #4
@@ -162,9 +162,9 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonl
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.03247.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 1
   store i8 %20, ptr %.03247.i, align 1
-  %27 = getelementptr i8, ptr %.048.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.048.i, i64 1
   %28 = add nsw i32 %.03346.i, -1
   br label %.backedge.i
 
@@ -173,7 +173,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonl
   %.032.be.i = phi ptr [ %43, %37 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %45, %37 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.033.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2euc_kr.exit, !llvm.loop !6
+  br i1 %29, label %.lr.ph.i, label %mic2euc_kr.exit, !llvm.loop !5
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #4
@@ -192,16 +192,16 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonl
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %35
-  %38 = getelementptr i8, ptr %.048.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.048.i, i64 1
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr i8, ptr %.03247.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 1
   store i8 %39, ptr %.03247.i, align 1
-  %41 = getelementptr i8, ptr %.048.i, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.048.i, i64 2
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr i8, ptr %.03247.i, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 2
   store i8 %42, ptr %40, align 1
   %44 = zext nneg i32 %31 to i64
-  %45 = getelementptr i8, ptr %.048.i, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.048.i, i64 %44
   %46 = sub nsw i32 %.03346.i, %31
   br label %.backedge.i
 
@@ -231,19 +231,18 @@ declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: noreturn
 declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}

@@ -17,186 +17,210 @@ define dso_local i32 @pg_check_dir(ptr noundef %0) #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
   store i32 1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
   store i8 0, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
   store i8 0, ptr %8, align 1
-  %10 = load ptr, ptr %3, align 8
-  %11 = call ptr @opendir(ptr noundef %10)
-  store ptr %11, ptr %5, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = load ptr, ptr %3, align 8
+  %12 = call ptr @opendir(ptr noundef %11)
+  store ptr %12, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %1
-  %15 = call ptr @__errno_location() #4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, 2
-  %18 = select i1 %17, i32 0, i32 -1
-  store i32 %18, ptr %2, align 4
-  br label %88
+15:                                               ; preds = %1
+  %16 = call ptr @__errno_location() #6
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, 2
+  %19 = select i1 %18, i32 0, i32 -1
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-19:                                               ; preds = %1
-  br label %20
+20:                                               ; preds = %1
+  br label %21
 
-20:                                               ; preds = %56, %37, %19
-  %21 = call ptr @__errno_location() #4
-  store i32 0, ptr %21, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = call ptr @readdir(ptr noundef %22)
-  store ptr %23, ptr %6, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %57
+21:                                               ; preds = %57, %38, %20
+  %22 = call ptr @__errno_location() #6
+  store i32 0, ptr %22, align 4
+  %23 = load ptr, ptr %5, align 8
+  %24 = call ptr @readdir(ptr noundef %23)
+  store ptr %24, ptr %6, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %58
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.dirent, ptr %26, i32 0, i32 4
-  %28 = getelementptr inbounds [256 x i8], ptr %27, i64 0, i64 0
-  %29 = call i32 @strcmp(ptr noundef @.str, ptr noundef %28) #5
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %37, label %31
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.dirent, ptr %27, i32 0, i32 4
+  %29 = getelementptr inbounds [256 x i8], ptr %28, i64 0, i64 0
+  %30 = call i32 @strcmp(ptr noundef @.str, ptr noundef %29) #7
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %38, label %32
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.dirent, ptr %32, i32 0, i32 4
-  %34 = getelementptr inbounds [256 x i8], ptr %33, i64 0, i64 0
-  %35 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %34) #5
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds nuw %struct.dirent, ptr %33, i32 0, i32 4
+  %35 = getelementptr inbounds [256 x i8], ptr %34, i64 0, i64 0
+  %36 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %35) #7
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %31, %25
-  br label %20, !llvm.loop !5
+38:                                               ; preds = %32, %26
+  br label %21, !llvm.loop !4
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.dirent, ptr %39, i32 0, i32 4
-  %41 = getelementptr [256 x i8], ptr %40, i64 0, i64 0
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = icmp eq i32 %43, 46
-  br i1 %44, label %45, label %46
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %struct.dirent, ptr %40, i32 0, i32 4
+  %42 = getelementptr inbounds [256 x i8], ptr %41, i64 0, i64 0
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = icmp eq i32 %44, 46
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %38
+46:                                               ; preds = %39
   store i8 1, ptr %7, align 1
-  br label %55
-
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.dirent, ptr %47, i32 0, i32 4
-  %49 = getelementptr inbounds [256 x i8], ptr %48, i64 0, i64 0
-  %50 = call i32 @strcmp(ptr noundef @.str.2, ptr noundef %49) #5
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %53
-
-52:                                               ; preds = %46
-  store i8 1, ptr %8, align 1
-  br label %54
-
-53:                                               ; preds = %46
-  store i32 4, ptr %4, align 4
-  br label %57
-
-54:                                               ; preds = %52
-  br label %55
-
-55:                                               ; preds = %54, %45
   br label %56
 
-56:                                               ; preds = %55
-  br label %20, !llvm.loop !5
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds nuw %struct.dirent, ptr %48, i32 0, i32 4
+  %50 = getelementptr inbounds [256 x i8], ptr %49, i64 0, i64 0
+  %51 = call i32 @strcmp(ptr noundef @.str.2, ptr noundef %50) #7
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-57:                                               ; preds = %53, %20
-  %58 = call ptr @__errno_location() #4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %62
+53:                                               ; preds = %47
+  store i8 1, ptr %8, align 1
+  br label %55
 
-61:                                               ; preds = %57
+54:                                               ; preds = %47
+  store i32 4, ptr %4, align 4
+  br label %58
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %46
+  br label %57
+
+57:                                               ; preds = %56
+  br label %21, !llvm.loop !4
+
+58:                                               ; preds = %54, %21
+  %59 = call ptr @__errno_location() #6
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %58
   store i32 -1, ptr %4, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %57
-  %63 = call ptr @__errno_location() #4
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %9, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = call i32 @closedir(ptr noundef %65)
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %69
+63:                                               ; preds = %62, %58
+  %64 = call ptr @__errno_location() #6
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %9, align 4
+  %66 = load ptr, ptr %5, align 8
+  %67 = call i32 @closedir(ptr noundef %66)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-68:                                               ; preds = %62
+69:                                               ; preds = %63
   store i32 -1, ptr %4, align 4
-  br label %72
+  br label %73
 
-69:                                               ; preds = %62
-  %70 = load i32, ptr %9, align 4
-  %71 = call ptr @__errno_location() #4
-  store i32 %70, ptr %71, align 4
-  br label %72
+70:                                               ; preds = %63
+  %71 = load i32, ptr %9, align 4
+  %72 = call ptr @__errno_location() #6
+  store i32 %71, ptr %72, align 4
+  br label %73
 
-72:                                               ; preds = %69, %68
-  %73 = load i32, ptr %4, align 4
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %79
+73:                                               ; preds = %70, %69
+  %74 = load i32, ptr %4, align 4
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %76, label %80
 
-75:                                               ; preds = %72
-  %76 = load i8, ptr %8, align 1
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %78, label %79
+76:                                               ; preds = %73
+  %77 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %80
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   store i32 3, ptr %4, align 4
-  br label %79
+  br label %80
 
-79:                                               ; preds = %78, %75, %72
-  %80 = load i32, ptr %4, align 4
-  %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %86
+80:                                               ; preds = %79, %76, %73
+  %81 = load i32, ptr %4, align 4
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %87
 
-82:                                               ; preds = %79
-  %83 = load i8, ptr %7, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %85, label %86
+83:                                               ; preds = %80
+  %84 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   store i32 2, ptr %4, align 4
-  br label %86
+  br label %87
 
-86:                                               ; preds = %85, %82, %79
-  %87 = load i32, ptr %4, align 4
-  store i32 %87, ptr %2, align 4
-  br label %88
+87:                                               ; preds = %86, %83, %80
+  %88 = load i32, ptr %4, align 4
+  store i32 %88, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-88:                                               ; preds = %86, %14
-  %89 = load i32, ptr %2, align 4
-  ret i32 %89
+89:                                               ; preds = %87, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %90 = load i32, ptr %2, align 4
+  ret i32 %90
 }
 
-declare ptr @opendir(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @opendir(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #2
+declare ptr @__errno_location() #3
 
-declare ptr @readdir(ptr noundef) #1
+declare ptr @readdir(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
-declare i32 @closedir(ptr noundef) #1
+declare i32 @closedir(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(none) }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}

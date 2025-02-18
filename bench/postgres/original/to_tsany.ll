@@ -29,8 +29,8 @@ define dso_local i64 @get_current_ts_config(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ObjectIdGetDatum(i32 noundef %0) #1 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -38,7 +38,7 @@ define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-declare i32 @getTSCurrentConfig(i1 noundef zeroext) #1
+declare i32 @getTSCurrentConfig(i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
@@ -54,23 +54,31 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ParsedText, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.ParsedText, ptr %13, i32 0, i32 2
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.ParsedText, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.ParsedText, ptr %18, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.ParsedText, ptr %21, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %struct.ParsedText, ptr %21, i32 0, i32 2
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @uniqueWORD(ptr noundef %20, i32 noundef %23)
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.ParsedText, ptr %25, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.ParsedText, ptr %25, i32 0, i32 2
   store i32 %24, ptr %26, align 4
   br label %27
 
@@ -81,31 +89,31 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
 28:                                               ; preds = %79, %27
   %29 = load i32, ptr %3, align 4
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.ParsedText, ptr %30, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %struct.ParsedText, ptr %30, i32 0, i32 2
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %29, %32
   br i1 %33, label %34, label %82
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.ParsedText, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.ParsedText, ptr %35, i32 0, i32 0
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %3, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.ParsedWord, ptr %37, i64 %39
-  %41 = getelementptr inbounds %struct.ParsedWord, ptr %40, i32 0, i32 1
+  %40 = getelementptr inbounds %struct.ParsedWord, ptr %37, i64 %39
+  %41 = getelementptr inbounds nuw %struct.ParsedWord, ptr %40, i32 0, i32 1
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = load i32, ptr %5, align 4
   %45 = add i32 %44, %43
   store i32 %45, ptr %5, align 4
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.ParsedText, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.ParsedText, ptr %46, i32 0, i32 0
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %3, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr %struct.ParsedWord, ptr %48, i64 %50
-  %52 = getelementptr inbounds %struct.ParsedWord, ptr %51, i32 0, i32 3
+  %51 = getelementptr inbounds %struct.ParsedWord, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %struct.ParsedWord, ptr %51, i32 0, i32 3
   %53 = load i16, ptr %52, align 2
   %54 = icmp ne i16 %53, 0
   br i1 %54, label %55, label %78
@@ -118,14 +126,14 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
   %60 = trunc i64 %59 to i32
   store i32 %60, ptr %5, align 4
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.ParsedText, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.ParsedText, ptr %61, i32 0, i32 0
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %3, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.ParsedWord, ptr %63, i64 %65
-  %67 = getelementptr inbounds %struct.ParsedWord, ptr %66, i32 0, i32 4
+  %66 = getelementptr inbounds %struct.ParsedWord, ptr %63, i64 %65
+  %67 = getelementptr inbounds nuw %struct.ParsedWord, ptr %66, i32 0, i32 4
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr i16, ptr %68, i64 0
+  %69 = getelementptr inbounds i16, ptr %68, i64 0
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i64
   %72 = mul i64 %71, 2
@@ -144,12 +152,12 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
   %80 = load i32, ptr %3, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %3, align 4
-  br label %28, !llvm.loop !5
+  br label %28, !llvm.loop !4
 
 82:                                               ; preds = %28
   %83 = load i32, ptr %5, align 4
   %84 = icmp sgt i32 %83, 1048575
-  br i1 %84, label %85, label %97
+  br i1 %84, label %85, label %98
 
 85:                                               ; preds = %82
   br label %86
@@ -158,7 +166,7 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
   br i1 true, label %87, label %89
 
 87:                                               ; preds = %86
-  %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %88, label %91, label %95
 
 89:                                               ; preds = %86
@@ -169,7 +177,7 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
   %92 = call i32 @errcode(i32 noundef 261)
   %93 = load i32, ptr %5, align 4
   %94 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, i32 noundef %93, i32 noundef 1048575)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 195, ptr noundef @__func__.make_tsvector)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 194, ptr noundef @__func__.make_tsvector)
   br label %95
 
 95:                                               ; preds = %91, %89, %87
@@ -178,339 +186,360 @@ define dso_local ptr @make_tsvector(ptr noundef %0) #0 {
 96:                                               ; No predecessors!
   br label %97
 
-97:                                               ; preds = %96, %82
-  %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds %struct.ParsedText, ptr %98, i32 0, i32 2
-  %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = mul i64 %101, 4
-  %103 = add i64 8, %102
-  %104 = load i32, ptr %5, align 4
-  %105 = sext i32 %104 to i64
-  %106 = add i64 %103, %105
-  %107 = trunc i64 %106 to i32
-  store i32 %107, ptr %6, align 4
-  %108 = load i32, ptr %6, align 4
-  %109 = sext i32 %108 to i64
-  %110 = call ptr @palloc0(i64 noundef %109)
-  store ptr %110, ptr %7, align 8
-  %111 = load i32, ptr %6, align 4
-  %112 = shl i32 %111, 2
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.anon, ptr %113, i32 0, i32 0
-  store i32 %112, ptr %114, align 4
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds %struct.ParsedText, ptr %115, i32 0, i32 2
-  %117 = load i32, ptr %116, align 4
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.TSVectorData, ptr %118, i32 0, i32 1
-  store i32 %117, ptr %119, align 4
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.TSVectorData, ptr %120, i32 0, i32 2
-  %122 = getelementptr inbounds [0 x %struct.WordEntry], ptr %121, i64 0, i64 0
-  store ptr %122, ptr %8, align 8
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.TSVectorData, ptr %123, i32 0, i32 2
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.TSVectorData, ptr %125, i32 0, i32 1
-  %127 = load i32, ptr %126, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr [0 x %struct.WordEntry], ptr %124, i64 0, i64 %128
-  store ptr %129, ptr %9, align 8
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97, %82
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds nuw %struct.ParsedText, ptr %99, i32 0, i32 2
+  %101 = load i32, ptr %100, align 4
+  %102 = sext i32 %101 to i64
+  %103 = mul i64 %102, 4
+  %104 = add i64 8, %103
+  %105 = load i32, ptr %5, align 4
+  %106 = sext i32 %105 to i64
+  %107 = add i64 %104, %106
+  %108 = trunc i64 %107 to i32
+  store i32 %108, ptr %6, align 4
+  %109 = load i32, ptr %6, align 4
+  %110 = sext i32 %109 to i64
+  %111 = call ptr @palloc0(i64 noundef %110)
+  store ptr %111, ptr %7, align 8
+  %112 = load i32, ptr %6, align 4
+  %113 = shl i32 %112, 2
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds nuw %struct.anon, ptr %114, i32 0, i32 0
+  store i32 %113, ptr %115, align 4
+  %116 = load ptr, ptr %2, align 8
+  %117 = getelementptr inbounds nuw %struct.ParsedText, ptr %116, i32 0, i32 2
+  %118 = load i32, ptr %117, align 4
+  %119 = load ptr, ptr %7, align 8
+  %120 = getelementptr inbounds nuw %struct.TSVectorData, ptr %119, i32 0, i32 1
+  store i32 %118, ptr %120, align 4
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds nuw %struct.TSVectorData, ptr %121, i32 0, i32 2
+  %123 = getelementptr inbounds [0 x %struct.WordEntry], ptr %122, i64 0, i64 0
+  store ptr %123, ptr %8, align 8
+  %124 = load ptr, ptr %7, align 8
+  %125 = getelementptr inbounds nuw %struct.TSVectorData, ptr %124, i32 0, i32 2
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds nuw %struct.TSVectorData, ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds [0 x %struct.WordEntry], ptr %125, i64 0, i64 %129
+  store ptr %130, ptr %9, align 8
   store i32 0, ptr %10, align 4
   store i32 0, ptr %3, align 4
-  br label %130
+  br label %131
 
-130:                                              ; preds = %343, %97
-  %131 = load i32, ptr %3, align 4
-  %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds %struct.ParsedText, ptr %132, i32 0, i32 2
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp slt i32 %131, %134
-  br i1 %135, label %136, label %346
+131:                                              ; preds = %345, %98
+  %132 = load i32, ptr %3, align 4
+  %133 = load ptr, ptr %2, align 8
+  %134 = getelementptr inbounds nuw %struct.ParsedText, ptr %133, i32 0, i32 2
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp slt i32 %132, %135
+  br i1 %136, label %137, label %348
 
-136:                                              ; preds = %130
-  %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds %struct.ParsedText, ptr %137, i32 0, i32 0
-  %139 = load ptr, ptr %138, align 8
-  %140 = load i32, ptr %3, align 4
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr %struct.ParsedWord, ptr %139, i64 %141
-  %143 = getelementptr inbounds %struct.ParsedWord, ptr %142, i32 0, i32 1
-  %144 = load i16, ptr %143, align 2
-  %145 = zext i16 %144 to i32
-  %146 = load ptr, ptr %8, align 8
-  %147 = load i32, ptr %146, align 4
-  %148 = and i32 %145, 2047
-  %149 = shl i32 %148, 1
-  %150 = and i32 %147, -4095
-  %151 = or i32 %150, %149
-  store i32 %151, ptr %146, align 4
-  %152 = load i32, ptr %10, align 4
-  %153 = load ptr, ptr %8, align 8
-  %154 = load i32, ptr %153, align 4
-  %155 = and i32 %152, 1048575
-  %156 = shl i32 %155, 12
-  %157 = and i32 %154, 4095
-  %158 = or i32 %157, %156
-  store i32 %158, ptr %153, align 4
-  %159 = load ptr, ptr %9, align 8
-  %160 = load i32, ptr %10, align 4
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr i8, ptr %159, i64 %161
-  %163 = load ptr, ptr %2, align 8
-  %164 = getelementptr inbounds %struct.ParsedText, ptr %163, i32 0, i32 0
-  %165 = load ptr, ptr %164, align 8
-  %166 = load i32, ptr %3, align 4
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr %struct.ParsedWord, ptr %165, i64 %167
-  %169 = getelementptr inbounds %struct.ParsedWord, ptr %168, i32 0, i32 5
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %2, align 8
-  %172 = getelementptr inbounds %struct.ParsedText, ptr %171, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %3, align 4
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr %struct.ParsedWord, ptr %173, i64 %175
-  %177 = getelementptr inbounds %struct.ParsedWord, ptr %176, i32 0, i32 1
-  %178 = load i16, ptr %177, align 2
-  %179 = zext i16 %178 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr align 1 %170, i64 %179, i1 false)
-  %180 = load ptr, ptr %2, align 8
-  %181 = getelementptr inbounds %struct.ParsedText, ptr %180, i32 0, i32 0
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr %3, align 4
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr %struct.ParsedWord, ptr %182, i64 %184
-  %186 = getelementptr inbounds %struct.ParsedWord, ptr %185, i32 0, i32 1
-  %187 = load i16, ptr %186, align 2
-  %188 = zext i16 %187 to i32
-  %189 = load i32, ptr %10, align 4
-  %190 = add i32 %189, %188
-  store i32 %190, ptr %10, align 4
-  %191 = load ptr, ptr %2, align 8
-  %192 = getelementptr inbounds %struct.ParsedText, ptr %191, i32 0, i32 0
-  %193 = load ptr, ptr %192, align 8
-  %194 = load i32, ptr %3, align 4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr %struct.ParsedWord, ptr %193, i64 %195
-  %197 = getelementptr inbounds %struct.ParsedWord, ptr %196, i32 0, i32 5
-  %198 = load ptr, ptr %197, align 8
-  call void @pfree(ptr noundef %198)
-  %199 = load ptr, ptr %2, align 8
-  %200 = getelementptr inbounds %struct.ParsedText, ptr %199, i32 0, i32 0
-  %201 = load ptr, ptr %200, align 8
-  %202 = load i32, ptr %3, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr %struct.ParsedWord, ptr %201, i64 %203
-  %205 = getelementptr inbounds %struct.ParsedWord, ptr %204, i32 0, i32 3
-  %206 = load i16, ptr %205, align 2
-  %207 = icmp ne i16 %206, 0
-  br i1 %207, label %208, label %335
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %2, align 8
+  %139 = getelementptr inbounds nuw %struct.ParsedText, ptr %138, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i32, ptr %3, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct.ParsedWord, ptr %140, i64 %142
+  %144 = getelementptr inbounds nuw %struct.ParsedWord, ptr %143, i32 0, i32 1
+  %145 = load i16, ptr %144, align 2
+  %146 = zext i16 %145 to i32
+  %147 = load ptr, ptr %8, align 8
+  %148 = load i32, ptr %147, align 4
+  %149 = and i32 %146, 2047
+  %150 = shl i32 %149, 1
+  %151 = and i32 %148, -4095
+  %152 = or i32 %151, %150
+  store i32 %152, ptr %147, align 4
+  %153 = load i32, ptr %10, align 4
+  %154 = load ptr, ptr %8, align 8
+  %155 = load i32, ptr %154, align 4
+  %156 = and i32 %153, 1048575
+  %157 = shl i32 %156, 12
+  %158 = and i32 %155, 4095
+  %159 = or i32 %158, %157
+  store i32 %159, ptr %154, align 4
+  %160 = load ptr, ptr %9, align 8
+  %161 = load i32, ptr %10, align 4
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %160, i64 %162
+  %164 = load ptr, ptr %2, align 8
+  %165 = getelementptr inbounds nuw %struct.ParsedText, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = load i32, ptr %3, align 4
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds %struct.ParsedWord, ptr %166, i64 %168
+  %170 = getelementptr inbounds nuw %struct.ParsedWord, ptr %169, i32 0, i32 5
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr %2, align 8
+  %173 = getelementptr inbounds nuw %struct.ParsedText, ptr %172, i32 0, i32 0
+  %174 = load ptr, ptr %173, align 8
+  %175 = load i32, ptr %3, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds %struct.ParsedWord, ptr %174, i64 %176
+  %178 = getelementptr inbounds nuw %struct.ParsedWord, ptr %177, i32 0, i32 1
+  %179 = load i16, ptr %178, align 2
+  %180 = zext i16 %179 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %163, ptr align 1 %171, i64 %180, i1 false)
+  %181 = load ptr, ptr %2, align 8
+  %182 = getelementptr inbounds nuw %struct.ParsedText, ptr %181, i32 0, i32 0
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i32, ptr %3, align 4
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds %struct.ParsedWord, ptr %183, i64 %185
+  %187 = getelementptr inbounds nuw %struct.ParsedWord, ptr %186, i32 0, i32 1
+  %188 = load i16, ptr %187, align 2
+  %189 = zext i16 %188 to i32
+  %190 = load i32, ptr %10, align 4
+  %191 = add i32 %190, %189
+  store i32 %191, ptr %10, align 4
+  %192 = load ptr, ptr %2, align 8
+  %193 = getelementptr inbounds nuw %struct.ParsedText, ptr %192, i32 0, i32 0
+  %194 = load ptr, ptr %193, align 8
+  %195 = load i32, ptr %3, align 4
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds %struct.ParsedWord, ptr %194, i64 %196
+  %198 = getelementptr inbounds nuw %struct.ParsedWord, ptr %197, i32 0, i32 5
+  %199 = load ptr, ptr %198, align 8
+  call void @pfree(ptr noundef %199)
+  %200 = load ptr, ptr %2, align 8
+  %201 = getelementptr inbounds nuw %struct.ParsedText, ptr %200, i32 0, i32 0
+  %202 = load ptr, ptr %201, align 8
+  %203 = load i32, ptr %3, align 4
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds %struct.ParsedWord, ptr %202, i64 %204
+  %206 = getelementptr inbounds nuw %struct.ParsedWord, ptr %205, i32 0, i32 3
+  %207 = load i16, ptr %206, align 2
+  %208 = icmp ne i16 %207, 0
+  br i1 %208, label %209, label %337
 
-208:                                              ; preds = %136
-  %209 = load ptr, ptr %2, align 8
-  %210 = getelementptr inbounds %struct.ParsedText, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i32, ptr %3, align 4
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr %struct.ParsedWord, ptr %211, i64 %213
-  %215 = getelementptr inbounds %struct.ParsedWord, ptr %214, i32 0, i32 4
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr i16, ptr %216, i64 0
-  %218 = load i16, ptr %217, align 2
-  %219 = zext i16 %218 to i32
-  store i32 %219, ptr %11, align 4
-  %220 = load i32, ptr %11, align 4
-  %221 = icmp sgt i32 %220, 65535
-  br i1 %221, label %222, label %232
+209:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %210 = load ptr, ptr %2, align 8
+  %211 = getelementptr inbounds nuw %struct.ParsedText, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  %213 = load i32, ptr %3, align 4
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds %struct.ParsedWord, ptr %212, i64 %214
+  %216 = getelementptr inbounds nuw %struct.ParsedWord, ptr %215, i32 0, i32 4
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds i16, ptr %217, i64 0
+  %219 = load i16, ptr %218, align 2
+  %220 = zext i16 %219 to i32
+  store i32 %220, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %221 = load i32, ptr %11, align 4
+  %222 = icmp sgt i32 %221, 65535
+  br i1 %222, label %223, label %234
 
-222:                                              ; preds = %208
-  br label %223
-
-223:                                              ; preds = %222
-  br i1 true, label %224, label %226
+223:                                              ; preds = %209
+  br label %224
 
 224:                                              ; preds = %223
-  %225 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %225, label %228, label %230
+  br i1 true, label %225, label %227
 
-226:                                              ; preds = %223
-  %227 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %227, label %228, label %230
+225:                                              ; preds = %224
+  %226 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %226, label %229, label %231
 
-228:                                              ; preds = %226, %224
-  %229 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 218, ptr noundef @__func__.make_tsvector)
-  br label %230
+227:                                              ; preds = %224
+  %228 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %228, label %229, label %231
 
-230:                                              ; preds = %228, %226, %224
+229:                                              ; preds = %227, %225
+  %230 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 217, ptr noundef @__func__.make_tsvector)
+  br label %231
+
+231:                                              ; preds = %229, %227, %225
   unreachable
 
-231:                                              ; No predecessors!
-  br label %232
+232:                                              ; No predecessors!
+  br label %233
 
-232:                                              ; preds = %231, %208
-  %233 = load ptr, ptr %8, align 8
-  %234 = load i32, ptr %233, align 4
-  %235 = and i32 %234, -2
-  %236 = or i32 %235, 1
-  store i32 %236, ptr %233, align 4
-  %237 = load i32, ptr %10, align 4
-  %238 = sext i32 %237 to i64
-  %239 = add i64 %238, 1
-  %240 = and i64 %239, -2
-  %241 = trunc i64 %240 to i32
-  store i32 %241, ptr %10, align 4
-  %242 = load i32, ptr %11, align 4
-  %243 = trunc i32 %242 to i16
-  %244 = load ptr, ptr %9, align 8
-  %245 = load i32, ptr %10, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr i8, ptr %244, i64 %246
-  store i16 %243, ptr %247, align 2
-  %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds %struct.TSVectorData, ptr %248, i32 0, i32 2
+233:                                              ; preds = %232
+  br label %234
+
+234:                                              ; preds = %233, %209
+  %235 = load ptr, ptr %8, align 8
+  %236 = load i32, ptr %235, align 4
+  %237 = and i32 %236, -2
+  %238 = or i32 %237, 1
+  store i32 %238, ptr %235, align 4
+  %239 = load i32, ptr %10, align 4
+  %240 = sext i32 %239 to i64
+  %241 = add i64 %240, 1
+  %242 = and i64 %241, -2
+  %243 = trunc i64 %242 to i32
+  store i32 %243, ptr %10, align 4
+  %244 = load i32, ptr %11, align 4
+  %245 = trunc i32 %244 to i16
+  %246 = load ptr, ptr %9, align 8
+  %247 = load i32, ptr %10, align 4
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds i8, ptr %246, i64 %248
+  store i16 %245, ptr %249, align 2
   %250 = load ptr, ptr %7, align 8
-  %251 = getelementptr inbounds %struct.TSVectorData, ptr %250, i32 0, i32 1
-  %252 = load i32, ptr %251, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr [0 x %struct.WordEntry], ptr %249, i64 0, i64 %253
-  %255 = load ptr, ptr %8, align 8
-  %256 = load i32, ptr %255, align 4
-  %257 = lshr i32 %256, 12
-  %258 = load ptr, ptr %8, align 8
-  %259 = load i32, ptr %258, align 4
-  %260 = lshr i32 %259, 1
-  %261 = and i32 %260, 2047
-  %262 = add i32 %257, %261
-  %263 = sext i32 %262 to i64
-  %264 = add i64 %263, 1
-  %265 = and i64 %264, -2
-  %266 = getelementptr i8, ptr %254, i64 %265
-  %267 = getelementptr inbounds %struct.WordEntryPosVector, ptr %266, i32 0, i32 1
-  %268 = getelementptr inbounds [0 x i16], ptr %267, i64 0, i64 0
-  store ptr %268, ptr %12, align 8
+  %251 = getelementptr inbounds nuw %struct.TSVectorData, ptr %250, i32 0, i32 2
+  %252 = load ptr, ptr %7, align 8
+  %253 = getelementptr inbounds nuw %struct.TSVectorData, ptr %252, i32 0, i32 1
+  %254 = load i32, ptr %253, align 4
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds [0 x %struct.WordEntry], ptr %251, i64 0, i64 %255
+  %257 = load ptr, ptr %8, align 8
+  %258 = load i32, ptr %257, align 4
+  %259 = lshr i32 %258, 12
+  %260 = load ptr, ptr %8, align 8
+  %261 = load i32, ptr %260, align 4
+  %262 = lshr i32 %261, 1
+  %263 = and i32 %262, 2047
+  %264 = add i32 %259, %263
+  %265 = sext i32 %264 to i64
+  %266 = add i64 %265, 1
+  %267 = and i64 %266, -2
+  %268 = getelementptr inbounds nuw i8, ptr %256, i64 %267
+  %269 = getelementptr inbounds nuw %struct.WordEntryPosVector, ptr %268, i32 0, i32 1
+  %270 = getelementptr inbounds [0 x i16], ptr %269, i64 0, i64 0
+  store ptr %270, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  br label %269
+  br label %271
 
-269:                                              ; preds = %315, %232
-  %270 = load i32, ptr %4, align 4
-  %271 = load i32, ptr %11, align 4
-  %272 = icmp slt i32 %270, %271
-  br i1 %272, label %273, label %318
+271:                                              ; preds = %317, %234
+  %272 = load i32, ptr %4, align 4
+  %273 = load i32, ptr %11, align 4
+  %274 = icmp slt i32 %272, %273
+  br i1 %274, label %275, label %320
 
-273:                                              ; preds = %269
-  %274 = load ptr, ptr %12, align 8
-  %275 = load i32, ptr %4, align 4
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr i16, ptr %274, i64 %276
-  %278 = load i16, ptr %277, align 2
-  %279 = zext i16 %278 to i32
-  %280 = and i32 %279, 16383
-  %281 = or i32 0, %280
-  %282 = trunc i32 %281 to i16
-  %283 = load ptr, ptr %12, align 8
-  %284 = load i32, ptr %4, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr i16, ptr %283, i64 %285
-  store i16 %282, ptr %286, align 2
-  %287 = load ptr, ptr %12, align 8
-  %288 = load i32, ptr %4, align 4
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr i16, ptr %287, i64 %289
-  %291 = load i16, ptr %290, align 2
-  %292 = zext i16 %291 to i32
-  %293 = and i32 %292, 49152
-  %294 = load ptr, ptr %2, align 8
-  %295 = getelementptr inbounds %struct.ParsedText, ptr %294, i32 0, i32 0
-  %296 = load ptr, ptr %295, align 8
-  %297 = load i32, ptr %3, align 4
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr %struct.ParsedWord, ptr %296, i64 %298
-  %300 = getelementptr inbounds %struct.ParsedWord, ptr %299, i32 0, i32 4
-  %301 = load ptr, ptr %300, align 8
-  %302 = load i32, ptr %4, align 4
-  %303 = add i32 %302, 1
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr i16, ptr %301, i64 %304
-  %306 = load i16, ptr %305, align 2
-  %307 = zext i16 %306 to i32
-  %308 = and i32 %307, 16383
-  %309 = or i32 %293, %308
-  %310 = trunc i32 %309 to i16
-  %311 = load ptr, ptr %12, align 8
-  %312 = load i32, ptr %4, align 4
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr i16, ptr %311, i64 %313
-  store i16 %310, ptr %314, align 2
-  br label %315
+275:                                              ; preds = %271
+  %276 = load ptr, ptr %12, align 8
+  %277 = load i32, ptr %4, align 4
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds i16, ptr %276, i64 %278
+  %280 = load i16, ptr %279, align 2
+  %281 = zext i16 %280 to i32
+  %282 = and i32 %281, 16383
+  %283 = or i32 0, %282
+  %284 = trunc i32 %283 to i16
+  %285 = load ptr, ptr %12, align 8
+  %286 = load i32, ptr %4, align 4
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds i16, ptr %285, i64 %287
+  store i16 %284, ptr %288, align 2
+  %289 = load ptr, ptr %12, align 8
+  %290 = load i32, ptr %4, align 4
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds i16, ptr %289, i64 %291
+  %293 = load i16, ptr %292, align 2
+  %294 = zext i16 %293 to i32
+  %295 = and i32 %294, 49152
+  %296 = load ptr, ptr %2, align 8
+  %297 = getelementptr inbounds nuw %struct.ParsedText, ptr %296, i32 0, i32 0
+  %298 = load ptr, ptr %297, align 8
+  %299 = load i32, ptr %3, align 4
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds %struct.ParsedWord, ptr %298, i64 %300
+  %302 = getelementptr inbounds nuw %struct.ParsedWord, ptr %301, i32 0, i32 4
+  %303 = load ptr, ptr %302, align 8
+  %304 = load i32, ptr %4, align 4
+  %305 = add i32 %304, 1
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds i16, ptr %303, i64 %306
+  %308 = load i16, ptr %307, align 2
+  %309 = zext i16 %308 to i32
+  %310 = and i32 %309, 16383
+  %311 = or i32 %295, %310
+  %312 = trunc i32 %311 to i16
+  %313 = load ptr, ptr %12, align 8
+  %314 = load i32, ptr %4, align 4
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds i16, ptr %313, i64 %315
+  store i16 %312, ptr %316, align 2
+  br label %317
 
-315:                                              ; preds = %273
-  %316 = load i32, ptr %4, align 4
-  %317 = add i32 %316, 1
-  store i32 %317, ptr %4, align 4
-  br label %269, !llvm.loop !7
+317:                                              ; preds = %275
+  %318 = load i32, ptr %4, align 4
+  %319 = add i32 %318, 1
+  store i32 %319, ptr %4, align 4
+  br label %271, !llvm.loop !6
 
-318:                                              ; preds = %269
-  %319 = load i32, ptr %11, align 4
-  %320 = sext i32 %319 to i64
-  %321 = mul i64 %320, 2
-  %322 = add i64 2, %321
-  %323 = load i32, ptr %10, align 4
-  %324 = sext i32 %323 to i64
-  %325 = add i64 %324, %322
-  %326 = trunc i64 %325 to i32
-  store i32 %326, ptr %10, align 4
-  %327 = load ptr, ptr %2, align 8
-  %328 = getelementptr inbounds %struct.ParsedText, ptr %327, i32 0, i32 0
-  %329 = load ptr, ptr %328, align 8
-  %330 = load i32, ptr %3, align 4
-  %331 = sext i32 %330 to i64
-  %332 = getelementptr %struct.ParsedWord, ptr %329, i64 %331
-  %333 = getelementptr inbounds %struct.ParsedWord, ptr %332, i32 0, i32 4
-  %334 = load ptr, ptr %333, align 8
-  call void @pfree(ptr noundef %334)
-  br label %340
+320:                                              ; preds = %271
+  %321 = load i32, ptr %11, align 4
+  %322 = sext i32 %321 to i64
+  %323 = mul i64 %322, 2
+  %324 = add i64 2, %323
+  %325 = load i32, ptr %10, align 4
+  %326 = sext i32 %325 to i64
+  %327 = add i64 %326, %324
+  %328 = trunc i64 %327 to i32
+  store i32 %328, ptr %10, align 4
+  %329 = load ptr, ptr %2, align 8
+  %330 = getelementptr inbounds nuw %struct.ParsedText, ptr %329, i32 0, i32 0
+  %331 = load ptr, ptr %330, align 8
+  %332 = load i32, ptr %3, align 4
+  %333 = sext i32 %332 to i64
+  %334 = getelementptr inbounds %struct.ParsedWord, ptr %331, i64 %333
+  %335 = getelementptr inbounds nuw %struct.ParsedWord, ptr %334, i32 0, i32 4
+  %336 = load ptr, ptr %335, align 8
+  call void @pfree(ptr noundef %336)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  br label %342
 
-335:                                              ; preds = %136
-  %336 = load ptr, ptr %8, align 8
-  %337 = load i32, ptr %336, align 4
-  %338 = and i32 %337, -2
-  %339 = or i32 %338, 0
-  store i32 %339, ptr %336, align 4
-  br label %340
+337:                                              ; preds = %137
+  %338 = load ptr, ptr %8, align 8
+  %339 = load i32, ptr %338, align 4
+  %340 = and i32 %339, -2
+  %341 = or i32 %340, 0
+  store i32 %341, ptr %338, align 4
+  br label %342
 
-340:                                              ; preds = %335, %318
-  %341 = load ptr, ptr %8, align 8
-  %342 = getelementptr %struct.WordEntry, ptr %341, i32 1
-  store ptr %342, ptr %8, align 8
-  br label %343
+342:                                              ; preds = %337, %320
+  %343 = load ptr, ptr %8, align 8
+  %344 = getelementptr inbounds nuw %struct.WordEntry, ptr %343, i32 1
+  store ptr %344, ptr %8, align 8
+  br label %345
 
-343:                                              ; preds = %340
-  %344 = load i32, ptr %3, align 4
-  %345 = add i32 %344, 1
-  store i32 %345, ptr %3, align 4
-  br label %130, !llvm.loop !8
+345:                                              ; preds = %342
+  %346 = load i32, ptr %3, align 4
+  %347 = add i32 %346, 1
+  store i32 %347, ptr %3, align 4
+  br label %131, !llvm.loop !7
 
-346:                                              ; preds = %130
-  %347 = load ptr, ptr %2, align 8
-  %348 = getelementptr inbounds %struct.ParsedText, ptr %347, i32 0, i32 0
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp ne ptr %349, null
-  br i1 %350, label %351, label %355
+348:                                              ; preds = %131
+  %349 = load ptr, ptr %2, align 8
+  %350 = getelementptr inbounds nuw %struct.ParsedText, ptr %349, i32 0, i32 0
+  %351 = load ptr, ptr %350, align 8
+  %352 = icmp ne ptr %351, null
+  br i1 %352, label %353, label %357
 
-351:                                              ; preds = %346
-  %352 = load ptr, ptr %2, align 8
-  %353 = getelementptr inbounds %struct.ParsedText, ptr %352, i32 0, i32 0
-  %354 = load ptr, ptr %353, align 8
-  call void @pfree(ptr noundef %354)
-  br label %355
+353:                                              ; preds = %348
+  %354 = load ptr, ptr %2, align 8
+  %355 = getelementptr inbounds nuw %struct.ParsedText, ptr %354, i32 0, i32 0
+  %356 = load ptr, ptr %355, align 8
+  call void @pfree(ptr noundef %356)
+  br label %357
 
-355:                                              ; preds = %351, %346
-  %356 = load ptr, ptr %7, align 8
-  ret ptr %356
+357:                                              ; preds = %353, %348
+  %358 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret ptr %358
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @uniqueWORD(ptr noundef %0, i32 noundef %1) #0 {
@@ -520,456 +549,468 @@ define internal i32 @uniqueWORD(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %10 = load i32, ptr %5, align 4
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %47
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.ParsedWord, ptr %12, i32 0, i32 4
-  %14 = load i16, ptr %13, align 8
-  %15 = zext i16 %14 to i32
-  %16 = icmp sge i32 %15, 16384
-  br i1 %16, label %17, label %18
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.ParsedWord, ptr %13, i32 0, i32 4
+  %15 = load i16, ptr %14, align 8
+  %16 = zext i16 %15 to i32
+  %17 = icmp sge i32 %16, 16384
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %11
-  br label %23
+18:                                               ; preds = %12
+  br label %24
 
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.ParsedWord, ptr %19, i32 0, i32 4
-  %21 = load i16, ptr %20, align 8
-  %22 = zext i16 %21 to i32
-  br label %23
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.ParsedWord, ptr %20, i32 0, i32 4
+  %22 = load i16, ptr %21, align 8
+  %23 = zext i16 %22 to i32
+  br label %24
 
-23:                                               ; preds = %18, %17
-  %24 = phi i32 [ 16383, %17 ], [ %22, %18 ]
-  store i32 %24, ptr %8, align 4
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.ParsedWord, ptr %25, i32 0, i32 3
-  store i16 2, ptr %26, align 2
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.ParsedWord, ptr %27, i32 0, i32 3
-  %29 = load i16, ptr %28, align 2
-  %30 = zext i16 %29 to i64
-  %31 = mul i64 2, %30
-  %32 = call ptr @palloc(i64 noundef %31)
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.ParsedWord, ptr %33, i32 0, i32 4
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.ParsedWord, ptr %35, i32 0, i32 4
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr i16, ptr %37, i64 0
-  store i16 1, ptr %38, align 2
-  %39 = load i32, ptr %8, align 4
-  %40 = trunc i32 %39 to i16
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.ParsedWord, ptr %41, i32 0, i32 4
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr i16, ptr %43, i64 1
-  store i16 %40, ptr %44, align 2
-  %45 = load i32, ptr %5, align 4
-  store i32 %45, ptr %3, align 4
-  br label %330
+24:                                               ; preds = %19, %18
+  %25 = phi i32 [ 16383, %18 ], [ %23, %19 ]
+  store i32 %25, ptr %8, align 4
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.ParsedWord, ptr %26, i32 0, i32 3
+  store i16 2, ptr %27, align 2
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.ParsedWord, ptr %28, i32 0, i32 3
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i64
+  %32 = mul i64 2, %31
+  %33 = call ptr @palloc(i64 noundef %32)
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.ParsedWord, ptr %34, i32 0, i32 4
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.ParsedWord, ptr %36, i32 0, i32 4
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i16, ptr %38, i64 0
+  store i16 1, ptr %39, align 2
+  %40 = load i32, ptr %8, align 4
+  %41 = trunc i32 %40 to i16
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.ParsedWord, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i16, ptr %44, i64 1
+  store i16 %41, ptr %45, align 2
+  %46 = load i32, ptr %5, align 4
+  store i32 %46, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %331
 
-46:                                               ; preds = %2
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %7, align 8
+47:                                               ; preds = %2
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr %struct.ParsedWord, ptr %48, i64 1
-  store ptr %49, ptr %6, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = load i32, ptr %5, align 4
-  %52 = sext i32 %51 to i64
-  call void @pg_qsort(ptr noundef %50, i64 noundef %52, i64 noundef 24, ptr noundef @compareWORD)
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.ParsedWord, ptr %53, i32 0, i32 4
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  %57 = icmp sge i32 %56, 16384
-  br i1 %57, label %58, label %59
+  store ptr %48, ptr %7, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds %struct.ParsedWord, ptr %49, i64 1
+  store ptr %50, ptr %6, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = load i32, ptr %5, align 4
+  %53 = sext i32 %52 to i64
+  call void @pg_qsort(ptr noundef %51, i64 noundef %53, i64 noundef 24, ptr noundef @compareWORD)
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds nuw %struct.ParsedWord, ptr %54, i32 0, i32 4
+  %56 = load i16, ptr %55, align 8
+  %57 = zext i16 %56 to i32
+  %58 = icmp sge i32 %57, 16384
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %46
-  br label %64
+59:                                               ; preds = %47
+  br label %65
 
-59:                                               ; preds = %46
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.ParsedWord, ptr %60, i32 0, i32 4
-  %62 = load i16, ptr %61, align 8
-  %63 = zext i16 %62 to i32
-  br label %64
+60:                                               ; preds = %47
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw %struct.ParsedWord, ptr %61, i32 0, i32 4
+  %63 = load i16, ptr %62, align 8
+  %64 = zext i16 %63 to i32
+  br label %65
 
-64:                                               ; preds = %59, %58
-  %65 = phi i32 [ 16383, %58 ], [ %63, %59 ]
-  store i32 %65, ptr %8, align 4
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.ParsedWord, ptr %66, i32 0, i32 3
-  store i16 2, ptr %67, align 2
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.ParsedWord, ptr %68, i32 0, i32 3
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i64
-  %72 = mul i64 2, %71
-  %73 = call ptr @palloc(i64 noundef %72)
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.ParsedWord, ptr %74, i32 0, i32 4
-  store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.ParsedWord, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr i16, ptr %78, i64 0
-  store i16 1, ptr %79, align 2
-  %80 = load i32, ptr %8, align 4
-  %81 = trunc i32 %80 to i16
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.ParsedWord, ptr %82, i32 0, i32 4
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr i16, ptr %84, i64 1
-  store i16 %81, ptr %85, align 2
-  br label %86
+65:                                               ; preds = %60, %59
+  %66 = phi i32 [ 16383, %59 ], [ %64, %60 ]
+  store i32 %66, ptr %8, align 4
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds nuw %struct.ParsedWord, ptr %67, i32 0, i32 3
+  store i16 2, ptr %68, align 2
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.ParsedWord, ptr %69, i32 0, i32 3
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i64
+  %73 = mul i64 2, %72
+  %74 = call ptr @palloc(i64 noundef %73)
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds nuw %struct.ParsedWord, ptr %75, i32 0, i32 4
+  store ptr %74, ptr %76, align 8
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds nuw %struct.ParsedWord, ptr %77, i32 0, i32 4
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i16, ptr %79, i64 0
+  store i16 1, ptr %80, align 2
+  %81 = load i32, ptr %8, align 4
+  %82 = trunc i32 %81 to i16
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds nuw %struct.ParsedWord, ptr %83, i32 0, i32 4
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i16, ptr %85, i64 1
+  store i16 %82, ptr %86, align 2
+  br label %87
 
-86:                                               ; preds = %318, %64
-  %87 = load ptr, ptr %6, align 8
-  %88 = load ptr, ptr %4, align 8
-  %89 = ptrtoint ptr %87 to i64
+87:                                               ; preds = %319, %65
+  %88 = load ptr, ptr %6, align 8
+  %89 = load ptr, ptr %4, align 8
   %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = sdiv exact i64 %91, 24
-  %93 = load i32, ptr %5, align 4
-  %94 = sext i32 %93 to i64
-  %95 = icmp slt i64 %92, %94
-  br i1 %95, label %96, label %321
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = sdiv exact i64 %92, 24
+  %94 = load i32, ptr %5, align 4
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %93, %95
+  br i1 %96, label %97, label %322
 
-96:                                               ; preds = %86
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.ParsedWord, ptr %97, i32 0, i32 1
-  %99 = load i16, ptr %98, align 2
-  %100 = zext i16 %99 to i32
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.ParsedWord, ptr %101, i32 0, i32 1
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i32
-  %105 = icmp eq i32 %100, %104
-  br i1 %105, label %106, label %119
+97:                                               ; preds = %87
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds nuw %struct.ParsedWord, ptr %98, i32 0, i32 1
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i32
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds nuw %struct.ParsedWord, ptr %102, i32 0, i32 1
+  %104 = load i16, ptr %103, align 2
+  %105 = zext i16 %104 to i32
+  %106 = icmp eq i32 %101, %105
+  br i1 %106, label %107, label %120
 
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.ParsedWord, ptr %107, i32 0, i32 5
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %struct.ParsedWord, ptr %110, i32 0, i32 5
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.ParsedWord, ptr %113, i32 0, i32 1
-  %115 = load i16, ptr %114, align 2
-  %116 = zext i16 %115 to i64
-  %117 = call i32 @strncmp(ptr noundef %109, ptr noundef %112, i64 noundef %116) #6
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %165, label %119
+107:                                              ; preds = %97
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds nuw %struct.ParsedWord, ptr %108, i32 0, i32 5
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %7, align 8
+  %112 = getelementptr inbounds nuw %struct.ParsedWord, ptr %111, i32 0, i32 5
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds nuw %struct.ParsedWord, ptr %114, i32 0, i32 1
+  %116 = load i16, ptr %115, align 2
+  %117 = zext i16 %116 to i64
+  %118 = call i32 @strncmp(ptr noundef %110, ptr noundef %113, i64 noundef %117) #9
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %166, label %120
 
-119:                                              ; preds = %106, %96
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr %struct.ParsedWord, ptr %120, i32 1
-  store ptr %121, ptr %7, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.ParsedWord, ptr %122, i32 0, i32 1
-  %124 = load i16, ptr %123, align 2
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.ParsedWord, ptr %125, i32 0, i32 1
-  store i16 %124, ptr %126, align 2
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %struct.ParsedWord, ptr %127, i32 0, i32 5
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds %struct.ParsedWord, ptr %130, i32 0, i32 5
-  store ptr %129, ptr %131, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = getelementptr inbounds %struct.ParsedWord, ptr %132, i32 0, i32 4
-  %134 = load i16, ptr %133, align 8
-  %135 = zext i16 %134 to i32
-  %136 = icmp sge i32 %135, 16384
-  br i1 %136, label %137, label %138
+120:                                              ; preds = %107, %97
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds nuw %struct.ParsedWord, ptr %121, i32 1
+  store ptr %122, ptr %7, align 8
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds nuw %struct.ParsedWord, ptr %123, i32 0, i32 1
+  %125 = load i16, ptr %124, align 2
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds nuw %struct.ParsedWord, ptr %126, i32 0, i32 1
+  store i16 %125, ptr %127, align 2
+  %128 = load ptr, ptr %6, align 8
+  %129 = getelementptr inbounds nuw %struct.ParsedWord, ptr %128, i32 0, i32 5
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds nuw %struct.ParsedWord, ptr %131, i32 0, i32 5
+  store ptr %130, ptr %132, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = getelementptr inbounds nuw %struct.ParsedWord, ptr %133, i32 0, i32 4
+  %135 = load i16, ptr %134, align 8
+  %136 = zext i16 %135 to i32
+  %137 = icmp sge i32 %136, 16384
+  br i1 %137, label %138, label %139
 
-137:                                              ; preds = %119
-  br label %143
+138:                                              ; preds = %120
+  br label %144
 
-138:                                              ; preds = %119
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct.ParsedWord, ptr %139, i32 0, i32 4
-  %141 = load i16, ptr %140, align 8
-  %142 = zext i16 %141 to i32
-  br label %143
+139:                                              ; preds = %120
+  %140 = load ptr, ptr %6, align 8
+  %141 = getelementptr inbounds nuw %struct.ParsedWord, ptr %140, i32 0, i32 4
+  %142 = load i16, ptr %141, align 8
+  %143 = zext i16 %142 to i32
+  br label %144
 
-143:                                              ; preds = %138, %137
-  %144 = phi i32 [ 16383, %137 ], [ %142, %138 ]
-  store i32 %144, ptr %8, align 4
-  %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds %struct.ParsedWord, ptr %145, i32 0, i32 3
-  store i16 2, ptr %146, align 2
-  %147 = load ptr, ptr %7, align 8
-  %148 = getelementptr inbounds %struct.ParsedWord, ptr %147, i32 0, i32 3
-  %149 = load i16, ptr %148, align 2
-  %150 = zext i16 %149 to i64
-  %151 = mul i64 2, %150
-  %152 = call ptr @palloc(i64 noundef %151)
-  %153 = load ptr, ptr %7, align 8
-  %154 = getelementptr inbounds %struct.ParsedWord, ptr %153, i32 0, i32 4
-  store ptr %152, ptr %154, align 8
-  %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds %struct.ParsedWord, ptr %155, i32 0, i32 4
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr i16, ptr %157, i64 0
-  store i16 1, ptr %158, align 2
-  %159 = load i32, ptr %8, align 4
-  %160 = trunc i32 %159 to i16
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.ParsedWord, ptr %161, i32 0, i32 4
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr i16, ptr %163, i64 1
-  store i16 %160, ptr %164, align 2
-  br label %318
+144:                                              ; preds = %139, %138
+  %145 = phi i32 [ 16383, %138 ], [ %143, %139 ]
+  store i32 %145, ptr %8, align 4
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds nuw %struct.ParsedWord, ptr %146, i32 0, i32 3
+  store i16 2, ptr %147, align 2
+  %148 = load ptr, ptr %7, align 8
+  %149 = getelementptr inbounds nuw %struct.ParsedWord, ptr %148, i32 0, i32 3
+  %150 = load i16, ptr %149, align 2
+  %151 = zext i16 %150 to i64
+  %152 = mul i64 2, %151
+  %153 = call ptr @palloc(i64 noundef %152)
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds nuw %struct.ParsedWord, ptr %154, i32 0, i32 4
+  store ptr %153, ptr %155, align 8
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds nuw %struct.ParsedWord, ptr %156, i32 0, i32 4
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i16, ptr %158, i64 0
+  store i16 1, ptr %159, align 2
+  %160 = load i32, ptr %8, align 4
+  %161 = trunc i32 %160 to i16
+  %162 = load ptr, ptr %7, align 8
+  %163 = getelementptr inbounds nuw %struct.ParsedWord, ptr %162, i32 0, i32 4
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i16, ptr %164, i64 1
+  store i16 %161, ptr %165, align 2
+  br label %319
 
-165:                                              ; preds = %106
-  %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr inbounds %struct.ParsedWord, ptr %166, i32 0, i32 5
-  %168 = load ptr, ptr %167, align 8
-  call void @pfree(ptr noundef %168)
-  %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.ParsedWord, ptr %169, i32 0, i32 4
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr i16, ptr %171, i64 0
-  %173 = load i16, ptr %172, align 2
-  %174 = zext i16 %173 to i32
-  %175 = icmp slt i32 %174, 255
-  br i1 %175, label %176, label %317
+166:                                              ; preds = %107
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds nuw %struct.ParsedWord, ptr %167, i32 0, i32 5
+  %169 = load ptr, ptr %168, align 8
+  call void @pfree(ptr noundef %169)
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds nuw %struct.ParsedWord, ptr %170, i32 0, i32 4
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i16, ptr %172, i64 0
+  %174 = load i16, ptr %173, align 2
+  %175 = zext i16 %174 to i32
+  %176 = icmp slt i32 %175, 255
+  br i1 %176, label %177, label %318
 
-176:                                              ; preds = %165
-  %177 = load ptr, ptr %7, align 8
-  %178 = getelementptr inbounds %struct.ParsedWord, ptr %177, i32 0, i32 4
-  %179 = load ptr, ptr %178, align 8
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.ParsedWord, ptr %180, i32 0, i32 4
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr i16, ptr %182, i64 0
-  %184 = load i16, ptr %183, align 2
-  %185 = zext i16 %184 to i64
-  %186 = getelementptr i16, ptr %179, i64 %185
-  %187 = load i16, ptr %186, align 2
-  %188 = zext i16 %187 to i32
-  %189 = icmp ne i32 %188, 16383
-  br i1 %189, label %190, label %317
+177:                                              ; preds = %166
+  %178 = load ptr, ptr %7, align 8
+  %179 = getelementptr inbounds nuw %struct.ParsedWord, ptr %178, i32 0, i32 4
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr %7, align 8
+  %182 = getelementptr inbounds nuw %struct.ParsedWord, ptr %181, i32 0, i32 4
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds i16, ptr %183, i64 0
+  %185 = load i16, ptr %184, align 2
+  %186 = zext i16 %185 to i64
+  %187 = getelementptr inbounds nuw i16, ptr %180, i64 %186
+  %188 = load i16, ptr %187, align 2
+  %189 = zext i16 %188 to i32
+  %190 = icmp ne i32 %189, 16383
+  br i1 %190, label %191, label %318
 
-190:                                              ; preds = %176
-  %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds %struct.ParsedWord, ptr %191, i32 0, i32 4
-  %193 = load ptr, ptr %192, align 8
-  %194 = load ptr, ptr %7, align 8
-  %195 = getelementptr inbounds %struct.ParsedWord, ptr %194, i32 0, i32 4
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr i16, ptr %196, i64 0
-  %198 = load i16, ptr %197, align 2
-  %199 = zext i16 %198 to i64
-  %200 = getelementptr i16, ptr %193, i64 %199
-  %201 = load i16, ptr %200, align 2
-  %202 = zext i16 %201 to i32
-  %203 = load ptr, ptr %6, align 8
-  %204 = getelementptr inbounds %struct.ParsedWord, ptr %203, i32 0, i32 4
-  %205 = load i16, ptr %204, align 8
-  %206 = zext i16 %205 to i32
-  %207 = icmp sge i32 %206, 16384
-  br i1 %207, label %208, label %209
+191:                                              ; preds = %177
+  %192 = load ptr, ptr %7, align 8
+  %193 = getelementptr inbounds nuw %struct.ParsedWord, ptr %192, i32 0, i32 4
+  %194 = load ptr, ptr %193, align 8
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds nuw %struct.ParsedWord, ptr %195, i32 0, i32 4
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds i16, ptr %197, i64 0
+  %199 = load i16, ptr %198, align 2
+  %200 = zext i16 %199 to i64
+  %201 = getelementptr inbounds nuw i16, ptr %194, i64 %200
+  %202 = load i16, ptr %201, align 2
+  %203 = zext i16 %202 to i32
+  %204 = load ptr, ptr %6, align 8
+  %205 = getelementptr inbounds nuw %struct.ParsedWord, ptr %204, i32 0, i32 4
+  %206 = load i16, ptr %205, align 8
+  %207 = zext i16 %206 to i32
+  %208 = icmp sge i32 %207, 16384
+  br i1 %208, label %209, label %210
 
-208:                                              ; preds = %190
-  br label %214
+209:                                              ; preds = %191
+  br label %215
 
-209:                                              ; preds = %190
-  %210 = load ptr, ptr %6, align 8
-  %211 = getelementptr inbounds %struct.ParsedWord, ptr %210, i32 0, i32 4
-  %212 = load i16, ptr %211, align 8
-  %213 = zext i16 %212 to i32
-  br label %214
+210:                                              ; preds = %191
+  %211 = load ptr, ptr %6, align 8
+  %212 = getelementptr inbounds nuw %struct.ParsedWord, ptr %211, i32 0, i32 4
+  %213 = load i16, ptr %212, align 8
+  %214 = zext i16 %213 to i32
+  br label %215
 
-214:                                              ; preds = %209, %208
-  %215 = phi i32 [ 16383, %208 ], [ %213, %209 ]
-  %216 = icmp ne i32 %202, %215
-  br i1 %216, label %217, label %317
+215:                                              ; preds = %210, %209
+  %216 = phi i32 [ 16383, %209 ], [ %214, %210 ]
+  %217 = icmp ne i32 %203, %216
+  br i1 %217, label %218, label %318
 
-217:                                              ; preds = %214
-  %218 = load ptr, ptr %7, align 8
-  %219 = getelementptr inbounds %struct.ParsedWord, ptr %218, i32 0, i32 4
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr i16, ptr %220, i64 0
-  %222 = load i16, ptr %221, align 2
-  %223 = zext i16 %222 to i32
-  %224 = add i32 %223, 1
-  %225 = load ptr, ptr %7, align 8
-  %226 = getelementptr inbounds %struct.ParsedWord, ptr %225, i32 0, i32 3
-  %227 = load i16, ptr %226, align 2
-  %228 = zext i16 %227 to i32
-  %229 = icmp sge i32 %224, %228
-  br i1 %229, label %230, label %248
+218:                                              ; preds = %215
+  %219 = load ptr, ptr %7, align 8
+  %220 = getelementptr inbounds nuw %struct.ParsedWord, ptr %219, i32 0, i32 4
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i16, ptr %221, i64 0
+  %223 = load i16, ptr %222, align 2
+  %224 = zext i16 %223 to i32
+  %225 = add i32 %224, 1
+  %226 = load ptr, ptr %7, align 8
+  %227 = getelementptr inbounds nuw %struct.ParsedWord, ptr %226, i32 0, i32 3
+  %228 = load i16, ptr %227, align 2
+  %229 = zext i16 %228 to i32
+  %230 = icmp sge i32 %225, %229
+  br i1 %230, label %231, label %249
 
-230:                                              ; preds = %217
-  %231 = load ptr, ptr %7, align 8
-  %232 = getelementptr inbounds %struct.ParsedWord, ptr %231, i32 0, i32 3
-  %233 = load i16, ptr %232, align 2
-  %234 = zext i16 %233 to i32
-  %235 = mul i32 %234, 2
-  %236 = trunc i32 %235 to i16
-  store i16 %236, ptr %232, align 2
-  %237 = load ptr, ptr %7, align 8
-  %238 = getelementptr inbounds %struct.ParsedWord, ptr %237, i32 0, i32 4
-  %239 = load ptr, ptr %238, align 8
-  %240 = load ptr, ptr %7, align 8
-  %241 = getelementptr inbounds %struct.ParsedWord, ptr %240, i32 0, i32 3
-  %242 = load i16, ptr %241, align 2
-  %243 = zext i16 %242 to i64
-  %244 = mul i64 2, %243
-  %245 = call ptr @repalloc(ptr noundef %239, i64 noundef %244)
-  %246 = load ptr, ptr %7, align 8
-  %247 = getelementptr inbounds %struct.ParsedWord, ptr %246, i32 0, i32 4
-  store ptr %245, ptr %247, align 8
-  br label %248
+231:                                              ; preds = %218
+  %232 = load ptr, ptr %7, align 8
+  %233 = getelementptr inbounds nuw %struct.ParsedWord, ptr %232, i32 0, i32 3
+  %234 = load i16, ptr %233, align 2
+  %235 = zext i16 %234 to i32
+  %236 = mul i32 %235, 2
+  %237 = trunc i32 %236 to i16
+  store i16 %237, ptr %233, align 2
+  %238 = load ptr, ptr %7, align 8
+  %239 = getelementptr inbounds nuw %struct.ParsedWord, ptr %238, i32 0, i32 4
+  %240 = load ptr, ptr %239, align 8
+  %241 = load ptr, ptr %7, align 8
+  %242 = getelementptr inbounds nuw %struct.ParsedWord, ptr %241, i32 0, i32 3
+  %243 = load i16, ptr %242, align 2
+  %244 = zext i16 %243 to i64
+  %245 = mul i64 2, %244
+  %246 = call ptr @repalloc(ptr noundef %240, i64 noundef %245)
+  %247 = load ptr, ptr %7, align 8
+  %248 = getelementptr inbounds nuw %struct.ParsedWord, ptr %247, i32 0, i32 4
+  store ptr %246, ptr %248, align 8
+  br label %249
 
-248:                                              ; preds = %230, %217
-  %249 = load ptr, ptr %7, align 8
-  %250 = getelementptr inbounds %struct.ParsedWord, ptr %249, i32 0, i32 4
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr i16, ptr %251, i64 0
-  %253 = load i16, ptr %252, align 2
-  %254 = zext i16 %253 to i32
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %283, label %256
+249:                                              ; preds = %231, %218
+  %250 = load ptr, ptr %7, align 8
+  %251 = getelementptr inbounds nuw %struct.ParsedWord, ptr %250, i32 0, i32 4
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds i16, ptr %252, i64 0
+  %254 = load i16, ptr %253, align 2
+  %255 = zext i16 %254 to i32
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %284, label %257
 
-256:                                              ; preds = %248
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct.ParsedWord, ptr %257, i32 0, i32 4
-  %259 = load ptr, ptr %258, align 8
-  %260 = load ptr, ptr %7, align 8
-  %261 = getelementptr inbounds %struct.ParsedWord, ptr %260, i32 0, i32 4
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr i16, ptr %262, i64 0
-  %264 = load i16, ptr %263, align 2
-  %265 = zext i16 %264 to i64
-  %266 = getelementptr i16, ptr %259, i64 %265
-  %267 = load i16, ptr %266, align 2
-  %268 = zext i16 %267 to i32
-  %269 = load ptr, ptr %6, align 8
-  %270 = getelementptr inbounds %struct.ParsedWord, ptr %269, i32 0, i32 4
-  %271 = load i16, ptr %270, align 8
-  %272 = zext i16 %271 to i32
-  %273 = icmp sge i32 %272, 16384
-  br i1 %273, label %274, label %275
+257:                                              ; preds = %249
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds nuw %struct.ParsedWord, ptr %258, i32 0, i32 4
+  %260 = load ptr, ptr %259, align 8
+  %261 = load ptr, ptr %7, align 8
+  %262 = getelementptr inbounds nuw %struct.ParsedWord, ptr %261, i32 0, i32 4
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds i16, ptr %263, i64 0
+  %265 = load i16, ptr %264, align 2
+  %266 = zext i16 %265 to i64
+  %267 = getelementptr inbounds nuw i16, ptr %260, i64 %266
+  %268 = load i16, ptr %267, align 2
+  %269 = zext i16 %268 to i32
+  %270 = load ptr, ptr %6, align 8
+  %271 = getelementptr inbounds nuw %struct.ParsedWord, ptr %270, i32 0, i32 4
+  %272 = load i16, ptr %271, align 8
+  %273 = zext i16 %272 to i32
+  %274 = icmp sge i32 %273, 16384
+  br i1 %274, label %275, label %276
 
-274:                                              ; preds = %256
-  br label %280
+275:                                              ; preds = %257
+  br label %281
 
-275:                                              ; preds = %256
-  %276 = load ptr, ptr %6, align 8
-  %277 = getelementptr inbounds %struct.ParsedWord, ptr %276, i32 0, i32 4
-  %278 = load i16, ptr %277, align 8
-  %279 = zext i16 %278 to i32
-  br label %280
+276:                                              ; preds = %257
+  %277 = load ptr, ptr %6, align 8
+  %278 = getelementptr inbounds nuw %struct.ParsedWord, ptr %277, i32 0, i32 4
+  %279 = load i16, ptr %278, align 8
+  %280 = zext i16 %279 to i32
+  br label %281
 
-280:                                              ; preds = %275, %274
-  %281 = phi i32 [ 16383, %274 ], [ %279, %275 ]
-  %282 = icmp ne i32 %268, %281
-  br i1 %282, label %283, label %316
+281:                                              ; preds = %276, %275
+  %282 = phi i32 [ 16383, %275 ], [ %280, %276 ]
+  %283 = icmp ne i32 %269, %282
+  br i1 %283, label %284, label %317
 
-283:                                              ; preds = %280, %248
-  %284 = load ptr, ptr %6, align 8
-  %285 = getelementptr inbounds %struct.ParsedWord, ptr %284, i32 0, i32 4
-  %286 = load i16, ptr %285, align 8
-  %287 = zext i16 %286 to i32
-  %288 = icmp sge i32 %287, 16384
-  br i1 %288, label %289, label %290
+284:                                              ; preds = %281, %249
+  %285 = load ptr, ptr %6, align 8
+  %286 = getelementptr inbounds nuw %struct.ParsedWord, ptr %285, i32 0, i32 4
+  %287 = load i16, ptr %286, align 8
+  %288 = zext i16 %287 to i32
+  %289 = icmp sge i32 %288, 16384
+  br i1 %289, label %290, label %291
 
-289:                                              ; preds = %283
-  br label %295
+290:                                              ; preds = %284
+  br label %296
 
-290:                                              ; preds = %283
-  %291 = load ptr, ptr %6, align 8
-  %292 = getelementptr inbounds %struct.ParsedWord, ptr %291, i32 0, i32 4
-  %293 = load i16, ptr %292, align 8
-  %294 = zext i16 %293 to i32
-  br label %295
+291:                                              ; preds = %284
+  %292 = load ptr, ptr %6, align 8
+  %293 = getelementptr inbounds nuw %struct.ParsedWord, ptr %292, i32 0, i32 4
+  %294 = load i16, ptr %293, align 8
+  %295 = zext i16 %294 to i32
+  br label %296
 
-295:                                              ; preds = %290, %289
-  %296 = phi i32 [ 16383, %289 ], [ %294, %290 ]
-  %297 = trunc i32 %296 to i16
-  %298 = load ptr, ptr %7, align 8
-  %299 = getelementptr inbounds %struct.ParsedWord, ptr %298, i32 0, i32 4
-  %300 = load ptr, ptr %299, align 8
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct.ParsedWord, ptr %301, i32 0, i32 4
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr i16, ptr %303, i64 0
-  %305 = load i16, ptr %304, align 2
-  %306 = zext i16 %305 to i32
-  %307 = add i32 %306, 1
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr i16, ptr %300, i64 %308
-  store i16 %297, ptr %309, align 2
-  %310 = load ptr, ptr %7, align 8
-  %311 = getelementptr inbounds %struct.ParsedWord, ptr %310, i32 0, i32 4
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr i16, ptr %312, i64 0
-  %314 = load i16, ptr %313, align 2
-  %315 = add i16 %314, 1
-  store i16 %315, ptr %313, align 2
-  br label %316
-
-316:                                              ; preds = %295, %280
+296:                                              ; preds = %291, %290
+  %297 = phi i32 [ 16383, %290 ], [ %295, %291 ]
+  %298 = trunc i32 %297 to i16
+  %299 = load ptr, ptr %7, align 8
+  %300 = getelementptr inbounds nuw %struct.ParsedWord, ptr %299, i32 0, i32 4
+  %301 = load ptr, ptr %300, align 8
+  %302 = load ptr, ptr %7, align 8
+  %303 = getelementptr inbounds nuw %struct.ParsedWord, ptr %302, i32 0, i32 4
+  %304 = load ptr, ptr %303, align 8
+  %305 = getelementptr inbounds i16, ptr %304, i64 0
+  %306 = load i16, ptr %305, align 2
+  %307 = zext i16 %306 to i32
+  %308 = add i32 %307, 1
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds i16, ptr %301, i64 %309
+  store i16 %298, ptr %310, align 2
+  %311 = load ptr, ptr %7, align 8
+  %312 = getelementptr inbounds nuw %struct.ParsedWord, ptr %311, i32 0, i32 4
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds i16, ptr %313, i64 0
+  %315 = load i16, ptr %314, align 2
+  %316 = add i16 %315, 1
+  store i16 %316, ptr %314, align 2
   br label %317
 
-317:                                              ; preds = %316, %214, %176, %165
+317:                                              ; preds = %296, %281
   br label %318
 
-318:                                              ; preds = %317, %143
-  %319 = load ptr, ptr %6, align 8
-  %320 = getelementptr %struct.ParsedWord, ptr %319, i32 1
-  store ptr %320, ptr %6, align 8
-  br label %86, !llvm.loop !9
+318:                                              ; preds = %317, %215, %177, %166
+  br label %319
 
-321:                                              ; preds = %86
-  %322 = load ptr, ptr %7, align 8
-  %323 = getelementptr %struct.ParsedWord, ptr %322, i64 1
-  %324 = load ptr, ptr %4, align 8
-  %325 = ptrtoint ptr %323 to i64
+319:                                              ; preds = %318, %144
+  %320 = load ptr, ptr %6, align 8
+  %321 = getelementptr inbounds nuw %struct.ParsedWord, ptr %320, i32 1
+  store ptr %321, ptr %6, align 8
+  br label %87, !llvm.loop !8
+
+322:                                              ; preds = %87
+  %323 = load ptr, ptr %7, align 8
+  %324 = getelementptr inbounds %struct.ParsedWord, ptr %323, i64 1
+  %325 = load ptr, ptr %4, align 8
   %326 = ptrtoint ptr %324 to i64
-  %327 = sub i64 %325, %326
-  %328 = sdiv exact i64 %327, 24
-  %329 = trunc i64 %328 to i32
-  store i32 %329, ptr %3, align 4
-  br label %330
+  %327 = ptrtoint ptr %325 to i64
+  %328 = sub i64 %326, %327
+  %329 = sdiv exact i64 %328, 24
+  %330 = trunc i64 %329 to i32
+  store i32 %330, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %331
 
-330:                                              ; preds = %321, %23
-  %331 = load i32, ptr %3, align 4
-  ret i32 %331
+331:                                              ; preds = %322, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %332 = load i32, ptr %3, align 4
+  ret i32 %332
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #2
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
@@ -979,23 +1020,27 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
   %5 = alloca %struct.ParsedText, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = call i32 @DatumGetObjectId(i64 noundef %11)
   store i32 %12, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 1
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 1
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call ptr @DatumGetPointer(i64 noundef %17)
   %19 = call ptr @pg_detoast_datum_packed(ptr noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.varattrib_1b, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %20, i32 0, i32 0
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp eq i32 %23, 1
@@ -1003,7 +1048,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 25:                                               ; preds = %1
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.varattrib_1b_e, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %26, i32 0, i32 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = icmp eq i32 %29, 1
@@ -1014,7 +1059,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.varattrib_1b_e, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %33, i32 0, i32 1
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = and i32 %36, -2
@@ -1026,7 +1071,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 40:                                               ; preds = %32
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.varattrib_1b_e, ptr %41, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %41, i32 0, i32 1
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = icmp eq i32 %44, 18
@@ -1045,7 +1090,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 53:                                               ; preds = %1
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.varattrib_1b, ptr %54, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %54, i32 0, i32 0
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = and i32 %57, 1
@@ -1054,7 +1099,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.varattrib_1b, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %61, i32 0, i32 0
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = ashr i32 %64, 1
@@ -1065,7 +1110,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 69:                                               ; preds = %53
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.anon, ptr %70, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.anon, ptr %70, i32 0, i32 0
   %72 = load i32, ptr %71, align 4
   %73 = lshr i32 %72, 2
   %74 = and i32 %73, 1073741823
@@ -1081,27 +1126,27 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
   %80 = phi i64 [ %52, %49 ], [ %78, %77 ]
   %81 = udiv i64 %80, 6
   %82 = trunc i64 %81 to i32
-  %83 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %84 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   %85 = load i32, ptr %84, align 8
   %86 = icmp slt i32 %85, 2
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %88 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   store i32 2, ptr %88, align 8
   br label %97
 
 89:                                               ; preds = %79
-  %90 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   %91 = load i32, ptr %90, align 8
   %92 = sext i32 %91 to i64
   %93 = icmp ugt i64 %92, 44739242
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   store i32 44739242, ptr %95, align 8
   br label %96
 
@@ -1109,20 +1154,20 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
   br label %97
 
 97:                                               ; preds = %96, %87
-  %98 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 2
+  %98 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 2
   store i32 0, ptr %98, align 4
-  %99 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 3
+  %99 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 3
   store i32 0, ptr %99, align 8
-  %100 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 1
+  %100 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 1
   %101 = load i32, ptr %100, align 8
   %102 = sext i32 %101 to i64
   %103 = mul i64 24, %102
   %104 = call ptr @palloc(i64 noundef %103)
-  %105 = getelementptr inbounds %struct.ParsedText, ptr %5, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %struct.ParsedText, ptr %5, i32 0, i32 0
   store ptr %104, ptr %105, align 8
   %106 = load i32, ptr %3, align 4
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.varattrib_1b, ptr %107, i32 0, i32 0
+  %108 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %107, i32 0, i32 0
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = and i32 %110, 1
@@ -1131,20 +1176,20 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 113:                                              ; preds = %97
   %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.varattrib_1b, ptr %114, i32 0, i32 1
+  %115 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %114, i32 0, i32 1
   %116 = getelementptr inbounds [0 x i8], ptr %115, i64 0, i64 0
   br label %121
 
 117:                                              ; preds = %97
   %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.anon, ptr %118, i32 0, i32 1
+  %119 = getelementptr inbounds nuw %struct.anon, ptr %118, i32 0, i32 1
   %120 = getelementptr inbounds [0 x i8], ptr %119, i64 0, i64 0
   br label %121
 
 121:                                              ; preds = %117, %113
   %122 = phi ptr [ %116, %113 ], [ %120, %117 ]
   %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.varattrib_1b, ptr %123, i32 0, i32 0
+  %124 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %123, i32 0, i32 0
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = icmp eq i32 %126, 1
@@ -1152,7 +1197,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 128:                                              ; preds = %121
   %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.varattrib_1b_e, ptr %129, i32 0, i32 1
+  %130 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %129, i32 0, i32 1
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %133 = icmp eq i32 %132, 1
@@ -1163,7 +1208,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 135:                                              ; preds = %128
   %136 = load ptr, ptr %4, align 8
-  %137 = getelementptr inbounds %struct.varattrib_1b_e, ptr %136, i32 0, i32 1
+  %137 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %136, i32 0, i32 1
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = and i32 %139, -2
@@ -1175,7 +1220,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 143:                                              ; preds = %135
   %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.varattrib_1b_e, ptr %144, i32 0, i32 1
+  %145 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %144, i32 0, i32 1
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = icmp eq i32 %147, 18
@@ -1194,7 +1239,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 156:                                              ; preds = %121
   %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %struct.varattrib_1b, ptr %157, i32 0, i32 0
+  %158 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %157, i32 0, i32 0
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = and i32 %160, 1
@@ -1203,7 +1248,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 163:                                              ; preds = %156
   %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.varattrib_1b, ptr %164, i32 0, i32 0
+  %165 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %164, i32 0, i32 0
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i32
   %168 = ashr i32 %167, 1
@@ -1214,7 +1259,7 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 
 172:                                              ; preds = %156
   %173 = load ptr, ptr %4, align 8
-  %174 = getelementptr inbounds %struct.anon, ptr %173, i32 0, i32 0
+  %174 = getelementptr inbounds nuw %struct.anon, ptr %173, i32 0, i32 0
   %175 = load i32, ptr %174, align 4
   %176 = lshr i32 %175, 2
   %177 = and i32 %176, 1073741823
@@ -1235,9 +1280,9 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
 185:                                              ; preds = %182
   %186 = load ptr, ptr %4, align 8
   %187 = load ptr, ptr %2, align 8
-  %188 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %187, i32 0, i32 6
-  %189 = getelementptr [0 x %struct.NullableDatum], ptr %188, i64 0, i64 1
-  %190 = getelementptr inbounds %struct.NullableDatum, ptr %189, i32 0, i32 0
+  %188 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %187, i32 0, i32 6
+  %189 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %188, i64 0, i64 1
+  %190 = getelementptr inbounds nuw %struct.NullableDatum, ptr %189, i32 0, i32 0
   %191 = load i64, ptr %190, align 8
   %192 = call ptr @DatumGetPointer(i64 noundef %191)
   %193 = icmp ne ptr %186, %192
@@ -1252,15 +1297,22 @@ define dso_local i64 @to_tsvector_byid(ptr noundef %0) #0 {
   br label %197
 
 197:                                              ; preds = %196
-  %198 = call ptr @make_tsvector(ptr noundef %5)
-  store ptr %198, ptr %6, align 8
-  %199 = load ptr, ptr %6, align 8
-  %200 = call i64 @TSVectorGetDatum(ptr noundef %199)
-  ret i64 %200
+  br label %198
+
+198:                                              ; preds = %197
+  %199 = call ptr @make_tsvector(ptr noundef %5)
+  store ptr %199, ptr %6, align 8
+  %200 = load ptr, ptr %6, align 8
+  %201 = call i64 @TSVectorGetDatum(ptr noundef %200)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %201
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetObjectId(i64 noundef %0) #1 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1268,10 +1320,10 @@ define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) #1
+declare ptr @pg_detoast_datum_packed(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #1 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1279,12 +1331,12 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #2
 
-declare void @parsetext(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
+declare void @parsetext(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TSVectorGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TSVectorGetDatum(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1298,14 +1350,16 @@ define dso_local i64 @to_tsvector(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
-  %7 = getelementptr [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %struct.NullableDatum, ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct.NullableDatum, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @DatumGetPointer(i64 noundef %9)
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -1313,13 +1367,15 @@ define dso_local i64 @to_tsvector(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @PointerGetDatum(ptr noundef %15)
   %17 = call i64 @DirectFunctionCall2Coll(ptr noundef @to_tsvector_byid, i32 noundef 0, i64 noundef %14, i64 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %17
 }
 
-declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #1
+declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1334,20 +1390,23 @@ define dso_local i64 @jsonb_string_to_tsvector_byid(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @DatumGetObjectId(i64 noundef %10)
   store i32 %11, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
-  %14 = getelementptr [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
-  %15 = getelementptr inbounds %struct.NullableDatum, ptr %14, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
+  %15 = getelementptr inbounds nuw %struct.NullableDatum, ptr %14, i32 0, i32 0
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @DatumGetJsonbP(i64 noundef %16)
   store ptr %17, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %18 = load i32, ptr %3, align 4
   %19 = load ptr, ptr %4, align 8
   %20 = call ptr @jsonb_to_tsvector_worker(i32 noundef %18, ptr noundef %19, i32 noundef 2)
@@ -1357,9 +1416,9 @@ define dso_local i64 @jsonb_string_to_tsvector_byid(ptr noundef %0) #0 {
 21:                                               ; preds = %1
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
-  %25 = getelementptr [0 x %struct.NullableDatum], ptr %24, i64 0, i64 1
-  %26 = getelementptr inbounds %struct.NullableDatum, ptr %25, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
+  %25 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %24, i64 0, i64 1
+  %26 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i32 0, i32 0
   %27 = load i64, ptr %26, align 8
   %28 = call ptr @DatumGetPointer(i64 noundef %27)
   %29 = icmp ne ptr %22, %28
@@ -1374,13 +1433,19 @@ define dso_local i64 @jsonb_string_to_tsvector_byid(ptr noundef %0) #0 {
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i64 @TSVectorGetDatum(ptr noundef %34)
-  ret i64 %35
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i64 @TSVectorGetDatum(ptr noundef %35)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %36
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetJsonbP(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetJsonbP(i64 noundef %0) #1 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1399,19 +1464,23 @@ define internal ptr @jsonb_to_tsvector_worker(i32 noundef %0, ptr noundef %1, i3
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
-  %9 = getelementptr inbounds %struct.ParsedText, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #7
+  %9 = getelementptr inbounds nuw %struct.ParsedText, ptr %8, i32 0, i32 0
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %struct.ParsedText, ptr %8, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.ParsedText, ptr %8, i32 0, i32 2
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds %struct.TSVectorBuildState, ptr %7, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %7, i32 0, i32 0
   store ptr %8, ptr %11, align 8
   %12 = load i32, ptr %4, align 4
-  %13 = getelementptr inbounds %struct.TSVectorBuildState, ptr %7, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %7, i32 0, i32 1
   store i32 %12, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %6, align 4
   call void @iterate_jsonb_values(ptr noundef %14, i32 noundef %15, ptr noundef %7, ptr noundef @add_to_tsvector)
   %16 = call ptr @make_tsvector(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #7
   ret ptr %16
 }
 
@@ -1422,13 +1491,16 @@ define dso_local i64 @jsonb_string_to_tsvector(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetJsonbP(i64 noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -1440,9 +1512,9 @@ define dso_local i64 @jsonb_string_to_tsvector(ptr noundef %0) #0 {
 16:                                               ; preds = %1
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
-  %20 = getelementptr [0 x %struct.NullableDatum], ptr %19, i64 0, i64 0
-  %21 = getelementptr inbounds %struct.NullableDatum, ptr %20, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
+  %20 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %19, i64 0, i64 0
+  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %20, i32 0, i32 0
   %22 = load i64, ptr %21, align 8
   %23 = call ptr @DatumGetPointer(i64 noundef %22)
   %24 = icmp ne ptr %17, %23
@@ -1457,9 +1529,15 @@ define dso_local i64 @jsonb_string_to_tsvector(ptr noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i64 @TSVectorGetDatum(ptr noundef %29)
-  ret i64 %30
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %5, align 8
+  %31 = call i64 @TSVectorGetDatum(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1471,27 +1549,32 @@ define dso_local i64 @jsonb_to_tsvector_byid(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call i32 @DatumGetObjectId(i64 noundef %12)
   store i32 %13, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetJsonbP(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call ptr @DatumGetJsonbP(i64 noundef %24)
   store ptr %25, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %26 = load ptr, ptr %5, align 8
   %27 = call i32 @parse_jsonb_index_flags(ptr noundef %26)
   store i32 %27, ptr %7, align 4
@@ -1505,9 +1588,9 @@ define dso_local i64 @jsonb_to_tsvector_byid(ptr noundef %0) #0 {
 32:                                               ; preds = %1
   %33 = load ptr, ptr %4, align 8
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %34, i32 0, i32 6
-  %36 = getelementptr [0 x %struct.NullableDatum], ptr %35, i64 0, i64 1
-  %37 = getelementptr inbounds %struct.NullableDatum, ptr %36, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %34, i32 0, i32 6
+  %36 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %35, i64 0, i64 1
+  %37 = getelementptr inbounds nuw %struct.NullableDatum, ptr %36, i32 0, i32 0
   %38 = load i64, ptr %37, align 8
   %39 = call ptr @DatumGetPointer(i64 noundef %38)
   %40 = icmp ne ptr %33, %39
@@ -1525,31 +1608,42 @@ define dso_local i64 @jsonb_to_tsvector_byid(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %47, i32 0, i32 6
-  %49 = getelementptr [0 x %struct.NullableDatum], ptr %48, i64 0, i64 2
-  %50 = getelementptr inbounds %struct.NullableDatum, ptr %49, i32 0, i32 0
-  %51 = load i64, ptr %50, align 8
-  %52 = call ptr @DatumGetPointer(i64 noundef %51)
-  %53 = icmp ne ptr %46, %52
-  br i1 %53, label %54, label %56
+  br label %46
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %55)
-  br label %56
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %48, i32 0, i32 6
+  %50 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %49, i64 0, i64 2
+  %51 = getelementptr inbounds nuw %struct.NullableDatum, ptr %50, i32 0, i32 0
+  %52 = load i64, ptr %51, align 8
+  %53 = call ptr @DatumGetPointer(i64 noundef %52)
+  %54 = icmp ne ptr %47, %53
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %54, %45
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %56)
   br label %57
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %6, align 8
-  %59 = call i64 @TSVectorGetDatum(ptr noundef %58)
-  ret i64 %59
+57:                                               ; preds = %55, %46
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %6, align 8
+  %61 = call i64 @TSVectorGetDatum(ptr noundef %60)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %61
 }
 
-declare i32 @parse_jsonb_index_flags(ptr noundef) #1
+declare i32 @parse_jsonb_index_flags(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_to_tsvector(ptr noundef %0) #0 {
@@ -1560,20 +1654,25 @@ define dso_local i64 @jsonb_to_tsvector(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetJsonbP(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetJsonbP(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %20 = load ptr, ptr %4, align 8
   %21 = call i32 @parse_jsonb_index_flags(ptr noundef %20)
   store i32 %21, ptr %7, align 4
@@ -1589,9 +1688,9 @@ define dso_local i64 @jsonb_to_tsvector(ptr noundef %0) #0 {
 27:                                               ; preds = %1
   %28 = load ptr, ptr %3, align 8
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %29, i32 0, i32 6
-  %31 = getelementptr [0 x %struct.NullableDatum], ptr %30, i64 0, i64 0
-  %32 = getelementptr inbounds %struct.NullableDatum, ptr %31, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %29, i32 0, i32 6
+  %31 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %30, i64 0, i64 0
+  %32 = getelementptr inbounds nuw %struct.NullableDatum, ptr %31, i32 0, i32 0
   %33 = load i64, ptr %32, align 8
   %34 = call ptr @DatumGetPointer(i64 noundef %33)
   %35 = icmp ne ptr %28, %34
@@ -1609,28 +1708,39 @@ define dso_local i64 @jsonb_to_tsvector(ptr noundef %0) #0 {
   br label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %42, i32 0, i32 6
-  %44 = getelementptr [0 x %struct.NullableDatum], ptr %43, i64 0, i64 1
-  %45 = getelementptr inbounds %struct.NullableDatum, ptr %44, i32 0, i32 0
-  %46 = load i64, ptr %45, align 8
-  %47 = call ptr @DatumGetPointer(i64 noundef %46)
-  %48 = icmp ne ptr %41, %47
-  br i1 %48, label %49, label %51
+  br label %41
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %50)
-  br label %51
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %43, i32 0, i32 6
+  %45 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %44, i64 0, i64 1
+  %46 = getelementptr inbounds nuw %struct.NullableDatum, ptr %45, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8
+  %48 = call ptr @DatumGetPointer(i64 noundef %47)
+  %49 = icmp ne ptr %42, %48
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %49, %40
+50:                                               ; preds = %41
+  %51 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %51)
   br label %52
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %6, align 8
-  %54 = call i64 @TSVectorGetDatum(ptr noundef %53)
-  ret i64 %54
+52:                                               ; preds = %50, %41
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %6, align 8
+  %56 = call i64 @TSVectorGetDatum(ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1640,21 +1750,24 @@ define dso_local i64 @json_string_to_tsvector_byid(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @DatumGetObjectId(i64 noundef %10)
   store i32 %11, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
-  %14 = getelementptr [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
-  %15 = getelementptr inbounds %struct.NullableDatum, ptr %14, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
+  %15 = getelementptr inbounds nuw %struct.NullableDatum, ptr %14, i32 0, i32 0
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @DatumGetPointer(i64 noundef %16)
   %18 = call ptr @pg_detoast_datum(ptr noundef %17)
   store ptr %18, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %19 = load i32, ptr %3, align 4
   %20 = load ptr, ptr %4, align 8
   %21 = call ptr @json_to_tsvector_worker(i32 noundef %19, ptr noundef %20, i32 noundef 2)
@@ -1664,9 +1777,9 @@ define dso_local i64 @json_string_to_tsvector_byid(ptr noundef %0) #0 {
 22:                                               ; preds = %1
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %24, i32 0, i32 6
-  %26 = getelementptr [0 x %struct.NullableDatum], ptr %25, i64 0, i64 1
-  %27 = getelementptr inbounds %struct.NullableDatum, ptr %26, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %24, i32 0, i32 6
+  %26 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %25, i64 0, i64 1
+  %27 = getelementptr inbounds nuw %struct.NullableDatum, ptr %26, i32 0, i32 0
   %28 = load i64, ptr %27, align 8
   %29 = call ptr @DatumGetPointer(i64 noundef %28)
   %30 = icmp ne ptr %23, %29
@@ -1681,12 +1794,18 @@ define dso_local i64 @json_string_to_tsvector_byid(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr %5, align 8
-  %36 = call i64 @TSVectorGetDatum(ptr noundef %35)
-  ret i64 %36
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %5, align 8
+  %37 = call i64 @TSVectorGetDatum(ptr noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %37
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) #1
+declare ptr @pg_detoast_datum(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @json_to_tsvector_worker(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -1698,19 +1817,23 @@ define internal ptr @json_to_tsvector_worker(i32 noundef %0, ptr noundef %1, i32
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
-  %9 = getelementptr inbounds %struct.ParsedText, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #7
+  %9 = getelementptr inbounds nuw %struct.ParsedText, ptr %8, i32 0, i32 0
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %struct.ParsedText, ptr %8, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.ParsedText, ptr %8, i32 0, i32 2
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds %struct.TSVectorBuildState, ptr %7, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %7, i32 0, i32 0
   store ptr %8, ptr %11, align 8
   %12 = load i32, ptr %4, align 4
-  %13 = getelementptr inbounds %struct.TSVectorBuildState, ptr %7, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %7, i32 0, i32 1
   store i32 %12, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %6, align 4
   call void @iterate_json_values(ptr noundef %14, i32 noundef %15, ptr noundef %7, ptr noundef @add_to_tsvector)
   %16 = call ptr @make_tsvector(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #7
   ret ptr %16
 }
 
@@ -1721,14 +1844,17 @@ define dso_local i64 @json_string_to_tsvector(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetPointer(i64 noundef %10)
   %12 = call ptr @pg_detoast_datum(ptr noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %13 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %13, ptr %4, align 4
   %14 = load i32, ptr %4, align 4
@@ -1740,9 +1866,9 @@ define dso_local i64 @json_string_to_tsvector(ptr noundef %0) #0 {
 17:                                               ; preds = %1
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
-  %21 = getelementptr [0 x %struct.NullableDatum], ptr %20, i64 0, i64 0
-  %22 = getelementptr inbounds %struct.NullableDatum, ptr %21, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %20, i64 0, i64 0
+  %22 = getelementptr inbounds nuw %struct.NullableDatum, ptr %21, i32 0, i32 0
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @DatumGetPointer(i64 noundef %23)
   %25 = icmp ne ptr %18, %24
@@ -1757,9 +1883,15 @@ define dso_local i64 @json_string_to_tsvector(ptr noundef %0) #0 {
   br label %29
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr %5, align 8
-  %31 = call i64 @TSVectorGetDatum(ptr noundef %30)
-  ret i64 %31
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %5, align 8
+  %32 = call i64 @TSVectorGetDatum(ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1771,28 +1903,33 @@ define dso_local i64 @json_to_tsvector_byid(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call i32 @DatumGetObjectId(i64 noundef %12)
   store i32 %13, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetPointer(i64 noundef %18)
   %20 = call ptr @pg_detoast_datum(ptr noundef %19)
   store ptr %20, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
+  %24 = getelementptr inbounds nuw %struct.NullableDatum, ptr %23, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
   %26 = call ptr @DatumGetJsonbP(i64 noundef %25)
   store ptr %26, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %27 = load ptr, ptr %5, align 8
   %28 = call i32 @parse_jsonb_index_flags(ptr noundef %27)
   store i32 %28, ptr %7, align 4
@@ -1806,9 +1943,9 @@ define dso_local i64 @json_to_tsvector_byid(ptr noundef %0) #0 {
 33:                                               ; preds = %1
   %34 = load ptr, ptr %4, align 8
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %35, i32 0, i32 6
-  %37 = getelementptr [0 x %struct.NullableDatum], ptr %36, i64 0, i64 1
-  %38 = getelementptr inbounds %struct.NullableDatum, ptr %37, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %35, i32 0, i32 6
+  %37 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %36, i64 0, i64 1
+  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %37, i32 0, i32 0
   %39 = load i64, ptr %38, align 8
   %40 = call ptr @DatumGetPointer(i64 noundef %39)
   %41 = icmp ne ptr %34, %40
@@ -1826,28 +1963,39 @@ define dso_local i64 @json_to_tsvector_byid(ptr noundef %0) #0 {
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %48, i32 0, i32 6
-  %50 = getelementptr [0 x %struct.NullableDatum], ptr %49, i64 0, i64 2
-  %51 = getelementptr inbounds %struct.NullableDatum, ptr %50, i32 0, i32 0
-  %52 = load i64, ptr %51, align 8
-  %53 = call ptr @DatumGetPointer(i64 noundef %52)
-  %54 = icmp ne ptr %47, %53
-  br i1 %54, label %55, label %57
+  br label %47
 
-55:                                               ; preds = %46
-  %56 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %56)
-  br label %57
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %49, i32 0, i32 6
+  %51 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %50, i64 0, i64 2
+  %52 = getelementptr inbounds nuw %struct.NullableDatum, ptr %51, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  %54 = call ptr @DatumGetPointer(i64 noundef %53)
+  %55 = icmp ne ptr %48, %54
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %55, %46
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %57)
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %6, align 8
-  %60 = call i64 @TSVectorGetDatum(ptr noundef %59)
-  ret i64 %60
+58:                                               ; preds = %56, %47
+  br label %59
+
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %6, align 8
+  %62 = call i64 @TSVectorGetDatum(ptr noundef %61)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %62
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1859,21 +2007,26 @@ define dso_local i64 @json_to_tsvector(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetPointer(i64 noundef %12)
   %14 = call ptr @pg_detoast_datum(ptr noundef %13)
   store ptr %14, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
-  %18 = getelementptr inbounds %struct.NullableDatum, ptr %17, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
+  %17 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
+  %18 = getelementptr inbounds nuw %struct.NullableDatum, ptr %17, i32 0, i32 0
   %19 = load i64, ptr %18, align 8
   %20 = call ptr @DatumGetJsonbP(i64 noundef %19)
   store ptr %20, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %21 = load ptr, ptr %4, align 8
   %22 = call i32 @parse_jsonb_index_flags(ptr noundef %21)
   store i32 %22, ptr %7, align 4
@@ -1889,9 +2042,9 @@ define dso_local i64 @json_to_tsvector(ptr noundef %0) #0 {
 28:                                               ; preds = %1
   %29 = load ptr, ptr %3, align 8
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %30, i32 0, i32 6
-  %32 = getelementptr [0 x %struct.NullableDatum], ptr %31, i64 0, i64 0
-  %33 = getelementptr inbounds %struct.NullableDatum, ptr %32, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %30, i32 0, i32 6
+  %32 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %31, i64 0, i64 0
+  %33 = getelementptr inbounds nuw %struct.NullableDatum, ptr %32, i32 0, i32 0
   %34 = load i64, ptr %33, align 8
   %35 = call ptr @DatumGetPointer(i64 noundef %34)
   %36 = icmp ne ptr %29, %35
@@ -1909,28 +2062,39 @@ define dso_local i64 @json_to_tsvector(ptr noundef %0) #0 {
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %4, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %43, i32 0, i32 6
-  %45 = getelementptr [0 x %struct.NullableDatum], ptr %44, i64 0, i64 1
-  %46 = getelementptr inbounds %struct.NullableDatum, ptr %45, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = call ptr @DatumGetPointer(i64 noundef %47)
-  %49 = icmp ne ptr %42, %48
-  br i1 %49, label %50, label %52
+  br label %42
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %51)
-  br label %52
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %44, i32 0, i32 6
+  %46 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %45, i64 0, i64 1
+  %47 = getelementptr inbounds nuw %struct.NullableDatum, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  %49 = call ptr @DatumGetPointer(i64 noundef %48)
+  %50 = icmp ne ptr %43, %49
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %50, %41
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %52)
   br label %53
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %6, align 8
-  %55 = call i64 @TSVectorGetDatum(ptr noundef %54)
-  ret i64 %55
+53:                                               ; preds = %51, %42
+  br label %54
+
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = call i64 @TSVectorGetDatum(ptr noundef %56)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1940,23 +2104,26 @@ define dso_local i64 @to_tsquery_byid(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.MorphOpaque, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetPointer(i64 noundef %10)
   %12 = call ptr @pg_detoast_datum_packed(ptr noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @DatumGetObjectId(i64 noundef %17)
-  %19 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 0
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 1
   store i32 4, ptr %20, align 4
   %21 = load ptr, ptr %3, align 8
   %22 = call ptr @text_to_cstring(ptr noundef %21)
@@ -1965,12 +2132,15 @@ define dso_local i64 @to_tsquery_byid(ptr noundef %0) #0 {
   store ptr %24, ptr %4, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = call i64 @TSQueryGetDatum(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %26
 }
 
-declare ptr @parse_tsquery(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) #1
+declare ptr @parse_tsquery(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @text_to_cstring(ptr noundef) #1
+declare ptr @text_to_cstring(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5) #0 {
@@ -1995,34 +2165,42 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   store i16 %4, ptr %11, align 2
   %21 = zext i1 %5 to i8
   store i8 %21, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
   store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
   %22 = load i64, ptr %7, align 8
   %23 = call ptr @DatumGetPointer(i64 noundef %22)
   store ptr %23, ptr %20, align 8
-  %24 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 1
   store i32 4, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 2
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 3
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 1
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = mul i64 24, %29
   %31 = call ptr @palloc(i64 noundef %30)
-  %32 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds %struct.MorphOpaque, ptr %33, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %33, i32 0, i32 0
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr %9, align 8
   %37 = load i32, ptr %10, align 4
   call void @parsetext(i32 noundef %35, ptr noundef %14, ptr noundef %36, i32 noundef %37)
-  %38 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 2
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %228
@@ -2032,7 +2210,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 42:                                               ; preds = %222, %41
   %43 = load i32, ptr %13, align 4
-  %44 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 2
+  %44 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 2
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i32 %43, %45
   br i1 %46, label %47, label %225
@@ -2045,12 +2223,12 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 50:                                               ; preds = %47
   %51 = load i32, ptr %16, align 4
   %52 = add i32 %51, 1
-  %53 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %13, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.ParsedWord, ptr %54, i64 %56
-  %58 = getelementptr inbounds %struct.ParsedWord, ptr %57, i32 0, i32 4
+  %57 = getelementptr inbounds %struct.ParsedWord, ptr %54, i64 %56
+  %58 = getelementptr inbounds nuw %struct.ParsedWord, ptr %57, i32 0, i32 4
   %59 = load i16, ptr %58, align 8
   %60 = zext i16 %59 to i32
   %61 = icmp ult i32 %52, %60
@@ -2062,12 +2240,12 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 63:                                               ; preds = %85, %62
   %64 = load i32, ptr %16, align 4
   %65 = add i32 %64, 1
-  %66 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %13, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr %struct.ParsedWord, ptr %67, i64 %69
-  %71 = getelementptr inbounds %struct.ParsedWord, ptr %70, i32 0, i32 4
+  %70 = getelementptr inbounds %struct.ParsedWord, ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw %struct.ParsedWord, ptr %70, i32 0, i32 4
   %72 = load i16, ptr %71, align 8
   %73 = zext i16 %72 to i32
   %74 = icmp ult i32 %65, %73
@@ -2083,7 +2261,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %8, align 8
   %81 = load ptr, ptr %20, align 8
-  %82 = getelementptr inbounds %struct.MorphOpaque, ptr %81, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %81, i32 0, i32 1
   %83 = load i32, ptr %82, align 4
   %84 = trunc i32 %83 to i8
   call void @pushOperator(ptr noundef %80, i8 noundef signext %84, i16 noundef signext 1)
@@ -2096,18 +2274,18 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %88 = load i32, ptr %16, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %16, align 4
-  br label %63, !llvm.loop !10
+  br label %63, !llvm.loop !9
 
 90:                                               ; preds = %63
   br label %91
 
 91:                                               ; preds = %90, %50, %47
-  %92 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %13, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr %struct.ParsedWord, ptr %93, i64 %95
-  %97 = getelementptr inbounds %struct.ParsedWord, ptr %96, i32 0, i32 4
+  %96 = getelementptr inbounds %struct.ParsedWord, ptr %93, i64 %95
+  %97 = getelementptr inbounds nuw %struct.ParsedWord, ptr %96, i32 0, i32 4
   %98 = load i16, ptr %97, align 8
   %99 = zext i16 %98 to i32
   store i32 %99, ptr %16, align 4
@@ -2116,19 +2294,19 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 100:                                              ; preds = %210, %91
   %101 = load i32, ptr %13, align 4
-  %102 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 2
+  %102 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 2
   %103 = load i32, ptr %102, align 4
   %104 = icmp slt i32 %101, %103
   br i1 %104, label %105, label %116
 
 105:                                              ; preds = %100
   %106 = load i32, ptr %16, align 4
-  %107 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %107 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %108 = load ptr, ptr %107, align 8
   %109 = load i32, ptr %13, align 4
   %110 = sext i32 %109 to i64
-  %111 = getelementptr %struct.ParsedWord, ptr %108, i64 %110
-  %112 = getelementptr inbounds %struct.ParsedWord, ptr %111, i32 0, i32 4
+  %111 = getelementptr inbounds %struct.ParsedWord, ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw %struct.ParsedWord, ptr %111, i32 0, i32 4
   %113 = load i16, ptr %112, align 8
   %114 = zext i16 %113 to i32
   %115 = icmp eq i32 %106, %114
@@ -2139,12 +2317,12 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %117, label %118, label %213
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %120 = load ptr, ptr %119, align 8
   %121 = load i32, ptr %13, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr %struct.ParsedWord, ptr %120, i64 %122
-  %124 = getelementptr inbounds %struct.ParsedWord, ptr %123, i32 0, i32 2
+  %123 = getelementptr inbounds %struct.ParsedWord, ptr %120, i64 %122
+  %124 = getelementptr inbounds nuw %struct.ParsedWord, ptr %123, i32 0, i32 2
   %125 = load i16, ptr %124, align 4
   %126 = zext i16 %125 to i32
   store i32 %126, ptr %15, align 4
@@ -2153,19 +2331,19 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 127:                                              ; preds = %200, %118
   %128 = load i32, ptr %13, align 4
-  %129 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 2
+  %129 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 2
   %130 = load i32, ptr %129, align 4
   %131 = icmp slt i32 %128, %130
   br i1 %131, label %132, label %154
 
 132:                                              ; preds = %127
   %133 = load i32, ptr %16, align 4
-  %134 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %134 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %135 = load ptr, ptr %134, align 8
   %136 = load i32, ptr %13, align 4
   %137 = sext i32 %136 to i64
-  %138 = getelementptr %struct.ParsedWord, ptr %135, i64 %137
-  %139 = getelementptr inbounds %struct.ParsedWord, ptr %138, i32 0, i32 4
+  %138 = getelementptr inbounds %struct.ParsedWord, ptr %135, i64 %137
+  %139 = getelementptr inbounds nuw %struct.ParsedWord, ptr %138, i32 0, i32 4
   %140 = load i16, ptr %139, align 8
   %141 = zext i16 %140 to i32
   %142 = icmp eq i32 %133, %141
@@ -2173,12 +2351,12 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 143:                                              ; preds = %132
   %144 = load i32, ptr %15, align 4
-  %145 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %145 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %146 = load ptr, ptr %145, align 8
   %147 = load i32, ptr %13, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr %struct.ParsedWord, ptr %146, i64 %148
-  %150 = getelementptr inbounds %struct.ParsedWord, ptr %149, i32 0, i32 2
+  %149 = getelementptr inbounds %struct.ParsedWord, ptr %146, i64 %148
+  %150 = getelementptr inbounds nuw %struct.ParsedWord, ptr %149, i32 0, i32 2
   %151 = load i16, ptr %150, align 4
   %152 = zext i16 %151 to i32
   %153 = icmp eq i32 %144, %152
@@ -2190,28 +2368,28 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 156:                                              ; preds = %154
   %157 = load ptr, ptr %8, align 8
-  %158 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %158 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %159 = load ptr, ptr %158, align 8
   %160 = load i32, ptr %13, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr %struct.ParsedWord, ptr %159, i64 %161
-  %163 = getelementptr inbounds %struct.ParsedWord, ptr %162, i32 0, i32 5
+  %162 = getelementptr inbounds %struct.ParsedWord, ptr %159, i64 %161
+  %163 = getelementptr inbounds nuw %struct.ParsedWord, ptr %162, i32 0, i32 5
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %165 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %166 = load ptr, ptr %165, align 8
   %167 = load i32, ptr %13, align 4
   %168 = sext i32 %167 to i64
-  %169 = getelementptr %struct.ParsedWord, ptr %166, i64 %168
-  %170 = getelementptr inbounds %struct.ParsedWord, ptr %169, i32 0, i32 1
+  %169 = getelementptr inbounds %struct.ParsedWord, ptr %166, i64 %168
+  %170 = getelementptr inbounds nuw %struct.ParsedWord, ptr %169, i32 0, i32 1
   %171 = load i16, ptr %170, align 2
   %172 = zext i16 %171 to i32
   %173 = load i16, ptr %11, align 2
-  %174 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %174 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %175 = load ptr, ptr %174, align 8
   %176 = load i32, ptr %13, align 4
   %177 = sext i32 %176 to i64
-  %178 = getelementptr %struct.ParsedWord, ptr %175, i64 %177
-  %179 = getelementptr inbounds %struct.ParsedWord, ptr %178, i32 0, i32 0
+  %178 = getelementptr inbounds %struct.ParsedWord, ptr %175, i64 %177
+  %179 = getelementptr inbounds nuw %struct.ParsedWord, ptr %178, i32 0, i32 0
   %180 = load i16, ptr %179, align 8
   %181 = zext i16 %180 to i32
   %182 = and i32 %181, 2
@@ -2219,19 +2397,19 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %183, label %187, label %184
 
 184:                                              ; preds = %156
-  %185 = load i8, ptr %12, align 1
+  %185 = load i8, ptr %12, align 1, !range !10, !noundef !11
   %186 = trunc i8 %185 to i1
   br label %187
 
 187:                                              ; preds = %184, %156
   %188 = phi i1 [ true, %156 ], [ %186, %184 ]
   call void @pushValue(ptr noundef %157, ptr noundef %164, i32 noundef %172, i16 noundef signext %173, i1 noundef zeroext %188)
-  %189 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %189 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %190 = load ptr, ptr %189, align 8
   %191 = load i32, ptr %13, align 4
   %192 = sext i32 %191 to i64
-  %193 = getelementptr %struct.ParsedWord, ptr %190, i64 %192
-  %194 = getelementptr inbounds %struct.ParsedWord, ptr %193, i32 0, i32 5
+  %193 = getelementptr inbounds %struct.ParsedWord, ptr %190, i64 %192
+  %194 = getelementptr inbounds nuw %struct.ParsedWord, ptr %193, i32 0, i32 5
   %195 = load ptr, ptr %194, align 8
   call void @pfree(ptr noundef %195)
   %196 = load i32, ptr %19, align 4
@@ -2250,7 +2428,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %203 = load i32, ptr %13, align 4
   %204 = add i32 %203, 1
   store i32 %204, ptr %13, align 4
-  br label %127, !llvm.loop !11
+  br label %127, !llvm.loop !12
 
 205:                                              ; preds = %154
   %206 = load i32, ptr %17, align 4
@@ -2266,7 +2444,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %211 = load i32, ptr %17, align 4
   %212 = add i32 %211, 1
   store i32 %212, ptr %17, align 4
-  br label %100, !llvm.loop !12
+  br label %100, !llvm.loop !13
 
 213:                                              ; preds = %116
   %214 = load i32, ptr %18, align 4
@@ -2276,7 +2454,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 216:                                              ; preds = %213
   %217 = load ptr, ptr %8, align 8
   %218 = load ptr, ptr %20, align 8
-  %219 = getelementptr inbounds %struct.MorphOpaque, ptr %218, i32 0, i32 1
+  %219 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %218, i32 0, i32 1
   %220 = load i32, ptr %219, align 4
   %221 = trunc i32 %220 to i8
   call void @pushOperator(ptr noundef %217, i8 noundef signext %221, i16 noundef signext 1)
@@ -2286,10 +2464,10 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %223 = load i32, ptr %18, align 4
   %224 = add i32 %223, 1
   store i32 %224, ptr %18, align 4
-  br label %42, !llvm.loop !13
+  br label %42, !llvm.loop !14
 
 225:                                              ; preds = %42
-  %226 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %226 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %227 = load ptr, ptr %226, align 8
   call void @pfree(ptr noundef %227)
   br label %230
@@ -2300,11 +2478,19 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %230
 
 230:                                              ; preds = %228, %225
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TSQueryGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TSQueryGetDatum(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2318,14 +2504,16 @@ define dso_local i64 @to_tsquery(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
-  %7 = getelementptr [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %struct.NullableDatum, ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct.NullableDatum, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @DatumGetPointer(i64 noundef %9)
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -2333,6 +2521,8 @@ define dso_local i64 @to_tsquery(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @PointerGetDatum(ptr noundef %15)
   %17 = call i64 @DirectFunctionCall2Coll(ptr noundef @to_tsquery_byid, i32 noundef 0, i64 noundef %14, i64 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %17
 }
 
@@ -2343,23 +2533,26 @@ define dso_local i64 @plainto_tsquery_byid(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.MorphOpaque, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetPointer(i64 noundef %10)
   %12 = call ptr @pg_detoast_datum_packed(ptr noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @DatumGetObjectId(i64 noundef %17)
-  %19 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 0
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 1
   store i32 2, ptr %20, align 4
   %21 = load ptr, ptr %3, align 8
   %22 = call ptr @text_to_cstring(ptr noundef %21)
@@ -2368,6 +2561,9 @@ define dso_local i64 @plainto_tsquery_byid(ptr noundef %0) #0 {
   store ptr %24, ptr %4, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = call i64 @PointerGetDatum(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %26
 }
 
@@ -2377,14 +2573,16 @@ define dso_local i64 @plainto_tsquery(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
-  %7 = getelementptr [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %struct.NullableDatum, ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct.NullableDatum, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @DatumGetPointer(i64 noundef %9)
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -2392,6 +2590,8 @@ define dso_local i64 @plainto_tsquery(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @PointerGetDatum(ptr noundef %15)
   %17 = call i64 @DirectFunctionCall2Coll(ptr noundef @plainto_tsquery_byid, i32 noundef 0, i64 noundef %14, i64 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %17
 }
 
@@ -2402,23 +2602,26 @@ define dso_local i64 @phraseto_tsquery_byid(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.MorphOpaque, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetPointer(i64 noundef %10)
   %12 = call ptr @pg_detoast_datum_packed(ptr noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @DatumGetObjectId(i64 noundef %17)
-  %19 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 0
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds %struct.MorphOpaque, ptr %5, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %5, i32 0, i32 1
   store i32 4, ptr %20, align 4
   %21 = load ptr, ptr %3, align 8
   %22 = call ptr @text_to_cstring(ptr noundef %21)
@@ -2427,6 +2630,9 @@ define dso_local i64 @phraseto_tsquery_byid(ptr noundef %0) #0 {
   store ptr %24, ptr %4, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = call i64 @TSQueryGetDatum(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %26
 }
 
@@ -2436,14 +2642,16 @@ define dso_local i64 @phraseto_tsquery(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
-  %7 = getelementptr [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %struct.NullableDatum, ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct.NullableDatum, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @DatumGetPointer(i64 noundef %9)
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -2451,6 +2659,8 @@ define dso_local i64 @phraseto_tsquery(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @PointerGetDatum(ptr noundef %15)
   %17 = call i64 @DirectFunctionCall2Coll(ptr noundef @phraseto_tsquery_byid, i32 noundef 0, i64 noundef %14, i64 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %17
 }
 
@@ -2461,24 +2671,27 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr noundef %0) #0 {
   %4 = alloca %struct.MorphOpaque, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 1
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetPointer(i64 noundef %10)
   %12 = call ptr @pg_detoast_datum_packed(ptr noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @DatumGetObjectId(i64 noundef %17)
-  %19 = getelementptr inbounds %struct.MorphOpaque, ptr %4, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %4, i32 0, i32 0
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds %struct.MorphOpaque, ptr %4, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.MorphOpaque, ptr %4, i32 0, i32 1
   store i32 4, ptr %20, align 4
   %21 = load ptr, ptr %3, align 8
   %22 = call ptr @text_to_cstring(ptr noundef %21)
@@ -2487,6 +2700,9 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr noundef %0) #0 {
   store ptr %24, ptr %5, align 8
   %25 = load ptr, ptr %5, align 8
   %26 = call i64 @TSQueryGetDatum(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %26
 }
 
@@ -2496,14 +2712,16 @@ define dso_local i64 @websearch_to_tsquery(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
-  %7 = getelementptr [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %struct.NullableDatum, ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %6, i64 0, i64 0
+  %8 = getelementptr inbounds nuw %struct.NullableDatum, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @DatumGetPointer(i64 noundef %9)
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %12 = call i32 @getTSCurrentConfig(i1 noundef zeroext true)
   store i32 %12, ptr %4, align 4
   %13 = load i32, ptr %4, align 4
@@ -2511,10 +2729,12 @@ define dso_local i64 @websearch_to_tsquery(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @PointerGetDatum(ptr noundef %15)
   %17 = call i64 @DirectFunctionCall2Coll(ptr noundef @websearch_to_tsquery_byid, i32 noundef 0, i64 noundef %14, i64 noundef %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %17
 }
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @compareWORD(ptr noundef %0, ptr noundef %1) #0 {
@@ -2522,76 +2742,81 @@ define internal i32 @compareWORD(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.ParsedWord, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.ParsedWord, ptr %10, i32 0, i32 1
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.ParsedWord, ptr %14, i32 0, i32 5
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.ParsedWord, ptr %17, i32 0, i32 1
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %21 = call i32 @tsCompareString(ptr noundef %9, i32 noundef %13, ptr noundef %16, i32 noundef %20, i1 noundef zeroext false)
-  store i32 %21, ptr %6, align 4
-  %22 = load i32, ptr %6, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.ParsedWord, ptr %8, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.ParsedWord, ptr %11, i32 0, i32 1
+  %13 = load i16, ptr %12, align 2
+  %14 = zext i16 %13 to i32
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.ParsedWord, ptr %15, i32 0, i32 5
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.ParsedWord, ptr %18, i32 0, i32 1
+  %20 = load i16, ptr %19, align 2
+  %21 = zext i16 %20 to i32
+  %22 = call i32 @tsCompareString(ptr noundef %10, i32 noundef %14, ptr noundef %17, i32 noundef %21, i1 noundef zeroext false)
+  store i32 %22, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %47
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.ParsedWord, ptr %25, i32 0, i32 4
-  %27 = load i16, ptr %26, align 8
-  %28 = zext i16 %27 to i32
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.ParsedWord, ptr %29, i32 0, i32 4
-  %31 = load i16, ptr %30, align 8
-  %32 = zext i16 %31 to i32
-  %33 = icmp eq i32 %28, %32
-  br i1 %33, label %34, label %35
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.ParsedWord, ptr %26, i32 0, i32 4
+  %28 = load i16, ptr %27, align 8
+  %29 = zext i16 %28 to i32
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.ParsedWord, ptr %30, i32 0, i32 4
+  %32 = load i16, ptr %31, align 8
+  %33 = zext i16 %32 to i32
+  %34 = icmp eq i32 %29, %33
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %24
+35:                                               ; preds = %25
   store i32 0, ptr %3, align 4
-  br label %48
+  store i32 1, ptr %7, align 4
+  br label %49
 
-35:                                               ; preds = %24
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.ParsedWord, ptr %36, i32 0, i32 4
-  %38 = load i16, ptr %37, align 8
-  %39 = zext i16 %38 to i32
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.ParsedWord, ptr %40, i32 0, i32 4
-  %42 = load i16, ptr %41, align 8
-  %43 = zext i16 %42 to i32
-  %44 = icmp sgt i32 %39, %43
-  %45 = select i1 %44, i32 1, i32 -1
-  store i32 %45, ptr %6, align 4
-  br label %46
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.ParsedWord, ptr %37, i32 0, i32 4
+  %39 = load i16, ptr %38, align 8
+  %40 = zext i16 %39 to i32
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.ParsedWord, ptr %41, i32 0, i32 4
+  %43 = load i16, ptr %42, align 8
+  %44 = zext i16 %43 to i32
+  %45 = icmp sgt i32 %40, %44
+  %46 = select i1 %45, i32 1, i32 -1
+  store i32 %46, ptr %6, align 4
+  br label %47
 
-46:                                               ; preds = %35, %2
-  %47 = load i32, ptr %6, align 4
-  store i32 %47, ptr %3, align 4
-  br label %48
+47:                                               ; preds = %36, %2
+  %48 = load i32, ptr %6, align 4
+  store i32 %48, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %49
 
-48:                                               ; preds = %46, %34
-  %49 = load i32, ptr %3, align 4
-  ret i32 %49
+49:                                               ; preds = %47, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %50 = load i32, ptr %3, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #6
 
-declare ptr @repalloc(ptr noundef, i64 noundef) #1
+declare ptr @repalloc(ptr noundef, i64 noundef) #2
 
-declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #1
+declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare void @iterate_jsonb_values(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare void @iterate_jsonb_values(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @add_to_tsvector(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -2604,53 +2829,56 @@ define internal void @add_to_tsvector(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.TSVectorBuildState, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.ParsedText, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.ParsedText, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.ParsedText, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.ParsedText, ptr %19, i32 0, i32 1
   store i32 16, ptr %20, align 8
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.ParsedText, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.ParsedText, ptr %21, i32 0, i32 1
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = mul i64 24, %24
   %26 = call ptr @palloc(i64 noundef %25)
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.ParsedText, ptr %27, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.ParsedText, ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.ParsedText, ptr %29, i32 0, i32 2
+  %30 = getelementptr inbounds nuw %struct.ParsedText, ptr %29, i32 0, i32 2
   store i32 0, ptr %30, align 4
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.ParsedText, ptr %31, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %struct.ParsedText, ptr %31, i32 0, i32 3
   store i32 0, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %18, %3
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.ParsedText, ptr %34, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %struct.ParsedText, ptr %34, i32 0, i32 2
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %9, align 4
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.TSVectorBuildState, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.TSVectorBuildState, ptr %37, i32 0, i32 1
   %39 = load i32, ptr %38, align 8
   %40 = load ptr, ptr %8, align 8
   %41 = load ptr, ptr %5, align 8
   %42 = load i32, ptr %6, align 4
   call void @parsetext(i32 noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42)
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.ParsedText, ptr %43, i32 0, i32 2
+  %44 = getelementptr inbounds nuw %struct.ParsedText, ptr %43, i32 0, i32 2
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %9, align 4
   %47 = icmp sgt i32 %45, %46
@@ -2658,45 +2886,52 @@ define internal void @add_to_tsvector(ptr noundef %0, ptr noundef %1, i32 nounde
 
 48:                                               ; preds = %33
   %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.ParsedText, ptr %49, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.ParsedText, ptr %49, i32 0, i32 3
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
   br label %53
 
 53:                                               ; preds = %48, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-declare void @iterate_json_values(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare void @iterate_json_values(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @pushStop(ptr noundef) #1
+declare void @pushStop(ptr noundef) #2
 
-declare void @pushOperator(ptr noundef, i8 noundef signext, i16 noundef signext) #1
+declare void @pushOperator(ptr noundef, i8 noundef signext, i16 noundef signext) #2
 
-declare void @pushValue(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, i1 noundef zeroext) #1
+declare void @pushValue(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, i1 noundef zeroext) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

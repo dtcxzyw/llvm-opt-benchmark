@@ -1,15 +1,15 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GinPageOpaqueData = type { i32, i16, i16 }
 %struct.PageHeaderData = type { %struct.PageXLogRecPtr, i16, i16, i16, i16, i16, i16, i32, [0 x %struct.ItemIdData] }
 %struct.PageXLogRecPtr = type { i32, i32 }
 %struct.ItemIdData = type { i32 }
+%struct.GinPageOpaqueData = type { i32, i16, i16 }
 %struct.GinBtreeData = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, i32, ptr, i8, i8, i16, i64, i8, %struct.ItemPointerData }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.GinBtreeStack = type { i32, i32, i16, %struct.ItemPointerData, i32, ptr }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ginStepRight = private unnamed_addr constant [13 x i8] c"ginStepRight\00", align 1
 @LocalBufferBlockPointers = external global ptr, align 8
 @BufferBlocks = external global ptr, align 8
-@.str.2 = private unnamed_addr constant [28 x i8] c"gin-finish-incomplete-split\00", align 1
 @.str.3 = private unnamed_addr constant [57 x i8] c"finishing incomplete split of block %u in gin index \22%s\22\00", align 1
 @__func__.ginFinishOldSplit = private unnamed_addr constant [18 x i8] c"ginFinishOldSplit\00", align 1
 @CurrentMemoryContext = external global ptr, align 8
@@ -45,6 +44,8 @@ define dso_local i32 @ginTraverseLock(i32 noundef %0, i1 noundef zeroext %1) #0 
   store i32 %0, ptr %3, align 4
   %7 = zext i1 %1 to i8
   store i8 %7, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
   store i32 1, ptr %6, align 4
   %8 = load i32, ptr %3, align 4
   call void @LockBuffer(i32 noundef %8, i32 noundef 1)
@@ -52,61 +53,80 @@ define dso_local i32 @ginTraverseLock(i32 noundef %0, i1 noundef zeroext %1) #0 
   %10 = call ptr @BufferGetPage(i32 noundef %9)
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = call ptr @PageGetSpecialPointer(ptr noundef %11)
-  %13 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %12, i32 0, i32 2
-  %14 = load i16, ptr %13, align 2
-  %15 = zext i16 %14 to i32
-  %16 = and i32 %15, 2
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %39
+  call void @PageValidateSpecialPointer(ptr noundef %11)
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %13, i32 0, i32 5
+  %15 = load i16, ptr %14, align 4
+  %16 = zext i16 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %12, i64 %17
+  %19 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %18, i32 0, i32 2
+  %20 = load i16, ptr %19, align 2
+  %21 = zext i16 %20 to i32
+  %22 = and i32 %21, 2
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %51
 
-18:                                               ; preds = %2
-  %19 = load i8, ptr %4, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = zext i1 %20 to i32
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %38
+24:                                               ; preds = %2
+  %25 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %26 = trunc i8 %25 to i1
+  %27 = zext i1 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %50
 
-23:                                               ; preds = %18
-  %24 = load i32, ptr %3, align 4
-  call void @LockBuffer(i32 noundef %24, i32 noundef 0)
-  %25 = load i32, ptr %3, align 4
-  call void @LockBuffer(i32 noundef %25, i32 noundef 2)
-  %26 = load ptr, ptr %5, align 8
-  %27 = call ptr @PageGetSpecialPointer(ptr noundef %26)
-  %28 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %27, i32 0, i32 2
-  %29 = load i16, ptr %28, align 2
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, 2
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %36, label %33
+29:                                               ; preds = %24
+  %30 = load i32, ptr %3, align 4
+  call void @LockBuffer(i32 noundef %30, i32 noundef 0)
+  %31 = load i32, ptr %3, align 4
+  call void @LockBuffer(i32 noundef %31, i32 noundef 2)
+  %32 = load ptr, ptr %5, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %32)
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %34, i32 0, i32 5
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %33, i64 %38
+  %40 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %39, i32 0, i32 2
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i32
+  %43 = and i32 %42, 2
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %48, label %45
 
-33:                                               ; preds = %23
-  %34 = load i32, ptr %3, align 4
-  call void @LockBuffer(i32 noundef %34, i32 noundef 0)
-  %35 = load i32, ptr %3, align 4
-  call void @LockBuffer(i32 noundef %35, i32 noundef 1)
-  br label %37
+45:                                               ; preds = %29
+  %46 = load i32, ptr %3, align 4
+  call void @LockBuffer(i32 noundef %46, i32 noundef 0)
+  %47 = load i32, ptr %3, align 4
+  call void @LockBuffer(i32 noundef %47, i32 noundef 1)
+  br label %49
 
-36:                                               ; preds = %23
+48:                                               ; preds = %29
   store i32 2, ptr %6, align 4
-  br label %37
+  br label %49
 
-37:                                               ; preds = %36, %33
-  br label %38
+49:                                               ; preds = %48, %45
+  br label %50
 
-38:                                               ; preds = %37, %18
-  br label %39
+50:                                               ; preds = %49, %24
+  br label %51
 
-39:                                               ; preds = %38, %2
-  %40 = load i32, ptr %6, align 4
-  ret i32 %40
+51:                                               ; preds = %50, %2
+  %52 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret i32 %52
 }
 
-declare void @LockBuffer(i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetPage(i32 noundef %0) #0 {
+declare void @LockBuffer(i32 noundef, i32 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetPage(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -114,296 +134,363 @@ define internal ptr @BufferGetPage(i32 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetSpecialPointer(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PageValidateSpecialPointer(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @PageValidateSpecialPointer(ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.PageHeaderData, ptr %5, i32 0, i32 5
-  %7 = load i16, ptr %6, align 4
-  %8 = zext i16 %7 to i32
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %4, i64 %9
-  ret ptr %10
+  ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginFindLeafPage(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
+  %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  %7 = alloca ptr, align 8
+  %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
+  %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %13 = zext i1 %1 to i8
-  store i8 %13, ptr %5, align 1
-  %14 = zext i1 %2 to i8
-  store i8 %14, ptr %6, align 1
-  %15 = call ptr @palloc(i64 noundef 32)
-  store ptr %15, ptr %7, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.GinBtreeData, ptr %16, i32 0, i32 11
-  %18 = load i32, ptr %17, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.GinBtreeStack, ptr %19, i32 0, i32 0
-  store i32 %18, ptr %20, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.GinBtreeData, ptr %21, i32 0, i32 10
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.GinBtreeData, ptr %24, i32 0, i32 11
-  %26 = load i32, ptr %25, align 8
-  %27 = call i32 @ReadBuffer(ptr noundef %23, i32 noundef %26)
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.GinBtreeStack, ptr %28, i32 0, i32 1
-  store i32 %27, ptr %29, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.GinBtreeStack, ptr %30, i32 0, i32 5
-  store ptr null, ptr %31, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.GinBtreeStack, ptr %32, i32 0, i32 4
-  store i32 1, ptr %33, align 8
-  %34 = load i8, ptr %6, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %43
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  %15 = zext i1 %1 to i8
+  store i8 %15, ptr %6, align 1
+  %16 = zext i1 %2 to i8
+  store i8 %16, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %17 = call ptr @palloc(i64 noundef 32)
+  store ptr %17, ptr %8, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %18, i32 0, i32 11
+  %20 = load i32, ptr %19, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %21, i32 0, i32 0
+  store i32 %20, ptr %22, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %23, i32 0, i32 10
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %26, i32 0, i32 11
+  %28 = load i32, ptr %27, align 8
+  %29 = call i32 @ReadBuffer(ptr noundef %25, i32 noundef %28)
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %30, i32 0, i32 1
+  store i32 %29, ptr %31, align 4
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %32, i32 0, i32 5
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %34, i32 0, i32 4
+  store i32 1, ptr %35, align 8
+  %36 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %45
 
-36:                                               ; preds = %3
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.GinBtreeData, ptr %37, i32 0, i32 10
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.GinBtreeData, ptr %40, i32 0, i32 11
-  %42 = load i32, ptr %41, align 8
-  call void @CheckForSerializableConflictIn(ptr noundef %39, ptr noundef null, i32 noundef %42)
-  br label %43
+38:                                               ; preds = %3
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %39, i32 0, i32 10
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %42, i32 0, i32 11
+  %44 = load i32, ptr %43, align 8
+  call void @CheckForSerializableConflictIn(ptr noundef %41, ptr noundef null, i32 noundef %44)
+  br label %45
 
-43:                                               ; preds = %36, %3
-  br label %44
+45:                                               ; preds = %38, %3
+  br label %46
 
-44:                                               ; preds = %195, %43
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.GinBtreeStack, ptr %45, i32 0, i32 2
-  store i16 0, ptr %46, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.GinBtreeStack, ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 4
-  %50 = call ptr @BufferGetPage(i32 noundef %49)
-  store ptr %50, ptr %8, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.GinBtreeStack, ptr %51, i32 0, i32 1
-  %53 = load i32, ptr %52, align 4
-  %54 = load i8, ptr %5, align 1
-  %55 = trunc i8 %54 to i1
-  %56 = call i32 @ginTraverseLock(i32 noundef %53, i1 noundef zeroext %55)
-  store i32 %56, ptr %10, align 4
-  %57 = load i8, ptr %5, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %71, label %59
+46:                                               ; preds = %227, %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %47, i32 0, i32 2
+  store i16 0, ptr %48, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %49, i32 0, i32 1
+  %51 = load i32, ptr %50, align 4
+  %52 = call ptr @BufferGetPage(i32 noundef %51)
+  store ptr %52, ptr %9, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4
+  %56 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %57 = trunc i8 %56 to i1
+  %58 = call i32 @ginTraverseLock(i32 noundef %55, i1 noundef zeroext %57)
+  store i32 %58, ptr %11, align 4
+  %59 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %79, label %61
 
-59:                                               ; preds = %44
-  %60 = load ptr, ptr %8, align 8
-  %61 = call ptr @PageGetSpecialPointer(ptr noundef %60)
-  %62 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %61, i32 0, i32 2
-  %63 = load i16, ptr %62, align 2
-  %64 = zext i16 %63 to i32
-  %65 = and i32 %64, 64
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %71
+61:                                               ; preds = %46
+  %62 = load ptr, ptr %9, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %62)
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %64, i32 0, i32 5
+  %66 = load i16, ptr %65, align 4
+  %67 = zext i16 %66 to i32
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %63, i64 %68
+  %70 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %69, i32 0, i32 2
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i32
+  %73 = and i32 %72, 64
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %79
 
-67:                                               ; preds = %59
-  %68 = load ptr, ptr %4, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = load i32, ptr %10, align 4
-  call void @ginFinishOldSplit(ptr noundef %68, ptr noundef %69, ptr noundef null, i32 noundef %70)
-  br label %71
+75:                                               ; preds = %61
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = load i32, ptr %11, align 4
+  call void @ginFinishOldSplit(ptr noundef %76, ptr noundef %77, ptr noundef null, i32 noundef %78)
+  br label %79
 
-71:                                               ; preds = %67, %59, %44
-  br label %72
+79:                                               ; preds = %75, %61, %46
+  br label %80
 
-72:                                               ; preds = %136, %71
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.GinBtreeData, ptr %73, i32 0, i32 13
-  %75 = load i8, ptr %74, align 8
-  %76 = trunc i8 %75 to i1
-  %77 = zext i1 %76 to i32
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %94
+80:                                               ; preds = %159, %79
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %81, i32 0, i32 13
+  %83 = load i8, ptr %82, align 8, !range !4, !noundef !5
+  %84 = trunc i8 %83 to i1
+  %85 = zext i1 %84 to i32
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %102
 
-79:                                               ; preds = %72
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.GinBtreeStack, ptr %80, i32 0, i32 0
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.GinBtreeData, ptr %83, i32 0, i32 11
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp ne i32 %82, %85
-  br i1 %86, label %87, label %94
+87:                                               ; preds = %80
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %88, i32 0, i32 0
+  %90 = load i32, ptr %89, align 8
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %91, i32 0, i32 11
+  %93 = load i32, ptr %92, align 8
+  %94 = icmp ne i32 %90, %93
+  br i1 %94, label %95, label %102
 
-87:                                               ; preds = %79
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.GinBtreeData, ptr %88, i32 0, i32 2
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %4, align 8
-  %92 = load ptr, ptr %8, align 8
-  %93 = call zeroext i1 %90(ptr noundef %91, ptr noundef %92)
-  br label %94
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8
+  %99 = load ptr, ptr %5, align 8
+  %100 = load ptr, ptr %9, align 8
+  %101 = call zeroext i1 %98(ptr noundef %99, ptr noundef %100)
+  br label %102
 
-94:                                               ; preds = %87, %79, %72
-  %95 = phi i1 [ false, %79 ], [ false, %72 ], [ %93, %87 ]
-  br i1 %95, label %96, label %137
+102:                                              ; preds = %95, %87, %80
+  %103 = phi i1 [ false, %87 ], [ false, %80 ], [ %101, %95 ]
+  br i1 %103, label %104, label %160
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %8, align 8
-  %98 = call ptr @PageGetSpecialPointer(ptr noundef %97)
-  %99 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %98, i32 0, i32 0
-  %100 = load i32, ptr %99, align 4
-  store i32 %100, ptr %11, align 4
-  %101 = load i32, ptr %11, align 4
-  %102 = icmp eq i32 %101, -1
-  br i1 %102, label %103, label %104
+104:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %105 = load ptr, ptr %9, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %105)
+  %106 = load ptr, ptr %9, align 8
+  %107 = load ptr, ptr %9, align 8
+  %108 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %107, i32 0, i32 5
+  %109 = load i16, ptr %108, align 4
+  %110 = zext i16 %109 to i32
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr %106, i64 %111
+  %113 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %112, i32 0, i32 0
+  %114 = load i32, ptr %113, align 4
+  store i32 %114, ptr %12, align 4
+  %115 = load i32, ptr %12, align 4
+  %116 = icmp eq i32 %115, -1
+  br i1 %116, label %117, label %118
 
-103:                                              ; preds = %96
-  br label %137
+117:                                              ; preds = %104
+  store i32 5, ptr %13, align 4
+  br label %157
 
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct.GinBtreeStack, ptr %105, i32 0, i32 1
-  %107 = load i32, ptr %106, align 4
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %struct.GinBtreeData, ptr %108, i32 0, i32 10
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %10, align 4
-  %112 = call i32 @ginStepRight(i32 noundef %107, ptr noundef %110, i32 noundef %111)
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.GinBtreeStack, ptr %113, i32 0, i32 1
-  store i32 %112, ptr %114, align 4
-  %115 = load i32, ptr %11, align 4
-  %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds %struct.GinBtreeStack, ptr %116, i32 0, i32 0
-  store i32 %115, ptr %117, align 8
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.GinBtreeStack, ptr %118, i32 0, i32 1
-  %120 = load i32, ptr %119, align 4
-  %121 = call ptr @BufferGetPage(i32 noundef %120)
-  store ptr %121, ptr %8, align 8
-  %122 = load i8, ptr %5, align 1
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %136, label %124
+118:                                              ; preds = %104
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %120, align 4
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %122, i32 0, i32 10
+  %124 = load ptr, ptr %123, align 8
+  %125 = load i32, ptr %11, align 4
+  %126 = call i32 @ginStepRight(i32 noundef %121, ptr noundef %124, i32 noundef %125)
+  %127 = load ptr, ptr %8, align 8
+  %128 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %127, i32 0, i32 1
+  store i32 %126, ptr %128, align 4
+  %129 = load i32, ptr %12, align 4
+  %130 = load ptr, ptr %8, align 8
+  %131 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %130, i32 0, i32 0
+  store i32 %129, ptr %131, align 8
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 4
+  %135 = call ptr @BufferGetPage(i32 noundef %134)
+  store ptr %135, ptr %9, align 8
+  %136 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %156, label %138
 
-124:                                              ; preds = %104
-  %125 = load ptr, ptr %8, align 8
-  %126 = call ptr @PageGetSpecialPointer(ptr noundef %125)
-  %127 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %126, i32 0, i32 2
-  %128 = load i16, ptr %127, align 2
-  %129 = zext i16 %128 to i32
-  %130 = and i32 %129, 64
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %136
+138:                                              ; preds = %118
+  %139 = load ptr, ptr %9, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %139)
+  %140 = load ptr, ptr %9, align 8
+  %141 = load ptr, ptr %9, align 8
+  %142 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %141, i32 0, i32 5
+  %143 = load i16, ptr %142, align 4
+  %144 = zext i16 %143 to i32
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i8, ptr %140, i64 %145
+  %147 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %146, i32 0, i32 2
+  %148 = load i16, ptr %147, align 2
+  %149 = zext i16 %148 to i32
+  %150 = and i32 %149, 64
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %156
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr %4, align 8
-  %134 = load ptr, ptr %7, align 8
-  %135 = load i32, ptr %10, align 4
-  call void @ginFinishOldSplit(ptr noundef %133, ptr noundef %134, ptr noundef null, i32 noundef %135)
-  br label %136
+152:                                              ; preds = %138
+  %153 = load ptr, ptr %5, align 8
+  %154 = load ptr, ptr %8, align 8
+  %155 = load i32, ptr %11, align 4
+  call void @ginFinishOldSplit(ptr noundef %153, ptr noundef %154, ptr noundef null, i32 noundef %155)
+  br label %156
 
-136:                                              ; preds = %132, %124, %104
-  br label %72, !llvm.loop !5
+156:                                              ; preds = %152, %138, %118
+  store i32 0, ptr %13, align 4
+  br label %157
 
-137:                                              ; preds = %103, %94
-  %138 = load ptr, ptr %8, align 8
-  %139 = call ptr @PageGetSpecialPointer(ptr noundef %138)
-  %140 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %139, i32 0, i32 2
-  %141 = load i16, ptr %140, align 2
-  %142 = zext i16 %141 to i32
-  %143 = and i32 %142, 2
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %147
+157:                                              ; preds = %156, %117
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  %158 = load i32, ptr %13, align 4
+  switch i32 %158, label %230 [
+    i32 0, label %159
+    i32 5, label %160
+  ]
 
-145:                                              ; preds = %137
-  %146 = load ptr, ptr %7, align 8
-  ret ptr %146
+159:                                              ; preds = %157
+  br label %80, !llvm.loop !6
 
-147:                                              ; preds = %137
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.GinBtreeData, ptr %148, i32 0, i32 0
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = load ptr, ptr %7, align 8
-  %153 = call i32 %150(ptr noundef %151, ptr noundef %152)
-  store i32 %153, ptr %9, align 4
-  %154 = load ptr, ptr %7, align 8
-  %155 = getelementptr inbounds %struct.GinBtreeStack, ptr %154, i32 0, i32 1
-  %156 = load i32, ptr %155, align 4
-  call void @LockBuffer(i32 noundef %156, i32 noundef 0)
-  %157 = load i8, ptr %5, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %175
+160:                                              ; preds = %157, %102
+  %161 = load ptr, ptr %9, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %161)
+  %162 = load ptr, ptr %9, align 8
+  %163 = load ptr, ptr %9, align 8
+  %164 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %163, i32 0, i32 5
+  %165 = load i16, ptr %164, align 4
+  %166 = zext i16 %165 to i32
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i8, ptr %162, i64 %167
+  %169 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %168, i32 0, i32 2
+  %170 = load i16, ptr %169, align 2
+  %171 = zext i16 %170 to i32
+  %172 = and i32 %171, 2
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %176
 
-159:                                              ; preds = %147
-  %160 = load i32, ptr %9, align 4
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.GinBtreeStack, ptr %161, i32 0, i32 0
-  store i32 %160, ptr %162, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct.GinBtreeStack, ptr %163, i32 0, i32 1
-  %165 = load i32, ptr %164, align 4
-  %166 = load ptr, ptr %4, align 8
-  %167 = getelementptr inbounds %struct.GinBtreeData, ptr %166, i32 0, i32 10
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.GinBtreeStack, ptr %169, i32 0, i32 0
-  %171 = load i32, ptr %170, align 8
-  %172 = call i32 @ReleaseAndReadBuffer(i32 noundef %165, ptr noundef %168, i32 noundef %171)
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds %struct.GinBtreeStack, ptr %173, i32 0, i32 1
-  store i32 %172, ptr %174, align 4
-  br label %195
+174:                                              ; preds = %160
+  %175 = load ptr, ptr %8, align 8
+  store ptr %175, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %225
 
-175:                                              ; preds = %147
-  %176 = call ptr @palloc(i64 noundef 32)
-  store ptr %176, ptr %12, align 8
-  %177 = load ptr, ptr %7, align 8
-  %178 = load ptr, ptr %12, align 8
-  %179 = getelementptr inbounds %struct.GinBtreeStack, ptr %178, i32 0, i32 5
-  store ptr %177, ptr %179, align 8
-  %180 = load ptr, ptr %12, align 8
-  store ptr %180, ptr %7, align 8
-  %181 = load i32, ptr %9, align 4
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct.GinBtreeStack, ptr %182, i32 0, i32 0
-  store i32 %181, ptr %183, align 8
-  %184 = load ptr, ptr %4, align 8
-  %185 = getelementptr inbounds %struct.GinBtreeData, ptr %184, i32 0, i32 10
-  %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr %7, align 8
-  %188 = getelementptr inbounds %struct.GinBtreeStack, ptr %187, i32 0, i32 0
-  %189 = load i32, ptr %188, align 8
-  %190 = call i32 @ReadBuffer(ptr noundef %186, i32 noundef %189)
-  %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds %struct.GinBtreeStack, ptr %191, i32 0, i32 1
-  store i32 %190, ptr %192, align 4
-  %193 = load ptr, ptr %7, align 8
-  %194 = getelementptr inbounds %struct.GinBtreeStack, ptr %193, i32 0, i32 4
-  store i32 1, ptr %194, align 8
-  br label %195
+176:                                              ; preds = %160
+  %177 = load ptr, ptr %5, align 8
+  %178 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %177, i32 0, i32 0
+  %179 = load ptr, ptr %178, align 8
+  %180 = load ptr, ptr %5, align 8
+  %181 = load ptr, ptr %8, align 8
+  %182 = call i32 %179(ptr noundef %180, ptr noundef %181)
+  store i32 %182, ptr %10, align 4
+  %183 = load ptr, ptr %8, align 8
+  %184 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %183, i32 0, i32 1
+  %185 = load i32, ptr %184, align 4
+  call void @LockBuffer(i32 noundef %185, i32 noundef 0)
+  %186 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %188, label %204
 
-195:                                              ; preds = %175, %159
-  br label %44
+188:                                              ; preds = %176
+  %189 = load i32, ptr %10, align 4
+  %190 = load ptr, ptr %8, align 8
+  %191 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %190, i32 0, i32 0
+  store i32 %189, ptr %191, align 8
+  %192 = load ptr, ptr %8, align 8
+  %193 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 4
+  %195 = load ptr, ptr %5, align 8
+  %196 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %195, i32 0, i32 10
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %8, align 8
+  %199 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %198, i32 0, i32 0
+  %200 = load i32, ptr %199, align 8
+  %201 = call i32 @ReleaseAndReadBuffer(i32 noundef %194, ptr noundef %197, i32 noundef %200)
+  %202 = load ptr, ptr %8, align 8
+  %203 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %202, i32 0, i32 1
+  store i32 %201, ptr %203, align 4
+  br label %224
+
+204:                                              ; preds = %176
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %205 = call ptr @palloc(i64 noundef 32)
+  store ptr %205, ptr %14, align 8
+  %206 = load ptr, ptr %8, align 8
+  %207 = load ptr, ptr %14, align 8
+  %208 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %207, i32 0, i32 5
+  store ptr %206, ptr %208, align 8
+  %209 = load ptr, ptr %14, align 8
+  store ptr %209, ptr %8, align 8
+  %210 = load i32, ptr %10, align 4
+  %211 = load ptr, ptr %8, align 8
+  %212 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %211, i32 0, i32 0
+  store i32 %210, ptr %212, align 8
+  %213 = load ptr, ptr %5, align 8
+  %214 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %213, i32 0, i32 10
+  %215 = load ptr, ptr %214, align 8
+  %216 = load ptr, ptr %8, align 8
+  %217 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %216, i32 0, i32 0
+  %218 = load i32, ptr %217, align 8
+  %219 = call i32 @ReadBuffer(ptr noundef %215, i32 noundef %218)
+  %220 = load ptr, ptr %8, align 8
+  %221 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %220, i32 0, i32 1
+  store i32 %219, ptr %221, align 4
+  %222 = load ptr, ptr %8, align 8
+  %223 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %222, i32 0, i32 4
+  store i32 1, ptr %223, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  br label %224
+
+224:                                              ; preds = %204, %188
+  store i32 0, ptr %13, align 4
+  br label %225
+
+225:                                              ; preds = %224, %174
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  %226 = load i32, ptr %13, align 4
+  switch i32 %226, label %228 [
+    i32 0, label %227
+  ]
+
+227:                                              ; preds = %225
+  br label %46
+
+228:                                              ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %229 = load ptr, ptr %4, align 8
+  ret ptr %229
+
+230:                                              ; preds = %157
+  unreachable
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #2
 
-declare i32 @ReadBuffer(ptr noundef, i32 noundef) #1
+declare i32 @ReadBuffer(ptr noundef, i32 noundef) #2
 
-declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -421,7 +508,7 @@ define internal void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 false, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #4
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #7
   br i1 %11, label %14, label %27
 
 12:                                               ; preds = %9
@@ -430,15 +517,15 @@ define internal void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noun
 
 14:                                               ; preds = %12, %10
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.GinBtreeStack, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.GinBtreeData, ptr %18, i32 0, i32 10
+  %19 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %18, i32 0, i32 10
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.RelationData, ptr %20, i32 0, i32 13
+  %21 = getelementptr inbounds nuw %struct.RelationData, ptr %20, i32 0, i32 13
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.FormData_pg_class, ptr %22, i32 0, i32 1
-  %24 = getelementptr inbounds %struct.nameData, ptr %23, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.nameData, ptr %23, i32 0, i32 0
   %25 = getelementptr inbounds [64 x i8], ptr %24, i64 0, i64 0
   %26 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %17, ptr noundef %25)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 783, ptr noundef @__func__.ginFinishOldSplit)
@@ -450,43 +537,56 @@ define internal void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noun
 28:                                               ; preds = %27
   %29 = load i32, ptr %8, align 4
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %50
+  br i1 %30, label %31, label %62
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.GinBtreeStack, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %32, i32 0, i32 1
   %34 = load i32, ptr %33, align 4
   call void @LockBuffer(i32 noundef %34, i32 noundef 0)
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.GinBtreeStack, ptr %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %35, i32 0, i32 1
   %37 = load i32, ptr %36, align 4
   call void @LockBuffer(i32 noundef %37, i32 noundef 2)
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.GinBtreeStack, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %38, i32 0, i32 1
   %40 = load i32, ptr %39, align 4
   %41 = call ptr @BufferGetPage(i32 noundef %40)
-  %42 = call ptr @PageGetSpecialPointer(ptr noundef %41)
-  %43 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %42, i32 0, i32 2
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = and i32 %45, 64
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %49, label %48
+  call void @PageValidateSpecialPointer(ptr noundef %41)
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @BufferGetPage(i32 noundef %44)
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  %49 = call ptr @BufferGetPage(i32 noundef %48)
+  %50 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %49, i32 0, i32 5
+  %51 = load i16, ptr %50, align 4
+  %52 = zext i16 %51 to i32
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %55 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %54, i32 0, i32 2
+  %56 = load i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %58 = and i32 %57, 64
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %61, label %60
 
-48:                                               ; preds = %31
-  br label %54
+60:                                               ; preds = %31
+  br label %66
 
-49:                                               ; preds = %31
-  br label %50
+61:                                               ; preds = %31
+  br label %62
 
-50:                                               ; preds = %49, %28
-  %51 = load ptr, ptr %5, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = load ptr, ptr %7, align 8
-  call void @ginFinishSplit(ptr noundef %51, ptr noundef %52, i1 noundef zeroext false, ptr noundef %53)
-  br label %54
+62:                                               ; preds = %61, %28
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %7, align 8
+  call void @ginFinishSplit(ptr noundef %63, ptr noundef %64, i1 noundef zeroext false, ptr noundef %65)
+  br label %66
 
-54:                                               ; preds = %50, %48
+66:                                               ; preds = %62, %60
   ret void
 }
 
@@ -503,115 +603,163 @@ define dso_local i32 @ginStepRight(i32 noundef %0, ptr noundef %1, i32 noundef %
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %12 = load i32, ptr %4, align 4
   %13 = call ptr @BufferGetPage(i32 noundef %12)
   store ptr %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %14 = load ptr, ptr %8, align 8
-  %15 = call ptr @PageGetSpecialPointer(ptr noundef %14)
-  %16 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 2
-  %18 = zext i16 %17 to i32
-  %19 = and i32 %18, 2
-  %20 = icmp ne i32 %19, 0
-  %21 = zext i1 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %8, align 8
-  %23 = call ptr @PageGetSpecialPointer(ptr noundef %22)
-  %24 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %23, i32 0, i32 2
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %27 = and i32 %26, 1
-  %28 = icmp ne i32 %27, 0
-  %29 = zext i1 %28 to i8
-  store i8 %29, ptr %10, align 1
+  call void @PageValidateSpecialPointer(ptr noundef %14)
+  %15 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %16, i32 0, i32 5
+  %18 = load i16, ptr %17, align 4
+  %19 = zext i16 %18 to i32
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %15, i64 %20
+  %22 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %21, i32 0, i32 2
+  %23 = load i16, ptr %22, align 2
+  %24 = zext i16 %23 to i32
+  %25 = and i32 %24, 2
+  %26 = icmp ne i32 %25, 0
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  %28 = load ptr, ptr %8, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %28)
+  %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = call ptr @PageGetSpecialPointer(ptr noundef %30)
-  %32 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %31, i32 0, i32 0
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %11, align 4
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = call i32 @ReadBuffer(ptr noundef %34, i32 noundef %35)
-  store i32 %36, ptr %7, align 4
-  %37 = load i32, ptr %7, align 4
-  %38 = load i32, ptr %6, align 4
-  call void @LockBuffer(i32 noundef %37, i32 noundef %38)
-  %39 = load i32, ptr %4, align 4
-  call void @UnlockReleaseBuffer(i32 noundef %39)
-  %40 = load i32, ptr %7, align 4
-  %41 = call ptr @BufferGetPage(i32 noundef %40)
-  store ptr %41, ptr %8, align 8
-  %42 = load i8, ptr %9, align 1
-  %43 = trunc i8 %42 to i1
-  %44 = zext i1 %43 to i32
-  %45 = load ptr, ptr %8, align 8
-  %46 = call ptr @PageGetSpecialPointer(ptr noundef %45)
-  %47 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %46, i32 0, i32 2
-  %48 = load i16, ptr %47, align 2
-  %49 = zext i16 %48 to i32
-  %50 = and i32 %49, 2
-  %51 = icmp ne i32 %50, 0
-  %52 = zext i1 %51 to i32
-  %53 = icmp ne i32 %44, %52
-  br i1 %53, label %67, label %54
+  %31 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %30, i32 0, i32 5
+  %32 = load i16, ptr %31, align 4
+  %33 = zext i16 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %29, i64 %34
+  %36 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %35, i32 0, i32 2
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = and i32 %38, 1
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i8
+  store i8 %41, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %42 = load ptr, ptr %8, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %42)
+  %43 = load ptr, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %44, i32 0, i32 5
+  %46 = load i16, ptr %45, align 4
+  %47 = zext i16 %46 to i32
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %43, i64 %48
+  %50 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %11, align 4
+  %52 = load ptr, ptr %5, align 8
+  %53 = load i32, ptr %11, align 4
+  %54 = call i32 @ReadBuffer(ptr noundef %52, i32 noundef %53)
+  store i32 %54, ptr %7, align 4
+  %55 = load i32, ptr %7, align 4
+  %56 = load i32, ptr %6, align 4
+  call void @LockBuffer(i32 noundef %55, i32 noundef %56)
+  %57 = load i32, ptr %4, align 4
+  call void @UnlockReleaseBuffer(i32 noundef %57)
+  %58 = load i32, ptr %7, align 4
+  %59 = call ptr @BufferGetPage(i32 noundef %58)
+  store ptr %59, ptr %8, align 8
+  %60 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i32
+  %63 = load ptr, ptr %8, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %63)
+  %64 = load ptr, ptr %8, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %65, i32 0, i32 5
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i32
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %64, i64 %69
+  %71 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %70, i32 0, i32 2
+  %72 = load i16, ptr %71, align 2
+  %73 = zext i16 %72 to i32
+  %74 = and i32 %73, 2
+  %75 = icmp ne i32 %74, 0
+  %76 = zext i1 %75 to i32
+  %77 = icmp ne i32 %62, %76
+  br i1 %77, label %97, label %78
 
-54:                                               ; preds = %3
-  %55 = load i8, ptr %10, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = zext i1 %56 to i32
-  %58 = load ptr, ptr %8, align 8
-  %59 = call ptr @PageGetSpecialPointer(ptr noundef %58)
-  %60 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %59, i32 0, i32 2
-  %61 = load i16, ptr %60, align 2
-  %62 = zext i16 %61 to i32
-  %63 = and i32 %62, 1
-  %64 = icmp ne i32 %63, 0
-  %65 = zext i1 %64 to i32
-  %66 = icmp ne i32 %57, %65
-  br i1 %66, label %67, label %77
+78:                                               ; preds = %3
+  %79 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %80 = trunc i8 %79 to i1
+  %81 = zext i1 %80 to i32
+  %82 = load ptr, ptr %8, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %82)
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %84, i32 0, i32 5
+  %86 = load i16, ptr %85, align 4
+  %87 = zext i16 %86 to i32
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %83, i64 %88
+  %90 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %89, i32 0, i32 2
+  %91 = load i16, ptr %90, align 2
+  %92 = zext i16 %91 to i32
+  %93 = and i32 %92, 1
+  %94 = icmp ne i32 %93, 0
+  %95 = zext i1 %94 to i32
+  %96 = icmp ne i32 %81, %95
+  br i1 %96, label %97, label %108
 
-67:                                               ; preds = %54, %3
-  br label %68
+97:                                               ; preds = %78, %3
+  br label %98
 
-68:                                               ; preds = %67
-  br i1 true, label %69, label %71
+98:                                               ; preds = %97
+  br i1 true, label %99, label %101
 
-69:                                               ; preds = %68
-  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %70, label %73, label %75
+99:                                               ; preds = %98
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %100, label %103, label %105
 
-71:                                               ; preds = %68
-  %72 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %72, label %73, label %75
+101:                                              ; preds = %98
+  %102 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %102, label %103, label %105
 
-73:                                               ; preds = %71, %69
-  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
+103:                                              ; preds = %101, %99
+  %104 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 192, ptr noundef @__func__.ginStepRight)
-  br label %75
+  br label %105
 
-75:                                               ; preds = %73, %71, %69
+105:                                              ; preds = %103, %101, %99
   unreachable
 
-76:                                               ; No predecessors!
-  br label %77
+106:                                              ; No predecessors!
+  br label %107
 
-77:                                               ; preds = %76, %54
-  %78 = load i32, ptr %7, align 4
-  ret i32 %78
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107, %78
+  %109 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %109
 }
 
-declare i32 @ReleaseAndReadBuffer(i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @ReleaseAndReadBuffer(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @UnlockReleaseBuffer(i32 noundef) #1
+declare void @UnlockReleaseBuffer(i32 noundef) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeGinBtreeStack(ptr noundef %0) #0 {
@@ -626,19 +774,20 @@ define dso_local void @freeGinBtreeStack(ptr noundef %0) #0 {
   br i1 %6, label %7, label %22
 
 7:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.GinBtreeStack, ptr %8, i32 0, i32 5
+  %9 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %8, i32 0, i32 5
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.GinBtreeStack, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.GinBtreeStack, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %17, align 4
   call void @ReleaseBuffer(i32 noundef %18)
   br label %19
@@ -648,15 +797,16 @@ define dso_local void @freeGinBtreeStack(ptr noundef %0) #0 {
   call void @pfree(ptr noundef %20)
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %2, align 8
-  br label %4, !llvm.loop !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  br label %4, !llvm.loop !8
 
 22:                                               ; preds = %4
   ret void
 }
 
-declare void @ReleaseBuffer(i32 noundef) #1
+declare void @ReleaseBuffer(i32 noundef) #2
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginInsertValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -669,54 +819,69 @@ define dso_local void @ginInsertValue(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.GinBtreeStack, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   %13 = call ptr @BufferGetPage(i32 noundef %12)
-  %14 = call ptr @PageGetSpecialPointer(ptr noundef %13)
-  %15 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %14, i32 0, i32 2
-  %16 = load i16, ptr %15, align 2
-  %17 = zext i16 %16 to i32
-  %18 = and i32 %17, 64
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %24
+  call void @PageValidateSpecialPointer(ptr noundef %13)
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4
+  %17 = call ptr @BufferGetPage(i32 noundef %16)
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = call ptr @BufferGetPage(i32 noundef %20)
+  %22 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %21, i32 0, i32 5
+  %23 = load i16, ptr %22, align 4
+  %24 = zext i16 %23 to i32
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %17, i64 %25
+  %27 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %26, i32 0, i32 2
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 64
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %36
 
-20:                                               ; preds = %4
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %8, align 8
-  call void @ginFinishOldSplit(ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef 2)
-  br label %24
-
-24:                                               ; preds = %20, %4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = call zeroext i1 @ginPlaceToPage(ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef -1, i32 noundef 0, ptr noundef %28)
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr %9, align 1
-  %31 = load i8, ptr %9, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %24
+32:                                               ; preds = %4
+  %33 = load ptr, ptr %5, align 8
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.GinBtreeStack, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 4
-  call void @LockBuffer(i32 noundef %36, i32 noundef 0)
-  %37 = load ptr, ptr %6, align 8
-  call void @freeGinBtreeStack(ptr noundef %37)
-  br label %42
+  %35 = load ptr, ptr %8, align 8
+  call void @ginFinishOldSplit(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 2)
+  br label %36
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = load ptr, ptr %8, align 8
-  call void @ginFinishSplit(ptr noundef %39, ptr noundef %40, i1 noundef zeroext true, ptr noundef %41)
-  br label %42
+36:                                               ; preds = %32, %4
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = call zeroext i1 @ginPlaceToPage(ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef -1, i32 noundef 0, ptr noundef %40)
+  %42 = zext i1 %41 to i8
+  store i8 %42, ptr %9, align 1
+  %43 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %50
 
-42:                                               ; preds = %38, %33
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  call void @LockBuffer(i32 noundef %48, i32 noundef 0)
+  %49 = load ptr, ptr %6, align 8
+  call void @freeGinBtreeStack(ptr noundef %49)
+  br label %54
+
+50:                                               ; preds = %36
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = load ptr, ptr %8, align 8
+  call void @ginFinishSplit(ptr noundef %51, ptr noundef %52, i1 noundef zeroext true, ptr noundef %53)
+  br label %54
+
+54:                                               ; preds = %50, %45
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret void
 }
 
@@ -754,827 +919,994 @@ define internal zeroext i1 @ginPlaceToPage(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.GinBtreeStack, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %33, i32 0, i32 1
   %35 = load i32, ptr %34, align 4
   %36 = call ptr @BufferGetPage(i32 noundef %35)
   store ptr %36, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #6
   store i16 0, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
   br label %37
 
 37:                                               ; preds = %6
   br label %38
 
 38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
   store i32 1, ptr %23, align 4
-  %39 = load ptr, ptr @CurrentMemoryContext, align 8
-  %40 = call ptr @AllocSetContextCreateInternal(ptr noundef %39, ptr noundef @.str.4, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %40, ptr %21, align 8
-  %41 = load ptr, ptr %21, align 8
-  %42 = call ptr @MemoryContextSwitchTo(ptr noundef %41)
-  store ptr %42, ptr %22, align 8
-  %43 = load ptr, ptr %13, align 8
-  %44 = call ptr @PageGetSpecialPointer(ptr noundef %43)
-  %45 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %44, i32 0, i32 2
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i32
-  %48 = and i32 %47, 1
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %55
+  %40 = load ptr, ptr @CurrentMemoryContext, align 8
+  %41 = call ptr @AllocSetContextCreateInternal(ptr noundef %40, ptr noundef @.str.4, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %41, ptr %21, align 8
+  %42 = load ptr, ptr %21, align 8
+  %43 = call ptr @MemoryContextSwitchTo(ptr noundef %42)
+  store ptr %43, ptr %22, align 8
+  %44 = load ptr, ptr %13, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %44)
+  %45 = load ptr, ptr %13, align 8
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %46, i32 0, i32 5
+  %48 = load i16, ptr %47, align 4
+  %49 = zext i16 %48 to i32
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %52 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %51, i32 0, i32 2
+  %53 = load i16, ptr %52, align 2
+  %54 = zext i16 %53 to i32
+  %55 = and i32 %54, 1
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %62
 
-50:                                               ; preds = %38
-  %51 = load i16, ptr %16, align 2
-  %52 = zext i16 %51 to i32
-  %53 = or i32 %52, 1
-  %54 = trunc i32 %53 to i16
-  store i16 %54, ptr %16, align 2
-  br label %55
+57:                                               ; preds = %39
+  %58 = load i16, ptr %16, align 2
+  %59 = zext i16 %58 to i32
+  %60 = or i32 %59, 1
+  %61 = trunc i32 %60 to i16
+  store i16 %61, ptr %16, align 2
+  br label %62
 
-55:                                               ; preds = %50, %38
-  %56 = load ptr, ptr %13, align 8
-  %57 = call ptr @PageGetSpecialPointer(ptr noundef %56)
-  %58 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %57, i32 0, i32 2
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i32
-  %61 = and i32 %60, 2
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %68
+62:                                               ; preds = %57, %39
+  %63 = load ptr, ptr %13, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %63)
+  %64 = load ptr, ptr %13, align 8
+  %65 = load ptr, ptr %13, align 8
+  %66 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %65, i32 0, i32 5
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i32
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %64, i64 %69
+  %71 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %70, i32 0, i32 2
+  %72 = load i16, ptr %71, align 2
+  %73 = zext i16 %72 to i32
+  %74 = and i32 %73, 2
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %81
 
-63:                                               ; preds = %55
-  %64 = load i16, ptr %16, align 2
-  %65 = zext i16 %64 to i32
-  %66 = or i32 %65, 2
-  %67 = trunc i32 %66 to i16
-  store i16 %67, ptr %16, align 2
-  br label %71
+76:                                               ; preds = %62
+  %77 = load i16, ptr %16, align 2
+  %78 = zext i16 %77 to i32
+  %79 = or i32 %78, 2
+  %80 = trunc i32 %79 to i16
+  store i16 %80, ptr %16, align 2
+  br label %84
 
-68:                                               ; preds = %55
-  %69 = load i32, ptr %11, align 4
-  %70 = call ptr @BufferGetPage(i32 noundef %69)
-  store ptr %70, ptr %17, align 8
-  br label %71
+81:                                               ; preds = %62
+  %82 = load i32, ptr %11, align 4
+  %83 = call ptr @BufferGetPage(i32 noundef %82)
+  store ptr %83, ptr %17, align 8
+  br label %84
 
-71:                                               ; preds = %68, %63
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.GinBtreeData, ptr %72, i32 0, i32 5
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.GinBtreeStack, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 4
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = load i32, ptr %10, align 4
-  %82 = call i32 %74(ptr noundef %75, i32 noundef %78, ptr noundef %79, ptr noundef %80, i32 noundef %81, ptr noundef %20, ptr noundef %18, ptr noundef %19)
-  store i32 %82, ptr %15, align 4
-  %83 = load i32, ptr %15, align 4
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %86
+84:                                               ; preds = %81, %76
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %85, i32 0, i32 5
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %7, align 8
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 4
+  %92 = load ptr, ptr %8, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = load i32, ptr %10, align 4
+  %95 = call i32 %87(ptr noundef %88, i32 noundef %91, ptr noundef %92, ptr noundef %93, i32 noundef %94, ptr noundef %20, ptr noundef %18, ptr noundef %19)
+  store i32 %95, ptr %15, align 4
+  %96 = load i32, ptr %15, align 4
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %99
 
-85:                                               ; preds = %71
+98:                                               ; preds = %84
   store i8 1, ptr %14, align 1
-  br label %573
+  br label %679
 
-86:                                               ; preds = %71
-  %87 = load i32, ptr %15, align 4
-  %88 = icmp eq i32 %87, 1
-  br i1 %88, label %89, label %243
+99:                                               ; preds = %84
+  %100 = load i32, ptr %15, align 4
+  %101 = icmp eq i32 %100, 1
+  br i1 %101, label %102, label %269
 
-89:                                               ; preds = %86
-  %90 = load volatile i32, ptr @CritSectionCount, align 4
-  %91 = add i32 %90, 1
-  store volatile i32 %91, ptr @CritSectionCount, align 4
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct.GinBtreeData, ptr %92, i32 0, i32 10
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct.RelationData, ptr %94, i32 0, i32 13
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.FormData_pg_class, ptr %96, i32 0, i32 15
-  %98 = load i8, ptr %97, align 2
-  %99 = sext i8 %98 to i32
-  %100 = icmp eq i32 %99, 112
-  br i1 %100, label %101, label %124
-
-101:                                              ; preds = %89
-  %102 = load i32, ptr @wal_level, align 4
-  %103 = icmp sge i32 %102, 1
-  br i1 %103, label %118, label %104
-
-104:                                              ; preds = %101
+102:                                              ; preds = %99
+  %103 = load volatile i32, ptr @CritSectionCount, align 4
+  %104 = add i32 %103, 1
+  store volatile i32 %104, ptr @CritSectionCount, align 4
   %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct.GinBtreeData, ptr %105, i32 0, i32 10
+  %106 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %105, i32 0, i32 10
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.RelationData, ptr %107, i32 0, i32 9
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %124
+  %108 = getelementptr inbounds nuw %struct.RelationData, ptr %107, i32 0, i32 13
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %109, i32 0, i32 15
+  %111 = load i8, ptr %110, align 2
+  %112 = sext i8 %111 to i32
+  %113 = icmp eq i32 %112, 112
+  br i1 %113, label %114, label %137
 
-111:                                              ; preds = %104
-  %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds %struct.GinBtreeData, ptr %112, i32 0, i32 10
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.RelationData, ptr %114, i32 0, i32 11
-  %116 = load i32, ptr %115, align 8
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %124
+114:                                              ; preds = %102
+  %115 = load i32, ptr @wal_level, align 4
+  %116 = icmp sge i32 %115, 1
+  br i1 %116, label %131, label %117
 
-118:                                              ; preds = %111, %101
-  %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds %struct.GinBtreeData, ptr %119, i32 0, i32 14
-  %121 = load i8, ptr %120, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %124, label %123
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %7, align 8
+  %119 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %118, i32 0, i32 10
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw %struct.RelationData, ptr %120, i32 0, i32 9
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %137
 
-123:                                              ; preds = %118
-  call void @XLogBeginInsert()
-  br label %124
-
-124:                                              ; preds = %123, %118, %111, %104, %89
+124:                                              ; preds = %117
   %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.GinBtreeData, ptr %125, i32 0, i32 6
+  %126 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %125, i32 0, i32 10
   %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %7, align 8
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.GinBtreeStack, ptr %129, i32 0, i32 1
-  %131 = load i32, ptr %130, align 4
-  %132 = load ptr, ptr %8, align 8
-  %133 = load ptr, ptr %9, align 8
-  %134 = load i32, ptr %10, align 4
-  %135 = load ptr, ptr %20, align 8
-  call void %127(ptr noundef %128, i32 noundef %131, ptr noundef %132, ptr noundef %133, i32 noundef %134, ptr noundef %135)
-  %136 = load i32, ptr %11, align 4
-  %137 = call zeroext i1 @BufferIsValid(i32 noundef %136)
-  br i1 %137, label %138, label %181
+  %128 = getelementptr inbounds nuw %struct.RelationData, ptr %127, i32 0, i32 11
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %137
 
-138:                                              ; preds = %124
-  %139 = load ptr, ptr %17, align 8
-  %140 = call ptr @PageGetSpecialPointer(ptr noundef %139)
-  %141 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %140, i32 0, i32 2
-  %142 = load i16, ptr %141, align 2
-  %143 = zext i16 %142 to i32
-  %144 = and i32 %143, -65
-  %145 = trunc i32 %144 to i16
-  store i16 %145, ptr %141, align 2
-  %146 = load i32, ptr %11, align 4
-  call void @MarkBufferDirty(i32 noundef %146)
-  %147 = load ptr, ptr %7, align 8
-  %148 = getelementptr inbounds %struct.GinBtreeData, ptr %147, i32 0, i32 10
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.RelationData, ptr %149, i32 0, i32 13
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.FormData_pg_class, ptr %151, i32 0, i32 15
-  %153 = load i8, ptr %152, align 2
-  %154 = sext i8 %153 to i32
-  %155 = icmp eq i32 %154, 112
-  br i1 %155, label %156, label %180
+131:                                              ; preds = %124, %114
+  %132 = load ptr, ptr %7, align 8
+  %133 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %132, i32 0, i32 14
+  %134 = load i8, ptr %133, align 1, !range !4, !noundef !5
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %137, label %136
 
-156:                                              ; preds = %138
-  %157 = load i32, ptr @wal_level, align 4
-  %158 = icmp sge i32 %157, 1
-  br i1 %158, label %173, label %159
-
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.GinBtreeData, ptr %160, i32 0, i32 10
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds %struct.RelationData, ptr %162, i32 0, i32 9
-  %164 = load i32, ptr %163, align 8
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %180
-
-166:                                              ; preds = %159
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.GinBtreeData, ptr %167, i32 0, i32 10
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.RelationData, ptr %169, i32 0, i32 11
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %180
-
-173:                                              ; preds = %166, %156
-  %174 = load ptr, ptr %7, align 8
-  %175 = getelementptr inbounds %struct.GinBtreeData, ptr %174, i32 0, i32 14
-  %176 = load i8, ptr %175, align 1
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %180, label %178
-
-178:                                              ; preds = %173
-  %179 = load i32, ptr %11, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %179, i8 noundef zeroext 8)
-  br label %180
-
-180:                                              ; preds = %178, %173, %166, %159, %138
-  br label %181
-
-181:                                              ; preds = %180, %124
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct.GinBtreeData, ptr %182, i32 0, i32 10
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds %struct.RelationData, ptr %184, i32 0, i32 13
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds %struct.FormData_pg_class, ptr %186, i32 0, i32 15
-  %188 = load i8, ptr %187, align 2
-  %189 = sext i8 %188 to i32
-  %190 = icmp eq i32 %189, 112
-  br i1 %190, label %191, label %238
-
-191:                                              ; preds = %181
-  %192 = load i32, ptr @wal_level, align 4
-  %193 = icmp sge i32 %192, 1
-  br i1 %193, label %208, label %194
-
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %7, align 8
-  %196 = getelementptr inbounds %struct.GinBtreeData, ptr %195, i32 0, i32 10
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.RelationData, ptr %197, i32 0, i32 9
-  %199 = load i32, ptr %198, align 8
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %238
-
-201:                                              ; preds = %194
-  %202 = load ptr, ptr %7, align 8
-  %203 = getelementptr inbounds %struct.GinBtreeData, ptr %202, i32 0, i32 10
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds %struct.RelationData, ptr %204, i32 0, i32 11
-  %206 = load i32, ptr %205, align 8
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %238
-
-208:                                              ; preds = %201, %191
-  %209 = load ptr, ptr %7, align 8
-  %210 = getelementptr inbounds %struct.GinBtreeData, ptr %209, i32 0, i32 14
-  %211 = load i8, ptr %210, align 1
-  %212 = trunc i8 %211 to i1
-  br i1 %212, label %238, label %213
-
-213:                                              ; preds = %208
-  %214 = load i16, ptr %16, align 2
-  %215 = getelementptr inbounds %struct.ginxlogInsert, ptr %25, i32 0, i32 0
-  store i16 %214, ptr %215, align 2
-  call void @XLogRegisterData(ptr noundef %25, i32 noundef 2)
-  %216 = load i32, ptr %11, align 4
-  %217 = call zeroext i1 @BufferIsValid(i32 noundef %216)
-  br i1 %217, label %218, label %228
-
-218:                                              ; preds = %213
-  %219 = getelementptr [2 x %struct.BlockIdData], ptr %26, i64 0, i64 0
-  %220 = load i32, ptr %11, align 4
-  %221 = call i32 @BufferGetBlockNumber(i32 noundef %220)
-  call void @BlockIdSet(ptr noundef %219, i32 noundef %221)
-  %222 = getelementptr [2 x %struct.BlockIdData], ptr %26, i64 0, i64 1
-  %223 = load ptr, ptr %17, align 8
-  %224 = call ptr @PageGetSpecialPointer(ptr noundef %223)
-  %225 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %224, i32 0, i32 0
-  %226 = load i32, ptr %225, align 4
-  call void @BlockIdSet(ptr noundef %222, i32 noundef %226)
-  %227 = getelementptr inbounds [2 x %struct.BlockIdData], ptr %26, i64 0, i64 0
-  call void @XLogRegisterData(ptr noundef %227, i32 noundef 8)
-  br label %228
-
-228:                                              ; preds = %218, %213
-  %229 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 32)
-  store i64 %229, ptr %24, align 8
-  %230 = load ptr, ptr %13, align 8
-  %231 = load i64, ptr %24, align 8
-  call void @PageSetLSN(ptr noundef %230, i64 noundef %231)
-  %232 = load i32, ptr %11, align 4
-  %233 = call zeroext i1 @BufferIsValid(i32 noundef %232)
-  br i1 %233, label %234, label %237
-
-234:                                              ; preds = %228
-  %235 = load ptr, ptr %17, align 8
-  %236 = load i64, ptr %24, align 8
-  call void @PageSetLSN(ptr noundef %235, i64 noundef %236)
-  br label %237
-
-237:                                              ; preds = %234, %228
-  br label %238
-
-238:                                              ; preds = %237, %208, %201, %194, %181
-  br label %239
-
-239:                                              ; preds = %238
-  %240 = load volatile i32, ptr @CritSectionCount, align 4
-  %241 = add i32 %240, -1
-  store volatile i32 %241, ptr @CritSectionCount, align 4
-  br label %242
-
-242:                                              ; preds = %239
-  store i8 1, ptr %14, align 1
-  br label %572
-
-243:                                              ; preds = %86
-  %244 = load i32, ptr %15, align 4
-  %245 = icmp eq i32 %244, 2
-  br i1 %245, label %246, label %560
-
-246:                                              ; preds = %243
-  store i32 0, ptr %30, align 4
-  store ptr null, ptr %31, align 8
-  %247 = load ptr, ptr %7, align 8
-  %248 = getelementptr inbounds %struct.GinBtreeData, ptr %247, i32 0, i32 10
-  %249 = load ptr, ptr %248, align 8
-  %250 = call i32 @GinNewBuffer(ptr noundef %249)
-  store i32 %250, ptr %27, align 4
-  %251 = load ptr, ptr %12, align 8
-  %252 = icmp ne ptr %251, null
-  br i1 %252, label %253, label %269
-
-253:                                              ; preds = %246
-  %254 = load ptr, ptr %7, align 8
-  %255 = getelementptr inbounds %struct.GinBtreeData, ptr %254, i32 0, i32 9
-  %256 = load i8, ptr %255, align 8
-  %257 = trunc i8 %256 to i1
-  br i1 %257, label %258, label %263
-
-258:                                              ; preds = %253
-  %259 = load ptr, ptr %12, align 8
-  %260 = getelementptr inbounds %struct.GinStatsData, ptr %259, i32 0, i32 3
-  %261 = load i32, ptr %260, align 4
-  %262 = add i32 %261, 1
-  store i32 %262, ptr %260, align 4
-  br label %268
-
-263:                                              ; preds = %253
-  %264 = load ptr, ptr %12, align 8
-  %265 = getelementptr inbounds %struct.GinStatsData, ptr %264, i32 0, i32 2
-  %266 = load i32, ptr %265, align 8
-  %267 = add i32 %266, 1
-  store i32 %267, ptr %265, align 8
-  br label %268
-
-268:                                              ; preds = %263, %258
-  br label %269
-
-269:                                              ; preds = %268, %246
-  %270 = load ptr, ptr %13, align 8
-  %271 = call ptr @PageGetSpecialPointer(ptr noundef %270)
-  %272 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %271, i32 0, i32 0
-  %273 = load i32, ptr %272, align 4
-  store i32 %273, ptr %28, align 4
-  %274 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 0
-  %275 = load ptr, ptr %7, align 8
-  %276 = getelementptr inbounds %struct.GinBtreeData, ptr %275, i32 0, i32 10
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds %struct.RelationData, ptr %277, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %274, ptr align 8 %278, i64 12, i1 false)
-  %279 = load i16, ptr %16, align 2
-  %280 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 4
-  store i16 %279, ptr %280, align 4
-  %281 = load i32, ptr %11, align 4
-  %282 = call zeroext i1 @BufferIsValid(i32 noundef %281)
-  br i1 %282, label %283, label %292
-
-283:                                              ; preds = %269
-  %284 = load i32, ptr %11, align 4
-  %285 = call i32 @BufferGetBlockNumber(i32 noundef %284)
-  %286 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 2
-  store i32 %285, ptr %286, align 4
-  %287 = load ptr, ptr %17, align 8
-  %288 = call ptr @PageGetSpecialPointer(ptr noundef %287)
-  %289 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %288, i32 0, i32 0
-  %290 = load i32, ptr %289, align 4
-  %291 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 3
-  store i32 %290, ptr %291, align 4
-  br label %295
-
-292:                                              ; preds = %269
-  %293 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 3
-  store i32 -1, ptr %293, align 4
-  %294 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 2
-  store i32 -1, ptr %294, align 4
-  br label %295
-
-295:                                              ; preds = %292, %283
-  %296 = load ptr, ptr %8, align 8
-  %297 = getelementptr inbounds %struct.GinBtreeStack, ptr %296, i32 0, i32 5
-  %298 = load ptr, ptr %297, align 8
-  %299 = icmp eq ptr %298, null
-  br i1 %299, label %300, label %388
-
-300:                                              ; preds = %295
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct.GinBtreeData, ptr %301, i32 0, i32 10
-  %303 = load ptr, ptr %302, align 8
-  %304 = call i32 @GinNewBuffer(ptr noundef %303)
-  store i32 %304, ptr %30, align 4
-  %305 = load ptr, ptr %12, align 8
-  %306 = icmp ne ptr %305, null
-  br i1 %306, label %307, label %323
-
-307:                                              ; preds = %300
-  %308 = load ptr, ptr %7, align 8
-  %309 = getelementptr inbounds %struct.GinBtreeData, ptr %308, i32 0, i32 9
-  %310 = load i8, ptr %309, align 8
-  %311 = trunc i8 %310 to i1
-  br i1 %311, label %312, label %317
-
-312:                                              ; preds = %307
-  %313 = load ptr, ptr %12, align 8
-  %314 = getelementptr inbounds %struct.GinStatsData, ptr %313, i32 0, i32 3
-  %315 = load i32, ptr %314, align 4
-  %316 = add i32 %315, 1
-  store i32 %316, ptr %314, align 4
-  br label %322
-
-317:                                              ; preds = %307
-  %318 = load ptr, ptr %12, align 8
-  %319 = getelementptr inbounds %struct.GinStatsData, ptr %318, i32 0, i32 2
-  %320 = load i32, ptr %319, align 8
-  %321 = add i32 %320, 1
-  store i32 %321, ptr %319, align 8
-  br label %322
-
-322:                                              ; preds = %317, %312
-  br label %323
-
-323:                                              ; preds = %322, %300
-  %324 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 1
-  store i32 -1, ptr %324, align 4
-  %325 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 4
-  %326 = load i16, ptr %325, align 4
-  %327 = zext i16 %326 to i32
-  %328 = or i32 %327, 4
-  %329 = trunc i32 %328 to i16
-  store i16 %329, ptr %325, align 4
-  %330 = load ptr, ptr %19, align 8
-  %331 = call ptr @PageGetSpecialPointer(ptr noundef %330)
-  %332 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %331, i32 0, i32 0
-  store i32 -1, ptr %332, align 4
-  %333 = load i32, ptr %27, align 4
-  %334 = call i32 @BufferGetBlockNumber(i32 noundef %333)
-  %335 = load ptr, ptr %18, align 8
-  %336 = call ptr @PageGetSpecialPointer(ptr noundef %335)
-  %337 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %336, i32 0, i32 0
-  store i32 %334, ptr %337, align 4
-  %338 = load ptr, ptr %19, align 8
-  %339 = call ptr @PageGetTempPage(ptr noundef %338)
-  store ptr %339, ptr %31, align 8
-  %340 = load ptr, ptr %31, align 8
-  %341 = load ptr, ptr %18, align 8
-  %342 = call ptr @PageGetSpecialPointer(ptr noundef %341)
-  %343 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %342, i32 0, i32 2
-  %344 = load i16, ptr %343, align 2
-  %345 = zext i16 %344 to i32
-  %346 = and i32 %345, -131
-  call void @GinInitPage(ptr noundef %340, i32 noundef %346, i64 noundef 8192)
-  %347 = load ptr, ptr %7, align 8
-  %348 = getelementptr inbounds %struct.GinBtreeData, ptr %347, i32 0, i32 8
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %7, align 8
-  %351 = load ptr, ptr %31, align 8
-  %352 = load i32, ptr %30, align 4
-  %353 = call i32 @BufferGetBlockNumber(i32 noundef %352)
-  %354 = load ptr, ptr %18, align 8
-  %355 = load i32, ptr %27, align 4
-  %356 = call i32 @BufferGetBlockNumber(i32 noundef %355)
-  %357 = load ptr, ptr %19, align 8
-  call void %349(ptr noundef %350, ptr noundef %351, i32 noundef %353, ptr noundef %354, i32 noundef %356, ptr noundef %357)
-  %358 = load ptr, ptr %8, align 8
-  %359 = getelementptr inbounds %struct.GinBtreeStack, ptr %358, i32 0, i32 1
-  %360 = load i32, ptr %359, align 4
-  %361 = call ptr @BufferGetPage(i32 noundef %360)
-  %362 = call ptr @PageGetSpecialPointer(ptr noundef %361)
-  %363 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %362, i32 0, i32 2
-  %364 = load i16, ptr %363, align 2
-  %365 = zext i16 %364 to i32
-  %366 = and i32 %365, 2
-  %367 = icmp ne i32 %366, 0
-  br i1 %367, label %368, label %387
-
-368:                                              ; preds = %323
-  %369 = load ptr, ptr %7, align 8
-  %370 = getelementptr inbounds %struct.GinBtreeData, ptr %369, i32 0, i32 10
-  %371 = load ptr, ptr %370, align 8
-  %372 = load ptr, ptr %8, align 8
-  %373 = getelementptr inbounds %struct.GinBtreeStack, ptr %372, i32 0, i32 1
-  %374 = load i32, ptr %373, align 4
-  %375 = call i32 @BufferGetBlockNumber(i32 noundef %374)
-  %376 = load i32, ptr %30, align 4
-  %377 = call i32 @BufferGetBlockNumber(i32 noundef %376)
-  call void @PredicateLockPageSplit(ptr noundef %371, i32 noundef %375, i32 noundef %377)
-  %378 = load ptr, ptr %7, align 8
-  %379 = getelementptr inbounds %struct.GinBtreeData, ptr %378, i32 0, i32 10
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr %8, align 8
-  %382 = getelementptr inbounds %struct.GinBtreeStack, ptr %381, i32 0, i32 1
-  %383 = load i32, ptr %382, align 4
-  %384 = call i32 @BufferGetBlockNumber(i32 noundef %383)
-  %385 = load i32, ptr %27, align 4
-  %386 = call i32 @BufferGetBlockNumber(i32 noundef %385)
-  call void @PredicateLockPageSplit(ptr noundef %380, i32 noundef %384, i32 noundef %386)
-  br label %387
-
-387:                                              ; preds = %368, %323
-  br label %428
-
-388:                                              ; preds = %295
-  %389 = load i32, ptr %28, align 4
-  %390 = getelementptr inbounds %struct.ginxlogSplit, ptr %29, i32 0, i32 1
-  store i32 %389, ptr %390, align 4
-  %391 = load i32, ptr %28, align 4
-  %392 = load ptr, ptr %19, align 8
-  %393 = call ptr @PageGetSpecialPointer(ptr noundef %392)
-  %394 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %393, i32 0, i32 0
-  store i32 %391, ptr %394, align 4
-  %395 = load ptr, ptr %18, align 8
-  %396 = call ptr @PageGetSpecialPointer(ptr noundef %395)
-  %397 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %396, i32 0, i32 2
-  %398 = load i16, ptr %397, align 2
-  %399 = zext i16 %398 to i32
-  %400 = or i32 %399, 64
-  %401 = trunc i32 %400 to i16
-  store i16 %401, ptr %397, align 2
-  %402 = load i32, ptr %27, align 4
-  %403 = call i32 @BufferGetBlockNumber(i32 noundef %402)
-  %404 = load ptr, ptr %18, align 8
-  %405 = call ptr @PageGetSpecialPointer(ptr noundef %404)
-  %406 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %405, i32 0, i32 0
-  store i32 %403, ptr %406, align 4
-  %407 = load ptr, ptr %8, align 8
-  %408 = getelementptr inbounds %struct.GinBtreeStack, ptr %407, i32 0, i32 1
-  %409 = load i32, ptr %408, align 4
-  %410 = call ptr @BufferGetPage(i32 noundef %409)
-  %411 = call ptr @PageGetSpecialPointer(ptr noundef %410)
-  %412 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %411, i32 0, i32 2
-  %413 = load i16, ptr %412, align 2
-  %414 = zext i16 %413 to i32
-  %415 = and i32 %414, 2
-  %416 = icmp ne i32 %415, 0
-  br i1 %416, label %417, label %427
-
-417:                                              ; preds = %388
-  %418 = load ptr, ptr %7, align 8
-  %419 = getelementptr inbounds %struct.GinBtreeData, ptr %418, i32 0, i32 10
-  %420 = load ptr, ptr %419, align 8
-  %421 = load ptr, ptr %8, align 8
-  %422 = getelementptr inbounds %struct.GinBtreeStack, ptr %421, i32 0, i32 1
-  %423 = load i32, ptr %422, align 4
-  %424 = call i32 @BufferGetBlockNumber(i32 noundef %423)
-  %425 = load i32, ptr %27, align 4
-  %426 = call i32 @BufferGetBlockNumber(i32 noundef %425)
-  call void @PredicateLockPageSplit(ptr noundef %420, i32 noundef %424, i32 noundef %426)
-  br label %427
-
-427:                                              ; preds = %417, %388
-  br label %428
-
-428:                                              ; preds = %427, %387
-  %429 = load volatile i32, ptr @CritSectionCount, align 4
-  %430 = add i32 %429, 1
-  store volatile i32 %430, ptr @CritSectionCount, align 4
-  %431 = load i32, ptr %27, align 4
-  call void @MarkBufferDirty(i32 noundef %431)
-  %432 = load ptr, ptr %8, align 8
-  %433 = getelementptr inbounds %struct.GinBtreeStack, ptr %432, i32 0, i32 1
-  %434 = load i32, ptr %433, align 4
-  call void @MarkBufferDirty(i32 noundef %434)
-  %435 = load ptr, ptr %8, align 8
-  %436 = getelementptr inbounds %struct.GinBtreeStack, ptr %435, i32 0, i32 5
-  %437 = load ptr, ptr %436, align 8
-  %438 = icmp eq ptr %437, null
-  br i1 %438, label %439, label %449
-
-439:                                              ; preds = %428
-  %440 = load i32, ptr %30, align 4
-  call void @MarkBufferDirty(i32 noundef %440)
-  %441 = load ptr, ptr %13, align 8
-  %442 = load ptr, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %441, ptr align 1 %442, i64 8192, i1 false)
-  %443 = load i32, ptr %30, align 4
-  %444 = call ptr @BufferGetPage(i32 noundef %443)
-  %445 = load ptr, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %444, ptr align 1 %445, i64 8192, i1 false)
-  %446 = load i32, ptr %27, align 4
-  %447 = call ptr @BufferGetPage(i32 noundef %446)
-  %448 = load ptr, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %447, ptr align 1 %448, i64 8192, i1 false)
-  br label %455
-
-449:                                              ; preds = %428
-  %450 = load ptr, ptr %13, align 8
-  %451 = load ptr, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %450, ptr align 1 %451, i64 8192, i1 false)
-  %452 = load i32, ptr %27, align 4
-  %453 = call ptr @BufferGetPage(i32 noundef %452)
-  %454 = load ptr, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %453, ptr align 1 %454, i64 8192, i1 false)
-  br label %455
-
-455:                                              ; preds = %449, %439
-  %456 = load i32, ptr %11, align 4
-  %457 = call zeroext i1 @BufferIsValid(i32 noundef %456)
-  br i1 %457, label %458, label %467
-
-458:                                              ; preds = %455
-  %459 = load ptr, ptr %17, align 8
-  %460 = call ptr @PageGetSpecialPointer(ptr noundef %459)
-  %461 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %460, i32 0, i32 2
-  %462 = load i16, ptr %461, align 2
-  %463 = zext i16 %462 to i32
-  %464 = and i32 %463, -65
-  %465 = trunc i32 %464 to i16
-  store i16 %465, ptr %461, align 2
-  %466 = load i32, ptr %11, align 4
-  call void @MarkBufferDirty(i32 noundef %466)
-  br label %467
-
-467:                                              ; preds = %458, %455
-  %468 = load ptr, ptr %7, align 8
-  %469 = getelementptr inbounds %struct.GinBtreeData, ptr %468, i32 0, i32 10
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds %struct.RelationData, ptr %470, i32 0, i32 13
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds %struct.FormData_pg_class, ptr %472, i32 0, i32 15
-  %474 = load i8, ptr %473, align 2
-  %475 = sext i8 %474 to i32
-  %476 = icmp eq i32 %475, 112
-  br i1 %476, label %477, label %542
-
-477:                                              ; preds = %467
-  %478 = load i32, ptr @wal_level, align 4
-  %479 = icmp sge i32 %478, 1
-  br i1 %479, label %494, label %480
-
-480:                                              ; preds = %477
-  %481 = load ptr, ptr %7, align 8
-  %482 = getelementptr inbounds %struct.GinBtreeData, ptr %481, i32 0, i32 10
-  %483 = load ptr, ptr %482, align 8
-  %484 = getelementptr inbounds %struct.RelationData, ptr %483, i32 0, i32 9
-  %485 = load i32, ptr %484, align 8
-  %486 = icmp eq i32 %485, 0
-  br i1 %486, label %487, label %542
-
-487:                                              ; preds = %480
-  %488 = load ptr, ptr %7, align 8
-  %489 = getelementptr inbounds %struct.GinBtreeData, ptr %488, i32 0, i32 10
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds %struct.RelationData, ptr %490, i32 0, i32 11
-  %492 = load i32, ptr %491, align 8
-  %493 = icmp eq i32 %492, 0
-  br i1 %493, label %494, label %542
-
-494:                                              ; preds = %487, %477
-  %495 = load ptr, ptr %7, align 8
-  %496 = getelementptr inbounds %struct.GinBtreeData, ptr %495, i32 0, i32 14
-  %497 = load i8, ptr %496, align 1
-  %498 = trunc i8 %497 to i1
-  br i1 %498, label %542, label %499
-
-499:                                              ; preds = %494
+136:                                              ; preds = %131
   call void @XLogBeginInsert()
-  %500 = load ptr, ptr %8, align 8
-  %501 = getelementptr inbounds %struct.GinBtreeStack, ptr %500, i32 0, i32 5
-  %502 = load ptr, ptr %501, align 8
-  %503 = icmp eq ptr %502, null
-  br i1 %503, label %504, label %510
+  br label %137
 
-504:                                              ; preds = %499
-  %505 = load i32, ptr %30, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %505, i8 noundef zeroext 9)
-  %506 = load i32, ptr %27, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %506, i8 noundef zeroext 9)
-  %507 = load ptr, ptr %8, align 8
-  %508 = getelementptr inbounds %struct.GinBtreeStack, ptr %507, i32 0, i32 1
-  %509 = load i32, ptr %508, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %509, i8 noundef zeroext 9)
-  br label %515
+137:                                              ; preds = %136, %131, %124, %117, %102
+  %138 = load ptr, ptr %7, align 8
+  %139 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %138, i32 0, i32 6
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %7, align 8
+  %142 = load ptr, ptr %8, align 8
+  %143 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %142, i32 0, i32 1
+  %144 = load i32, ptr %143, align 4
+  %145 = load ptr, ptr %8, align 8
+  %146 = load ptr, ptr %9, align 8
+  %147 = load i32, ptr %10, align 4
+  %148 = load ptr, ptr %20, align 8
+  call void %140(ptr noundef %141, i32 noundef %144, ptr noundef %145, ptr noundef %146, i32 noundef %147, ptr noundef %148)
+  %149 = load i32, ptr %11, align 4
+  %150 = call zeroext i1 @BufferIsValid(i32 noundef %149)
+  br i1 %150, label %151, label %200
 
-510:                                              ; preds = %499
-  %511 = load ptr, ptr %8, align 8
-  %512 = getelementptr inbounds %struct.GinBtreeStack, ptr %511, i32 0, i32 1
-  %513 = load i32, ptr %512, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %513, i8 noundef zeroext 9)
-  %514 = load i32, ptr %27, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %514, i8 noundef zeroext 9)
-  br label %515
+151:                                              ; preds = %137
+  %152 = load ptr, ptr %17, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %152)
+  %153 = load ptr, ptr %17, align 8
+  %154 = load ptr, ptr %17, align 8
+  %155 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %154, i32 0, i32 5
+  %156 = load i16, ptr %155, align 4
+  %157 = zext i16 %156 to i32
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds i8, ptr %153, i64 %158
+  %160 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %159, i32 0, i32 2
+  %161 = load i16, ptr %160, align 2
+  %162 = zext i16 %161 to i32
+  %163 = and i32 %162, -65
+  %164 = trunc i32 %163 to i16
+  store i16 %164, ptr %160, align 2
+  %165 = load i32, ptr %11, align 4
+  call void @MarkBufferDirty(i32 noundef %165)
+  %166 = load ptr, ptr %7, align 8
+  %167 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %166, i32 0, i32 10
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw %struct.RelationData, ptr %168, i32 0, i32 13
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %170, i32 0, i32 15
+  %172 = load i8, ptr %171, align 2
+  %173 = sext i8 %172 to i32
+  %174 = icmp eq i32 %173, 112
+  br i1 %174, label %175, label %199
 
-515:                                              ; preds = %510, %504
-  %516 = load i32, ptr %11, align 4
-  %517 = call zeroext i1 @BufferIsValid(i32 noundef %516)
-  br i1 %517, label %518, label %520
+175:                                              ; preds = %151
+  %176 = load i32, ptr @wal_level, align 4
+  %177 = icmp sge i32 %176, 1
+  br i1 %177, label %192, label %178
 
-518:                                              ; preds = %515
-  %519 = load i32, ptr %11, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 3, i32 noundef %519, i8 noundef zeroext 8)
-  br label %520
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %179, i32 0, i32 10
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw %struct.RelationData, ptr %181, i32 0, i32 9
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %199
 
-520:                                              ; preds = %518, %515
-  call void @XLogRegisterData(ptr noundef %29, i32 noundef 28)
-  %521 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 48)
-  store i64 %521, ptr %32, align 8
-  %522 = load ptr, ptr %13, align 8
-  %523 = load i64, ptr %32, align 8
-  call void @PageSetLSN(ptr noundef %522, i64 noundef %523)
-  %524 = load i32, ptr %27, align 4
-  %525 = call ptr @BufferGetPage(i32 noundef %524)
-  %526 = load i64, ptr %32, align 8
-  call void @PageSetLSN(ptr noundef %525, i64 noundef %526)
-  %527 = load ptr, ptr %8, align 8
-  %528 = getelementptr inbounds %struct.GinBtreeStack, ptr %527, i32 0, i32 5
-  %529 = load ptr, ptr %528, align 8
-  %530 = icmp eq ptr %529, null
-  br i1 %530, label %531, label %535
+185:                                              ; preds = %178
+  %186 = load ptr, ptr %7, align 8
+  %187 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %186, i32 0, i32 10
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw %struct.RelationData, ptr %188, i32 0, i32 11
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %192, label %199
 
-531:                                              ; preds = %520
-  %532 = load i32, ptr %30, align 4
-  %533 = call ptr @BufferGetPage(i32 noundef %532)
-  %534 = load i64, ptr %32, align 8
-  call void @PageSetLSN(ptr noundef %533, i64 noundef %534)
-  br label %535
+192:                                              ; preds = %185, %175
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %193, i32 0, i32 14
+  %195 = load i8, ptr %194, align 1, !range !4, !noundef !5
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %199, label %197
 
-535:                                              ; preds = %531, %520
-  %536 = load i32, ptr %11, align 4
-  %537 = call zeroext i1 @BufferIsValid(i32 noundef %536)
-  br i1 %537, label %538, label %541
+197:                                              ; preds = %192
+  %198 = load i32, ptr %11, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %198, i8 noundef zeroext 8)
+  br label %199
 
-538:                                              ; preds = %535
-  %539 = load ptr, ptr %17, align 8
-  %540 = load i64, ptr %32, align 8
-  call void @PageSetLSN(ptr noundef %539, i64 noundef %540)
-  br label %541
+199:                                              ; preds = %197, %192, %185, %178, %151
+  br label %200
 
-541:                                              ; preds = %538, %535
-  br label %542
+200:                                              ; preds = %199, %137
+  %201 = load ptr, ptr %7, align 8
+  %202 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %201, i32 0, i32 10
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds nuw %struct.RelationData, ptr %203, i32 0, i32 13
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %205, i32 0, i32 15
+  %207 = load i8, ptr %206, align 2
+  %208 = sext i8 %207 to i32
+  %209 = icmp eq i32 %208, 112
+  br i1 %209, label %210, label %263
 
-542:                                              ; preds = %541, %494, %487, %480, %467
-  br label %543
+210:                                              ; preds = %200
+  %211 = load i32, ptr @wal_level, align 4
+  %212 = icmp sge i32 %211, 1
+  br i1 %212, label %227, label %213
 
-543:                                              ; preds = %542
-  %544 = load volatile i32, ptr @CritSectionCount, align 4
-  %545 = add i32 %544, -1
-  store volatile i32 %545, ptr @CritSectionCount, align 4
-  br label %546
+213:                                              ; preds = %210
+  %214 = load ptr, ptr %7, align 8
+  %215 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %214, i32 0, i32 10
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw %struct.RelationData, ptr %216, i32 0, i32 9
+  %218 = load i32, ptr %217, align 8
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %220, label %263
 
-546:                                              ; preds = %543
-  %547 = load i32, ptr %27, align 4
-  call void @UnlockReleaseBuffer(i32 noundef %547)
-  %548 = load ptr, ptr %8, align 8
-  %549 = getelementptr inbounds %struct.GinBtreeStack, ptr %548, i32 0, i32 5
-  %550 = load ptr, ptr %549, align 8
-  %551 = icmp eq ptr %550, null
-  br i1 %551, label %552, label %554
+220:                                              ; preds = %213
+  %221 = load ptr, ptr %7, align 8
+  %222 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %221, i32 0, i32 10
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw %struct.RelationData, ptr %223, i32 0, i32 11
+  %225 = load i32, ptr %224, align 8
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %263
 
-552:                                              ; preds = %546
-  %553 = load i32, ptr %30, align 4
-  call void @UnlockReleaseBuffer(i32 noundef %553)
-  br label %554
+227:                                              ; preds = %220, %210
+  %228 = load ptr, ptr %7, align 8
+  %229 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %228, i32 0, i32 14
+  %230 = load i8, ptr %229, align 1, !range !4, !noundef !5
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %263, label %232
 
-554:                                              ; preds = %552, %546
-  %555 = load ptr, ptr %8, align 8
-  %556 = getelementptr inbounds %struct.GinBtreeStack, ptr %555, i32 0, i32 5
-  %557 = load ptr, ptr %556, align 8
-  %558 = icmp eq ptr %557, null
-  %559 = zext i1 %558 to i8
-  store i8 %559, ptr %14, align 1
+232:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  %233 = load i16, ptr %16, align 2
+  %234 = getelementptr inbounds nuw %struct.ginxlogInsert, ptr %25, i32 0, i32 0
+  store i16 %233, ptr %234, align 2
+  call void @XLogRegisterData(ptr noundef %25, i32 noundef 2)
+  %235 = load i32, ptr %11, align 4
+  %236 = call zeroext i1 @BufferIsValid(i32 noundef %235)
+  br i1 %236, label %237, label %253
+
+237:                                              ; preds = %232
+  %238 = getelementptr inbounds [2 x %struct.BlockIdData], ptr %26, i64 0, i64 0
+  %239 = load i32, ptr %11, align 4
+  %240 = call i32 @BufferGetBlockNumber(i32 noundef %239)
+  call void @BlockIdSet(ptr noundef %238, i32 noundef %240)
+  %241 = getelementptr inbounds [2 x %struct.BlockIdData], ptr %26, i64 0, i64 1
+  %242 = load ptr, ptr %17, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %242)
+  %243 = load ptr, ptr %17, align 8
+  %244 = load ptr, ptr %17, align 8
+  %245 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %244, i32 0, i32 5
+  %246 = load i16, ptr %245, align 4
+  %247 = zext i16 %246 to i32
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds i8, ptr %243, i64 %248
+  %250 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %249, i32 0, i32 0
+  %251 = load i32, ptr %250, align 4
+  call void @BlockIdSet(ptr noundef %241, i32 noundef %251)
+  %252 = getelementptr inbounds [2 x %struct.BlockIdData], ptr %26, i64 0, i64 0
+  call void @XLogRegisterData(ptr noundef %252, i32 noundef 8)
+  br label %253
+
+253:                                              ; preds = %237, %232
+  %254 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 32)
+  store i64 %254, ptr %24, align 8
+  %255 = load ptr, ptr %13, align 8
+  %256 = load i64, ptr %24, align 8
+  call void @PageSetLSN(ptr noundef %255, i64 noundef %256)
+  %257 = load i32, ptr %11, align 4
+  %258 = call zeroext i1 @BufferIsValid(i32 noundef %257)
+  br i1 %258, label %259, label %262
+
+259:                                              ; preds = %253
+  %260 = load ptr, ptr %17, align 8
+  %261 = load i64, ptr %24, align 8
+  call void @PageSetLSN(ptr noundef %260, i64 noundef %261)
+  br label %262
+
+262:                                              ; preds = %259, %253
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  br label %263
+
+263:                                              ; preds = %262, %227, %220, %213, %200
+  br label %264
+
+264:                                              ; preds = %263
+  %265 = load volatile i32, ptr @CritSectionCount, align 4
+  %266 = add i32 %265, -1
+  store volatile i32 %266, ptr @CritSectionCount, align 4
+  br label %267
+
+267:                                              ; preds = %264
+  br label %268
+
+268:                                              ; preds = %267
+  store i8 1, ptr %14, align 1
+  br label %678
+
+269:                                              ; preds = %99
+  %270 = load i32, ptr %15, align 4
+  %271 = icmp eq i32 %270, 2
+  br i1 %271, label %272, label %665
+
+272:                                              ; preds = %269
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 28, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  store i32 0, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
+  store ptr null, ptr %31, align 8
+  %273 = load ptr, ptr %7, align 8
+  %274 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %273, i32 0, i32 10
+  %275 = load ptr, ptr %274, align 8
+  %276 = call i32 @GinNewBuffer(ptr noundef %275)
+  store i32 %276, ptr %27, align 4
+  %277 = load ptr, ptr %12, align 8
+  %278 = icmp ne ptr %277, null
+  br i1 %278, label %279, label %295
+
+279:                                              ; preds = %272
+  %280 = load ptr, ptr %7, align 8
+  %281 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %280, i32 0, i32 9
+  %282 = load i8, ptr %281, align 8, !range !4, !noundef !5
+  %283 = trunc i8 %282 to i1
+  br i1 %283, label %284, label %289
+
+284:                                              ; preds = %279
+  %285 = load ptr, ptr %12, align 8
+  %286 = getelementptr inbounds nuw %struct.GinStatsData, ptr %285, i32 0, i32 3
+  %287 = load i32, ptr %286, align 4
+  %288 = add i32 %287, 1
+  store i32 %288, ptr %286, align 4
+  br label %294
+
+289:                                              ; preds = %279
+  %290 = load ptr, ptr %12, align 8
+  %291 = getelementptr inbounds nuw %struct.GinStatsData, ptr %290, i32 0, i32 2
+  %292 = load i32, ptr %291, align 8
+  %293 = add i32 %292, 1
+  store i32 %293, ptr %291, align 8
+  br label %294
+
+294:                                              ; preds = %289, %284
+  br label %295
+
+295:                                              ; preds = %294, %272
+  %296 = load ptr, ptr %13, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %296)
+  %297 = load ptr, ptr %13, align 8
+  %298 = load ptr, ptr %13, align 8
+  %299 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %298, i32 0, i32 5
+  %300 = load i16, ptr %299, align 4
+  %301 = zext i16 %300 to i32
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr inbounds i8, ptr %297, i64 %302
+  %304 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %303, i32 0, i32 0
+  %305 = load i32, ptr %304, align 4
+  store i32 %305, ptr %28, align 4
+  %306 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 0
+  %307 = load ptr, ptr %7, align 8
+  %308 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %307, i32 0, i32 10
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds nuw %struct.RelationData, ptr %309, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %306, ptr align 8 %310, i64 12, i1 false)
+  %311 = load i16, ptr %16, align 2
+  %312 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 4
+  store i16 %311, ptr %312, align 4
+  %313 = load i32, ptr %11, align 4
+  %314 = call zeroext i1 @BufferIsValid(i32 noundef %313)
+  br i1 %314, label %315, label %330
+
+315:                                              ; preds = %295
+  %316 = load i32, ptr %11, align 4
+  %317 = call i32 @BufferGetBlockNumber(i32 noundef %316)
+  %318 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 2
+  store i32 %317, ptr %318, align 4
+  %319 = load ptr, ptr %17, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %319)
+  %320 = load ptr, ptr %17, align 8
+  %321 = load ptr, ptr %17, align 8
+  %322 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %321, i32 0, i32 5
+  %323 = load i16, ptr %322, align 4
+  %324 = zext i16 %323 to i32
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds i8, ptr %320, i64 %325
+  %327 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %326, i32 0, i32 0
+  %328 = load i32, ptr %327, align 4
+  %329 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 3
+  store i32 %328, ptr %329, align 4
+  br label %333
+
+330:                                              ; preds = %295
+  %331 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 3
+  store i32 -1, ptr %331, align 4
+  %332 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 2
+  store i32 -1, ptr %332, align 4
+  br label %333
+
+333:                                              ; preds = %330, %315
+  %334 = load ptr, ptr %8, align 8
+  %335 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %334, i32 0, i32 5
+  %336 = load ptr, ptr %335, align 8
+  %337 = icmp eq ptr %336, null
+  br i1 %337, label %338, label %456
+
+338:                                              ; preds = %333
+  %339 = load ptr, ptr %7, align 8
+  %340 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %339, i32 0, i32 10
+  %341 = load ptr, ptr %340, align 8
+  %342 = call i32 @GinNewBuffer(ptr noundef %341)
+  store i32 %342, ptr %30, align 4
+  %343 = load ptr, ptr %12, align 8
+  %344 = icmp ne ptr %343, null
+  br i1 %344, label %345, label %361
+
+345:                                              ; preds = %338
+  %346 = load ptr, ptr %7, align 8
+  %347 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %346, i32 0, i32 9
+  %348 = load i8, ptr %347, align 8, !range !4, !noundef !5
+  %349 = trunc i8 %348 to i1
+  br i1 %349, label %350, label %355
+
+350:                                              ; preds = %345
+  %351 = load ptr, ptr %12, align 8
+  %352 = getelementptr inbounds nuw %struct.GinStatsData, ptr %351, i32 0, i32 3
+  %353 = load i32, ptr %352, align 4
+  %354 = add i32 %353, 1
+  store i32 %354, ptr %352, align 4
+  br label %360
+
+355:                                              ; preds = %345
+  %356 = load ptr, ptr %12, align 8
+  %357 = getelementptr inbounds nuw %struct.GinStatsData, ptr %356, i32 0, i32 2
+  %358 = load i32, ptr %357, align 8
+  %359 = add i32 %358, 1
+  store i32 %359, ptr %357, align 8
+  br label %360
+
+360:                                              ; preds = %355, %350
+  br label %361
+
+361:                                              ; preds = %360, %338
+  %362 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 1
+  store i32 -1, ptr %362, align 4
+  %363 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 4
+  %364 = load i16, ptr %363, align 4
+  %365 = zext i16 %364 to i32
+  %366 = or i32 %365, 4
+  %367 = trunc i32 %366 to i16
+  store i16 %367, ptr %363, align 4
+  %368 = load ptr, ptr %19, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %368)
+  %369 = load ptr, ptr %19, align 8
+  %370 = load ptr, ptr %19, align 8
+  %371 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %370, i32 0, i32 5
+  %372 = load i16, ptr %371, align 4
+  %373 = zext i16 %372 to i32
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds i8, ptr %369, i64 %374
+  %376 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %375, i32 0, i32 0
+  store i32 -1, ptr %376, align 4
+  %377 = load i32, ptr %27, align 4
+  %378 = call i32 @BufferGetBlockNumber(i32 noundef %377)
+  %379 = load ptr, ptr %18, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %379)
+  %380 = load ptr, ptr %18, align 8
+  %381 = load ptr, ptr %18, align 8
+  %382 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %381, i32 0, i32 5
+  %383 = load i16, ptr %382, align 4
+  %384 = zext i16 %383 to i32
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds i8, ptr %380, i64 %385
+  %387 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %386, i32 0, i32 0
+  store i32 %378, ptr %387, align 4
+  %388 = load ptr, ptr %19, align 8
+  %389 = call ptr @PageGetTempPage(ptr noundef %388)
+  store ptr %389, ptr %31, align 8
+  %390 = load ptr, ptr %31, align 8
+  %391 = load ptr, ptr %18, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %391)
+  %392 = load ptr, ptr %18, align 8
+  %393 = load ptr, ptr %18, align 8
+  %394 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %393, i32 0, i32 5
+  %395 = load i16, ptr %394, align 4
+  %396 = zext i16 %395 to i32
+  %397 = sext i32 %396 to i64
+  %398 = getelementptr inbounds i8, ptr %392, i64 %397
+  %399 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %398, i32 0, i32 2
+  %400 = load i16, ptr %399, align 2
+  %401 = zext i16 %400 to i32
+  %402 = and i32 %401, -131
+  call void @GinInitPage(ptr noundef %390, i32 noundef %402, i64 noundef 8192)
+  %403 = load ptr, ptr %7, align 8
+  %404 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %403, i32 0, i32 8
+  %405 = load ptr, ptr %404, align 8
+  %406 = load ptr, ptr %7, align 8
+  %407 = load ptr, ptr %31, align 8
+  %408 = load i32, ptr %30, align 4
+  %409 = call i32 @BufferGetBlockNumber(i32 noundef %408)
+  %410 = load ptr, ptr %18, align 8
+  %411 = load i32, ptr %27, align 4
+  %412 = call i32 @BufferGetBlockNumber(i32 noundef %411)
+  %413 = load ptr, ptr %19, align 8
+  call void %405(ptr noundef %406, ptr noundef %407, i32 noundef %409, ptr noundef %410, i32 noundef %412, ptr noundef %413)
+  %414 = load ptr, ptr %8, align 8
+  %415 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %414, i32 0, i32 1
+  %416 = load i32, ptr %415, align 4
+  %417 = call ptr @BufferGetPage(i32 noundef %416)
+  call void @PageValidateSpecialPointer(ptr noundef %417)
+  %418 = load ptr, ptr %8, align 8
+  %419 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %418, i32 0, i32 1
+  %420 = load i32, ptr %419, align 4
+  %421 = call ptr @BufferGetPage(i32 noundef %420)
+  %422 = load ptr, ptr %8, align 8
+  %423 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %422, i32 0, i32 1
+  %424 = load i32, ptr %423, align 4
+  %425 = call ptr @BufferGetPage(i32 noundef %424)
+  %426 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %425, i32 0, i32 5
+  %427 = load i16, ptr %426, align 4
+  %428 = zext i16 %427 to i32
+  %429 = sext i32 %428 to i64
+  %430 = getelementptr inbounds i8, ptr %421, i64 %429
+  %431 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %430, i32 0, i32 2
+  %432 = load i16, ptr %431, align 2
+  %433 = zext i16 %432 to i32
+  %434 = and i32 %433, 2
+  %435 = icmp ne i32 %434, 0
+  br i1 %435, label %436, label %455
+
+436:                                              ; preds = %361
+  %437 = load ptr, ptr %7, align 8
+  %438 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %437, i32 0, i32 10
+  %439 = load ptr, ptr %438, align 8
+  %440 = load ptr, ptr %8, align 8
+  %441 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %440, i32 0, i32 1
+  %442 = load i32, ptr %441, align 4
+  %443 = call i32 @BufferGetBlockNumber(i32 noundef %442)
+  %444 = load i32, ptr %30, align 4
+  %445 = call i32 @BufferGetBlockNumber(i32 noundef %444)
+  call void @PredicateLockPageSplit(ptr noundef %439, i32 noundef %443, i32 noundef %445)
+  %446 = load ptr, ptr %7, align 8
+  %447 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %446, i32 0, i32 10
+  %448 = load ptr, ptr %447, align 8
+  %449 = load ptr, ptr %8, align 8
+  %450 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %449, i32 0, i32 1
+  %451 = load i32, ptr %450, align 4
+  %452 = call i32 @BufferGetBlockNumber(i32 noundef %451)
+  %453 = load i32, ptr %27, align 4
+  %454 = call i32 @BufferGetBlockNumber(i32 noundef %453)
+  call void @PredicateLockPageSplit(ptr noundef %448, i32 noundef %452, i32 noundef %454)
+  br label %455
+
+455:                                              ; preds = %436, %361
+  br label %526
+
+456:                                              ; preds = %333
+  %457 = load i32, ptr %28, align 4
+  %458 = getelementptr inbounds nuw %struct.ginxlogSplit, ptr %29, i32 0, i32 1
+  store i32 %457, ptr %458, align 4
+  %459 = load i32, ptr %28, align 4
+  %460 = load ptr, ptr %19, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %460)
+  %461 = load ptr, ptr %19, align 8
+  %462 = load ptr, ptr %19, align 8
+  %463 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %462, i32 0, i32 5
+  %464 = load i16, ptr %463, align 4
+  %465 = zext i16 %464 to i32
+  %466 = sext i32 %465 to i64
+  %467 = getelementptr inbounds i8, ptr %461, i64 %466
+  %468 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %467, i32 0, i32 0
+  store i32 %459, ptr %468, align 4
+  %469 = load ptr, ptr %18, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %469)
+  %470 = load ptr, ptr %18, align 8
+  %471 = load ptr, ptr %18, align 8
+  %472 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %471, i32 0, i32 5
+  %473 = load i16, ptr %472, align 4
+  %474 = zext i16 %473 to i32
+  %475 = sext i32 %474 to i64
+  %476 = getelementptr inbounds i8, ptr %470, i64 %475
+  %477 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %476, i32 0, i32 2
+  %478 = load i16, ptr %477, align 2
+  %479 = zext i16 %478 to i32
+  %480 = or i32 %479, 64
+  %481 = trunc i32 %480 to i16
+  store i16 %481, ptr %477, align 2
+  %482 = load i32, ptr %27, align 4
+  %483 = call i32 @BufferGetBlockNumber(i32 noundef %482)
+  %484 = load ptr, ptr %18, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %484)
+  %485 = load ptr, ptr %18, align 8
+  %486 = load ptr, ptr %18, align 8
+  %487 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %486, i32 0, i32 5
+  %488 = load i16, ptr %487, align 4
+  %489 = zext i16 %488 to i32
+  %490 = sext i32 %489 to i64
+  %491 = getelementptr inbounds i8, ptr %485, i64 %490
+  %492 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %491, i32 0, i32 0
+  store i32 %483, ptr %492, align 4
+  %493 = load ptr, ptr %8, align 8
+  %494 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %493, i32 0, i32 1
+  %495 = load i32, ptr %494, align 4
+  %496 = call ptr @BufferGetPage(i32 noundef %495)
+  call void @PageValidateSpecialPointer(ptr noundef %496)
+  %497 = load ptr, ptr %8, align 8
+  %498 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %497, i32 0, i32 1
+  %499 = load i32, ptr %498, align 4
+  %500 = call ptr @BufferGetPage(i32 noundef %499)
+  %501 = load ptr, ptr %8, align 8
+  %502 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %501, i32 0, i32 1
+  %503 = load i32, ptr %502, align 4
+  %504 = call ptr @BufferGetPage(i32 noundef %503)
+  %505 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %504, i32 0, i32 5
+  %506 = load i16, ptr %505, align 4
+  %507 = zext i16 %506 to i32
+  %508 = sext i32 %507 to i64
+  %509 = getelementptr inbounds i8, ptr %500, i64 %508
+  %510 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %509, i32 0, i32 2
+  %511 = load i16, ptr %510, align 2
+  %512 = zext i16 %511 to i32
+  %513 = and i32 %512, 2
+  %514 = icmp ne i32 %513, 0
+  br i1 %514, label %515, label %525
+
+515:                                              ; preds = %456
+  %516 = load ptr, ptr %7, align 8
+  %517 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %516, i32 0, i32 10
+  %518 = load ptr, ptr %517, align 8
+  %519 = load ptr, ptr %8, align 8
+  %520 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %519, i32 0, i32 1
+  %521 = load i32, ptr %520, align 4
+  %522 = call i32 @BufferGetBlockNumber(i32 noundef %521)
+  %523 = load i32, ptr %27, align 4
+  %524 = call i32 @BufferGetBlockNumber(i32 noundef %523)
+  call void @PredicateLockPageSplit(ptr noundef %518, i32 noundef %522, i32 noundef %524)
+  br label %525
+
+525:                                              ; preds = %515, %456
+  br label %526
+
+526:                                              ; preds = %525, %455
+  %527 = load volatile i32, ptr @CritSectionCount, align 4
+  %528 = add i32 %527, 1
+  store volatile i32 %528, ptr @CritSectionCount, align 4
+  %529 = load i32, ptr %27, align 4
+  call void @MarkBufferDirty(i32 noundef %529)
+  %530 = load ptr, ptr %8, align 8
+  %531 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %530, i32 0, i32 1
+  %532 = load i32, ptr %531, align 4
+  call void @MarkBufferDirty(i32 noundef %532)
+  %533 = load ptr, ptr %8, align 8
+  %534 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %533, i32 0, i32 5
+  %535 = load ptr, ptr %534, align 8
+  %536 = icmp eq ptr %535, null
+  br i1 %536, label %537, label %547
+
+537:                                              ; preds = %526
+  %538 = load i32, ptr %30, align 4
+  call void @MarkBufferDirty(i32 noundef %538)
+  %539 = load ptr, ptr %13, align 8
+  %540 = load ptr, ptr %31, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %539, ptr align 1 %540, i64 8192, i1 false)
+  %541 = load i32, ptr %30, align 4
+  %542 = call ptr @BufferGetPage(i32 noundef %541)
+  %543 = load ptr, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %542, ptr align 1 %543, i64 8192, i1 false)
+  %544 = load i32, ptr %27, align 4
+  %545 = call ptr @BufferGetPage(i32 noundef %544)
+  %546 = load ptr, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %545, ptr align 1 %546, i64 8192, i1 false)
+  br label %553
+
+547:                                              ; preds = %526
+  %548 = load ptr, ptr %13, align 8
+  %549 = load ptr, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %548, ptr align 1 %549, i64 8192, i1 false)
+  %550 = load i32, ptr %27, align 4
+  %551 = call ptr @BufferGetPage(i32 noundef %550)
+  %552 = load ptr, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %551, ptr align 1 %552, i64 8192, i1 false)
+  br label %553
+
+553:                                              ; preds = %547, %537
+  %554 = load i32, ptr %11, align 4
+  %555 = call zeroext i1 @BufferIsValid(i32 noundef %554)
+  br i1 %555, label %556, label %571
+
+556:                                              ; preds = %553
+  %557 = load ptr, ptr %17, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %557)
+  %558 = load ptr, ptr %17, align 8
+  %559 = load ptr, ptr %17, align 8
+  %560 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %559, i32 0, i32 5
+  %561 = load i16, ptr %560, align 4
+  %562 = zext i16 %561 to i32
+  %563 = sext i32 %562 to i64
+  %564 = getelementptr inbounds i8, ptr %558, i64 %563
+  %565 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %564, i32 0, i32 2
+  %566 = load i16, ptr %565, align 2
+  %567 = zext i16 %566 to i32
+  %568 = and i32 %567, -65
+  %569 = trunc i32 %568 to i16
+  store i16 %569, ptr %565, align 2
+  %570 = load i32, ptr %11, align 4
+  call void @MarkBufferDirty(i32 noundef %570)
   br label %571
 
-560:                                              ; preds = %243
-  br label %561
+571:                                              ; preds = %556, %553
+  %572 = load ptr, ptr %7, align 8
+  %573 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %572, i32 0, i32 10
+  %574 = load ptr, ptr %573, align 8
+  %575 = getelementptr inbounds nuw %struct.RelationData, ptr %574, i32 0, i32 13
+  %576 = load ptr, ptr %575, align 8
+  %577 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %576, i32 0, i32 15
+  %578 = load i8, ptr %577, align 2
+  %579 = sext i8 %578 to i32
+  %580 = icmp eq i32 %579, 112
+  br i1 %580, label %581, label %646
 
-561:                                              ; preds = %560
-  br i1 true, label %562, label %564
+581:                                              ; preds = %571
+  %582 = load i32, ptr @wal_level, align 4
+  %583 = icmp sge i32 %582, 1
+  br i1 %583, label %598, label %584
 
-562:                                              ; preds = %561
-  %563 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %563, label %566, label %569
+584:                                              ; preds = %581
+  %585 = load ptr, ptr %7, align 8
+  %586 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %585, i32 0, i32 10
+  %587 = load ptr, ptr %586, align 8
+  %588 = getelementptr inbounds nuw %struct.RelationData, ptr %587, i32 0, i32 9
+  %589 = load i32, ptr %588, align 8
+  %590 = icmp eq i32 %589, 0
+  br i1 %590, label %591, label %646
 
-564:                                              ; preds = %561
-  %565 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %565, label %566, label %569
+591:                                              ; preds = %584
+  %592 = load ptr, ptr %7, align 8
+  %593 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %592, i32 0, i32 10
+  %594 = load ptr, ptr %593, align 8
+  %595 = getelementptr inbounds nuw %struct.RelationData, ptr %594, i32 0, i32 11
+  %596 = load i32, ptr %595, align 8
+  %597 = icmp eq i32 %596, 0
+  br i1 %597, label %598, label %646
 
-566:                                              ; preds = %564, %562
-  %567 = load i32, ptr %15, align 4
-  %568 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i32 noundef %567)
+598:                                              ; preds = %591, %581
+  %599 = load ptr, ptr %7, align 8
+  %600 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %599, i32 0, i32 14
+  %601 = load i8, ptr %600, align 1, !range !4, !noundef !5
+  %602 = trunc i8 %601 to i1
+  br i1 %602, label %646, label %603
+
+603:                                              ; preds = %598
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #6
+  call void @XLogBeginInsert()
+  %604 = load ptr, ptr %8, align 8
+  %605 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %604, i32 0, i32 5
+  %606 = load ptr, ptr %605, align 8
+  %607 = icmp eq ptr %606, null
+  br i1 %607, label %608, label %614
+
+608:                                              ; preds = %603
+  %609 = load i32, ptr %30, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %609, i8 noundef zeroext 9)
+  %610 = load i32, ptr %27, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %610, i8 noundef zeroext 9)
+  %611 = load ptr, ptr %8, align 8
+  %612 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %611, i32 0, i32 1
+  %613 = load i32, ptr %612, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %613, i8 noundef zeroext 9)
+  br label %619
+
+614:                                              ; preds = %603
+  %615 = load ptr, ptr %8, align 8
+  %616 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %615, i32 0, i32 1
+  %617 = load i32, ptr %616, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %617, i8 noundef zeroext 9)
+  %618 = load i32, ptr %27, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %618, i8 noundef zeroext 9)
+  br label %619
+
+619:                                              ; preds = %614, %608
+  %620 = load i32, ptr %11, align 4
+  %621 = call zeroext i1 @BufferIsValid(i32 noundef %620)
+  br i1 %621, label %622, label %624
+
+622:                                              ; preds = %619
+  %623 = load i32, ptr %11, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 3, i32 noundef %623, i8 noundef zeroext 8)
+  br label %624
+
+624:                                              ; preds = %622, %619
+  call void @XLogRegisterData(ptr noundef %29, i32 noundef 28)
+  %625 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 48)
+  store i64 %625, ptr %32, align 8
+  %626 = load ptr, ptr %13, align 8
+  %627 = load i64, ptr %32, align 8
+  call void @PageSetLSN(ptr noundef %626, i64 noundef %627)
+  %628 = load i32, ptr %27, align 4
+  %629 = call ptr @BufferGetPage(i32 noundef %628)
+  %630 = load i64, ptr %32, align 8
+  call void @PageSetLSN(ptr noundef %629, i64 noundef %630)
+  %631 = load ptr, ptr %8, align 8
+  %632 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %631, i32 0, i32 5
+  %633 = load ptr, ptr %632, align 8
+  %634 = icmp eq ptr %633, null
+  br i1 %634, label %635, label %639
+
+635:                                              ; preds = %624
+  %636 = load i32, ptr %30, align 4
+  %637 = call ptr @BufferGetPage(i32 noundef %636)
+  %638 = load i64, ptr %32, align 8
+  call void @PageSetLSN(ptr noundef %637, i64 noundef %638)
+  br label %639
+
+639:                                              ; preds = %635, %624
+  %640 = load i32, ptr %11, align 4
+  %641 = call zeroext i1 @BufferIsValid(i32 noundef %640)
+  br i1 %641, label %642, label %645
+
+642:                                              ; preds = %639
+  %643 = load ptr, ptr %17, align 8
+  %644 = load i64, ptr %32, align 8
+  call void @PageSetLSN(ptr noundef %643, i64 noundef %644)
+  br label %645
+
+645:                                              ; preds = %642, %639
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #6
+  br label %646
+
+646:                                              ; preds = %645, %598, %591, %584, %571
+  br label %647
+
+647:                                              ; preds = %646
+  %648 = load volatile i32, ptr @CritSectionCount, align 4
+  %649 = add i32 %648, -1
+  store volatile i32 %649, ptr @CritSectionCount, align 4
+  br label %650
+
+650:                                              ; preds = %647
+  br label %651
+
+651:                                              ; preds = %650
+  %652 = load i32, ptr %27, align 4
+  call void @UnlockReleaseBuffer(i32 noundef %652)
+  %653 = load ptr, ptr %8, align 8
+  %654 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %653, i32 0, i32 5
+  %655 = load ptr, ptr %654, align 8
+  %656 = icmp eq ptr %655, null
+  br i1 %656, label %657, label %659
+
+657:                                              ; preds = %651
+  %658 = load i32, ptr %30, align 4
+  call void @UnlockReleaseBuffer(i32 noundef %658)
+  br label %659
+
+659:                                              ; preds = %657, %651
+  %660 = load ptr, ptr %8, align 8
+  %661 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %660, i32 0, i32 5
+  %662 = load ptr, ptr %661, align 8
+  %663 = icmp eq ptr %662, null
+  %664 = zext i1 %663 to i8
+  store i8 %664, ptr %14, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 28, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
+  br label %677
+
+665:                                              ; preds = %269
+  br label %666
+
+666:                                              ; preds = %665
+  br i1 true, label %667, label %669
+
+667:                                              ; preds = %666
+  %668 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %668, label %671, label %674
+
+669:                                              ; preds = %666
+  %670 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %670, label %671, label %674
+
+671:                                              ; preds = %669, %667
+  %672 = load i32, ptr %15, align 4
+  %673 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i32 noundef %672)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 650, ptr noundef @__func__.ginPlaceToPage)
-  br label %569
+  br label %674
 
-569:                                              ; preds = %566, %564, %562
+674:                                              ; preds = %671, %669, %667
   unreachable
 
-570:                                              ; No predecessors!
+675:                                              ; No predecessors!
+  br label %676
+
+676:                                              ; preds = %675
   store i8 0, ptr %14, align 1
-  br label %571
+  br label %677
 
-571:                                              ; preds = %570, %554
-  br label %572
+677:                                              ; preds = %676, %659
+  br label %678
 
-572:                                              ; preds = %571, %242
-  br label %573
+678:                                              ; preds = %677, %268
+  br label %679
 
-573:                                              ; preds = %572, %85
-  %574 = load ptr, ptr %22, align 8
-  %575 = call ptr @MemoryContextSwitchTo(ptr noundef %574)
-  %576 = load ptr, ptr %21, align 8
-  call void @MemoryContextDelete(ptr noundef %576)
-  %577 = load i8, ptr %14, align 1
-  %578 = trunc i8 %577 to i1
-  ret i1 %578
+679:                                              ; preds = %678, %98
+  %680 = load ptr, ptr %22, align 8
+  %681 = call ptr @MemoryContextSwitchTo(ptr noundef %680)
+  %682 = load ptr, ptr %21, align 8
+  call void @MemoryContextDelete(ptr noundef %682)
+  %683 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %684 = trunc i8 %683 to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  ret i1 %684
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1594,225 +1926,283 @@ define internal void @ginFinishSplit(ptr noundef %0, ptr noundef %1, i1 noundef 
   %15 = zext i1 %2 to i8
   store i8 %15, ptr %7, align 1
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   store i8 1, ptr %11, align 1
   br label %16
 
-16:                                               ; preds = %155, %4
+16:                                               ; preds = %197, %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.GinBtreeStack, ptr %17, i32 0, i32 5
+  %18 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %17, i32 0, i32 5
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds %struct.GinBtreeStack, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %20, i32 0, i32 1
   %22 = load i32, ptr %21, align 4
   call void @LockBuffer(i32 noundef %22, i32 noundef 2)
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds %struct.GinBtreeStack, ptr %23, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %23, i32 0, i32 1
   %25 = load i32, ptr %24, align 4
   %26 = call ptr @BufferGetPage(i32 noundef %25)
-  %27 = call ptr @PageGetSpecialPointer(ptr noundef %26)
-  %28 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %27, i32 0, i32 2
-  %29 = load i16, ptr %28, align 2
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, 64
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %37
+  call void @PageValidateSpecialPointer(ptr noundef %26)
+  %27 = load ptr, ptr %12, align 8
+  %28 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = call ptr @BufferGetPage(i32 noundef %29)
+  %31 = load ptr, ptr %12, align 8
+  %32 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = call ptr @BufferGetPage(i32 noundef %33)
+  %35 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %34, i32 0, i32 5
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %30, i64 %38
+  %40 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %39, i32 0, i32 2
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i32
+  %43 = and i32 %42, 64
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %49
 
-33:                                               ; preds = %16
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %12, align 8
-  %36 = load ptr, ptr %8, align 8
-  call void @ginFinishOldSplit(ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef 2)
-  br label %37
-
-37:                                               ; preds = %33, %16
-  %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds %struct.GinBtreeStack, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4
-  %41 = call ptr @BufferGetPage(i32 noundef %40)
-  store ptr %41, ptr %9, align 8
-  br label %42
-
-42:                                               ; preds = %108, %37
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.GinBtreeData, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
+45:                                               ; preds = %16
   %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.GinBtreeStack, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = getelementptr inbounds %struct.GinBtreeStack, ptr %51, i32 0, i32 2
-  %53 = load i16, ptr %52, align 8
-  %54 = call zeroext i16 %45(ptr noundef %46, ptr noundef %47, i32 noundef %50, i16 noundef zeroext %53)
-  %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct.GinBtreeStack, ptr %55, i32 0, i32 2
-  store i16 %54, ptr %56, align 8
-  %57 = zext i16 %54 to i32
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %109
+  %47 = load ptr, ptr %12, align 8
+  %48 = load ptr, ptr %8, align 8
+  call void @ginFinishOldSplit(ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef 2)
+  br label %49
 
-59:                                               ; preds = %42
-  %60 = load ptr, ptr %9, align 8
-  %61 = call ptr @PageGetSpecialPointer(ptr noundef %60)
-  %62 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, -1
-  br i1 %64, label %65, label %74
+49:                                               ; preds = %45, %16
+  %50 = load ptr, ptr %12, align 8
+  %51 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 4
+  %53 = call ptr @BufferGetPage(i32 noundef %52)
+  store ptr %53, ptr %9, align 8
+  br label %54
 
-65:                                               ; preds = %59
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.GinBtreeStack, ptr %66, i32 0, i32 1
-  %68 = load i32, ptr %67, align 4
-  call void @LockBuffer(i32 noundef %68, i32 noundef 0)
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %6, align 8
-  call void @ginFindParents(ptr noundef %69, ptr noundef %70)
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.GinBtreeStack, ptr %71, i32 0, i32 5
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %12, align 8
-  br label %109
+54:                                               ; preds = %138, %49
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %55, i32 0, i32 4
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %63, i32 0, i32 2
+  %65 = load i16, ptr %64, align 8
+  %66 = call zeroext i16 %57(ptr noundef %58, ptr noundef %59, i32 noundef %62, i16 noundef zeroext %65)
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %67, i32 0, i32 2
+  store i16 %66, ptr %68, align 8
+  %69 = zext i16 %66 to i32
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %139
 
-74:                                               ; preds = %59
-  %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct.GinBtreeStack, ptr %75, i32 0, i32 1
-  %77 = load i32, ptr %76, align 4
-  %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct.GinBtreeData, ptr %78, i32 0, i32 10
-  %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @ginStepRight(i32 noundef %77, ptr noundef %80, i32 noundef 2)
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds %struct.GinBtreeStack, ptr %82, i32 0, i32 1
-  store i32 %81, ptr %83, align 4
+71:                                               ; preds = %54
+  %72 = load ptr, ptr %9, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %72)
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %74, i32 0, i32 5
+  %76 = load i16, ptr %75, align 4
+  %77 = zext i16 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %73, i64 %78
+  %80 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp eq i32 %81, -1
+  br i1 %82, label %83, label %92
+
+83:                                               ; preds = %71
   %84 = load ptr, ptr %12, align 8
-  %85 = getelementptr inbounds %struct.GinBtreeStack, ptr %84, i32 0, i32 1
+  %85 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %84, i32 0, i32 1
   %86 = load i32, ptr %85, align 4
-  %87 = call i32 @BufferGetBlockNumber(i32 noundef %86)
-  %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds %struct.GinBtreeStack, ptr %88, i32 0, i32 0
-  store i32 %87, ptr %89, align 8
-  %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct.GinBtreeStack, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 4
-  %93 = call ptr @BufferGetPage(i32 noundef %92)
-  store ptr %93, ptr %9, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = getelementptr inbounds %struct.GinBtreeStack, ptr %94, i32 0, i32 1
-  %96 = load i32, ptr %95, align 4
-  %97 = call ptr @BufferGetPage(i32 noundef %96)
-  %98 = call ptr @PageGetSpecialPointer(ptr noundef %97)
-  %99 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %98, i32 0, i32 2
-  %100 = load i16, ptr %99, align 2
-  %101 = zext i16 %100 to i32
-  %102 = and i32 %101, 64
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %108
+  call void @LockBuffer(i32 noundef %86, i32 noundef 0)
+  %87 = load ptr, ptr %5, align 8
+  %88 = load ptr, ptr %6, align 8
+  call void @ginFindParents(ptr noundef %87, ptr noundef %88)
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %89, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %12, align 8
+  br label %139
 
-104:                                              ; preds = %74
-  %105 = load ptr, ptr %5, align 8
+92:                                               ; preds = %71
+  %93 = load ptr, ptr %12, align 8
+  %94 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 4
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %96, i32 0, i32 10
+  %98 = load ptr, ptr %97, align 8
+  %99 = call i32 @ginStepRight(i32 noundef %95, ptr noundef %98, i32 noundef 2)
+  %100 = load ptr, ptr %12, align 8
+  %101 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %100, i32 0, i32 1
+  store i32 %99, ptr %101, align 4
+  %102 = load ptr, ptr %12, align 8
+  %103 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 4
+  %105 = call i32 @BufferGetBlockNumber(i32 noundef %104)
   %106 = load ptr, ptr %12, align 8
-  %107 = load ptr, ptr %8, align 8
-  call void @ginFinishOldSplit(ptr noundef %105, ptr noundef %106, ptr noundef %107, i32 noundef 2)
-  br label %108
+  %107 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %106, i32 0, i32 0
+  store i32 %105, ptr %107, align 8
+  %108 = load ptr, ptr %12, align 8
+  %109 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 4
+  %111 = call ptr @BufferGetPage(i32 noundef %110)
+  store ptr %111, ptr %9, align 8
+  %112 = load ptr, ptr %12, align 8
+  %113 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %112, i32 0, i32 1
+  %114 = load i32, ptr %113, align 4
+  %115 = call ptr @BufferGetPage(i32 noundef %114)
+  call void @PageValidateSpecialPointer(ptr noundef %115)
+  %116 = load ptr, ptr %12, align 8
+  %117 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %116, i32 0, i32 1
+  %118 = load i32, ptr %117, align 4
+  %119 = call ptr @BufferGetPage(i32 noundef %118)
+  %120 = load ptr, ptr %12, align 8
+  %121 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %120, i32 0, i32 1
+  %122 = load i32, ptr %121, align 4
+  %123 = call ptr @BufferGetPage(i32 noundef %122)
+  %124 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %123, i32 0, i32 5
+  %125 = load i16, ptr %124, align 4
+  %126 = zext i16 %125 to i32
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %119, i64 %127
+  %129 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %128, i32 0, i32 2
+  %130 = load i16, ptr %129, align 2
+  %131 = zext i16 %130 to i32
+  %132 = and i32 %131, 64
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %138
 
-108:                                              ; preds = %104, %74
-  br label %42, !llvm.loop !8
+134:                                              ; preds = %92
+  %135 = load ptr, ptr %5, align 8
+  %136 = load ptr, ptr %12, align 8
+  %137 = load ptr, ptr %8, align 8
+  call void @ginFinishOldSplit(ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef 2)
+  br label %138
 
-109:                                              ; preds = %65, %42
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.GinBtreeData, ptr %110, i32 0, i32 7
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.GinBtreeStack, ptr %114, i32 0, i32 1
-  %116 = load i32, ptr %115, align 4
-  %117 = call ptr %112(ptr noundef %113, i32 noundef %116)
-  store ptr %117, ptr %13, align 8
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.GinBtreeStack, ptr %118, i32 0, i32 1
-  %120 = load i32, ptr %119, align 4
-  %121 = call ptr @BufferGetPage(i32 noundef %120)
-  %122 = call ptr @PageGetSpecialPointer(ptr noundef %121)
-  %123 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %122, i32 0, i32 0
-  %124 = load i32, ptr %123, align 4
-  store i32 %124, ptr %14, align 4
-  %125 = load ptr, ptr %5, align 8
-  %126 = load ptr, ptr %12, align 8
-  %127 = load ptr, ptr %13, align 8
-  %128 = load i32, ptr %14, align 4
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds %struct.GinBtreeStack, ptr %129, i32 0, i32 1
-  %131 = load i32, ptr %130, align 4
-  %132 = load ptr, ptr %8, align 8
-  %133 = call zeroext i1 @ginPlaceToPage(ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %131, ptr noundef %132)
-  %134 = zext i1 %133 to i8
-  store i8 %134, ptr %10, align 1
-  %135 = load ptr, ptr %13, align 8
-  call void @pfree(ptr noundef %135)
-  %136 = load i8, ptr %11, align 1
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %138, label %141
+138:                                              ; preds = %134, %92
+  br label %54, !llvm.loop !9
 
-138:                                              ; preds = %109
-  %139 = load i8, ptr %7, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %145
-
-141:                                              ; preds = %138, %109
-  %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds %struct.GinBtreeStack, ptr %142, i32 0, i32 1
-  %144 = load i32, ptr %143, align 4
-  call void @LockBuffer(i32 noundef %144, i32 noundef 0)
-  br label %145
-
-145:                                              ; preds = %141, %138
-  %146 = load i8, ptr %7, align 1
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %148, label %153
-
-148:                                              ; preds = %145
-  %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds %struct.GinBtreeStack, ptr %149, i32 0, i32 1
-  %151 = load i32, ptr %150, align 4
-  call void @ReleaseBuffer(i32 noundef %151)
+139:                                              ; preds = %83, %54
+  %140 = load ptr, ptr %5, align 8
+  %141 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %140, i32 0, i32 7
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %5, align 8
+  %144 = load ptr, ptr %6, align 8
+  %145 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %144, i32 0, i32 1
+  %146 = load i32, ptr %145, align 4
+  %147 = call ptr %142(ptr noundef %143, i32 noundef %146)
+  store ptr %147, ptr %13, align 8
+  %148 = load ptr, ptr %6, align 8
+  %149 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %148, i32 0, i32 1
+  %150 = load i32, ptr %149, align 4
+  %151 = call ptr @BufferGetPage(i32 noundef %150)
+  call void @PageValidateSpecialPointer(ptr noundef %151)
   %152 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %152)
-  br label %153
+  %153 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %152, i32 0, i32 1
+  %154 = load i32, ptr %153, align 4
+  %155 = call ptr @BufferGetPage(i32 noundef %154)
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %156, i32 0, i32 1
+  %158 = load i32, ptr %157, align 4
+  %159 = call ptr @BufferGetPage(i32 noundef %158)
+  %160 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %159, i32 0, i32 5
+  %161 = load i16, ptr %160, align 4
+  %162 = zext i16 %161 to i32
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i8, ptr %155, i64 %163
+  %165 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %165, align 4
+  store i32 %166, ptr %14, align 4
+  %167 = load ptr, ptr %5, align 8
+  %168 = load ptr, ptr %12, align 8
+  %169 = load ptr, ptr %13, align 8
+  %170 = load i32, ptr %14, align 4
+  %171 = load ptr, ptr %6, align 8
+  %172 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %171, i32 0, i32 1
+  %173 = load i32, ptr %172, align 4
+  %174 = load ptr, ptr %8, align 8
+  %175 = call zeroext i1 @ginPlaceToPage(ptr noundef %167, ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef %173, ptr noundef %174)
+  %176 = zext i1 %175 to i8
+  store i8 %176, ptr %10, align 1
+  %177 = load ptr, ptr %13, align 8
+  call void @pfree(ptr noundef %177)
+  %178 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %179 = trunc i8 %178 to i1
+  br i1 %179, label %180, label %183
 
-153:                                              ; preds = %148, %145
-  %154 = load ptr, ptr %12, align 8
-  store ptr %154, ptr %6, align 8
+180:                                              ; preds = %139
+  %181 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %183, label %187
+
+183:                                              ; preds = %180, %139
+  %184 = load ptr, ptr %6, align 8
+  %185 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %184, i32 0, i32 1
+  %186 = load i32, ptr %185, align 4
+  call void @LockBuffer(i32 noundef %186, i32 noundef 0)
+  br label %187
+
+187:                                              ; preds = %183, %180
+  %188 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %190, label %195
+
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %6, align 8
+  %192 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %191, i32 0, i32 1
+  %193 = load i32, ptr %192, align 4
+  call void @ReleaseBuffer(i32 noundef %193)
+  %194 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %194)
+  br label %195
+
+195:                                              ; preds = %190, %187
+  %196 = load ptr, ptr %12, align 8
+  store ptr %196, ptr %6, align 8
   store i8 0, ptr %11, align 1
-  br label %155
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  br label %197
 
-155:                                              ; preds = %153
-  %156 = load i8, ptr %10, align 1
-  %157 = trunc i8 %156 to i1
-  %158 = xor i1 %157, true
-  br i1 %158, label %16, label %159, !llvm.loop !9
+197:                                              ; preds = %195
+  %198 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %199 = trunc i8 %198 to i1
+  %200 = xor i1 %199, true
+  br i1 %200, label %16, label %201, !llvm.loop !10
 
-159:                                              ; preds = %155
-  %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds %struct.GinBtreeStack, ptr %160, i32 0, i32 1
-  %162 = load i32, ptr %161, align 4
-  call void @LockBuffer(i32 noundef %162, i32 noundef 0)
-  %163 = load i8, ptr %7, align 1
-  %164 = trunc i8 %163 to i1
-  br i1 %164, label %165, label %167
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %6, align 8
+  %203 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %202, i32 0, i32 1
+  %204 = load i32, ptr %203, align 4
+  call void @LockBuffer(i32 noundef %204, i32 noundef 0)
+  %205 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %206 = trunc i8 %205 to i1
+  br i1 %206, label %207, label %209
 
-165:                                              ; preds = %159
-  %166 = load ptr, ptr %6, align 8
-  call void @freeGinBtreeStack(ptr noundef %166)
-  br label %167
+207:                                              ; preds = %201
+  %208 = load ptr, ptr %6, align 8
+  call void @freeGinBtreeStack(ptr noundef %208)
+  br label %209
 
-167:                                              ; preds = %165, %159
+209:                                              ; preds = %207, %201
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetBlock(i32 noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -1826,7 +2216,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %9 = sub i32 0, %8
   %10 = sub i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %2, align 8
   br label %21
@@ -1837,7 +2227,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %17 = sub i32 %16, 1
   %18 = sext i32 %17 to i64
   %19 = mul i64 %18, 8192
-  %20 = getelementptr i8, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   store ptr %20, ptr %2, align 8
   br label %21
 
@@ -1846,32 +2236,27 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   ret ptr %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @PageValidateSpecialPointer(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret ptr %6
 }
 
-declare void @XLogBeginInsert() #1
+declare void @XLogBeginInsert() #2
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @BufferIsValid(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @BufferIsValid(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -1879,14 +2264,14 @@ define internal zeroext i1 @BufferIsValid(i32 noundef %0) #0 {
   ret i1 %4
 }
 
-declare void @MarkBufferDirty(i32 noundef) #1
+declare void @MarkBufferDirty(i32 noundef) #2
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) #1
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) #1
+declare void @XLogRegisterData(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -1895,23 +2280,23 @@ define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
   %6 = lshr i32 %5, 16
   %7 = trunc i32 %6 to i16
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.BlockIdData, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.BlockIdData, ptr %8, i32 0, i32 0
   store i16 %7, ptr %9, align 2
   %10 = load i32, ptr %4, align 4
   %11 = and i32 %10, 65535
   %12 = trunc i32 %11 to i16
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.BlockIdData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.BlockIdData, ptr %13, i32 0, i32 1
   store i16 %12, ptr %14, align 2
   ret void
 }
 
-declare i32 @BufferGetBlockNumber(i32 noundef) #1
+declare i32 @BufferGetBlockNumber(i32 noundef) #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #1
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @PageSetLSN(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PageSetLSN(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
@@ -1920,30 +2305,30 @@ define internal void @PageSetLSN(ptr noundef %0, i64 noundef %1) #0 {
   %6 = lshr i64 %5, 32
   %7 = trunc i64 %6 to i32
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.PageHeaderData, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.PageXLogRecPtr, ptr %9, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.PageXLogRecPtr, ptr %9, i32 0, i32 0
   store i32 %7, ptr %10, align 4
   %11 = load i64, ptr %4, align 8
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.PageHeaderData, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds %struct.PageXLogRecPtr, ptr %14, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.PageXLogRecPtr, ptr %14, i32 0, i32 1
   store i32 %12, ptr %15, align 4
   ret void
 }
 
-declare i32 @GinNewBuffer(ptr noundef) #1
+declare i32 @GinNewBuffer(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @PageGetTempPage(ptr noundef) #1
+declare ptr @PageGetTempPage(ptr noundef) #2
 
-declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) #1
+declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) #2
 
-declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) #1
+declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @MemoryContextDelete(ptr noundef) #1
+declare void @MemoryContextDelete(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @ginFindParents(ptr noundef %0, ptr noundef %1) #0 {
@@ -1958,270 +2343,319 @@ define internal void @ginFindParents(ptr noundef %0, ptr noundef %1) #0 {
   %11 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.GinBtreeStack, ptr %12, i32 0, i32 5
+  %13 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %10, align 8
   br label %15
 
 15:                                               ; preds = %20, %2
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.GinBtreeStack, ptr %16, i32 0, i32 5
+  %17 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %16, i32 0, i32 5
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds %struct.GinBtreeStack, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %21, i32 0, i32 1
   %23 = load i32, ptr %22, align 4
   call void @ReleaseBuffer(i32 noundef %23)
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.GinBtreeStack, ptr %24, i32 0, i32 5
+  %25 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %24, i32 0, i32 5
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %10, align 8
-  br label %15, !llvm.loop !10
+  br label %15, !llvm.loop !11
 
 27:                                               ; preds = %15
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct.GinBtreeStack, ptr %28, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %28, i32 0, i32 2
   store i16 0, ptr %29, align 8
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct.GinBtreeStack, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %30, i32 0, i32 0
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %7, align 4
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct.GinBtreeStack, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %33, i32 0, i32 1
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %6, align 4
   %36 = call ptr @palloc(i64 noundef 32)
   store ptr %36, ptr %11, align 8
   br label %37
 
-37:                                               ; preds = %165, %27
+37:                                               ; preds = %190, %27
   %38 = load i32, ptr %6, align 4
   call void @LockBuffer(i32 noundef %38, i32 noundef 2)
   %39 = load i32, ptr %6, align 4
   %40 = call ptr @BufferGetPage(i32 noundef %39)
   store ptr %40, ptr %5, align 8
   %41 = load ptr, ptr %5, align 8
-  %42 = call ptr @PageGetSpecialPointer(ptr noundef %41)
-  %43 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %42, i32 0, i32 2
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = and i32 %45, 2
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %58
+  call void @PageValidateSpecialPointer(ptr noundef %41)
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %43, i32 0, i32 5
+  %45 = load i16, ptr %44, align 4
+  %46 = zext i16 %45 to i32
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %42, i64 %47
+  %49 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %48, i32 0, i32 2
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i32
+  %52 = and i32 %51, 2
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %65
 
-48:                                               ; preds = %37
-  br label %49
+54:                                               ; preds = %37
+  br label %55
 
-49:                                               ; preds = %48
-  br i1 true, label %50, label %52
+55:                                               ; preds = %54
+  br i1 true, label %56, label %58
 
-50:                                               ; preds = %49
-  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %51, label %54, label %56
+56:                                               ; preds = %55
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %57, label %60, label %62
 
-52:                                               ; preds = %49
-  %53 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %53, label %54, label %56
+58:                                               ; preds = %55
+  %59 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %59, label %60, label %62
 
-54:                                               ; preds = %52, %50
-  %55 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6)
+60:                                               ; preds = %58, %56
+  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 256, ptr noundef @__func__.ginFindParents)
-  br label %56
+  br label %62
 
-56:                                               ; preds = %54, %52, %50
+62:                                               ; preds = %60, %58, %56
   unreachable
 
-57:                                               ; No predecessors!
-  br label %58
+63:                                               ; No predecessors!
+  br label %64
 
-58:                                               ; preds = %57, %37
-  %59 = load ptr, ptr %5, align 8
-  %60 = call ptr @PageGetSpecialPointer(ptr noundef %59)
-  %61 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %60, i32 0, i32 2
-  %62 = load i16, ptr %61, align 2
-  %63 = zext i16 %62 to i32
-  %64 = and i32 %63, 64
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %80
+64:                                               ; preds = %63
+  br label %65
 
-66:                                               ; preds = %58
-  %67 = load i32, ptr %7, align 4
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct.GinBtreeStack, ptr %68, i32 0, i32 0
-  store i32 %67, ptr %69, align 8
-  %70 = load i32, ptr %6, align 4
-  %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds %struct.GinBtreeStack, ptr %71, i32 0, i32 1
-  store i32 %70, ptr %72, align 4
-  %73 = load ptr, ptr %10, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct.GinBtreeStack, ptr %74, i32 0, i32 5
-  store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds %struct.GinBtreeStack, ptr %76, i32 0, i32 2
-  store i16 0, ptr %77, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = load ptr, ptr %11, align 8
-  call void @ginFinishOldSplit(ptr noundef %78, ptr noundef %79, ptr noundef null, i32 noundef 2)
-  br label %80
+65:                                               ; preds = %64, %37
+  %66 = load ptr, ptr %5, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %66)
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %68, i32 0, i32 5
+  %70 = load i16, ptr %69, align 4
+  %71 = zext i16 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %67, i64 %72
+  %74 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %73, i32 0, i32 2
+  %75 = load i16, ptr %74, align 2
+  %76 = zext i16 %75 to i32
+  %77 = and i32 %76, 64
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %93
 
-80:                                               ; preds = %66, %58
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.GinBtreeData, ptr %81, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = call i32 %83(ptr noundef %84, ptr noundef %85)
-  store i32 %86, ptr %8, align 4
-  br label %87
-
-87:                                               ; preds = %145, %80
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.GinBtreeData, ptr %88, i32 0, i32 4
-  %90 = load ptr, ptr %89, align 8
+79:                                               ; preds = %65
+  %80 = load i32, ptr %7, align 4
+  %81 = load ptr, ptr %11, align 8
+  %82 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %81, i32 0, i32 0
+  store i32 %80, ptr %82, align 8
+  %83 = load i32, ptr %6, align 4
+  %84 = load ptr, ptr %11, align 8
+  %85 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %84, i32 0, i32 1
+  store i32 %83, ptr %85, align 4
+  %86 = load ptr, ptr %10, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %87, i32 0, i32 5
+  store ptr %86, ptr %88, align 8
+  %89 = load ptr, ptr %11, align 8
+  %90 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %89, i32 0, i32 2
+  store i16 0, ptr %90, align 8
   %91 = load ptr, ptr %3, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.GinBtreeStack, ptr %93, i32 0, i32 0
-  %95 = load i32, ptr %94, align 8
-  %96 = call zeroext i16 %90(ptr noundef %91, ptr noundef %92, i32 noundef %95, i16 noundef zeroext 0)
-  store i16 %96, ptr %9, align 2
-  %97 = zext i16 %96 to i32
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %146
+  %92 = load ptr, ptr %11, align 8
+  call void @ginFinishOldSplit(ptr noundef %91, ptr noundef %92, ptr noundef null, i32 noundef 2)
+  br label %93
 
-99:                                               ; preds = %87
-  %100 = load ptr, ptr %5, align 8
-  %101 = call ptr @PageGetSpecialPointer(ptr noundef %100)
-  %102 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 4
-  store i32 %103, ptr %7, align 4
-  %104 = load i32, ptr %7, align 4
-  %105 = icmp eq i32 %104, -1
-  br i1 %105, label %106, label %116
+93:                                               ; preds = %79, %65
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %3, align 8
+  %98 = load ptr, ptr %5, align 8
+  %99 = call i32 %96(ptr noundef %97, ptr noundef %98)
+  store i32 %99, ptr %8, align 4
+  br label %100
 
-106:                                              ; preds = %99
-  %107 = load i32, ptr %6, align 4
-  call void @LockBuffer(i32 noundef %107, i32 noundef 0)
-  %108 = load i32, ptr %6, align 4
-  %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds %struct.GinBtreeStack, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp ne i32 %108, %111
-  br i1 %112, label %113, label %115
+100:                                              ; preds = %170, %93
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %101, i32 0, i32 4
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %3, align 8
+  %105 = load ptr, ptr %5, align 8
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %106, i32 0, i32 0
+  %108 = load i32, ptr %107, align 8
+  %109 = call zeroext i16 %103(ptr noundef %104, ptr noundef %105, i32 noundef %108, i16 noundef zeroext 0)
+  store i16 %109, ptr %9, align 2
+  %110 = zext i16 %109 to i32
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %171
 
-113:                                              ; preds = %106
-  %114 = load i32, ptr %6, align 4
-  call void @ReleaseBuffer(i32 noundef %114)
-  br label %115
+112:                                              ; preds = %100
+  %113 = load ptr, ptr %5, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %113)
+  %114 = load ptr, ptr %5, align 8
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %115, i32 0, i32 5
+  %117 = load i16, ptr %116, align 4
+  %118 = zext i16 %117 to i32
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr %114, i64 %119
+  %121 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %120, i32 0, i32 0
+  %122 = load i32, ptr %121, align 4
+  store i32 %122, ptr %7, align 4
+  %123 = load i32, ptr %7, align 4
+  %124 = icmp eq i32 %123, -1
+  br i1 %124, label %125, label %135
 
-115:                                              ; preds = %113, %106
-  br label %146
+125:                                              ; preds = %112
+  %126 = load i32, ptr %6, align 4
+  call void @LockBuffer(i32 noundef %126, i32 noundef 0)
+  %127 = load i32, ptr %6, align 4
+  %128 = load ptr, ptr %10, align 8
+  %129 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %128, i32 0, i32 1
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp ne i32 %127, %130
+  br i1 %131, label %132, label %134
 
-116:                                              ; preds = %99
-  %117 = load i32, ptr %6, align 4
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.GinBtreeData, ptr %118, i32 0, i32 10
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i32 @ginStepRight(i32 noundef %117, ptr noundef %120, i32 noundef 2)
-  store i32 %121, ptr %6, align 4
-  %122 = load i32, ptr %6, align 4
-  %123 = call ptr @BufferGetPage(i32 noundef %122)
-  store ptr %123, ptr %5, align 8
-  %124 = load ptr, ptr %5, align 8
-  %125 = call ptr @PageGetSpecialPointer(ptr noundef %124)
-  %126 = getelementptr inbounds %struct.GinPageOpaqueData, ptr %125, i32 0, i32 2
-  %127 = load i16, ptr %126, align 2
-  %128 = zext i16 %127 to i32
-  %129 = and i32 %128, 64
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %145
+132:                                              ; preds = %125
+  %133 = load i32, ptr %6, align 4
+  call void @ReleaseBuffer(i32 noundef %133)
+  br label %134
 
-131:                                              ; preds = %116
-  %132 = load i32, ptr %7, align 4
-  %133 = load ptr, ptr %11, align 8
-  %134 = getelementptr inbounds %struct.GinBtreeStack, ptr %133, i32 0, i32 0
-  store i32 %132, ptr %134, align 8
-  %135 = load i32, ptr %6, align 4
-  %136 = load ptr, ptr %11, align 8
-  %137 = getelementptr inbounds %struct.GinBtreeStack, ptr %136, i32 0, i32 1
-  store i32 %135, ptr %137, align 4
-  %138 = load ptr, ptr %10, align 8
-  %139 = load ptr, ptr %11, align 8
-  %140 = getelementptr inbounds %struct.GinBtreeStack, ptr %139, i32 0, i32 5
-  store ptr %138, ptr %140, align 8
-  %141 = load ptr, ptr %11, align 8
-  %142 = getelementptr inbounds %struct.GinBtreeStack, ptr %141, i32 0, i32 2
-  store i16 0, ptr %142, align 8
-  %143 = load ptr, ptr %3, align 8
-  %144 = load ptr, ptr %11, align 8
-  call void @ginFinishOldSplit(ptr noundef %143, ptr noundef %144, ptr noundef null, i32 noundef 2)
-  br label %145
+134:                                              ; preds = %132, %125
+  br label %171
 
-145:                                              ; preds = %131, %116
-  br label %87, !llvm.loop !11
+135:                                              ; preds = %112
+  %136 = load i32, ptr %6, align 4
+  %137 = load ptr, ptr %3, align 8
+  %138 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %137, i32 0, i32 10
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i32 @ginStepRight(i32 noundef %136, ptr noundef %139, i32 noundef 2)
+  store i32 %140, ptr %6, align 4
+  %141 = load i32, ptr %6, align 4
+  %142 = call ptr @BufferGetPage(i32 noundef %141)
+  store ptr %142, ptr %5, align 8
+  %143 = load ptr, ptr %5, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %143)
+  %144 = load ptr, ptr %5, align 8
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %145, i32 0, i32 5
+  %147 = load i16, ptr %146, align 4
+  %148 = zext i16 %147 to i32
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i8, ptr %144, i64 %149
+  %151 = getelementptr inbounds nuw %struct.GinPageOpaqueData, ptr %150, i32 0, i32 2
+  %152 = load i16, ptr %151, align 2
+  %153 = zext i16 %152 to i32
+  %154 = and i32 %153, 64
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %170
 
-146:                                              ; preds = %115, %87
-  %147 = load i32, ptr %7, align 4
-  %148 = icmp ne i32 %147, -1
-  br i1 %148, label %149, label %165
+156:                                              ; preds = %135
+  %157 = load i32, ptr %7, align 4
+  %158 = load ptr, ptr %11, align 8
+  %159 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %158, i32 0, i32 0
+  store i32 %157, ptr %159, align 8
+  %160 = load i32, ptr %6, align 4
+  %161 = load ptr, ptr %11, align 8
+  %162 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %161, i32 0, i32 1
+  store i32 %160, ptr %162, align 4
+  %163 = load ptr, ptr %10, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %164, i32 0, i32 5
+  store ptr %163, ptr %165, align 8
+  %166 = load ptr, ptr %11, align 8
+  %167 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %166, i32 0, i32 2
+  store i16 0, ptr %167, align 8
+  %168 = load ptr, ptr %3, align 8
+  %169 = load ptr, ptr %11, align 8
+  call void @ginFinishOldSplit(ptr noundef %168, ptr noundef %169, ptr noundef null, i32 noundef 2)
+  br label %170
 
-149:                                              ; preds = %146
-  %150 = load i32, ptr %7, align 4
-  %151 = load ptr, ptr %11, align 8
-  %152 = getelementptr inbounds %struct.GinBtreeStack, ptr %151, i32 0, i32 0
-  store i32 %150, ptr %152, align 8
-  %153 = load i32, ptr %6, align 4
-  %154 = load ptr, ptr %11, align 8
-  %155 = getelementptr inbounds %struct.GinBtreeStack, ptr %154, i32 0, i32 1
-  store i32 %153, ptr %155, align 4
-  %156 = load ptr, ptr %10, align 8
-  %157 = load ptr, ptr %11, align 8
-  %158 = getelementptr inbounds %struct.GinBtreeStack, ptr %157, i32 0, i32 5
-  store ptr %156, ptr %158, align 8
-  %159 = load i16, ptr %9, align 2
-  %160 = load ptr, ptr %11, align 8
-  %161 = getelementptr inbounds %struct.GinBtreeStack, ptr %160, i32 0, i32 2
-  store i16 %159, ptr %161, align 8
-  %162 = load ptr, ptr %11, align 8
-  %163 = load ptr, ptr %4, align 8
-  %164 = getelementptr inbounds %struct.GinBtreeStack, ptr %163, i32 0, i32 5
-  store ptr %162, ptr %164, align 8
+170:                                              ; preds = %156, %135
+  br label %100, !llvm.loop !12
+
+171:                                              ; preds = %134, %100
+  %172 = load i32, ptr %7, align 4
+  %173 = icmp ne i32 %172, -1
+  br i1 %173, label %174, label %190
+
+174:                                              ; preds = %171
+  %175 = load i32, ptr %7, align 4
+  %176 = load ptr, ptr %11, align 8
+  %177 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %176, i32 0, i32 0
+  store i32 %175, ptr %177, align 8
+  %178 = load i32, ptr %6, align 4
+  %179 = load ptr, ptr %11, align 8
+  %180 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %179, i32 0, i32 1
+  store i32 %178, ptr %180, align 4
+  %181 = load ptr, ptr %10, align 8
+  %182 = load ptr, ptr %11, align 8
+  %183 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %182, i32 0, i32 5
+  store ptr %181, ptr %183, align 8
+  %184 = load i16, ptr %9, align 2
+  %185 = load ptr, ptr %11, align 8
+  %186 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %185, i32 0, i32 2
+  store i16 %184, ptr %186, align 8
+  %187 = load ptr, ptr %11, align 8
+  %188 = load ptr, ptr %4, align 8
+  %189 = getelementptr inbounds nuw %struct.GinBtreeStack, ptr %188, i32 0, i32 5
+  store ptr %187, ptr %189, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 
-165:                                              ; preds = %146
-  %166 = load i32, ptr %8, align 4
-  store i32 %166, ptr %7, align 4
-  %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds %struct.GinBtreeData, ptr %167, i32 0, i32 10
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %7, align 4
-  %171 = call i32 @ReadBuffer(ptr noundef %169, i32 noundef %170)
-  store i32 %171, ptr %6, align 4
+190:                                              ; preds = %171
+  %191 = load i32, ptr %8, align 4
+  store i32 %191, ptr %7, align 4
+  %192 = load ptr, ptr %3, align 8
+  %193 = getelementptr inbounds nuw %struct.GinBtreeData, ptr %192, i32 0, i32 10
+  %194 = load ptr, ptr %193, align 8
+  %195 = load i32, ptr %7, align 4
+  %196 = call i32 @ReadBuffer(ptr noundef %194, i32 noundef %195)
+  store i32 %196, ptr %6, align 4
   br label %37
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

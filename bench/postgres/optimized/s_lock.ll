@@ -18,8 +18,8 @@ define dso_local i32 @s_lock(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br label %perform_spin_delay.exit.outer
 
 perform_spin_delay.exit.outer:                    ; preds = %15, %4
-  %.sroa.8.0.ph = phi i32 [ %spec.select.i, %15 ], [ 0, %4 ]
-  %.sroa.4.0.ph = phi i32 [ %12, %15 ], [ 0, %4 ]
+  %.sroa.10.0.ph = phi i32 [ %spec.select.i, %15 ], [ 0, %4 ]
+  %.sroa.6.0.ph = phi i32 [ %12, %15 ], [ 0, %4 ]
   br label %perform_spin_delay.exit
 
 perform_spin_delay.exit:                          ; preds = %perform_spin_delay.exit.outer, %.critedge
@@ -29,19 +29,19 @@ perform_spin_delay.exit:                          ; preds = %perform_spin_delay.
   br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %perform_spin_delay.exit
-  %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #10, !srcloc !5
+  %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #10, !srcloc !4
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %26, label %.critedge
 
 .critedge:                                        ; preds = %perform_spin_delay.exit, %6
-  tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
+  tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
   %9 = add i32 %.sroa.0.0, 1
   %10 = load i32, ptr @spins_per_delay, align 4
   %.not.i = icmp slt i32 %9, %10
-  br i1 %.not.i, label %perform_spin_delay.exit, label %11, !llvm.loop !7
+  br i1 %.not.i, label %perform_spin_delay.exit, label %11, !llvm.loop !6
 
 11:                                               ; preds = %.critedge
-  %12 = add i32 %.sroa.4.0.ph, 1
+  %12 = add i32 %.sroa.6.0.ph, 1
   %13 = icmp sgt i32 %12, 1000
   br i1 %13, label %14, label %15
 
@@ -50,8 +50,8 @@ perform_spin_delay.exit:                          ; preds = %perform_spin_delay.
   unreachable
 
 15:                                               ; preds = %11
-  %16 = icmp eq i32 %.sroa.8.0.ph, 0
-  %spec.select = select i1 %16, i32 1000, i32 %.sroa.8.0.ph
+  %16 = icmp eq i32 %.sroa.10.0.ph, 0
+  %spec.select = select i1 %16, i32 1000, i32 %.sroa.10.0.ph
   %17 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 150994950, ptr %17, align 4
   %18 = sext i32 %spec.select to i64
@@ -65,10 +65,10 @@ perform_spin_delay.exit:                          ; preds = %perform_spin_delay.
   %24 = add i32 %spec.select, %23
   %25 = icmp sgt i32 %24, 1000000
   %spec.select.i = select i1 %25, i32 1000, i32 %24
-  br label %perform_spin_delay.exit.outer, !llvm.loop !7
+  br label %perform_spin_delay.exit.outer, !llvm.loop !6
 
 26:                                               ; preds = %6
-  %27 = icmp eq i32 %.sroa.8.0.ph, 0
+  %27 = icmp eq i32 %.sroa.10.0.ph, 0
   %28 = load i32, ptr @spins_per_delay, align 4
   br i1 %27, label %29, label %34
 
@@ -95,12 +95,12 @@ perform_spin_delay.exit:                          ; preds = %perform_spin_delay.
   br label %finish_spin_delay.exit
 
 finish_spin_delay.exit:                           ; preds = %29, %34, %.sink.split.i
-  ret i32 %.sroa.4.0.ph
+  ret i32 %.sroa.6.0.ph
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @perform_spin_delay(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
+  tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 1
   store i32 %3, ptr %0, align 8
@@ -202,7 +202,7 @@ define internal fastcc void @s_lock_stuck(ptr noundef %0, i32 noundef %1, ptr no
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.store.select, ptr noundef %0, i32 noundef %1) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 91, ptr noundef nonnull @__func__.s_lock_stuck) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.s_lock_stuck) #10
   unreachable
 }
 
@@ -241,27 +241,26 @@ declare void @llvm.assume(i1 noundef) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 1668178, i64 1668194}
-!6 = !{i64 1668544}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!4 = !{i64 1612250, i64 1612266}
+!5 = !{i64 1612616}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

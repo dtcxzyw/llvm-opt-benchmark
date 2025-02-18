@@ -20,18 +20,18 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 4:                                                ; preds = %.preheader
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
-  br i1 %exitcond45.not, label %12, label %.preheader, !llvm.loop !4
+  br i1 %exitcond45.not, label %12, label %.preheader, !llvm.loop !3
 
 .preheader:                                       ; preds = %2, %4
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %4 ], [ 0, %2 ]
-  %5 = getelementptr [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42
+  %5 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42
   %6 = load i16, ptr %5, align 4
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %.preheader
   store i8 -9, ptr %1, align 1
-  %9 = getelementptr [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42, i64 1
+  %9 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42, i64 1
   %10 = load i16, ptr %9, align 2
   %11 = or i16 %10, -32640
   br label %29
@@ -48,18 +48,18 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 16:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %24, label %.preheader32, !llvm.loop !6
+  br i1 %exitcond.not, label %24, label %.preheader32, !llvm.loop !5
 
 .preheader32:                                     ; preds = %14, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %14 ]
-  %17 = getelementptr [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv
   %18 = load i16, ptr %17, align 4
   %19 = icmp eq i16 %18, %0
   br i1 %19, label %20, label %16
 
 20:                                               ; preds = %.preheader32
   store i8 -10, ptr %1, align 1
-  %21 = getelementptr [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv, i64 1
+  %21 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv, i64 1
   %22 = load i16, ptr %21, align 2
   %23 = or i16 %22, -32640
   br label %29
@@ -95,7 +95,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr noundef readonly captu
   %.05873 = phi i32 [ 0, %3 ], [ %.1, %68 ]
   %.06072 = phi i32 [ %1, %3 ], [ %.161, %68 ]
   %6 = sext i32 %.074 to i64
-  %7 = getelementptr %struct.codes_t, ptr %0, i64 %6
+  %7 = getelementptr inbounds %struct.codes_t, ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2
   %.not65 = icmp ugt i16 %8, %2
   br i1 %.not65, label %68, label %9
@@ -179,7 +179,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr noundef readonly captu
   %71 = add i32 %.1, %.161
   %72 = ashr i32 %71, 1
   %.not = icmp sgt i32 %.1, %.161
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !6
 
 .loopexit:                                        ; preds = %68, %13, %48, %24
   %.059 = phi i16 [ %47, %24 ], [ %67, %48 ], [ 0, %13 ], [ 0, %68 ]
@@ -207,12 +207,12 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 8:                                                ; preds = %.preheader
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 7
-  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %8 ], [ 0, %2 ]
-  %9 = getelementptr [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv30
-  %10 = getelementptr i8, ptr %9, i64 2
+  %9 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = icmp eq i16 %11, %3
   br i1 %12, label %13, label %8
@@ -224,12 +224,12 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 15:                                               ; preds = %.preheader20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader20, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader20, !llvm.loop !8
 
 .preheader20:                                     ; preds = %2, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %2 ]
-  %16 = getelementptr [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv
-  %17 = getelementptr i8, ptr %16, i64 2
+  %16 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, %3
   br i1 %19, label %20, label %15
@@ -243,19 +243,18 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
   ret i16 %.017
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

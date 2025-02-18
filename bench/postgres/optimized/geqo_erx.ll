@@ -24,7 +24,13 @@ define dso_local ptr @alloc_edge_table(ptr noundef readnone captures(none) %0, i
   ret ptr %6
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_edge_table(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -32,10 +38,10 @@ define dso_local void @free_edge_table(ptr noundef readnone captures(none) %0, p
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local float @gimme_edge_table(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #2 {
+define dso_local float @gimme_edge_table(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #3 {
   %.not76 = icmp slt i32 %3, 1
   br i1 %.not76, label %._crit_edge, label %.lr.ph.preheader
 
@@ -51,28 +57,28 @@ define dso_local float @gimme_edge_table(ptr noundef readnone captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr %struct.Edge, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.Edge, ptr %4, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.lr.ph80.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond, label %.lr.ph80.preheader, label %.lr.ph, !llvm.loop !4
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %gimme_edge.exit68
   %indvars.iv86 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next87, %gimme_edge.exit68 ]
   %.079 = phi i32 [ 0, %.lr.ph80.preheader ], [ %85, %gimme_edge.exit68 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %11 = icmp eq i64 %indvars.iv.next87, %7
-  %12 = getelementptr i32, ptr %1, i64 %indvars.iv86
+  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv86
   %13 = load i32, ptr %12, align 4
   %14 = and i64 %indvars.iv.next87, 4294967295
   %15 = select i1 %11, i64 0, i64 %14
-  %16 = getelementptr i32, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %13 to i64
-  %19 = getelementptr %struct.Edge, ptr %4, i64 %18
+  %19 = getelementptr inbounds %struct.Edge, ptr %4, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 0
@@ -85,25 +91,25 @@ define dso_local float @gimme_edge_table(ptr noundef readnone captures(none) %0,
 23:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr [4 x i32], ptr %19, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 false)
   %27 = icmp eq i32 %26, %17
   br i1 %27, label %28, label %23
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr [4 x i32], ptr %19, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv.i
   %30 = sub i32 0, %17
   store i32 %30, ptr %29, align 4
   br label %gimme_edge.exit
 
 ._crit_edge.i:                                    ; preds = %23, %.lr.ph80
   %31 = sext i32 %21 to i64
-  %32 = getelementptr [4 x i32], ptr %19, i64 0, i64 %31
+  %32 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %31
   store i32 %17, ptr %32, align 4
   %33 = load i32, ptr %20, align 4
   %34 = add i32 %33, 1
@@ -120,7 +126,7 @@ gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
   %39 = load i32, ptr %16, align 4
   %40 = load i32, ptr %12, align 4
   %41 = sext i32 %39 to i64
-  %42 = getelementptr %struct.Edge, ptr %4, i64 %41
+  %42 = getelementptr inbounds %struct.Edge, ptr %4, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
@@ -133,25 +139,25 @@ gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
 46:                                               ; preds = %.lr.ph.i46
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i45
-  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !7
+  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !6
 
 .lr.ph.i46:                                       ; preds = %46, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %46 ]
-  %47 = getelementptr [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i47
+  %47 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i47
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @llvm.abs.i32(i32 %48, i1 false)
   %50 = icmp eq i32 %49, %40
   br i1 %50, label %51, label %46
 
 51:                                               ; preds = %.lr.ph.i46
-  %52 = getelementptr [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i47
+  %52 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i47
   %53 = sub i32 0, %40
   store i32 %53, ptr %52, align 4
   br label %gimme_edge.exit50
 
 ._crit_edge.i42:                                  ; preds = %46, %gimme_edge.exit
   %54 = sext i32 %44 to i64
-  %55 = getelementptr [4 x i32], ptr %42, i64 0, i64 %54
+  %55 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %54
   store i32 %40, ptr %55, align 4
   %56 = load i32, ptr %43, align 4
   %57 = add i32 %56, 1
@@ -163,12 +169,12 @@ gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
   br label %gimme_edge.exit50
 
 gimme_edge.exit50:                                ; preds = %51, %._crit_edge.i42
-  %61 = getelementptr i32, ptr %2, i64 %indvars.iv86
+  %61 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv86
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr i32, ptr %2, i64 %15
+  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %15
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %62 to i64
-  %66 = getelementptr %struct.Edge, ptr %4, i64 %65
+  %66 = getelementptr inbounds %struct.Edge, ptr %4, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
@@ -181,25 +187,25 @@ gimme_edge.exit50:                                ; preds = %51, %._crit_edge.i4
 70:                                               ; preds = %.lr.ph.i55
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
-  br i1 %exitcond.not.i58, label %._crit_edge.i51, label %.lr.ph.i55, !llvm.loop !7
+  br i1 %exitcond.not.i58, label %._crit_edge.i51, label %.lr.ph.i55, !llvm.loop !6
 
 .lr.ph.i55:                                       ; preds = %70, %.lr.ph.preheader.i53
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i53 ], [ %indvars.iv.next.i57, %70 ]
-  %71 = getelementptr [4 x i32], ptr %66, i64 0, i64 %indvars.iv.i56
+  %71 = getelementptr inbounds nuw [4 x i32], ptr %66, i64 0, i64 %indvars.iv.i56
   %72 = load i32, ptr %71, align 4
   %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 false)
   %74 = icmp eq i32 %73, %64
   br i1 %74, label %75, label %70
 
 75:                                               ; preds = %.lr.ph.i55
-  %76 = getelementptr [4 x i32], ptr %66, i64 0, i64 %indvars.iv.i56
+  %76 = getelementptr inbounds nuw [4 x i32], ptr %66, i64 0, i64 %indvars.iv.i56
   %77 = sub i32 0, %64
   store i32 %77, ptr %76, align 4
   br label %gimme_edge.exit59
 
 ._crit_edge.i51:                                  ; preds = %70, %gimme_edge.exit50
   %78 = sext i32 %68 to i64
-  %79 = getelementptr [4 x i32], ptr %66, i64 0, i64 %78
+  %79 = getelementptr inbounds [4 x i32], ptr %66, i64 0, i64 %78
   store i32 %64, ptr %79, align 4
   %80 = load i32, ptr %67, align 4
   %81 = add i32 %80, 1
@@ -216,7 +222,7 @@ gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i5
   %86 = load i32, ptr %63, align 4
   %87 = load i32, ptr %61, align 4
   %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct.Edge, ptr %4, i64 %88
+  %89 = getelementptr inbounds %struct.Edge, ptr %4, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, 0
@@ -229,25 +235,25 @@ gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i5
 93:                                               ; preds = %.lr.ph.i64
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %._crit_edge.i60, label %.lr.ph.i64, !llvm.loop !7
+  br i1 %exitcond.not.i67, label %._crit_edge.i60, label %.lr.ph.i64, !llvm.loop !6
 
 .lr.ph.i64:                                       ; preds = %93, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %93 ]
-  %94 = getelementptr [4 x i32], ptr %89, i64 0, i64 %indvars.iv.i65
+  %94 = getelementptr inbounds nuw [4 x i32], ptr %89, i64 0, i64 %indvars.iv.i65
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @llvm.abs.i32(i32 %95, i1 false)
   %97 = icmp eq i32 %96, %87
   br i1 %97, label %98, label %93
 
 98:                                               ; preds = %.lr.ph.i64
-  %99 = getelementptr [4 x i32], ptr %89, i64 0, i64 %indvars.iv.i65
+  %99 = getelementptr inbounds nuw [4 x i32], ptr %89, i64 0, i64 %indvars.iv.i65
   %100 = sub i32 0, %87
   store i32 %100, ptr %99, align 4
   br label %gimme_edge.exit68
 
 ._crit_edge.i60:                                  ; preds = %93, %gimme_edge.exit59
   %101 = sext i32 %91 to i64
-  %102 = getelementptr [4 x i32], ptr %89, i64 0, i64 %101
+  %102 = getelementptr inbounds [4 x i32], ptr %89, i64 0, i64 %101
   store i32 %87, ptr %102, align 4
   %103 = load i32, ptr %90, align 4
   %104 = add i32 %103, 1
@@ -260,7 +266,7 @@ gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i5
 
 gimme_edge.exit68:                                ; preds = %98, %._crit_edge.i60
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %7
-  br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !8
+  br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %gimme_edge.exit68
   %108 = shl i32 %85, 1
@@ -299,7 +305,7 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %13 = load i32, ptr %gep, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.Edge, ptr %1, i64 %14
+  %15 = getelementptr inbounds %struct.Edge, ptr %1, i64 %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %15, i64 24, i1 false)
   %16 = load i32, ptr %9, align 4
@@ -312,11 +318,11 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
 
 .lr.ph4.i:                                        ; preds = %.loopexit.i, %.lr.ph4.preheader.i
   %indvars.iv7.i = phi i64 [ 0, %.lr.ph4.preheader.i ], [ %indvars.iv.next8.i, %.loopexit.i ]
-  %18 = getelementptr [4 x i32], ptr %6, i64 0, i64 %indvars.iv7.i
+  %18 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv7.i
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr %struct.Edge, ptr %1, i64 %21
+  %22 = getelementptr inbounds %struct.Edge, ptr %1, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
@@ -329,22 +335,22 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
 26:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr [4 x i32], ptr %22, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 false)
   %30 = icmp eq i32 %29, %13
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr [4 x i32], ptr %22, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv.i
   %33 = add nsw i32 %24, -1
   store i32 %33, ptr %23, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr [4 x i32], ptr %22, i64 0, i64 %34
+  %35 = getelementptr inbounds [4 x i32], ptr %22, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %32, align 4
   br label %.loopexit.i
@@ -352,7 +358,7 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
 .loopexit.i:                                      ; preds = %26, %31, %.lr.ph4.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %remove_gene.exit.loopexit, label %.lr.ph4.i, !llvm.loop !10
+  br i1 %exitcond11.not.i, label %remove_gene.exit.loopexit, label %.lr.ph4.i, !llvm.loop !9
 
 remove_gene.exit.loopexit:                        ; preds = %.loopexit.i
   %.pre = load i32, ptr %gep, align 4
@@ -363,7 +369,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.pre-phi = phi i64 [ %.pre86, %remove_gene.exit.loopexit ], [ %14, %12 ]
   %37 = phi i32 [ %.pre, %remove_gene.exit.loopexit ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %38 = getelementptr %struct.Edge, ptr %1, i64 %.pre-phi
+  %38 = getelementptr inbounds %struct.Edge, ptr %1, i64 %.pre-phi
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
@@ -388,7 +394,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %64 ]
   %.02748.i = phi i32 [ -1, %.lr.ph.preheader.i36 ], [ %.1.i, %64 ]
   %.02847.i = phi i32 [ 5, %.lr.ph.preheader.i36 ], [ %.129.i, %64 ]
-  %46 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i39
+  %46 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i39
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %51
@@ -399,7 +405,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
 
 51:                                               ; preds = %.lr.ph.i38
   %52 = zext nneg i32 %47 to i64
-  %53 = getelementptr %struct.Edge, ptr %1, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %52, i32 2
   %54 = load i32, ptr %53, align 4
   %55 = icmp slt i32 %54, %.02847.i
   br i1 %55, label %64, label %56
@@ -412,7 +418,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %59)
   %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @__func__.gimme_gene) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.gimme_gene) #9
   unreachable
 
 61:                                               ; preds = %56
@@ -426,7 +432,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.1.i = phi i32 [ 1, %51 ], [ %spec.select.i, %61 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
-  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !11
+  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %64
   %65 = add i32 %.1.i, -1
@@ -436,10 +442,10 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
 .lr.ph54.i:                                       ; preds = %76, %._crit_edge.i
   %indvars.iv61.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next62.i, %76 ]
   %.252.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.3.i, %76 ]
-  %67 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv61.i
+  %67 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv61.i
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr %struct.Edge, ptr %1, i64 %69, i32 2
+  %70 = getelementptr inbounds %struct.Edge, ptr %1, i64 %69, i32 2
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, %.129.i
   br i1 %72, label %73, label %76
@@ -453,13 +459,13 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.3.i = phi i32 [ %74, %73 ], [ %.252.i, %.lr.ph54.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i37
-  br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !12
+  br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !11
 
 ._crit_edge55.i:                                  ; preds = %76, %._crit_edge.thread.i
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %77)
   %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 360, ptr noundef nonnull @__func__.gimme_gene) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.gimme_gene) #9
   unreachable
 
 gimme_gene.exit:                                  ; preds = %73, %49
@@ -476,7 +482,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %indvars.iv.i46 = phi i64 [ 1, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i49, %90 ]
   %.080.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.1.i48, %90 ]
   %.04979.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.150.i, %90 ]
-  %81 = getelementptr %struct.Edge, ptr %1, i64 %indvars.iv.i46
+  %81 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %indvars.iv.i46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i32, ptr %82, align 4
   %.not70.i = icmp eq i32 %83, -1
@@ -498,7 +504,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %84 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i44
-  br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !13
+  br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !12
 
 ._crit_edge.i50:                                  ; preds = %90
   %.not61.i = icmp eq i32 %.1.i48, 0
@@ -517,7 +523,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 94:                                               ; preds = %.lr.ph86.i
   %95 = sext i32 %.15583.i to i64
-  %96 = getelementptr %struct.Edge, ptr %1, i64 %95
+  %96 = getelementptr inbounds %struct.Edge, ptr %1, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %98 = load i32, ptr %97, align 4
   %.not69.i = icmp eq i32 %98, -1
@@ -538,7 +544,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.3.i51 = phi i32 [ %104, %103 ], [ %.284.i, %99 ], [ %.284.i, %94 ], [ %.284.i, %.lr.ph86.i ]
   %107 = add i32 %.15583.i, 1
   %.not67.i = icmp sgt i32 %107, %3
-  br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !14
+  br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !13
 
 ._crit_edge87.i:                                  ; preds = %106
   %108 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -561,7 +567,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 113:                                              ; preds = %.lr.ph92.i
   %114 = sext i32 %.25689.i to i64
-  %115 = getelementptr %struct.Edge, ptr %1, i64 %114, i32 2
+  %115 = getelementptr inbounds %struct.Edge, ptr %1, i64 %114, i32 2
   %116 = load i32, ptr %115, align 4
   %.not66.i = icmp eq i32 %116, -1
   br i1 %.not66.i, label %120, label %117
@@ -575,7 +581,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.352.i = phi i32 [ %118, %117 ], [ %.25190.i, %113 ], [ %.25190.i, %.lr.ph92.i ]
   %121 = add i32 %.25689.i, 1
   %.not64.i = icmp sgt i32 %121, %3
-  br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !15
+  br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !14
 
 ._crit_edge93.i:                                  ; preds = %120
   %122 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -584,7 +590,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 .lr.ph96.i:                                       ; preds = %109, %127
   %.35795.i = phi i32 [ %128, %127 ], [ 1, %109 ]
   %123 = sext i32 %.35795.i to i64
-  %124 = getelementptr %struct.Edge, ptr %1, i64 %123, i32 2
+  %124 = getelementptr inbounds %struct.Edge, ptr %1, i64 %123, i32 2
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %edge_failure.exit, label %127
@@ -592,7 +598,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 127:                                              ; preds = %.lr.ph96.i
   %128 = add i32 %.35795.i, 1
   %.not63.i = icmp sgt i32 %128, %3
-  br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !16
+  br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !15
 
 ._crit_edge97.i:                                  ; preds = %127
   %129 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -600,7 +606,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 .sink.split.i:                                    ; preds = %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
   %.str.4.sink.i = phi ptr [ @.str.3, %._crit_edge87.i ], [ @.str.4, %._crit_edge93.i ], [ @.str.5, %._crit_edge97.i ]
-  %.sink.i = phi i32 [ 420, %._crit_edge87.i ], [ 441, %._crit_edge93.i ], [ 459, %._crit_edge97.i ]
+  %.sink.i = phi i32 [ 422, %._crit_edge87.i ], [ 443, %._crit_edge93.i ], [ 461, %._crit_edge97.i ]
   %130 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.4.sink.i) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.edge_failure) #9
   br label %131
@@ -609,85 +615,78 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %132)
   %133 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.edge_failure) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__func__.edge_failure) #9
   unreachable
 
 edge_failure.exit:                                ; preds = %103, %117, %.lr.ph96.i, %gimme_gene.exit
   %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %117 ], [ %.15583.i, %103 ]
   %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %79, %.lr.ph96.i ], [ %79, %117 ], [ %79, %103 ]
-  %134 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %.053.i.sink, ptr %134, align 4
   %135 = load i32, ptr %gep, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr %struct.Edge, ptr %1, i64 %136, i32 2
+  %137 = getelementptr inbounds %struct.Edge, ptr %1, i64 %136, i32 2
   store i32 -1, ptr %137, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %edge_failure.exit, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %edge_failure.exit ]
   ret i32 %.0.lcssa
 }
 
-declare i32 @geqo_randint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @geqo_randint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

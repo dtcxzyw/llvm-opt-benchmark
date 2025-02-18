@@ -14,9 +14,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.RowCompareExpr = type { %struct.Expr, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.CoerceToDomain = type { %struct.Expr, ptr, i32, i32, i32, i32, i32 }
 %struct.TargetEntry = type { %struct.Expr, ptr, i16, ptr, i32, i32, i16, i8 }
-%struct.Query = type { i32, i32, i32, i64, i8, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i8, i32, ptr, i32, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32 }
+%struct.Query = type { i32, i32, i32, i64, i8, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.Aggref = type { %struct.Expr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i32, i32, i32, i32 }
-%struct.WindowFunc = type { %struct.Expr, i32, i32, i32, i32, ptr, ptr, i32, i8, i8, i32 }
+%struct.WindowFunc = type { %struct.Expr, i32, i32, i32, i32, ptr, ptr, ptr, i32, i8, i8, i32 }
 %struct.CaseExpr = type { %struct.Expr, i32, i32, ptr, ptr, ptr, i32 }
 %struct.CaseWhen = type { %struct.Expr, ptr, ptr, i32 }
 %struct.SubscriptingRef = type { %struct.Expr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
@@ -62,9 +62,9 @@ define internal zeroext i1 @assign_query_collations_walker(ptr noundef %0, ptr n
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.Node, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.Node, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, 127
+  %13 = icmp eq i32 %12, 142
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9
@@ -73,7 +73,7 @@ define internal zeroext i1 @assign_query_collations_walker(ptr noundef %0, ptr n
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Node, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.Node, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %23
@@ -108,69 +108,86 @@ define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef %1) #0
   %7 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #6
+  %8 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
   store i32 0, ptr %10, align 8
-  br label %11
+  %11 = getelementptr i8, ptr %6, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 4, i1 false)
+  br label %12
 
-11:                                               ; preds = %41, %2
-  %12 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %32
+12:                                               ; preds = %43, %2
+  %13 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %33
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.List, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp slt i32 %17, %21
-  br i1 %22, label %23, label %32
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.List, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp slt i32 %18, %22
+  br i1 %23, label %24, label %33
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.List, ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr %union.ListCell, ptr %27, i64 %30
-  store ptr %31, ptr %5, align 8
-  br label %33
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.List, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %union.ListCell, ptr %28, i64 %31
+  store ptr %32, ptr %5, align 8
+  br label %34
 
-32:                                               ; preds = %15, %11
+33:                                               ; preds = %16, %12
   store ptr null, ptr %5, align 8
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %23
-  %34 = phi i32 [ 1, %23 ], [ 0, %32 ]
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %45
+34:                                               ; preds = %33, %24
+  %35 = phi i32 [ 1, %24 ], [ 0, %33 ]
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %5, align 8
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = load ptr, ptr %7, align 8
-  call void @assign_expr_collations(ptr noundef %39, ptr noundef %40)
-  br label %41
+37:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #6
+  br label %47
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 8
-  br label %11, !llvm.loop !5
+38:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %39 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %7, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %7, align 8
+  call void @assign_expr_collations(ptr noundef %41, ptr noundef %42)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %43
 
-45:                                               ; preds = %33
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %44, align 8
+  br label %12, !llvm.loop !4
+
+47:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_expr_collations(ptr noundef %0, ptr noundef %1) #0 {
@@ -179,19 +196,24 @@ define dso_local void @assign_expr_collations(ptr noundef %0, ptr noundef %1) #0
   %5 = alloca %struct.assign_collations_context, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #6
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.assign_collations_context, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %5, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds %struct.assign_collations_context, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %5, i32 0, i32 1
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %struct.assign_collations_context, ptr %5, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %5, i32 0, i32 2
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %struct.assign_collations_context, ptr %5, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %5, i32 0, i32 3
   store i32 -1, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = call zeroext i1 @assign_collations_walker(ptr noundef %11, ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #6
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @assign_collations_walker(ptr noundef %0, ptr noundef %1) #0 {
@@ -202,803 +224,893 @@ define internal zeroext i1 @assign_collations_walker(ptr noundef %0, ptr noundef
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca %struct.ForBothState, align 8
-  %18 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %struct.ForBothState, align 8
   %19 = alloca ptr, align 8
-  %20 = alloca i32, align 4
-  %21 = alloca %union.ListCell, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
   %22 = alloca %union.ListCell, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca i32, align 4
-  %25 = alloca ptr, align 8
+  %23 = alloca %union.ListCell, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca i32, align 4
   %26 = alloca ptr, align 8
-  %27 = alloca i32, align 4
-  %28 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
   %29 = alloca ptr, align 8
   %30 = alloca ptr, align 8
   %31 = alloca ptr, align 8
-  %32 = alloca %struct.ForEachState, align 8
-  %33 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca %struct.ForEachState, align 8
   %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %2
-  store i1 false, ptr %3, align 1
-  br label %479
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %36 = load ptr, ptr %4, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %2
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.assign_collations_context, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 0
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 3
-  store i32 -1, ptr %45, align 8
-  %46 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 4
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 5
-  store i32 -1, ptr %47, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.Node, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 4
-  switch i32 %50, label %302 [
-    i32 29, label %51
-    i32 23, label %61
-    i32 34, label %77
-    i32 35, label %85
-    i32 48, label %177
-    i32 54, label %212
-    i32 53, label %253
-    i32 55, label %253
-    i32 56, label %253
-    i32 57, label %253
-    i32 58, label %253
-    i32 98, label %253
-    i32 47, label %253
-    i32 59, label %256
-    i32 1, label %283
-    i32 6, label %292
-    i32 7, label %292
-    i32 8, label %292
-    i32 49, label %292
-    i32 32, label %292
-    i32 50, label %292
-    i32 51, label %292
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %489
+
+39:                                               ; preds = %2
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 0
+  store ptr %42, ptr %43, align 8
+  %44 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 3
+  store i32 -1, ptr %46, align 8
+  %47 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 4
+  store i32 0, ptr %47, align 4
+  %48 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 5
+  store i32 -1, ptr %48, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw %struct.Node, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 4
+  switch i32 %51, label %309 [
+    i32 31, label %52
+    i32 25, label %62
+    i32 36, label %78
+    i32 37, label %86
+    i32 55, label %180
+    i32 62, label %215
+    i32 60, label %257
+    i32 63, label %257
+    i32 64, label %257
+    i32 65, label %257
+    i32 66, label %257
+    i32 106, label %257
+    i32 54, label %257
+    i32 67, label %260
+    i32 1, label %290
+    i32 6, label %299
+    i32 7, label %299
+    i32 8, label %299
+    i32 56, label %299
+    i32 34, label %299
+    i32 57, label %299
+    i32 58, label %299
   ]
 
-51:                                               ; preds = %38
-  %52 = load ptr, ptr %4, align 8
-  store ptr %52, ptr %10, align 8
+52:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   %53 = load ptr, ptr %4, align 8
-  %54 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %53, ptr noundef @assign_collations_walker, ptr noundef %6)
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.CollateExpr, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
-  store i32 %57, ptr %7, align 4
+  store ptr %53, ptr %11, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %54, ptr noundef @assign_collations_walker, ptr noundef %6)
+  %56 = load ptr, ptr %11, align 8
+  %57 = getelementptr inbounds nuw %struct.CollateExpr, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8
+  store i32 %58, ptr %7, align 4
   store i32 3, ptr %8, align 4
-  %58 = load ptr, ptr %10, align 8
-  %59 = getelementptr inbounds %struct.CollateExpr, ptr %58, i32 0, i32 3
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %9, align 4
-  br label %470
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds nuw %struct.CollateExpr, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %480
 
-61:                                               ; preds = %38
-  %62 = load ptr, ptr %4, align 8
-  store ptr %62, ptr %11, align 8
+62:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %63 = load ptr, ptr %4, align 8
-  %64 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %63, ptr noundef @assign_collations_walker, ptr noundef %6)
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds %struct.FieldSelect, ptr %65, i32 0, i32 5
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %75
+  store ptr %63, ptr %12, align 8
+  %64 = load ptr, ptr %4, align 8
+  %65 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %64, ptr noundef @assign_collations_walker, ptr noundef %6)
+  %66 = load ptr, ptr %12, align 8
+  %67 = getelementptr inbounds nuw %struct.FieldSelect, ptr %66, i32 0, i32 5
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %76
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct.FieldSelect, ptr %70, i32 0, i32 5
-  %72 = load i32, ptr %71, align 4
-  store i32 %72, ptr %7, align 4
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds nuw %struct.FieldSelect, ptr %71, i32 0, i32 5
+  %73 = load i32, ptr %72, align 4
+  store i32 %73, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  %73 = load ptr, ptr %4, align 8
-  %74 = call i32 @exprLocation(ptr noundef %73)
-  store i32 %74, ptr %9, align 4
-  br label %76
+  %74 = load ptr, ptr %4, align 8
+  %75 = call i32 @exprLocation(ptr noundef %74)
+  store i32 %75, ptr %9, align 4
+  br label %77
 
-75:                                               ; preds = %61
+76:                                               ; preds = %62
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 -1, ptr %9, align 4
-  br label %76
+  br label %77
 
-76:                                               ; preds = %75, %69
-  br label %470
+77:                                               ; preds = %76, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  br label %480
 
-77:                                               ; preds = %38
-  %78 = load ptr, ptr %4, align 8
-  store ptr %78, ptr %12, align 8
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.assign_collations_context, ptr %79, i32 0, i32 0
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds %struct.RowExpr, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  call void @assign_list_collations(ptr noundef %81, ptr noundef %84)
+78:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %79 = load ptr, ptr %4, align 8
+  store ptr %79, ptr %13, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %13, align 8
+  %84 = getelementptr inbounds nuw %struct.RowExpr, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  call void @assign_list_collations(ptr noundef %82, ptr noundef %85)
   store i1 false, ptr %3, align 1
-  br label %479
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  br label %489
 
-85:                                               ; preds = %38
-  %86 = load ptr, ptr %4, align 8
-  store ptr %86, ptr %13, align 8
-  store ptr null, ptr %14, align 8
-  %87 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 0
-  %88 = load ptr, ptr %13, align 8
-  %89 = getelementptr inbounds %struct.RowCompareExpr, ptr %88, i32 0, i32 5
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %87, align 8
-  %91 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 1
-  %92 = load ptr, ptr %13, align 8
-  %93 = getelementptr inbounds %struct.RowCompareExpr, ptr %92, i32 0, i32 6
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %91, align 8
-  %95 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  store i32 0, ptr %95, align 8
-  br label %96
+86:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %87 = load ptr, ptr %4, align 8
+  store ptr %87, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #6
+  %88 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 0
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds nuw %struct.RowCompareExpr, ptr %89, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %88, align 8
+  %92 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 1
+  %93 = load ptr, ptr %14, align 8
+  %94 = getelementptr inbounds nuw %struct.RowCompareExpr, ptr %93, i32 0, i32 6
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %92, align 8
+  %96 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  store i32 0, ptr %96, align 8
+  %97 = getelementptr i8, ptr %18, i64 20
+  call void @llvm.memset.p0.i64(ptr align 4 %97, i8 0, i64 4, i1 false)
+  br label %98
 
-96:                                               ; preds = %169, %85
-  %97 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %117
+98:                                               ; preds = %172, %86
+  %99 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %119
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %struct.List, ptr %104, i32 0, i32 1
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp slt i32 %102, %106
-  br i1 %107, label %108, label %117
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  %104 = load i32, ptr %103, align 8
+  %105 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw %struct.List, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp slt i32 %104, %108
+  br i1 %109, label %110, label %119
 
-108:                                              ; preds = %100
-  %109 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.List, ptr %110, i32 0, i32 3
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 0
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  %114 = load i32, ptr %113, align 8
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr %union.ListCell, ptr %112, i64 %115
-  br label %118
+  %113 = getelementptr inbounds nuw %struct.List, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  %116 = load i32, ptr %115, align 8
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds %union.ListCell, ptr %114, i64 %117
+  br label %120
 
-117:                                              ; preds = %100, %96
-  br label %118
+119:                                              ; preds = %102, %98
+  br label %120
 
-118:                                              ; preds = %117, %108
-  %119 = phi ptr [ %116, %108 ], [ null, %117 ]
-  store ptr %119, ptr %15, align 8
-  %120 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %140
+120:                                              ; preds = %119, %110
+  %121 = phi ptr [ %118, %110 ], [ null, %119 ]
+  store ptr %121, ptr %16, align 8
+  %122 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %142
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.List, ptr %127, i32 0, i32 1
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp slt i32 %125, %129
-  br i1 %130, label %131, label %140
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  %127 = load i32, ptr %126, align 8
+  %128 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw %struct.List, ptr %129, i32 0, i32 1
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp slt i32 %127, %131
+  br i1 %132, label %133, label %142
 
-131:                                              ; preds = %123
-  %132 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 1
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %struct.List, ptr %133, i32 0, i32 3
+133:                                              ; preds = %125
+  %134 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  %137 = load i32, ptr %136, align 8
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr %union.ListCell, ptr %135, i64 %138
-  br label %141
+  %136 = getelementptr inbounds nuw %struct.List, ptr %135, i32 0, i32 3
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  %139 = load i32, ptr %138, align 8
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds %union.ListCell, ptr %137, i64 %140
+  br label %143
 
-140:                                              ; preds = %123, %118
-  br label %141
+142:                                              ; preds = %125, %120
+  br label %143
 
-141:                                              ; preds = %140, %131
-  %142 = phi ptr [ %139, %131 ], [ null, %140 ]
-  store ptr %142, ptr %16, align 8
-  %143 = load ptr, ptr %15, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %148
+143:                                              ; preds = %142, %133
+  %144 = phi ptr [ %141, %133 ], [ null, %142 ]
+  store ptr %144, ptr %17, align 8
+  %145 = load ptr, ptr %16, align 8
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %150
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %16, align 8
-  %147 = icmp ne ptr %146, null
-  br label %148
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %17, align 8
+  %149 = icmp ne ptr %148, null
+  br label %150
 
-148:                                              ; preds = %145, %141
-  %149 = phi i1 [ false, %141 ], [ %147, %145 ]
-  br i1 %149, label %150, label %173
+150:                                              ; preds = %147, %143
+  %151 = phi i1 [ false, %143 ], [ %149, %147 ]
+  br i1 %151, label %153, label %152
 
-150:                                              ; preds = %148
-  %151 = load ptr, ptr %15, align 8
-  %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %18, align 8
-  %153 = load ptr, ptr %16, align 8
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %19, align 8
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct.assign_collations_context, ptr %155, i32 0, i32 0
+152:                                              ; preds = %150
+  store i32 3, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #6
+  br label %176
+
+153:                                              ; preds = %150
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %154 = load ptr, ptr %16, align 8
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %156 = load ptr, ptr %17, align 8
   %157 = load ptr, ptr %156, align 8
-  %158 = load ptr, ptr %18, align 8
-  store ptr %158, ptr %21, align 8
-  %159 = load ptr, ptr %19, align 8
-  store ptr %159, ptr %22, align 8
-  %160 = getelementptr inbounds %union.ListCell, ptr %21, i32 0, i32 0
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %union.ListCell, ptr %22, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = call ptr @list_make2_impl(i32 noundef 1, ptr %161, ptr %163)
-  %165 = call i32 @select_common_collation(ptr noundef %157, ptr noundef %164, i1 noundef zeroext true)
-  store i32 %165, ptr %20, align 4
-  %166 = load ptr, ptr %14, align 8
-  %167 = load i32, ptr %20, align 4
-  %168 = call ptr @lappend_oid(ptr noundef %166, i32 noundef %167)
-  store ptr %168, ptr %14, align 8
-  br label %169
+  store ptr %157, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %158, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8
+  %161 = load ptr, ptr %19, align 8
+  store ptr %161, ptr %22, align 8
+  %162 = load ptr, ptr %20, align 8
+  store ptr %162, ptr %23, align 8
+  %163 = getelementptr inbounds nuw %union.ListCell, ptr %22, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw %union.ListCell, ptr %23, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = call ptr @list_make2_impl(i32 noundef 1, ptr %164, ptr %166)
+  %168 = call i32 @select_common_collation(ptr noundef %160, ptr noundef %167, i1 noundef zeroext true)
+  store i32 %168, ptr %21, align 4
+  %169 = load ptr, ptr %15, align 8
+  %170 = load i32, ptr %21, align 4
+  %171 = call ptr @lappend_oid(ptr noundef %169, i32 noundef %170)
+  store ptr %171, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  br label %172
 
-169:                                              ; preds = %150
-  %170 = getelementptr inbounds %struct.ForBothState, ptr %17, i32 0, i32 2
-  %171 = load i32, ptr %170, align 8
-  %172 = add i32 %171, 1
-  store i32 %172, ptr %170, align 8
-  br label %96, !llvm.loop !7
+172:                                              ; preds = %153
+  %173 = getelementptr inbounds nuw %struct.ForBothState, ptr %18, i32 0, i32 2
+  %174 = load i32, ptr %173, align 8
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %173, align 8
+  br label %98, !llvm.loop !6
 
-173:                                              ; preds = %148
-  %174 = load ptr, ptr %14, align 8
-  %175 = load ptr, ptr %13, align 8
-  %176 = getelementptr inbounds %struct.RowCompareExpr, ptr %175, i32 0, i32 4
-  store ptr %174, ptr %176, align 8
+176:                                              ; preds = %152
+  %177 = load ptr, ptr %15, align 8
+  %178 = load ptr, ptr %14, align 8
+  %179 = getelementptr inbounds nuw %struct.RowCompareExpr, ptr %178, i32 0, i32 4
+  store ptr %177, ptr %179, align 8
   store i1 false, ptr %3, align 1
-  br label %479
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  br label %489
 
-177:                                              ; preds = %38
-  %178 = load ptr, ptr %4, align 8
-  store ptr %178, ptr %23, align 8
-  %179 = load ptr, ptr %23, align 8
-  %180 = getelementptr inbounds %struct.CoerceToDomain, ptr %179, i32 0, i32 2
-  %181 = load i32, ptr %180, align 8
-  %182 = call i32 @get_typcollation(i32 noundef %181)
-  store i32 %182, ptr %24, align 4
-  %183 = load ptr, ptr %4, align 8
-  %184 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %183, ptr noundef @assign_collations_walker, ptr noundef %6)
-  %185 = load i32, ptr %24, align 4
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %202
+180:                                              ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  %181 = load ptr, ptr %4, align 8
+  store ptr %181, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  %182 = load ptr, ptr %24, align 8
+  %183 = getelementptr inbounds nuw %struct.CoerceToDomain, ptr %182, i32 0, i32 2
+  %184 = load i32, ptr %183, align 8
+  %185 = call i32 @get_typcollation(i32 noundef %184)
+  store i32 %185, ptr %25, align 4
+  %186 = load ptr, ptr %4, align 8
+  %187 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %186, ptr noundef @assign_collations_walker, ptr noundef %6)
+  %188 = load i32, ptr %25, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %205
 
-187:                                              ; preds = %177
-  %188 = load i32, ptr %24, align 4
-  %189 = icmp eq i32 %188, 100
-  br i1 %189, label %190, label %197
+190:                                              ; preds = %180
+  %191 = load i32, ptr %25, align 4
+  %192 = icmp eq i32 %191, 100
+  br i1 %192, label %193, label %200
 
-190:                                              ; preds = %187
-  %191 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %192 = load i32, ptr %191, align 8
-  store i32 %192, ptr %7, align 4
-  %193 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %194 = load i32, ptr %193, align 4
-  store i32 %194, ptr %8, align 4
-  %195 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 3
-  %196 = load i32, ptr %195, align 8
-  store i32 %196, ptr %9, align 4
-  br label %201
+193:                                              ; preds = %190
+  %194 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %195 = load i32, ptr %194, align 8
+  store i32 %195, ptr %7, align 4
+  %196 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %197 = load i32, ptr %196, align 4
+  store i32 %197, ptr %8, align 4
+  %198 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 3
+  %199 = load i32, ptr %198, align 8
+  store i32 %199, ptr %9, align 4
+  br label %204
 
-197:                                              ; preds = %187
-  %198 = load i32, ptr %24, align 4
-  store i32 %198, ptr %7, align 4
+200:                                              ; preds = %190
+  %201 = load i32, ptr %25, align 4
+  store i32 %201, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  %199 = load ptr, ptr %4, align 8
-  %200 = call i32 @exprLocation(ptr noundef %199)
-  store i32 %200, ptr %9, align 4
-  br label %201
+  %202 = load ptr, ptr %4, align 8
+  %203 = call i32 @exprLocation(ptr noundef %202)
+  store i32 %203, ptr %9, align 4
+  br label %204
 
-201:                                              ; preds = %197, %190
-  br label %203
+204:                                              ; preds = %200, %193
+  br label %206
 
-202:                                              ; preds = %177
+205:                                              ; preds = %180
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 -1, ptr %9, align 4
-  br label %203
+  br label %206
 
-203:                                              ; preds = %202, %201
-  %204 = load i32, ptr %8, align 4
-  %205 = icmp eq i32 %204, 2
-  br i1 %205, label %206, label %208
+206:                                              ; preds = %205, %204
+  %207 = load i32, ptr %8, align 4
+  %208 = icmp eq i32 %207, 2
+  br i1 %208, label %209, label %211
 
-206:                                              ; preds = %203
-  %207 = load ptr, ptr %4, align 8
-  call void @exprSetCollation(ptr noundef %207, i32 noundef 0)
-  br label %211
+209:                                              ; preds = %206
+  %210 = load ptr, ptr %4, align 8
+  call void @exprSetCollation(ptr noundef %210, i32 noundef 0)
+  br label %214
 
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %4, align 8
-  %210 = load i32, ptr %7, align 4
-  call void @exprSetCollation(ptr noundef %209, i32 noundef %210)
-  br label %211
+211:                                              ; preds = %206
+  %212 = load ptr, ptr %4, align 8
+  %213 = load i32, ptr %7, align 4
+  call void @exprSetCollation(ptr noundef %212, i32 noundef %213)
+  br label %214
 
-211:                                              ; preds = %208, %206
-  br label %470
+214:                                              ; preds = %211, %209
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  br label %480
 
-212:                                              ; preds = %38
-  %213 = load ptr, ptr %4, align 8
-  %214 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %213, ptr noundef @assign_collations_walker, ptr noundef %6)
-  %215 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %216 = load i32, ptr %215, align 8
-  store i32 %216, ptr %7, align 4
-  %217 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %218 = load i32, ptr %217, align 4
-  store i32 %218, ptr %8, align 4
-  %219 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 3
-  %220 = load i32, ptr %219, align 8
-  store i32 %220, ptr %9, align 4
-  %221 = load i32, ptr %8, align 4
-  %222 = icmp eq i32 %221, 2
-  br i1 %222, label %223, label %252
+215:                                              ; preds = %39
+  %216 = load ptr, ptr %4, align 8
+  %217 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %216, ptr noundef @assign_collations_walker, ptr noundef %6)
+  %218 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %219 = load i32, ptr %218, align 8
+  store i32 %219, ptr %7, align 4
+  %220 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %221 = load i32, ptr %220, align 4
+  store i32 %221, ptr %8, align 4
+  %222 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 3
+  %223 = load i32, ptr %222, align 8
+  store i32 %223, ptr %9, align 4
+  %224 = load i32, ptr %8, align 4
+  %225 = icmp eq i32 %224, 2
+  br i1 %225, label %226, label %256
 
-223:                                              ; preds = %212
-  %224 = load ptr, ptr %4, align 8
-  %225 = getelementptr inbounds %struct.TargetEntry, ptr %224, i32 0, i32 4
-  %226 = load i32, ptr %225, align 8
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %228, label %252
+226:                                              ; preds = %215
+  %227 = load ptr, ptr %4, align 8
+  %228 = getelementptr inbounds nuw %struct.TargetEntry, ptr %227, i32 0, i32 4
+  %229 = load i32, ptr %228, align 8
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %231, label %256
 
-228:                                              ; preds = %223
-  br label %229
+231:                                              ; preds = %226
+  br label %232
 
-229:                                              ; preds = %228
-  br i1 true, label %230, label %232
+232:                                              ; preds = %231
+  br i1 true, label %233, label %235
 
-230:                                              ; preds = %229
-  %231 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %231, label %234, label %250
+233:                                              ; preds = %232
+  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %234, label %237, label %253
 
-232:                                              ; preds = %229
-  %233 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %233, label %234, label %250
+235:                                              ; preds = %232
+  %236 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %236, label %237, label %253
 
-234:                                              ; preds = %232, %230
-  %235 = call i32 @errcode(i32 noundef 17432708)
-  %236 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %237 = load i32, ptr %236, align 8
-  %238 = call ptr @get_collation_name(i32 noundef %237)
-  %239 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 4
-  %240 = load i32, ptr %239, align 4
+237:                                              ; preds = %235, %233
+  %238 = call i32 @errcode(i32 noundef 17432708)
+  %239 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %240 = load i32, ptr %239, align 8
   %241 = call ptr @get_collation_name(i32 noundef %240)
-  %242 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %238, ptr noundef %241)
-  %243 = call i32 (ptr, ...) @errhint(ptr noundef @.str.1)
-  %244 = load ptr, ptr %5, align 8
-  %245 = getelementptr inbounds %struct.assign_collations_context, ptr %244, i32 0, i32 0
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 5
-  %248 = load i32, ptr %247, align 8
-  %249 = call i32 @parser_errposition(ptr noundef %246, i32 noundef %248)
+  %242 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 4
+  %243 = load i32, ptr %242, align 4
+  %244 = call ptr @get_collation_name(i32 noundef %243)
+  %245 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %241, ptr noundef %244)
+  %246 = call i32 (ptr, ...) @errhint(ptr noundef @.str.1)
+  %247 = load ptr, ptr %5, align 8
+  %248 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %247, i32 0, i32 0
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 5
+  %251 = load i32, ptr %250, align 8
+  %252 = call i32 @parser_errposition(ptr noundef %249, i32 noundef %251)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 480, ptr noundef @__func__.assign_collations_walker)
-  br label %250
+  br label %253
 
-250:                                              ; preds = %234, %232, %230
+253:                                              ; preds = %237, %235, %233
   unreachable
 
-251:                                              ; No predecessors!
-  br label %252
+254:                                              ; No predecessors!
+  br label %255
 
-252:                                              ; preds = %251, %223, %212
-  br label %470
+255:                                              ; preds = %254
+  br label %256
 
-253:                                              ; preds = %38, %38, %38, %38, %38, %38, %38
-  %254 = load ptr, ptr %4, align 8
-  %255 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %254, ptr noundef @assign_collations_walker, ptr noundef %6)
+256:                                              ; preds = %255, %226, %215
+  br label %480
+
+257:                                              ; preds = %39, %39, %39, %39, %39, %39, %39
+  %258 = load ptr, ptr %4, align 8
+  %259 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %258, ptr noundef @assign_collations_walker, ptr noundef %6)
   store i1 false, ptr %3, align 1
-  br label %479
+  store i32 1, ptr %10, align 4
+  br label %489
 
-256:                                              ; preds = %38
-  %257 = load ptr, ptr %4, align 8
-  store ptr %257, ptr %25, align 8
-  %258 = load ptr, ptr %25, align 8
-  %259 = getelementptr inbounds %struct.Query, ptr %258, i32 0, i32 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = icmp eq ptr %260, null
-  br i1 %261, label %262, label %263
+260:                                              ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  %261 = load ptr, ptr %4, align 8
+  store ptr %261, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  %262 = load ptr, ptr %26, align 8
+  %263 = getelementptr inbounds nuw %struct.Query, ptr %262, i32 0, i32 25
+  %264 = load ptr, ptr %263, align 8
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %266, label %267
 
-262:                                              ; preds = %256
+266:                                              ; preds = %260
   store i1 false, ptr %3, align 1
-  br label %479
+  store i32 1, ptr %10, align 4
+  br label %287
 
-263:                                              ; preds = %256
-  %264 = load ptr, ptr %25, align 8
-  %265 = getelementptr inbounds %struct.Query, ptr %264, i32 0, i32 24
-  %266 = load ptr, ptr %265, align 8
-  %267 = call ptr @list_nth_cell(ptr noundef %266, i32 noundef 0)
-  %268 = load ptr, ptr %267, align 8
-  store ptr %268, ptr %26, align 8
-  %269 = load ptr, ptr %26, align 8
-  %270 = getelementptr inbounds %struct.TargetEntry, ptr %269, i32 0, i32 7
-  %271 = load i8, ptr %270, align 2
-  %272 = trunc i8 %271 to i1
-  br i1 %272, label %273, label %274
+267:                                              ; preds = %260
+  %268 = load ptr, ptr %26, align 8
+  %269 = getelementptr inbounds nuw %struct.Query, ptr %268, i32 0, i32 25
+  %270 = load ptr, ptr %269, align 8
+  %271 = call ptr @list_nth_cell(ptr noundef %270, i32 noundef 0)
+  %272 = load ptr, ptr %271, align 8
+  store ptr %272, ptr %27, align 8
+  %273 = load ptr, ptr %27, align 8
+  %274 = getelementptr inbounds nuw %struct.TargetEntry, ptr %273, i32 0, i32 7
+  %275 = load i8, ptr %274, align 2, !range !7, !noundef !8
+  %276 = trunc i8 %275 to i1
+  br i1 %276, label %277, label %278
 
-273:                                              ; preds = %263
+277:                                              ; preds = %267
   store i1 false, ptr %3, align 1
-  br label %479
+  store i32 1, ptr %10, align 4
+  br label %287
 
-274:                                              ; preds = %263
-  %275 = load ptr, ptr %26, align 8
-  %276 = getelementptr inbounds %struct.TargetEntry, ptr %275, i32 0, i32 1
-  %277 = load ptr, ptr %276, align 8
-  %278 = call i32 @exprCollation(ptr noundef %277)
-  store i32 %278, ptr %7, align 4
-  store i32 1, ptr %8, align 4
-  %279 = load ptr, ptr %26, align 8
-  %280 = getelementptr inbounds %struct.TargetEntry, ptr %279, i32 0, i32 1
+278:                                              ; preds = %267
+  %279 = load ptr, ptr %27, align 8
+  %280 = getelementptr inbounds nuw %struct.TargetEntry, ptr %279, i32 0, i32 1
   %281 = load ptr, ptr %280, align 8
-  %282 = call i32 @exprLocation(ptr noundef %281)
-  store i32 %282, ptr %9, align 4
-  br label %470
-
-283:                                              ; preds = %38
-  %284 = load ptr, ptr %4, align 8
-  %285 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %284, ptr noundef @assign_collations_walker, ptr noundef %6)
-  %286 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %287 = load i32, ptr %286, align 8
-  store i32 %287, ptr %7, align 4
-  %288 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %289 = load i32, ptr %288, align 4
-  store i32 %289, ptr %8, align 4
-  %290 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 3
-  %291 = load i32, ptr %290, align 8
-  store i32 %291, ptr %9, align 4
-  br label %470
-
-292:                                              ; preds = %38, %38, %38, %38, %38, %38, %38
-  %293 = load ptr, ptr %4, align 8
-  %294 = call i32 @exprCollation(ptr noundef %293)
-  store i32 %294, ptr %7, align 4
-  %295 = load i32, ptr %7, align 4
-  %296 = icmp ne i32 %295, 0
-  br i1 %296, label %297, label %298
-
-297:                                              ; preds = %292
+  %282 = call i32 @exprCollation(ptr noundef %281)
+  store i32 %282, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  br label %299
+  %283 = load ptr, ptr %27, align 8
+  %284 = getelementptr inbounds nuw %struct.TargetEntry, ptr %283, i32 0, i32 1
+  %285 = load ptr, ptr %284, align 8
+  %286 = call i32 @exprLocation(ptr noundef %285)
+  store i32 %286, ptr %9, align 4
+  store i32 0, ptr %10, align 4
+  br label %287
 
-298:                                              ; preds = %292
-  store i32 0, ptr %8, align 4
-  br label %299
+287:                                              ; preds = %278, %277, %266
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  %288 = load i32, ptr %10, align 4
+  switch i32 %288, label %489 [
+    i32 0, label %289
+  ]
 
-299:                                              ; preds = %298, %297
+289:                                              ; preds = %287
+  br label %480
+
+290:                                              ; preds = %39
+  %291 = load ptr, ptr %4, align 8
+  %292 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %291, ptr noundef @assign_collations_walker, ptr noundef %6)
+  %293 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %294 = load i32, ptr %293, align 8
+  store i32 %294, ptr %7, align 4
+  %295 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %296 = load i32, ptr %295, align 4
+  store i32 %296, ptr %8, align 4
+  %297 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 3
+  %298 = load i32, ptr %297, align 8
+  store i32 %298, ptr %9, align 4
+  br label %480
+
+299:                                              ; preds = %39, %39, %39, %39, %39, %39, %39
   %300 = load ptr, ptr %4, align 8
-  %301 = call i32 @exprLocation(ptr noundef %300)
-  store i32 %301, ptr %9, align 4
-  br label %470
+  %301 = call i32 @exprCollation(ptr noundef %300)
+  store i32 %301, ptr %7, align 4
+  %302 = load i32, ptr %7, align 4
+  %303 = icmp ne i32 %302, 0
+  br i1 %303, label %304, label %305
 
-302:                                              ; preds = %38
-  %303 = load ptr, ptr %4, align 8
-  %304 = getelementptr inbounds %struct.Node, ptr %303, i32 0, i32 0
-  %305 = load i32, ptr %304, align 4
-  switch i32 %305, label %425 [
-    i32 9, label %306
-    i32 11, label %339
-    i32 30, label %351
-    i32 12, label %403
-  ]
+304:                                              ; preds = %299
+  store i32 1, ptr %8, align 4
+  br label %306
 
-306:                                              ; preds = %302
+305:                                              ; preds = %299
+  store i32 0, ptr %8, align 4
+  br label %306
+
+306:                                              ; preds = %305, %304
   %307 = load ptr, ptr %4, align 8
-  store ptr %307, ptr %28, align 8
-  %308 = load ptr, ptr %28, align 8
-  %309 = getelementptr inbounds %struct.Aggref, ptr %308, i32 0, i32 14
-  %310 = load i8, ptr %309, align 2
-  %311 = sext i8 %310 to i32
-  switch i32 %311, label %318 [
-    i32 110, label %312
-    i32 111, label %314
-    i32 104, label %316
+  %308 = call i32 @exprLocation(ptr noundef %307)
+  store i32 %308, ptr %9, align 4
+  br label %480
+
+309:                                              ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
+  %310 = load ptr, ptr %4, align 8
+  %311 = getelementptr inbounds nuw %struct.Node, ptr %310, i32 0, i32 0
+  %312 = load i32, ptr %311, align 4
+  switch i32 %312, label %435 [
+    i32 9, label %313
+    i32 11, label %347
+    i32 32, label %359
+    i32 14, label %413
   ]
 
-312:                                              ; preds = %306
-  %313 = load ptr, ptr %28, align 8
-  call void @assign_aggregate_collations(ptr noundef %313, ptr noundef %6)
-  br label %332
+313:                                              ; preds = %309
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  %314 = load ptr, ptr %4, align 8
+  store ptr %314, ptr %29, align 8
+  %315 = load ptr, ptr %29, align 8
+  %316 = getelementptr inbounds nuw %struct.Aggref, ptr %315, i32 0, i32 14
+  %317 = load i8, ptr %316, align 2
+  %318 = sext i8 %317 to i32
+  switch i32 %318, label %325 [
+    i32 110, label %319
+    i32 111, label %321
+    i32 104, label %323
+  ]
 
-314:                                              ; preds = %306
-  %315 = load ptr, ptr %28, align 8
-  call void @assign_ordered_set_collations(ptr noundef %315, ptr noundef %6)
-  br label %332
+319:                                              ; preds = %313
+  %320 = load ptr, ptr %29, align 8
+  call void @assign_aggregate_collations(ptr noundef %320, ptr noundef %6)
+  br label %340
 
-316:                                              ; preds = %306
-  %317 = load ptr, ptr %28, align 8
-  call void @assign_hypothetical_collations(ptr noundef %317, ptr noundef %6)
-  br label %332
+321:                                              ; preds = %313
+  %322 = load ptr, ptr %29, align 8
+  call void @assign_ordered_set_collations(ptr noundef %322, ptr noundef %6)
+  br label %340
 
-318:                                              ; preds = %306
-  br label %319
+323:                                              ; preds = %313
+  %324 = load ptr, ptr %29, align 8
+  call void @assign_hypothetical_collations(ptr noundef %324, ptr noundef %6)
+  br label %340
 
-319:                                              ; preds = %318
-  br i1 true, label %320, label %322
+325:                                              ; preds = %313
+  br label %326
 
-320:                                              ; preds = %319
-  %321 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %321, label %324, label %330
+326:                                              ; preds = %325
+  br i1 true, label %327, label %329
 
-322:                                              ; preds = %319
-  %323 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %323, label %324, label %330
+327:                                              ; preds = %326
+  %328 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %328, label %331, label %337
 
-324:                                              ; preds = %322, %320
-  %325 = load ptr, ptr %28, align 8
-  %326 = getelementptr inbounds %struct.Aggref, ptr %325, i32 0, i32 14
-  %327 = load i8, ptr %326, align 2
-  %328 = sext i8 %327 to i32
-  %329 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %328)
+329:                                              ; preds = %326
+  %330 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %330, label %331, label %337
+
+331:                                              ; preds = %329, %327
+  %332 = load ptr, ptr %29, align 8
+  %333 = getelementptr inbounds nuw %struct.Aggref, ptr %332, i32 0, i32 14
+  %334 = load i8, ptr %333, align 2
+  %335 = sext i8 %334 to i32
+  %336 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %335)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 616, ptr noundef @__func__.assign_collations_walker)
-  br label %330
+  br label %337
 
-330:                                              ; preds = %324, %322, %320
+337:                                              ; preds = %331, %329, %327
   unreachable
 
-331:                                              ; No predecessors!
-  br label %332
+338:                                              ; No predecessors!
+  br label %339
 
-332:                                              ; preds = %331, %316, %314, %312
-  %333 = load ptr, ptr %5, align 8
-  %334 = getelementptr inbounds %struct.assign_collations_context, ptr %333, i32 0, i32 0
-  %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr %28, align 8
-  %337 = getelementptr inbounds %struct.Aggref, ptr %336, i32 0, i32 11
-  %338 = load ptr, ptr %337, align 8
-  call void @assign_expr_collations(ptr noundef %335, ptr noundef %338)
-  br label %428
+339:                                              ; preds = %338
+  br label %340
 
-339:                                              ; preds = %302
-  %340 = load ptr, ptr %4, align 8
-  store ptr %340, ptr %29, align 8
-  %341 = load ptr, ptr %29, align 8
-  %342 = getelementptr inbounds %struct.WindowFunc, ptr %341, i32 0, i32 5
+340:                                              ; preds = %339, %323, %321, %319
+  %341 = load ptr, ptr %5, align 8
+  %342 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %341, i32 0, i32 0
   %343 = load ptr, ptr %342, align 8
-  %344 = call zeroext i1 @assign_collations_walker(ptr noundef %343, ptr noundef %6)
-  %345 = load ptr, ptr %5, align 8
-  %346 = getelementptr inbounds %struct.assign_collations_context, ptr %345, i32 0, i32 0
-  %347 = load ptr, ptr %346, align 8
-  %348 = load ptr, ptr %29, align 8
-  %349 = getelementptr inbounds %struct.WindowFunc, ptr %348, i32 0, i32 6
-  %350 = load ptr, ptr %349, align 8
-  call void @assign_expr_collations(ptr noundef %347, ptr noundef %350)
-  br label %428
+  %344 = load ptr, ptr %29, align 8
+  %345 = getelementptr inbounds nuw %struct.Aggref, ptr %344, i32 0, i32 11
+  %346 = load ptr, ptr %345, align 8
+  call void @assign_expr_collations(ptr noundef %343, ptr noundef %346)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  br label %438
 
-351:                                              ; preds = %302
-  %352 = load ptr, ptr %4, align 8
-  store ptr %352, ptr %30, align 8
-  %353 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 0
-  %354 = load ptr, ptr %30, align 8
-  %355 = getelementptr inbounds %struct.CaseExpr, ptr %354, i32 0, i32 4
-  %356 = load ptr, ptr %355, align 8
-  store ptr %356, ptr %353, align 8
-  %357 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 1
-  store i32 0, ptr %357, align 8
-  br label %358
+347:                                              ; preds = %309
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #6
+  %348 = load ptr, ptr %4, align 8
+  store ptr %348, ptr %30, align 8
+  %349 = load ptr, ptr %30, align 8
+  %350 = getelementptr inbounds nuw %struct.WindowFunc, ptr %349, i32 0, i32 5
+  %351 = load ptr, ptr %350, align 8
+  %352 = call zeroext i1 @assign_collations_walker(ptr noundef %351, ptr noundef %6)
+  %353 = load ptr, ptr %5, align 8
+  %354 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %353, i32 0, i32 0
+  %355 = load ptr, ptr %354, align 8
+  %356 = load ptr, ptr %30, align 8
+  %357 = getelementptr inbounds nuw %struct.WindowFunc, ptr %356, i32 0, i32 6
+  %358 = load ptr, ptr %357, align 8
+  call void @assign_expr_collations(ptr noundef %355, ptr noundef %358)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #6
+  br label %438
 
-358:                                              ; preds = %394, %351
-  %359 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 0
-  %360 = load ptr, ptr %359, align 8
-  %361 = icmp ne ptr %360, null
-  br i1 %361, label %362, label %379
+359:                                              ; preds = %309
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
+  %360 = load ptr, ptr %4, align 8
+  store ptr %360, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %33) #6
+  %361 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 0
+  %362 = load ptr, ptr %31, align 8
+  %363 = getelementptr inbounds nuw %struct.CaseExpr, ptr %362, i32 0, i32 4
+  %364 = load ptr, ptr %363, align 8
+  store ptr %364, ptr %361, align 8
+  %365 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 1
+  store i32 0, ptr %365, align 8
+  %366 = getelementptr i8, ptr %33, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %366, i8 0, i64 4, i1 false)
+  br label %367
 
-362:                                              ; preds = %358
-  %363 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 1
-  %364 = load i32, ptr %363, align 8
-  %365 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 0
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds %struct.List, ptr %366, i32 0, i32 1
-  %368 = load i32, ptr %367, align 4
-  %369 = icmp slt i32 %364, %368
-  br i1 %369, label %370, label %379
+367:                                              ; preds = %404, %359
+  %368 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 0
+  %369 = load ptr, ptr %368, align 8
+  %370 = icmp ne ptr %369, null
+  br i1 %370, label %371, label %388
 
-370:                                              ; preds = %362
-  %371 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 0
-  %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds %struct.List, ptr %372, i32 0, i32 3
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 1
-  %376 = load i32, ptr %375, align 8
-  %377 = sext i32 %376 to i64
-  %378 = getelementptr %union.ListCell, ptr %374, i64 %377
-  store ptr %378, ptr %31, align 8
-  br label %380
+371:                                              ; preds = %367
+  %372 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 1
+  %373 = load i32, ptr %372, align 8
+  %374 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 0
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds nuw %struct.List, ptr %375, i32 0, i32 1
+  %377 = load i32, ptr %376, align 4
+  %378 = icmp slt i32 %373, %377
+  br i1 %378, label %379, label %388
 
-379:                                              ; preds = %362, %358
-  store ptr null, ptr %31, align 8
-  br label %380
+379:                                              ; preds = %371
+  %380 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 0
+  %381 = load ptr, ptr %380, align 8
+  %382 = getelementptr inbounds nuw %struct.List, ptr %381, i32 0, i32 3
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 1
+  %385 = load i32, ptr %384, align 8
+  %386 = sext i32 %385 to i64
+  %387 = getelementptr inbounds %union.ListCell, ptr %383, i64 %386
+  store ptr %387, ptr %32, align 8
+  br label %389
 
-380:                                              ; preds = %379, %370
-  %381 = phi i32 [ 1, %370 ], [ 0, %379 ]
-  %382 = icmp ne i32 %381, 0
-  br i1 %382, label %383, label %398
+388:                                              ; preds = %371, %367
+  store ptr null, ptr %32, align 8
+  br label %389
 
-383:                                              ; preds = %380
-  %384 = load ptr, ptr %31, align 8
-  %385 = load ptr, ptr %384, align 8
-  store ptr %385, ptr %33, align 8
-  %386 = load ptr, ptr %33, align 8
-  %387 = getelementptr inbounds %struct.CaseWhen, ptr %386, i32 0, i32 1
-  %388 = load ptr, ptr %387, align 8
-  %389 = call zeroext i1 @assign_collations_walker(ptr noundef %388, ptr noundef %6)
-  %390 = load ptr, ptr %33, align 8
-  %391 = getelementptr inbounds %struct.CaseWhen, ptr %390, i32 0, i32 2
-  %392 = load ptr, ptr %391, align 8
-  %393 = call zeroext i1 @assign_collations_walker(ptr noundef %392, ptr noundef %6)
-  br label %394
+389:                                              ; preds = %388, %379
+  %390 = phi i32 [ 1, %379 ], [ 0, %388 ]
+  %391 = icmp ne i32 %390, 0
+  br i1 %391, label %393, label %392
 
-394:                                              ; preds = %383
-  %395 = getelementptr inbounds %struct.ForEachState, ptr %32, i32 0, i32 1
-  %396 = load i32, ptr %395, align 8
-  %397 = add i32 %396, 1
-  store i32 %397, ptr %395, align 8
-  br label %358, !llvm.loop !8
+392:                                              ; preds = %389
+  store i32 12, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %33) #6
+  br label %408
 
-398:                                              ; preds = %380
-  %399 = load ptr, ptr %30, align 8
-  %400 = getelementptr inbounds %struct.CaseExpr, ptr %399, i32 0, i32 5
-  %401 = load ptr, ptr %400, align 8
-  %402 = call zeroext i1 @assign_collations_walker(ptr noundef %401, ptr noundef %6)
-  br label %428
+393:                                              ; preds = %389
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  %394 = load ptr, ptr %32, align 8
+  %395 = load ptr, ptr %394, align 8
+  store ptr %395, ptr %34, align 8
+  %396 = load ptr, ptr %34, align 8
+  %397 = getelementptr inbounds nuw %struct.CaseWhen, ptr %396, i32 0, i32 1
+  %398 = load ptr, ptr %397, align 8
+  %399 = call zeroext i1 @assign_collations_walker(ptr noundef %398, ptr noundef %6)
+  %400 = load ptr, ptr %34, align 8
+  %401 = getelementptr inbounds nuw %struct.CaseWhen, ptr %400, i32 0, i32 2
+  %402 = load ptr, ptr %401, align 8
+  %403 = call zeroext i1 @assign_collations_walker(ptr noundef %402, ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  br label %404
 
-403:                                              ; preds = %302
-  %404 = load ptr, ptr %4, align 8
-  store ptr %404, ptr %34, align 8
-  %405 = load ptr, ptr %5, align 8
-  %406 = getelementptr inbounds %struct.assign_collations_context, ptr %405, i32 0, i32 0
-  %407 = load ptr, ptr %406, align 8
-  %408 = load ptr, ptr %34, align 8
-  %409 = getelementptr inbounds %struct.SubscriptingRef, ptr %408, i32 0, i32 6
-  %410 = load ptr, ptr %409, align 8
-  call void @assign_expr_collations(ptr noundef %407, ptr noundef %410)
-  %411 = load ptr, ptr %5, align 8
-  %412 = getelementptr inbounds %struct.assign_collations_context, ptr %411, i32 0, i32 0
-  %413 = load ptr, ptr %412, align 8
-  %414 = load ptr, ptr %34, align 8
-  %415 = getelementptr inbounds %struct.SubscriptingRef, ptr %414, i32 0, i32 7
-  %416 = load ptr, ptr %415, align 8
-  call void @assign_expr_collations(ptr noundef %413, ptr noundef %416)
-  %417 = load ptr, ptr %34, align 8
-  %418 = getelementptr inbounds %struct.SubscriptingRef, ptr %417, i32 0, i32 8
-  %419 = load ptr, ptr %418, align 8
-  %420 = call zeroext i1 @assign_collations_walker(ptr noundef %419, ptr noundef %6)
-  %421 = load ptr, ptr %34, align 8
-  %422 = getelementptr inbounds %struct.SubscriptingRef, ptr %421, i32 0, i32 9
+404:                                              ; preds = %393
+  %405 = getelementptr inbounds nuw %struct.ForEachState, ptr %33, i32 0, i32 1
+  %406 = load i32, ptr %405, align 8
+  %407 = add i32 %406, 1
+  store i32 %407, ptr %405, align 8
+  br label %367, !llvm.loop !9
+
+408:                                              ; preds = %392
+  %409 = load ptr, ptr %31, align 8
+  %410 = getelementptr inbounds nuw %struct.CaseExpr, ptr %409, i32 0, i32 5
+  %411 = load ptr, ptr %410, align 8
+  %412 = call zeroext i1 @assign_collations_walker(ptr noundef %411, ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
+  br label %438
+
+413:                                              ; preds = %309
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #6
+  %414 = load ptr, ptr %4, align 8
+  store ptr %414, ptr %35, align 8
+  %415 = load ptr, ptr %5, align 8
+  %416 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %415, i32 0, i32 0
+  %417 = load ptr, ptr %416, align 8
+  %418 = load ptr, ptr %35, align 8
+  %419 = getelementptr inbounds nuw %struct.SubscriptingRef, ptr %418, i32 0, i32 6
+  %420 = load ptr, ptr %419, align 8
+  call void @assign_expr_collations(ptr noundef %417, ptr noundef %420)
+  %421 = load ptr, ptr %5, align 8
+  %422 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %421, i32 0, i32 0
   %423 = load ptr, ptr %422, align 8
-  %424 = call zeroext i1 @assign_collations_walker(ptr noundef %423, ptr noundef %6)
-  br label %428
+  %424 = load ptr, ptr %35, align 8
+  %425 = getelementptr inbounds nuw %struct.SubscriptingRef, ptr %424, i32 0, i32 7
+  %426 = load ptr, ptr %425, align 8
+  call void @assign_expr_collations(ptr noundef %423, ptr noundef %426)
+  %427 = load ptr, ptr %35, align 8
+  %428 = getelementptr inbounds nuw %struct.SubscriptingRef, ptr %427, i32 0, i32 8
+  %429 = load ptr, ptr %428, align 8
+  %430 = call zeroext i1 @assign_collations_walker(ptr noundef %429, ptr noundef %6)
+  %431 = load ptr, ptr %35, align 8
+  %432 = getelementptr inbounds nuw %struct.SubscriptingRef, ptr %431, i32 0, i32 9
+  %433 = load ptr, ptr %432, align 8
+  %434 = call zeroext i1 @assign_collations_walker(ptr noundef %433, ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #6
+  br label %438
 
-425:                                              ; preds = %302
-  %426 = load ptr, ptr %4, align 8
-  %427 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %426, ptr noundef @assign_collations_walker, ptr noundef %6)
-  br label %428
+435:                                              ; preds = %309
+  %436 = load ptr, ptr %4, align 8
+  %437 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %436, ptr noundef @assign_collations_walker, ptr noundef %6)
+  br label %438
 
-428:                                              ; preds = %425, %403, %398, %339, %332
-  %429 = load ptr, ptr %4, align 8
-  %430 = call i32 @exprType(ptr noundef %429)
-  %431 = call i32 @get_typcollation(i32 noundef %430)
-  store i32 %431, ptr %27, align 4
-  %432 = load i32, ptr %27, align 4
-  %433 = icmp ne i32 %432, 0
-  br i1 %433, label %434, label %450
+438:                                              ; preds = %435, %413, %408, %347, %340
+  %439 = load ptr, ptr %4, align 8
+  %440 = call i32 @exprType(ptr noundef %439)
+  %441 = call i32 @get_typcollation(i32 noundef %440)
+  store i32 %441, ptr %28, align 4
+  %442 = load i32, ptr %28, align 4
+  %443 = icmp ne i32 %442, 0
+  br i1 %443, label %444, label %460
 
-434:                                              ; preds = %428
-  %435 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %436 = load i32, ptr %435, align 4
-  %437 = icmp ugt i32 %436, 0
-  br i1 %437, label %438, label %445
+444:                                              ; preds = %438
+  %445 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %446 = load i32, ptr %445, align 4
+  %447 = icmp ugt i32 %446, 0
+  br i1 %447, label %448, label %455
 
-438:                                              ; preds = %434
-  %439 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %440 = load i32, ptr %439, align 8
-  store i32 %440, ptr %7, align 4
-  %441 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %442 = load i32, ptr %441, align 4
-  store i32 %442, ptr %8, align 4
-  %443 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 3
-  %444 = load i32, ptr %443, align 8
-  store i32 %444, ptr %9, align 4
-  br label %449
+448:                                              ; preds = %444
+  %449 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %450 = load i32, ptr %449, align 8
+  store i32 %450, ptr %7, align 4
+  %451 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %452 = load i32, ptr %451, align 4
+  store i32 %452, ptr %8, align 4
+  %453 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 3
+  %454 = load i32, ptr %453, align 8
+  store i32 %454, ptr %9, align 4
+  br label %459
 
-445:                                              ; preds = %434
-  %446 = load i32, ptr %27, align 4
-  store i32 %446, ptr %7, align 4
+455:                                              ; preds = %444
+  %456 = load i32, ptr %28, align 4
+  store i32 %456, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  %447 = load ptr, ptr %4, align 8
-  %448 = call i32 @exprLocation(ptr noundef %447)
-  store i32 %448, ptr %9, align 4
-  br label %449
+  %457 = load ptr, ptr %4, align 8
+  %458 = call i32 @exprLocation(ptr noundef %457)
+  store i32 %458, ptr %9, align 4
+  br label %459
 
-449:                                              ; preds = %445, %438
-  br label %451
+459:                                              ; preds = %455, %448
+  br label %461
 
-450:                                              ; preds = %428
+460:                                              ; preds = %438
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 -1, ptr %9, align 4
-  br label %451
+  br label %461
 
-451:                                              ; preds = %450, %449
-  %452 = load i32, ptr %8, align 4
-  %453 = icmp eq i32 %452, 2
-  br i1 %453, label %454, label %456
+461:                                              ; preds = %460, %459
+  %462 = load i32, ptr %8, align 4
+  %463 = icmp eq i32 %462, 2
+  br i1 %463, label %464, label %466
 
-454:                                              ; preds = %451
-  %455 = load ptr, ptr %4, align 8
-  call void @exprSetCollation(ptr noundef %455, i32 noundef 0)
-  br label %459
-
-456:                                              ; preds = %451
-  %457 = load ptr, ptr %4, align 8
-  %458 = load i32, ptr %7, align 4
-  call void @exprSetCollation(ptr noundef %457, i32 noundef %458)
-  br label %459
-
-459:                                              ; preds = %456, %454
-  %460 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 2
-  %461 = load i32, ptr %460, align 4
-  %462 = icmp eq i32 %461, 2
-  br i1 %462, label %463, label %465
-
-463:                                              ; preds = %459
-  %464 = load ptr, ptr %4, align 8
-  call void @exprSetInputCollation(ptr noundef %464, i32 noundef 0)
+464:                                              ; preds = %461
+  %465 = load ptr, ptr %4, align 8
+  call void @exprSetCollation(ptr noundef %465, i32 noundef 0)
   br label %469
 
-465:                                              ; preds = %459
-  %466 = load ptr, ptr %4, align 8
-  %467 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 1
-  %468 = load i32, ptr %467, align 8
-  call void @exprSetInputCollation(ptr noundef %466, i32 noundef %468)
+466:                                              ; preds = %461
+  %467 = load ptr, ptr %4, align 8
+  %468 = load i32, ptr %7, align 4
+  call void @exprSetCollation(ptr noundef %467, i32 noundef %468)
   br label %469
 
-469:                                              ; preds = %465, %463
-  br label %470
+469:                                              ; preds = %466, %464
+  %470 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 2
+  %471 = load i32, ptr %470, align 4
+  %472 = icmp eq i32 %471, 2
+  br i1 %472, label %473, label %475
 
-470:                                              ; preds = %469, %299, %283, %274, %252, %211, %76, %51
-  %471 = load i32, ptr %7, align 4
-  %472 = load i32, ptr %8, align 4
-  %473 = load i32, ptr %9, align 4
-  %474 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 4
-  %475 = load i32, ptr %474, align 4
-  %476 = getelementptr inbounds %struct.assign_collations_context, ptr %6, i32 0, i32 5
-  %477 = load i32, ptr %476, align 8
-  %478 = load ptr, ptr %5, align 8
-  call void @merge_collation_state(i32 noundef %471, i32 noundef %472, i32 noundef %473, i32 noundef %475, i32 noundef %477, ptr noundef %478)
-  store i1 false, ptr %3, align 1
+473:                                              ; preds = %469
+  %474 = load ptr, ptr %4, align 8
+  call void @exprSetInputCollation(ptr noundef %474, i32 noundef 0)
   br label %479
 
-479:                                              ; preds = %470, %273, %262, %253, %173, %77, %37
-  %480 = load i1, ptr %3, align 1
-  ret i1 %480
+475:                                              ; preds = %469
+  %476 = load ptr, ptr %4, align 8
+  %477 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 1
+  %478 = load i32, ptr %477, align 8
+  call void @exprSetInputCollation(ptr noundef %476, i32 noundef %478)
+  br label %479
+
+479:                                              ; preds = %475, %473
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  br label %480
+
+480:                                              ; preds = %479, %306, %290, %289, %256, %214, %77, %52
+  %481 = load i32, ptr %7, align 4
+  %482 = load i32, ptr %8, align 4
+  %483 = load i32, ptr %9, align 4
+  %484 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 4
+  %485 = load i32, ptr %484, align 4
+  %486 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %6, i32 0, i32 5
+  %487 = load i32, ptr %486, align 8
+  %488 = load ptr, ptr %5, align 8
+  call void @merge_collation_state(i32 noundef %481, i32 noundef %482, i32 noundef %483, i32 noundef %485, i32 noundef %487, ptr noundef %488)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %489
+
+489:                                              ; preds = %480, %287, %257, %176, %78, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #6
+  %490 = load i1, ptr %3, align 1
+  ret i1 %490
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1008,86 +1120,94 @@ define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca %struct.assign_collations_context, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
-  %9 = zext i1 %2 to i8
-  store i8 %9, ptr %7, align 1
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 1
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 2
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 3
-  store i32 -1, ptr %14, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = call zeroext i1 @assign_collations_walker(ptr noundef %15, ptr noundef %8)
-  %17 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, 2
-  br i1 %19, label %20, label %47
+  %10 = zext i1 %2 to i8
+  store i8 %10, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #6
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 1
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 2
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 3
+  store i32 -1, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call zeroext i1 @assign_collations_walker(ptr noundef %16, ptr noundef %8)
+  %18 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 2
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, 2
+  br i1 %20, label %21, label %49
 
-20:                                               ; preds = %3
-  %21 = load i8, ptr %7, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %24
+21:                                               ; preds = %3
+  %22 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   store i32 0, ptr %4, align 4
-  br label %50
+  store i32 1, ptr %9, align 4
+  br label %52
 
-24:                                               ; preds = %20
-  br label %25
-
-25:                                               ; preds = %24
-  br i1 true, label %26, label %28
+25:                                               ; preds = %21
+  br label %26
 
 26:                                               ; preds = %25
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %27, label %30, label %45
+  br i1 true, label %27, label %29
 
-28:                                               ; preds = %25
-  %29 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %29, label %30, label %45
+27:                                               ; preds = %26
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %28, label %31, label %46
 
-30:                                               ; preds = %28, %26
-  %31 = call i32 @errcode(i32 noundef 17432708)
-  %32 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
-  %34 = call ptr @get_collation_name(i32 noundef %33)
-  %35 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 4
-  %36 = load i32, ptr %35, align 4
-  %37 = call ptr @get_collation_name(i32 noundef %36)
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %34, ptr noundef %37)
-  %39 = call i32 (ptr, ...) @errhint(ptr noundef @.str.1)
-  %40 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 5
-  %43 = load i32, ptr %42, align 8
-  %44 = call i32 @parser_errposition(ptr noundef %41, i32 noundef %43)
+29:                                               ; preds = %26
+  %30 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %30, label %31, label %46
+
+31:                                               ; preds = %29, %27
+  %32 = call i32 @errcode(i32 noundef 17432708)
+  %33 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %35 = call ptr @get_collation_name(i32 noundef %34)
+  %36 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 4
+  %37 = load i32, ptr %36, align 4
+  %38 = call ptr @get_collation_name(i32 noundef %37)
+  %39 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %35, ptr noundef %38)
+  %40 = call i32 (ptr, ...) @errhint(ptr noundef @.str.1)
+  %41 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 5
+  %44 = load i32, ptr %43, align 8
+  %45 = call i32 @parser_errposition(ptr noundef %42, i32 noundef %44)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 232, ptr noundef @__func__.select_common_collation)
-  br label %45
+  br label %46
 
-45:                                               ; preds = %30, %28, %26
+46:                                               ; preds = %31, %29, %27
   unreachable
 
-46:                                               ; No predecessors!
-  br label %47
+47:                                               ; No predecessors!
+  br label %48
 
-47:                                               ; preds = %46, %3
-  %48 = getelementptr inbounds %struct.assign_collations_context, ptr %8, i32 0, i32 1
-  %49 = load i32, ptr %48, align 8
-  store i32 %49, ptr %4, align 4
-  br label %50
+48:                                               ; preds = %47
+  br label %49
 
-50:                                               ; preds = %47, %23
-  %51 = load i32, ptr %4, align 4
-  ret i32 %51
+49:                                               ; preds = %48, %3
+  %50 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %8, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %52
+
+52:                                               ; preds = %49, %24
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #6
+  %53 = load i32, ptr %4, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
 
@@ -1115,18 +1235,18 @@ declare i32 @get_typcollation(i32 noundef) #1
 
 declare void @exprSetCollation(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.List, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.List, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %union.ListCell, ptr %7, i64 %9
+  %10 = getelementptr inbounds %union.ListCell, ptr %7, i64 %9
   ret ptr %10
 }
 
@@ -1141,87 +1261,98 @@ define internal void @assign_aggregate_collations(ptr noundef %0, ptr noundef %1
   %7 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #6
+  %8 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Aggref, ptr %9, i32 0, i32 8
+  %10 = getelementptr inbounds nuw %struct.Aggref, ptr %9, i32 0, i32 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
   store i32 0, ptr %12, align 8
-  br label %13
+  %13 = getelementptr i8, ptr %6, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 4, i1 false)
+  br label %14
 
-13:                                               ; preds = %55, %2
-  %14 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %34
+14:                                               ; preds = %57, %2
+  %15 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %35
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.List, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp slt i32 %19, %23
-  br i1 %24, label %25, label %34
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.List, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp slt i32 %20, %24
+  br i1 %25, label %26, label %35
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.List, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr %union.ListCell, ptr %29, i64 %32
-  store ptr %33, ptr %5, align 8
-  br label %35
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.List, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds %union.ListCell, ptr %30, i64 %33
+  store ptr %34, ptr %5, align 8
+  br label %36
 
-34:                                               ; preds = %17, %13
+35:                                               ; preds = %18, %14
   store ptr null, ptr %5, align 8
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %25
-  %36 = phi i32 [ 1, %25 ], [ 0, %34 ]
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %59
+36:                                               ; preds = %35, %26
+  %37 = phi i32 [ 1, %26 ], [ 0, %35 ]
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %40, label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %7, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.TargetEntry, ptr %41, i32 0, i32 7
-  %43 = load i8, ptr %42, align 2
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %50
+39:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #6
+  br label %61
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.assign_collations_context, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %7, align 8
-  call void @assign_expr_collations(ptr noundef %48, ptr noundef %49)
-  br label %54
+40:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %41 = load ptr, ptr %5, align 8
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %7, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.TargetEntry, ptr %43, i32 0, i32 7
+  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %52
 
-50:                                               ; preds = %38
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = call zeroext i1 @assign_collations_walker(ptr noundef %51, ptr noundef %52)
-  br label %54
+  call void @assign_expr_collations(ptr noundef %50, ptr noundef %51)
+  br label %56
 
-54:                                               ; preds = %50, %45
-  br label %55
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = call zeroext i1 @assign_collations_walker(ptr noundef %53, ptr noundef %54)
+  br label %56
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %57 = load i32, ptr %56, align 8
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %56, align 8
-  br label %13, !llvm.loop !9
+56:                                               ; preds = %52, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %57
 
-59:                                               ; preds = %35
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %58, align 8
+  br label %14, !llvm.loop !10
+
+61:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
@@ -1235,8 +1366,10 @@ define internal void @assign_ordered_set_collations(ptr noundef %0, ptr noundef 
   %8 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Aggref, ptr %9, i32 0, i32 8
+  %10 = getelementptr inbounds nuw %struct.Aggref, ptr %9, i32 0, i32 8
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 @list_length(ptr noundef %11)
   %13 = icmp eq i32 %12, 1
@@ -1244,7 +1377,7 @@ define internal void @assign_ordered_set_collations(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Aggref, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.Aggref, ptr %15, i32 0, i32 1
   %17 = load i32, ptr %16, align 4
   %18 = call i32 @get_func_variadictype(i32 noundef %17)
   %19 = icmp eq i32 %18, 0
@@ -1255,89 +1388,100 @@ define internal void @assign_ordered_set_collations(ptr noundef %0, ptr noundef 
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %5, align 1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.Aggref, ptr %23, i32 0, i32 7
+  %24 = getelementptr inbounds nuw %struct.Aggref, ptr %23, i32 0, i32 7
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %4, align 8
   %27 = call zeroext i1 @assign_collations_walker(ptr noundef %25, ptr noundef %26)
-  %28 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.Aggref, ptr %29, i32 0, i32 8
+  %30 = getelementptr inbounds nuw %struct.Aggref, ptr %29, i32 0, i32 8
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %28, align 8
-  %32 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
   store i32 0, ptr %32, align 8
-  br label %33
+  %33 = getelementptr i8, ptr %7, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 4, i1 false)
+  br label %34
 
-33:                                               ; preds = %73, %20
-  %34 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %54
+34:                                               ; preds = %75, %20
+  %35 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %55
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.List, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp slt i32 %39, %43
-  br i1 %44, label %45, label %54
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.List, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp slt i32 %40, %44
+  br i1 %45, label %46, label %55
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.List, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr %union.ListCell, ptr %49, i64 %52
-  store ptr %53, ptr %6, align 8
-  br label %55
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw %struct.List, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %union.ListCell, ptr %50, i64 %53
+  store ptr %54, ptr %6, align 8
+  br label %56
 
-54:                                               ; preds = %37, %33
+55:                                               ; preds = %38, %34
   store ptr null, ptr %6, align 8
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %45
-  %56 = phi i32 [ 1, %45 ], [ 0, %54 ]
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %77
+56:                                               ; preds = %55, %46
+  %57 = phi i32 [ 1, %46 ], [ 0, %55 ]
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %8, align 8
-  %61 = load i8, ptr %5, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %79
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %8, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = call zeroext i1 @assign_collations_walker(ptr noundef %64, ptr noundef %65)
-  br label %72
+60:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %8, align 8
+  %63 = load i8, ptr %5, align 1, !range !7, !noundef !8
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %69
 
-67:                                               ; preds = %58
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.assign_collations_context, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %8, align 8
-  call void @assign_expr_collations(ptr noundef %70, ptr noundef %71)
-  br label %72
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %8, align 8
+  %67 = load ptr, ptr %4, align 8
+  %68 = call zeroext i1 @assign_collations_walker(ptr noundef %66, ptr noundef %67)
+  br label %74
 
-72:                                               ; preds = %67, %63
-  br label %73
+69:                                               ; preds = %60
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %8, align 8
+  call void @assign_expr_collations(ptr noundef %72, ptr noundef %73)
+  br label %74
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %74, align 8
-  br label %33, !llvm.loop !10
+74:                                               ; preds = %69, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %75
 
-77:                                               ; preds = %55
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %76, align 8
+  br label %34, !llvm.loop !11
+
+79:                                               ; preds = %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
   ret void
 }
 
@@ -1354,18 +1498,22 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
   %11 = alloca %struct.assign_collations_context, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Aggref, ptr %12, i32 0, i32 7
+  %13 = getelementptr inbounds nuw %struct.Aggref, ptr %12, i32 0, i32 7
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @list_head(ptr noundef %14)
   store ptr %15, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Aggref, ptr %16, i32 0, i32 8
+  %17 = getelementptr inbounds nuw %struct.Aggref, ptr %16, i32 0, i32 8
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @list_head(ptr noundef %18)
   store ptr %19, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.Aggref, ptr %20, i32 0, i32 8
+  %21 = getelementptr inbounds nuw %struct.Aggref, ptr %20, i32 0, i32 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @list_length(ptr noundef %22)
   %24 = icmp eq i32 %23, 1
@@ -1373,7 +1521,7 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %2
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Aggref, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.Aggref, ptr %26, i32 0, i32 1
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @get_func_variadictype(i32 noundef %28)
   %30 = icmp eq i32 %29, 0
@@ -1384,11 +1532,11 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
   %33 = zext i1 %32 to i8
   store i8 %33, ptr %7, align 1
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Aggref, ptr %34, i32 0, i32 7
+  %35 = getelementptr inbounds nuw %struct.Aggref, ptr %34, i32 0, i32 7
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @list_length(ptr noundef %36)
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.Aggref, ptr %38, i32 0, i32 8
+  %39 = getelementptr inbounds nuw %struct.Aggref, ptr %38, i32 0, i32 8
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @list_length(ptr noundef %40)
   %42 = sub i32 %37, %41
@@ -1408,17 +1556,17 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
   %50 = load ptr, ptr %4, align 8
   %51 = call zeroext i1 @assign_collations_walker(ptr noundef %49, ptr noundef %50)
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.Aggref, ptr %52, i32 0, i32 7
+  %53 = getelementptr inbounds nuw %struct.Aggref, ptr %52, i32 0, i32 7
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = call ptr @lnext(ptr noundef %54, ptr noundef %55)
   store ptr %56, ptr %5, align 8
-  br label %43, !llvm.loop !11
+  br label %43, !llvm.loop !12
 
 57:                                               ; preds = %43
   br label %58
 
-58:                                               ; preds = %156, %57
+58:                                               ; preds = %157, %57
   %59 = load ptr, ptr %5, align 8
   %60 = icmp ne ptr %59, null
   br i1 %60, label %61, label %64
@@ -1430,40 +1578,43 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
 
 64:                                               ; preds = %61, %58
   %65 = phi i1 [ false, %58 ], [ %63, %61 ]
-  br i1 %65, label %66, label %167
+  br i1 %65, label %66, label %168
 
 66:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   %67 = load ptr, ptr %5, align 8
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %69 = load ptr, ptr %6, align 8
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #6
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.assign_collations_context, ptr %71, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 0
+  %74 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 0
   store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 2
+  %76 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 2
   store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 3
   store i32 -1, ptr %77, align 8
-  %78 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 4
+  %78 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 4
   store i32 0, ptr %78, align 4
-  %79 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 5
+  %79 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 5
   store i32 -1, ptr %79, align 8
   %80 = load ptr, ptr %9, align 8
   %81 = call zeroext i1 @assign_collations_walker(ptr noundef %80, ptr noundef %11)
   %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds %struct.TargetEntry, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct.TargetEntry, ptr %82, i32 0, i32 1
   %84 = load ptr, ptr %83, align 8
   %85 = call zeroext i1 @assign_collations_walker(ptr noundef %84, ptr noundef %11)
-  %86 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 2
+  %86 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 2
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 2
-  br i1 %88, label %89, label %112
+  br i1 %88, label %89, label %113
 
 89:                                               ; preds = %66
   br label %90
@@ -1472,7 +1623,7 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
   br i1 true, label %91, label %93
 
 91:                                               ; preds = %90
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %92, label %95, label %110
 
 93:                                               ; preds = %90
@@ -1481,17 +1632,17 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
 
 95:                                               ; preds = %93, %91
   %96 = call i32 @errcode(i32 noundef 17432708)
-  %97 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %97 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
   %98 = load i32, ptr %97, align 8
   %99 = call ptr @get_collation_name(i32 noundef %98)
-  %100 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 4
+  %100 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 4
   %101 = load i32, ptr %100, align 4
   %102 = call ptr @get_collation_name(i32 noundef %101)
   %103 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %99, ptr noundef %102)
   %104 = call i32 (ptr, ...) @errhint(ptr noundef @.str.1)
-  %105 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 0
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 5
+  %107 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 5
   %108 = load i32, ptr %107, align 8
   %109 = call i32 @parser_errposition(ptr noundef %106, i32 noundef %108)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1010, ptr noundef @__func__.assign_hypothetical_collations)
@@ -1503,78 +1654,88 @@ define internal void @assign_hypothetical_collations(ptr noundef %0, ptr noundef
 111:                                              ; No predecessors!
   br label %112
 
-112:                                              ; preds = %111, %66
-  %113 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %141
+112:                                              ; preds = %111
+  br label %113
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
-  %118 = load i32, ptr %117, align 8
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.TargetEntry, ptr %119, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  %122 = call i32 @exprCollation(ptr noundef %121)
-  %123 = icmp ne i32 %118, %122
-  br i1 %123, label %124, label %141
+113:                                              ; preds = %112, %66
+  %114 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %142
 
-124:                                              ; preds = %116
-  %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds %struct.TargetEntry, ptr %125, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %10, align 8
-  %129 = getelementptr inbounds %struct.TargetEntry, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = call i32 @exprType(ptr noundef %130)
-  %132 = load ptr, ptr %10, align 8
-  %133 = getelementptr inbounds %struct.TargetEntry, ptr %132, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  %135 = call i32 @exprTypmod(ptr noundef %134)
-  %136 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
-  %137 = load i32, ptr %136, align 8
-  %138 = call ptr @makeRelabelType(ptr noundef %127, i32 noundef %131, i32 noundef %135, i32 noundef %137, i32 noundef 2)
-  %139 = load ptr, ptr %10, align 8
-  %140 = getelementptr inbounds %struct.TargetEntry, ptr %139, i32 0, i32 1
-  store ptr %138, ptr %140, align 8
-  br label %141
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %119 = load i32, ptr %118, align 8
+  %120 = load ptr, ptr %10, align 8
+  %121 = getelementptr inbounds nuw %struct.TargetEntry, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  %123 = call i32 @exprCollation(ptr noundef %122)
+  %124 = icmp ne i32 %119, %123
+  br i1 %124, label %125, label %142
 
-141:                                              ; preds = %124, %116, %112
-  %142 = load i8, ptr %7, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %144, label %156
+125:                                              ; preds = %117
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds nuw %struct.TargetEntry, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %10, align 8
+  %130 = getelementptr inbounds nuw %struct.TargetEntry, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
+  %132 = call i32 @exprType(ptr noundef %131)
+  %133 = load ptr, ptr %10, align 8
+  %134 = getelementptr inbounds nuw %struct.TargetEntry, ptr %133, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8
+  %136 = call i32 @exprTypmod(ptr noundef %135)
+  %137 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %138 = load i32, ptr %137, align 8
+  %139 = call ptr @makeRelabelType(ptr noundef %128, i32 noundef %132, i32 noundef %136, i32 noundef %138, i32 noundef 2)
+  %140 = load ptr, ptr %10, align 8
+  %141 = getelementptr inbounds nuw %struct.TargetEntry, ptr %140, i32 0, i32 1
+  store ptr %139, ptr %141, align 8
+  br label %142
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 1
-  %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 2
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 3
-  %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 4
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds %struct.assign_collations_context, ptr %11, i32 0, i32 5
-  %154 = load i32, ptr %153, align 8
-  %155 = load ptr, ptr %4, align 8
-  call void @merge_collation_state(i32 noundef %146, i32 noundef %148, i32 noundef %150, i32 noundef %152, i32 noundef %154, ptr noundef %155)
-  br label %156
+142:                                              ; preds = %125, %117, %113
+  %143 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %157
 
-156:                                              ; preds = %144, %141
-  %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.Aggref, ptr %157, i32 0, i32 7
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %5, align 8
-  %161 = call ptr @lnext(ptr noundef %159, ptr noundef %160)
-  store ptr %161, ptr %5, align 8
-  %162 = load ptr, ptr %3, align 8
-  %163 = getelementptr inbounds %struct.Aggref, ptr %162, i32 0, i32 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %6, align 8
-  %166 = call ptr @lnext(ptr noundef %164, ptr noundef %165)
-  store ptr %166, ptr %6, align 8
-  br label %58, !llvm.loop !12
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 1
+  %147 = load i32, ptr %146, align 8
+  %148 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 2
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 3
+  %151 = load i32, ptr %150, align 8
+  %152 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 4
+  %153 = load i32, ptr %152, align 4
+  %154 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %11, i32 0, i32 5
+  %155 = load i32, ptr %154, align 8
+  %156 = load ptr, ptr %4, align 8
+  call void @merge_collation_state(i32 noundef %147, i32 noundef %149, i32 noundef %151, i32 noundef %153, i32 noundef %155, ptr noundef %156)
+  br label %157
 
-167:                                              ; preds = %64
+157:                                              ; preds = %145, %142
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds nuw %struct.Aggref, ptr %158, i32 0, i32 7
+  %160 = load ptr, ptr %159, align 8
+  %161 = load ptr, ptr %5, align 8
+  %162 = call ptr @lnext(ptr noundef %160, ptr noundef %161)
+  store ptr %162, ptr %5, align 8
+  %163 = load ptr, ptr %3, align 8
+  %164 = getelementptr inbounds nuw %struct.Aggref, ptr %163, i32 0, i32 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = load ptr, ptr %6, align 8
+  %167 = call ptr @lnext(ptr noundef %165, ptr noundef %166)
+  store ptr %167, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %58, !llvm.loop !13
+
+168:                                              ; preds = %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
@@ -1600,7 +1761,7 @@ define internal void @merge_collation_state(i32 noundef %0, i32 noundef %1, i32 
   store ptr %5, ptr %12, align 8
   %13 = load i32, ptr %8, align 4
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %struct.assign_collations_context, ptr %14, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %14, i32 0, i32 2
   %16 = load i32, ptr %15, align 4
   %17 = icmp ugt i32 %13, %16
   br i1 %17, label %18, label %38
@@ -1608,15 +1769,15 @@ define internal void @merge_collation_state(i32 noundef %0, i32 noundef %1, i32 
 18:                                               ; preds = %6
   %19 = load i32, ptr %7, align 4
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds %struct.assign_collations_context, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %20, i32 0, i32 1
   store i32 %19, ptr %21, align 8
   %22 = load i32, ptr %8, align 4
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds %struct.assign_collations_context, ptr %23, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %23, i32 0, i32 2
   store i32 %22, ptr %24, align 4
   %25 = load i32, ptr %9, align 4
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr inbounds %struct.assign_collations_context, ptr %26, i32 0, i32 3
+  %27 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %26, i32 0, i32 3
   store i32 %25, ptr %27, align 8
   %28 = load i32, ptr %8, align 4
   %29 = icmp eq i32 %28, 2
@@ -1625,158 +1786,152 @@ define internal void @merge_collation_state(i32 noundef %0, i32 noundef %1, i32 
 30:                                               ; preds = %18
   %31 = load i32, ptr %10, align 4
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds %struct.assign_collations_context, ptr %32, i32 0, i32 4
+  %33 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %32, i32 0, i32 4
   store i32 %31, ptr %33, align 4
   %34 = load i32, ptr %11, align 4
   %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds %struct.assign_collations_context, ptr %35, i32 0, i32 5
+  %36 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %35, i32 0, i32 5
   store i32 %34, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %30, %18
-  br label %115
+  br label %113
 
 38:                                               ; preds = %6
   %39 = load i32, ptr %8, align 4
   %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct.assign_collations_context, ptr %40, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %40, i32 0, i32 2
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %39, %42
-  br i1 %43, label %44, label %114
+  br i1 %43, label %44, label %112
 
 44:                                               ; preds = %38
   %45 = load i32, ptr %8, align 4
-  switch i32 %45, label %113 [
-    i32 0, label %46
-    i32 1, label %47
-    i32 2, label %83
-    i32 3, label %84
+  switch i32 %45, label %111 [
+    i32 0, label %111
+    i32 1, label %46
+    i32 2, label %111
+    i32 3, label %82
   ]
 
 46:                                               ; preds = %44
-  br label %113
+  %47 = load i32, ptr %7, align 4
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ne i32 %47, %50
+  br i1 %51, label %52, label %81
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %7, align 4
-  %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr inbounds %struct.assign_collations_context, ptr %49, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %48, %51
-  br i1 %52, label %53, label %82
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %12, align 8
+  %54 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 100
+  br i1 %56, label %57, label %67
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr %12, align 8
-  %55 = getelementptr inbounds %struct.assign_collations_context, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 100
-  br i1 %57, label %58, label %68
-
-58:                                               ; preds = %53
-  %59 = load i32, ptr %7, align 4
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.assign_collations_context, ptr %60, i32 0, i32 1
-  store i32 %59, ptr %61, align 8
-  %62 = load i32, ptr %8, align 4
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.assign_collations_context, ptr %63, i32 0, i32 2
-  store i32 %62, ptr %64, align 4
-  %65 = load i32, ptr %9, align 4
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.assign_collations_context, ptr %66, i32 0, i32 3
-  store i32 %65, ptr %67, align 8
-  br label %81
-
-68:                                               ; preds = %53
-  %69 = load i32, ptr %7, align 4
-  %70 = icmp ne i32 %69, 100
-  br i1 %70, label %71, label %80
-
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds %struct.assign_collations_context, ptr %72, i32 0, i32 2
-  store i32 2, ptr %73, align 4
-  %74 = load i32, ptr %7, align 4
-  %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct.assign_collations_context, ptr %75, i32 0, i32 4
-  store i32 %74, ptr %76, align 4
-  %77 = load i32, ptr %9, align 4
-  %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %struct.assign_collations_context, ptr %78, i32 0, i32 5
-  store i32 %77, ptr %79, align 8
+57:                                               ; preds = %52
+  %58 = load i32, ptr %7, align 4
+  %59 = load ptr, ptr %12, align 8
+  %60 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %59, i32 0, i32 1
+  store i32 %58, ptr %60, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %12, align 8
+  %63 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %62, i32 0, i32 2
+  store i32 %61, ptr %63, align 4
+  %64 = load i32, ptr %9, align 4
+  %65 = load ptr, ptr %12, align 8
+  %66 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %65, i32 0, i32 3
+  store i32 %64, ptr %66, align 8
   br label %80
 
-80:                                               ; preds = %71, %68
+67:                                               ; preds = %52
+  %68 = load i32, ptr %7, align 4
+  %69 = icmp ne i32 %68, 100
+  br i1 %69, label %70, label %79
+
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %71, i32 0, i32 2
+  store i32 2, ptr %72, align 4
+  %73 = load i32, ptr %7, align 4
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %74, i32 0, i32 4
+  store i32 %73, ptr %75, align 4
+  %76 = load i32, ptr %9, align 4
+  %77 = load ptr, ptr %12, align 8
+  %78 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %77, i32 0, i32 5
+  store i32 %76, ptr %78, align 8
+  br label %79
+
+79:                                               ; preds = %70, %67
+  br label %80
+
+80:                                               ; preds = %79, %57
   br label %81
 
-81:                                               ; preds = %80, %58
-  br label %82
+81:                                               ; preds = %80, %46
+  br label %111
 
-82:                                               ; preds = %81, %47
-  br label %113
+82:                                               ; preds = %44
+  %83 = load i32, ptr %7, align 4
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %84, i32 0, i32 1
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp ne i32 %83, %86
+  br i1 %87, label %88, label %110
 
-83:                                               ; preds = %44
-  br label %113
+88:                                               ; preds = %82
+  br label %89
 
-84:                                               ; preds = %44
-  %85 = load i32, ptr %7, align 4
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %struct.assign_collations_context, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp ne i32 %85, %88
-  br i1 %89, label %90, label %112
+89:                                               ; preds = %88
+  br i1 true, label %90, label %92
 
-90:                                               ; preds = %84
-  br label %91
+90:                                               ; preds = %89
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %91, label %94, label %108
 
-91:                                               ; preds = %90
-  br i1 true, label %92, label %94
+92:                                               ; preds = %89
+  %93 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %93, label %94, label %108
 
-92:                                               ; preds = %91
-  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %93, label %96, label %110
-
-94:                                               ; preds = %91
-  %95 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %95, label %96, label %110
-
-96:                                               ; preds = %94, %92
-  %97 = call i32 @errcode(i32 noundef 17432708)
-  %98 = load ptr, ptr %12, align 8
-  %99 = getelementptr inbounds %struct.assign_collations_context, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
+94:                                               ; preds = %92, %90
+  %95 = call i32 @errcode(i32 noundef 17432708)
+  %96 = load ptr, ptr %12, align 8
+  %97 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = call ptr @get_collation_name(i32 noundef %98)
+  %100 = load i32, ptr %7, align 4
   %101 = call ptr @get_collation_name(i32 noundef %100)
-  %102 = load i32, ptr %7, align 4
-  %103 = call ptr @get_collation_name(i32 noundef %102)
-  %104 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %101, ptr noundef %103)
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct.assign_collations_context, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %9, align 4
-  %109 = call i32 @parser_errposition(ptr noundef %107, i32 noundef %108)
+  %102 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %99, ptr noundef %101)
+  %103 = load ptr, ptr %12, align 8
+  %104 = getelementptr inbounds nuw %struct.assign_collations_context, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %9, align 4
+  %107 = call i32 @parser_errposition(ptr noundef %105, i32 noundef %106)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 858, ptr noundef @__func__.merge_collation_state)
-  br label %110
+  br label %108
 
-110:                                              ; preds = %96, %94, %92
+108:                                              ; preds = %94, %92, %90
   unreachable
 
-111:                                              ; No predecessors!
+109:                                              ; No predecessors!
+  br label %110
+
+110:                                              ; preds = %109, %82
+  br label %111
+
+111:                                              ; preds = %44, %110, %44, %81, %44
   br label %112
 
-112:                                              ; preds = %111, %84
+112:                                              ; preds = %111, %38
   br label %113
 
-113:                                              ; preds = %112, %83, %82, %46, %44
-  br label %114
-
-114:                                              ; preds = %113, %38
-  br label %115
-
-115:                                              ; preds = %114, %37
+113:                                              ; preds = %112, %37
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @list_length(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @list_length(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1785,7 +1940,7 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   br label %10
 
@@ -1799,8 +1954,8 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 declare i32 @get_func_variadictype(i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_head(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_head(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1809,9 +1964,9 @@ define internal ptr @list_head(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 3
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %union.ListCell, ptr %8, i64 0
+  %9 = getelementptr inbounds %union.ListCell, ptr %8, i64 0
   br label %11
 
 10:                                               ; preds = %1
@@ -1822,25 +1977,25 @@ define internal ptr @list_head(ptr noundef %0) #0 {
   ret ptr %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @lnext(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lnext(ptr noundef %0, ptr noundef %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr %union.ListCell, ptr %6, i32 1
+  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i32 1
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.List, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.List, ptr %9, i32 0, i32 3
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.List, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.List, ptr %12, i32 0, i32 1
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %union.ListCell, ptr %11, i64 %15
+  %16 = getelementptr inbounds %union.ListCell, ptr %11, i64 %15
   %17 = icmp ult ptr %8, %16
   br i1 %17, label %18, label %20
 
@@ -1862,23 +2017,28 @@ declare ptr @makeRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 
 declare i32 @exprTypmod(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

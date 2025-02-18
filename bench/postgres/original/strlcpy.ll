@@ -12,10 +12,13 @@ define dso_local i64 @strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #2
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #2
   %12 = load i64, ptr %6, align 8
   store i64 %12, ptr %9, align 8
   %13 = load i64, ptr %9, align 8
@@ -34,11 +37,11 @@ define dso_local i64 @strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr i8, ptr %21, i32 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
   store ptr %22, ptr %8, align 8
   %23 = load i8, ptr %21, align 1
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr i8, ptr %24, i32 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i32 1
   store ptr %25, ptr %7, align 8
   store i8 %23, ptr %24, align 1
   %26 = sext i8 %23 to i32
@@ -49,7 +52,7 @@ define dso_local i64 @strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   br label %30
 
 29:                                               ; preds = %20
-  br label %16, !llvm.loop !5
+  br label %16, !llvm.loop !4
 
 30:                                               ; preds = %28, %16
   br label %31
@@ -74,14 +77,14 @@ define dso_local i64 @strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 40:                                               ; preds = %45, %39
   %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr i8, ptr %41, i32 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
   store ptr %42, ptr %8, align 8
   %43 = load i8, ptr %41, align 1
   %44 = icmp ne i8 %43, 0
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
-  br label %40, !llvm.loop !7
+  br label %40, !llvm.loop !6
 
 46:                                               ; preds = %40
   br label %47
@@ -93,18 +96,28 @@ define dso_local i64 @strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = sub i64 %52, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
   ret i64 %53
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

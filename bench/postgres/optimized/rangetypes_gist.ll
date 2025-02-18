@@ -25,15 +25,15 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i16
-  %10 = getelementptr i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = load i64, ptr %4, align 8
@@ -48,7 +48,7 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i64
-  %27 = getelementptr i8, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 1
@@ -111,8 +111,8 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
   br label %63
 
 56:                                               ; preds = %47
-  %cond.i44 = icmp eq i16 %9, 16
-  br i1 %cond.i44, label %range_gist_consistent_int_element.exit, label %57
+  %cond.i46 = icmp eq i16 %9, 16
+  br i1 %cond.i46, label %range_gist_consistent_int_element.exit, label %57
 
 57:                                               ; preds = %56
   %58 = trunc i64 %8 to i32
@@ -133,7 +133,10 @@ range_gist_consistent_int_element.exit:           ; preds = %56
   ret i64 %64
 }
 
-declare ptr @range_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @range_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @range_gist_consistent_leaf_range(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -251,12 +254,12 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   br label %53
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
   %28 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
   %29 = and i8 %28, 1
   %.not.i = icmp eq i8 %29, 0
@@ -297,12 +300,12 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
 
 multirange_union_range_equal.exit:                ; preds = %34, %37, %41, %46
   %.0.i = phi i1 [ false, %34 ], [ %40, %37 ], [ false, %41 ], [ %48, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   br label %53
 
 49:                                               ; preds = %4
@@ -616,14 +619,17 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_gist_compress(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2
-  %7 = trunc i8 %6 to i1
+  %6 = load i8, ptr %5, align 2, !range !4, !noundef !5
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %31
 
 8:                                                ; preds = %1
@@ -661,26 +667,26 @@ define dso_local i64 @multirange_gist_compress(ptr noundef %0) local_unnamed_add
   ret i64 %.0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare ptr @multirange_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @multirange_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @multirange_get_union_range(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @multirange_get_union_range(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i16
-  %10 = getelementptr i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = load i64, ptr %4, align 8
@@ -695,7 +701,7 @@ define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i64
-  %27 = getelementptr i8, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 1
@@ -758,8 +764,8 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
   br label %63
 
 56:                                               ; preds = %47
-  %cond.i44 = icmp eq i16 %9, 16
-  br i1 %cond.i44, label %range_gist_consistent_int_element.exit, label %57
+  %cond.i46 = icmp eq i16 %9, 16
+  br i1 %cond.i46, label %range_gist_consistent_int_element.exit, label %57
 
 57:                                               ; preds = %56
   %58 = trunc i64 %8 to i32
@@ -799,7 +805,7 @@ define dso_local i64 @range_gist_union(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %1 ]
   %.01213 = phi ptr [ %18, %.lr.ph ], [ %8, %1 ]
-  %14 = getelementptr %struct.GISTENTRY, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %5, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #10
@@ -808,7 +814,7 @@ define dso_local i64 @range_gist_union(ptr noundef %0) local_unnamed_addr #0 {
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.012.lcssa = phi ptr [ %8, %1 ], [ %18, %.lr.ph ]
@@ -824,12 +830,18 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
   call void @range_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9) #10
   %10 = call signext i8 @range_get_flags(ptr noundef %1) #10
   %11 = call signext i8 @range_get_flags(ptr noundef %2) #10
-  %12 = load i8, ptr %8, align 1
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -838,8 +850,8 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not46, label %.sink.split.sink.split, label %33
 
 16:                                               ; preds = %3
-  %17 = load i8, ptr %9, align 1
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
@@ -894,6 +906,12 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
 
 33:                                               ; preds = %.sink.split, %.thread, %28, %26, %19, %14
   %.039 = phi ptr [ %2, %14 ], [ %1, %19 ], [ %1, %26 ], [ %2, %28 ], [ %29, %.thread ], [ %.sink, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret ptr %.039
 }
 
@@ -908,10 +926,10 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = load i64, ptr %10, align 8
@@ -920,6 +938,12 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i64, ptr %13, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -941,13 +965,13 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %.not55 = icmp eq i32 %33, 0
   call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
   call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
+  %34 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %30
-  %37 = load i8, ptr %6, align 1
-  %38 = trunc i8 %37 to i1
+  %37 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %.sink.split, label %39
 
 39:                                               ; preds = %36
@@ -958,11 +982,11 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %44 = load i8, ptr %43, align 8
-  %45 = trunc i8 %44 to i1
+  %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
+  %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
+  %48 = trunc nuw i8 %47 to i1
   br i1 %45, label %49, label %50
 
 49:                                               ; preds = %42
@@ -976,11 +1000,11 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %30
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = trunc i8 %53 to i1
+  %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i8, ptr %55, align 8
-  %57 = trunc i8 %56 to i1
+  %56 = load i8, ptr %55, align 8, !range !4, !noundef !5
+  %57 = trunc nuw i8 %56 to i1
   br i1 %54, label %58, label %97
 
 58:                                               ; preds = %51
@@ -988,11 +1012,11 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
+  %61 = load i8, ptr %60, align 8, !range !4, !noundef !5
+  %62 = trunc nuw i8 %61 to i1
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %64 = load i8, ptr %63, align 8
-  %65 = trunc i8 %64 to i1
+  %64 = load i8, ptr %63, align 8, !range !4, !noundef !5
+  %65 = trunc nuw i8 %64 to i1
   br i1 %62, label %66, label %67
 
 66:                                               ; preds = %59
@@ -1018,20 +1042,20 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 74:                                               ; preds = %58
-  %75 = load i8, ptr %6, align 1
-  %76 = trunc i8 %75 to i1
+  %75 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %.sink.split, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %79 = load i8, ptr %78, align 8
-  %80 = trunc i8 %79 to i1
+  %79 = load i8, ptr %78, align 8, !range !4, !noundef !5
+  %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %.sink.split
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %83 = load i8, ptr %82, align 8
-  %84 = trunc i8 %83 to i1
+  %83 = load i8, ptr %82, align 8, !range !4, !noundef !5
+  %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %.sink.split, label %85
 
 85:                                               ; preds = %81
@@ -1055,8 +1079,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 97:                                               ; preds = %51
-  %98 = load i8, ptr %6, align 1
-  %99 = trunc i8 %98 to i1
+  %98 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %99 = trunc nuw i8 %98 to i1
   br i1 %57, label %100, label %121
 
 100:                                              ; preds = %97
@@ -1064,14 +1088,14 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %103 = load i8, ptr %102, align 8
-  %104 = trunc i8 %103 to i1
+  %103 = load i8, ptr %102, align 8, !range !4, !noundef !5
+  %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %.sink.split
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load i8, ptr %106, align 8
-  %108 = trunc i8 %107 to i1
+  %107 = load i8, ptr %106, align 8, !range !4, !noundef !5
+  %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %.sink.split, label %109
 
 109:                                              ; preds = %105
@@ -1099,14 +1123,14 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 122:                                              ; preds = %121
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %124 = load i8, ptr %123, align 8
-  %125 = trunc i8 %124 to i1
+  %124 = load i8, ptr %123, align 8, !range !4, !noundef !5
+  %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %.sink.split, label %126
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %128 = load i8, ptr %127, align 8
-  %129 = trunc i8 %128 to i1
+  %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
+  %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %.sink.split, label %130
 
 130:                                              ; preds = %126
@@ -1166,21 +1190,27 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br label %159
 
 159:                                              ; preds = %.sink.split, %68
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret i64 %15
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #1
+declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #2
 
-declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0 {
@@ -1193,11 +1223,12 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #10
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %15 = getelementptr i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
@@ -1227,7 +1258,7 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_gist_range_class.exit
   %.0104 = phi i16 [ %47, %get_gist_range_class.exit ], [ 1, %.lr.ph.preheader ]
   %33 = zext i16 %.0104 to i64
-  %34 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #10
@@ -1248,13 +1279,13 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
 
 get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.0.i = phi i64 [ 8, %.lr.ph ], [ %43, %40 ]
-  %44 = getelementptr [9 x i32], ptr %6, i64 0, i64 %.0.i
+  %44 = getelementptr inbounds nuw [9 x i32], ptr %6, i64 0, i64 %.0.i
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = add i16 %.0104, 1
   %.not = icmp ugt i16 %47, %32
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !8
 
 .preheader.preheader:                             ; preds = %get_gist_range_class.exit, %1
   br label %.preheader
@@ -1264,7 +1295,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.062107 = phi i32 [ %.1, %.preheader ], [ 0, %.preheader.preheader ]
   %.063106 = phi i32 [ %.2, %.preheader ], [ -1, %.preheader.preheader ]
   %.065105 = phi i32 [ %.267, %.preheader ], [ 0, %.preheader.preheader ]
-  %48 = getelementptr [9 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [9 x i32], ptr %6, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
   %51 = icmp sgt i32 %49, %.065105
@@ -1277,7 +1308,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.1 = add i32 %.062107, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %55, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %55, label %.preheader, !llvm.loop !9
 
 55:                                               ; preds = %.preheader
   %56 = icmp eq i32 %.1, 1
@@ -1292,10 +1323,6 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   ]
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %60 = getelementptr inbounds nuw i8, ptr %21, i64 400
   %61 = load i32, ptr %60, align 8
   %.not236.i = icmp eq i32 %61, 0
@@ -1318,17 +1345,19 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 72:                                               ; preds = %72, %.lr.ph.i
   %.0244.i = phi i16 [ 1, %.lr.ph.i ], [ %81, %72 ]
   %73 = zext i16 %.0244.i to i64
-  %74 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = inttoptr i64 %75 to ptr
   %77 = call ptr @pg_detoast_datum(ptr noundef %76) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
   %78 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %73
   %79 = getelementptr i8, ptr %78, i64 -32
   %80 = getelementptr i8, ptr %78, i64 -16
   call void @range_deserialize(ptr noundef %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
   %81 = add i16 %.0244.i, 1
   %.not.i77 = icmp ugt i16 %81, %71
-  br i1 %.not.i77, label %._crit_edge.i, label %72, !llvm.loop !9
+  br i1 %.not.i77, label %._crit_edge.i, label %72, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %68, i64 %67, i1 false)
@@ -1347,12 +1376,12 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.0186275.i = phi ptr [ %68, %._crit_edge.i ], [ %101, %range_gist_consider_split.exit.i ]
   %.0190274.i = phi i32 [ 0, %._crit_edge.i ], [ %.1191.lcssa.i, %range_gist_consider_split.exit.i ]
   %.0194273.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.i, %range_gist_consider_split.exit.i ]
-  %.sroa.33.0272.i = phi i32 [ 0, %._crit_edge.i ], [ %.sroa.33.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.29.0271.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %.sroa.29.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.25.0270.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %.sroa.25.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.21.0269.i = phi ptr [ null, %._crit_edge.i ], [ %.sroa.21.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.17223.0268.i = phi ptr [ null, %._crit_edge.i ], [ %.sroa.17223.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.11.0267.i = phi i8 [ 1, %._crit_edge.i ], [ %.sroa.11.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.35.0272.i = phi i32 [ 0, %._crit_edge.i ], [ %.sroa.35.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.31.0271.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %.sroa.31.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.27.0270.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %.sroa.27.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.23.0269.i = phi ptr [ null, %._crit_edge.i ], [ %.sroa.23.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.19223.0268.i = phi ptr [ null, %._crit_edge.i ], [ %.sroa.19223.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.13.0267.i = phi i8 [ 1, %._crit_edge.i ], [ %.sroa.13.2.i, %range_gist_consider_split.exit.i ]
   %sext.i = shl i64 %.0194273.i, 32
   %88 = ashr exact i64 %sext.i, 32
   br label %89
@@ -1360,7 +1389,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 89:                                               ; preds = %93, %.lr.ph248.i
   %indvars.iv.i = phi i64 [ %88, %.lr.ph248.i ], [ %indvars.iv.next.i, %93 ]
   %.1183246.i = phi ptr [ %.0182276.i, %.lr.ph248.i ], [ %spec.select.i, %93 ]
-  %90 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %indvars.iv.i
+  %90 = getelementptr inbounds %struct.NonEmptyRange, ptr %68, i64 %indvars.iv.i
   %91 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %.0186275.i, ptr noundef %90) #10
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %98
@@ -1372,13 +1401,13 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %spec.select.i = select i1 %96, ptr %94, ptr %.1183246.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %97 = icmp slt i64 %indvars.iv.next.i, %66
-  br i1 %97, label %89, label %.critedge.i, !llvm.loop !10
+  br i1 %97, label %89, label %.critedge.i, !llvm.loop !11
 
 98:                                               ; preds = %89
   %99 = trunc nsw i64 %indvars.iv.i to i32
   %sext363.i = shl i64 %indvars.iv.i, 32
   %100 = ashr exact i64 %sext363.i, 27
-  %101 = getelementptr i8, ptr %68, i64 %100
+  %101 = getelementptr inbounds i8, ptr %68, i64 %100
   %102 = icmp slt i32 %.0190274.i, %64
   br i1 %102, label %.lr.ph263.preheader.i, label %.critedge2.i
 
@@ -1388,15 +1417,15 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 
 .lr.ph263.i:                                      ; preds = %107, %.lr.ph263.preheader.i
   %indvars.iv351.i = phi i64 [ %103, %.lr.ph263.preheader.i ], [ %indvars.iv.next352.i, %107 ]
-  %104 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %indvars.iv351.i, i32 1
-  %105 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %104, ptr noundef %.1183246.i) #10
+  %104 = getelementptr inbounds %struct.NonEmptyRange, ptr %69, i64 %indvars.iv351.i, i32 1
+  %105 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %104, ptr noundef %.1183246.i) #10
   %106 = icmp slt i32 %105, 1
   br i1 %106, label %107, label %.critedge2.loopexit.split.loop.exit393.i
 
 107:                                              ; preds = %.lr.ph263.i
   %indvars.iv.next352.i = add nsw i64 %indvars.iv351.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next352.i, %66
-  br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph263.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph263.i, !llvm.loop !12
 
 .critedge2.loopexit.split.loop.exit393.i:         ; preds = %.lr.ph263.i
   %108 = trunc nsw i64 %indvars.iv351.i to i32
@@ -1436,14 +1465,14 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 
 126:                                              ; preds = %123, %116
   %.043.i.i = phi float [ %122, %116 ], [ %125, %123 ]
-  %127 = trunc nuw i8 %.sroa.11.0267.i to i1
-  %128 = fcmp olt float %.043.i.i, %.sroa.29.0271.i
+  %127 = trunc nuw i8 %.sroa.13.0267.i to i1
+  %128 = fcmp olt float %.043.i.i, %.sroa.31.0271.i
   %or.cond.i = select i1 %127, i1 true, i1 %128
   br i1 %or.cond.i, label %.critedge.i.i, label %129
 
 129:                                              ; preds = %126
-  %130 = fcmp oeq float %.043.i.i, %.sroa.29.0271.i
-  %131 = fcmp ogt float %112, %.sroa.25.0270.i
+  %130 = fcmp oeq float %.043.i.i, %.sroa.31.0271.i
+  %131 = fcmp ogt float %112, %.sroa.27.0270.i
   %or.cond233.i = select i1 %130, i1 %131, i1 false
   br i1 %or.cond233.i, label %.critedge.i.i, label %range_gist_consider_split.exit.i
 
@@ -1452,25 +1481,25 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   br label %range_gist_consider_split.exit.i
 
 range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129, %.critedge2.i
-  %.sroa.11.2.i = phi i8 [ 0, %.critedge.i.i ], [ 0, %129 ], [ %.sroa.11.0267.i, %.critedge2.i ]
-  %.sroa.17223.2.i = phi ptr [ %.1183246.i, %.critedge.i.i ], [ %.sroa.17223.0268.i, %129 ], [ %.sroa.17223.0268.i, %.critedge2.i ]
-  %.sroa.21.2.i = phi ptr [ %101, %.critedge.i.i ], [ %.sroa.21.0269.i, %129 ], [ %.sroa.21.0269.i, %.critedge2.i ]
-  %.sroa.25.2.i = phi float [ %112, %.critedge.i.i ], [ %.sroa.25.0270.i, %129 ], [ %.sroa.25.0270.i, %.critedge2.i ]
-  %.sroa.29.2.i = phi float [ %.043.i.i, %.critedge.i.i ], [ %.sroa.29.0271.i, %129 ], [ %.sroa.29.0271.i, %.critedge2.i ]
-  %.sroa.33.2.i = phi i32 [ %132, %.critedge.i.i ], [ %.sroa.33.0272.i, %129 ], [ %.sroa.33.0272.i, %.critedge2.i ]
+  %.sroa.13.2.i = phi i8 [ 0, %.critedge.i.i ], [ 0, %129 ], [ %.sroa.13.0267.i, %.critedge2.i ]
+  %.sroa.19223.2.i = phi ptr [ %.1183246.i, %.critedge.i.i ], [ %.sroa.19223.0268.i, %129 ], [ %.sroa.19223.0268.i, %.critedge2.i ]
+  %.sroa.23.2.i = phi ptr [ %101, %.critedge.i.i ], [ %.sroa.23.0269.i, %129 ], [ %.sroa.23.0269.i, %.critedge2.i ]
+  %.sroa.27.2.i = phi float [ %112, %.critedge.i.i ], [ %.sroa.27.0270.i, %129 ], [ %.sroa.27.0270.i, %.critedge2.i ]
+  %.sroa.31.2.i = phi float [ %.043.i.i, %.critedge.i.i ], [ %.sroa.31.0271.i, %129 ], [ %.sroa.31.0271.i, %.critedge2.i ]
+  %.sroa.35.2.i = phi i32 [ %132, %.critedge.i.i ], [ %.sroa.35.0272.i, %129 ], [ %.sroa.35.0272.i, %.critedge2.i ]
   %133 = icmp sgt i32 %64, %99
   br i1 %133, label %.lr.ph248.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %range_gist_consider_split.exit.i, %93
-  %.sroa.11.0.lcssa.i = phi i8 [ %.sroa.11.0267.i, %93 ], [ %.sroa.11.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.17223.0.lcssa.i = phi ptr [ %.sroa.17223.0268.i, %93 ], [ %.sroa.17223.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.21.0.lcssa.i = phi ptr [ %.sroa.21.0269.i, %93 ], [ %.sroa.21.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.25.0.lcssa.i = phi float [ %.sroa.25.0270.i, %93 ], [ %.sroa.25.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.29.0.lcssa.i = phi float [ %.sroa.29.0271.i, %93 ], [ %.sroa.29.2.i, %range_gist_consider_split.exit.i ]
-  %.sroa.33.0.lcssa.i = phi i32 [ %.sroa.33.0272.i, %93 ], [ %.sroa.33.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.13.0.lcssa.i = phi i8 [ %.sroa.13.0267.i, %93 ], [ %.sroa.13.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.19223.0.lcssa.i = phi ptr [ %.sroa.19223.0268.i, %93 ], [ %.sroa.19223.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.23.0.lcssa.i = phi ptr [ %.sroa.23.0269.i, %93 ], [ %.sroa.23.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.27.0.lcssa.i = phi float [ %.sroa.27.0270.i, %93 ], [ %.sroa.27.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.31.0.lcssa.i = phi float [ %.sroa.31.0271.i, %93 ], [ %.sroa.31.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.35.0.lcssa.i = phi i32 [ %.sroa.35.0272.i, %93 ], [ %.sroa.35.2.i, %range_gist_consider_split.exit.i ]
   %134 = sext i32 %65 to i64
-  %135 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %134, i32 1
-  %136 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %134, i32 1
+  %135 = getelementptr inbounds %struct.NonEmptyRange, ptr %69, i64 %134, i32 1
+  %136 = getelementptr inbounds %struct.NonEmptyRange, ptr %68, i64 %134, i32 1
   br label %.lr.ph286.i
 
 .lr.ph286.i:                                      ; preds = %range_gist_consider_split.exit212.i, %.critedge.i
@@ -1478,21 +1507,21 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %.1187310.i = phi ptr [ %136, %.critedge.i ], [ %.2188284.i, %range_gist_consider_split.exit212.i ]
   %.2192309.i = phi i32 [ %65, %.critedge.i ], [ %148, %range_gist_consider_split.exit212.i ]
   %.2196308.i = phi i32 [ %65, %.critedge.i ], [ %.3197.lcssa.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.33.1307.i = phi i32 [ %.sroa.33.0.lcssa.i, %.critedge.i ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.29.1306.i = phi float [ %.sroa.29.0.lcssa.i, %.critedge.i ], [ %.sroa.29.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.25.1305.i = phi float [ %.sroa.25.0.lcssa.i, %.critedge.i ], [ %.sroa.25.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.21.1304.i = phi ptr [ %.sroa.21.0.lcssa.i, %.critedge.i ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.17223.1303.i = phi ptr [ %.sroa.17223.0.lcssa.i, %.critedge.i ], [ %.sroa.17223.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.11.1302.i = phi i8 [ %.sroa.11.0.lcssa.i, %.critedge.i ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.35.1307.i = phi i32 [ %.sroa.35.0.lcssa.i, %.critedge.i ], [ %.sroa.35.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.31.1306.i = phi float [ %.sroa.31.0.lcssa.i, %.critedge.i ], [ %.sroa.31.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.27.1305.i = phi float [ %.sroa.27.0.lcssa.i, %.critedge.i ], [ %.sroa.27.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.23.1304.i = phi ptr [ %.sroa.23.0.lcssa.i, %.critedge.i ], [ %.sroa.23.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.19223.1303.i = phi ptr [ %.sroa.19223.0.lcssa.i, %.critedge.i ], [ %.sroa.19223.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.13.1302.i = phi i8 [ %.sroa.13.0.lcssa.i, %.critedge.i ], [ %.sroa.13.3.i, %range_gist_consider_split.exit212.i ]
   %137 = zext i32 %.2192309.i to i64
   br label %138
 
 138:                                              ; preds = %143, %.lr.ph286.i
   %indvars.iv354.i = phi i64 [ %137, %.lr.ph286.i ], [ %indvars.iv.next355.i, %143 ]
   %.2188284.i = phi ptr [ %.1187310.i, %.lr.ph286.i ], [ %spec.select204.i, %143 ]
-  %139 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %indvars.iv354.i
+  %139 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %69, i64 %indvars.iv354.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %.3185311.i, ptr noundef nonnull %140) #10
+  %141 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %.3185311.i, ptr noundef nonnull %140) #10
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %.critedge4.i
 
@@ -1503,12 +1532,12 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %indvars.iv.next355.i = add nsw i64 %indvars.iv354.i, -1
   %146 = trunc nuw i64 %indvars.iv354.i to i32
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %138, label %._crit_edge287.i, !llvm.loop !12
+  br i1 %147, label %138, label %._crit_edge287.i, !llvm.loop !13
 
 .critedge4.i:                                     ; preds = %138
   %148 = trunc nuw i64 %indvars.iv354.i to i32
   %149 = and i64 %indvars.iv354.i, 4294967295
-  %150 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %149, i32 1
+  %150 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %69, i64 %149, i32 1
   %151 = icmp sgt i32 %.2196308.i, -1
   br i1 %151, label %.lr.ph298.preheader.i, label %.critedge6.i
 
@@ -1518,7 +1547,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
 
 .lr.ph298.i:                                      ; preds = %156, %.lr.ph298.preheader.i
   %indvars.iv357.i = phi i64 [ %152, %.lr.ph298.preheader.i ], [ %indvars.iv.next358.i, %156 ]
-  %153 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %indvars.iv357.i
+  %153 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %68, i64 %indvars.iv357.i
   %154 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %153, ptr noundef %.2188284.i) #10
   %155 = icmp sgt i32 %154, -1
   br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit395.i
@@ -1526,7 +1555,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
 156:                                              ; preds = %.lr.ph298.i
   %indvars.iv.next358.i = add nsw i64 %indvars.iv357.i, -1
   %157 = icmp sgt i64 %indvars.iv357.i, 0
-  br i1 %157, label %.lr.ph298.i, label %.critedge6.i, !llvm.loop !13
+  br i1 %157, label %.lr.ph298.i, label %.critedge6.i, !llvm.loop !14
 
 .critedge6.loopexit.split.loop.exit395.i:         ; preds = %.lr.ph298.i
   %158 = trunc nuw nsw i64 %indvars.iv357.i to i32
@@ -1568,14 +1597,14 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
 
 178:                                              ; preds = %175, %168
   %.043.i207.i = phi float [ %174, %168 ], [ %177, %175 ]
-  %179 = trunc nuw i8 %.sroa.11.1302.i to i1
-  %180 = fcmp olt float %.043.i207.i, %.sroa.29.1306.i
+  %179 = trunc nuw i8 %.sroa.13.1302.i to i1
+  %180 = fcmp olt float %.043.i207.i, %.sroa.31.1306.i
   %or.cond234.i = select i1 %179, i1 true, i1 %180
   br i1 %or.cond234.i, label %.critedge.i208.i, label %181
 
 181:                                              ; preds = %178
-  %182 = fcmp oeq float %.043.i207.i, %.sroa.29.1306.i
-  %183 = fcmp ogt float %164, %.sroa.25.1305.i
+  %182 = fcmp oeq float %.043.i207.i, %.sroa.31.1306.i
+  %183 = fcmp ogt float %164, %.sroa.27.1305.i
   %or.cond235.i = select i1 %182, i1 %183, i1 false
   br i1 %or.cond235.i, label %.critedge.i208.i, label %range_gist_consider_split.exit212.i
 
@@ -1584,21 +1613,21 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   br label %range_gist_consider_split.exit212.i
 
 range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %181, %.critedge6.i
-  %.sroa.11.3.i = phi i8 [ 0, %.critedge.i208.i ], [ 0, %181 ], [ %.sroa.11.1302.i, %.critedge6.i ]
-  %.sroa.17223.3.i = phi ptr [ %150, %.critedge.i208.i ], [ %.sroa.17223.1303.i, %181 ], [ %.sroa.17223.1303.i, %.critedge6.i ]
-  %.sroa.21.3.i = phi ptr [ %.2188284.i, %.critedge.i208.i ], [ %.sroa.21.1304.i, %181 ], [ %.sroa.21.1304.i, %.critedge6.i ]
-  %.sroa.25.3.i = phi float [ %164, %.critedge.i208.i ], [ %.sroa.25.1305.i, %181 ], [ %.sroa.25.1305.i, %.critedge6.i ]
-  %.sroa.29.3.i = phi float [ %.043.i207.i, %.critedge.i208.i ], [ %.sroa.29.1306.i, %181 ], [ %.sroa.29.1306.i, %.critedge6.i ]
-  %.sroa.33.3.i = phi i32 [ %184, %.critedge.i208.i ], [ %.sroa.33.1307.i, %181 ], [ %.sroa.33.1307.i, %.critedge6.i ]
+  %.sroa.13.3.i = phi i8 [ 0, %.critedge.i208.i ], [ 0, %181 ], [ %.sroa.13.1302.i, %.critedge6.i ]
+  %.sroa.19223.3.i = phi ptr [ %150, %.critedge.i208.i ], [ %.sroa.19223.1303.i, %181 ], [ %.sroa.19223.1303.i, %.critedge6.i ]
+  %.sroa.23.3.i = phi ptr [ %.2188284.i, %.critedge.i208.i ], [ %.sroa.23.1304.i, %181 ], [ %.sroa.23.1304.i, %.critedge6.i ]
+  %.sroa.27.3.i = phi float [ %164, %.critedge.i208.i ], [ %.sroa.27.1305.i, %181 ], [ %.sroa.27.1305.i, %.critedge6.i ]
+  %.sroa.31.3.i = phi float [ %.043.i207.i, %.critedge.i208.i ], [ %.sroa.31.1306.i, %181 ], [ %.sroa.31.1306.i, %.critedge6.i ]
+  %.sroa.35.3.i = phi i32 [ %184, %.critedge.i208.i ], [ %.sroa.35.1307.i, %181 ], [ %.sroa.35.1307.i, %.critedge6.i ]
   %185 = icmp sgt i32 %148, -1
   br i1 %185, label %.lr.ph286.i, label %._crit_edge287.i
 
 ._crit_edge287.i:                                 ; preds = %range_gist_consider_split.exit212.i, %143
-  %.sroa.11.1.lcssa.i = phi i8 [ %.sroa.11.1302.i, %143 ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.17223.1.lcssa.i = phi ptr [ %.sroa.17223.1303.i, %143 ], [ %.sroa.17223.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.21.1.lcssa.i = phi ptr [ %.sroa.21.1304.i, %143 ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.33.1.lcssa.i = phi i32 [ %.sroa.33.1307.i, %143 ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
-  %186 = trunc nuw i8 %.sroa.11.1.lcssa.i to i1
+  %.sroa.13.1.lcssa.i = phi i8 [ %.sroa.13.1302.i, %143 ], [ %.sroa.13.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.19223.1.lcssa.i = phi ptr [ %.sroa.19223.1303.i, %143 ], [ %.sroa.19223.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.23.1.lcssa.i = phi ptr [ %.sroa.23.1304.i, %143 ], [ %.sroa.23.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.35.1.lcssa.i = phi i32 [ %.sroa.35.1307.i, %143 ], [ %.sroa.35.3.i, %range_gist_consider_split.exit212.i ]
+  %186 = trunc nuw i8 %.sroa.13.1.lcssa.i to i1
   br i1 %186, label %._crit_edge287.thread.i, label %187
 
 ._crit_edge287.thread.critedge.i:                 ; preds = %59
@@ -1629,38 +1658,41 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %196 = phi i32 [ 1, %187 ], [ %249, %247 ]
   %.1320.i = phi i16 [ 1, %187 ], [ %248, %247 ]
   %.0170319.i = phi ptr [ null, %187 ], [ %.2172.i, %247 ]
-  %.0173318.i = phi ptr [ null, %187 ], [ %.2175.i, %247 ]
+  %.0173318.i = phi ptr [ null, %187 ], [ %.1174.i, %247 ]
   %.0180317.i = phi i32 [ 0, %187 ], [ %.1181.i, %247 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   %197 = zext i16 %.1320.i to i64
-  %198 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = inttoptr i64 %199 to ptr
   %201 = call ptr @pg_detoast_datum(ptr noundef %200) #10
   call void @range_deserialize(ptr noundef %21, ptr noundef %201, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %202 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %.sroa.17223.1.lcssa.i) #10
+  %202 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %.sroa.19223.1.lcssa.i) #10
   %203 = icmp slt i32 %202, 1
   br i1 %203, label %204, label %236
 
 204:                                              ; preds = %195
-  %205 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %.sroa.21.1.lcssa.i) #10
+  %205 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %.sroa.23.1.lcssa.i) #10
   %206 = icmp sgt i32 %205, -1
   br i1 %206, label %207, label %225
 
 207:                                              ; preds = %204
   %208 = sext i32 %.0180317.i to i64
-  %209 = getelementptr %struct.CommonEntry, ptr %194, i64 %208
+  %209 = getelementptr inbounds %struct.CommonEntry, ptr %194, i64 %208
   store i32 %196, ptr %209, align 8
   br i1 %.not236.i, label %222, label %210
 
 210:                                              ; preds = %207
   %211 = load i64, ptr %3, align 8
-  %212 = load i64, ptr %.sroa.21.1.lcssa.i, align 8
+  %212 = load i64, ptr %.sroa.23.1.lcssa.i, align 8
   %213 = load i32, ptr %87, align 4
   %214 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %213, i64 noundef %211, i64 noundef %212) #10
   %215 = bitcast i64 %214 to double
   %.inv.i.i = fcmp oge double %215, 0.000000e+00
   %..i213.i = select i1 %.inv.i.i, double %215, double 0.000000e+00
-  %216 = load i64, ptr %.sroa.17223.1.lcssa.i, align 8
+  %216 = load i64, ptr %.sroa.19223.1.lcssa.i, align 8
   %217 = load i64, ptr %4, align 8
   %218 = load i32, ptr %87, align 4
   %219 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %218, i64 noundef %216, i64 noundef %217) #10
@@ -1694,7 +1726,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %233 = add i32 %231, 1
   store i32 %233, ptr %191, align 8
   %234 = sext i32 %231 to i64
-  %235 = getelementptr i16, ptr %232, i64 %234
+  %235 = getelementptr inbounds i16, ptr %232, i64 %234
   store i16 %.1320.i, ptr %235, align 2
   br label %247
 
@@ -1710,23 +1742,26 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 241:                                              ; preds = %239, %236
   %242 = phi i32 [ %.pre.i, %239 ], [ %237, %236 ]
-  %.1174.i = phi ptr [ %240, %239 ], [ %201, %236 ]
+  %.2175.i = phi ptr [ %240, %239 ], [ %201, %236 ]
   %243 = load ptr, ptr %30, align 8
   %244 = add i32 %242, 1
   store i32 %244, ptr %192, align 8
   %245 = sext i32 %242 to i64
-  %246 = getelementptr i16, ptr %243, i64 %245
+  %246 = getelementptr inbounds i16, ptr %243, i64 %245
   store i16 %.1320.i, ptr %246, align 2
   br label %247
 
 247:                                              ; preds = %241, %230, %222
   %.1181.i = phi i32 [ %224, %222 ], [ %.0180317.i, %230 ], [ %.0180317.i, %241 ]
-  %.2175.i = phi ptr [ %.0173318.i, %222 ], [ %.0173318.i, %230 ], [ %.1174.i, %241 ]
+  %.1174.i = phi ptr [ %.0173318.i, %222 ], [ %.0173318.i, %230 ], [ %.2175.i, %241 ]
   %.2172.i = phi ptr [ %.0170319.i, %222 ], [ %.1171.i, %230 ], [ %.0170319.i, %241 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   %248 = add i16 %.1320.i, 1
   %249 = zext i16 %248 to i32
   %.not203.i = icmp ugt i16 %248, %71
-  br i1 %.not203.i, label %._crit_edge323.i, label %195, !llvm.loop !14
+  br i1 %.not203.i, label %._crit_edge323.i, label %195, !llvm.loop !15
 
 ._crit_edge323.i:                                 ; preds = %247
   %250 = icmp sgt i32 %.1181.i, 0
@@ -1741,16 +1776,16 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %254 = phi i32 [ 0, %251 ], [ %286, %282 ]
   %.2329.i = phi i16 [ 0, %251 ], [ %285, %282 ]
   %.4328.i = phi ptr [ %.2172.i, %251 ], [ %.6.i, %282 ]
-  %.4177327.i = phi ptr [ %.2175.i, %251 ], [ %.6179.i, %282 ]
+  %.4177327.i = phi ptr [ %.1174.i, %251 ], [ %.5178.i, %282 ]
   %255 = zext i16 %.2329.i to i64
-  %256 = getelementptr %struct.CommonEntry, ptr %194, i64 %255
+  %256 = getelementptr inbounds nuw %struct.CommonEntry, ptr %194, i64 %255
   %257 = load i32, ptr %256, align 8
   %258 = sext i32 %257 to i64
-  %259 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %258
+  %259 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %258
   %260 = load i64, ptr %259, align 8
   %261 = inttoptr i64 %260 to ptr
   %262 = call ptr @pg_detoast_datum(ptr noundef %261) #10
-  %263 = icmp sgt i32 %.sroa.33.1.lcssa.i, %254
+  %263 = icmp sgt i32 %.sroa.35.1.lcssa.i, %254
   br i1 %263, label %264, label %273
 
 264:                                              ; preds = %253
@@ -1783,28 +1818,28 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 278:                                              ; preds = %276, %273
   %279 = phi i32 [ %.pre361.i, %276 ], [ %274, %273 ]
-  %.5178.i = phi ptr [ %277, %276 ], [ %262, %273 ]
+  %.6179.i = phi ptr [ %277, %276 ], [ %262, %273 ]
   %280 = load ptr, ptr %30, align 8
   %281 = add i32 %279, 1
   store i32 %281, ptr %192, align 8
   br label %282
 
 282:                                              ; preds = %278, %269
-  %.sink401.i = phi i32 [ %270, %269 ], [ %279, %278 ]
-  %.sink399.i = phi ptr [ %271, %269 ], [ %280, %278 ]
-  %.6179.i = phi ptr [ %.4177327.i, %269 ], [ %.5178.i, %278 ]
-  %.6.i = phi ptr [ %.5.i, %269 ], [ %.4328.i, %278 ]
+  %.sink401.i = phi i32 [ %279, %278 ], [ %270, %269 ]
+  %.sink399.i = phi ptr [ %280, %278 ], [ %271, %269 ]
+  %.5178.i = phi ptr [ %.6179.i, %278 ], [ %.4177327.i, %269 ]
+  %.6.i = phi ptr [ %.4328.i, %278 ], [ %.5.i, %269 ]
   %.sink397.i = trunc i32 %257 to i16
   %283 = sext i32 %.sink401.i to i64
-  %284 = getelementptr i16, ptr %.sink399.i, i64 %283
+  %284 = getelementptr inbounds i16, ptr %.sink399.i, i64 %283
   store i16 %.sink397.i, ptr %284, align 2
   %285 = add i16 %.2329.i, 1
   %286 = zext i16 %285 to i32
   %287 = icmp samesign ugt i32 %.1181.i, %286
-  br i1 %287, label %253, label %.loopexit.i, !llvm.loop !15
+  br i1 %287, label %253, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %282, %._crit_edge323.i
-  %.3176.i = phi ptr [ %.2175.i, %._crit_edge323.i ], [ %.6179.i, %282 ]
+  %.3176.i = phi ptr [ %.1174.i, %._crit_edge323.i ], [ %.5178.i, %282 ]
   %.3.i = phi ptr [ %.2172.i, %._crit_edge323.i ], [ %.6.i, %282 ]
   %288 = ptrtoint ptr %.3.i to i64
   %289 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1814,26 +1849,20 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   store i64 %290, ptr %291, align 8
   br label %range_gist_double_sorting_split.exit
 
-range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thread.i, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %385
-
 292:                                              ; preds = %57
   tail call fastcc void @range_gist_single_sorting_split(ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull %13, i1 noundef zeroext true)
-  br label %385
+  br label %range_gist_double_sorting_split.exit
 
 293:                                              ; preds = %57
   tail call fastcc void @range_gist_single_sorting_split(ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull %13, i1 noundef zeroext false)
-  br label %385
+  br label %range_gist_double_sorting_split.exit
 
 294:                                              ; preds = %57
   tail call fastcc void @range_gist_fallback_split(ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull %13)
-  br label %385
+  br label %range_gist_double_sorting_split.exit
 
 295:                                              ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %296 = load i32, ptr %6, align 16
   %297 = icmp sgt i32 %296, 0
@@ -1900,7 +1929,7 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 334:                                              ; preds = %327
   %335 = sext i32 %.2 to i64
-  %336 = getelementptr [9 x i32], ptr %7, i64 0, i64 %335
+  %336 = getelementptr inbounds [9 x i32], ptr %7, i64 0, i64 %335
   store i32 1, ptr %336, align 4
   br label %337
 
@@ -1921,10 +1950,10 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 344:                                              ; preds = %377, %.lr.ph.i78
   %.038.i = phi ptr [ null, %.lr.ph.i78 ], [ %.2.i81, %377 ]
-  %.03037.i = phi ptr [ null, %.lr.ph.i78 ], [ %.232.i, %377 ]
+  %.03037.i = phi ptr [ null, %.lr.ph.i78 ], [ %.131.i, %377 ]
   %.03336.i = phi i16 [ 1, %.lr.ph.i78 ], [ %380, %377 ]
   %345 = zext i16 %.03336.i to i64
-  %346 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %345
   %347 = load i64, ptr %346, align 8
   %348 = inttoptr i64 %347 to ptr
   %349 = tail call ptr @pg_detoast_datum(ptr noundef %348) #10
@@ -1945,7 +1974,7 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 get_gist_range_class.exit.i:                      ; preds = %352, %344
   %.0.i.i = phi i64 [ 8, %344 ], [ %355, %352 ]
-  %356 = getelementptr i32, ptr %7, i64 %.0.i.i
+  %356 = getelementptr inbounds nuw i32, ptr %7, i64 %.0.i.i
   %357 = load i32, ptr %356, align 4
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %368
@@ -1980,27 +2009,27 @@ get_gist_range_class.exit.i:                      ; preds = %352, %344
 
 373:                                              ; preds = %371, %368
   %374 = phi i32 [ %.pre.i84, %371 ], [ %369, %368 ]
-  %.131.i = phi ptr [ %372, %371 ], [ %349, %368 ]
+  %.232.i = phi ptr [ %372, %371 ], [ %349, %368 ]
   %375 = load ptr, ptr %30, align 8
   %376 = add i32 %374, 1
   store i32 %376, ptr %340, align 8
   br label %377
 
 377:                                              ; preds = %373, %364
-  %.sink.i80 = phi i32 [ %365, %364 ], [ %374, %373 ]
-  %.sink41.i = phi ptr [ %366, %364 ], [ %375, %373 ]
-  %.232.i = phi ptr [ %.03037.i, %364 ], [ %.131.i, %373 ]
-  %.2.i81 = phi ptr [ %.1.i, %364 ], [ %.038.i, %373 ]
+  %.sink.i80 = phi i32 [ %374, %373 ], [ %365, %364 ]
+  %.sink41.i = phi ptr [ %375, %373 ], [ %366, %364 ]
+  %.131.i = phi ptr [ %.232.i, %373 ], [ %.03037.i, %364 ]
+  %.2.i81 = phi ptr [ %.038.i, %373 ], [ %.1.i, %364 ]
   %378 = sext i32 %.sink.i80 to i64
-  %379 = getelementptr i16, ptr %.sink41.i, i64 %378
+  %379 = getelementptr inbounds i16, ptr %.sink41.i, i64 %378
   store i16 %.03336.i, ptr %379, align 2
   %380 = add i16 %.03336.i, 1
   %.not.i82 = icmp ult i16 %343, %380
-  br i1 %.not.i82, label %._crit_edge.loopexit.i, label %344, !llvm.loop !16
+  br i1 %.not.i82, label %._crit_edge.loopexit.i, label %344, !llvm.loop !17
 
 ._crit_edge.loopexit.i:                           ; preds = %377
   %381 = ptrtoint ptr %.2.i81 to i64
-  %382 = ptrtoint ptr %.232.i to i64
+  %382 = ptrtoint ptr %.131.i to i64
   br label %range_gist_class_split.exit
 
 range_gist_class_split.exit:                      ; preds = %337, %._crit_edge.loopexit.i
@@ -2010,14 +2039,16 @@ range_gist_class_split.exit:                      ; preds = %337, %._crit_edge.l
   store i64 %.0.lcssa.i, ptr %383, align 8
   %384 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %.030.lcssa.i, ptr %384, align 8
-  br label %385
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #10
+  br label %range_gist_double_sorting_split.exit
 
-385:                                              ; preds = %range_gist_double_sorting_split.exit, %293, %294, %292, %range_gist_class_split.exit
+range_gist_double_sorting_split.exit:             ; preds = %.loopexit.i, %._crit_edge287.thread.i, %293, %294, %292, %range_gist_class_split.exit
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #10
   ret i64 %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -2048,35 +2079,43 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %.05662.us = phi i16 [ %25, %.lr.ph.split.us ], [ 1, %.lr.ph ]
   %16 = zext i16 %.05662.us to i32
   %17 = zext i16 %.05662.us to i64
-  %18 = getelementptr [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = call ptr @pg_detoast_datum(ptr noundef %20) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
   %22 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %17
   %23 = getelementptr i8, ptr %22, i64 -24
   store i32 %16, ptr %23, align 8
   %24 = getelementptr i8, ptr %22, i64 -16
   call void @range_deserialize(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %5, ptr noundef %24, ptr noundef nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   %25 = add i16 %.05662.us, 1
   %.not.us = icmp ugt i16 %25, %9
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.05662 = phi i16 [ %35, %.lr.ph.split ], [ 1, %.lr.ph ]
   %26 = zext i16 %.05662 to i32
   %27 = zext i16 %.05662 to i64
-  %28 = getelementptr [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr
   %31 = call ptr @pg_detoast_datum(ptr noundef %30) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
   %32 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %27
   %33 = getelementptr i8, ptr %32, i64 -24
   store i32 %26, ptr %33, align 8
   %34 = getelementptr i8, ptr %32, i64 -16
   call void @range_deserialize(ptr noundef %0, ptr noundef %31, ptr noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   %35 = add i16 %.05662, 1
   %.not = icmp ugt i16 %35, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   call void @qsort_arg(ptr noundef nonnull %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
@@ -2093,11 +2132,11 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 42:                                               ; preds = %._crit_edge, %69
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %69 ]
   %.065 = phi ptr [ null, %._crit_edge ], [ %.2, %69 ]
-  %.05364 = phi ptr [ null, %._crit_edge ], [ %.255, %69 ]
-  %43 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %indvars.iv
+  %.05364 = phi ptr [ null, %._crit_edge ], [ %.154, %69 ]
+  %43 = getelementptr inbounds nuw %struct.SingleBoundSortItem, ptr %12, i64 %indvars.iv
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [0 x %struct.GISTENTRY], ptr %39, i64 0, i64 %45
+  %46 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %39, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = inttoptr i64 %47 to ptr
   %49 = call ptr @pg_detoast_datum(ptr noundef %48) #10
@@ -2134,28 +2173,28 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 
 65:                                               ; preds = %60, %63
   %66 = phi i32 [ %.pre, %63 ], [ %61, %60 ]
-  %.154 = phi ptr [ %64, %63 ], [ %49, %60 ]
+  %.255 = phi ptr [ %64, %63 ], [ %49, %60 ]
   %67 = load ptr, ptr %40, align 8
   %68 = add i32 %66, 1
   store i32 %68, ptr %37, align 8
   br label %69
 
-69:                                               ; preds = %56, %65
-  %.sink78 = phi i32 [ %57, %56 ], [ %66, %65 ]
-  %.sink76 = phi ptr [ %58, %56 ], [ %67, %65 ]
-  %.255 = phi ptr [ %.05364, %56 ], [ %.154, %65 ]
-  %.2 = phi ptr [ %.1, %56 ], [ %.065, %65 ]
+69:                                               ; preds = %65, %56
+  %.sink78 = phi i32 [ %66, %65 ], [ %57, %56 ]
+  %.sink76 = phi ptr [ %67, %65 ], [ %58, %56 ]
+  %.154 = phi ptr [ %.255, %65 ], [ %.05364, %56 ]
+  %.2 = phi ptr [ %.065, %65 ], [ %.1, %56 ]
   %.sink = trunc i32 %44 to i16
   %70 = sext i32 %.sink78 to i64
-  %71 = getelementptr i16, ptr %.sink76, i64 %70
+  %71 = getelementptr inbounds i16, ptr %.sink76, i64 %70
   store i16 %.sink, ptr %71, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge68.loopexit, label %42, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge68.loopexit, label %42, !llvm.loop !19
 
 ._crit_edge68.loopexit:                           ; preds = %69
   %72 = ptrtoint ptr %.2 to i64
-  %73 = ptrtoint ptr %.255 to i64
+  %73 = ptrtoint ptr %.154 to i64
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge.thread, %._crit_edge68.loopexit
@@ -2192,10 +2231,10 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
 15:                                               ; preds = %.lr.ph, %40
   %16 = phi i32 [ 1, %.lr.ph ], [ %44, %40 ]
   %.038 = phi ptr [ null, %.lr.ph ], [ %.2, %40 ]
-  %.03037 = phi ptr [ null, %.lr.ph ], [ %.232, %40 ]
+  %.03037 = phi ptr [ null, %.lr.ph ], [ %.131, %40 ]
   %.03336 = phi i16 [ 1, %.lr.ph ], [ %43, %40 ]
   %17 = zext i16 %.03336 to i64
-  %18 = getelementptr [0 x %struct.GISTENTRY], ptr %12, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %12, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #10
@@ -2232,28 +2271,28 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
 
 36:                                               ; preds = %31, %34
   %37 = phi i32 [ %.pre, %34 ], [ %32, %31 ]
-  %.131 = phi ptr [ %35, %34 ], [ %21, %31 ]
+  %.232 = phi ptr [ %35, %34 ], [ %21, %31 ]
   %38 = load ptr, ptr %13, align 8
   %39 = add i32 %37, 1
   store i32 %39, ptr %6, align 8
   br label %40
 
-40:                                               ; preds = %27, %36
-  %.sink = phi i32 [ %28, %27 ], [ %37, %36 ]
-  %.sink41 = phi ptr [ %29, %27 ], [ %38, %36 ]
-  %.232 = phi ptr [ %.03037, %27 ], [ %.131, %36 ]
-  %.2 = phi ptr [ %.1, %27 ], [ %.038, %36 ]
+40:                                               ; preds = %36, %27
+  %.sink = phi i32 [ %37, %36 ], [ %28, %27 ]
+  %.sink41 = phi ptr [ %38, %36 ], [ %29, %27 ]
+  %.131 = phi ptr [ %.232, %36 ], [ %.03037, %27 ]
+  %.2 = phi ptr [ %.038, %36 ], [ %.1, %27 ]
   %41 = sext i32 %.sink to i64
-  %42 = getelementptr i16, ptr %.sink41, i64 %41
+  %42 = getelementptr inbounds i16, ptr %.sink41, i64 %41
   store i16 %.03336, ptr %42, align 2
   %43 = add i16 %.03336, 1
   %44 = zext i16 %43 to i32
   %.not = icmp ugt i16 %43, %14
-  br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %40
   %45 = ptrtoint ptr %.2 to i64
-  %46 = ptrtoint ptr %.232 to i64
+  %46 = ptrtoint ptr %.131 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -2267,7 +2306,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
@@ -2275,11 +2314,11 @@ define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #10
-  %10 = getelementptr i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = tail call signext i8 @range_get_flags(ptr noundef %5) #10
   %13 = tail call signext i8 @range_get_flags(ptr noundef %9) #10
@@ -2301,53 +2340,53 @@ define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %11
 }
 
-declare zeroext i1 @range_eq_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_eq_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare void @range_set_contain_empty(ptr noundef) local_unnamed_addr #1
+declare void @range_set_contain_empty(ptr noundef) local_unnamed_addr #2
 
-declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overright_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overright_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_after_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_after_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contains_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_contains_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overright_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overright_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_after_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_after_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overlaps_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overlaps_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_before_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_before_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overleft_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overleft_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_adjacent_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_adjacent_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contains_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_contains_multirange_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contains_elem_internal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare zeroext i1 @range_contains_elem_internal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contained_by_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_contained_by_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @multirange_contains_range_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @multirange_contains_range_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @multirange_get_bounds(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @multirange_get_bounds(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @single_bound_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -2358,7 +2397,7 @@ define internal i32 @single_bound_cmp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -2374,10 +2413,10 @@ define internal i32 @interval_cmp_upper(ptr noundef %0, ptr noundef %1, ptr noun
   ret i32 %6
 }
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @common_entry_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal range(i32 -1, 2) i32 @common_entry_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2389,55 +2428,50 @@ define internal range(i32 -1, 2) i32 @common_entry_cmp(ptr noundef readonly capt
   ret i32 %.0
 }
 
-declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

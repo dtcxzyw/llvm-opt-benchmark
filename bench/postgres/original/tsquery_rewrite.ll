@@ -8,9 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TSQueryData = type { i32, i32, [0 x i8] }
 %struct.SPITupleTable = type { ptr, ptr, i64, i64, ptr, %struct.slist_node, i32 }
 %struct.slist_node = type { ptr }
-%struct.TupleDescData = type { i32, i32, i32, i32, ptr, [0 x %struct.FormData_pg_attribute] }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
+%struct.TupleDescData = type { i32, i32, i32, i32, ptr, [0 x %struct.CompactAttribute] }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.anon = type { i32, [0 x i8] }
 %struct.QueryOperand = type { i8, i8, i8, i32, i32 }
 
@@ -35,6 +34,7 @@ define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
@@ -46,7 +46,7 @@ define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %9, align 1
+  %17 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %8, align 8
   %20 = zext i1 %18 to i8
@@ -55,8 +55,12 @@ define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 21:                                               ; preds = %16, %4
   %22 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret ptr %22
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -79,158 +83,168 @@ define internal ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef 
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   %16 = sext i32 %15 to i64
-  %17 = icmp ne i64 %16, 0
-  br i1 %17, label %18, label %19
+  %17 = call i64 @llvm.expect.i64(i64 %16, i64 0)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %12
+19:                                               ; preds = %12
   call void @ProcessInterrupts()
-  br label %19
-
-19:                                               ; preds = %18, %12
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @findeq(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  store ptr %25, ptr %5, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %114
+20:                                               ; preds = %19, %12
+  br label %21
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.QTNode, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 2
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %114
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = call ptr @findeq(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %115
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.QTNode, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i8, ptr %37, align 4
-  %39 = sext i8 %38 to i32
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %41, label %114
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.QTNode, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 2
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %115
 
-41:                                               ; preds = %34
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.QTNode, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i8, ptr %38, align 4
+  %40 = sext i8 %39 to i32
+  %41 = icmp eq i32 %40, 2
+  br i1 %41, label %42, label %115
+
+42:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
   store i32 0, ptr %9, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %78, %41
-  %43 = load i32, ptr %9, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.QTNode, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp slt i32 %43, %46
-  br i1 %47, label %48, label %81
+43:                                               ; preds = %79, %42
+  %44 = load i32, ptr %9, align 4
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.QTNode, ptr %45, i32 0, i32 2
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp slt i32 %44, %47
+  br i1 %48, label %49, label %82
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.QTNode, ptr %49, i32 0, i32 5
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %9, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %51, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = call ptr @dofindsubquery(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58)
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.QTNode, ptr %60, i32 0, i32 5
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %10, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr ptr, ptr %62, i64 %64
-  store ptr %59, ptr %65, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.QTNode, ptr %66, i32 0, i32 5
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr ptr, ptr %68, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %77
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.QTNode, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %9, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = call ptr @dofindsubquery(ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59)
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.QTNode, ptr %61, i32 0, i32 5
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i32, ptr %10, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
+  store ptr %60, ptr %66, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.QTNode, ptr %67, i32 0, i32 5
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %78
 
-74:                                               ; preds = %48
-  %75 = load i32, ptr %10, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %10, align 4
-  br label %77
-
-77:                                               ; preds = %74, %48
+75:                                               ; preds = %49
+  %76 = load i32, ptr %10, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %10, align 4
   br label %78
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %9, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %9, align 4
-  br label %42, !llvm.loop !5
+78:                                               ; preds = %75, %49
+  br label %79
 
-81:                                               ; preds = %42
-  %82 = load i32, ptr %10, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.QTNode, ptr %83, i32 0, i32 2
-  store i32 %82, ptr %84, align 4
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.QTNode, ptr %85, i32 0, i32 2
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %91
+79:                                               ; preds = %78
+  %80 = load i32, ptr %9, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %9, align 4
+  br label %43, !llvm.loop !6
 
-89:                                               ; preds = %81
-  %90 = load ptr, ptr %5, align 8
-  call void @QTNFree(ptr noundef %90)
+82:                                               ; preds = %43
+  %83 = load i32, ptr %10, align 4
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.QTNode, ptr %84, i32 0, i32 2
+  store i32 %83, ptr %85, align 4
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds nuw %struct.QTNode, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %92
+
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %5, align 8
+  call void @QTNFree(ptr noundef %91)
   store ptr null, ptr %5, align 8
-  br label %113
-
-91:                                               ; preds = %81
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.QTNode, ptr %92, i32 0, i32 2
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %96, label %112
-
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.QTNode, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.QueryOperator, ptr %99, i32 0, i32 1
-  %101 = load i8, ptr %100, align 1
-  %102 = sext i8 %101 to i32
-  %103 = icmp ne i32 %102, 1
-  br i1 %103, label %104, label %112
-
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds %struct.QTNode, ptr %105, i32 0, i32 5
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr ptr, ptr %107, i64 0
-  %109 = load ptr, ptr %108, align 8
-  store ptr %109, ptr %11, align 8
-  %110 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %110)
-  %111 = load ptr, ptr %11, align 8
-  store ptr %111, ptr %5, align 8
-  br label %112
-
-112:                                              ; preds = %104, %96, %91
-  br label %113
-
-113:                                              ; preds = %112, %89
   br label %114
 
-114:                                              ; preds = %113, %34, %28, %20
-  %115 = load ptr, ptr %5, align 8
-  ret ptr %115
+92:                                               ; preds = %82
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds nuw %struct.QTNode, ptr %93, i32 0, i32 2
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, 1
+  br i1 %96, label %97, label %113
+
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds nuw %struct.QTNode, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw %struct.QueryOperator, ptr %100, i32 0, i32 1
+  %102 = load i8, ptr %101, align 1
+  %103 = sext i8 %102 to i32
+  %104 = icmp ne i32 %103, 1
+  br i1 %104, label %105, label %113
+
+105:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %106 = load ptr, ptr %5, align 8
+  %107 = getelementptr inbounds nuw %struct.QTNode, ptr %106, i32 0, i32 5
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds ptr, ptr %108, i64 0
+  %110 = load ptr, ptr %109, align 8
+  store ptr %110, ptr %11, align 8
+  %111 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %111)
+  %112 = load ptr, ptr %11, align 8
+  store ptr %112, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %113
+
+113:                                              ; preds = %105, %97, %92
+  br label %114
+
+114:                                              ; preds = %113, %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  br label %115
+
+115:                                              ; preds = %114, %35, %29, %21
+  %116 = load ptr, ptr %5, align 8
+  ret ptr %116
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_rewrite_query(ptr noundef %0) #0 {
@@ -246,48 +260,772 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef %0) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i8, align 1
-  %14 = alloca i64, align 8
+  %14 = alloca i32, align 4
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
-  %17 = alloca ptr, align 8
+  %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 0
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = call ptr @DatumGetTSQueryCopy(i64 noundef %25)
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
-  %29 = getelementptr [0 x %struct.NullableDatum], ptr %28, i64 0, i64 1
-  %30 = getelementptr inbounds %struct.NullableDatum, ptr %29, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = call ptr @DatumGetPointer(i64 noundef %31)
-  %33 = call ptr @pg_detoast_datum_packed(ptr noundef %32)
-  store ptr %33, ptr %5, align 8
-  %34 = load ptr, ptr %4, align 8
-  store ptr %34, ptr %6, align 8
-  %35 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %35, ptr %7, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.TSQueryData, ptr %36, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %23, i64 0, i64 0
+  %25 = getelementptr inbounds nuw %struct.NullableDatum, ptr %24, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = call ptr @DatumGetTSQueryCopy(i64 noundef %26)
+  store ptr %27, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %29, i64 0, i64 1
+  %31 = getelementptr inbounds nuw %struct.NullableDatum, ptr %30, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8
+  %33 = call ptr @DatumGetPointer(i64 noundef %32)
+  %34 = call ptr @pg_detoast_datum_packed(ptr noundef %33)
+  store ptr %34, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %35 = load ptr, ptr %4, align 8
+  store ptr %35, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %36 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %36, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.TSQueryData, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %58
+
+41:                                               ; preds = %1
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %44, i32 0, i32 6
+  %46 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %45, i64 0, i64 1
+  %47 = getelementptr inbounds nuw %struct.NullableDatum, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  %49 = call ptr @DatumGetPointer(i64 noundef %48)
+  %50 = icmp ne ptr %43, %49
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %51, %42
+  br label %54
+
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = call i64 @PointerGetDatum(ptr noundef %56)
+  store i64 %57, ptr %2, align 8
+  store i32 1, ptr %14, align 4
+  br label %336
+
+58:                                               ; preds = %1
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw %struct.TSQueryData, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = mul i64 %66, 12
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 %67
+  %69 = call ptr @QT2QTN(ptr noundef %60, ptr noundef %68)
+  store ptr %69, ptr %9, align 8
+  %70 = load ptr, ptr %9, align 8
+  call void @QTNTernary(ptr noundef %70)
+  %71 = load ptr, ptr %9, align 8
+  call void @QTNSort(ptr noundef %71)
+  %72 = load ptr, ptr %5, align 8
+  %73 = call ptr @text_to_cstring(ptr noundef %72)
+  store ptr %73, ptr %10, align 8
+  %74 = call i32 @SPI_connect()
+  %75 = load ptr, ptr %10, align 8
+  %76 = call ptr @SPI_prepare(ptr noundef %75, i32 noundef 0, ptr noundef null)
+  store ptr %76, ptr %11, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %90
+
+78:                                               ; preds = %58
+  br label %79
+
+79:                                               ; preds = %78
+  br i1 true, label %80, label %82
+
+80:                                               ; preds = %79
+  %81 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %81, label %84, label %87
+
+82:                                               ; preds = %79
+  %83 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %83, label %84, label %87
+
+84:                                               ; preds = %82, %80
+  %85 = load ptr, ptr %10, align 8
+  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, ptr noundef %85)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 308, ptr noundef @__func__.tsquery_rewrite_query)
+  br label %87
+
+87:                                               ; preds = %84, %82, %80
+  unreachable
+
+88:                                               ; No predecessors!
+  br label %89
+
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89, %58
+  %91 = load ptr, ptr %11, align 8
+  %92 = call ptr @SPI_cursor_open(ptr noundef null, ptr noundef %91, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  store ptr %92, ptr %12, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %106
+
+94:                                               ; preds = %90
+  br label %95
+
+95:                                               ; preds = %94
+  br i1 true, label %96, label %98
+
+96:                                               ; preds = %95
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %97, label %100, label %103
+
+98:                                               ; preds = %95
+  %99 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %99, label %100, label %103
+
+100:                                              ; preds = %98, %96
+  %101 = load ptr, ptr %10, align 8
+  %102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %101)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 311, ptr noundef @__func__.tsquery_rewrite_query)
+  br label %103
+
+103:                                              ; preds = %100, %98, %96
+  unreachable
+
+104:                                              ; No predecessors!
+  br label %105
+
+105:                                              ; preds = %104
+  br label %106
+
+106:                                              ; preds = %105, %90
+  %107 = load ptr, ptr %12, align 8
+  call void @SPI_cursor_fetch(ptr noundef %107, i1 noundef zeroext true, i64 noundef 100)
+  %108 = load ptr, ptr @SPI_tuptable, align 8
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %129, label %110
+
+110:                                              ; preds = %106
+  %111 = load ptr, ptr @SPI_tuptable, align 8
+  %112 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw %struct.TupleDescData, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp ne i32 %115, 2
+  br i1 %116, label %129, label %117
+
+117:                                              ; preds = %110
+  %118 = load ptr, ptr @SPI_tuptable, align 8
+  %119 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  %121 = call i32 @SPI_gettypeid(ptr noundef %120, i32 noundef 1)
+  %122 = icmp ne i32 %121, 3615
+  br i1 %122, label %129, label %123
+
+123:                                              ; preds = %117
+  %124 = load ptr, ptr @SPI_tuptable, align 8
+  %125 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 @SPI_gettypeid(ptr noundef %126, i32 noundef 2)
+  %128 = icmp ne i32 %127, 3615
+  br i1 %128, label %129, label %141
+
+129:                                              ; preds = %123, %117, %110, %106
+  br label %130
+
+130:                                              ; preds = %129
+  br i1 true, label %131, label %133
+
+131:                                              ; preds = %130
+  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %132, label %135, label %138
+
+133:                                              ; preds = %130
+  %134 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %134, label %135, label %138
+
+135:                                              ; preds = %133, %131
+  %136 = call i32 @errcode(i32 noundef 50856066)
+  %137 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 321, ptr noundef @__func__.tsquery_rewrite_query)
+  br label %138
+
+138:                                              ; preds = %135, %133, %131
+  unreachable
+
+139:                                              ; No predecessors!
+  br label %140
+
+140:                                              ; preds = %139
+  br label %141
+
+141:                                              ; preds = %140, %123
+  br label %142
+
+142:                                              ; preds = %283, %141
+  %143 = load i64, ptr @SPI_processed, align 8
+  %144 = icmp ugt i64 %143, 0
+  br i1 %144, label %145, label %148
+
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %9, align 8
+  %147 = icmp ne ptr %146, null
+  br label %148
+
+148:                                              ; preds = %145, %142
+  %149 = phi i1 [ false, %142 ], [ %147, %145 ]
+  br i1 %149, label %150, label %286
+
+150:                                              ; preds = %148
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store i64 0, ptr %15, align 8
+  br label %151
+
+151:                                              ; preds = %280, %150
+  %152 = load i64, ptr %15, align 8
+  %153 = load i64, ptr @SPI_processed, align 8
+  %154 = icmp ult i64 %152, %153
+  br i1 %154, label %155, label %158
+
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %9, align 8
+  %157 = icmp ne ptr %156, null
+  br label %158
+
+158:                                              ; preds = %155, %151
+  %159 = phi i1 [ false, %151 ], [ %157, %155 ]
+  br i1 %159, label %160, label %283
+
+160:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %161 = load ptr, ptr @SPI_tuptable, align 8
+  %162 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %161, i32 0, i32 1
+  %163 = load ptr, ptr %162, align 8
+  %164 = load i64, ptr %15, align 8
+  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr @SPI_tuptable, align 8
+  %168 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8
+  %170 = call i64 @SPI_getbinval(ptr noundef %166, ptr noundef %169, i32 noundef 1, ptr noundef %13)
+  store i64 %170, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %171 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %174
+
+173:                                              ; preds = %160
+  store i32 14, ptr %14, align 4
+  br label %277
+
+174:                                              ; preds = %160
+  %175 = load ptr, ptr @SPI_tuptable, align 8
+  %176 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %175, i32 0, i32 1
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i64, ptr %15, align 8
+  %179 = getelementptr inbounds nuw ptr, ptr %177, i64 %178
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr @SPI_tuptable, align 8
+  %182 = getelementptr inbounds nuw %struct.SPITupleTable, ptr %181, i32 0, i32 0
+  %183 = load ptr, ptr %182, align 8
+  %184 = call i64 @SPI_getbinval(ptr noundef %180, ptr noundef %183, i32 noundef 2, ptr noundef %13)
+  store i64 %184, ptr %17, align 8
+  %185 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %276, label %187
+
+187:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %188 = load i64, ptr %16, align 8
+  %189 = call ptr @DatumGetTSQuery(i64 noundef %188)
+  store ptr %189, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %190 = load i64, ptr %17, align 8
+  %191 = call ptr @DatumGetTSQuery(i64 noundef %190)
+  store ptr %191, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  store ptr null, ptr %21, align 8
+  %192 = load ptr, ptr %18, align 8
+  %193 = getelementptr inbounds nuw %struct.TSQueryData, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %211
+
+196:                                              ; preds = %187
+  %197 = load ptr, ptr %18, align 8
+  %198 = load i64, ptr %16, align 8
+  %199 = call ptr @DatumGetPointer(i64 noundef %198)
+  %200 = icmp ne ptr %197, %199
+  br i1 %200, label %201, label %203
+
+201:                                              ; preds = %196
+  %202 = load ptr, ptr %18, align 8
+  call void @pfree(ptr noundef %202)
+  br label %203
+
+203:                                              ; preds = %201, %196
+  %204 = load ptr, ptr %19, align 8
+  %205 = load i64, ptr %17, align 8
+  %206 = call ptr @DatumGetPointer(i64 noundef %205)
+  %207 = icmp ne ptr %204, %206
+  br i1 %207, label %208, label %210
+
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %19, align 8
+  call void @pfree(ptr noundef %209)
+  br label %210
+
+210:                                              ; preds = %208, %203
+  store i32 14, ptr %14, align 4
+  br label %273
+
+211:                                              ; preds = %187
+  %212 = load ptr, ptr %18, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %214 = load ptr, ptr %18, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %216 = load ptr, ptr %18, align 8
+  %217 = getelementptr inbounds nuw %struct.TSQueryData, ptr %216, i32 0, i32 1
+  %218 = load i32, ptr %217, align 4
+  %219 = sext i32 %218 to i64
+  %220 = mul i64 %219, 12
+  %221 = getelementptr inbounds nuw i8, ptr %215, i64 %220
+  %222 = call ptr @QT2QTN(ptr noundef %213, ptr noundef %221)
+  store ptr %222, ptr %20, align 8
+  %223 = load ptr, ptr %20, align 8
+  call void @QTNTernary(ptr noundef %223)
+  %224 = load ptr, ptr %20, align 8
+  call void @QTNSort(ptr noundef %224)
+  %225 = load ptr, ptr %19, align 8
+  %226 = getelementptr inbounds nuw %struct.TSQueryData, ptr %225, i32 0, i32 1
+  %227 = load i32, ptr %226, align 4
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %229, label %241
+
+229:                                              ; preds = %211
+  %230 = load ptr, ptr %19, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  %232 = load ptr, ptr %19, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %234 = load ptr, ptr %19, align 8
+  %235 = getelementptr inbounds nuw %struct.TSQueryData, ptr %234, i32 0, i32 1
+  %236 = load i32, ptr %235, align 4
+  %237 = sext i32 %236 to i64
+  %238 = mul i64 %237, 12
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 %238
+  %240 = call ptr @QT2QTN(ptr noundef %231, ptr noundef %239)
+  store ptr %240, ptr %21, align 8
+  br label %241
+
+241:                                              ; preds = %229, %211
+  %242 = load ptr, ptr %7, align 8
+  %243 = call ptr @MemoryContextSwitchTo(ptr noundef %242)
+  store ptr %243, ptr %8, align 8
+  %244 = load ptr, ptr %9, align 8
+  %245 = load ptr, ptr %20, align 8
+  %246 = load ptr, ptr %21, align 8
+  %247 = call ptr @findsubquery(ptr noundef %244, ptr noundef %245, ptr noundef %246, ptr noundef null)
+  store ptr %247, ptr %9, align 8
+  %248 = load ptr, ptr %8, align 8
+  %249 = call ptr @MemoryContextSwitchTo(ptr noundef %248)
+  %250 = load ptr, ptr %20, align 8
+  call void @QTNFree(ptr noundef %250)
+  %251 = load ptr, ptr %18, align 8
+  %252 = load i64, ptr %16, align 8
+  %253 = call ptr @DatumGetPointer(i64 noundef %252)
+  %254 = icmp ne ptr %251, %253
+  br i1 %254, label %255, label %257
+
+255:                                              ; preds = %241
+  %256 = load ptr, ptr %18, align 8
+  call void @pfree(ptr noundef %256)
+  br label %257
+
+257:                                              ; preds = %255, %241
+  %258 = load ptr, ptr %21, align 8
+  call void @QTNFree(ptr noundef %258)
+  %259 = load ptr, ptr %19, align 8
+  %260 = load i64, ptr %17, align 8
+  %261 = call ptr @DatumGetPointer(i64 noundef %260)
+  %262 = icmp ne ptr %259, %261
+  br i1 %262, label %263, label %265
+
+263:                                              ; preds = %257
+  %264 = load ptr, ptr %19, align 8
+  call void @pfree(ptr noundef %264)
+  br label %265
+
+265:                                              ; preds = %263, %257
+  %266 = load ptr, ptr %9, align 8
+  %267 = icmp ne ptr %266, null
+  br i1 %267, label %268, label %272
+
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %9, align 8
+  call void @QTNClearFlags(ptr noundef %269, i32 noundef 2)
+  %270 = load ptr, ptr %9, align 8
+  call void @QTNTernary(ptr noundef %270)
+  %271 = load ptr, ptr %9, align 8
+  call void @QTNSort(ptr noundef %271)
+  br label %272
+
+272:                                              ; preds = %268, %265
+  store i32 0, ptr %14, align 4
+  br label %273
+
+273:                                              ; preds = %272, %210
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  %274 = load i32, ptr %14, align 4
+  switch i32 %274, label %277 [
+    i32 0, label %275
+  ]
+
+275:                                              ; preds = %273
+  br label %276
+
+276:                                              ; preds = %275, %174
+  store i32 0, ptr %14, align 4
+  br label %277
+
+277:                                              ; preds = %276, %273, %173
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %278 = load i32, ptr %14, align 4
+  switch i32 %278, label %338 [
+    i32 0, label %279
+    i32 14, label %280
+  ]
+
+279:                                              ; preds = %277
+  br label %280
+
+280:                                              ; preds = %279, %277
+  %281 = load i64, ptr %15, align 8
+  %282 = add i64 %281, 1
+  store i64 %282, ptr %15, align 8
+  br label %151, !llvm.loop !8
+
+283:                                              ; preds = %158
+  %284 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %284)
+  %285 = load ptr, ptr %12, align 8
+  call void @SPI_cursor_fetch(ptr noundef %285, i1 noundef zeroext true, i64 noundef 100)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  br label %142, !llvm.loop !9
+
+286:                                              ; preds = %148
+  %287 = load ptr, ptr @SPI_tuptable, align 8
+  call void @SPI_freetuptable(ptr noundef %287)
+  %288 = load ptr, ptr %12, align 8
+  call void @SPI_cursor_close(ptr noundef %288)
+  %289 = load ptr, ptr %11, align 8
+  %290 = call i32 @SPI_freeplan(ptr noundef %289)
+  %291 = call i32 @SPI_finish()
+  %292 = load ptr, ptr %9, align 8
+  %293 = icmp ne ptr %292, null
+  br i1 %293, label %294, label %313
+
+294:                                              ; preds = %286
+  %295 = load ptr, ptr %9, align 8
+  call void @QTNBinary(ptr noundef %295)
+  %296 = load ptr, ptr %9, align 8
+  %297 = call ptr @QTN2QT(ptr noundef %296)
+  store ptr %297, ptr %6, align 8
+  %298 = load ptr, ptr %9, align 8
+  call void @QTNFree(ptr noundef %298)
+  br label %299
+
+299:                                              ; preds = %294
+  %300 = load ptr, ptr %4, align 8
+  %301 = load ptr, ptr %3, align 8
+  %302 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %301, i32 0, i32 6
+  %303 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %302, i64 0, i64 0
+  %304 = getelementptr inbounds nuw %struct.NullableDatum, ptr %303, i32 0, i32 0
+  %305 = load i64, ptr %304, align 8
+  %306 = call ptr @DatumGetPointer(i64 noundef %305)
+  %307 = icmp ne ptr %300, %306
+  br i1 %307, label %308, label %310
+
+308:                                              ; preds = %299
+  %309 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %309)
+  br label %310
+
+310:                                              ; preds = %308, %299
+  br label %311
+
+311:                                              ; preds = %310
+  br label %312
+
+312:                                              ; preds = %311
+  br label %318
+
+313:                                              ; preds = %286
+  %314 = load ptr, ptr %6, align 8
+  %315 = getelementptr inbounds nuw %struct.anon, ptr %314, i32 0, i32 0
+  store i32 32, ptr %315, align 4
+  %316 = load ptr, ptr %6, align 8
+  %317 = getelementptr inbounds nuw %struct.TSQueryData, ptr %316, i32 0, i32 1
+  store i32 0, ptr %317, align 4
+  br label %318
+
+318:                                              ; preds = %313, %312
+  %319 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %319)
+  br label %320
+
+320:                                              ; preds = %318
+  %321 = load ptr, ptr %5, align 8
+  %322 = load ptr, ptr %3, align 8
+  %323 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %322, i32 0, i32 6
+  %324 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %323, i64 0, i64 1
+  %325 = getelementptr inbounds nuw %struct.NullableDatum, ptr %324, i32 0, i32 0
+  %326 = load i64, ptr %325, align 8
+  %327 = call ptr @DatumGetPointer(i64 noundef %326)
+  %328 = icmp ne ptr %321, %327
+  br i1 %328, label %329, label %331
+
+329:                                              ; preds = %320
+  %330 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %330)
+  br label %331
+
+331:                                              ; preds = %329, %320
+  br label %332
+
+332:                                              ; preds = %331
+  br label %333
+
+333:                                              ; preds = %332
+  %334 = load ptr, ptr %6, align 8
+  %335 = call i64 @PointerGetDatum(ptr noundef %334)
+  store i64 %335, ptr %2, align 8
+  store i32 1, ptr %14, align 4
+  br label %336
+
+336:                                              ; preds = %333, %55
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %337 = load i64, ptr %2, align 8
+  ret i64 %337
+
+338:                                              ; preds = %277
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetTSQueryCopy(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = call ptr @DatumGetPointer(i64 noundef %3)
+  %5 = call ptr @pg_detoast_datum_copy(ptr noundef %4)
+  ret ptr %5
+}
+
+declare ptr @pg_detoast_datum_packed(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  ret ptr %4
+}
+
+declare void @pfree(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  ret i64 %4
+}
+
+declare ptr @QT2QTN(ptr noundef, ptr noundef) #3
+
+declare void @QTNTernary(ptr noundef) #3
+
+declare void @QTNSort(ptr noundef) #3
+
+declare ptr @text_to_cstring(ptr noundef) #3
+
+declare i32 @SPI_connect() #3
+
+declare ptr @SPI_prepare(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
+
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
+
+declare i32 @errmsg_internal(ptr noundef, ...) #3
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
+
+declare ptr @SPI_cursor_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #3
+
+declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) #3
+
+declare i32 @SPI_gettypeid(ptr noundef, i32 noundef) #3
+
+declare i32 @errcode(i32 noundef) #3
+
+declare i32 @errmsg(ptr noundef, ...) #3
+
+declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetTSQuery(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = call ptr @DatumGetPointer(i64 noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  store ptr %5, ptr @CurrentMemoryContext, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret ptr %6
+}
+
+declare void @QTNFree(ptr noundef) #3
+
+declare void @QTNClearFlags(ptr noundef, i32 noundef) #3
+
+declare void @SPI_freetuptable(ptr noundef) #3
+
+declare void @SPI_cursor_close(ptr noundef) #3
+
+declare i32 @SPI_freeplan(ptr noundef) #3
+
+declare i32 @SPI_finish() #3
+
+declare void @QTNBinary(ptr noundef) #3
+
+declare ptr @QTN2QT(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @tsquery_rewrite(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %13, i64 0, i64 0
+  %15 = getelementptr inbounds nuw %struct.NullableDatum, ptr %14, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = call ptr @DatumGetTSQueryCopy(i64 noundef %16)
+  store ptr %17, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
+  %20 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %19, i64 0, i64 1
+  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %20, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8
+  %23 = call ptr @DatumGetTSQuery(i64 noundef %22)
+  store ptr %23, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %24, i32 0, i32 6
+  %26 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %25, i64 0, i64 2
+  %27 = getelementptr inbounds nuw %struct.NullableDatum, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  %29 = call ptr @DatumGetTSQuery(i64 noundef %28)
+  store ptr %29, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %30 = load ptr, ptr %4, align 8
+  store ptr %30, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store ptr null, ptr %10, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.TSQueryData, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %40, label %35
+
+35:                                               ; preds = %1
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.TSQueryData, ptr %36, i32 0, i32 1
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %56
+  br i1 %39, label %40, label %71
 
-40:                                               ; preds = %1
+40:                                               ; preds = %35, %1
   br label %41
 
 41:                                               ; preds = %40
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %43, i32 0, i32 6
-  %45 = getelementptr [0 x %struct.NullableDatum], ptr %44, i64 0, i64 1
-  %46 = getelementptr inbounds %struct.NullableDatum, ptr %45, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %43, i32 0, i32 6
+  %45 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %44, i64 0, i64 1
+  %46 = getelementptr inbounds nuw %struct.NullableDatum, ptr %45, i32 0, i32 0
   %47 = load i64, ptr %46, align 8
   %48 = call ptr @DatumGetPointer(i64 noundef %47)
   %49 = icmp ne ptr %42, %48
@@ -302,880 +1040,281 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef %0) #0 {
   br label %53
 
 53:                                               ; preds = %52
-  %54 = load ptr, ptr %6, align 8
-  %55 = call i64 @PointerGetDatum(ptr noundef %54)
-  store i64 %55, ptr %2, align 8
-  br label %323
+  br label %54
 
-56:                                               ; preds = %1
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr i8, ptr %57, i64 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr i8, ptr %59, i64 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.TSQueryData, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 4
-  %64 = sext i32 %63 to i64
-  %65 = mul i64 %64, 12
-  %66 = getelementptr i8, ptr %60, i64 %65
-  %67 = call ptr @QT2QTN(ptr noundef %58, ptr noundef %66)
-  store ptr %67, ptr %9, align 8
-  %68 = load ptr, ptr %9, align 8
-  call void @QTNTernary(ptr noundef %68)
-  %69 = load ptr, ptr %9, align 8
-  call void @QTNSort(ptr noundef %69)
-  %70 = load ptr, ptr %5, align 8
-  %71 = call ptr @text_to_cstring(ptr noundef %70)
-  store ptr %71, ptr %10, align 8
-  %72 = call i32 @SPI_connect()
-  %73 = load ptr, ptr %10, align 8
-  %74 = call ptr @SPI_prepare(ptr noundef %73, i32 noundef 0, ptr noundef null)
-  store ptr %74, ptr %11, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %87
+54:                                               ; preds = %53
+  br label %55
 
-76:                                               ; preds = %56
-  br label %77
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %57, i32 0, i32 6
+  %59 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %58, i64 0, i64 2
+  %60 = getelementptr inbounds nuw %struct.NullableDatum, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = call ptr @DatumGetPointer(i64 noundef %61)
+  %63 = icmp ne ptr %56, %62
+  br i1 %63, label %64, label %66
 
-77:                                               ; preds = %76
-  br i1 true, label %78, label %80
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %65)
+  br label %66
 
-78:                                               ; preds = %77
-  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %79, label %82, label %85
+66:                                               ; preds = %64, %55
+  br label %67
 
-80:                                               ; preds = %77
-  %81 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %81, label %82, label %85
+67:                                               ; preds = %66
+  br label %68
 
-82:                                               ; preds = %80, %78
-  %83 = load ptr, ptr %10, align 8
-  %84 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, ptr noundef %83)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 308, ptr noundef @__func__.tsquery_rewrite_query)
-  br label %85
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %7, align 8
+  %70 = call i64 @PointerGetDatum(ptr noundef %69)
+  store i64 %70, ptr %2, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
 
-85:                                               ; preds = %82, %80, %78
-  unreachable
+71:                                               ; preds = %35
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw %struct.TSQueryData, ptr %76, i32 0, i32 1
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = mul i64 %79, 12
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 %80
+  %82 = call ptr @QT2QTN(ptr noundef %73, ptr noundef %81)
+  store ptr %82, ptr %8, align 8
+  %83 = load ptr, ptr %8, align 8
+  call void @QTNTernary(ptr noundef %83)
+  %84 = load ptr, ptr %8, align 8
+  call void @QTNSort(ptr noundef %84)
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds nuw %struct.TSQueryData, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = mul i64 %92, 12
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 %93
+  %95 = call ptr @QT2QTN(ptr noundef %86, ptr noundef %94)
+  store ptr %95, ptr %9, align 8
+  %96 = load ptr, ptr %9, align 8
+  call void @QTNTernary(ptr noundef %96)
+  %97 = load ptr, ptr %9, align 8
+  call void @QTNSort(ptr noundef %97)
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds nuw %struct.TSQueryData, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %114
 
-86:                                               ; No predecessors!
-  br label %87
+102:                                              ; preds = %71
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = getelementptr inbounds nuw %struct.TSQueryData, ptr %107, i32 0, i32 1
+  %109 = load i32, ptr %108, align 4
+  %110 = sext i32 %109 to i64
+  %111 = mul i64 %110, 12
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 %111
+  %113 = call ptr @QT2QTN(ptr noundef %104, ptr noundef %112)
+  store ptr %113, ptr %10, align 8
+  br label %114
 
-87:                                               ; preds = %86, %56
-  %88 = load ptr, ptr %11, align 8
-  %89 = call ptr @SPI_cursor_open(ptr noundef null, ptr noundef %88, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-  store ptr %89, ptr %12, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %102
+114:                                              ; preds = %102, %71
+  %115 = load ptr, ptr %8, align 8
+  %116 = load ptr, ptr %9, align 8
+  %117 = load ptr, ptr %10, align 8
+  %118 = call ptr @findsubquery(ptr noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef null)
+  store ptr %118, ptr %8, align 8
+  %119 = load ptr, ptr %9, align 8
+  call void @QTNFree(ptr noundef %119)
+  %120 = load ptr, ptr %10, align 8
+  call void @QTNFree(ptr noundef %120)
+  %121 = load ptr, ptr %8, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %158, label %123
 
-91:                                               ; preds = %87
-  br label %92
+123:                                              ; preds = %114
+  %124 = load ptr, ptr %7, align 8
+  %125 = getelementptr inbounds nuw %struct.anon, ptr %124, i32 0, i32 0
+  store i32 32, ptr %125, align 4
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds nuw %struct.TSQueryData, ptr %126, i32 0, i32 1
+  store i32 0, ptr %127, align 4
+  br label %128
 
-92:                                               ; preds = %91
-  br i1 true, label %93, label %95
+128:                                              ; preds = %123
+  %129 = load ptr, ptr %5, align 8
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %130, i32 0, i32 6
+  %132 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %131, i64 0, i64 1
+  %133 = getelementptr inbounds nuw %struct.NullableDatum, ptr %132, i32 0, i32 0
+  %134 = load i64, ptr %133, align 8
+  %135 = call ptr @DatumGetPointer(i64 noundef %134)
+  %136 = icmp ne ptr %129, %135
+  br i1 %136, label %137, label %139
 
-93:                                               ; preds = %92
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %94, label %97, label %100
+137:                                              ; preds = %128
+  %138 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %138)
+  br label %139
 
-95:                                               ; preds = %92
-  %96 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %96, label %97, label %100
+139:                                              ; preds = %137, %128
+  br label %140
 
-97:                                               ; preds = %95, %93
-  %98 = load ptr, ptr %10, align 8
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %98)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 311, ptr noundef @__func__.tsquery_rewrite_query)
-  br label %100
+140:                                              ; preds = %139
+  br label %141
 
-100:                                              ; preds = %97, %95, %93
-  unreachable
+141:                                              ; preds = %140
+  br label %142
 
-101:                                              ; No predecessors!
-  br label %102
+142:                                              ; preds = %141
+  %143 = load ptr, ptr %6, align 8
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %144, i32 0, i32 6
+  %146 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %145, i64 0, i64 2
+  %147 = getelementptr inbounds nuw %struct.NullableDatum, ptr %146, i32 0, i32 0
+  %148 = load i64, ptr %147, align 8
+  %149 = call ptr @DatumGetPointer(i64 noundef %148)
+  %150 = icmp ne ptr %143, %149
+  br i1 %150, label %151, label %153
 
-102:                                              ; preds = %101, %87
-  %103 = load ptr, ptr %12, align 8
-  call void @SPI_cursor_fetch(ptr noundef %103, i1 noundef zeroext true, i64 noundef 100)
-  %104 = load ptr, ptr @SPI_tuptable, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %125, label %106
-
-106:                                              ; preds = %102
-  %107 = load ptr, ptr @SPI_tuptable, align 8
-  %108 = getelementptr inbounds %struct.SPITupleTable, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.TupleDescData, ptr %109, i32 0, i32 0
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp ne i32 %111, 2
-  br i1 %112, label %125, label %113
-
-113:                                              ; preds = %106
-  %114 = load ptr, ptr @SPI_tuptable, align 8
-  %115 = getelementptr inbounds %struct.SPITupleTable, ptr %114, i32 0, i32 0
-  %116 = load ptr, ptr %115, align 8
-  %117 = call i32 @SPI_gettypeid(ptr noundef %116, i32 noundef 1)
-  %118 = icmp ne i32 %117, 3615
-  br i1 %118, label %125, label %119
-
-119:                                              ; preds = %113
-  %120 = load ptr, ptr @SPI_tuptable, align 8
-  %121 = getelementptr inbounds %struct.SPITupleTable, ptr %120, i32 0, i32 0
-  %122 = load ptr, ptr %121, align 8
-  %123 = call i32 @SPI_gettypeid(ptr noundef %122, i32 noundef 2)
-  %124 = icmp ne i32 %123, 3615
-  br i1 %124, label %125, label %136
-
-125:                                              ; preds = %119, %113, %106, %102
-  br label %126
-
-126:                                              ; preds = %125
-  br i1 true, label %127, label %129
-
-127:                                              ; preds = %126
-  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %128, label %131, label %134
-
-129:                                              ; preds = %126
-  %130 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %130, label %131, label %134
-
-131:                                              ; preds = %129, %127
-  %132 = call i32 @errcode(i32 noundef 50856066)
-  %133 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 321, ptr noundef @__func__.tsquery_rewrite_query)
-  br label %134
-
-134:                                              ; preds = %131, %129, %127
-  unreachable
-
-135:                                              ; No predecessors!
-  br label %136
-
-136:                                              ; preds = %135, %119
-  br label %137
-
-137:                                              ; preds = %272, %136
-  %138 = load i64, ptr @SPI_processed, align 8
-  %139 = icmp ugt i64 %138, 0
-  br i1 %139, label %140, label %143
-
-140:                                              ; preds = %137
-  %141 = load ptr, ptr %9, align 8
-  %142 = icmp ne ptr %141, null
-  br label %143
-
-143:                                              ; preds = %140, %137
-  %144 = phi i1 [ false, %137 ], [ %142, %140 ]
-  br i1 %144, label %145, label %275
-
-145:                                              ; preds = %143
-  store i64 0, ptr %14, align 8
-  br label %146
-
-146:                                              ; preds = %269, %145
-  %147 = load i64, ptr %14, align 8
-  %148 = load i64, ptr @SPI_processed, align 8
-  %149 = icmp ult i64 %147, %148
-  br i1 %149, label %150, label %153
-
-150:                                              ; preds = %146
-  %151 = load ptr, ptr %9, align 8
-  %152 = icmp ne ptr %151, null
+151:                                              ; preds = %142
+  %152 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %152)
   br label %153
 
-153:                                              ; preds = %150, %146
-  %154 = phi i1 [ false, %146 ], [ %152, %150 ]
-  br i1 %154, label %155, label %272
+153:                                              ; preds = %151, %142
+  br label %154
 
-155:                                              ; preds = %153
-  %156 = load ptr, ptr @SPI_tuptable, align 8
-  %157 = getelementptr inbounds %struct.SPITupleTable, ptr %156, i32 0, i32 1
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i64, ptr %14, align 8
-  %160 = getelementptr ptr, ptr %158, i64 %159
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr @SPI_tuptable, align 8
-  %163 = getelementptr inbounds %struct.SPITupleTable, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  %165 = call i64 @SPI_getbinval(ptr noundef %161, ptr noundef %164, i32 noundef 1, ptr noundef %13)
-  store i64 %165, ptr %15, align 8
-  %166 = load i8, ptr %13, align 1
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %169
+154:                                              ; preds = %153
+  br label %155
 
-168:                                              ; preds = %155
-  br label %269
+155:                                              ; preds = %154
+  %156 = load ptr, ptr %7, align 8
+  %157 = call i64 @PointerGetDatum(ptr noundef %156)
+  store i64 %157, ptr %2, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
 
-169:                                              ; preds = %155
-  %170 = load ptr, ptr @SPI_tuptable, align 8
-  %171 = getelementptr inbounds %struct.SPITupleTable, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = load i64, ptr %14, align 8
-  %174 = getelementptr ptr, ptr %172, i64 %173
-  %175 = load ptr, ptr %174, align 8
-  %176 = load ptr, ptr @SPI_tuptable, align 8
-  %177 = getelementptr inbounds %struct.SPITupleTable, ptr %176, i32 0, i32 0
-  %178 = load ptr, ptr %177, align 8
-  %179 = call i64 @SPI_getbinval(ptr noundef %175, ptr noundef %178, i32 noundef 2, ptr noundef %13)
-  store i64 %179, ptr %16, align 8
-  %180 = load i8, ptr %13, align 1
-  %181 = trunc i8 %180 to i1
-  br i1 %181, label %268, label %182
+158:                                              ; preds = %114
+  %159 = load ptr, ptr %8, align 8
+  call void @QTNBinary(ptr noundef %159)
+  %160 = load ptr, ptr %8, align 8
+  %161 = call ptr @QTN2QT(ptr noundef %160)
+  store ptr %161, ptr %7, align 8
+  %162 = load ptr, ptr %8, align 8
+  call void @QTNFree(ptr noundef %162)
+  br label %163
 
-182:                                              ; preds = %169
-  %183 = load i64, ptr %15, align 8
-  %184 = call ptr @DatumGetTSQuery(i64 noundef %183)
-  store ptr %184, ptr %17, align 8
-  %185 = load i64, ptr %16, align 8
-  %186 = call ptr @DatumGetTSQuery(i64 noundef %185)
-  store ptr %186, ptr %18, align 8
-  store ptr null, ptr %20, align 8
-  %187 = load ptr, ptr %17, align 8
-  %188 = getelementptr inbounds %struct.TSQueryData, ptr %187, i32 0, i32 1
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %206
+163:                                              ; preds = %158
+  br label %164
 
-191:                                              ; preds = %182
-  %192 = load ptr, ptr %17, align 8
-  %193 = load i64, ptr %15, align 8
-  %194 = call ptr @DatumGetPointer(i64 noundef %193)
-  %195 = icmp ne ptr %192, %194
-  br i1 %195, label %196, label %198
+164:                                              ; preds = %163
+  %165 = load ptr, ptr %4, align 8
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %166, i32 0, i32 6
+  %168 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %167, i64 0, i64 0
+  %169 = getelementptr inbounds nuw %struct.NullableDatum, ptr %168, i32 0, i32 0
+  %170 = load i64, ptr %169, align 8
+  %171 = call ptr @DatumGetPointer(i64 noundef %170)
+  %172 = icmp ne ptr %165, %171
+  br i1 %172, label %173, label %175
 
-196:                                              ; preds = %191
-  %197 = load ptr, ptr %17, align 8
-  call void @pfree(ptr noundef %197)
-  br label %198
+173:                                              ; preds = %164
+  %174 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %174)
+  br label %175
 
-198:                                              ; preds = %196, %191
-  %199 = load ptr, ptr %18, align 8
-  %200 = load i64, ptr %16, align 8
-  %201 = call ptr @DatumGetPointer(i64 noundef %200)
-  %202 = icmp ne ptr %199, %201
-  br i1 %202, label %203, label %205
+175:                                              ; preds = %173, %164
+  br label %176
 
-203:                                              ; preds = %198
-  %204 = load ptr, ptr %18, align 8
-  call void @pfree(ptr noundef %204)
+176:                                              ; preds = %175
+  br label %177
+
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177
+  %179 = load ptr, ptr %5, align 8
+  %180 = load ptr, ptr %3, align 8
+  %181 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %180, i32 0, i32 6
+  %182 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %181, i64 0, i64 1
+  %183 = getelementptr inbounds nuw %struct.NullableDatum, ptr %182, i32 0, i32 0
+  %184 = load i64, ptr %183, align 8
+  %185 = call ptr @DatumGetPointer(i64 noundef %184)
+  %186 = icmp ne ptr %179, %185
+  br i1 %186, label %187, label %189
+
+187:                                              ; preds = %178
+  %188 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %188)
+  br label %189
+
+189:                                              ; preds = %187, %178
+  br label %190
+
+190:                                              ; preds = %189
+  br label %191
+
+191:                                              ; preds = %190
+  br label %192
+
+192:                                              ; preds = %191
+  %193 = load ptr, ptr %6, align 8
+  %194 = load ptr, ptr %3, align 8
+  %195 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %194, i32 0, i32 6
+  %196 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %195, i64 0, i64 2
+  %197 = getelementptr inbounds nuw %struct.NullableDatum, ptr %196, i32 0, i32 0
+  %198 = load i64, ptr %197, align 8
+  %199 = call ptr @DatumGetPointer(i64 noundef %198)
+  %200 = icmp ne ptr %193, %199
+  br i1 %200, label %201, label %203
+
+201:                                              ; preds = %192
+  %202 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %202)
+  br label %203
+
+203:                                              ; preds = %201, %192
+  br label %204
+
+204:                                              ; preds = %203
   br label %205
 
-205:                                              ; preds = %203, %198
-  br label %269
+205:                                              ; preds = %204
+  %206 = load ptr, ptr %7, align 8
+  %207 = call i64 @PointerGetDatum(ptr noundef %206)
+  store i64 %207, ptr %2, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
 
-206:                                              ; preds = %182
-  %207 = load ptr, ptr %17, align 8
-  %208 = getelementptr i8, ptr %207, i64 8
-  %209 = load ptr, ptr %17, align 8
-  %210 = getelementptr i8, ptr %209, i64 8
-  %211 = load ptr, ptr %17, align 8
-  %212 = getelementptr inbounds %struct.TSQueryData, ptr %211, i32 0, i32 1
-  %213 = load i32, ptr %212, align 4
-  %214 = sext i32 %213 to i64
-  %215 = mul i64 %214, 12
-  %216 = getelementptr i8, ptr %210, i64 %215
-  %217 = call ptr @QT2QTN(ptr noundef %208, ptr noundef %216)
-  store ptr %217, ptr %19, align 8
-  %218 = load ptr, ptr %19, align 8
-  call void @QTNTernary(ptr noundef %218)
-  %219 = load ptr, ptr %19, align 8
-  call void @QTNSort(ptr noundef %219)
-  %220 = load ptr, ptr %18, align 8
-  %221 = getelementptr inbounds %struct.TSQueryData, ptr %220, i32 0, i32 1
-  %222 = load i32, ptr %221, align 4
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %224, label %236
-
-224:                                              ; preds = %206
-  %225 = load ptr, ptr %18, align 8
-  %226 = getelementptr i8, ptr %225, i64 8
-  %227 = load ptr, ptr %18, align 8
-  %228 = getelementptr i8, ptr %227, i64 8
-  %229 = load ptr, ptr %18, align 8
-  %230 = getelementptr inbounds %struct.TSQueryData, ptr %229, i32 0, i32 1
-  %231 = load i32, ptr %230, align 4
-  %232 = sext i32 %231 to i64
-  %233 = mul i64 %232, 12
-  %234 = getelementptr i8, ptr %228, i64 %233
-  %235 = call ptr @QT2QTN(ptr noundef %226, ptr noundef %234)
-  store ptr %235, ptr %20, align 8
-  br label %236
-
-236:                                              ; preds = %224, %206
-  %237 = load ptr, ptr %7, align 8
-  %238 = call ptr @MemoryContextSwitchTo(ptr noundef %237)
-  store ptr %238, ptr %8, align 8
-  %239 = load ptr, ptr %9, align 8
-  %240 = load ptr, ptr %19, align 8
-  %241 = load ptr, ptr %20, align 8
-  %242 = call ptr @findsubquery(ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef null)
-  store ptr %242, ptr %9, align 8
-  %243 = load ptr, ptr %8, align 8
-  %244 = call ptr @MemoryContextSwitchTo(ptr noundef %243)
-  %245 = load ptr, ptr %19, align 8
-  call void @QTNFree(ptr noundef %245)
-  %246 = load ptr, ptr %17, align 8
-  %247 = load i64, ptr %15, align 8
-  %248 = call ptr @DatumGetPointer(i64 noundef %247)
-  %249 = icmp ne ptr %246, %248
-  br i1 %249, label %250, label %252
-
-250:                                              ; preds = %236
-  %251 = load ptr, ptr %17, align 8
-  call void @pfree(ptr noundef %251)
-  br label %252
-
-252:                                              ; preds = %250, %236
-  %253 = load ptr, ptr %20, align 8
-  call void @QTNFree(ptr noundef %253)
-  %254 = load ptr, ptr %18, align 8
-  %255 = load i64, ptr %16, align 8
-  %256 = call ptr @DatumGetPointer(i64 noundef %255)
-  %257 = icmp ne ptr %254, %256
-  br i1 %257, label %258, label %260
-
-258:                                              ; preds = %252
-  %259 = load ptr, ptr %18, align 8
-  call void @pfree(ptr noundef %259)
-  br label %260
-
-260:                                              ; preds = %258, %252
-  %261 = load ptr, ptr %9, align 8
-  %262 = icmp ne ptr %261, null
-  br i1 %262, label %263, label %267
-
-263:                                              ; preds = %260
-  %264 = load ptr, ptr %9, align 8
-  call void @QTNClearFlags(ptr noundef %264, i32 noundef 2)
-  %265 = load ptr, ptr %9, align 8
-  call void @QTNTernary(ptr noundef %265)
-  %266 = load ptr, ptr %9, align 8
-  call void @QTNSort(ptr noundef %266)
-  br label %267
-
-267:                                              ; preds = %263, %260
-  br label %268
-
-268:                                              ; preds = %267, %169
-  br label %269
-
-269:                                              ; preds = %268, %205, %168
-  %270 = load i64, ptr %14, align 8
-  %271 = add i64 %270, 1
-  store i64 %271, ptr %14, align 8
-  br label %146, !llvm.loop !7
-
-272:                                              ; preds = %153
-  %273 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %273)
-  %274 = load ptr, ptr %12, align 8
-  call void @SPI_cursor_fetch(ptr noundef %274, i1 noundef zeroext true, i64 noundef 100)
-  br label %137, !llvm.loop !8
-
-275:                                              ; preds = %143
-  %276 = load ptr, ptr @SPI_tuptable, align 8
-  call void @SPI_freetuptable(ptr noundef %276)
-  %277 = load ptr, ptr %12, align 8
-  call void @SPI_cursor_close(ptr noundef %277)
-  %278 = load ptr, ptr %11, align 8
-  %279 = call i32 @SPI_freeplan(ptr noundef %278)
-  %280 = call i32 @SPI_finish()
-  %281 = load ptr, ptr %9, align 8
-  %282 = icmp ne ptr %281, null
-  br i1 %282, label %283, label %301
-
-283:                                              ; preds = %275
-  %284 = load ptr, ptr %9, align 8
-  call void @QTNBinary(ptr noundef %284)
-  %285 = load ptr, ptr %9, align 8
-  %286 = call ptr @QTN2QT(ptr noundef %285)
-  store ptr %286, ptr %6, align 8
-  %287 = load ptr, ptr %9, align 8
-  call void @QTNFree(ptr noundef %287)
-  br label %288
-
-288:                                              ; preds = %283
-  %289 = load ptr, ptr %4, align 8
-  %290 = load ptr, ptr %3, align 8
-  %291 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %290, i32 0, i32 6
-  %292 = getelementptr [0 x %struct.NullableDatum], ptr %291, i64 0, i64 0
-  %293 = getelementptr inbounds %struct.NullableDatum, ptr %292, i32 0, i32 0
-  %294 = load i64, ptr %293, align 8
-  %295 = call ptr @DatumGetPointer(i64 noundef %294)
-  %296 = icmp ne ptr %289, %295
-  br i1 %296, label %297, label %299
-
-297:                                              ; preds = %288
-  %298 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %298)
-  br label %299
-
-299:                                              ; preds = %297, %288
-  br label %300
-
-300:                                              ; preds = %299
-  br label %306
-
-301:                                              ; preds = %275
-  %302 = load ptr, ptr %6, align 8
-  %303 = getelementptr inbounds %struct.anon, ptr %302, i32 0, i32 0
-  store i32 32, ptr %303, align 4
-  %304 = load ptr, ptr %6, align 8
-  %305 = getelementptr inbounds %struct.TSQueryData, ptr %304, i32 0, i32 1
-  store i32 0, ptr %305, align 4
-  br label %306
-
-306:                                              ; preds = %301, %300
-  %307 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %307)
-  br label %308
-
-308:                                              ; preds = %306
-  %309 = load ptr, ptr %5, align 8
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %310, i32 0, i32 6
-  %312 = getelementptr [0 x %struct.NullableDatum], ptr %311, i64 0, i64 1
-  %313 = getelementptr inbounds %struct.NullableDatum, ptr %312, i32 0, i32 0
-  %314 = load i64, ptr %313, align 8
-  %315 = call ptr @DatumGetPointer(i64 noundef %314)
-  %316 = icmp ne ptr %309, %315
-  br i1 %316, label %317, label %319
-
-317:                                              ; preds = %308
-  %318 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %318)
-  br label %319
-
-319:                                              ; preds = %317, %308
-  br label %320
-
-320:                                              ; preds = %319
-  %321 = load ptr, ptr %6, align 8
-  %322 = call i64 @PointerGetDatum(ptr noundef %321)
-  store i64 %322, ptr %2, align 8
-  br label %323
-
-323:                                              ; preds = %320, %53
-  %324 = load i64, ptr %2, align 8
-  ret i64 %324
+208:                                              ; preds = %205, %155, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %209 = load i64, ptr %2, align 8
+  ret i64 %209
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetTSQueryCopy(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call ptr @DatumGetPointer(i64 noundef %3)
-  %5 = call ptr @pg_detoast_datum_copy(ptr noundef %4)
-  ret ptr %5
-}
+declare void @check_stack_depth() #3
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
-}
-
-declare void @pfree(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %3 to i64
-  ret i64 %4
-}
-
-declare ptr @QT2QTN(ptr noundef, ptr noundef) #1
-
-declare void @QTNTernary(ptr noundef) #1
-
-declare void @QTNSort(ptr noundef) #1
-
-declare ptr @text_to_cstring(ptr noundef) #1
-
-declare i32 @SPI_connect() #1
-
-declare ptr @SPI_prepare(ptr noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
-
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
-
-declare i32 @errmsg_internal(ptr noundef, ...) #1
-
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
-
-declare ptr @SPI_cursor_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #1
-
-declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) #1
-
-declare i32 @SPI_gettypeid(ptr noundef, i32 noundef) #1
-
-declare i32 @errcode(i32 noundef) #1
-
-declare i32 @errmsg(ptr noundef, ...) #1
-
-declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetTSQuery(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call ptr @DatumGetPointer(i64 noundef %3)
-  ret ptr %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  store ptr %5, ptr @CurrentMemoryContext, align 8
-  %6 = load ptr, ptr %3, align 8
-  ret ptr %6
-}
-
-declare void @QTNFree(ptr noundef) #1
-
-declare void @QTNClearFlags(ptr noundef, i32 noundef) #1
-
-declare void @SPI_freetuptable(ptr noundef) #1
-
-declare void @SPI_cursor_close(ptr noundef) #1
-
-declare i32 @SPI_freeplan(ptr noundef) #1
-
-declare i32 @SPI_finish() #1
-
-declare void @QTNBinary(ptr noundef) #1
-
-declare ptr @QTN2QT(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_rewrite(ptr noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
-  %13 = getelementptr [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
-  %14 = getelementptr inbounds %struct.NullableDatum, ptr %13, i32 0, i32 0
-  %15 = load i64, ptr %14, align 8
-  %16 = call ptr @DatumGetTSQueryCopy(i64 noundef %15)
-  store ptr %16, ptr %4, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 6
-  %19 = getelementptr [0 x %struct.NullableDatum], ptr %18, i64 0, i64 1
-  %20 = getelementptr inbounds %struct.NullableDatum, ptr %19, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = call ptr @DatumGetTSQuery(i64 noundef %21)
-  store ptr %22, ptr %5, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
-  %25 = getelementptr [0 x %struct.NullableDatum], ptr %24, i64 0, i64 2
-  %26 = getelementptr inbounds %struct.NullableDatum, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  %28 = call ptr @DatumGetTSQuery(i64 noundef %27)
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %4, align 8
-  store ptr %29, ptr %7, align 8
-  store ptr null, ptr %10, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.TSQueryData, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %39, label %34
-
-34:                                               ; preds = %1
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.TSQueryData, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %68
-
-39:                                               ; preds = %34, %1
-  br label %40
-
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %42, i32 0, i32 6
-  %44 = getelementptr [0 x %struct.NullableDatum], ptr %43, i64 0, i64 1
-  %45 = getelementptr inbounds %struct.NullableDatum, ptr %44, i32 0, i32 0
-  %46 = load i64, ptr %45, align 8
-  %47 = call ptr @DatumGetPointer(i64 noundef %46)
-  %48 = icmp ne ptr %41, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %50)
-  br label %51
-
-51:                                               ; preds = %49, %40
-  br label %52
-
-52:                                               ; preds = %51
-  br label %53
-
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %6, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %55, i32 0, i32 6
-  %57 = getelementptr [0 x %struct.NullableDatum], ptr %56, i64 0, i64 2
-  %58 = getelementptr inbounds %struct.NullableDatum, ptr %57, i32 0, i32 0
-  %59 = load i64, ptr %58, align 8
-  %60 = call ptr @DatumGetPointer(i64 noundef %59)
-  %61 = icmp ne ptr %54, %60
-  br i1 %61, label %62, label %64
-
-62:                                               ; preds = %53
-  %63 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %63)
-  br label %64
-
-64:                                               ; preds = %62, %53
-  br label %65
-
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %7, align 8
-  %67 = call i64 @PointerGetDatum(ptr noundef %66)
-  store i64 %67, ptr %2, align 8
-  br label %200
-
-68:                                               ; preds = %34
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr i8, ptr %69, i64 8
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr i8, ptr %71, i64 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.TSQueryData, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = sext i32 %75 to i64
-  %77 = mul i64 %76, 12
-  %78 = getelementptr i8, ptr %72, i64 %77
-  %79 = call ptr @QT2QTN(ptr noundef %70, ptr noundef %78)
-  store ptr %79, ptr %8, align 8
-  %80 = load ptr, ptr %8, align 8
-  call void @QTNTernary(ptr noundef %80)
-  %81 = load ptr, ptr %8, align 8
-  call void @QTNSort(ptr noundef %81)
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr i8, ptr %82, i64 8
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr i8, ptr %84, i64 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.TSQueryData, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 4
-  %89 = sext i32 %88 to i64
-  %90 = mul i64 %89, 12
-  %91 = getelementptr i8, ptr %85, i64 %90
-  %92 = call ptr @QT2QTN(ptr noundef %83, ptr noundef %91)
-  store ptr %92, ptr %9, align 8
-  %93 = load ptr, ptr %9, align 8
-  call void @QTNTernary(ptr noundef %93)
-  %94 = load ptr, ptr %9, align 8
-  call void @QTNSort(ptr noundef %94)
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.TSQueryData, ptr %95, i32 0, i32 1
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %111
-
-99:                                               ; preds = %68
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr i8, ptr %100, i64 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr i8, ptr %102, i64 8
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.TSQueryData, ptr %104, i32 0, i32 1
-  %106 = load i32, ptr %105, align 4
-  %107 = sext i32 %106 to i64
-  %108 = mul i64 %107, 12
-  %109 = getelementptr i8, ptr %103, i64 %108
-  %110 = call ptr @QT2QTN(ptr noundef %101, ptr noundef %109)
-  store ptr %110, ptr %10, align 8
-  br label %111
-
-111:                                              ; preds = %99, %68
-  %112 = load ptr, ptr %8, align 8
-  %113 = load ptr, ptr %9, align 8
-  %114 = load ptr, ptr %10, align 8
-  %115 = call ptr @findsubquery(ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef null)
-  store ptr %115, ptr %8, align 8
-  %116 = load ptr, ptr %9, align 8
-  call void @QTNFree(ptr noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  call void @QTNFree(ptr noundef %117)
-  %118 = load ptr, ptr %8, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %153, label %120
-
-120:                                              ; preds = %111
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.anon, ptr %121, i32 0, i32 0
-  store i32 32, ptr %122, align 4
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.TSQueryData, ptr %123, i32 0, i32 1
-  store i32 0, ptr %124, align 4
-  br label %125
-
-125:                                              ; preds = %120
-  %126 = load ptr, ptr %5, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %127, i32 0, i32 6
-  %129 = getelementptr [0 x %struct.NullableDatum], ptr %128, i64 0, i64 1
-  %130 = getelementptr inbounds %struct.NullableDatum, ptr %129, i32 0, i32 0
-  %131 = load i64, ptr %130, align 8
-  %132 = call ptr @DatumGetPointer(i64 noundef %131)
-  %133 = icmp ne ptr %126, %132
-  br i1 %133, label %134, label %136
-
-134:                                              ; preds = %125
-  %135 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %135)
-  br label %136
-
-136:                                              ; preds = %134, %125
-  br label %137
-
-137:                                              ; preds = %136
-  br label %138
-
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %140, i32 0, i32 6
-  %142 = getelementptr [0 x %struct.NullableDatum], ptr %141, i64 0, i64 2
-  %143 = getelementptr inbounds %struct.NullableDatum, ptr %142, i32 0, i32 0
-  %144 = load i64, ptr %143, align 8
-  %145 = call ptr @DatumGetPointer(i64 noundef %144)
-  %146 = icmp ne ptr %139, %145
-  br i1 %146, label %147, label %149
-
-147:                                              ; preds = %138
-  %148 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %148)
-  br label %149
-
-149:                                              ; preds = %147, %138
-  br label %150
-
-150:                                              ; preds = %149
-  %151 = load ptr, ptr %7, align 8
-  %152 = call i64 @PointerGetDatum(ptr noundef %151)
-  store i64 %152, ptr %2, align 8
-  br label %200
-
-153:                                              ; preds = %111
-  %154 = load ptr, ptr %8, align 8
-  call void @QTNBinary(ptr noundef %154)
-  %155 = load ptr, ptr %8, align 8
-  %156 = call ptr @QTN2QT(ptr noundef %155)
-  store ptr %156, ptr %7, align 8
-  %157 = load ptr, ptr %8, align 8
-  call void @QTNFree(ptr noundef %157)
-  br label %158
-
-158:                                              ; preds = %153
-  br label %159
-
-159:                                              ; preds = %158
-  %160 = load ptr, ptr %4, align 8
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %161, i32 0, i32 6
-  %163 = getelementptr [0 x %struct.NullableDatum], ptr %162, i64 0, i64 0
-  %164 = getelementptr inbounds %struct.NullableDatum, ptr %163, i32 0, i32 0
-  %165 = load i64, ptr %164, align 8
-  %166 = call ptr @DatumGetPointer(i64 noundef %165)
-  %167 = icmp ne ptr %160, %166
-  br i1 %167, label %168, label %170
-
-168:                                              ; preds = %159
-  %169 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %169)
-  br label %170
-
-170:                                              ; preds = %168, %159
-  br label %171
-
-171:                                              ; preds = %170
-  br label %172
-
-172:                                              ; preds = %171
-  %173 = load ptr, ptr %5, align 8
-  %174 = load ptr, ptr %3, align 8
-  %175 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %174, i32 0, i32 6
-  %176 = getelementptr [0 x %struct.NullableDatum], ptr %175, i64 0, i64 1
-  %177 = getelementptr inbounds %struct.NullableDatum, ptr %176, i32 0, i32 0
-  %178 = load i64, ptr %177, align 8
-  %179 = call ptr @DatumGetPointer(i64 noundef %178)
-  %180 = icmp ne ptr %173, %179
-  br i1 %180, label %181, label %183
-
-181:                                              ; preds = %172
-  %182 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %182)
-  br label %183
-
-183:                                              ; preds = %181, %172
-  br label %184
-
-184:                                              ; preds = %183
-  br label %185
-
-185:                                              ; preds = %184
-  %186 = load ptr, ptr %6, align 8
-  %187 = load ptr, ptr %3, align 8
-  %188 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %187, i32 0, i32 6
-  %189 = getelementptr [0 x %struct.NullableDatum], ptr %188, i64 0, i64 2
-  %190 = getelementptr inbounds %struct.NullableDatum, ptr %189, i32 0, i32 0
-  %191 = load i64, ptr %190, align 8
-  %192 = call ptr @DatumGetPointer(i64 noundef %191)
-  %193 = icmp ne ptr %186, %192
-  br i1 %193, label %194, label %196
-
-194:                                              ; preds = %185
-  %195 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %195)
-  br label %196
-
-196:                                              ; preds = %194, %185
-  br label %197
-
-197:                                              ; preds = %196
-  %198 = load ptr, ptr %7, align 8
-  %199 = call i64 @PointerGetDatum(ptr noundef %198)
-  store i64 %199, ptr %2, align 8
-  br label %200
-
-200:                                              ; preds = %197, %150, %65
-  %201 = load i64, ptr %2, align 8
-  ret i64 %201
-}
-
-declare void @check_stack_depth() #1
-
-declare void @ProcessInterrupts() #1
+declare void @ProcessInterrupts() #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @findeq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1189,449 +1328,480 @@ define internal ptr @findeq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.QTNode, ptr %15, i32 0, i32 4
-  %17 = load i32, ptr %16, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct.QTNode, ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %17, %20
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.QTNode, ptr %22, i32 0, i32 4
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp ne i32 %21, %24
-  br i1 %25, label %38, label %26
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %struct.QTNode, ptr %16, i32 0, i32 4
+  %18 = load i32, ptr %17, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.QTNode, ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %18, %21
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.QTNode, ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %22, %25
+  br i1 %26, label %39, label %27
 
-26:                                               ; preds = %4
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.QTNode, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i8, ptr %29, align 4
-  %31 = sext i8 %30 to i32
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.QTNode, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i8, ptr %34, align 4
-  %36 = sext i8 %35 to i32
-  %37 = icmp ne i32 %31, %36
-  br i1 %37, label %38, label %40
+27:                                               ; preds = %4
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %struct.QTNode, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i8, ptr %30, align 4
+  %32 = sext i8 %31 to i32
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds nuw %struct.QTNode, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i8, ptr %35, align 4
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %32, %37
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %26, %4
-  %39 = load ptr, ptr %6, align 8
-  store ptr %39, ptr %5, align 8
-  br label %281
+39:                                               ; preds = %27, %4
+  %40 = load ptr, ptr %6, align 8
+  store ptr %40, ptr %5, align 8
+  br label %285
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.QTNode, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = and i32 %43, 2
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %48
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.QTNode, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 2
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %6, align 8
-  store ptr %47, ptr %5, align 8
-  br label %281
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %6, align 8
+  store ptr %48, ptr %5, align 8
+  br label %285
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.QTNode, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i8, ptr %51, align 4
-  %53 = sext i8 %52 to i32
-  %54 = icmp eq i32 %53, 2
-  br i1 %54, label %55, label %245
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds nuw %struct.QTNode, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i8, ptr %52, align 4
+  %54 = sext i8 %53 to i32
+  %55 = icmp eq i32 %54, 2
+  br i1 %55, label %56, label %249
 
-55:                                               ; preds = %48
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct.QTNode, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.QueryOperator, ptr %58, i32 0, i32 1
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i32
-  %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds %struct.QTNode, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.QueryOperator, ptr %64, i32 0, i32 1
-  %66 = load i8, ptr %65, align 1
-  %67 = sext i8 %66 to i32
-  %68 = icmp ne i32 %61, %67
-  br i1 %68, label %69, label %71
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds nuw %struct.QTNode, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw %struct.QueryOperator, ptr %59, i32 0, i32 1
+  %61 = load i8, ptr %60, align 1
+  %62 = sext i8 %61 to i32
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct.QTNode, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw %struct.QueryOperator, ptr %65, i32 0, i32 1
+  %67 = load i8, ptr %66, align 1
+  %68 = sext i8 %67 to i32
+  %69 = icmp ne i32 %62, %68
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %55
-  %70 = load ptr, ptr %6, align 8
-  store ptr %70, ptr %5, align 8
-  br label %281
+70:                                               ; preds = %56
+  %71 = load ptr, ptr %6, align 8
+  store ptr %71, ptr %5, align 8
+  br label %285
 
-71:                                               ; preds = %55
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.QTNode, ptr %72, i32 0, i32 2
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.QTNode, ptr %75, i32 0, i32 2
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %74, %77
-  br i1 %78, label %79, label %98
+72:                                               ; preds = %56
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds nuw %struct.QTNode, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds nuw %struct.QTNode, ptr %76, i32 0, i32 2
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %75, %78
+  br i1 %79, label %80, label %99
 
-79:                                               ; preds = %71
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = call zeroext i1 @QTNEq(ptr noundef %80, ptr noundef %81)
-  br i1 %82, label %83, label %97
+80:                                               ; preds = %72
+  %81 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = call zeroext i1 @QTNEq(ptr noundef %81, ptr noundef %82)
+  br i1 %83, label %84, label %98
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %6, align 8
-  call void @QTNFree(ptr noundef %84)
-  %85 = load ptr, ptr %8, align 8
-  %86 = icmp ne ptr %85, null
-  br i1 %86, label %87, label %94
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %6, align 8
+  call void @QTNFree(ptr noundef %85)
+  %86 = load ptr, ptr %8, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %95
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %8, align 8
-  %89 = call ptr @QTNCopy(ptr noundef %88)
-  store ptr %89, ptr %6, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.QTNode, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 8
-  %93 = or i32 %92, 2
-  store i32 %93, ptr %91, align 8
-  br label %95
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %8, align 8
+  %90 = call ptr @QTNCopy(ptr noundef %89)
+  store ptr %90, ptr %6, align 8
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds nuw %struct.QTNode, ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %92, align 8
+  %94 = or i32 %93, 2
+  store i32 %94, ptr %92, align 8
+  br label %96
 
-94:                                               ; preds = %83
+95:                                               ; preds = %84
   store ptr null, ptr %6, align 8
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %87
-  %96 = load ptr, ptr %9, align 8
-  store i8 1, ptr %96, align 1
-  br label %97
+96:                                               ; preds = %95, %88
+  %97 = load ptr, ptr %9, align 8
+  store i8 1, ptr %97, align 1
+  br label %98
 
-97:                                               ; preds = %95, %79
-  br label %244
+98:                                               ; preds = %96, %80
+  br label %248
 
-98:                                               ; preds = %71
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.QTNode, ptr %99, i32 0, i32 2
-  %101 = load i32, ptr %100, align 4
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct.QTNode, ptr %102, i32 0, i32 2
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp sgt i32 %101, %104
-  br i1 %105, label %106, label %243
+99:                                               ; preds = %72
+  %100 = load ptr, ptr %6, align 8
+  %101 = getelementptr inbounds nuw %struct.QTNode, ptr %100, i32 0, i32 2
+  %102 = load i32, ptr %101, align 4
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct.QTNode, ptr %103, i32 0, i32 2
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp sgt i32 %102, %105
+  br i1 %106, label %107, label %247
 
-106:                                              ; preds = %98
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.QTNode, ptr %107, i32 0, i32 2
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %111, label %243
+107:                                              ; preds = %99
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds nuw %struct.QTNode, ptr %108, i32 0, i32 2
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp sgt i32 %110, 0
+  br i1 %111, label %112, label %247
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds %struct.QTNode, ptr %112, i32 0, i32 2
-  %114 = load i32, ptr %113, align 4
-  %115 = sext i32 %114 to i64
-  %116 = mul i64 %115, 1
-  %117 = call ptr @palloc0(i64 noundef %116)
-  store ptr %117, ptr %10, align 8
+112:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds nuw %struct.QTNode, ptr %113, i32 0, i32 2
+  %115 = load i32, ptr %114, align 4
+  %116 = sext i32 %115 to i64
+  %117 = mul i64 %116, 1
+  %118 = call ptr @palloc0(i64 noundef %117)
+  store ptr %118, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
-  br label %118
+  br label %119
 
-118:                                              ; preds = %169, %111
-  %119 = load i32, ptr %12, align 4
-  %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct.QTNode, ptr %120, i32 0, i32 2
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp slt i32 %119, %122
-  br i1 %123, label %124, label %130
+119:                                              ; preds = %173, %112
+  %120 = load i32, ptr %12, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds nuw %struct.QTNode, ptr %121, i32 0, i32 2
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp slt i32 %120, %123
+  br i1 %124, label %125, label %131
 
-124:                                              ; preds = %118
-  %125 = load i32, ptr %13, align 4
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.QTNode, ptr %126, i32 0, i32 2
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp slt i32 %125, %128
-  br label %130
+125:                                              ; preds = %119
+  %126 = load i32, ptr %13, align 4
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds nuw %struct.QTNode, ptr %127, i32 0, i32 2
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp slt i32 %126, %129
+  br label %131
 
-130:                                              ; preds = %124, %118
-  %131 = phi i1 [ false, %118 ], [ %129, %124 ]
-  br i1 %131, label %132, label %170
+131:                                              ; preds = %125, %119
+  %132 = phi i1 [ false, %119 ], [ %130, %125 ]
+  br i1 %132, label %133, label %174
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.QTNode, ptr %133, i32 0, i32 5
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i32, ptr %12, align 4
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr ptr, ptr %135, i64 %137
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.QTNode, ptr %140, i32 0, i32 5
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i32, ptr %13, align 4
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr ptr, ptr %142, i64 %144
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 @QTNodeCompare(ptr noundef %139, ptr noundef %146)
-  store i32 %147, ptr %14, align 4
-  %148 = load i32, ptr %14, align 4
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %161
+133:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds nuw %struct.QTNode, ptr %134, i32 0, i32 5
+  %136 = load ptr, ptr %135, align 8
+  %137 = load i32, ptr %12, align 4
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds ptr, ptr %136, i64 %138
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds nuw %struct.QTNode, ptr %141, i32 0, i32 5
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i32, ptr %13, align 4
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds ptr, ptr %143, i64 %145
+  %147 = load ptr, ptr %146, align 8
+  %148 = call i32 @QTNodeCompare(ptr noundef %140, ptr noundef %147)
+  store i32 %148, ptr %14, align 4
+  %149 = load i32, ptr %14, align 4
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %162
 
-150:                                              ; preds = %132
-  %151 = load ptr, ptr %10, align 8
-  %152 = load i32, ptr %12, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr i8, ptr %151, i64 %153
-  store i8 1, ptr %154, align 1
-  %155 = load i32, ptr %11, align 4
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %11, align 4
-  %157 = load i32, ptr %12, align 4
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %12, align 4
-  %159 = load i32, ptr %13, align 4
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %13, align 4
-  br label %169
-
-161:                                              ; preds = %132
-  %162 = load i32, ptr %14, align 4
-  %163 = icmp slt i32 %162, 0
-  br i1 %163, label %164, label %167
-
-164:                                              ; preds = %161
-  %165 = load i32, ptr %12, align 4
-  %166 = add i32 %165, 1
-  store i32 %166, ptr %12, align 4
-  br label %168
-
-167:                                              ; preds = %161
+151:                                              ; preds = %133
+  %152 = load ptr, ptr %10, align 8
+  %153 = load i32, ptr %12, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %152, i64 %154
+  store i8 1, ptr %155, align 1
+  %156 = load i32, ptr %11, align 4
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %11, align 4
+  %158 = load i32, ptr %12, align 4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %12, align 4
+  %160 = load i32, ptr %13, align 4
+  %161 = add i32 %160, 1
+  store i32 %161, ptr %13, align 4
   br label %170
 
-168:                                              ; preds = %164
+162:                                              ; preds = %133
+  %163 = load i32, ptr %14, align 4
+  %164 = icmp slt i32 %163, 0
+  br i1 %164, label %165, label %168
+
+165:                                              ; preds = %162
+  %166 = load i32, ptr %12, align 4
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %12, align 4
   br label %169
 
-169:                                              ; preds = %168, %150
-  br label %118, !llvm.loop !9
+168:                                              ; preds = %162
+  store i32 3, ptr %15, align 4
+  br label %171
 
-170:                                              ; preds = %167, %130
-  %171 = load i32, ptr %11, align 4
-  %172 = load ptr, ptr %7, align 8
-  %173 = getelementptr inbounds %struct.QTNode, ptr %172, i32 0, i32 2
-  %174 = load i32, ptr %173, align 4
-  %175 = icmp eq i32 %171, %174
-  br i1 %175, label %176, label %241
+169:                                              ; preds = %165
+  br label %170
 
-176:                                              ; preds = %170
+170:                                              ; preds = %169, %151
+  store i32 0, ptr %15, align 4
+  br label %171
+
+171:                                              ; preds = %170, %168
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %172 = load i32, ptr %15, align 4
+  switch i32 %172, label %287 [
+    i32 0, label %173
+    i32 3, label %174
+  ]
+
+173:                                              ; preds = %171
+  br label %119, !llvm.loop !10
+
+174:                                              ; preds = %171, %131
+  %175 = load i32, ptr %11, align 4
+  %176 = load ptr, ptr %7, align 8
+  %177 = getelementptr inbounds nuw %struct.QTNode, ptr %176, i32 0, i32 2
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %175, %178
+  br i1 %179, label %180, label %245
+
+180:                                              ; preds = %174
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
-  br label %177
+  br label %181
 
-177:                                              ; preds = %214, %176
-  %178 = load i32, ptr %12, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = getelementptr inbounds %struct.QTNode, ptr %179, i32 0, i32 2
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp slt i32 %178, %181
-  br i1 %182, label %183, label %217
+181:                                              ; preds = %218, %180
+  %182 = load i32, ptr %12, align 4
+  %183 = load ptr, ptr %6, align 8
+  %184 = getelementptr inbounds nuw %struct.QTNode, ptr %183, i32 0, i32 2
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp slt i32 %182, %185
+  br i1 %186, label %187, label %221
 
-183:                                              ; preds = %177
-  %184 = load ptr, ptr %10, align 8
-  %185 = load i32, ptr %12, align 4
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr i8, ptr %184, i64 %186
-  %188 = load i8, ptr %187, align 1
-  %189 = trunc i8 %188 to i1
-  br i1 %189, label %190, label %198
+187:                                              ; preds = %181
+  %188 = load ptr, ptr %10, align 8
+  %189 = load i32, ptr %12, align 4
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i8, ptr %188, i64 %190
+  %192 = load i8, ptr %191, align 1, !range !4, !noundef !5
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %194, label %202
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.QTNode, ptr %191, i32 0, i32 5
-  %193 = load ptr, ptr %192, align 8
-  %194 = load i32, ptr %12, align 4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr ptr, ptr %193, i64 %195
+194:                                              ; preds = %187
+  %195 = load ptr, ptr %6, align 8
+  %196 = getelementptr inbounds nuw %struct.QTNode, ptr %195, i32 0, i32 5
   %197 = load ptr, ptr %196, align 8
-  call void @QTNFree(ptr noundef %197)
-  br label %213
-
-198:                                              ; preds = %183
-  %199 = load ptr, ptr %6, align 8
-  %200 = getelementptr inbounds %struct.QTNode, ptr %199, i32 0, i32 5
+  %198 = load i32, ptr %12, align 4
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds ptr, ptr %197, i64 %199
   %201 = load ptr, ptr %200, align 8
-  %202 = load i32, ptr %12, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr ptr, ptr %201, i64 %203
+  call void @QTNFree(ptr noundef %201)
+  br label %217
+
+202:                                              ; preds = %187
+  %203 = load ptr, ptr %6, align 8
+  %204 = getelementptr inbounds nuw %struct.QTNode, ptr %203, i32 0, i32 5
   %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr %6, align 8
-  %207 = getelementptr inbounds %struct.QTNode, ptr %206, i32 0, i32 5
-  %208 = load ptr, ptr %207, align 8
-  %209 = load i32, ptr %13, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %13, align 4
-  %211 = sext i32 %209 to i64
-  %212 = getelementptr ptr, ptr %208, i64 %211
-  store ptr %205, ptr %212, align 8
-  br label %213
+  %206 = load i32, ptr %12, align 4
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds ptr, ptr %205, i64 %207
+  %209 = load ptr, ptr %208, align 8
+  %210 = load ptr, ptr %6, align 8
+  %211 = getelementptr inbounds nuw %struct.QTNode, ptr %210, i32 0, i32 5
+  %212 = load ptr, ptr %211, align 8
+  %213 = load i32, ptr %13, align 4
+  %214 = add i32 %213, 1
+  store i32 %214, ptr %13, align 4
+  %215 = sext i32 %213 to i64
+  %216 = getelementptr inbounds ptr, ptr %212, i64 %215
+  store ptr %209, ptr %216, align 8
+  br label %217
 
-213:                                              ; preds = %198, %190
-  br label %214
+217:                                              ; preds = %202, %194
+  br label %218
 
-214:                                              ; preds = %213
-  %215 = load i32, ptr %12, align 4
-  %216 = add i32 %215, 1
-  store i32 %216, ptr %12, align 4
-  br label %177, !llvm.loop !10
+218:                                              ; preds = %217
+  %219 = load i32, ptr %12, align 4
+  %220 = add i32 %219, 1
+  store i32 %220, ptr %12, align 4
+  br label %181, !llvm.loop !11
 
-217:                                              ; preds = %177
-  %218 = load ptr, ptr %8, align 8
-  %219 = icmp ne ptr %218, null
-  br i1 %219, label %220, label %235
+221:                                              ; preds = %181
+  %222 = load ptr, ptr %8, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %239
 
-220:                                              ; preds = %217
-  %221 = load ptr, ptr %8, align 8
-  %222 = call ptr @QTNCopy(ptr noundef %221)
-  store ptr %222, ptr %8, align 8
-  %223 = load ptr, ptr %8, align 8
-  %224 = getelementptr inbounds %struct.QTNode, ptr %223, i32 0, i32 1
-  %225 = load i32, ptr %224, align 8
-  %226 = or i32 %225, 2
-  store i32 %226, ptr %224, align 8
+224:                                              ; preds = %221
+  %225 = load ptr, ptr %8, align 8
+  %226 = call ptr @QTNCopy(ptr noundef %225)
+  store ptr %226, ptr %8, align 8
   %227 = load ptr, ptr %8, align 8
-  %228 = load ptr, ptr %6, align 8
-  %229 = getelementptr inbounds %struct.QTNode, ptr %228, i32 0, i32 5
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %13, align 4
-  %232 = add i32 %231, 1
-  store i32 %232, ptr %13, align 4
-  %233 = sext i32 %231 to i64
-  %234 = getelementptr ptr, ptr %230, i64 %233
-  store ptr %227, ptr %234, align 8
-  br label %235
+  %228 = getelementptr inbounds nuw %struct.QTNode, ptr %227, i32 0, i32 1
+  %229 = load i32, ptr %228, align 8
+  %230 = or i32 %229, 2
+  store i32 %230, ptr %228, align 8
+  %231 = load ptr, ptr %8, align 8
+  %232 = load ptr, ptr %6, align 8
+  %233 = getelementptr inbounds nuw %struct.QTNode, ptr %232, i32 0, i32 5
+  %234 = load ptr, ptr %233, align 8
+  %235 = load i32, ptr %13, align 4
+  %236 = add i32 %235, 1
+  store i32 %236, ptr %13, align 4
+  %237 = sext i32 %235 to i64
+  %238 = getelementptr inbounds ptr, ptr %234, i64 %237
+  store ptr %231, ptr %238, align 8
+  br label %239
 
-235:                                              ; preds = %220, %217
-  %236 = load i32, ptr %13, align 4
-  %237 = load ptr, ptr %6, align 8
-  %238 = getelementptr inbounds %struct.QTNode, ptr %237, i32 0, i32 2
-  store i32 %236, ptr %238, align 4
-  %239 = load ptr, ptr %6, align 8
-  call void @QTNSort(ptr noundef %239)
-  %240 = load ptr, ptr %9, align 8
-  store i8 1, ptr %240, align 1
-  br label %241
+239:                                              ; preds = %224, %221
+  %240 = load i32, ptr %13, align 4
+  %241 = load ptr, ptr %6, align 8
+  %242 = getelementptr inbounds nuw %struct.QTNode, ptr %241, i32 0, i32 2
+  store i32 %240, ptr %242, align 4
+  %243 = load ptr, ptr %6, align 8
+  call void @QTNSort(ptr noundef %243)
+  %244 = load ptr, ptr %9, align 8
+  store i8 1, ptr %244, align 1
+  br label %245
 
-241:                                              ; preds = %235, %170
-  %242 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %242)
-  br label %243
+245:                                              ; preds = %239, %174
+  %246 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %246)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %247
 
-243:                                              ; preds = %241, %106, %98
-  br label %244
+247:                                              ; preds = %245, %107, %99
+  br label %248
 
-244:                                              ; preds = %243, %97
-  br label %279
+248:                                              ; preds = %247, %98
+  br label %283
 
-245:                                              ; preds = %48
-  %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr inbounds %struct.QTNode, ptr %246, i32 0, i32 0
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds %struct.QueryOperand, ptr %248, i32 0, i32 3
-  %250 = load i32, ptr %249, align 4
-  %251 = load ptr, ptr %7, align 8
-  %252 = getelementptr inbounds %struct.QTNode, ptr %251, i32 0, i32 0
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds %struct.QueryOperand, ptr %253, i32 0, i32 3
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp ne i32 %250, %255
-  br i1 %256, label %257, label %259
+249:                                              ; preds = %49
+  %250 = load ptr, ptr %6, align 8
+  %251 = getelementptr inbounds nuw %struct.QTNode, ptr %250, i32 0, i32 0
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds nuw %struct.QueryOperand, ptr %252, i32 0, i32 3
+  %254 = load i32, ptr %253, align 4
+  %255 = load ptr, ptr %7, align 8
+  %256 = getelementptr inbounds nuw %struct.QTNode, ptr %255, i32 0, i32 0
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds nuw %struct.QueryOperand, ptr %257, i32 0, i32 3
+  %259 = load i32, ptr %258, align 4
+  %260 = icmp ne i32 %254, %259
+  br i1 %260, label %261, label %263
 
-257:                                              ; preds = %245
-  %258 = load ptr, ptr %6, align 8
-  store ptr %258, ptr %5, align 8
-  br label %281
+261:                                              ; preds = %249
+  %262 = load ptr, ptr %6, align 8
+  store ptr %262, ptr %5, align 8
+  br label %285
 
-259:                                              ; preds = %245
-  %260 = load ptr, ptr %6, align 8
-  %261 = load ptr, ptr %7, align 8
-  %262 = call zeroext i1 @QTNEq(ptr noundef %260, ptr noundef %261)
-  br i1 %262, label %263, label %277
-
-263:                                              ; preds = %259
+263:                                              ; preds = %249
   %264 = load ptr, ptr %6, align 8
-  call void @QTNFree(ptr noundef %264)
-  %265 = load ptr, ptr %8, align 8
-  %266 = icmp ne ptr %265, null
-  br i1 %266, label %267, label %274
+  %265 = load ptr, ptr %7, align 8
+  %266 = call zeroext i1 @QTNEq(ptr noundef %264, ptr noundef %265)
+  br i1 %266, label %267, label %281
 
 267:                                              ; preds = %263
-  %268 = load ptr, ptr %8, align 8
-  %269 = call ptr @QTNCopy(ptr noundef %268)
-  store ptr %269, ptr %6, align 8
-  %270 = load ptr, ptr %6, align 8
-  %271 = getelementptr inbounds %struct.QTNode, ptr %270, i32 0, i32 1
-  %272 = load i32, ptr %271, align 8
-  %273 = or i32 %272, 2
-  store i32 %273, ptr %271, align 8
-  br label %275
+  %268 = load ptr, ptr %6, align 8
+  call void @QTNFree(ptr noundef %268)
+  %269 = load ptr, ptr %8, align 8
+  %270 = icmp ne ptr %269, null
+  br i1 %270, label %271, label %278
 
-274:                                              ; preds = %263
-  store ptr null, ptr %6, align 8
-  br label %275
-
-275:                                              ; preds = %274, %267
-  %276 = load ptr, ptr %9, align 8
-  store i8 1, ptr %276, align 1
-  br label %277
-
-277:                                              ; preds = %275, %259
-  br label %278
-
-278:                                              ; preds = %277
+271:                                              ; preds = %267
+  %272 = load ptr, ptr %8, align 8
+  %273 = call ptr @QTNCopy(ptr noundef %272)
+  store ptr %273, ptr %6, align 8
+  %274 = load ptr, ptr %6, align 8
+  %275 = getelementptr inbounds nuw %struct.QTNode, ptr %274, i32 0, i32 1
+  %276 = load i32, ptr %275, align 8
+  %277 = or i32 %276, 2
+  store i32 %277, ptr %275, align 8
   br label %279
 
-279:                                              ; preds = %278, %244
-  %280 = load ptr, ptr %6, align 8
-  store ptr %280, ptr %5, align 8
+278:                                              ; preds = %267
+  store ptr null, ptr %6, align 8
+  br label %279
+
+279:                                              ; preds = %278, %271
+  %280 = load ptr, ptr %9, align 8
+  store i8 1, ptr %280, align 1
   br label %281
 
-281:                                              ; preds = %279, %257, %69, %46, %38
-  %282 = load ptr, ptr %5, align 8
-  ret ptr %282
+281:                                              ; preds = %279, %263
+  br label %282
+
+282:                                              ; preds = %281
+  br label %283
+
+283:                                              ; preds = %282, %248
+  %284 = load ptr, ptr %6, align 8
+  store ptr %284, ptr %5, align 8
+  br label %285
+
+285:                                              ; preds = %283, %261, %70, %47, %39
+  %286 = load ptr, ptr %5, align 8
+  ret ptr %286
+
+287:                                              ; preds = %171
+  unreachable
 }
 
-declare zeroext i1 @QTNEq(ptr noundef, ptr noundef) #1
+declare zeroext i1 @QTNEq(ptr noundef, ptr noundef) #3
 
-declare ptr @QTNCopy(ptr noundef) #1
+declare ptr @QTNCopy(ptr noundef) #3
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #3
 
-declare i32 @QTNodeCompare(ptr noundef, ptr noundef) #1
+declare i32 @QTNodeCompare(ptr noundef, ptr noundef) #3
 
-declare ptr @pg_detoast_datum_copy(ptr noundef) #1
+declare ptr @pg_detoast_datum_copy(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

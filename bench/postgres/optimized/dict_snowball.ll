@@ -5,10 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
-%struct.stemmer_module = type { ptr, i32, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_dsnowball_init.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @pg_finfo_dsnowball_lexize.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @.str = private unnamed_addr constant [10 x i8] c"stopwords\00", align 1
@@ -20,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [38 x i8] c"unrecognized Snowball parameter: \22%s\22\00", align 1
 @.str.6 = private unnamed_addr constant [27 x i8] c"missing Language parameter\00", align 1
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
-@stemmer_modules = internal unnamed_addr constant [50 x %struct.stemmer_module] [%struct.stemmer_module { ptr @.str.8, i32 8, ptr @basque_ISO_8859_1_create_env, ptr @basque_ISO_8859_1_close_env, ptr @basque_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.9, i32 8, ptr @catalan_ISO_8859_1_create_env, ptr @catalan_ISO_8859_1_close_env, ptr @catalan_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.10, i32 8, ptr @danish_ISO_8859_1_create_env, ptr @danish_ISO_8859_1_close_env, ptr @danish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.11, i32 8, ptr @dutch_ISO_8859_1_create_env, ptr @dutch_ISO_8859_1_close_env, ptr @dutch_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.12, i32 8, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.13, i32 8, ptr @finnish_ISO_8859_1_create_env, ptr @finnish_ISO_8859_1_close_env, ptr @finnish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.14, i32 8, ptr @french_ISO_8859_1_create_env, ptr @french_ISO_8859_1_close_env, ptr @french_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.15, i32 8, ptr @german_ISO_8859_1_create_env, ptr @german_ISO_8859_1_close_env, ptr @german_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.16, i32 8, ptr @indonesian_ISO_8859_1_create_env, ptr @indonesian_ISO_8859_1_close_env, ptr @indonesian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.17, i32 8, ptr @irish_ISO_8859_1_create_env, ptr @irish_ISO_8859_1_close_env, ptr @irish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.18, i32 8, ptr @italian_ISO_8859_1_create_env, ptr @italian_ISO_8859_1_close_env, ptr @italian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.19, i32 8, ptr @norwegian_ISO_8859_1_create_env, ptr @norwegian_ISO_8859_1_close_env, ptr @norwegian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.20, i32 8, ptr @porter_ISO_8859_1_create_env, ptr @porter_ISO_8859_1_close_env, ptr @porter_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.21, i32 8, ptr @portuguese_ISO_8859_1_create_env, ptr @portuguese_ISO_8859_1_close_env, ptr @portuguese_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.22, i32 8, ptr @spanish_ISO_8859_1_create_env, ptr @spanish_ISO_8859_1_close_env, ptr @spanish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.23, i32 8, ptr @swedish_ISO_8859_1_create_env, ptr @swedish_ISO_8859_1_close_env, ptr @swedish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.24, i32 9, ptr @hungarian_ISO_8859_2_create_env, ptr @hungarian_ISO_8859_2_close_env, ptr @hungarian_ISO_8859_2_stem }, %struct.stemmer_module { ptr @.str.25, i32 9, ptr @romanian_ISO_8859_2_create_env, ptr @romanian_ISO_8859_2_close_env, ptr @romanian_ISO_8859_2_stem }, %struct.stemmer_module { ptr @.str.26, i32 22, ptr @russian_KOI8_R_create_env, ptr @russian_KOI8_R_close_env, ptr @russian_KOI8_R_stem }, %struct.stemmer_module { ptr @.str.27, i32 6, ptr @arabic_UTF_8_create_env, ptr @arabic_UTF_8_close_env, ptr @arabic_UTF_8_stem }, %struct.stemmer_module { ptr @.str.28, i32 6, ptr @armenian_UTF_8_create_env, ptr @armenian_UTF_8_close_env, ptr @armenian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.8, i32 6, ptr @basque_UTF_8_create_env, ptr @basque_UTF_8_close_env, ptr @basque_UTF_8_stem }, %struct.stemmer_module { ptr @.str.9, i32 6, ptr @catalan_UTF_8_create_env, ptr @catalan_UTF_8_close_env, ptr @catalan_UTF_8_stem }, %struct.stemmer_module { ptr @.str.10, i32 6, ptr @danish_UTF_8_create_env, ptr @danish_UTF_8_close_env, ptr @danish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.11, i32 6, ptr @dutch_UTF_8_create_env, ptr @dutch_UTF_8_close_env, ptr @dutch_UTF_8_stem }, %struct.stemmer_module { ptr @.str.12, i32 6, ptr @english_UTF_8_create_env, ptr @english_UTF_8_close_env, ptr @english_UTF_8_stem }, %struct.stemmer_module { ptr @.str.13, i32 6, ptr @finnish_UTF_8_create_env, ptr @finnish_UTF_8_close_env, ptr @finnish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.14, i32 6, ptr @french_UTF_8_create_env, ptr @french_UTF_8_close_env, ptr @french_UTF_8_stem }, %struct.stemmer_module { ptr @.str.15, i32 6, ptr @german_UTF_8_create_env, ptr @german_UTF_8_close_env, ptr @german_UTF_8_stem }, %struct.stemmer_module { ptr @.str.29, i32 6, ptr @greek_UTF_8_create_env, ptr @greek_UTF_8_close_env, ptr @greek_UTF_8_stem }, %struct.stemmer_module { ptr @.str.30, i32 6, ptr @hindi_UTF_8_create_env, ptr @hindi_UTF_8_close_env, ptr @hindi_UTF_8_stem }, %struct.stemmer_module { ptr @.str.24, i32 6, ptr @hungarian_UTF_8_create_env, ptr @hungarian_UTF_8_close_env, ptr @hungarian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.16, i32 6, ptr @indonesian_UTF_8_create_env, ptr @indonesian_UTF_8_close_env, ptr @indonesian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.17, i32 6, ptr @irish_UTF_8_create_env, ptr @irish_UTF_8_close_env, ptr @irish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.18, i32 6, ptr @italian_UTF_8_create_env, ptr @italian_UTF_8_close_env, ptr @italian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.31, i32 6, ptr @lithuanian_UTF_8_create_env, ptr @lithuanian_UTF_8_close_env, ptr @lithuanian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.32, i32 6, ptr @nepali_UTF_8_create_env, ptr @nepali_UTF_8_close_env, ptr @nepali_UTF_8_stem }, %struct.stemmer_module { ptr @.str.19, i32 6, ptr @norwegian_UTF_8_create_env, ptr @norwegian_UTF_8_close_env, ptr @norwegian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.20, i32 6, ptr @porter_UTF_8_create_env, ptr @porter_UTF_8_close_env, ptr @porter_UTF_8_stem }, %struct.stemmer_module { ptr @.str.21, i32 6, ptr @portuguese_UTF_8_create_env, ptr @portuguese_UTF_8_close_env, ptr @portuguese_UTF_8_stem }, %struct.stemmer_module { ptr @.str.25, i32 6, ptr @romanian_UTF_8_create_env, ptr @romanian_UTF_8_close_env, ptr @romanian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.26, i32 6, ptr @russian_UTF_8_create_env, ptr @russian_UTF_8_close_env, ptr @russian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.33, i32 6, ptr @serbian_UTF_8_create_env, ptr @serbian_UTF_8_close_env, ptr @serbian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.22, i32 6, ptr @spanish_UTF_8_create_env, ptr @spanish_UTF_8_close_env, ptr @spanish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.23, i32 6, ptr @swedish_UTF_8_create_env, ptr @swedish_UTF_8_close_env, ptr @swedish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.34, i32 6, ptr @tamil_UTF_8_create_env, ptr @tamil_UTF_8_close_env, ptr @tamil_UTF_8_stem }, %struct.stemmer_module { ptr @.str.35, i32 6, ptr @turkish_UTF_8_create_env, ptr @turkish_UTF_8_close_env, ptr @turkish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.36, i32 6, ptr @yiddish_UTF_8_create_env, ptr @yiddish_UTF_8_close_env, ptr @yiddish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.12, i32 0, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, %struct.stemmer_module zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [66 x i8] c"no Snowball stemmer available for language \22%s\22 and encoding \22%s\22\00", align 1
 @__func__.locate_stem_module = private unnamed_addr constant [19 x i8] c"locate_stem_module\00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c"basque\00", align 1
@@ -52,6 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [6 x i8] c"tamil\00", align 1
 @.str.35 = private unnamed_addr constant [8 x i8] c"turkish\00", align 1
 @.str.36 = private unnamed_addr constant [8 x i8] c"yiddish\00", align 1
+@stemmer_modules = internal unnamed_addr constant [50 x { ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.8, i32 8, [4 x i8] zeroinitializer, ptr @basque_ISO_8859_1_create_env, ptr @basque_ISO_8859_1_close_env, ptr @basque_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.9, i32 8, [4 x i8] zeroinitializer, ptr @catalan_ISO_8859_1_create_env, ptr @catalan_ISO_8859_1_close_env, ptr @catalan_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.10, i32 8, [4 x i8] zeroinitializer, ptr @danish_ISO_8859_1_create_env, ptr @danish_ISO_8859_1_close_env, ptr @danish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.11, i32 8, [4 x i8] zeroinitializer, ptr @dutch_ISO_8859_1_create_env, ptr @dutch_ISO_8859_1_close_env, ptr @dutch_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 8, [4 x i8] zeroinitializer, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.13, i32 8, [4 x i8] zeroinitializer, ptr @finnish_ISO_8859_1_create_env, ptr @finnish_ISO_8859_1_close_env, ptr @finnish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.14, i32 8, [4 x i8] zeroinitializer, ptr @french_ISO_8859_1_create_env, ptr @french_ISO_8859_1_close_env, ptr @french_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.15, i32 8, [4 x i8] zeroinitializer, ptr @german_ISO_8859_1_create_env, ptr @german_ISO_8859_1_close_env, ptr @german_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.16, i32 8, [4 x i8] zeroinitializer, ptr @indonesian_ISO_8859_1_create_env, ptr @indonesian_ISO_8859_1_close_env, ptr @indonesian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.17, i32 8, [4 x i8] zeroinitializer, ptr @irish_ISO_8859_1_create_env, ptr @irish_ISO_8859_1_close_env, ptr @irish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.18, i32 8, [4 x i8] zeroinitializer, ptr @italian_ISO_8859_1_create_env, ptr @italian_ISO_8859_1_close_env, ptr @italian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.19, i32 8, [4 x i8] zeroinitializer, ptr @norwegian_ISO_8859_1_create_env, ptr @norwegian_ISO_8859_1_close_env, ptr @norwegian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.20, i32 8, [4 x i8] zeroinitializer, ptr @porter_ISO_8859_1_create_env, ptr @porter_ISO_8859_1_close_env, ptr @porter_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.21, i32 8, [4 x i8] zeroinitializer, ptr @portuguese_ISO_8859_1_create_env, ptr @portuguese_ISO_8859_1_close_env, ptr @portuguese_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.22, i32 8, [4 x i8] zeroinitializer, ptr @spanish_ISO_8859_1_create_env, ptr @spanish_ISO_8859_1_close_env, ptr @spanish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.23, i32 8, [4 x i8] zeroinitializer, ptr @swedish_ISO_8859_1_create_env, ptr @swedish_ISO_8859_1_close_env, ptr @swedish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.24, i32 9, [4 x i8] zeroinitializer, ptr @hungarian_ISO_8859_2_create_env, ptr @hungarian_ISO_8859_2_close_env, ptr @hungarian_ISO_8859_2_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.25, i32 9, [4 x i8] zeroinitializer, ptr @romanian_ISO_8859_2_create_env, ptr @romanian_ISO_8859_2_close_env, ptr @romanian_ISO_8859_2_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.26, i32 22, [4 x i8] zeroinitializer, ptr @russian_KOI8_R_create_env, ptr @russian_KOI8_R_close_env, ptr @russian_KOI8_R_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.27, i32 6, [4 x i8] zeroinitializer, ptr @arabic_UTF_8_create_env, ptr @arabic_UTF_8_close_env, ptr @arabic_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.28, i32 6, [4 x i8] zeroinitializer, ptr @armenian_UTF_8_create_env, ptr @armenian_UTF_8_close_env, ptr @armenian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.8, i32 6, [4 x i8] zeroinitializer, ptr @basque_UTF_8_create_env, ptr @basque_UTF_8_close_env, ptr @basque_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.9, i32 6, [4 x i8] zeroinitializer, ptr @catalan_UTF_8_create_env, ptr @catalan_UTF_8_close_env, ptr @catalan_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.10, i32 6, [4 x i8] zeroinitializer, ptr @danish_UTF_8_create_env, ptr @danish_UTF_8_close_env, ptr @danish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.11, i32 6, [4 x i8] zeroinitializer, ptr @dutch_UTF_8_create_env, ptr @dutch_UTF_8_close_env, ptr @dutch_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 6, [4 x i8] zeroinitializer, ptr @english_UTF_8_create_env, ptr @english_UTF_8_close_env, ptr @english_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.13, i32 6, [4 x i8] zeroinitializer, ptr @finnish_UTF_8_create_env, ptr @finnish_UTF_8_close_env, ptr @finnish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.14, i32 6, [4 x i8] zeroinitializer, ptr @french_UTF_8_create_env, ptr @french_UTF_8_close_env, ptr @french_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.15, i32 6, [4 x i8] zeroinitializer, ptr @german_UTF_8_create_env, ptr @german_UTF_8_close_env, ptr @german_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.29, i32 6, [4 x i8] zeroinitializer, ptr @greek_UTF_8_create_env, ptr @greek_UTF_8_close_env, ptr @greek_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.30, i32 6, [4 x i8] zeroinitializer, ptr @hindi_UTF_8_create_env, ptr @hindi_UTF_8_close_env, ptr @hindi_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.24, i32 6, [4 x i8] zeroinitializer, ptr @hungarian_UTF_8_create_env, ptr @hungarian_UTF_8_close_env, ptr @hungarian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.16, i32 6, [4 x i8] zeroinitializer, ptr @indonesian_UTF_8_create_env, ptr @indonesian_UTF_8_close_env, ptr @indonesian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.17, i32 6, [4 x i8] zeroinitializer, ptr @irish_UTF_8_create_env, ptr @irish_UTF_8_close_env, ptr @irish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.18, i32 6, [4 x i8] zeroinitializer, ptr @italian_UTF_8_create_env, ptr @italian_UTF_8_close_env, ptr @italian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.31, i32 6, [4 x i8] zeroinitializer, ptr @lithuanian_UTF_8_create_env, ptr @lithuanian_UTF_8_close_env, ptr @lithuanian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.32, i32 6, [4 x i8] zeroinitializer, ptr @nepali_UTF_8_create_env, ptr @nepali_UTF_8_close_env, ptr @nepali_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.19, i32 6, [4 x i8] zeroinitializer, ptr @norwegian_UTF_8_create_env, ptr @norwegian_UTF_8_close_env, ptr @norwegian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.20, i32 6, [4 x i8] zeroinitializer, ptr @porter_UTF_8_create_env, ptr @porter_UTF_8_close_env, ptr @porter_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.21, i32 6, [4 x i8] zeroinitializer, ptr @portuguese_UTF_8_create_env, ptr @portuguese_UTF_8_close_env, ptr @portuguese_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.25, i32 6, [4 x i8] zeroinitializer, ptr @romanian_UTF_8_create_env, ptr @romanian_UTF_8_close_env, ptr @romanian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.26, i32 6, [4 x i8] zeroinitializer, ptr @russian_UTF_8_create_env, ptr @russian_UTF_8_close_env, ptr @russian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.33, i32 6, [4 x i8] zeroinitializer, ptr @serbian_UTF_8_create_env, ptr @serbian_UTF_8_close_env, ptr @serbian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.22, i32 6, [4 x i8] zeroinitializer, ptr @spanish_UTF_8_create_env, ptr @spanish_UTF_8_close_env, ptr @spanish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.23, i32 6, [4 x i8] zeroinitializer, ptr @swedish_UTF_8_create_env, ptr @swedish_UTF_8_close_env, ptr @swedish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.34, i32 6, [4 x i8] zeroinitializer, ptr @tamil_UTF_8_create_env, ptr @tamil_UTF_8_close_env, ptr @tamil_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.35, i32 6, [4 x i8] zeroinitializer, ptr @turkish_UTF_8_create_env, ptr @turkish_UTF_8_close_env, ptr @turkish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.36, i32 6, [4 x i8] zeroinitializer, ptr @yiddish_UTF_8_create_env, ptr @yiddish_UTF_8_close_env, ptr @yiddish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 0, [4 x i8] zeroinitializer, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @Pg_magic_func() local_unnamed_addr #0 {
@@ -87,151 +86,151 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph60, label %._crit_edge
 
-.lr.ph60:                                         ; preds = %.lr.ph, %78
-  %.03459 = phi i1 [ %.1, %78 ], [ false, %.lr.ph ]
-  %indvars.iv58 = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv58
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str) #8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %27
-
-20:                                               ; preds = %.lr.ph60
-  br i1 %.03459, label %21, label %25
-
-21:                                               ; preds = %20
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 238, ptr noundef nonnull @__func__.dsnowball_init) #7
-  unreachable
-
-25:                                               ; preds = %20
-  %26 = tail call ptr @defGetString(ptr noundef nonnull %15) #7
-  tail call void @readstoplist(ptr noundef %26, ptr noundef nonnull %10, ptr noundef nonnull @lowerstr) #7
-  br label %78
-
-27:                                               ; preds = %.lr.ph60
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %72
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %8, align 8
-  %.not22 = icmp eq ptr %31, null
-  br i1 %.not22, label %36, label %32
-
-32:                                               ; preds = %30
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 247, ptr noundef nonnull @__func__.dsnowball_init) #7
-  unreachable
-
-36:                                               ; preds = %30
-  %37 = tail call ptr @defGetString(ptr noundef nonnull %15) #7
-  br label %38
-
-38:                                               ; preds = %49, %36
-  %39 = phi ptr [ @.str.8, %36 ], [ %51, %49 ]
-  %.027.i = phi ptr [ @stemmer_modules, %36 ], [ %50, %49 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
-
-43:                                               ; preds = %38
-  %44 = tail call i32 @GetDatabaseEncoding() #7
-  %45 = icmp eq i32 %41, %44
-  br i1 %45, label %46, label %49
-
-46:                                               ; preds = %43, %38
-  %47 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %39, ptr noundef %37) #7
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %locate_stem_module.exit, label %49
-
-49:                                               ; preds = %46, %43
-  %50 = getelementptr i8, ptr %.027.i, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %.preheader.i, label %38, !llvm.loop !4
-
-.preheader.i:                                     ; preds = %49, %59
-  %52 = phi ptr [ %61, %59 ], [ @.str.8, %49 ]
-  %.128.i = phi ptr [ %60, %59 ], [ @stemmer_modules, %49 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.128.i, i64 8
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 6
-  br i1 %55, label %56, label %59
-
-56:                                               ; preds = %.preheader.i
-  %57 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %52, ptr noundef %37) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %locate_stem_module.exit, label %59
-
-59:                                               ; preds = %56, %.preheader.i
-  %60 = getelementptr i8, ptr %.128.i, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %.not24.i = icmp eq ptr %61, null
-  br i1 %.not24.i, label %62, label %.preheader.i, !llvm.loop !6
-
-62:                                               ; preds = %59
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 67137668) #7
-  %65 = tail call ptr @GetDatabaseEncodingName() #7
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %37, ptr noundef %65) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 216, ptr noundef nonnull @__func__.locate_stem_module) #7
-  unreachable
-
-locate_stem_module.exit:                          ; preds = %46, %56
-  %.128.lcssa.sink40.i = phi ptr [ %.128.i, %56 ], [ %.027.i, %46 ]
-  %.sink.i = phi i8 [ 1, %56 ], [ 0, %46 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 32
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %8, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call ptr %70() #7
-  store ptr %71, ptr %4, align 8
-  store i8 %.sink.i, ptr %9, align 8
-  br label %78
-
-72:                                               ; preds = %27
-  %73 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %74)
-  %75 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %76 = load ptr, ptr %73, align 8
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %76) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 255, ptr noundef nonnull @__func__.dsnowball_init) #7
-  unreachable
-
-78:                                               ; preds = %25, %locate_stem_module.exit
-  %.1 = phi i1 [ true, %25 ], [ %.03459, %locate_stem_module.exit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv58, 1
-  %79 = load i32, ptr %6, align 4
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph60, label %._crit_edge
-
-._crit_edge:                                      ; preds = %78, %.lr.ph, %1
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %83 = load ptr, ptr %82, align 8
-  %.not21 = icmp eq ptr %83, null
+._crit_edge:                                      ; preds = %80, %.lr.ph, %1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %84, label %88
+
+.lr.ph60:                                         ; preds = %.lr.ph, %80
+  %.03459 = phi i1 [ %.1, %80 ], [ false, %.lr.ph ]
+  %indvars.iv58 = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv58
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(10) @.str) #8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %29
+
+22:                                               ; preds = %.lr.ph60
+  br i1 %.03459, label %23, label %27
+
+23:                                               ; preds = %22
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 240, ptr noundef nonnull @__func__.dsnowball_init) #7
+  unreachable
+
+27:                                               ; preds = %22
+  %28 = tail call ptr @defGetString(ptr noundef nonnull %17) #7
+  tail call void @readstoplist(ptr noundef %28, ptr noundef nonnull %10, ptr noundef nonnull @str_tolower) #7
+  br label %80
+
+29:                                               ; preds = %.lr.ph60
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.3) #8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %74
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %8, align 8
+  %.not22 = icmp eq ptr %33, null
+  br i1 %.not22, label %38, label %34
+
+34:                                               ; preds = %32
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.dsnowball_init) #7
+  unreachable
+
+38:                                               ; preds = %32
+  %39 = tail call ptr @defGetString(ptr noundef nonnull %17) #7
+  br label %40
+
+40:                                               ; preds = %51, %38
+  %41 = phi ptr [ @.str.8, %38 ], [ %53, %51 ]
+  %.027.i = phi ptr [ @stemmer_modules, %38 ], [ %52, %51 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %48, label %45
+
+45:                                               ; preds = %40
+  %46 = tail call i32 @GetDatabaseEncoding() #7
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %51
+
+48:                                               ; preds = %45, %40
+  %49 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %41, ptr noundef %39) #7
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %locate_stem_module.exit, label %51
+
+51:                                               ; preds = %48, %45
+  %52 = getelementptr inbounds nuw i8, ptr %.027.i, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %.preheader.i, label %40, !llvm.loop !3
+
+.preheader.i:                                     ; preds = %51, %61
+  %54 = phi ptr [ %63, %61 ], [ @.str.8, %51 ]
+  %.128.i = phi ptr [ %62, %61 ], [ @stemmer_modules, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.128.i, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 6
+  br i1 %57, label %58, label %61
+
+58:                                               ; preds = %.preheader.i
+  %59 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %54, ptr noundef %39) #7
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %locate_stem_module.exit, label %61
+
+61:                                               ; preds = %58, %.preheader.i
+  %62 = getelementptr inbounds nuw i8, ptr %.128.i, i64 40
+  %63 = load ptr, ptr %62, align 8
+  %.not24.i = icmp eq ptr %63, null
+  br i1 %.not24.i, label %64, label %.preheader.i, !llvm.loop !5
+
+64:                                               ; preds = %61
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %65)
+  %66 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %67 = tail call ptr @GetDatabaseEncodingName() #7
+  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %39, ptr noundef %67) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 218, ptr noundef nonnull @__func__.locate_stem_module) #7
+  unreachable
+
+locate_stem_module.exit:                          ; preds = %48, %58
+  %.128.lcssa.sink40.i = phi ptr [ %.128.i, %58 ], [ %.027.i, %48 ]
+  %.sink.i = phi i8 [ 1, %58 ], [ 0, %48 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 32
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %8, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call ptr %72() #7
+  store ptr %73, ptr %4, align 8
+  store i8 %.sink.i, ptr %9, align 8
+  br label %80
+
+74:                                               ; preds = %29
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %76)
+  %77 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %78 = load ptr, ptr %75, align 8
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %78) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 257, ptr noundef nonnull @__func__.dsnowball_init) #7
+  unreachable
+
+80:                                               ; preds = %locate_stem_module.exit, %27
+  %.1 = phi i1 [ true, %27 ], [ %.03459, %locate_stem_module.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv58, 1
+  %81 = load i32, ptr %6, align 4
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next, %82
+  br i1 %83, label %.lr.ph60, label %._crit_edge
 
 84:                                               ; preds = %._crit_edge
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %85)
   %86 = tail call i32 @errcode(i32 noundef 50856066) #7
   %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 262, ptr noundef nonnull @__func__.dsnowball_init) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.dsnowball_init) #7
   unreachable
 
 88:                                               ; preds = %._crit_edge
@@ -260,133 +259,133 @@ declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @lowerstr(ptr noundef) #2
+declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
-  %11 = tail call ptr @lowerstr_with_len(ptr noundef %7, i32 noundef %10) #7
-  %12 = tail call ptr @palloc0(i64 noundef 32) #7
-  %13 = icmp sgt i32 %10, 1000
-  br i1 %13, label %14, label %16
+  %sext = shl i64 %9, 32
+  %11 = ashr exact i64 %sext, 32
+  %12 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %11, i32 noundef 100) #7
+  %13 = tail call ptr @palloc0(i64 noundef 32) #7
+  %14 = icmp sgt i32 %10, 1000
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %11, ptr %15, align 8
-  br label %73
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %12, ptr %16, align 8
+  br label %74
 
-16:                                               ; preds = %1
-  %17 = load i8, ptr %11, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %22, label %19
+17:                                               ; preds = %1
+  %18 = load i8, ptr %12, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %23, label %20
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = tail call zeroext i1 @searchstoplist(ptr noundef nonnull %20, ptr noundef nonnull %11) #7
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = tail call zeroext i1 @searchstoplist(ptr noundef nonnull %21, ptr noundef nonnull %12) #7
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19, %16
-  tail call void @pfree(ptr noundef nonnull %11) #7
-  br label %73
+23:                                               ; preds = %20, %17
+  tail call void @pfree(ptr noundef nonnull %12) #7
+  br label %74
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %25 = load i8, ptr %24, align 8
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %32
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %33
 
-27:                                               ; preds = %23
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
-  %29 = trunc i64 %28 to i32
-  %30 = tail call ptr @pg_server_to_any(ptr noundef nonnull %11, i32 noundef %29, i32 noundef 6) #7
-  %.not = icmp eq ptr %30, %11
-  br i1 %.not, label %32, label %31
+28:                                               ; preds = %24
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
+  %30 = trunc i64 %29 to i32
+  %31 = tail call ptr @pg_server_to_any(ptr noundef nonnull %12, i32 noundef %30, i32 noundef 6) #7
+  %.not = icmp eq ptr %31, %12
+  br i1 %.not, label %33, label %32
 
-31:                                               ; preds = %27
-  tail call void @pfree(ptr noundef nonnull %11) #7
-  br label %32
+32:                                               ; preds = %28
+  tail call void @pfree(ptr noundef nonnull %12) #7
+  br label %33
 
-32:                                               ; preds = %27, %31, %23
-  %.0 = phi ptr [ %30, %31 ], [ %11, %27 ], [ %11, %23 ]
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %34, ptr @CurrentMemoryContext, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
-  %38 = trunc i64 %37 to i32
-  %39 = tail call i32 @SN_set_current(ptr noundef %36, i32 noundef %38, ptr noundef nonnull %.0) #7
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = tail call i32 %41(ptr noundef %42) #7
+33:                                               ; preds = %28, %32, %24
+  %.0 = phi ptr [ %12, %24 ], [ %31, %32 ], [ %12, %28 ]
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = load ptr, ptr %44, align 8
-  %.not49 = icmp eq ptr %45, null
-  br i1 %.not49, label %63, label %46
+  %37 = load ptr, ptr %4, align 8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
+  %39 = trunc i64 %38 to i32
+  %40 = tail call i32 @SN_set_current(ptr noundef %37, i32 noundef %39, ptr noundef nonnull %.0) #7
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = tail call i32 %42(ptr noundef %43) #7
+  store ptr %36, ptr @CurrentMemoryContext, align 8
+  %45 = load ptr, ptr %4, align 8
+  %46 = load ptr, ptr %45, align 8
+  %.not49 = icmp eq ptr %46, null
+  br i1 %.not49, label %64, label %47
 
-46:                                               ; preds = %32
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %48 = load i32, ptr %47, align 4
-  %.not50 = icmp eq i32 %48, 0
-  br i1 %.not50, label %63, label %49
+47:                                               ; preds = %33
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %49 = load i32, ptr %48, align 4
+  %.not50 = icmp eq i32 %49, 0
+  br i1 %.not50, label %64, label %50
 
-49:                                               ; preds = %46
-  %50 = add i32 %48, 1
-  %51 = sext i32 %50 to i64
-  %52 = tail call ptr @repalloc(ptr noundef nonnull %.0, i64 noundef %51) #7
-  %53 = load ptr, ptr %4, align 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  %56 = load i32, ptr %55, align 4
-  %57 = sext i32 %56 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %54, i64 %57, i1 false)
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %60 = load i32, ptr %59, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr i8, ptr %52, i64 %61
-  store i8 0, ptr %62, align 1
-  br label %63
+50:                                               ; preds = %47
+  %51 = add i32 %49, 1
+  %52 = sext i32 %51 to i64
+  %53 = tail call ptr @repalloc(ptr noundef nonnull %.0, i64 noundef %52) #7
+  %54 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %55, i64 %58, i1 false)
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i8, ptr %53, i64 %62
+  store i8 0, ptr %63, align 1
+  br label %64
 
-63:                                               ; preds = %49, %46, %32
-  %.1 = phi ptr [ %52, %49 ], [ %.0, %46 ], [ %.0, %32 ]
-  %64 = load i8, ptr %24, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %71
+64:                                               ; preds = %50, %47, %33
+  %.2 = phi ptr [ %53, %50 ], [ %.0, %47 ], [ %.0, %33 ]
+  %65 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %63
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #8
-  %68 = trunc i64 %67 to i32
-  %69 = tail call ptr @pg_any_to_server(ptr noundef nonnull %.1, i32 noundef %68, i32 noundef 6) #7
-  %.not51 = icmp eq ptr %69, %.1
-  br i1 %.not51, label %71, label %70
+67:                                               ; preds = %64
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #8
+  %69 = trunc i64 %68 to i32
+  %70 = tail call ptr @pg_any_to_server(ptr noundef nonnull %.2, i32 noundef %69, i32 noundef 6) #7
+  %.not51 = icmp eq ptr %70, %.2
+  br i1 %.not51, label %72, label %71
 
-70:                                               ; preds = %66
-  tail call void @pfree(ptr noundef nonnull %.1) #7
-  br label %71
+71:                                               ; preds = %67
+  tail call void @pfree(ptr noundef nonnull %.2) #7
+  br label %72
 
-71:                                               ; preds = %66, %70, %63
-  %.2 = phi ptr [ %69, %70 ], [ %.1, %66 ], [ %.1, %63 ]
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.2, ptr %72, align 8
-  br label %73
+72:                                               ; preds = %67, %71, %64
+  %.3 = phi ptr [ %.2, %64 ], [ %70, %71 ], [ %.2, %67 ]
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %.3, ptr %73, align 8
+  br label %74
 
-73:                                               ; preds = %22, %71, %14
-  %74 = ptrtoint ptr %12 to i64
-  ret i64 %74
+74:                                               ; preds = %23, %72, %15
+  %75 = ptrtoint ptr %13 to i64
+  ret i64 %75
 }
-
-declare ptr @lowerstr_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -703,23 +702,24 @@ declare i32 @yiddish_UTF_8_stem(ptr noundef) #2
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}

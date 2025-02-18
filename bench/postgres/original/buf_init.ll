@@ -25,13 +25,17 @@ target triple = "x86_64-pc-linux-gnu"
 @backend_flush_after = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitBufferPool() #0 {
+define dso_local void @BufferManagerShmemInit() #0 {
   %1 = alloca i8, align 1
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %1) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #4
   %7 = load i32, ptr @NBuffers, align 4
   %8 = sext i32 %7 to i64
   %9 = mul i64 %8, 64
@@ -57,22 +61,22 @@ define dso_local void @InitBufferPool() #0 {
   %26 = mul i64 %25, 20
   %27 = call ptr @ShmemInitStruct(ptr noundef @.str.3, i64 noundef %26, ptr noundef %4)
   store ptr %27, ptr @CkptBufferIds, align 8
-  %28 = load i8, ptr %2, align 1
+  %28 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %29 = trunc i8 %28 to i1
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %0
-  %31 = load i8, ptr %1, align 1
+  %31 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %32 = trunc i8 %31 to i1
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr %3, align 1
+  %34 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %35 = trunc i8 %34 to i1
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = load i8, ptr %4, align 1
+  %37 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %40
 
@@ -80,6 +84,7 @@ define dso_local void @InitBufferPool() #0 {
   br label %73
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %41
 
@@ -90,26 +95,27 @@ define dso_local void @InitBufferPool() #0 {
   br i1 %44, label %45, label %68
 
 45:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %46 = load i32, ptr %5, align 4
   %47 = call ptr @GetBufferDescriptor(i32 noundef %46)
   store ptr %47, ptr %6, align 8
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.BufferDesc, ptr %48, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.BufferDesc, ptr %48, i32 0, i32 0
   call void @ClearBufferTag(ptr noundef %49)
   %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.BufferDesc, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.BufferDesc, ptr %50, i32 0, i32 2
   call void @pg_atomic_init_u32(ptr noundef %51, i32 noundef 0)
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.BufferDesc, ptr %52, i32 0, i32 3
+  %53 = getelementptr inbounds nuw %struct.BufferDesc, ptr %52, i32 0, i32 3
   store i32 -1, ptr %53, align 4
   %54 = load i32, ptr %5, align 4
   %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.BufferDesc, ptr %55, i32 0, i32 1
+  %56 = getelementptr inbounds nuw %struct.BufferDesc, ptr %55, i32 0, i32 1
   store i32 %54, ptr %56, align 4
   %57 = load i32, ptr %5, align 4
   %58 = add i32 %57, 1
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.BufferDesc, ptr %59, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct.BufferDesc, ptr %59, i32 0, i32 4
   store i32 %58, ptr %60, align 4
   %61 = load ptr, ptr %6, align 8
   %62 = call ptr @BufferDescriptorGetContentLock(ptr noundef %61)
@@ -117,64 +123,73 @@ define dso_local void @InitBufferPool() #0 {
   %63 = load ptr, ptr %6, align 8
   %64 = call ptr @BufferDescriptorGetIOCV(ptr noundef %63)
   call void @ConditionVariableInit(ptr noundef %64)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
   br label %65
 
 65:                                               ; preds = %45
   %66 = load i32, ptr %5, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %5, align 4
-  br label %41, !llvm.loop !5
+  br label %41, !llvm.loop !6
 
 68:                                               ; preds = %41
   %69 = load i32, ptr @NBuffers, align 4
   %70 = sub i32 %69, 1
   %71 = call ptr @GetBufferDescriptor(i32 noundef %70)
-  %72 = getelementptr inbounds %struct.BufferDesc, ptr %71, i32 0, i32 4
+  %72 = getelementptr inbounds nuw %struct.BufferDesc, ptr %71, i32 0, i32 4
   store i32 -1, ptr %72, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   br label %73
 
 73:                                               ; preds = %68, %39
-  %74 = load i8, ptr %2, align 1
+  %74 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %75 = trunc i8 %74 to i1
   %76 = xor i1 %75, true
   call void @StrategyInitialize(i1 noundef zeroext %76)
   call void @WritebackContextInit(ptr noundef @BackendWritebackContext, ptr noundef @backend_flush_after)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %1) #4
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @GetBufferDescriptor(i32 noundef %0) #0 {
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @GetBufferDescriptor(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load ptr, ptr @BufferDescriptors, align 8
   %4 = load i32, ptr %2, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr %union.BufferDescPadded, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %3, i64 %5
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @ClearBufferTag(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ClearBufferTag(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.buftag, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.buftag, ptr %3, i32 0, i32 0
   store i32 0, ptr %4, align 4
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.buftag, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.buftag, ptr %5, i32 0, i32 1
   store i32 0, ptr %6, align 4
   %7 = load ptr, ptr %2, align 8
   call void @BufTagSetRelForkDetails(ptr noundef %7, i32 noundef 0, i32 noundef -1)
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.buftag, ptr %8, i32 0, i32 4
+  %9 = getelementptr inbounds nuw %struct.buftag, ptr %8, i32 0, i32 4
   store i32 -1, ptr %9, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @pg_atomic_init_u32(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pg_atomic_init_u32(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -185,39 +200,43 @@ define internal void @pg_atomic_init_u32(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) #1
+declare void @LWLockInitialize(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferDescriptorGetContentLock(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferDescriptorGetContentLock(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.BufferDesc, ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds nuw %struct.BufferDesc, ptr %3, i32 0, i32 5
   ret ptr %4
 }
 
-declare void @ConditionVariableInit(ptr noundef) #1
+declare void @ConditionVariableInit(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferDescriptorGetIOCV(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferDescriptorGetIOCV(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr @BufferIOCVArray, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.BufferDesc, ptr %4, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.BufferDesc, ptr %4, i32 0, i32 1
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %union.ConditionVariableMinimallyPadded, ptr %3, i64 %7
+  %8 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %3, i64 %7
   ret ptr %8
 }
 
-declare void @StrategyInitialize(i1 noundef zeroext) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @WritebackContextInit(ptr noundef, ptr noundef) #1
+declare void @StrategyInitialize(i1 noundef zeroext) #2
+
+declare void @WritebackContextInit(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @BufferShmemSize() #0 {
+define dso_local i64 @BufferManagerShmemSize() #0 {
   %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   store i64 0, ptr %1, align 8
   %2 = load i64, ptr %1, align 8
   %3 = load i32, ptr @NBuffers, align 4
@@ -257,17 +276,18 @@ define dso_local i64 @BufferShmemSize() #0 {
   %30 = call i64 @add_size(i64 noundef %26, i64 noundef %29)
   store i64 %30, ptr %1, align 8
   %31 = load i64, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret i64 %31
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) #1
+declare i64 @add_size(i64 noundef, i64 noundef) #2
 
-declare i64 @mul_size(i64 noundef, i64 noundef) #1
+declare i64 @mul_size(i64 noundef, i64 noundef) #2
 
-declare i64 @StrategyShmemSize() #1
+declare i64 @StrategyShmemSize() #2
 
-; Function Attrs: nounwind uwtable
-define internal void @BufTagSetRelForkDetails(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BufTagSetRelForkDetails(ptr noundef %0, i32 noundef %1, i32 noundef %2) #3 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -276,37 +296,41 @@ define internal void @BufTagSetRelForkDetails(ptr noundef %0, i32 noundef %1, i3
   store i32 %2, ptr %6, align 4
   %7 = load i32, ptr %5, align 4
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.buftag, ptr %8, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %struct.buftag, ptr %8, i32 0, i32 2
   store i32 %7, ptr %9, align 4
   %10 = load i32, ptr %6, align 4
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.buftag, ptr %11, i32 0, i32 3
+  %12 = getelementptr inbounds nuw %struct.buftag, ptr %11, i32 0, i32 3
   store i32 %10, ptr %12, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @pg_atomic_init_u32_impl(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pg_atomic_init_u32_impl(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.pg_atomic_uint32, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.pg_atomic_uint32, ptr %6, i32 0, i32 0
   store volatile i32 %5, ptr %7, align 4
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

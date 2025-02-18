@@ -23,15 +23,15 @@ define dso_local void @XLogRecGetLen(ptr noundef readonly captures(none) %0, ptr
   %.016 = phi i32 [ %27, %24 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = sext i32 %.016 to i64
-  %12 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %10, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
+  %12 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %10, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 29
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %16, align 1, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
@@ -50,7 +50,7 @@ define dso_local void @XLogRecGetLen(ptr noundef readonly captures(none) %0, ptr
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 84
   %29 = load i32, ptr %28, align 4
   %.not = icmp sgt i32 %27, %29
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %24, %3
   %30 = phi i32 [ 0, %3 ], [ %26, %24 ]
@@ -87,15 +87,15 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %26 ]
   %.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.1, %26 ]
   %13 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %27, %26 ]
-  %14 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %11, i64 0, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 8
-  %16 = trunc i8 %15 to i1
+  %14 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %11, i64 0, i64 %indvars.iv
+  %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 29
-  %19 = load i8, ptr %18, align 1
-  %20 = trunc i8 %19 to i1
+  %19 = load i8, ptr %18, align 1, !range !4, !noundef !5
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
@@ -110,7 +110,7 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
   %27 = phi i32 [ %25, %21 ], [ %13, %17 ], [ %13, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %XLogRecGetLen.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond, label %XLogRecGetLen.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 XLogRecGetLen.exit.loopexit:                      ; preds = %26
   %28 = zext i32 %.1 to i64
@@ -124,7 +124,7 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   %32 = sub i32 %31, %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = zext i8 %8 to i64
-  %35 = getelementptr [256 x %struct.XLogRecStats], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %33, i64 0, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
@@ -146,7 +146,7 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   %spec.select = select i1 %49, i8 %50, i8 %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 6168
   %52 = zext nneg i8 %spec.select to i64
-  %53 = getelementptr [256 x [16 x %struct.XLogRecStats]], ptr %51, i64 0, i64 %34, i64 %52
+  %53 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %51, i64 0, i64 %34, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, 1
   store i64 %55, ptr %53, align 8
@@ -164,15 +164,16 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #1
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

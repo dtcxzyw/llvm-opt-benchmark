@@ -34,71 +34,76 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 7
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
   %8 = and i64 %1, 7
   %9 = icmp eq i64 %8, 0
   %10 = icmp ult i64 %1, 1025
   %or.cond3 = and i1 %10, %9
-  br i1 %or.cond3, label %11, label %20
+  br i1 %or.cond3, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr i8, ptr %0, i64 %1
-  %13 = icmp ult ptr %0, %12
-  br i1 %13, label %.lr.ph.preheader, label %.loopexit
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11
-  %14 = add i64 %1, %4
-  %15 = add i64 %4, 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 %15)
-  %16 = xor i64 %4, -1
-  %17 = add i64 %umax, %16
-  %18 = and i64 %17, -8
-  %19 = add i64 %18, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %19, i1 false)
+  %12 = add i64 %1, %4
+  %13 = add i64 %4, 8
+  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 %13)
+  %14 = xor i64 %4, -1
+  %15 = add i64 %umax, %14
+  %16 = and i64 %15, -8
+  %17 = add i64 %16, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %17, i1 false)
   br label %.loopexit
 
-20:                                               ; preds = %7, %3
+18:                                               ; preds = %7, %3
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %1, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %11, %20
-  %21 = add i64 %2, 7
-  %22 = and i64 %21, 65528
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 0, ptr %23, align 2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 24, ptr %24, align 4
-  %25 = sub i64 %1, %22
-  %26 = trunc i64 %25 to i16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %26, ptr %28, align 4
-  %29 = trunc i64 %1 to i16
-  %30 = or i16 %29, 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %30, ptr %31, align 2
+.loopexit:                                        ; preds = %.lr.ph.preheader, %11, %18
+  %19 = add i64 %2, 7
+  %20 = and i64 %19, 65528
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 0, ptr %21, align 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 24, ptr %22, align 4
+  %23 = sub i64 %1, %20
+  %24 = trunc i64 %23 to i16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i16 %24, ptr %25, align 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %24, ptr %26, align 4
+  %27 = trunc i64 %1 to i16
+  %28 = or i16 %27, 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %28, ptr %29, align 2
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %4, align 2
   %5 = icmp eq i16 %.val, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @DataChecksumsEnabled() #11
+  %7 = tail call zeroext i1 @DataChecksumsEnabled() #12
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
+  %9 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i16, ptr %10, align 4
   %.not = icmp ne i16 %9, %11
@@ -106,7 +111,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %12
 
 12:                                               ; preds = %8, %6
-  %.132 = phi i8 [ 0, %6 ], [ %spec.select, %8 ]
+  %.127 = phi i8 [ 0, %6 ], [ %spec.select, %8 ]
   %.1 = phi i16 [ 0, %6 ], [ %9, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = load i16, ptr %13, align 2
@@ -117,15 +122,15 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i16, ptr %17, align 4
   %19 = load i16, ptr %4, align 2
-  %.not38 = icmp ugt i16 %18, %19
-  br i1 %.not38, label %.thread, label %20
+  %.not31 = icmp ugt i16 %18, %19
+  br i1 %.not31, label %.thread, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i16, ptr %21, align 4
-  %.not39 = icmp ule i16 %19, %22
+  %.not32 = icmp ule i16 %19, %22
   %23 = icmp ult i16 %22, 8193
-  %or.cond = and i1 %.not39, %23
+  %or.cond = and i1 %.not32, %23
   br i1 %or.cond, label %24, label %.thread
 
 24:                                               ; preds = %20
@@ -136,94 +141,176 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %24
-  %30 = trunc nuw i8 %.132 to i1
-  br i1 %30, label %.thread, label %.critedge
+  %30 = trunc nuw i8 %.127 to i1
+  br i1 %30, label %.thread, label %pg_memory_is_all_zeros.exit
 
 .thread:                                          ; preds = %12, %16, %20, %24, %29, %3
-  %.031 = phi i8 [ 0, %3 ], [ 1, %29 ], [ %.132, %24 ], [ %.132, %20 ], [ %.132, %16 ], [ %.132, %12 ]
-  %.029 = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
+  %.026 = phi i8 [ 0, %3 ], [ 1, %29 ], [ %.127, %24 ], [ %.127, %20 ], [ %.127, %16 ], [ %.127, %12 ]
+  %.024 = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
   %.0 = phi i16 [ 0, %3 ], [ %.1, %29 ], [ %.1, %24 ], [ %.1, %20 ], [ %.1, %16 ], [ %.1, %12 ]
-  br label %32
+  %31 = ptrtoint ptr %0 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8192
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = sub i64 0, %31
+  %37 = and i64 %36, 7
+  br label %38
 
-31:                                               ; preds = %32
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond, label %.critedge, label %32, !llvm.loop !5
+38:                                               ; preds = %41, %.thread
+  %.4.idx.i = phi i64 [ 0, %.thread ], [ %.4.add.i, %41 ]
+  %exitcond.i = icmp eq i64 %.4.idx.i, %37
+  br i1 %exitcond.i, label %.preheader53.i, label %41
 
-32:                                               ; preds = %.thread, %31
-  %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %31 ]
-  %33 = getelementptr i64, ptr %0, i64 %indvars.iv
-  %34 = load i64, ptr %33, align 8
-  %.not40 = icmp eq i64 %34, 0
-  br i1 %.not40, label %31, label %35
+.preheader53.i:                                   ; preds = %38
+  %39 = getelementptr inbounds i8, ptr %35, i64 -56
+  %.5.ptr60.i = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %40 = icmp ult ptr %.5.ptr60.i, %39
+  br i1 %40, label %.lr.ph.i, label %.preheader51.i
 
-35:                                               ; preds = %32
-  %36 = trunc nuw i8 %.031 to i1
-  br i1 %36, label %37, label %55
+41:                                               ; preds = %38
+  %.4.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.4.idx.i
+  %.4.add.i = add nuw nsw i64 %.4.idx.i, 1
+  %42 = load i8, ptr %.4.ptr.i, align 1
+  %.not50.i = icmp eq i8 %42, 0
+  br i1 %.not50.i, label %38, label %.loopexit, !llvm.loop !4
 
-37:                                               ; preds = %35
-  %38 = and i32 %2, 1
-  %.not41 = icmp eq i32 %38, 0
-  br i1 %.not41, label %48, label %39
+.preheader51.i:                                   ; preds = %66, %.preheader53.i
+  %.5.idx.lcssa.i = phi i64 [ %37, %.preheader53.i ], [ %.5.add.i, %66 ]
+  %.6.ptr63.i = getelementptr inbounds nuw i8, ptr %0, i64 %.5.idx.lcssa.i
+  %43 = icmp ult ptr %.6.ptr63.i, %35
+  br i1 %43, label %.lr.ph66.i, label %.preheader.i.preheader
 
-39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %40, label %41, label %48
+.lr.ph.i:                                         ; preds = %.preheader53.i, %66
+  %.5.ptr62.i = phi ptr [ %.5.ptr.i, %66 ], [ %.5.ptr60.i, %.preheader53.i ]
+  %.5.idx61.i = phi i64 [ %.5.add.i, %66 ], [ %37, %.preheader53.i ]
+  %44 = load i64, ptr %.5.ptr62.i, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = or i64 %46, %44
+  %48 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 16
+  %49 = load i64, ptr %48, align 8
+  %50 = or i64 %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 24
+  %52 = load i64, ptr %51, align 8
+  %53 = or i64 %50, %52
+  %54 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 32
+  %55 = load i64, ptr %54, align 8
+  %56 = or i64 %53, %55
+  %57 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 40
+  %58 = load i64, ptr %57, align 8
+  %59 = or i64 %56, %58
+  %60 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 48
+  %61 = load i64, ptr %60, align 8
+  %62 = or i64 %59, %61
+  %63 = getelementptr inbounds nuw i8, ptr %.5.ptr62.i, i64 56
+  %64 = load i64, ptr %63, align 8
+  %65 = or i64 %62, %64
+  %.not49.i = icmp eq i64 %65, 0
+  br i1 %.not49.i, label %66, label %.loopexit
 
-41:                                               ; preds = %39
-  %42 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %43 = zext i16 %.0 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i16, ptr %44, align 4
-  %46 = zext i16 %45 to i32
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %43, i32 noundef %46) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @__func__.PageIsVerifiedExtended) #11
-  br label %48
+66:                                               ; preds = %.lr.ph.i
+  %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
+  %.5.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.5.add.i
+  %67 = icmp ult ptr %.5.ptr.i, %39
+  br i1 %67, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !6
 
-48:                                               ; preds = %41, %39, %37
-  %49 = and i32 %2, 2
-  %.not42 = icmp eq i32 %49, 0
-  br i1 %.not42, label %51, label %50
+.lr.ph66.i:                                       ; preds = %.preheader51.i, %69
+  %.6.ptr65.i = phi ptr [ %.6.ptr.i, %69 ], [ %.6.ptr63.i, %.preheader51.i ]
+  %.6.idx64.i = phi i64 [ %.6.add.i, %69 ], [ %.5.idx.lcssa.i, %.preheader51.i ]
+  %68 = load i64, ptr %.6.ptr65.i, align 8
+  %.not48.i = icmp eq i64 %68, 0
+  br i1 %.not48.i, label %69, label %.loopexit
 
-50:                                               ; preds = %48
-  tail call void @pgstat_report_checksum_failure() #11
-  br label %51
+69:                                               ; preds = %.lr.ph66.i
+  %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
+  %.6.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.6.add.i
+  %70 = icmp ult ptr %.6.ptr.i, %35
+  br i1 %70, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !7
 
-51:                                               ; preds = %50, %48
-  br i1 %.029, label %52, label %55
+.preheader.i.preheader:                           ; preds = %69, %.preheader51.i
+  %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %69 ]
+  br label %.preheader.i
 
-52:                                               ; preds = %51
-  %53 = load i8, ptr @ignore_checksum_failure, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %.critedge, label %55
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %72
+  %.7.idx.i = phi i64 [ %.7.add.i, %72 ], [ %.7.idx.i.ph, %.preheader.i.preheader ]
+  %71 = icmp ugt i64 %.7.idx.i, 8191
+  br i1 %71, label %pg_memory_is_all_zeros.exit, label %72
 
-55:                                               ; preds = %51, %52, %35
-  br label %.critedge
+72:                                               ; preds = %.preheader.i
+  %.7.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.7.idx.i
+  %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
+  %73 = load i8, ptr %.7.ptr.i, align 1
+  %.not47.i = icmp eq i8 %73, 0
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !8
 
-.critedge:                                        ; preds = %31, %52, %29, %55
-  %.034 = phi i1 [ false, %55 ], [ true, %29 ], [ true, %52 ], [ true, %31 ]
-  ret i1 %.034
+.loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph66.i, %72
+  %74 = trunc nuw i8 %.026 to i1
+  br i1 %74, label %75, label %93
+
+75:                                               ; preds = %.loopexit
+  %76 = and i32 %2, 1
+  %.not33 = icmp eq i32 %76, 0
+  br i1 %.not33, label %86, label %77
+
+77:                                               ; preds = %75
+  %78 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  br i1 %78, label %79, label %86
+
+79:                                               ; preds = %77
+  %80 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %81 = zext i16 %.0 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %83 = load i16, ptr %82, align 4
+  %84 = zext i16 %83 to i32
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %81, i32 noundef %84) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.PageIsVerifiedExtended) #12
+  br label %86
+
+86:                                               ; preds = %77, %79, %75
+  %87 = and i32 %2, 2
+  %.not34 = icmp eq i32 %87, 0
+  br i1 %.not34, label %89, label %88
+
+88:                                               ; preds = %86
+  tail call void @pgstat_report_checksum_failure() #12
+  br label %89
+
+89:                                               ; preds = %88, %86
+  br i1 %.024, label %90, label %93
+
+90:                                               ; preds = %89
+  %91 = load i8, ptr @ignore_checksum_failure, align 1, !range !9, !noundef !10
+  %92 = trunc nuw i8 %91 to i1
+  br i1 %92, label %pg_memory_is_all_zeros.exit, label %93
+
+93:                                               ; preds = %89, %90, %.loopexit
+  br label %pg_memory_is_all_zeros.exit
+
+pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i, %90, %29, %93
+  %.028 = phi i1 [ false, %93 ], [ true, %29 ], [ true, %90 ], [ true, %.preheader.i ]
+  ret i1 %.028
 }
 
-declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #3
+declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #4
 
-declare zeroext i16 @pg_checksum_page(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @pg_checksum_page(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #4
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @pgstat_report_checksum_failure() local_unnamed_addr #3
+declare void @pgstat_report_checksum_failure() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i16 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i16 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i16, ptr %6, align 4
   %8 = icmp ult i16 %7, 24
@@ -244,9 +331,9 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   br i1 %or.cond88, label %18, label %30
 
 18:                                               ; preds = %13, %9, %5
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %20 = tail call i32 @errcode(i32 noundef 16779816) #12
   %21 = load i16, ptr %6, align 4
   %22 = zext i16 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -255,8 +342,8 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22, i32 noundef %25, i32 noundef %28) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.PageAddItemExtended) #11
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22, i32 noundef %25, i32 noundef %28) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.PageAddItemExtended) #12
   unreachable
 
 30:                                               ; preds = %13
@@ -284,18 +371,18 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = zext nneg i16 %3 to i64
   %44 = add nsw i64 %43, -1
-  %45 = getelementptr [0 x %struct.ItemIdData], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %42, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %or.cond89 = icmp ult i32 %46, 32768
   br i1 %or.cond89, label %.loopexit, label %47
 
 47:                                               ; preds = %41
-  %48 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %48 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
   br i1 %48, label %49, label %104
 
 49:                                               ; preds = %47
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__func__.PageAddItemExtended) #11
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 225, ptr noundef nonnull @__func__.PageAddItemExtended) #12
   br label %104
 
 51:                                               ; preds = %38
@@ -321,7 +408,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   %.1101 = phi i16 [ 1, %.lr.ph ], [ %62, %61 ]
   %57 = zext i16 %.1101 to i64
   %58 = add nsw i64 %57, -1
-  %59 = getelementptr [0 x %struct.ItemIdData], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %55, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
   %or.cond90 = icmp ult i32 %60, 32768
   br i1 %or.cond90, label %.loopexit, label %61
@@ -329,7 +416,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
 61:                                               ; preds = %56
   %62 = add i16 %.1101, 1
   %.not = icmp ugt i16 %62, %.0.i
-  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   %.1.lcssa = phi i16 [ 1, %.preheader ], [ %62, %61 ]
@@ -344,12 +431,12 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   br i1 %64, label %65, label %.thread92
 
 65:                                               ; preds = %.loopexit
-  %66 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %66 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
   br i1 %66, label %67, label %104
 
 67:                                               ; preds = %65
-  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.PageAddItemExtended) #11
+  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.PageAddItemExtended) #12
   br label %104
 
 .thread92:                                        ; preds = %52, %.loopexit
@@ -364,12 +451,12 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   br i1 %or.cond, label %74, label %78
 
 74:                                               ; preds = %.thread92
-  %75 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %75 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
   br i1 %75, label %76, label %104
 
 76:                                               ; preds = %74
-  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.PageAddItemExtended) #11
+  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__func__.PageAddItemExtended) #12
   br label %104
 
 78:                                               ; preds = %.thread92
@@ -388,14 +475,14 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = add nsw i64 %69, -1
-  %90 = getelementptr [0 x %struct.ItemIdData], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %88, i64 0, i64 %89
   br i1 %.096, label %91, label %95
 
 91:                                               ; preds = %87
-  %92 = getelementptr i8, ptr %90, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %93 = sub nsw i64 %70, %69
   %94 = shl nsw i64 %93, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %92, ptr align 4 %90, i64 %94, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %92, ptr nonnull align 4 %90, i64 %94, i1 false)
   br label %95
 
 95:                                               ; preds = %91, %87
@@ -405,7 +492,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   %99 = or disjoint i32 %98, 32768
   store i32 %99, ptr %90, align 4
   %100 = zext nneg i32 %85 to i64
-  %101 = getelementptr i8, ptr %0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %1, i64 %2, i1 false)
   %102 = trunc i32 %spec.select97 to i16
   store i16 %102, ptr %6, align 4
@@ -413,52 +500,52 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
   store i16 %103, ptr %10, align 2
   br label %104
 
-104:                                              ; preds = %78, %76, %74, %67, %65, %49, %47, %95
-  %.071 = phi i16 [ %.07295, %95 ], [ 0, %47 ], [ 0, %49 ], [ 0, %65 ], [ 0, %67 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ]
+104:                                              ; preds = %78, %74, %76, %65, %67, %47, %49, %95
+  %.071 = phi i16 [ %.07295, %95 ], [ 0, %49 ], [ 0, %47 ], [ 0, %67 ], [ 0, %65 ], [ 0, %76 ], [ 0, %74 ], [ 0, %78 ]
   ret i16 %.071
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPage(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPage(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #12
   ret ptr %5
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPageCopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPageCopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %0, i64 %4, i1 false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPageCopySpecial(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPageCopySpecial(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #12
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val8 = load i16, ptr %6, align 4
-  %.val9 = load i16, ptr %2, align 2
+  %.val12 = load i16, ptr %6, align 4
+  %.val13 = load i16, ptr %2, align 2
   %7 = ptrtoint ptr %5 to i64
   %8 = and i64 %7, 7
   %9 = icmp eq i64 %8, 0
@@ -467,70 +554,69 @@ define dso_local ptr @PageGetTempPageCopySpecial(ptr noundef readonly captures(n
   br i1 %or.cond, label %11, label %PageInit.exit.sink.split
 
 11:                                               ; preds = %1
-  %12 = getelementptr i8, ptr %5, i64 %4
-  %13 = icmp ult ptr %5, %12
-  br i1 %13, label %.lr.ph.preheader.i, label %PageInit.exit
+  %.not.i = icmp eq i16 %3, 0
+  br i1 %.not.i, label %PageInit.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %14 = add i64 %4, %7
-  %15 = add i64 %7, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %15)
-  %16 = xor i64 %7, -1
-  %17 = add i64 %umax.i, %16
-  %18 = and i64 %17, -8
-  %19 = add i64 %18, 8
+  %12 = add i64 %4, %7
+  %13 = add i64 %7, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %12, i64 %13)
+  %14 = xor i64 %7, -1
+  %15 = add i64 %umax.i, %14
+  %16 = and i64 %15, -8
+  %17 = add i64 %16, 8
   br label %PageInit.exit.sink.split
 
 PageInit.exit.sink.split:                         ; preds = %1, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %19, %.lr.ph.preheader.i ], [ %4, %1 ]
+  %.sink = phi i64 [ %17, %.lr.ph.preheader.i ], [ %4, %1 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %.sink, i1 false)
   br label %PageInit.exit
 
 PageInit.exit:                                    ; preds = %PageInit.exit.sink.split, %11
-  %20 = and i16 %.val9, -256
-  %reass.sub = sub i16 %20, %.val8
-  %21 = add i16 %reass.sub, 7
-  %22 = and i16 %21, -8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i16 0, ptr %23, align 2
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i16 24, ptr %24, align 4
-  %25 = sub i16 %3, %22
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i16 %25, ptr %26, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 %25, ptr %27, align 4
-  %28 = or disjoint i16 %3, 4
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 %28, ptr %29, align 2
-  %30 = zext i16 %25 to i64
-  %31 = getelementptr i8, ptr %5, i64 %30
-  %32 = load i16, ptr %6, align 4
-  %33 = zext i16 %32 to i64
-  %34 = getelementptr i8, ptr %0, i64 %33
-  %.val11 = load i16, ptr %2, align 2
-  %35 = and i16 %.val11, -256
-  %36 = sub i16 %35, %32
-  %37 = zext i16 %36 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %34, i64 %37, i1 false)
+  %18 = and i16 %.val13, -256
+  %reass.sub = sub i16 %18, %.val12
+  %19 = add i16 %reass.sub, 7
+  %20 = and i16 %19, -8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  store i16 0, ptr %21, align 2
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i16 24, ptr %22, align 4
+  %23 = sub i16 %3, %20
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  store i16 %23, ptr %24, align 2
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i16 %23, ptr %25, align 4
+  %26 = or disjoint i16 %3, 4
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  store i16 %26, ptr %27, align 2
+  %28 = zext i16 %23 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
+  %30 = load i16, ptr %6, align 4
+  %31 = zext i16 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
+  %.val15 = load i16, ptr %2, align 2
+  %33 = and i16 %.val15, -256
+  %34 = sub i16 %33, %30
+  %35 = zext i16 %34 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %32, i64 %35, i1 false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %3, align 2
   %4 = and i16 %.val, -256
   %5 = zext i16 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %5, i1 false)
-  tail call void @pfree(ptr noundef %0) #11
+  tail call void @pfree(ptr noundef %0) #12
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca [291 x %struct.itemIdCompactData], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
@@ -541,6 +627,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
+  call void @llvm.lifetime.start.p0(i64 1746, ptr nonnull %2) #12
   %12 = icmp ult i16 %4, 24
   %13 = icmp ugt i16 %4, %7
   %or.cond97 = select i1 %12, i1 true, i1 %13
@@ -560,11 +647,11 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %17, %14, %1
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
+  %23 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %11) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 720, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
   unreachable
 
 25:                                               ; preds = %17
@@ -593,7 +680,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %.082105 = phi ptr [ %2, %.lr.ph ], [ %.284, %70 ]
   %34 = trunc i64 %indvars.iv to i16
   %35 = add nsw i64 %indvars.iv, -1
-  %36 = getelementptr [0 x %struct.ItemIdData], ptr %31, i64 0, i64 %35
+  %36 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %31, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 98304
   %.not95 = icmp eq i32 %38, 0
@@ -615,17 +702,17 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %47 = icmp samesign ult i32 %46, %8
   %48 = icmp samesign uge i32 %46, %11
   %49 = select i1 %47, i1 true, i1 %48
-  br i1 %49, label %50, label %57
+  br i1 %49, label %50, label %57, !prof !12
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %.082105, i64 2
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %53 = tail call i32 @errcode(i32 noundef 16779816) #12
   %54 = load i16, ptr %51, align 2
   %55 = sext i16 %54 to i32
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %55) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %55) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
   unreachable
 
 57:                                               ; preds = %40
@@ -641,7 +728,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   store i16 %63, ptr %64, align 2
   %65 = zext i16 %63 to i64
   %66 = add i64 %.073109, %65
-  %67 = getelementptr i8, ptr %.082105, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %.082105, i64 6
   br label %70
 
 68:                                               ; preds = %33
@@ -658,7 +745,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %.3 = phi i32 [ %.0111, %68 ], [ %..0, %57 ], [ %.0111, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %25
   %.082.lcssa = phi ptr [ %2, %25 ], [ %.284, %70 ]
@@ -685,12 +772,12 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %78
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %83)
-  %84 = call i32 @errcode(i32 noundef 16779816) #11
+  %84 = call i32 @errcode(i32 noundef 16779816) #12
   %85 = trunc i64 %.073.lcssa to i32
-  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %85, i32 noundef %79) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 790, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %85, i32 noundef %79) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 779, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
   unreachable
 
 87:                                               ; preds = %78
@@ -721,11 +808,12 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %masksel = zext i1 %98 to i16
   %.sink = or disjoint i16 %101, %masksel
   store i16 %.sink, ptr %99, align 2
+  call void @llvm.lifetime.end.p0(i64 1746, ptr nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #6 {
+define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
   %5 = alloca %union.PGAlignedBlock, align 8
   br i1 %3, label %6, label %64
 
@@ -740,7 +828,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 10:                                               ; preds = %19, %6
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %19 ], [ 0, %6 ]
   %.0 = phi i32 [ %20, %19 ], [ %9, %6 ]
-  %11 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv160
+  %11 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv160
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
@@ -755,7 +843,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %20 = sub nsw i32 %.0, %17
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge144, label %10, !llvm.loop !9
+  br i1 %exitcond165.not, label %._crit_edge144, label %10, !llvm.loop !14
 
 21:                                               ; preds = %10
   %22 = trunc nuw nsw i64 %indvars.iv160 to i32
@@ -773,12 +861,12 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.2141 = phi i32 [ %.0, %.lr.ph143 ], [ %53, %52 ]
   %.0107140 = phi i32 [ %18, %.lr.ph143 ], [ %.1108, %52 ]
   %.0111139 = phi i32 [ %18, %.lr.ph143 ], [ %.pre-phi173, %52 ]
-  %27 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv166
+  %27 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv166
   %28 = load i16, ptr %27, align 2
   %29 = add i16 %28, 1
   %30 = zext i16 %29 to i64
   %31 = add nsw i64 %30, -1
-  %32 = getelementptr [0 x %struct.ItemIdData], ptr %24, i64 0, i64 %31
+  %32 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %24, i64 0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
@@ -791,9 +879,9 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 
 40:                                               ; preds = %26
   %41 = sext i32 %.2141 to i64
-  %42 = getelementptr i8, ptr %2, i64 %41
+  %42 = getelementptr inbounds i8, ptr %2, i64 %41
   %43 = sext i32 %.0111139 to i64
-  %44 = getelementptr i8, ptr %2, i64 %43
+  %44 = getelementptr inbounds i8, ptr %2, i64 %43
   %45 = sub nsw i32 %.0107140, %.0111139
   %46 = sext i32 %45 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr align 1 %44, i64 %46, i1 false)
@@ -816,22 +904,23 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   store i32 %57, ptr %32, align 4
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge144, label %26, !llvm.loop !10
+  br i1 %exitcond170.not, label %._crit_edge144, label %26, !llvm.loop !15
 
 ._crit_edge144:                                   ; preds = %19, %52, %21
   %.0111.lcssa = phi i32 [ %18, %21 ], [ %.pre-phi173, %52 ], [ %.0, %19 ]
   %.0107.lcssa = phi i32 [ %18, %21 ], [ %.1108, %52 ], [ %.0, %19 ]
   %.2.lcssa = phi i32 [ %.0, %21 ], [ %53, %52 ], [ %20, %19 ]
   %58 = sext i32 %.2.lcssa to i64
-  %59 = getelementptr i8, ptr %2, i64 %58
+  %59 = getelementptr inbounds i8, ptr %2, i64 %58
   %60 = sext i32 %.0111.lcssa to i64
-  %61 = getelementptr i8, ptr %2, i64 %60
+  %61 = getelementptr inbounds i8, ptr %2, i64 %60
   %62 = sub nsw i32 %.0107.lcssa, %.0111.lcssa
   %63 = sext i32 %62 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %59, ptr align 1 %61, i64 %63, i1 false)
   br label %153
 
 64:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #12
   %65 = getelementptr i8, ptr %2, i64 12
   %.val = load i16, ptr %65, align 4
   %66 = icmp ult i16 %.val, 25
@@ -850,19 +939,19 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %72 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i64
-  %76 = getelementptr i8, ptr %5, i64 %75
-  %77 = getelementptr i8, ptr %2, i64 %75
+  %76 = getelementptr inbounds i8, ptr %5, i64 %75
+  %77 = getelementptr inbounds i8, ptr %2, i64 %75
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 1 %77, i64 %80, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !11
+  br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !16
 
 81:                                               ; preds = %.preheader
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -887,7 +976,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.5118 = phi i32 [ 0, %85 ], [ %101, %99 ]
   %.5 = phi i32 [ %88, %85 ], [ %100, %99 ]
   %90 = zext nneg i32 %.5118 to i64
-  %91 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw %struct.itemIdCompactData, ptr %0, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i32
@@ -902,7 +991,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %100 = sub nsw i32 %.5, %97
   %101 = add nuw nsw i32 %.5118, 1
   %exitcond.not = icmp eq i32 %101, %1
-  br i1 %exitcond.not, label %102, label %89, !llvm.loop !12
+  br i1 %exitcond.not, label %102, label %89, !llvm.loop !17
 
 102:                                              ; preds = %89, %99
   %.6119 = phi i32 [ %.5118, %89 ], [ %1, %99 ]
@@ -911,11 +1000,11 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
   %106 = zext i16 %104 to i64
-  %107 = getelementptr i8, ptr %5, i64 %106
-  %108 = getelementptr i8, ptr %2, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %106
   %109 = sub nsw i32 %.6, %105
   %110 = sext i32 %109 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %108, i64 %110, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr align 1 %108, i64 %110, i1 false)
   br label %111
 
 111:                                              ; preds = %102, %81
@@ -936,12 +1025,12 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %.7135 = phi i32 [ %.4, %.lr.ph ], [ %142, %141 ]
   %.2109134 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.3110, %141 ]
   %.1112133 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.pre-phi181, %141 ]
-  %116 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv155
+  %116 = getelementptr inbounds %struct.itemIdCompactData, ptr %0, i64 %indvars.iv155
   %117 = load i16, ptr %116, align 2
   %118 = add i16 %117, 1
   %119 = zext i16 %118 to i64
   %120 = add nsw i64 %119, -1
-  %121 = getelementptr [0 x %struct.ItemIdData], ptr %113, i64 0, i64 %120
+  %121 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %113, i64 0, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 2
   %123 = load i16, ptr %122, align 2
   %124 = sext i16 %123 to i32
@@ -954,12 +1043,12 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 
 129:                                              ; preds = %115
   %130 = sext i32 %.7135 to i64
-  %131 = getelementptr i8, ptr %2, i64 %130
+  %131 = getelementptr inbounds i8, ptr %2, i64 %130
   %132 = sext i32 %.1112133 to i64
-  %133 = getelementptr i8, ptr %5, i64 %132
+  %133 = getelementptr inbounds i8, ptr %5, i64 %132
   %134 = sub nsw i32 %.2109134, %.1112133
   %135 = sext i32 %134 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %133, i64 %135, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr nonnull align 1 %133, i64 %135, i1 false)
   %136 = load i16, ptr %122, align 2
   %137 = sext i16 %136 to i32
   %138 = load i16, ptr %125, align 2
@@ -979,19 +1068,20 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   store i32 %146, ptr %121, align 4
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge, label %115, !llvm.loop !13
+  br i1 %exitcond159.not, label %._crit_edge, label %115, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %141, %111
   %.1112.lcssa = phi i32 [ %.pre-phi179, %111 ], [ %.pre-phi181, %141 ]
   %.2109.lcssa = phi i32 [ %.pre-phi179, %111 ], [ %.3110, %141 ]
   %.7.lcssa = phi i32 [ %.4, %111 ], [ %142, %141 ]
   %147 = sext i32 %.7.lcssa to i64
-  %148 = getelementptr i8, ptr %2, i64 %147
+  %148 = getelementptr inbounds i8, ptr %2, i64 %147
   %149 = sext i32 %.1112.lcssa to i64
-  %150 = getelementptr i8, ptr %5, i64 %149
+  %150 = getelementptr inbounds i8, ptr %5, i64 %149
   %151 = sub nsw i32 %.2109.lcssa, %.1112.lcssa
   %152 = sext i32 %151 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr align 1 %150, i64 %152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr nonnull align 1 %150, i64 %152, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #12
   br label %153
 
 153:                                              ; preds = %._crit_edge, %._crit_edge144
@@ -1003,7 +1093,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %2, align 4
   %3 = icmp ult i16 %.val, 25
@@ -1011,87 +1101,81 @@ define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %
   %5 = add nuw nsw i32 %4, 262120
   %6 = lshr i32 %5, 2
   %7 = and i32 %6, 65535
-  %.not242534 = icmp eq i32 %7, 0
-  %.not2425 = select i1 %3, i1 true, i1 %.not242534
-  br i1 %.not2425, label %.thread, label %.lr.ph
+  %.not383948 = icmp eq i32 %7, 0
+  %.not3839 = select i1 %3, i1 true, i1 %.not383948
+  br i1 %.not3839, label %.thread52, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
-9:                                                ; preds = %.lr.ph, %20
-  %.028 = phi i1 [ false, %.lr.ph ], [ %.1, %20 ]
-  %.01727 = phi i32 [ %7, %.lr.ph ], [ %21, %20 ]
-  %.01826 = phi i32 [ 0, %.lr.ph ], [ %.119, %20 ]
-  %10 = and i32 %.01727, 65535
+9:                                                ; preds = %.lr.ph, %19
+  %.043 = phi i1 [ false, %.lr.ph ], [ %.237, %19 ]
+  %.01942 = phi i32 [ %7, %.lr.ph ], [ %20, %19 ]
+  %.02041 = phi i32 [ 0, %.lr.ph ], [ %.336, %19 ]
+  %10 = and i32 %.01942, 65535
   %11 = zext nneg i32 %10 to i64
   %12 = add nsw i64 %11, -1
-  %13 = getelementptr [0 x %struct.ItemIdData], ptr %8, i64 0, i64 %12
-  %14 = icmp eq i32 %.01727, 1
-  %or.cond.not = or i1 %14, %.028
+  %13 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %8, i64 0, i64 %12
+  %14 = icmp eq i32 %.01942, 1
+  %or.cond.not = or i1 %14, %.043
   %15 = load i32, ptr %13, align 4
   %16 = and i32 %15, 98304
-  %.not = icmp eq i32 %16, 0
-  br i1 %or.cond.not, label %19, label %17
+  %.not.not = icmp eq i32 %16, 0
+  br i1 %or.cond.not, label %18, label %.thread
 
-17:                                               ; preds = %9
-  %18 = zext i1 %.not to i32
-  %spec.select = add i32 %.01826, %18
-  %not..not22 = xor i1 %.not, true
-  br label %20
+.thread:                                          ; preds = %9
+  %17 = zext i1 %.not.not to i32
+  %spec.select = add i32 %.02041, %17
+  %not..not27 = xor i1 %.not.not, true
+  br label %19
 
-19:                                               ; preds = %9
-  br i1 %.not, label %._crit_edge.thread39, label %20
+18:                                               ; preds = %9
+  br i1 %.not.not, label %._crit_edge, label %19
 
-20:                                               ; preds = %17, %19
-  %.119 = phi i32 [ %.01826, %19 ], [ %spec.select, %17 ]
-  %.1 = phi i1 [ %.028, %19 ], [ %not..not22, %17 ]
-  %21 = add nsw i32 %.01727, -1
-  %.not24 = icmp eq i32 %21, 0
-  br i1 %.not24, label %._crit_edge, label %9, !llvm.loop !14
+19:                                               ; preds = %.thread, %18
+  %.237 = phi i1 [ %not..not27, %.thread ], [ %.043, %18 ]
+  %.336 = phi i32 [ %spec.select, %.thread ], [ %.02041, %18 ]
+  %20 = add nsw i32 %.01942, -1
+  %.not38 = icmp eq i32 %20, 0
+  br i1 %.not38, label %._crit_edge, label %9, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %20
-  %22 = icmp sgt i32 %.119, 0
-  br i1 %22, label %27, label %.thread
+._crit_edge:                                      ; preds = %18, %19
+  %.020.lcssa = phi i32 [ %.02041, %18 ], [ %.336, %19 ]
+  %.124 = phi i1 [ true, %18 ], [ false, %19 ]
+  %21 = icmp sgt i32 %.020.lcssa, 0
+  br i1 %21, label %22, label %26
 
-._crit_edge.thread39:                             ; preds = %19
-  %23 = icmp sgt i32 %.01826, 0
-  br i1 %23, label %.thread44, label %31
+22:                                               ; preds = %._crit_edge
+  %23 = trunc i32 %.020.lcssa to i16
+  %24 = shl i16 %23, 2
+  %25 = sub i16 %.val, %24
+  store i16 %25, ptr %2, align 4
+  br i1 %.124, label %27, label %.thread52
 
-.thread44:                                        ; preds = %._crit_edge.thread39
-  %24 = trunc i32 %.01826 to i16
-  %25 = shl i16 %24, 2
-  %26 = sub i16 %.val, %25
-  store i16 %26, ptr %2, align 4
-  br label %31
+26:                                               ; preds = %._crit_edge
+  br i1 %.124, label %27, label %.thread52
 
-27:                                               ; preds = %._crit_edge
-  %28 = trunc i32 %.119 to i16
-  %29 = shl i16 %28, 2
-  %30 = sub i16 %.val, %29
-  store i16 %30, ptr %2, align 4
-  br label %.thread
+27:                                               ; preds = %22, %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %29 = load i16, ptr %28, align 2
+  %30 = or i16 %29, 1
+  store i16 %30, ptr %28, align 2
+  br label %34
 
-31:                                               ; preds = %._crit_edge.thread39, %.thread44
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %33 = load i16, ptr %32, align 2
-  %34 = or i16 %33, 1
-  store i16 %34, ptr %32, align 2
-  br label %38
+.thread52:                                        ; preds = %1, %22, %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %32 = load i16, ptr %31, align 2
+  %33 = and i16 %32, -2
+  store i16 %33, ptr %31, align 2
+  br label %34
 
-.thread:                                          ; preds = %._crit_edge, %27, %1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %36 = load i16, ptr %35, align 2
-  %37 = and i16 %36, -2
-  store i16 %37, ptr %35, align 2
-  br label %38
-
-38:                                               ; preds = %.thread, %31
+34:                                               ; preds = %.thread52, %27
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1106,7 +1190,7 @@ define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -1123,7 +1207,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMult
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1137,7 +1221,7 @@ define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1155,44 +1239,44 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
   %12 = add nuw nsw i32 %7, 262120
   %13 = lshr i32 %12, 2
   %14 = trunc i32 %13 to i16
-  %.0.i20 = select i1 %11, i16 0, i16 %14
-  %15 = icmp samesign ugt i16 %.0.i20, 290
+  %.0.i23 = select i1 %11, i16 0, i16 %14
+  %15 = icmp samesign ugt i16 %.0.i23, 290
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %10
   %17 = getelementptr i8, ptr %0, i64 10
-  %.val19 = load i16, ptr %17, align 2
-  %18 = and i16 %.val19, 1
-  %.not21 = icmp eq i16 %18, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph.preheader
+  %.val22 = load i16, ptr %17, align 2
+  %18 = and i16 %.val22, 1
+  %.not24 = icmp eq i16 %18, 0
+  br i1 %.not24, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
-  %21 = add i16 %.01323, 1
-  %.not17 = icmp ugt i16 %21, %.0.i20
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  %21 = add i16 %.01526, 1
+  %.not20 = icmp ugt i16 %21, %.0.i23
+  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.01323 = phi i16 [ %21, %20 ], [ 1, %.lr.ph.preheader ]
-  %22 = zext i16 %.01323 to i64
+  %.01526 = phi i16 [ %21, %20 ], [ 1, %.lr.ph.preheader ]
+  %22 = zext i16 %.01526 to i64
   %23 = add nsw i64 %22, -1
-  %24 = getelementptr [0 x %struct.ItemIdData], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %19, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 98304
-  %.not18 = icmp eq i32 %26, 0
-  br i1 %.not18, label %.loopexit, label %20
+  %.not21 = icmp eq i32 %26, 0
+  br i1 %.not21, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %.lr.ph, %20, %16, %10, %1
-  %.0.shrunk = phi i32 [ %narrow.i, %10 ], [ 0, %1 ], [ 0, %16 ], [ %narrow.i, %.lr.ph ], [ 0, %20 ]
-  %.0 = zext nneg i32 %.0.shrunk to i64
-  ret i64 %.0
+.loopexit:                                        ; preds = %.lr.ph, %20, %10, %16, %1
+  %.014.shrunk = phi i32 [ 0, %1 ], [ %narrow.i, %10 ], [ 0, %16 ], [ %narrow.i, %.lr.ph ], [ 0, %20 ]
+  %.014 = zext nneg i32 %.014.shrunk to i64
+  ret i64 %.014
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 24
@@ -1220,9 +1304,9 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   br i1 %.not, label %31, label %19
 
 19:                                               ; preds = %15, %10, %6, %2
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %21 = tail call i32 @errcode(i32 noundef 16779816) #12
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1231,8 +1315,8 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1074, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1063, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
   unreachable
 
 31:                                               ; preds = %15
@@ -1249,10 +1333,10 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   br i1 %or.cond75.not, label %43, label %40
 
 40:                                               ; preds = %31
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %38) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %38) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1067, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
   unreachable
 
 43:                                               ; preds = %31
@@ -1260,7 +1344,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = zext nneg i16 %1 to i64
   %47 = add nsw i64 %46, -1
-  %48 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 17
   %51 = zext nneg i32 %50 to i64
@@ -1282,18 +1366,18 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   br i1 %.not72, label %66, label %62
 
 62:                                               ; preds = %59, %55, %43
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1093, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
+  %64 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1082, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
   unreachable
 
 66:                                               ; preds = %59
   %67 = add nuw nsw i64 %51, 7
   %68 = and i64 %67, 65528
   %69 = zext i16 %4 to i64
-  %70 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %46
+  %70 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %46
   %71 = ptrtoint ptr %70 to i64
   %72 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %72, %71
@@ -1304,75 +1388,72 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 
 76:                                               ; preds = %66
   %77 = zext nneg i32 %44 to i64
-  %78 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %77
   %79 = and i64 %73, 2147483647
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %78, ptr align 4 %70, i64 %79, i1 false)
-  %.pre = load i16, ptr %7, align 2
-  %.pre82 = zext i16 %.pre to i32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull align 4 %70, i64 %79, i1 false)
   br label %80
 
 80:                                               ; preds = %76, %66
-  %.pre-phi = phi i32 [ %.pre82, %76 ], [ %53, %66 ]
-  %81 = phi i16 [ %.pre, %76 ], [ %8, %66 ]
-  %82 = icmp samesign ugt i32 %52, %.pre-phi
-  br i1 %82, label %83, label %89
+  %81 = icmp samesign ugt i32 %52, %53
+  br i1 %81, label %82, label %88
 
-83:                                               ; preds = %80
-  %84 = zext i16 %81 to i64
-  %85 = getelementptr i8, ptr %0, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 %68
-  %87 = sub nuw nsw i32 %52, %.pre-phi
-  %88 = zext nneg i32 %87 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %86, ptr align 1 %85, i64 %88, i1 false)
-  %.pre81 = load i16, ptr %7, align 2
-  br label %89
+82:                                               ; preds = %80
+  %83 = zext i16 %8 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %68
+  %86 = sub nuw nsw i32 %52, %53
+  %87 = zext nneg i32 %86 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %85, ptr align 1 %84, i64 %87, i1 false)
+  %.pre = load i16, ptr %7, align 2
+  %.pre81 = load i16, ptr %3, align 4
+  br label %88
 
-89:                                               ; preds = %83, %80
-  %90 = phi i16 [ %.pre81, %83 ], [ %81, %80 ]
+88:                                               ; preds = %82, %80
+  %89 = phi i16 [ %.pre81, %82 ], [ %4, %80 ]
+  %90 = phi i16 [ %.pre, %82 ], [ %8, %80 ]
   %91 = trunc nuw i64 %68 to i16
   %92 = add i16 %90, %91
   store i16 %92, ptr %7, align 2
-  %93 = load i16, ptr %3, align 4
-  %94 = add i16 %93, -4
-  store i16 %94, ptr %3, align 4
-  %95 = icmp ugt i16 %94, 24
+  %93 = add i16 %89, -4
+  store i16 %93, ptr %3, align 4
+  %94 = icmp ugt i16 %93, 24
   %.not73.not77 = icmp ugt i16 %37, 1
-  %or.cond79 = and i1 %95, %.not73.not77
+  %or.cond79 = and i1 %94, %.not73.not77
   br i1 %or.cond79, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %89
-  %96 = trunc nuw nsw i64 %68 to i32
+.lr.ph:                                           ; preds = %88
+  %95 = trunc nuw nsw i64 %68 to i32
   %wide.trip.count = zext i16 %37 to i64
-  br label %97
+  br label %96
 
-97:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %98 = add nsw i64 %indvars.iv, -1
-  %99 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 32767
-  %.not74 = icmp samesign ugt i32 %101, %52
-  br i1 %.not74, label %107, label %102
+96:                                               ; preds = %.lr.ph, %106
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %106 ]
+  %97 = add nsw i64 %indvars.iv, -1
+  %98 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = and i32 %99, 32767
+  %.not74 = icmp samesign ugt i32 %100, %52
+  br i1 %.not74, label %106, label %101
 
-102:                                              ; preds = %97
-  %103 = add i32 %100, %96
-  %104 = and i32 %103, 32767
-  %105 = and i32 %100, -32768
-  %106 = or disjoint i32 %104, %105
-  store i32 %106, ptr %99, align 4
-  br label %107
+101:                                              ; preds = %96
+  %102 = add i32 %99, %95
+  %103 = and i32 %102, 32767
+  %104 = and i32 %99, -32768
+  %105 = or disjoint i32 %103, %104
+  store i32 %105, ptr %98, align 4
+  br label %106
 
-107:                                              ; preds = %97, %102
+106:                                              ; preds = %101, %96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %97, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !21
 
-.loopexit:                                        ; preds = %107, %89
+.loopexit:                                        ; preds = %106, %88
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [408 x %struct.itemIdCompactData], align 16
   %5 = alloca [408 x %struct.ItemIdData], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1384,6 +1465,8 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
+  call void @llvm.lifetime.start.p0(i64 2448, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1632, ptr nonnull %5) #12
   %15 = icmp slt i32 %2, 3
   br i1 %15, label %.preheader, label %21
 
@@ -1398,12 +1481,12 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv = phi i64 [ %18, %.lr.ph122.preheader ], [ %indvars.iv.next, %.lr.ph122 ]
-  %19 = getelementptr i16, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
   tail call void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not131 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not131, label %.loopexit, label %.lr.ph122, !llvm.loop !17
+  br i1 %.not131, label %.loopexit, label %.lr.ph122, !llvm.loop !22
 
 21:                                               ; preds = %3
   %22 = icmp ult i16 %7, 24
@@ -1425,11 +1508,11 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   br i1 %.not, label %35, label %31
 
 31:                                               ; preds = %27, %24, %21
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef %14) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1209, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
+  %33 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef %14) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
   unreachable
 
 35:                                               ; preds = %27
@@ -1455,7 +1538,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   %.088112 = phi ptr [ %4, %.lr.ph ], [ %.189, %83 ]
   %42 = zext i16 %.077117 to i64
   %43 = add nsw i64 %42, -1
-  %44 = getelementptr [0 x %struct.ItemIdData], ptr %40, i64 0, i64 %43
+  %44 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %40, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 17
   %47 = and i32 %45, 32767
@@ -1473,11 +1556,11 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   br i1 %.not102, label %58, label %54
 
 54:                                               ; preds = %50, %41
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %47, i32 noundef %46) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1234, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
+  %56 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %47, i32 noundef %46) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1223, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
   unreachable
 
 58:                                               ; preds = %50
@@ -1486,7 +1569,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
 
 60:                                               ; preds = %58
   %61 = sext i32 %.078116 to i64
-  %62 = getelementptr i16, ptr %1, i64 %61
+  %62 = getelementptr inbounds i16, ptr %1, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %.077117, %63
   br i1 %64, label %65, label %67
@@ -1512,10 +1595,10 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   %76 = zext i16 %74 to i64
   %77 = add i64 %.084114, %76
   %78 = sext i32 %.086113 to i64
-  %79 = getelementptr [408 x %struct.ItemIdData], ptr %5, i64 0, i64 %78
+  %79 = getelementptr inbounds [408 x %struct.ItemIdData], ptr %5, i64 0, i64 %78
   %80 = load i32, ptr %44, align 4
   store i32 %80, ptr %79, align 4
-  %81 = getelementptr i8, ptr %.088112, i64 6
+  %81 = getelementptr inbounds nuw i8, ptr %.088112, i64 6
   %82 = add i32 %.086113, 1
   br label %83
 
@@ -1528,7 +1611,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   %.2 = phi i1 [ %.0118, %65 ], [ %.0., %67 ]
   %84 = add i16 %.077117, 1
   %.not100 = icmp ugt i16 %84, %39
-  br i1 %.not100, label %._crit_edge, label %41, !llvm.loop !18
+  br i1 %.not100, label %._crit_edge, label %41, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %83, %35
   %.086.lcssa = phi i32 [ 0, %35 ], [ %.187, %83 ]
@@ -1539,10 +1622,10 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   br i1 %.not101, label %88, label %85
 
 85:                                               ; preds = %._crit_edge
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1261, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1250, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
   unreachable
 
 88:                                               ; preds = %._crit_edge
@@ -1552,12 +1635,12 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %88
-  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %93)
-  %94 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %94 = tail call i32 @errcode(i32 noundef 16779816) #12
   %95 = trunc i64 %.084.lcssa to i32
-  %96 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %95, i32 noundef %89) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1267, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
+  %96 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %95, i32 noundef %89) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
   unreachable
 
 97:                                               ; preds = %88
@@ -1579,12 +1662,14 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   store i16 %13, ptr %9, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph122, %.preheader, %105, %104
+.loopexit:                                        ; preds = %.lr.ph122, %.preheader, %104, %105
+  call void @llvm.lifetime.end.p0(i64 1632, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 2448, ptr nonnull %4) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 24
@@ -1612,9 +1697,9 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   br i1 %.not, label %31, label %19
 
 19:                                               ; preds = %15, %10, %6, %2
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %21 = tail call i32 @errcode(i32 noundef 16779816) #12
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1623,8 +1708,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1315, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
   unreachable
 
 31:                                               ; preds = %15
@@ -1642,17 +1727,17 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 
 40:                                               ; preds = %31
   %41 = zext i16 %1 to i32
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %41) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1319, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
+  %43 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %41) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
   unreachable
 
 44:                                               ; preds = %31
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = zext nneg i16 %1 to i64
   %47 = add nsw i64 %46, -1
-  %48 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 17
   %51 = zext nneg i32 %50 to i64
@@ -1674,11 +1759,11 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   br i1 %.not67, label %66, label %62
 
 62:                                               ; preds = %59, %55, %44
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1331, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
+  %64 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1320, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
   unreachable
 
 66:                                               ; preds = %59
@@ -1705,8 +1790,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 
 76:                                               ; preds = %74
   %77 = zext i16 %8 to i64
-  %78 = getelementptr i8, ptr %0, i64 %77
-  %79 = getelementptr i8, ptr %78, i64 %68
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %68
   %80 = sub nuw nsw i32 %52, %53
   %81 = zext nneg i32 %80 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %79, ptr align 1 %78, i64 %81, i1 false)
@@ -1734,7 +1819,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 89:                                               ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %99 ]
   %90 = add nsw i64 %indvars.iv, -1
-  %91 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %90
+  %91 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4
   %.not69 = icmp ult i32 %92, 131072
   %93 = and i32 %92, 32767
@@ -1750,17 +1835,17 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   store i32 %98, ptr %91, align 4
   br label %99
 
-99:                                               ; preds = %89, %94
+99:                                               ; preds = %94, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !24
 
 .loopexit:                                        ; preds = %99, %82
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = icmp ult i16 %6, 24
@@ -1788,9 +1873,9 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %17, %12, %8, %4
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %23 = tail call i32 @errcode(i32 noundef 16779816) #12
   %24 = load i16, ptr %5, align 4
   %25 = zext i16 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1799,8 +1884,8 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i32
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %28, i32 noundef %31) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1427, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %28, i32 noundef %31) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1416, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
   unreachable
 
 33:                                               ; preds = %17
@@ -1818,17 +1903,17 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 
 42:                                               ; preds = %33
   %43 = zext i16 %1 to i32
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %43) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1431, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %43) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
   unreachable
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = zext nneg i16 %1 to i64
   %49 = add nsw i64 %48, -1
-  %50 = getelementptr [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %49
+  %50 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 17
   %53 = and i32 %51, 32767
@@ -1848,11 +1933,11 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   br i1 %.not77, label %67, label %63
 
 63:                                               ; preds = %59, %46
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %53, i32 noundef %52) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1443, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
+  %65 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %53, i32 noundef %52) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
   unreachable
 
 67:                                               ; preds = %59
@@ -1874,12 +1959,12 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 
 .lr.ph.preheader:                                 ; preds = %75
   %78 = zext i16 %10 to i64
-  %79 = getelementptr i8, ptr %0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %78
   %80 = sext i32 %77 to i64
-  %81 = getelementptr i8, ptr %79, i64 %80
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = sub nsw i32 %53, %54
   %83 = zext i32 %82 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %81, ptr align 1 %79, i64 %83, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %79, i64 %83, i1 false)
   %84 = load i16, ptr %9, align 2
   %85 = trunc i32 %77 to i16
   %86 = add i16 %84, %85
@@ -1889,7 +1974,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %96
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %96 ]
   %87 = add nsw i64 %indvars.iv, -1
-  %88 = getelementptr [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %87
+  %88 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %87
   %89 = load i32, ptr %88, align 4
   %.not80 = icmp ult i32 %89, 131072
   %90 = and i32 %89, 32767
@@ -1905,10 +1990,10 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   store i32 %95, ptr %88, align 4
   br label %96
 
-96:                                               ; preds = %.lr.ph, %91
+96:                                               ; preds = %91, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %40
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %96, %75
   %97 = add i32 %77, %51
@@ -1921,7 +2006,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   %104 = or disjoint i32 %103, %99
   store i32 %104, ptr %50, align 4
   %105 = zext nneg i32 %99 to i64
-  %106 = getelementptr i8, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %105
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %2, i64 %3, i1 false)
   br label %107
 
@@ -1930,14 +2015,14 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %3, align 2
   %4 = icmp eq i16 %.val, 0
   br i1 %4, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @DataChecksumsEnabled() #11
+  %6 = tail call zeroext i1 @DataChecksumsEnabled() #12
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %5
@@ -1947,14 +2032,14 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: add
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @TopMemoryContext, align 8
-  %12 = tail call ptr @MemoryContextAllocAligned(ptr noundef %11, i64 noundef 8192, i64 noundef 4096, i32 noundef 0) #11
+  %12 = tail call ptr @MemoryContextAllocAligned(ptr noundef %11, i64 noundef 8192, i64 noundef 4096, i32 noundef 0) #12
   store ptr %12, ptr @PageSetChecksumCopy.pageCopy, align 8
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %12, %10 ], [ %8, %7 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %14, ptr noundef nonnull align 1 dereferenceable(8192) %0, i64 8192, i1 false)
-  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %14, i32 noundef %1) #11
+  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %14, i32 noundef %1) #12
   %16 = load ptr, ptr @PageSetChecksumCopy.pageCopy, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %15, ptr %17, align 4
@@ -1965,21 +2050,21 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: add
   ret ptr %.0
 }
 
-declare ptr @MemoryContextAllocAligned(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @MemoryContextAllocAligned(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageSetChecksumInplace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @PageSetChecksumInplace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %3, align 2
   %4 = icmp eq i16 %.val, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @DataChecksumsEnabled() #11
+  %6 = tail call zeroext i1 @DataChecksumsEnabled() #12
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
+  %8 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %8, ptr %9, align 4
   br label %10
@@ -1989,51 +2074,57 @@ define dso_local void @PageSetChecksumInplace(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}

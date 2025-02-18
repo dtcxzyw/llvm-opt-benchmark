@@ -10,61 +10,65 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pg_hmac_create.1 = private unnamed_addr constant [6 x i32] [i32 64, i32 64, i32 64, i32 64, i32 128, i32 128], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pg_hmac_create(i32 noundef %0) local_unnamed_addr #0 {
-  %calloc = tail call dereferenceable_or_null(288) ptr @calloc(i64 1, i64 288)
-  %2 = icmp eq ptr %calloc, null
-  br i1 %2, label %14, label %3
+define dso_local ptr @pg_hmac_create(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @palloc(i64 noundef 288) #5
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %16, label %4
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store i32 %0, ptr %4, align 8
-  %5 = icmp ult i32 %0, 6
-  br i1 %5, label %switch.lookup, label %10
+4:                                                ; preds = %1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %2, i8 0, i64 288, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr null, ptr %6, align 8
+  %7 = icmp ult i32 %0, 6
+  br i1 %7, label %switch.lookup, label %12
 
-switch.lookup:                                    ; preds = %3
-  %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %6
+switch.lookup:                                    ; preds = %4
+  %8 = zext nneg i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %7 = zext nneg i32 %0 to i64
-  %switch.gep29 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %7
+  %9 = zext nneg i32 %0 to i64
+  %switch.gep29 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
   %switch.load30 = load i32, ptr %switch.gep29, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
-  store i32 %switch.load, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 %switch.load30, ptr %9, align 8
-  br label %10
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %switch.load, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %switch.load30, ptr %11, align 8
+  br label %12
 
-10:                                               ; preds = %3, %switch.lookup
-  %11 = tail call ptr @pg_cryptohash_create(i32 noundef %0) #7
-  store ptr %11, ptr %calloc, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
+12:                                               ; preds = %4, %switch.lookup
+  %13 = tail call ptr @pg_cryptohash_create(i32 noundef %0) #5
+  store ptr %13, ptr %2, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-13:                                               ; preds = %10
-  tail call void @explicit_bzero(ptr noundef nonnull %calloc, i64 noundef 288) #7
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %14
+15:                                               ; preds = %12
+  tail call void @explicit_bzero(ptr noundef nonnull %2, i64 noundef 288) #5
+  tail call void @pfree(ptr noundef nonnull %2) #5
+  br label %16
 
-14:                                               ; preds = %10, %1, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %1 ], [ %calloc, %10 ]
+16:                                               ; preds = %12, %1, %15
+  %.0 = phi ptr [ null, %15 ], [ null, %1 ], [ %2, %12 ]
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %71, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -77,137 +81,138 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 54, i64 %11, i1 false)
   %13 = icmp ugt i64 %2, %11
-  br i1 %13, label %14, label %40
+  br i1 %13, label %14, label %41
 
 14:                                               ; preds = %5
   %15 = sext i32 %7 to i64
-  %calloc = tail call ptr @calloc(i64 1, i64 %15)
-  %16 = icmp eq ptr %calloc, null
-  br i1 %16, label %17, label %19
+  %16 = tail call ptr @palloc(i64 noundef %15) #5
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %18, align 4
-  br label %71
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %19, align 4
+  br label %.thread
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = tail call ptr @pg_cryptohash_create(i32 noundef %21) #7
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %26
+20:                                               ; preds = %14
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %15, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = tail call ptr @pg_cryptohash_create(i32 noundef %22) #5
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %25, align 4
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %71
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %26, align 4
+  tail call void @pfree(ptr noundef nonnull %16) #5
+  br label %.thread
 
-26:                                               ; preds = %19
-  %27 = tail call i32 @pg_cryptohash_init(ptr noundef nonnull %22) #7
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %35, label %29
+27:                                               ; preds = %20
+  %28 = tail call i32 @pg_cryptohash_init(ptr noundef nonnull %23) #5
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %36, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @pg_cryptohash_update(ptr noundef nonnull %22, ptr noundef %1, i64 noundef %2) #7
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %35, label %32
+30:                                               ; preds = %27
+  %31 = tail call i32 @pg_cryptohash_update(ptr noundef nonnull %23, ptr noundef %1, i64 noundef %2) #5
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %36, label %33
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @pg_cryptohash_final(ptr noundef nonnull %22, ptr noundef nonnull %calloc, i64 noundef %15) #7
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %39
+33:                                               ; preds = %30
+  %34 = tail call i32 @pg_cryptohash_final(ptr noundef nonnull %23, ptr noundef nonnull %16, i64 noundef %15) #5
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %32, %29, %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %36, align 4
-  %37 = tail call ptr @pg_cryptohash_error(ptr noundef nonnull %22) #7
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %37, ptr %38, align 8
-  tail call void @pg_cryptohash_free(ptr noundef nonnull %22) #7
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %71
+36:                                               ; preds = %33, %30, %27
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %37, align 4
+  %38 = tail call ptr @pg_cryptohash_error(ptr noundef nonnull %23) #5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %38, ptr %39, align 8
+  tail call void @pg_cryptohash_free(ptr noundef nonnull %23) #5
+  tail call void @pfree(ptr noundef nonnull %16) #5
+  br label %.thread
 
-39:                                               ; preds = %32
-  tail call void @pg_cryptohash_free(ptr noundef nonnull %22) #7
-  br label %40
+40:                                               ; preds = %33
+  tail call void @pg_cryptohash_free(ptr noundef nonnull %23) #5
+  br label %41
 
-40:                                               ; preds = %39, %5
-  %.057 = phi i64 [ %15, %39 ], [ %2, %5 ]
-  %.056 = phi ptr [ %calloc, %39 ], [ %1, %5 ]
-  %.055 = phi ptr [ %calloc, %39 ], [ null, %5 ]
-  %.not66 = icmp eq i64 %.057, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+41:                                               ; preds = %40, %5
+  %.060 = phi i64 [ %15, %40 ], [ %2, %5 ]
+  %.058 = phi ptr [ %16, %40 ], [ %1, %5 ]
+  %.057 = phi ptr [ %16, %40 ], [ null, %5 ]
+  %.not73 = icmp eq i64 %.060, 0
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
-  %41 = phi i64 [ %52, %.lr.ph ], [ 0, %40 ]
-  %.05865 = phi i32 [ %51, %.lr.ph ], [ 0, %40 ]
-  %42 = getelementptr i8, ptr %.056, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = getelementptr [128 x i8], ptr %12, i64 0, i64 %41
-  %45 = load i8, ptr %44, align 1
-  %46 = xor i8 %45, %43
-  store i8 %46, ptr %44, align 1
-  %47 = load i8, ptr %42, align 1
-  %48 = getelementptr [128 x i8], ptr %10, i64 0, i64 %41
-  %49 = load i8, ptr %48, align 1
-  %50 = xor i8 %49, %47
-  store i8 %50, ptr %48, align 1
-  %51 = add i32 %.05865, 1
-  %52 = sext i32 %51 to i64
-  %53 = icmp ugt i64 %.057, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+.lr.ph:                                           ; preds = %41, %.lr.ph
+  %42 = phi i64 [ %53, %.lr.ph ], [ 0, %41 ]
+  %.06272 = phi i32 [ %52, %.lr.ph ], [ 0, %41 ]
+  %43 = getelementptr inbounds i8, ptr %.058, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %42
+  %46 = load i8, ptr %45, align 1
+  %47 = xor i8 %46, %44
+  store i8 %47, ptr %45, align 1
+  %48 = load i8, ptr %43, align 1
+  %49 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %42
+  %50 = load i8, ptr %49, align 1
+  %51 = xor i8 %50, %48
+  store i8 %51, ptr %49, align 1
+  %52 = add i32 %.06272, 1
+  %53 = sext i32 %52 to i64
+  %54 = icmp ugt i64 %.060, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %40
-  %54 = load ptr, ptr %0, align 8
-  %55 = tail call i32 @pg_cryptohash_init(ptr noundef %54) #7
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %63, label %57
+._crit_edge:                                      ; preds = %.lr.ph, %41
+  %55 = load ptr, ptr %0, align 8
+  %56 = tail call i32 @pg_cryptohash_init(ptr noundef %55) #5
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %64, label %58
 
-57:                                               ; preds = %._crit_edge
-  %58 = load ptr, ptr %0, align 8
-  %59 = load i32, ptr %8, align 8
-  %60 = sext i32 %59 to i64
-  %61 = tail call i32 @pg_cryptohash_update(ptr noundef %58, ptr noundef nonnull %12, i64 noundef %60) #7
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %69
+58:                                               ; preds = %._crit_edge
+  %59 = load ptr, ptr %0, align 8
+  %60 = load i32, ptr %8, align 8
+  %61 = sext i32 %60 to i64
+  %62 = tail call i32 @pg_cryptohash_update(ptr noundef %59, ptr noundef nonnull %12, i64 noundef %61) #5
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %70
 
-63:                                               ; preds = %57, %._crit_edge
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %64, align 4
-  %65 = load ptr, ptr %0, align 8
-  %66 = tail call ptr @pg_cryptohash_error(ptr noundef %65) #7
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %66, ptr %67, align 8
-  %.not64 = icmp eq ptr %.055, null
-  br i1 %.not64, label %71, label %68
+64:                                               ; preds = %58, %._crit_edge
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %65, align 4
+  %66 = load ptr, ptr %0, align 8
+  %67 = tail call ptr @pg_cryptohash_error(ptr noundef %66) #5
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %67, ptr %68, align 8
+  %.not68 = icmp eq ptr %.057, null
+  br i1 %.not68, label %.thread, label %69
 
-68:                                               ; preds = %63
-  tail call void @free(ptr noundef nonnull %.055) #7
-  br label %71
+69:                                               ; preds = %64
+  tail call void @pfree(ptr noundef nonnull %.057) #5
+  br label %.thread
 
-69:                                               ; preds = %57
-  %.not = icmp eq ptr %.055, null
-  br i1 %.not, label %71, label %70
+70:                                               ; preds = %58
+  %.not = icmp eq ptr %.057, null
+  br i1 %.not, label %.thread, label %71
 
-70:                                               ; preds = %69
-  tail call void @free(ptr noundef nonnull %.055) #7
-  br label %71
+71:                                               ; preds = %70
+  tail call void @pfree(ptr noundef nonnull %.057) #5
+  br label %.thread
 
-71:                                               ; preds = %69, %70, %63, %68, %3, %35, %24, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %35 ], [ -1, %3 ], [ -1, %68 ], [ -1, %63 ], [ 0, %70 ], [ 0, %69 ]
+.thread:                                          ; preds = %36, %25, %18, %70, %71, %64, %69, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %69 ], [ -1, %64 ], [ 0, %71 ], [ 0, %70 ], [ -1, %18 ], [ -1, %25 ], [ -1, %36 ]
   ret i32 %.0
 }
 
-declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #2
+declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
+declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -216,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(addre
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @pg_cryptohash_update(ptr noundef %6, ptr noundef %1, i64 noundef %2) #7
+  %7 = tail call i32 @pg_cryptohash_update(ptr noundef %6, ptr noundef %1, i64 noundef %2) #5
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %14
 
@@ -224,7 +229,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(addre
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %10, align 4
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call ptr @pg_cryptohash_error(ptr noundef %11) #7
+  %12 = tail call ptr @pg_cryptohash_error(ptr noundef %11) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   br label %14
@@ -237,83 +242,88 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(addre
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %49, label %5
+  br i1 %4, label %54, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %calloc = tail call ptr @calloc(i64 1, i64 %8)
-  %9 = icmp eq ptr %calloc, null
-  br i1 %9, label %10, label %12
+  %9 = tail call ptr @palloc(i64 noundef %8) #5
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %11, align 4
-  br label %49
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %12, align 4
+  br label %54
 
-12:                                               ; preds = %5
-  %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 @pg_cryptohash_final(ptr noundef %13, ptr noundef nonnull %calloc, i64 noundef %8) #7
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %21
+13:                                               ; preds = %5
+  %14 = load i32, ptr %6, align 4
+  %15 = sext i32 %14 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %15, i1 false)
+  %16 = load ptr, ptr %0, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @pg_cryptohash_final(ptr noundef %16, ptr noundef nonnull %9, i64 noundef %18) #5
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %26
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %17, align 4
-  %18 = load ptr, ptr %0, align 8
-  %19 = tail call ptr @pg_cryptohash_error(ptr noundef %18) #7
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %19, ptr %20, align 8
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %49
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %22, align 4
+  %23 = load ptr, ptr %0, align 8
+  %24 = tail call ptr @pg_cryptohash_error(ptr noundef %23) #5
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %24, ptr %25, align 8
+  tail call void @pfree(ptr noundef nonnull %9) #5
+  br label %54
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %0, align 8
-  %23 = tail call i32 @pg_cryptohash_init(ptr noundef %22) #7
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %43, label %25
+26:                                               ; preds = %13
+  %27 = load ptr, ptr %0, align 8
+  %28 = tail call i32 @pg_cryptohash_init(ptr noundef %27) #5
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %48, label %30
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %31 = tail call i32 @pg_cryptohash_update(ptr noundef %26, ptr noundef nonnull %27, i64 noundef %30) #7
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %43, label %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = load i32, ptr %33, align 8
+  %35 = sext i32 %34 to i64
+  %36 = tail call i32 @pg_cryptohash_update(ptr noundef %31, ptr noundef nonnull %32, i64 noundef %35) #5
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %48, label %38
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %0, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = sext i32 %35 to i64
-  %37 = tail call i32 @pg_cryptohash_update(ptr noundef %34, ptr noundef nonnull %calloc, i64 noundef %36) #7
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %43, label %39
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %0, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = sext i32 %40 to i64
+  %42 = tail call i32 @pg_cryptohash_update(ptr noundef %39, ptr noundef nonnull %9, i64 noundef %41) #5
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %48, label %44
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %0, align 8
-  %41 = tail call i32 @pg_cryptohash_final(ptr noundef %40, ptr noundef %1, i64 noundef %2) #7
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %48
-
-43:                                               ; preds = %39, %33, %25, %21
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %44, align 4
+44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @pg_cryptohash_error(ptr noundef %45) #7
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %46, ptr %47, align 8
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %49
+  %46 = tail call i32 @pg_cryptohash_final(ptr noundef %45, ptr noundef %1, i64 noundef %2) #5
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %53
 
-48:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %calloc) #7
-  br label %49
+48:                                               ; preds = %44, %38, %30, %26
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %49, align 4
+  %50 = load ptr, ptr %0, align 8
+  %51 = tail call ptr @pg_cryptohash_error(ptr noundef %50) #5
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %51, ptr %52, align 8
+  tail call void @pfree(ptr noundef nonnull %9) #5
+  br label %54
 
-49:                                               ; preds = %3, %48, %43, %16, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %16 ], [ -1, %43 ], [ 0, %48 ], [ -1, %3 ]
+53:                                               ; preds = %44
+  tail call void @pfree(ptr noundef nonnull %9) #5
+  br label %54
+
+54:                                               ; preds = %3, %53, %48, %21, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %48 ], [ 0, %53 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -324,9 +334,9 @@ define dso_local void @pg_hmac_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  tail call void @pg_cryptohash_free(ptr noundef %4) #7
-  tail call void @explicit_bzero(ptr noundef nonnull %0, i64 noundef 288) #7
-  tail call void @free(ptr noundef nonnull %0) #7
+  tail call void @pg_cryptohash_free(ptr noundef %4) #5
+  tail call void @explicit_bzero(ptr noundef nonnull %0, i64 noundef 288) #5
+  tail call void @pfree(ptr noundef nonnull %0) #5
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -334,7 +344,7 @@ define dso_local void @pg_hmac_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @pg_hmac_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local ptr @pg_hmac_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -358,24 +368,18 @@ define dso_local ptr @pg_hmac_error(ptr noundef readonly captures(address_is_nul
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #7 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

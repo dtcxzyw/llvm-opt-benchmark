@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
+define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -12,6 +12,10 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
   %10 = load i32, ptr %4, align 4
   store i32 %10, ptr %8, align 4
   %11 = load i32, ptr %8, align 4
@@ -27,6 +31,7 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %17, label %18, label %194
 
 18:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   %19 = load ptr, ptr %3, align 8
   store ptr %19, ptr %9, align 8
   br label %20
@@ -38,19 +43,19 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr i32, ptr %24, i64 0
+  %25 = getelementptr inbounds i32, ptr %24, i64 0
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %5, align 4
   %28 = add i32 %27, %26
   store i32 %28, ptr %5, align 4
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr i32, ptr %29, i64 1
+  %30 = getelementptr inbounds i32, ptr %29, i64 1
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %6, align 4
   %33 = add i32 %32, %31
   store i32 %33, ptr %6, align 4
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr i32, ptr %34, i64 2
+  %35 = getelementptr inbounds i32, ptr %34, i64 2
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %7, align 4
   %38 = add i32 %37, %36
@@ -134,12 +139,12 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %98 = add i32 %97, %96
   store i32 %98, ptr %6, align 4
   %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr i32, ptr %99, i64 3
+  %100 = getelementptr inbounds i32, ptr %99, i64 3
   store ptr %100, ptr %9, align 8
   %101 = load i32, ptr %8, align 4
   %102 = sub i32 %101, 12
   store i32 %102, ptr %8, align 4
-  br label %20, !llvm.loop !5
+  br label %20, !llvm.loop !3
 
 103:                                              ; preds = %20
   %104 = load ptr, ptr %9, align 8
@@ -161,7 +166,7 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr i8, ptr %107, i64 10
+  %108 = getelementptr inbounds i8, ptr %107, i64 10
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl i32 %110, 24
@@ -170,9 +175,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %113, ptr %7, align 4
   br label %114
 
-114:                                              ; preds = %106, %103
+114:                                              ; preds = %103, %106
   %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr i8, ptr %115, i64 9
+  %116 = getelementptr inbounds i8, ptr %115, i64 9
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = shl i32 %118, 16
@@ -181,9 +186,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %121, ptr %7, align 4
   br label %122
 
-122:                                              ; preds = %114, %103
+122:                                              ; preds = %103, %114
   %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr i8, ptr %123, i64 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = shl i32 %126, 8
@@ -192,15 +197,15 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %129, ptr %7, align 4
   br label %130
 
-130:                                              ; preds = %122, %103
+130:                                              ; preds = %103, %122
   %131 = load ptr, ptr %9, align 8
-  %132 = getelementptr i32, ptr %131, i64 1
+  %132 = getelementptr inbounds i32, ptr %131, i64 1
   %133 = load i32, ptr %132, align 4
   %134 = load i32, ptr %6, align 4
   %135 = add i32 %134, %133
   store i32 %135, ptr %6, align 4
   %136 = load ptr, ptr %9, align 8
-  %137 = getelementptr i32, ptr %136, i64 0
+  %137 = getelementptr inbounds i32, ptr %136, i64 0
   %138 = load i32, ptr %137, align 4
   %139 = load i32, ptr %5, align 4
   %140 = add i32 %139, %138
@@ -209,7 +214,7 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 141:                                              ; preds = %103
   %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr i8, ptr %142, i64 6
+  %143 = getelementptr inbounds i8, ptr %142, i64 6
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl i32 %145, 16
@@ -218,9 +223,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %148, ptr %6, align 4
   br label %149
 
-149:                                              ; preds = %141, %103
+149:                                              ; preds = %103, %141
   %150 = load ptr, ptr %3, align 8
-  %151 = getelementptr i8, ptr %150, i64 5
+  %151 = getelementptr inbounds i8, ptr %150, i64 5
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl i32 %153, 8
@@ -229,9 +234,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %156, ptr %6, align 4
   br label %157
 
-157:                                              ; preds = %149, %103
+157:                                              ; preds = %103, %149
   %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr i8, ptr %158, i64 4
+  %159 = getelementptr inbounds i8, ptr %158, i64 4
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = load i32, ptr %6, align 4
@@ -239,9 +244,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %163, ptr %6, align 4
   br label %164
 
-164:                                              ; preds = %157, %103
+164:                                              ; preds = %103, %157
   %165 = load ptr, ptr %9, align 8
-  %166 = getelementptr i32, ptr %165, i64 0
+  %166 = getelementptr inbounds i32, ptr %165, i64 0
   %167 = load i32, ptr %166, align 4
   %168 = load i32, ptr %5, align 4
   %169 = add i32 %168, %167
@@ -250,7 +255,7 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 170:                                              ; preds = %103
   %171 = load ptr, ptr %3, align 8
-  %172 = getelementptr i8, ptr %171, i64 2
+  %172 = getelementptr inbounds i8, ptr %171, i64 2
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = shl i32 %174, 16
@@ -259,9 +264,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %177, ptr %5, align 4
   br label %178
 
-178:                                              ; preds = %170, %103
+178:                                              ; preds = %103, %170
   %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr i8, ptr %179, i64 1
+  %180 = getelementptr inbounds i8, ptr %179, i64 1
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = shl i32 %182, 8
@@ -270,9 +275,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %185, ptr %5, align 4
   br label %186
 
-186:                                              ; preds = %178, %103
+186:                                              ; preds = %103, %178
   %187 = load ptr, ptr %3, align 8
-  %188 = getelementptr i8, ptr %187, i64 0
+  %188 = getelementptr inbounds i8, ptr %187, i64 0
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = load i32, ptr %5, align 4
@@ -280,7 +285,8 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %192, ptr %5, align 4
   br label %193
 
-193:                                              ; preds = %186, %164, %130, %103
+193:                                              ; preds = %186, %103, %164, %130
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   br label %424
 
 194:                                              ; preds = %2
@@ -293,23 +299,23 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 198:                                              ; preds = %195
   %199 = load ptr, ptr %3, align 8
-  %200 = getelementptr i8, ptr %199, i64 0
+  %200 = getelementptr inbounds i8, ptr %199, i64 0
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = load ptr, ptr %3, align 8
-  %204 = getelementptr i8, ptr %203, i64 1
+  %204 = getelementptr inbounds i8, ptr %203, i64 1
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   %207 = shl i32 %206, 8
   %208 = add i32 %202, %207
   %209 = load ptr, ptr %3, align 8
-  %210 = getelementptr i8, ptr %209, i64 2
+  %210 = getelementptr inbounds i8, ptr %209, i64 2
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   %213 = shl i32 %212, 16
   %214 = add i32 %208, %213
   %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr i8, ptr %215, i64 3
+  %216 = getelementptr inbounds i8, ptr %215, i64 3
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
   %219 = shl i32 %218, 24
@@ -318,23 +324,23 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %222 = add i32 %221, %220
   store i32 %222, ptr %5, align 4
   %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr i8, ptr %223, i64 4
+  %224 = getelementptr inbounds i8, ptr %223, i64 4
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i32
   %227 = load ptr, ptr %3, align 8
-  %228 = getelementptr i8, ptr %227, i64 5
+  %228 = getelementptr inbounds i8, ptr %227, i64 5
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
   %231 = shl i32 %230, 8
   %232 = add i32 %226, %231
   %233 = load ptr, ptr %3, align 8
-  %234 = getelementptr i8, ptr %233, i64 6
+  %234 = getelementptr inbounds i8, ptr %233, i64 6
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = shl i32 %236, 16
   %238 = add i32 %232, %237
   %239 = load ptr, ptr %3, align 8
-  %240 = getelementptr i8, ptr %239, i64 7
+  %240 = getelementptr inbounds i8, ptr %239, i64 7
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = shl i32 %242, 24
@@ -343,23 +349,23 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %246 = add i32 %245, %244
   store i32 %246, ptr %6, align 4
   %247 = load ptr, ptr %3, align 8
-  %248 = getelementptr i8, ptr %247, i64 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = load ptr, ptr %3, align 8
-  %252 = getelementptr i8, ptr %251, i64 9
+  %252 = getelementptr inbounds i8, ptr %251, i64 9
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = shl i32 %254, 8
   %256 = add i32 %250, %255
   %257 = load ptr, ptr %3, align 8
-  %258 = getelementptr i8, ptr %257, i64 10
+  %258 = getelementptr inbounds i8, ptr %257, i64 10
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = shl i32 %260, 16
   %262 = add i32 %256, %261
   %263 = load ptr, ptr %3, align 8
-  %264 = getelementptr i8, ptr %263, i64 11
+  %264 = getelementptr inbounds i8, ptr %263, i64 11
   %265 = load i8, ptr %264, align 1
   %266 = zext i8 %265 to i32
   %267 = shl i32 %266, 24
@@ -446,12 +452,12 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %330 = add i32 %329, %328
   store i32 %330, ptr %6, align 4
   %331 = load ptr, ptr %3, align 8
-  %332 = getelementptr i8, ptr %331, i64 12
+  %332 = getelementptr inbounds i8, ptr %331, i64 12
   store ptr %332, ptr %3, align 8
   %333 = load i32, ptr %8, align 4
   %334 = sub i32 %333, 12
   store i32 %334, ptr %8, align 4
-  br label %195, !llvm.loop !7
+  br label %195, !llvm.loop !5
 
 335:                                              ; preds = %195
   %336 = load i32, ptr %8, align 4
@@ -471,7 +477,7 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
 
 337:                                              ; preds = %335
   %338 = load ptr, ptr %3, align 8
-  %339 = getelementptr i8, ptr %338, i64 10
+  %339 = getelementptr inbounds i8, ptr %338, i64 10
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
   %342 = shl i32 %341, 24
@@ -480,9 +486,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %344, ptr %7, align 4
   br label %345
 
-345:                                              ; preds = %337, %335
+345:                                              ; preds = %335, %337
   %346 = load ptr, ptr %3, align 8
-  %347 = getelementptr i8, ptr %346, i64 9
+  %347 = getelementptr inbounds i8, ptr %346, i64 9
   %348 = load i8, ptr %347, align 1
   %349 = zext i8 %348 to i32
   %350 = shl i32 %349, 16
@@ -491,9 +497,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %352, ptr %7, align 4
   br label %353
 
-353:                                              ; preds = %345, %335
+353:                                              ; preds = %335, %345
   %354 = load ptr, ptr %3, align 8
-  %355 = getelementptr i8, ptr %354, i64 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 8
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i32
   %358 = shl i32 %357, 8
@@ -502,9 +508,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %360, ptr %7, align 4
   br label %361
 
-361:                                              ; preds = %353, %335
+361:                                              ; preds = %335, %353
   %362 = load ptr, ptr %3, align 8
-  %363 = getelementptr i8, ptr %362, i64 7
+  %363 = getelementptr inbounds i8, ptr %362, i64 7
   %364 = load i8, ptr %363, align 1
   %365 = zext i8 %364 to i32
   %366 = shl i32 %365, 24
@@ -513,9 +519,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %368, ptr %6, align 4
   br label %369
 
-369:                                              ; preds = %361, %335
+369:                                              ; preds = %335, %361
   %370 = load ptr, ptr %3, align 8
-  %371 = getelementptr i8, ptr %370, i64 6
+  %371 = getelementptr inbounds i8, ptr %370, i64 6
   %372 = load i8, ptr %371, align 1
   %373 = zext i8 %372 to i32
   %374 = shl i32 %373, 16
@@ -524,9 +530,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %376, ptr %6, align 4
   br label %377
 
-377:                                              ; preds = %369, %335
+377:                                              ; preds = %335, %369
   %378 = load ptr, ptr %3, align 8
-  %379 = getelementptr i8, ptr %378, i64 5
+  %379 = getelementptr inbounds i8, ptr %378, i64 5
   %380 = load i8, ptr %379, align 1
   %381 = zext i8 %380 to i32
   %382 = shl i32 %381, 8
@@ -535,9 +541,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %384, ptr %6, align 4
   br label %385
 
-385:                                              ; preds = %377, %335
+385:                                              ; preds = %335, %377
   %386 = load ptr, ptr %3, align 8
-  %387 = getelementptr i8, ptr %386, i64 4
+  %387 = getelementptr inbounds i8, ptr %386, i64 4
   %388 = load i8, ptr %387, align 1
   %389 = zext i8 %388 to i32
   %390 = load i32, ptr %6, align 4
@@ -545,9 +551,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %391, ptr %6, align 4
   br label %392
 
-392:                                              ; preds = %385, %335
+392:                                              ; preds = %335, %385
   %393 = load ptr, ptr %3, align 8
-  %394 = getelementptr i8, ptr %393, i64 3
+  %394 = getelementptr inbounds i8, ptr %393, i64 3
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i32
   %397 = shl i32 %396, 24
@@ -556,9 +562,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %399, ptr %5, align 4
   br label %400
 
-400:                                              ; preds = %392, %335
+400:                                              ; preds = %335, %392
   %401 = load ptr, ptr %3, align 8
-  %402 = getelementptr i8, ptr %401, i64 2
+  %402 = getelementptr inbounds i8, ptr %401, i64 2
   %403 = load i8, ptr %402, align 1
   %404 = zext i8 %403 to i32
   %405 = shl i32 %404, 16
@@ -567,9 +573,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %407, ptr %5, align 4
   br label %408
 
-408:                                              ; preds = %400, %335
+408:                                              ; preds = %335, %400
   %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr i8, ptr %409, i64 1
+  %410 = getelementptr inbounds i8, ptr %409, i64 1
   %411 = load i8, ptr %410, align 1
   %412 = zext i8 %411 to i32
   %413 = shl i32 %412, 8
@@ -578,9 +584,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %415, ptr %5, align 4
   br label %416
 
-416:                                              ; preds = %408, %335
+416:                                              ; preds = %335, %408
   %417 = load ptr, ptr %3, align 8
-  %418 = getelementptr i8, ptr %417, i64 0
+  %418 = getelementptr inbounds i8, ptr %417, i64 0
   %419 = load i8, ptr %418, align 1
   %420 = zext i8 %419 to i32
   %421 = load i32, ptr %5, align 4
@@ -656,11 +662,18 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) #0 {
   %473 = sub i32 %472, %471
   store i32 %473, ptr %7, align 4
   %474 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret i32 %474
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pg_rotate_left32(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @pg_rotate_left32(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -676,8 +689,11 @@ define internal i32 @pg_rotate_left32(i32 noundef %0, i32 noundef %1) #0 {
   ret i32 %12
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
+define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -689,6 +705,10 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i64 %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   %12 = load i32, ptr %5, align 4
   store i32 %12, ptr %10, align 4
   %13 = load i32, ptr %10, align 4
@@ -801,6 +821,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   br i1 %92, label %93, label %269
 
 93:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %94 = load ptr, ptr %4, align 8
   store ptr %94, ptr %11, align 8
   br label %95
@@ -812,19 +833,19 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %11, align 8
-  %100 = getelementptr i32, ptr %99, i64 0
+  %100 = getelementptr inbounds i32, ptr %99, i64 0
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %7, align 4
   %103 = add i32 %102, %101
   store i32 %103, ptr %7, align 4
   %104 = load ptr, ptr %11, align 8
-  %105 = getelementptr i32, ptr %104, i64 1
+  %105 = getelementptr inbounds i32, ptr %104, i64 1
   %106 = load i32, ptr %105, align 4
   %107 = load i32, ptr %8, align 4
   %108 = add i32 %107, %106
   store i32 %108, ptr %8, align 4
   %109 = load ptr, ptr %11, align 8
-  %110 = getelementptr i32, ptr %109, i64 2
+  %110 = getelementptr inbounds i32, ptr %109, i64 2
   %111 = load i32, ptr %110, align 4
   %112 = load i32, ptr %9, align 4
   %113 = add i32 %112, %111
@@ -908,12 +929,12 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %173 = add i32 %172, %171
   store i32 %173, ptr %8, align 4
   %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr i32, ptr %174, i64 3
+  %175 = getelementptr inbounds i32, ptr %174, i64 3
   store ptr %175, ptr %11, align 8
   %176 = load i32, ptr %10, align 4
   %177 = sub i32 %176, 12
   store i32 %177, ptr %10, align 4
-  br label %95, !llvm.loop !8
+  br label %95, !llvm.loop !6
 
 178:                                              ; preds = %95
   %179 = load ptr, ptr %11, align 8
@@ -935,7 +956,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr i8, ptr %182, i64 10
+  %183 = getelementptr inbounds i8, ptr %182, i64 10
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = shl i32 %185, 24
@@ -944,9 +965,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %188, ptr %9, align 4
   br label %189
 
-189:                                              ; preds = %181, %178
+189:                                              ; preds = %178, %181
   %190 = load ptr, ptr %4, align 8
-  %191 = getelementptr i8, ptr %190, i64 9
+  %191 = getelementptr inbounds i8, ptr %190, i64 9
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = shl i32 %193, 16
@@ -955,9 +976,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %196, ptr %9, align 4
   br label %197
 
-197:                                              ; preds = %189, %178
+197:                                              ; preds = %178, %189
   %198 = load ptr, ptr %4, align 8
-  %199 = getelementptr i8, ptr %198, i64 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 8
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
   %202 = shl i32 %201, 8
@@ -966,15 +987,15 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %204, ptr %9, align 4
   br label %205
 
-205:                                              ; preds = %197, %178
+205:                                              ; preds = %178, %197
   %206 = load ptr, ptr %11, align 8
-  %207 = getelementptr i32, ptr %206, i64 1
+  %207 = getelementptr inbounds i32, ptr %206, i64 1
   %208 = load i32, ptr %207, align 4
   %209 = load i32, ptr %8, align 4
   %210 = add i32 %209, %208
   store i32 %210, ptr %8, align 4
   %211 = load ptr, ptr %11, align 8
-  %212 = getelementptr i32, ptr %211, i64 0
+  %212 = getelementptr inbounds i32, ptr %211, i64 0
   %213 = load i32, ptr %212, align 4
   %214 = load i32, ptr %7, align 4
   %215 = add i32 %214, %213
@@ -983,7 +1004,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 216:                                              ; preds = %178
   %217 = load ptr, ptr %4, align 8
-  %218 = getelementptr i8, ptr %217, i64 6
+  %218 = getelementptr inbounds i8, ptr %217, i64 6
   %219 = load i8, ptr %218, align 1
   %220 = zext i8 %219 to i32
   %221 = shl i32 %220, 16
@@ -992,9 +1013,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %223, ptr %8, align 4
   br label %224
 
-224:                                              ; preds = %216, %178
+224:                                              ; preds = %178, %216
   %225 = load ptr, ptr %4, align 8
-  %226 = getelementptr i8, ptr %225, i64 5
+  %226 = getelementptr inbounds i8, ptr %225, i64 5
   %227 = load i8, ptr %226, align 1
   %228 = zext i8 %227 to i32
   %229 = shl i32 %228, 8
@@ -1003,9 +1024,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %231, ptr %8, align 4
   br label %232
 
-232:                                              ; preds = %224, %178
+232:                                              ; preds = %178, %224
   %233 = load ptr, ptr %4, align 8
-  %234 = getelementptr i8, ptr %233, i64 4
+  %234 = getelementptr inbounds i8, ptr %233, i64 4
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = load i32, ptr %8, align 4
@@ -1013,9 +1034,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %238, ptr %8, align 4
   br label %239
 
-239:                                              ; preds = %232, %178
+239:                                              ; preds = %178, %232
   %240 = load ptr, ptr %11, align 8
-  %241 = getelementptr i32, ptr %240, i64 0
+  %241 = getelementptr inbounds i32, ptr %240, i64 0
   %242 = load i32, ptr %241, align 4
   %243 = load i32, ptr %7, align 4
   %244 = add i32 %243, %242
@@ -1024,7 +1045,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 245:                                              ; preds = %178
   %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr i8, ptr %246, i64 2
+  %247 = getelementptr inbounds i8, ptr %246, i64 2
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = shl i32 %249, 16
@@ -1033,9 +1054,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %252, ptr %7, align 4
   br label %253
 
-253:                                              ; preds = %245, %178
+253:                                              ; preds = %178, %245
   %254 = load ptr, ptr %4, align 8
-  %255 = getelementptr i8, ptr %254, i64 1
+  %255 = getelementptr inbounds i8, ptr %254, i64 1
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i32
   %258 = shl i32 %257, 8
@@ -1044,9 +1065,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %260, ptr %7, align 4
   br label %261
 
-261:                                              ; preds = %253, %178
+261:                                              ; preds = %178, %253
   %262 = load ptr, ptr %4, align 8
-  %263 = getelementptr i8, ptr %262, i64 0
+  %263 = getelementptr inbounds i8, ptr %262, i64 0
   %264 = load i8, ptr %263, align 1
   %265 = zext i8 %264 to i32
   %266 = load i32, ptr %7, align 4
@@ -1054,7 +1075,8 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %267, ptr %7, align 4
   br label %268
 
-268:                                              ; preds = %261, %239, %205, %178
+268:                                              ; preds = %261, %178, %239, %205
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   br label %499
 
 269:                                              ; preds = %88
@@ -1067,23 +1089,23 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 273:                                              ; preds = %270
   %274 = load ptr, ptr %4, align 8
-  %275 = getelementptr i8, ptr %274, i64 0
+  %275 = getelementptr inbounds i8, ptr %274, i64 0
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = load ptr, ptr %4, align 8
-  %279 = getelementptr i8, ptr %278, i64 1
+  %279 = getelementptr inbounds i8, ptr %278, i64 1
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
   %282 = shl i32 %281, 8
   %283 = add i32 %277, %282
   %284 = load ptr, ptr %4, align 8
-  %285 = getelementptr i8, ptr %284, i64 2
+  %285 = getelementptr inbounds i8, ptr %284, i64 2
   %286 = load i8, ptr %285, align 1
   %287 = zext i8 %286 to i32
   %288 = shl i32 %287, 16
   %289 = add i32 %283, %288
   %290 = load ptr, ptr %4, align 8
-  %291 = getelementptr i8, ptr %290, i64 3
+  %291 = getelementptr inbounds i8, ptr %290, i64 3
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i32
   %294 = shl i32 %293, 24
@@ -1092,23 +1114,23 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %297 = add i32 %296, %295
   store i32 %297, ptr %7, align 4
   %298 = load ptr, ptr %4, align 8
-  %299 = getelementptr i8, ptr %298, i64 4
+  %299 = getelementptr inbounds i8, ptr %298, i64 4
   %300 = load i8, ptr %299, align 1
   %301 = zext i8 %300 to i32
   %302 = load ptr, ptr %4, align 8
-  %303 = getelementptr i8, ptr %302, i64 5
+  %303 = getelementptr inbounds i8, ptr %302, i64 5
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
   %306 = shl i32 %305, 8
   %307 = add i32 %301, %306
   %308 = load ptr, ptr %4, align 8
-  %309 = getelementptr i8, ptr %308, i64 6
+  %309 = getelementptr inbounds i8, ptr %308, i64 6
   %310 = load i8, ptr %309, align 1
   %311 = zext i8 %310 to i32
   %312 = shl i32 %311, 16
   %313 = add i32 %307, %312
   %314 = load ptr, ptr %4, align 8
-  %315 = getelementptr i8, ptr %314, i64 7
+  %315 = getelementptr inbounds i8, ptr %314, i64 7
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
   %318 = shl i32 %317, 24
@@ -1117,23 +1139,23 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %321 = add i32 %320, %319
   store i32 %321, ptr %8, align 4
   %322 = load ptr, ptr %4, align 8
-  %323 = getelementptr i8, ptr %322, i64 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 8
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
   %326 = load ptr, ptr %4, align 8
-  %327 = getelementptr i8, ptr %326, i64 9
+  %327 = getelementptr inbounds i8, ptr %326, i64 9
   %328 = load i8, ptr %327, align 1
   %329 = zext i8 %328 to i32
   %330 = shl i32 %329, 8
   %331 = add i32 %325, %330
   %332 = load ptr, ptr %4, align 8
-  %333 = getelementptr i8, ptr %332, i64 10
+  %333 = getelementptr inbounds i8, ptr %332, i64 10
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
   %336 = shl i32 %335, 16
   %337 = add i32 %331, %336
   %338 = load ptr, ptr %4, align 8
-  %339 = getelementptr i8, ptr %338, i64 11
+  %339 = getelementptr inbounds i8, ptr %338, i64 11
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
   %342 = shl i32 %341, 24
@@ -1220,12 +1242,12 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %405 = add i32 %404, %403
   store i32 %405, ptr %8, align 4
   %406 = load ptr, ptr %4, align 8
-  %407 = getelementptr i8, ptr %406, i64 12
+  %407 = getelementptr inbounds i8, ptr %406, i64 12
   store ptr %407, ptr %4, align 8
   %408 = load i32, ptr %10, align 4
   %409 = sub i32 %408, 12
   store i32 %409, ptr %10, align 4
-  br label %270, !llvm.loop !9
+  br label %270, !llvm.loop !7
 
 410:                                              ; preds = %270
   %411 = load i32, ptr %10, align 4
@@ -1245,7 +1267,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 412:                                              ; preds = %410
   %413 = load ptr, ptr %4, align 8
-  %414 = getelementptr i8, ptr %413, i64 10
+  %414 = getelementptr inbounds i8, ptr %413, i64 10
   %415 = load i8, ptr %414, align 1
   %416 = zext i8 %415 to i32
   %417 = shl i32 %416, 24
@@ -1254,9 +1276,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %419, ptr %9, align 4
   br label %420
 
-420:                                              ; preds = %412, %410
+420:                                              ; preds = %410, %412
   %421 = load ptr, ptr %4, align 8
-  %422 = getelementptr i8, ptr %421, i64 9
+  %422 = getelementptr inbounds i8, ptr %421, i64 9
   %423 = load i8, ptr %422, align 1
   %424 = zext i8 %423 to i32
   %425 = shl i32 %424, 16
@@ -1265,9 +1287,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %427, ptr %9, align 4
   br label %428
 
-428:                                              ; preds = %420, %410
+428:                                              ; preds = %410, %420
   %429 = load ptr, ptr %4, align 8
-  %430 = getelementptr i8, ptr %429, i64 8
+  %430 = getelementptr inbounds i8, ptr %429, i64 8
   %431 = load i8, ptr %430, align 1
   %432 = zext i8 %431 to i32
   %433 = shl i32 %432, 8
@@ -1276,9 +1298,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %435, ptr %9, align 4
   br label %436
 
-436:                                              ; preds = %428, %410
+436:                                              ; preds = %410, %428
   %437 = load ptr, ptr %4, align 8
-  %438 = getelementptr i8, ptr %437, i64 7
+  %438 = getelementptr inbounds i8, ptr %437, i64 7
   %439 = load i8, ptr %438, align 1
   %440 = zext i8 %439 to i32
   %441 = shl i32 %440, 24
@@ -1287,9 +1309,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %443, ptr %8, align 4
   br label %444
 
-444:                                              ; preds = %436, %410
+444:                                              ; preds = %410, %436
   %445 = load ptr, ptr %4, align 8
-  %446 = getelementptr i8, ptr %445, i64 6
+  %446 = getelementptr inbounds i8, ptr %445, i64 6
   %447 = load i8, ptr %446, align 1
   %448 = zext i8 %447 to i32
   %449 = shl i32 %448, 16
@@ -1298,9 +1320,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %451, ptr %8, align 4
   br label %452
 
-452:                                              ; preds = %444, %410
+452:                                              ; preds = %410, %444
   %453 = load ptr, ptr %4, align 8
-  %454 = getelementptr i8, ptr %453, i64 5
+  %454 = getelementptr inbounds i8, ptr %453, i64 5
   %455 = load i8, ptr %454, align 1
   %456 = zext i8 %455 to i32
   %457 = shl i32 %456, 8
@@ -1309,9 +1331,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %459, ptr %8, align 4
   br label %460
 
-460:                                              ; preds = %452, %410
+460:                                              ; preds = %410, %452
   %461 = load ptr, ptr %4, align 8
-  %462 = getelementptr i8, ptr %461, i64 4
+  %462 = getelementptr inbounds i8, ptr %461, i64 4
   %463 = load i8, ptr %462, align 1
   %464 = zext i8 %463 to i32
   %465 = load i32, ptr %8, align 4
@@ -1319,9 +1341,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %466, ptr %8, align 4
   br label %467
 
-467:                                              ; preds = %460, %410
+467:                                              ; preds = %410, %460
   %468 = load ptr, ptr %4, align 8
-  %469 = getelementptr i8, ptr %468, i64 3
+  %469 = getelementptr inbounds i8, ptr %468, i64 3
   %470 = load i8, ptr %469, align 1
   %471 = zext i8 %470 to i32
   %472 = shl i32 %471, 24
@@ -1330,9 +1352,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %474, ptr %7, align 4
   br label %475
 
-475:                                              ; preds = %467, %410
+475:                                              ; preds = %410, %467
   %476 = load ptr, ptr %4, align 8
-  %477 = getelementptr i8, ptr %476, i64 2
+  %477 = getelementptr inbounds i8, ptr %476, i64 2
   %478 = load i8, ptr %477, align 1
   %479 = zext i8 %478 to i32
   %480 = shl i32 %479, 16
@@ -1341,9 +1363,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %482, ptr %7, align 4
   br label %483
 
-483:                                              ; preds = %475, %410
+483:                                              ; preds = %410, %475
   %484 = load ptr, ptr %4, align 8
-  %485 = getelementptr i8, ptr %484, i64 1
+  %485 = getelementptr inbounds i8, ptr %484, i64 1
   %486 = load i8, ptr %485, align 1
   %487 = zext i8 %486 to i32
   %488 = shl i32 %487, 8
@@ -1352,9 +1374,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   store i32 %490, ptr %7, align 4
   br label %491
 
-491:                                              ; preds = %483, %410
+491:                                              ; preds = %410, %483
   %492 = load ptr, ptr %4, align 8
-  %493 = getelementptr i8, ptr %492, i64 0
+  %493 = getelementptr inbounds i8, ptr %492, i64 0
   %494 = load i8, ptr %493, align 1
   %495 = zext i8 %494 to i32
   %496 = load i32, ptr %7, align 4
@@ -1435,16 +1457,23 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %552 = load i32, ptr %9, align 4
   %553 = zext i32 %552 to i64
   %554 = or i64 %551, %553
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i64 %554
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hash_bytes_uint32(i32 noundef %0) #0 {
+define i32 @hash_bytes_uint32(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 -1636608428, ptr %5, align 4
   store i32 -1636608428, ptr %4, align 4
   store i32 -1636608428, ptr %3, align 4
@@ -1516,11 +1545,14 @@ define dso_local i32 @hash_bytes_uint32(i32 noundef %0) #0 {
   %57 = sub i32 %56, %55
   store i32 %57, ptr %5, align 4
   %58 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
   ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1) #0 {
+define i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -1528,6 +1560,9 @@ define dso_local i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1)
   %7 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   store i32 -1636608428, ptr %7, align 4
   store i32 -1636608428, ptr %6, align 4
   store i32 -1636608428, ptr %5, align 4
@@ -1701,18 +1736,22 @@ define dso_local i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1)
   %136 = load i32, ptr %7, align 4
   %137 = zext i32 %136 to i64
   %138 = or i64 %135, %137
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret i64 %138
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @string_hash(ptr noundef %0, i64 noundef %1) #0 {
+define i32 @string_hash(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #2
+  %7 = call i64 @strlen(ptr noundef %6) #5
   store i64 %7, ptr %5, align 8
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %4, align 8
@@ -1736,14 +1775,15 @@ define dso_local i32 @string_hash(ptr noundef %0, i64 noundef %1) #0 {
   %20 = load i64, ptr %5, align 8
   %21 = trunc i64 %20 to i32
   %22 = call i32 @hash_bytes(ptr noundef %19, i32 noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 %22
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tag_hash(ptr noundef %0, i64 noundef %1) #0 {
+define i32 @tag_hash(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
@@ -1756,7 +1796,7 @@ define dso_local i32 @tag_hash(ptr noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uint32_hash(ptr noundef %0, i64 noundef %1) #0 {
+define i32 @uint32_hash(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
@@ -1767,19 +1807,20 @@ define dso_local i32 @uint32_hash(ptr noundef %0, i64 noundef %1) #0 {
   ret i32 %7
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}

@@ -51,19 +51,20 @@ define dso_local i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -72,7 +73,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef %0) 
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -82,7 +83,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef %0) 
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 47, ptr noundef @__func__.binary_upgrade_set_next_pg_tablespace_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 46, ptr noundef @__func__.binary_upgrade_set_next_pg_tablespace_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -91,17 +92,27 @@ define dso_local i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef %0) 
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_pg_tablespace_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_pg_tablespace_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetObjectId(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -110,34 +121,38 @@ define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #4
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #4
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #4
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -146,7 +161,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef %0) #0 {
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -156,7 +171,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef %0) #0 {
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 58, ptr noundef @__func__.binary_upgrade_set_next_pg_type_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 57, ptr noundef @__func__.binary_upgrade_set_next_pg_type_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -165,12 +180,19 @@ define dso_local i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_pg_type_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_pg_type_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -179,19 +201,20 @@ define dso_local i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -200,7 +223,7 @@ define dso_local i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef %0) 
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -210,7 +233,7 @@ define dso_local i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef %0) 
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 69, ptr noundef @__func__.binary_upgrade_set_next_array_pg_type_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 68, ptr noundef @__func__.binary_upgrade_set_next_array_pg_type_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -219,12 +242,19 @@ define dso_local i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef %0) 
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_array_pg_type_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_array_pg_type_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -233,19 +263,20 @@ define dso_local i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -254,7 +285,7 @@ define dso_local i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -264,7 +295,7 @@ define dso_local i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 80, ptr noundef @__func__.binary_upgrade_set_next_multirange_pg_type_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 79, ptr noundef @__func__.binary_upgrade_set_next_multirange_pg_type_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -273,12 +304,19 @@ define dso_local i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_mrng_pg_type_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_mrng_pg_type_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -287,19 +325,20 @@ define dso_local i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr n
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -308,7 +347,7 @@ define dso_local i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr n
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -318,7 +357,7 @@ define dso_local i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr n
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 91, ptr noundef @__func__.binary_upgrade_set_next_multirange_array_pg_type_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 90, ptr noundef @__func__.binary_upgrade_set_next_multirange_array_pg_type_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -327,12 +366,19 @@ define dso_local i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr n
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_mrng_array_pg_type_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_mrng_array_pg_type_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -341,19 +387,20 @@ define dso_local i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -362,7 +409,7 @@ define dso_local i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef %0) 
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -372,7 +419,7 @@ define dso_local i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef %0) 
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 102, ptr noundef @__func__.binary_upgrade_set_next_heap_pg_class_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 101, ptr noundef @__func__.binary_upgrade_set_next_heap_pg_class_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -381,12 +428,19 @@ define dso_local i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef %0) 
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_heap_pg_class_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_heap_pg_class_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -395,19 +449,20 @@ define dso_local i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef %0) #
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -416,7 +471,7 @@ define dso_local i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef %0) #
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -426,7 +481,7 @@ define dso_local i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef %0) #
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 113, ptr noundef @__func__.binary_upgrade_set_next_heap_relfilenode)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 112, ptr noundef @__func__.binary_upgrade_set_next_heap_relfilenode)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -435,12 +490,19 @@ define dso_local i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef %0) #
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_heap_pg_class_relfilenumber, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_heap_pg_class_relfilenumber, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -449,19 +511,20 @@ define dso_local i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef %0)
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -470,7 +533,7 @@ define dso_local i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef %0)
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -480,7 +543,7 @@ define dso_local i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef %0)
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 124, ptr noundef @__func__.binary_upgrade_set_next_index_pg_class_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 123, ptr noundef @__func__.binary_upgrade_set_next_index_pg_class_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -489,12 +552,19 @@ define dso_local i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef %0)
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_index_pg_class_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_index_pg_class_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -503,19 +573,20 @@ define dso_local i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -524,7 +595,7 @@ define dso_local i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef %0) 
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -534,7 +605,7 @@ define dso_local i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef %0) 
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 135, ptr noundef @__func__.binary_upgrade_set_next_index_relfilenode)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 134, ptr noundef @__func__.binary_upgrade_set_next_index_relfilenode)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -543,12 +614,19 @@ define dso_local i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef %0) 
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_index_pg_class_relfilenumber, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_index_pg_class_relfilenumber, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -557,19 +635,20 @@ define dso_local i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef %0)
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -578,7 +657,7 @@ define dso_local i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef %0)
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -588,7 +667,7 @@ define dso_local i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef %0)
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 146, ptr noundef @__func__.binary_upgrade_set_next_toast_pg_class_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 145, ptr noundef @__func__.binary_upgrade_set_next_toast_pg_class_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -597,12 +676,19 @@ define dso_local i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef %0)
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_toast_pg_class_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_toast_pg_class_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -611,19 +697,20 @@ define dso_local i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -632,7 +719,7 @@ define dso_local i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef %0) 
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -642,7 +729,7 @@ define dso_local i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef %0) 
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 157, ptr noundef @__func__.binary_upgrade_set_next_toast_relfilenode)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 156, ptr noundef @__func__.binary_upgrade_set_next_toast_relfilenode)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -651,12 +738,19 @@ define dso_local i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef %0) 
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_toast_pg_class_relfilenumber, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_toast_pg_class_relfilenumber, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -665,19 +759,20 @@ define dso_local i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -686,7 +781,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef %0) #0 {
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -696,7 +791,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef %0) #0 {
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 168, ptr noundef @__func__.binary_upgrade_set_next_pg_enum_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 167, ptr noundef @__func__.binary_upgrade_set_next_pg_enum_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -705,12 +800,19 @@ define dso_local i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_pg_enum_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_pg_enum_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -719,19 +821,20 @@ define dso_local i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call i32 @DatumGetObjectId(i64 noundef %8)
   store i32 %9, ptr %3, align 4
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -740,7 +843,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef %0) #0 {
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -750,7 +853,7 @@ define dso_local i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef %0) #0 {
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 179, ptr noundef @__func__.binary_upgrade_set_next_pg_authid_oid)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 178, ptr noundef @__func__.binary_upgrade_set_next_pg_authid_oid)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -759,12 +862,19 @@ define dso_local i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr @binary_upgrade_next_pg_authid_oid, align 4
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr %3, align 4
+  store i32 %28, ptr @binary_upgrade_next_pg_authid_oid, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
@@ -787,12 +897,19 @@ define dso_local i64 @binary_upgrade_create_empty_extension(ptr noundef %0) #0 {
   %16 = alloca %struct.ObjectAddress, align 4
   %17 = alloca { i64, i32 }, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   br label %18
 
 18:                                               ; preds = %1
-  %19 = load i8, ptr @IsBinaryUpgrade, align 1
+  %19 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %32, label %21
+  br i1 %20, label %33, label %21
 
 21:                                               ; preds = %18
   br label %22
@@ -801,7 +918,7 @@ define dso_local i64 @binary_upgrade_create_empty_extension(ptr noundef %0) #0 {
   br i1 true, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %24, label %27, label %30
 
 25:                                               ; preds = %22
@@ -811,7 +928,7 @@ define dso_local i64 @binary_upgrade_create_empty_extension(ptr noundef %0) #0 {
 27:                                               ; preds = %25, %23
   %28 = call i32 @errcode(i32 noundef 33685829)
   %29 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 195, ptr noundef @__func__.binary_upgrade_create_empty_extension)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 194, ptr noundef @__func__.binary_upgrade_create_empty_extension)
   br label %30
 
 30:                                               ; preds = %27, %25, %23
@@ -820,231 +937,259 @@ define dso_local i64 @binary_upgrade_create_empty_extension(ptr noundef %0) #0 {
 31:                                               ; No predecessors!
   br label %32
 
-32:                                               ; preds = %31, %18
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %34, i32 0, i32 6
-  %36 = getelementptr [0 x %struct.NullableDatum], ptr %35, i64 0, i64 0
-  %37 = getelementptr inbounds %struct.NullableDatum, ptr %36, i32 0, i32 1
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %61, label %40
+33:                                               ; preds = %32, %18
+  br label %34
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %41, i32 0, i32 6
-  %43 = getelementptr [0 x %struct.NullableDatum], ptr %42, i64 0, i64 1
-  %44 = getelementptr inbounds %struct.NullableDatum, ptr %43, i32 0, i32 1
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %61, label %47
+34:                                               ; preds = %33
+  br label %35
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %48, i32 0, i32 6
-  %50 = getelementptr [0 x %struct.NullableDatum], ptr %49, i64 0, i64 2
-  %51 = getelementptr inbounds %struct.NullableDatum, ptr %50, i32 0, i32 1
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %61, label %54
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %36, i32 0, i32 6
+  %38 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %37, i64 0, i64 0
+  %39 = getelementptr inbounds nuw %struct.NullableDatum, ptr %38, i32 0, i32 1
+  %40 = load i8, ptr %39, align 8, !range !4, !noundef !5
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %63, label %42
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %55, i32 0, i32 6
-  %57 = getelementptr [0 x %struct.NullableDatum], ptr %56, i64 0, i64 3
-  %58 = getelementptr inbounds %struct.NullableDatum, ptr %57, i32 0, i32 1
-  %59 = load i8, ptr %58, align 8
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %61, label %71
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %43, i32 0, i32 6
+  %45 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %44, i64 0, i64 1
+  %46 = getelementptr inbounds nuw %struct.NullableDatum, ptr %45, i32 0, i32 1
+  %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %63, label %49
 
-61:                                               ; preds = %54, %47, %40, %33
-  br label %62
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %50, i32 0, i32 6
+  %52 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %51, i64 0, i64 2
+  %53 = getelementptr inbounds nuw %struct.NullableDatum, ptr %52, i32 0, i32 1
+  %54 = load i8, ptr %53, align 8, !range !4, !noundef !5
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %63, label %56
 
-62:                                               ; preds = %61
-  br i1 true, label %63, label %65
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %2, align 8
+  %58 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %57, i32 0, i32 6
+  %59 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %58, i64 0, i64 3
+  %60 = getelementptr inbounds nuw %struct.NullableDatum, ptr %59, i32 0, i32 1
+  %61 = load i8, ptr %60, align 8, !range !4, !noundef !5
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %74
 
-63:                                               ; preds = %62
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %64, label %67, label %69
+63:                                               ; preds = %56, %49, %42, %35
+  br label %64
 
-65:                                               ; preds = %62
-  %66 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %66, label %67, label %69
+64:                                               ; preds = %63
+  br i1 true, label %65, label %67
 
-67:                                               ; preds = %65, %63
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 202, ptr noundef @__func__.binary_upgrade_create_empty_extension)
-  br label %69
+65:                                               ; preds = %64
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %66, label %69, label %71
 
-69:                                               ; preds = %67, %65, %63
-  unreachable
+67:                                               ; preds = %64
+  %68 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %68, label %69, label %71
 
-70:                                               ; No predecessors!
+69:                                               ; preds = %67, %65
+  %70 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 201, ptr noundef @__func__.binary_upgrade_create_empty_extension)
   br label %71
 
-71:                                               ; preds = %70, %54
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %72, i32 0, i32 6
-  %74 = getelementptr [0 x %struct.NullableDatum], ptr %73, i64 0, i64 0
-  %75 = getelementptr inbounds %struct.NullableDatum, ptr %74, i32 0, i32 0
-  %76 = load i64, ptr %75, align 8
-  %77 = call ptr @DatumGetPointer(i64 noundef %76)
-  %78 = call ptr @pg_detoast_datum_packed(ptr noundef %77)
-  store ptr %78, ptr %3, align 8
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %79, i32 0, i32 6
-  %81 = getelementptr [0 x %struct.NullableDatum], ptr %80, i64 0, i64 1
-  %82 = getelementptr inbounds %struct.NullableDatum, ptr %81, i32 0, i32 0
-  %83 = load i64, ptr %82, align 8
-  %84 = call ptr @DatumGetPointer(i64 noundef %83)
-  %85 = call ptr @pg_detoast_datum_packed(ptr noundef %84)
-  store ptr %85, ptr %4, align 8
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %86, i32 0, i32 6
-  %88 = getelementptr [0 x %struct.NullableDatum], ptr %87, i64 0, i64 2
-  %89 = getelementptr inbounds %struct.NullableDatum, ptr %88, i32 0, i32 0
-  %90 = load i64, ptr %89, align 8
-  %91 = call zeroext i1 @DatumGetBool(i64 noundef %90)
-  %92 = zext i1 %91 to i8
-  store i8 %92, ptr %5, align 1
-  %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %93, i32 0, i32 6
-  %95 = getelementptr [0 x %struct.NullableDatum], ptr %94, i64 0, i64 3
-  %96 = getelementptr inbounds %struct.NullableDatum, ptr %95, i32 0, i32 0
-  %97 = load i64, ptr %96, align 8
-  %98 = call ptr @DatumGetPointer(i64 noundef %97)
-  %99 = call ptr @pg_detoast_datum_packed(ptr noundef %98)
-  store ptr %99, ptr %6, align 8
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %100, i32 0, i32 6
-  %102 = getelementptr [0 x %struct.NullableDatum], ptr %101, i64 0, i64 4
-  %103 = getelementptr inbounds %struct.NullableDatum, ptr %102, i32 0, i32 1
-  %104 = load i8, ptr %103, align 8
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %108
+71:                                               ; preds = %69, %67, %65
+  unreachable
 
-106:                                              ; preds = %71
-  %107 = call i64 @PointerGetDatum(ptr noundef null)
-  store i64 %107, ptr %7, align 8
-  br label %114
+72:                                               ; No predecessors!
+  br label %73
 
-108:                                              ; preds = %71
-  %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %109, i32 0, i32 6
-  %111 = getelementptr [0 x %struct.NullableDatum], ptr %110, i64 0, i64 4
-  %112 = getelementptr inbounds %struct.NullableDatum, ptr %111, i32 0, i32 0
-  %113 = load i64, ptr %112, align 8
-  store i64 %113, ptr %7, align 8
-  br label %114
+73:                                               ; preds = %72
+  br label %74
 
-114:                                              ; preds = %108, %106
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %115, i32 0, i32 6
-  %117 = getelementptr [0 x %struct.NullableDatum], ptr %116, i64 0, i64 5
-  %118 = getelementptr inbounds %struct.NullableDatum, ptr %117, i32 0, i32 1
-  %119 = load i8, ptr %118, align 8
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %121, label %123
+74:                                               ; preds = %73, %56
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %75, i32 0, i32 6
+  %77 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %76, i64 0, i64 0
+  %78 = getelementptr inbounds nuw %struct.NullableDatum, ptr %77, i32 0, i32 0
+  %79 = load i64, ptr %78, align 8
+  %80 = call ptr @DatumGetPointer(i64 noundef %79)
+  %81 = call ptr @pg_detoast_datum_packed(ptr noundef %80)
+  store ptr %81, ptr %3, align 8
+  %82 = load ptr, ptr %2, align 8
+  %83 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %82, i32 0, i32 6
+  %84 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %83, i64 0, i64 1
+  %85 = getelementptr inbounds nuw %struct.NullableDatum, ptr %84, i32 0, i32 0
+  %86 = load i64, ptr %85, align 8
+  %87 = call ptr @DatumGetPointer(i64 noundef %86)
+  %88 = call ptr @pg_detoast_datum_packed(ptr noundef %87)
+  store ptr %88, ptr %4, align 8
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %89, i32 0, i32 6
+  %91 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %90, i64 0, i64 2
+  %92 = getelementptr inbounds nuw %struct.NullableDatum, ptr %91, i32 0, i32 0
+  %93 = load i64, ptr %92, align 8
+  %94 = call zeroext i1 @DatumGetBool(i64 noundef %93)
+  %95 = zext i1 %94 to i8
+  store i8 %95, ptr %5, align 1
+  %96 = load ptr, ptr %2, align 8
+  %97 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %96, i32 0, i32 6
+  %98 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %97, i64 0, i64 3
+  %99 = getelementptr inbounds nuw %struct.NullableDatum, ptr %98, i32 0, i32 0
+  %100 = load i64, ptr %99, align 8
+  %101 = call ptr @DatumGetPointer(i64 noundef %100)
+  %102 = call ptr @pg_detoast_datum_packed(ptr noundef %101)
+  store ptr %102, ptr %6, align 8
+  %103 = load ptr, ptr %2, align 8
+  %104 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %103, i32 0, i32 6
+  %105 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %104, i64 0, i64 4
+  %106 = getelementptr inbounds nuw %struct.NullableDatum, ptr %105, i32 0, i32 1
+  %107 = load i8, ptr %106, align 8, !range !4, !noundef !5
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %111
 
-121:                                              ; preds = %114
-  %122 = call i64 @PointerGetDatum(ptr noundef null)
-  store i64 %122, ptr %8, align 8
-  br label %129
+109:                                              ; preds = %74
+  %110 = call i64 @PointerGetDatum(ptr noundef null)
+  store i64 %110, ptr %7, align 8
+  br label %117
 
-123:                                              ; preds = %114
-  %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %124, i32 0, i32 6
-  %126 = getelementptr [0 x %struct.NullableDatum], ptr %125, i64 0, i64 5
-  %127 = getelementptr inbounds %struct.NullableDatum, ptr %126, i32 0, i32 0
-  %128 = load i64, ptr %127, align 8
-  store i64 %128, ptr %8, align 8
-  br label %129
+111:                                              ; preds = %74
+  %112 = load ptr, ptr %2, align 8
+  %113 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %112, i32 0, i32 6
+  %114 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %113, i64 0, i64 4
+  %115 = getelementptr inbounds nuw %struct.NullableDatum, ptr %114, i32 0, i32 0
+  %116 = load i64, ptr %115, align 8
+  store i64 %116, ptr %7, align 8
+  br label %117
 
-129:                                              ; preds = %123, %121
+117:                                              ; preds = %111, %109
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %118, i32 0, i32 6
+  %120 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %119, i64 0, i64 5
+  %121 = getelementptr inbounds nuw %struct.NullableDatum, ptr %120, i32 0, i32 1
+  %122 = load i8, ptr %121, align 8, !range !4, !noundef !5
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %126
+
+124:                                              ; preds = %117
+  %125 = call i64 @PointerGetDatum(ptr noundef null)
+  store i64 %125, ptr %8, align 8
+  br label %132
+
+126:                                              ; preds = %117
+  %127 = load ptr, ptr %2, align 8
+  %128 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %127, i32 0, i32 6
+  %129 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %128, i64 0, i64 5
+  %130 = getelementptr inbounds nuw %struct.NullableDatum, ptr %129, i32 0, i32 0
+  %131 = load i64, ptr %130, align 8
+  store i64 %131, ptr %8, align 8
+  br label %132
+
+132:                                              ; preds = %126, %124
   store ptr null, ptr %9, align 8
-  %130 = load ptr, ptr %2, align 8
-  %131 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %130, i32 0, i32 6
-  %132 = getelementptr [0 x %struct.NullableDatum], ptr %131, i64 0, i64 6
-  %133 = getelementptr inbounds %struct.NullableDatum, ptr %132, i32 0, i32 1
-  %134 = load i8, ptr %133, align 8
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %166, label %136
+  %133 = load ptr, ptr %2, align 8
+  %134 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %133, i32 0, i32 6
+  %135 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %134, i64 0, i64 6
+  %136 = getelementptr inbounds nuw %struct.NullableDatum, ptr %135, i32 0, i32 1
+  %137 = load i8, ptr %136, align 8, !range !4, !noundef !5
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %169, label %139
 
-136:                                              ; preds = %129
-  %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %137, i32 0, i32 6
-  %139 = getelementptr [0 x %struct.NullableDatum], ptr %138, i64 0, i64 6
-  %140 = getelementptr inbounds %struct.NullableDatum, ptr %139, i32 0, i32 0
-  %141 = load i64, ptr %140, align 8
-  %142 = call ptr @DatumGetPointer(i64 noundef %141)
-  %143 = call ptr @pg_detoast_datum(ptr noundef %142)
-  store ptr %143, ptr %10, align 8
-  %144 = load ptr, ptr %10, align 8
-  call void @deconstruct_array_builtin(ptr noundef %144, i32 noundef 25, ptr noundef %11, ptr noundef null, ptr noundef %12)
+139:                                              ; preds = %132
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %140 = load ptr, ptr %2, align 8
+  %141 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %140, i32 0, i32 6
+  %142 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %141, i64 0, i64 6
+  %143 = getelementptr inbounds nuw %struct.NullableDatum, ptr %142, i32 0, i32 0
+  %144 = load i64, ptr %143, align 8
+  %145 = call ptr @DatumGetPointer(i64 noundef %144)
+  %146 = call ptr @pg_detoast_datum(ptr noundef %145)
+  store ptr %146, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %147 = load ptr, ptr %10, align 8
+  call void @deconstruct_array_builtin(ptr noundef %147, i32 noundef 25, ptr noundef %11, ptr noundef null, ptr noundef %12)
   store i32 0, ptr %13, align 4
-  br label %145
+  br label %148
 
-145:                                              ; preds = %162, %136
-  %146 = load i32, ptr %13, align 4
-  %147 = load i32, ptr %12, align 4
-  %148 = icmp slt i32 %146, %147
-  br i1 %148, label %149, label %165
+148:                                              ; preds = %165, %139
+  %149 = load i32, ptr %13, align 4
+  %150 = load i32, ptr %12, align 4
+  %151 = icmp slt i32 %149, %150
+  br i1 %151, label %152, label %168
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %11, align 8
-  %151 = load i32, ptr %13, align 4
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr i64, ptr %150, i64 %152
-  %154 = load i64, ptr %153, align 8
-  %155 = call ptr @DatumGetPointer(i64 noundef %154)
-  %156 = call ptr @text_to_cstring(ptr noundef %155)
-  store ptr %156, ptr %14, align 8
-  %157 = load ptr, ptr %14, align 8
-  %158 = call i32 @get_extension_oid(ptr noundef %157, i1 noundef zeroext false)
-  store i32 %158, ptr %15, align 4
-  %159 = load ptr, ptr %9, align 8
-  %160 = load i32, ptr %15, align 4
-  %161 = call ptr @lappend_oid(ptr noundef %159, i32 noundef %160)
-  store ptr %161, ptr %9, align 8
-  br label %162
+152:                                              ; preds = %148
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %153 = load ptr, ptr %11, align 8
+  %154 = load i32, ptr %13, align 4
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds i64, ptr %153, i64 %155
+  %157 = load i64, ptr %156, align 8
+  %158 = call ptr @DatumGetPointer(i64 noundef %157)
+  %159 = call ptr @text_to_cstring(ptr noundef %158)
+  store ptr %159, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %160 = load ptr, ptr %14, align 8
+  %161 = call i32 @get_extension_oid(ptr noundef %160, i1 noundef zeroext false)
+  store i32 %161, ptr %15, align 4
+  %162 = load ptr, ptr %9, align 8
+  %163 = load i32, ptr %15, align 4
+  %164 = call ptr @lappend_oid(ptr noundef %162, i32 noundef %163)
+  store ptr %164, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  br label %165
 
-162:                                              ; preds = %149
-  %163 = load i32, ptr %13, align 4
-  %164 = add i32 %163, 1
-  store i32 %164, ptr %13, align 4
-  br label %145, !llvm.loop !5
+165:                                              ; preds = %152
+  %166 = load i32, ptr %13, align 4
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %13, align 4
+  br label %148, !llvm.loop !6
 
-165:                                              ; preds = %145
-  br label %166
+168:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %169
 
-166:                                              ; preds = %165, %129
-  %167 = load ptr, ptr %3, align 8
-  %168 = call ptr @text_to_cstring(ptr noundef %167)
-  %169 = call i32 @GetUserId()
-  %170 = load ptr, ptr %4, align 8
+169:                                              ; preds = %168, %132
+  %170 = load ptr, ptr %3, align 8
   %171 = call ptr @text_to_cstring(ptr noundef %170)
-  %172 = call i32 @get_namespace_oid(ptr noundef %171, i1 noundef zeroext false)
-  %173 = load i8, ptr %5, align 1
-  %174 = trunc i8 %173 to i1
-  %175 = load ptr, ptr %6, align 8
-  %176 = call ptr @text_to_cstring(ptr noundef %175)
-  %177 = load i64, ptr %7, align 8
-  %178 = load i64, ptr %8, align 8
-  %179 = load ptr, ptr %9, align 8
-  %180 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %168, i32 noundef %169, i32 noundef %172, i1 noundef zeroext %174, ptr noundef %176, i64 noundef %177, i64 noundef %178, ptr noundef %179)
-  store { i64, i32 } %180, ptr %17, align 8
+  %172 = call i32 @GetUserId()
+  %173 = load ptr, ptr %4, align 8
+  %174 = call ptr @text_to_cstring(ptr noundef %173)
+  %175 = call i32 @get_namespace_oid(ptr noundef %174, i1 noundef zeroext false)
+  %176 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %177 = trunc i8 %176 to i1
+  %178 = load ptr, ptr %6, align 8
+  %179 = call ptr @text_to_cstring(ptr noundef %178)
+  %180 = load i64, ptr %7, align 8
+  %181 = load i64, ptr %8, align 8
+  %182 = load ptr, ptr %9, align 8
+  %183 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %171, i32 noundef %172, i32 noundef %175, i1 noundef zeroext %177, ptr noundef %179, i64 noundef %180, i64 noundef %181, ptr noundef %182)
+  store { i64, i32 } %183, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 8 %17, i64 12, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i64 0
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #4
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1052,8 +1197,8 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @DatumGetBool(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1061,8 +1206,8 @@ define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
   ret i1 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1070,34 +1215,35 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) #2
+declare ptr @pg_detoast_datum(ptr noundef) #4
 
-declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
-declare ptr @text_to_cstring(ptr noundef) #2
+declare ptr @text_to_cstring(ptr noundef) #4
 
-declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) #2
+declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) #4
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) #2
+declare ptr @lappend_oid(ptr noundef, i32 noundef) #4
 
-declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
+declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) #4
 
-declare i32 @GetUserId() #2
+declare i32 @GetUserId() #4
 
-declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) #2
+declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_upgrade_set_record_init_privs(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #6
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call zeroext i1 @DatumGetBool(i64 noundef %8)
   %10 = zext i1 %9 to i8
@@ -1105,9 +1251,9 @@ define dso_local i64 @binary_upgrade_set_record_init_privs(ptr noundef %0) #0 {
   br label %11
 
 11:                                               ; preds = %1
-  %12 = load i8, ptr @IsBinaryUpgrade, align 1
+  %12 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %25, label %14
+  br i1 %13, label %26, label %14
 
 14:                                               ; preds = %11
   br label %15
@@ -1116,7 +1262,7 @@ define dso_local i64 @binary_upgrade_set_record_init_privs(ptr noundef %0) #0 {
   br i1 true, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %17, label %20, label %23
 
 18:                                               ; preds = %15
@@ -1126,7 +1272,7 @@ define dso_local i64 @binary_upgrade_set_record_init_privs(ptr noundef %0) #0 {
 20:                                               ; preds = %18, %16
   %21 = call i32 @errcode(i32 noundef 33685829)
   %22 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 254, ptr noundef @__func__.binary_upgrade_set_record_init_privs)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 253, ptr noundef @__func__.binary_upgrade_set_record_init_privs)
   br label %23
 
 23:                                               ; preds = %20, %18, %16
@@ -1135,14 +1281,21 @@ define dso_local i64 @binary_upgrade_set_record_init_privs(ptr noundef %0) #0 {
 24:                                               ; No predecessors!
   br label %25
 
-25:                                               ; preds = %24, %11
+25:                                               ; preds = %24
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load i8, ptr %3, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = zext i1 %28 to i8
-  store i8 %29, ptr @binary_upgrade_record_init_privs, align 1
+26:                                               ; preds = %25, %11
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %30 = trunc i8 %29 to i1
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr @binary_upgrade_record_init_privs, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #6
   ret i64 0
 }
 
@@ -1155,41 +1308,46 @@ define dso_local i64 @binary_upgrade_set_missing_value(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call i32 @DatumGetObjectId(i64 noundef %12)
   store i32 %13, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetPointer(i64 noundef %18)
   %20 = call ptr @pg_detoast_datum(ptr noundef %19)
   store ptr %20, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
+  %24 = getelementptr inbounds nuw %struct.NullableDatum, ptr %23, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
   %26 = call ptr @DatumGetPointer(i64 noundef %25)
   %27 = call ptr @pg_detoast_datum(ptr noundef %26)
   store ptr %27, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %28 = load ptr, ptr %4, align 8
   %29 = call ptr @text_to_cstring(ptr noundef %28)
   store ptr %29, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %30 = load ptr, ptr %5, align 8
   %31 = call ptr @text_to_cstring(ptr noundef %30)
   store ptr %31, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1
-  %33 = load i8, ptr @IsBinaryUpgrade, align 1
+  %33 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %46, label %35
+  br i1 %34, label %47, label %35
 
 35:                                               ; preds = %32
   br label %36
@@ -1198,7 +1356,7 @@ define dso_local i64 @binary_upgrade_set_missing_value(ptr noundef %0) #0 {
   br i1 true, label %37, label %39
 
 37:                                               ; preds = %36
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %38, label %41, label %44
 
 39:                                               ; preds = %36
@@ -1208,7 +1366,7 @@ define dso_local i64 @binary_upgrade_set_missing_value(ptr noundef %0) #0 {
 41:                                               ; preds = %39, %37
   %42 = call i32 @errcode(i32 noundef 33685829)
   %43 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 269, ptr noundef @__func__.binary_upgrade_set_missing_value)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 268, ptr noundef @__func__.binary_upgrade_set_missing_value)
   br label %44
 
 44:                                               ; preds = %41, %39, %37
@@ -1217,18 +1375,29 @@ define dso_local i64 @binary_upgrade_set_missing_value(ptr noundef %0) #0 {
 45:                                               ; No predecessors!
   br label %46
 
-46:                                               ; preds = %45, %32
+46:                                               ; preds = %45
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %3, align 4
-  %49 = load ptr, ptr %6, align 8
-  %50 = load ptr, ptr %7, align 8
-  call void @SetAttrMissing(i32 noundef %48, ptr noundef %49, ptr noundef %50)
+47:                                               ; preds = %46, %32
+  br label %48
+
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load i32, ptr %3, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %7, align 8
+  call void @SetAttrMissing(i32 noundef %50, ptr noundef %51, ptr noundef %52)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i64 0
 }
 
-declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) #2
+declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef %0) #0 {
@@ -1237,12 +1406,15 @@ define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef %0) 
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
   br label %6
 
 6:                                                ; preds = %1
-  %7 = load i8, ptr @IsBinaryUpgrade, align 1
+  %7 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %20, label %9
+  br i1 %8, label %21, label %9
 
 9:                                                ; preds = %6
   br label %10
@@ -1251,7 +1423,7 @@ define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef %0) 
   br i1 true, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %12, label %15, label %18
 
 13:                                               ; preds = %10
@@ -1261,7 +1433,7 @@ define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef %0) 
 15:                                               ; preds = %13, %11
   %16 = call i32 @errcode(i32 noundef 33685829)
   %17 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 291, ptr noundef @__func__.binary_upgrade_logical_slot_has_caught_up)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 290, ptr noundef @__func__.binary_upgrade_logical_slot_has_caught_up)
   br label %18
 
 18:                                               ; preds = %15, %13, %11
@@ -1270,37 +1442,46 @@ define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef %0) 
 19:                                               ; No predecessors!
   br label %20
 
-20:                                               ; preds = %19, %6
+20:                                               ; preds = %19
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
-  %24 = getelementptr [0 x %struct.NullableDatum], ptr %23, i64 0, i64 0
-  %25 = getelementptr inbounds %struct.NullableDatum, ptr %24, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = call ptr @DatumGetName(i64 noundef %26)
-  store ptr %27, ptr %3, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.nameData, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
-  call void @ReplicationSlotAcquire(ptr noundef %30, i1 noundef zeroext true)
-  %31 = call i64 @GetFlushRecPtr(ptr noundef null)
-  store i64 %31, ptr %4, align 8
-  %32 = load i64, ptr %4, align 8
-  %33 = call zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef %32)
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %5, align 1
+21:                                               ; preds = %20, %6
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %24, i32 0, i32 6
+  %26 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %25, i64 0, i64 0
+  %27 = getelementptr inbounds nuw %struct.NullableDatum, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  %29 = call ptr @DatumGetName(i64 noundef %28)
+  store ptr %29, ptr %3, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.nameData, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [64 x i8], ptr %31, i64 0, i64 0
+  call void @ReplicationSlotAcquire(ptr noundef %32, i1 noundef zeroext true, i1 noundef zeroext true)
+  %33 = call i64 @GetFlushRecPtr(ptr noundef null)
+  store i64 %33, ptr %4, align 8
+  %34 = load i64, ptr %4, align 8
+  %35 = call zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef %34)
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %5, align 1
   call void @ReplicationSlotRelease()
-  %35 = load i8, ptr %5, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = xor i1 %36, true
-  %38 = call i64 @BoolGetDatum(i1 noundef zeroext %37)
-  ret i64 %38
+  %37 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %38 = trunc i8 %37 to i1
+  %39 = xor i1 %38, true
+  %40 = call i64 @BoolGetDatum(i1 noundef zeroext %39)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret i64 %40
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetName(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetName(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1308,20 +1489,20 @@ define internal ptr @DatumGetName(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext) #2
+declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) #4
 
-declare i64 @GetFlushRecPtr(ptr noundef) #2
+declare i64 @GetFlushRecPtr(ptr noundef) #4
 
-declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) #2
+declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) #4
 
-declare void @ReplicationSlotRelease() #2
+declare void @ReplicationSlotRelease() #4
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #2 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
-  %4 = load i8, ptr %2, align 1
+  %4 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i32 1, i32 0
   %7 = sext i32 %6 to i64
@@ -1339,12 +1520,19 @@ define dso_local i64 @binary_upgrade_add_sub_rel_state(ptr noundef %0) #0 {
   %8 = alloca i8, align 1
   %9 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   br label %10
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @IsBinaryUpgrade, align 1
+  %11 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %10
   br label %14
@@ -1353,7 +1541,7 @@ define dso_local i64 @binary_upgrade_add_sub_rel_state(ptr noundef %0) #0 {
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -1363,7 +1551,7 @@ define dso_local i64 @binary_upgrade_add_sub_rel_state(ptr noundef %0) #0 {
 19:                                               ; preds = %17, %15
   %20 = call i32 @errcode(i32 noundef 33685829)
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 335, ptr noundef @__func__.binary_upgrade_add_sub_rel_state)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 334, ptr noundef @__func__.binary_upgrade_add_sub_rel_state)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -1372,130 +1560,146 @@ define dso_local i64 @binary_upgrade_add_sub_rel_state(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %10
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 0
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 1
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %46, label %32
+25:                                               ; preds = %24, %10
+  br label %26
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 1
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 1
-  %37 = load i8, ptr %36, align 8
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %46, label %39
+26:                                               ; preds = %25
+  br label %27
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %40, i32 0, i32 6
-  %42 = getelementptr [0 x %struct.NullableDatum], ptr %41, i64 0, i64 2
-  %43 = getelementptr inbounds %struct.NullableDatum, ptr %42, i32 0, i32 1
-  %44 = load i8, ptr %43, align 8
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %56
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %29, i64 0, i64 0
+  %31 = getelementptr inbounds nuw %struct.NullableDatum, ptr %30, i32 0, i32 1
+  %32 = load i8, ptr %31, align 8, !range !4, !noundef !5
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %48, label %34
 
-46:                                               ; preds = %39, %32, %25
-  br label %47
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %35, i32 0, i32 6
+  %37 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %36, i64 0, i64 1
+  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %37, i32 0, i32 1
+  %39 = load i8, ptr %38, align 8, !range !4, !noundef !5
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %48, label %41
 
-47:                                               ; preds = %46
-  br i1 true, label %48, label %50
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %42, i32 0, i32 6
+  %44 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %43, i64 0, i64 2
+  %45 = getelementptr inbounds nuw %struct.NullableDatum, ptr %44, i32 0, i32 1
+  %46 = load i8, ptr %45, align 8, !range !4, !noundef !5
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %59
 
-48:                                               ; preds = %47
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %49, label %52, label %54
+48:                                               ; preds = %41, %34, %27
+  br label %49
 
-50:                                               ; preds = %47
-  %51 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %51, label %52, label %54
+49:                                               ; preds = %48
+  br i1 true, label %50, label %52
 
-52:                                               ; preds = %50, %48
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 339, ptr noundef @__func__.binary_upgrade_add_sub_rel_state)
-  br label %54
+50:                                               ; preds = %49
+  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %51, label %54, label %56
 
-54:                                               ; preds = %52, %50, %48
-  unreachable
+52:                                               ; preds = %49
+  %53 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %53, label %54, label %56
 
-55:                                               ; No predecessors!
+54:                                               ; preds = %52, %50
+  %55 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 338, ptr noundef @__func__.binary_upgrade_add_sub_rel_state)
   br label %56
 
-56:                                               ; preds = %55, %39
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %57, i32 0, i32 6
-  %59 = getelementptr [0 x %struct.NullableDatum], ptr %58, i64 0, i64 0
-  %60 = getelementptr inbounds %struct.NullableDatum, ptr %59, i32 0, i32 0
-  %61 = load i64, ptr %60, align 8
-  %62 = call ptr @DatumGetPointer(i64 noundef %61)
-  %63 = call ptr @pg_detoast_datum_packed(ptr noundef %62)
-  %64 = call ptr @text_to_cstring(ptr noundef %63)
-  store ptr %64, ptr %6, align 8
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %65, i32 0, i32 6
-  %67 = getelementptr [0 x %struct.NullableDatum], ptr %66, i64 0, i64 1
-  %68 = getelementptr inbounds %struct.NullableDatum, ptr %67, i32 0, i32 0
-  %69 = load i64, ptr %68, align 8
-  %70 = call i32 @DatumGetObjectId(i64 noundef %69)
-  store i32 %70, ptr %7, align 4
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %71, i32 0, i32 6
-  %73 = getelementptr [0 x %struct.NullableDatum], ptr %72, i64 0, i64 2
-  %74 = getelementptr inbounds %struct.NullableDatum, ptr %73, i32 0, i32 0
-  %75 = load i64, ptr %74, align 8
-  %76 = call signext i8 @DatumGetChar(i64 noundef %75)
-  store i8 %76, ptr %8, align 1
-  %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %77, i32 0, i32 6
-  %79 = getelementptr [0 x %struct.NullableDatum], ptr %78, i64 0, i64 3
-  %80 = getelementptr inbounds %struct.NullableDatum, ptr %79, i32 0, i32 1
-  %81 = load i8, ptr %80, align 8
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %84
+56:                                               ; preds = %54, %52, %50
+  unreachable
 
-83:                                               ; preds = %56
-  br label %91
+57:                                               ; No predecessors!
+  br label %58
 
-84:                                               ; preds = %56
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %85, i32 0, i32 6
-  %87 = getelementptr [0 x %struct.NullableDatum], ptr %86, i64 0, i64 3
-  %88 = getelementptr inbounds %struct.NullableDatum, ptr %87, i32 0, i32 0
-  %89 = load i64, ptr %88, align 8
-  %90 = call i64 @DatumGetLSN(i64 noundef %89)
-  br label %91
+58:                                               ; preds = %57
+  br label %59
 
-91:                                               ; preds = %84, %83
-  %92 = phi i64 [ 0, %83 ], [ %90, %84 ]
-  store i64 %92, ptr %9, align 8
-  %93 = call ptr @table_open(i32 noundef 6100, i32 noundef 3)
-  store ptr %93, ptr %3, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = call i32 @get_subscription_oid(ptr noundef %94, i1 noundef zeroext false)
-  store i32 %95, ptr %5, align 4
-  %96 = load i32, ptr %7, align 4
-  %97 = call ptr @relation_open(i32 noundef %96, i32 noundef 1)
-  store ptr %97, ptr %4, align 8
-  %98 = load i32, ptr %5, align 4
+59:                                               ; preds = %58, %41
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %60, i32 0, i32 6
+  %62 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %61, i64 0, i64 0
+  %63 = getelementptr inbounds nuw %struct.NullableDatum, ptr %62, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8
+  %65 = call ptr @DatumGetPointer(i64 noundef %64)
+  %66 = call ptr @pg_detoast_datum_packed(ptr noundef %65)
+  %67 = call ptr @text_to_cstring(ptr noundef %66)
+  store ptr %67, ptr %6, align 8
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %68, i32 0, i32 6
+  %70 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %69, i64 0, i64 1
+  %71 = getelementptr inbounds nuw %struct.NullableDatum, ptr %70, i32 0, i32 0
+  %72 = load i64, ptr %71, align 8
+  %73 = call i32 @DatumGetObjectId(i64 noundef %72)
+  store i32 %73, ptr %7, align 4
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %74, i32 0, i32 6
+  %76 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %75, i64 0, i64 2
+  %77 = getelementptr inbounds nuw %struct.NullableDatum, ptr %76, i32 0, i32 0
+  %78 = load i64, ptr %77, align 8
+  %79 = call signext i8 @DatumGetChar(i64 noundef %78)
+  store i8 %79, ptr %8, align 1
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %80, i32 0, i32 6
+  %82 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %81, i64 0, i64 3
+  %83 = getelementptr inbounds nuw %struct.NullableDatum, ptr %82, i32 0, i32 1
+  %84 = load i8, ptr %83, align 8, !range !4, !noundef !5
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %87
+
+86:                                               ; preds = %59
+  br label %94
+
+87:                                               ; preds = %59
+  %88 = load ptr, ptr %2, align 8
+  %89 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %88, i32 0, i32 6
+  %90 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %89, i64 0, i64 3
+  %91 = getelementptr inbounds nuw %struct.NullableDatum, ptr %90, i32 0, i32 0
+  %92 = load i64, ptr %91, align 8
+  %93 = call i64 @DatumGetLSN(i64 noundef %92)
+  br label %94
+
+94:                                               ; preds = %87, %86
+  %95 = phi i64 [ 0, %86 ], [ %93, %87 ]
+  store i64 %95, ptr %9, align 8
+  %96 = call ptr @table_open(i32 noundef 6100, i32 noundef 3)
+  store ptr %96, ptr %3, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = call i32 @get_subscription_oid(ptr noundef %97, i1 noundef zeroext false)
+  store i32 %98, ptr %5, align 4
   %99 = load i32, ptr %7, align 4
-  %100 = load i8, ptr %8, align 1
-  %101 = load i64, ptr %9, align 8
-  call void @AddSubscriptionRelState(i32 noundef %98, i32 noundef %99, i8 noundef signext %100, i64 noundef %101, i1 noundef zeroext false)
-  %102 = load ptr, ptr %4, align 8
-  call void @relation_close(ptr noundef %102, i32 noundef 1)
-  %103 = load ptr, ptr %3, align 8
-  call void @table_close(ptr noundef %103, i32 noundef 3)
+  %100 = call ptr @relation_open(i32 noundef %99, i32 noundef 1)
+  store ptr %100, ptr %4, align 8
+  %101 = load i32, ptr %5, align 4
+  %102 = load i32, ptr %7, align 4
+  %103 = load i8, ptr %8, align 1
+  %104 = load i64, ptr %9, align 8
+  call void @AddSubscriptionRelState(i32 noundef %101, i32 noundef %102, i8 noundef signext %103, i64 noundef %104, i1 noundef zeroext false)
+  %105 = load ptr, ptr %4, align 8
+  call void @relation_close(ptr noundef %105, i32 noundef 1)
+  %106 = load ptr, ptr %3, align 8
+  call void @table_close(ptr noundef %106, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i64 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal signext i8 @DatumGetChar(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal signext i8 @DatumGetChar(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1503,8 +1707,8 @@ define internal signext i8 @DatumGetChar(i64 noundef %0) #0 {
   ret i8 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetLSN(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetLSN(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1512,17 +1716,17 @@ define internal i64 @DatumGetLSN(i64 noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @table_open(i32 noundef, i32 noundef) #2
+declare ptr @table_open(i32 noundef, i32 noundef) #4
 
-declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) #2
+declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) #4
 
-declare ptr @relation_open(i32 noundef, i32 noundef) #2
+declare ptr @relation_open(i32 noundef, i32 noundef) #4
 
-declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) #2
+declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) #4
 
-declare void @relation_close(ptr noundef, i32 noundef) #2
+declare void @relation_close(ptr noundef, i32 noundef) #4
 
-declare void @table_close(ptr noundef, i32 noundef) #2
+declare void @table_close(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_upgrade_replorigin_advance(ptr noundef %0) #0 {
@@ -1534,12 +1738,18 @@ define dso_local i64 @binary_upgrade_replorigin_advance(ptr noundef %0) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   br label %9
 
 9:                                                ; preds = %1
-  %10 = load i8, ptr @IsBinaryUpgrade, align 1
+  %10 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %23, label %12
+  br i1 %11, label %24, label %12
 
 12:                                               ; preds = %9
   br label %13
@@ -1548,7 +1758,7 @@ define dso_local i64 @binary_upgrade_replorigin_advance(ptr noundef %0) #0 {
   br i1 true, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %15, label %18, label %21
 
 16:                                               ; preds = %13
@@ -1558,7 +1768,7 @@ define dso_local i64 @binary_upgrade_replorigin_advance(ptr noundef %0) #0 {
 18:                                               ; preds = %16, %14
   %19 = call i32 @errcode(i32 noundef 33685829)
   %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 378, ptr noundef @__func__.binary_upgrade_replorigin_advance)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 377, ptr noundef @__func__.binary_upgrade_replorigin_advance)
   br label %21
 
 21:                                               ; preds = %18, %16, %14
@@ -1567,127 +1777,146 @@ define dso_local i64 @binary_upgrade_replorigin_advance(ptr noundef %0) #0 {
 22:                                               ; No predecessors!
   br label %23
 
-23:                                               ; preds = %22, %9
+23:                                               ; preds = %22
   br label %24
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
-  %27 = getelementptr [0 x %struct.NullableDatum], ptr %26, i64 0, i64 0
-  %28 = getelementptr inbounds %struct.NullableDatum, ptr %27, i32 0, i32 1
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %41
+24:                                               ; preds = %23, %9
+  br label %25
 
-31:                                               ; preds = %24
-  br label %32
+25:                                               ; preds = %24
+  br label %26
 
-32:                                               ; preds = %31
-  br i1 true, label %33, label %35
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %28, i64 0, i64 0
+  %30 = getelementptr inbounds nuw %struct.NullableDatum, ptr %29, i32 0, i32 1
+  %31 = load i8, ptr %30, align 8, !range !4, !noundef !5
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %44
 
-33:                                               ; preds = %32
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %34, label %37, label %39
+33:                                               ; preds = %26
+  br label %34
 
-35:                                               ; preds = %32
-  %36 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %36, label %37, label %39
+34:                                               ; preds = %33
+  br i1 true, label %35, label %37
 
-37:                                               ; preds = %35, %33
-  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 385, ptr noundef @__func__.binary_upgrade_replorigin_advance)
-  br label %39
+35:                                               ; preds = %34
+  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %36, label %39, label %41
 
-39:                                               ; preds = %37, %35, %33
-  unreachable
+37:                                               ; preds = %34
+  %38 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %38, label %39, label %41
 
-40:                                               ; No predecessors!
+39:                                               ; preds = %37, %35
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 384, ptr noundef @__func__.binary_upgrade_replorigin_advance)
   br label %41
 
-41:                                               ; preds = %40, %24
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %42, i32 0, i32 6
-  %44 = getelementptr [0 x %struct.NullableDatum], ptr %43, i64 0, i64 0
-  %45 = getelementptr inbounds %struct.NullableDatum, ptr %44, i32 0, i32 0
-  %46 = load i64, ptr %45, align 8
-  %47 = call ptr @DatumGetPointer(i64 noundef %46)
-  %48 = call ptr @pg_detoast_datum_packed(ptr noundef %47)
-  %49 = call ptr @text_to_cstring(ptr noundef %48)
-  store ptr %49, ptr %5, align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %50, i32 0, i32 6
-  %52 = getelementptr [0 x %struct.NullableDatum], ptr %51, i64 0, i64 1
-  %53 = getelementptr inbounds %struct.NullableDatum, ptr %52, i32 0, i32 1
-  %54 = load i8, ptr %53, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %57
+41:                                               ; preds = %39, %37, %35
+  unreachable
 
-56:                                               ; preds = %41
-  br label %64
+42:                                               ; No predecessors!
+  br label %43
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %58, i32 0, i32 6
-  %60 = getelementptr [0 x %struct.NullableDatum], ptr %59, i64 0, i64 1
-  %61 = getelementptr inbounds %struct.NullableDatum, ptr %60, i32 0, i32 0
-  %62 = load i64, ptr %61, align 8
-  %63 = call i64 @DatumGetLSN(i64 noundef %62)
-  br label %64
+43:                                               ; preds = %42
+  br label %44
 
-64:                                               ; preds = %57, %56
-  %65 = phi i64 [ 0, %56 ], [ %63, %57 ]
-  store i64 %65, ptr %8, align 8
-  %66 = call ptr @table_open(i32 noundef 6100, i32 noundef 3)
-  store ptr %66, ptr %3, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = call i32 @get_subscription_oid(ptr noundef %67, i1 noundef zeroext false)
-  store i32 %68, ptr %4, align 4
-  %69 = load i32, ptr %4, align 4
-  %70 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  call void @ReplicationOriginNameForLogicalRep(i32 noundef %69, i32 noundef 0, ptr noundef %70, i64 noundef 64)
+44:                                               ; preds = %43, %26
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 0
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %49 = load i64, ptr %48, align 8
+  %50 = call ptr @DatumGetPointer(i64 noundef %49)
+  %51 = call ptr @pg_detoast_datum_packed(ptr noundef %50)
+  %52 = call ptr @text_to_cstring(ptr noundef %51)
+  store ptr %52, ptr %5, align 8
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %53, i32 0, i32 6
+  %55 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %54, i64 0, i64 1
+  %56 = getelementptr inbounds nuw %struct.NullableDatum, ptr %55, i32 0, i32 1
+  %57 = load i8, ptr %56, align 8, !range !4, !noundef !5
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %44
+  br label %67
+
+60:                                               ; preds = %44
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %61, i32 0, i32 6
+  %63 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %62, i64 0, i64 1
+  %64 = getelementptr inbounds nuw %struct.NullableDatum, ptr %63, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = call i64 @DatumGetLSN(i64 noundef %65)
+  br label %67
+
+67:                                               ; preds = %60, %59
+  %68 = phi i64 [ 0, %59 ], [ %66, %60 ]
+  store i64 %68, ptr %8, align 8
+  %69 = call ptr @table_open(i32 noundef 6100, i32 noundef 3)
+  store ptr %69, ptr %3, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = call i32 @get_subscription_oid(ptr noundef %70, i1 noundef zeroext false)
+  store i32 %71, ptr %4, align 4
+  %72 = load i32, ptr %4, align 4
+  %73 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
+  call void @ReplicationOriginNameForLogicalRep(i32 noundef %72, i32 noundef 0, ptr noundef %73, i64 noundef 64)
   call void @LockRelationOid(i32 noundef 6000, i32 noundef 3)
-  %71 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %72 = call zeroext i16 @replorigin_by_name(ptr noundef %71, i1 noundef zeroext false)
-  store i16 %72, ptr %7, align 2
-  %73 = load i16, ptr %7, align 2
-  %74 = load i64, ptr %8, align 8
-  call void @replorigin_advance(i16 noundef zeroext %73, i64 noundef %74, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  %74 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
+  %75 = call zeroext i16 @replorigin_by_name(ptr noundef %74, i1 noundef zeroext false)
+  store i16 %75, ptr %7, align 2
+  %76 = load i16, ptr %7, align 2
+  %77 = load i64, ptr %8, align 8
+  call void @replorigin_advance(i16 noundef zeroext %76, i64 noundef %77, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @UnlockRelationOid(i32 noundef 6000, i32 noundef 3)
-  %75 = load ptr, ptr %3, align 8
-  call void @table_close(ptr noundef %75, i32 noundef 3)
+  %78 = load ptr, ptr %3, align 8
+  call void @table_close(ptr noundef %78, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i64 0
 }
 
-declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) #2
+declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) #4
 
-declare void @LockRelationOid(i32 noundef, i32 noundef) #2
+declare void @LockRelationOid(i32 noundef, i32 noundef) #4
 
-declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) #2
+declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) #4
 
-declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) #2
+declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) #4
 
-declare void @UnlockRelationOid(i32 noundef, i32 noundef) #2
+declare void @UnlockRelationOid(i32 noundef, i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetInt64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetInt64(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

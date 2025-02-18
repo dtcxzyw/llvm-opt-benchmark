@@ -168,17 +168,17 @@ define internal void @proc_exit_prepare(i32 noundef %0) #4 {
 19:                                               ; preds = %15
   %20 = load i32, ptr @on_proc_exit_index, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %21
-  %23 = getelementptr inbounds %struct.ONEXIT, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %struct.ONEXIT, ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 16
   %25 = load i32, ptr %2, align 4
   %26 = load i32, ptr @on_proc_exit_index, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %27
-  %29 = getelementptr inbounds %struct.ONEXIT, ptr %28, i32 0, i32 1
+  %28 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw %struct.ONEXIT, ptr %28, i32 0, i32 1
   %30 = load i64, ptr %29, align 8
   call void %24(i32 noundef %25, i64 noundef %30)
-  br label %15, !llvm.loop !5
+  br label %15, !llvm.loop !4
 
 31:                                               ; preds = %15
   store i32 0, ptr @on_proc_exit_index, align 4
@@ -229,17 +229,17 @@ define dso_local void @shmem_exit(i32 noundef %0) #4 {
 18:                                               ; preds = %14
   %19 = load i32, ptr @before_shmem_exit_index, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %20
-  %22 = getelementptr inbounds %struct.ONEXIT, ptr %21, i32 0, i32 0
+  %21 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %struct.ONEXIT, ptr %21, i32 0, i32 0
   %23 = load ptr, ptr %22, align 16
   %24 = load i32, ptr %2, align 4
   %25 = load i32, ptr @before_shmem_exit_index, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %26
-  %28 = getelementptr inbounds %struct.ONEXIT, ptr %27, i32 0, i32 1
+  %27 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.ONEXIT, ptr %27, i32 0, i32 1
   %29 = load i64, ptr %28, align 8
   call void %23(i32 noundef %24, i64 noundef %29)
-  br label %14, !llvm.loop !7
+  br label %14, !llvm.loop !6
 
 30:                                               ; preds = %14
   store i32 0, ptr @before_shmem_exit_index, align 4
@@ -280,17 +280,17 @@ define dso_local void @shmem_exit(i32 noundef %0) #4 {
 46:                                               ; preds = %42
   %47 = load i32, ptr @on_shmem_exit_index, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %48
-  %50 = getelementptr inbounds %struct.ONEXIT, ptr %49, i32 0, i32 0
+  %49 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw %struct.ONEXIT, ptr %49, i32 0, i32 0
   %51 = load ptr, ptr %50, align 16
   %52 = load i32, ptr %2, align 4
   %53 = load i32, ptr @on_shmem_exit_index, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %54
-  %56 = getelementptr inbounds %struct.ONEXIT, ptr %55, i32 0, i32 1
+  %55 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct.ONEXIT, ptr %55, i32 0, i32 1
   %57 = load i64, ptr %56, align 8
   call void %51(i32 noundef %52, i64 noundef %57)
-  br label %42, !llvm.loop !8
+  br label %42, !llvm.loop !7
 
 58:                                               ; preds = %42
   store i32 0, ptr @on_shmem_exit_index, align 4
@@ -340,19 +340,19 @@ define dso_local void @on_proc_exit(ptr noundef %0, i64 noundef %1) #4 {
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr @on_proc_exit_index, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %21
-  %23 = getelementptr inbounds %struct.ONEXIT, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %struct.ONEXIT, ptr %22, i32 0, i32 0
   store ptr %19, ptr %23, align 16
   %24 = load i64, ptr %4, align 8
   %25 = load i32, ptr @on_proc_exit_index, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %26
-  %28 = getelementptr inbounds %struct.ONEXIT, ptr %27, i32 0, i32 1
+  %27 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.ONEXIT, ptr %27, i32 0, i32 1
   store i64 %24, ptr %28, align 8
   %29 = load i32, ptr @on_proc_exit_index, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr @on_proc_exit_index, align 4
-  %31 = load i8, ptr @atexit_callback_setup, align 1
+  %31 = load i8, ptr @atexit_callback_setup, align 1, !range !8, !noundef !9
   %32 = trunc i8 %31 to i1
   br i1 %32, label %35, label %33
 
@@ -416,19 +416,19 @@ define dso_local void @before_shmem_exit(ptr noundef %0, i64 noundef %1) #4 {
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr @before_shmem_exit_index, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %21
-  %23 = getelementptr inbounds %struct.ONEXIT, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %struct.ONEXIT, ptr %22, i32 0, i32 0
   store ptr %19, ptr %23, align 16
   %24 = load i64, ptr %4, align 8
   %25 = load i32, ptr @before_shmem_exit_index, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %26
-  %28 = getelementptr inbounds %struct.ONEXIT, ptr %27, i32 0, i32 1
+  %27 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.ONEXIT, ptr %27, i32 0, i32 1
   store i64 %24, ptr %28, align 8
   %29 = load i32, ptr @before_shmem_exit_index, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr @before_shmem_exit_index, align 4
-  %31 = load i8, ptr @atexit_callback_setup, align 1
+  %31 = load i8, ptr @atexit_callback_setup, align 1, !range !8, !noundef !9
   %32 = trunc i8 %31 to i1
   br i1 %32, label %35, label %33
 
@@ -481,19 +481,19 @@ define dso_local void @on_shmem_exit(ptr noundef %0, i64 noundef %1) #4 {
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr @on_shmem_exit_index, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %21
-  %23 = getelementptr inbounds %struct.ONEXIT, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %struct.ONEXIT, ptr %22, i32 0, i32 0
   store ptr %19, ptr %23, align 16
   %24 = load i64, ptr %4, align 8
   %25 = load i32, ptr @on_shmem_exit_index, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %26
-  %28 = getelementptr inbounds %struct.ONEXIT, ptr %27, i32 0, i32 1
+  %27 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.ONEXIT, ptr %27, i32 0, i32 1
   store i64 %24, ptr %28, align 8
   %29 = load i32, ptr @on_shmem_exit_index, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr @on_shmem_exit_index, align 4
-  %31 = load i8, ptr @atexit_callback_setup, align 1
+  %31 = load i8, ptr @atexit_callback_setup, align 1, !range !8, !noundef !9
   %32 = trunc i8 %31 to i1
   br i1 %32, label %35, label %33
 
@@ -520,8 +520,8 @@ define dso_local void @cancel_before_shmem_exit(ptr noundef %0, i64 noundef %1) 
   %8 = load i32, ptr @before_shmem_exit_index, align 4
   %9 = sub i32 %8, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10
-  %12 = getelementptr inbounds %struct.ONEXIT, ptr %11, i32 0, i32 0
+  %11 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw %struct.ONEXIT, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 16
   %14 = load ptr, ptr %3, align 8
   %15 = icmp eq ptr %13, %14
@@ -531,8 +531,8 @@ define dso_local void @cancel_before_shmem_exit(ptr noundef %0, i64 noundef %1) 
   %17 = load i32, ptr @before_shmem_exit_index, align 4
   %18 = sub i32 %17, 1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.ONEXIT, ptr %20, i32 0, i32 1
+  %20 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw %struct.ONEXIT, ptr %20, i32 0, i32 1
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %4, align 8
   %24 = icmp eq i64 %22, %23
@@ -651,24 +651,25 @@ define dso_local void @check_on_shmem_exit_lists_are_empty() #4 {
   ret void
 }
 
-attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { cold }
 attributes #8 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}

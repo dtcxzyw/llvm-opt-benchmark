@@ -35,7 +35,7 @@ define dso_local void @geqo_selection(ptr noundef %0, ptr noundef %1, ptr nounde
   %24 = fcmp olt double %23, 0.000000e+00
   %25 = fcmp oge double %23, %8
   %26 = or i1 %24, %25
-  br i1 %26, label %11, label %linear_rand.exit, !llvm.loop !5
+  br i1 %26, label %11, label %linear_rand.exit, !llvm.loop !4
 
 linear_rand.exit:                                 ; preds = %19
   %27 = load i32, ptr %6, align 8
@@ -63,7 +63,7 @@ linear_rand.exit:                                 ; preds = %19
   %42 = fcmp olt double %41, 0.000000e+00
   %43 = fcmp oge double %41, %28
   %44 = or i1 %42, %43
-  br i1 %44, label %29, label %linear_rand.exit22, !llvm.loop !5
+  br i1 %44, label %29, label %linear_rand.exit22, !llvm.loop !4
 
 linear_rand.exit22:                               ; preds = %37
   %45 = fptosi double %23 to i32
@@ -100,24 +100,24 @@ linear_rand.exit22:                               ; preds = %37
   %65 = fcmp olt double %64, 0.000000e+00
   %66 = fcmp oge double %64, %51
   %67 = or i1 %65, %66
-  br i1 %67, label %52, label %linear_rand.exit24, !llvm.loop !5
+  br i1 %67, label %52, label %linear_rand.exit24, !llvm.loop !4
 
 linear_rand.exit24:                               ; preds = %60
   %68 = fptosi double %64 to i32
   %69 = icmp eq i32 %68, %45
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %linear_rand.exit24, %linear_rand.exit22
   %.0 = phi i32 [ %46, %linear_rand.exit22 ], [ %68, %linear_rand.exit24 ]
   %70 = load ptr, ptr %3, align 8
   %71 = sext i32 %45 to i64
-  %72 = getelementptr %struct.Chromosome, ptr %70, i64 %71
+  %72 = getelementptr inbounds %struct.Chromosome, ptr %70, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %74 = load i32, ptr %73, align 4
   tail call void @geqo_copy(ptr noundef %0, ptr noundef %1, ptr noundef %72, i32 noundef %74) #4
   %75 = load ptr, ptr %3, align 8
   %76 = sext i32 %.0 to i64
-  %77 = getelementptr %struct.Chromosome, ptr %75, i64 %76
+  %77 = getelementptr inbounds %struct.Chromosome, ptr %75, i64 %76
   %78 = load i32, ptr %73, align 4
   tail call void @geqo_copy(ptr noundef %0, ptr noundef %2, ptr noundef %77, i32 noundef %78) #4
   ret void
@@ -133,19 +133,18 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -62,19 +62,19 @@ define dso_local void @XLogReaderSetDecodeBuffer(ptr noundef %0, ptr noundef %1,
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 12
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 12
   store ptr %7, ptr %9, align 8
   %10 = load i64, ptr %6, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.XLogReaderState, ptr %11, i32 0, i32 13
+  %12 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %11, i32 0, i32 13
   store i64 %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.XLogReaderState, ptr %14, i32 0, i32 16
+  %15 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %14, i32 0, i32 16
   store ptr %13, ptr %15, align 8
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.XLogReaderState, ptr %17, i32 0, i32 15
+  %18 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %17, i32 0, i32 15
   store ptr %16, ptr %18, align 8
   ret void
 }
@@ -87,96 +87,106 @@ define dso_local ptr @XLogReaderAllocate(i32 noundef %0, ptr noundef %1, ptr nou
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store i32 %0, ptr %6, align 4
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = call ptr @palloc_extended(i64 noundef 1320, i32 noundef 6)
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %4
-  store ptr null, ptr %5, align 8
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = call ptr @palloc_extended(i64 noundef 1320, i32 noundef 6)
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %10, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.XLogReaderState, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 24, i1 false)
-  %19 = call ptr @palloc_extended(i64 noundef 8192, i32 noundef 2)
-  %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds %struct.XLogReaderState, ptr %20, i32 0, i32 19
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %struct.XLogReaderState, ptr %22, i32 0, i32 19
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %28, label %26
-
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %27)
   store ptr null, ptr %5, align 8
-  br label %57
+  store i32 1, ptr %11, align 4
+  br label %58
 
-28:                                               ; preds = %15
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.XLogReaderState, ptr %29, i32 0, i32 22
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct.XLogReaderState, ptr %31, i32 0, i32 21
-  %33 = load i32, ptr %6, align 4
-  %34 = load ptr, ptr %7, align 8
-  call void @WALOpenSegmentInit(ptr noundef %30, ptr noundef %32, i32 noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %9, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.XLogReaderState, ptr %36, i32 0, i32 2
-  store ptr %35, ptr %37, align 8
-  %38 = call ptr @palloc_extended(i64 noundef 1001, i32 noundef 2)
-  %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds %struct.XLogReaderState, ptr %39, i32 0, i32 32
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds %struct.XLogReaderState, ptr %41, i32 0, i32 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %50, label %45
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %10, align 8
+  %18 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 24, i1 false)
+  %20 = call ptr @palloc_extended(i64 noundef 8192, i32 noundef 2)
+  %21 = load ptr, ptr %10, align 8
+  %22 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %21, i32 0, i32 19
+  store ptr %20, ptr %22, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %23, i32 0, i32 19
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %29, label %27
 
-45:                                               ; preds = %28
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.XLogReaderState, ptr %46, i32 0, i32 19
-  %48 = load ptr, ptr %47, align 8
-  call void @pfree(ptr noundef %48)
-  %49 = load ptr, ptr %10, align 8
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %28)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %58
+
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %30, i32 0, i32 22
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %32, i32 0, i32 21
+  %34 = load i32, ptr %6, align 4
+  %35 = load ptr, ptr %7, align 8
+  call void @WALOpenSegmentInit(ptr noundef %31, ptr noundef %33, i32 noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 2
+  store ptr %36, ptr %38, align 8
+  %39 = call ptr @palloc_extended(i64 noundef 1001, i32 noundef 2)
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %40, i32 0, i32 32
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %42, i32 0, i32 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %51, label %46
+
+46:                                               ; preds = %29
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %47, i32 0, i32 19
+  %49 = load ptr, ptr %48, align 8
   call void @pfree(ptr noundef %49)
+  %50 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %50)
   store ptr null, ptr %5, align 8
-  br label %57
+  store i32 1, ptr %11, align 4
+  br label %58
 
-50:                                               ; preds = %28
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.XLogReaderState, ptr %51, i32 0, i32 32
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i8, ptr %53, i64 0
-  store i8 0, ptr %54, align 1
-  %55 = load ptr, ptr %10, align 8
-  call void @allocate_recordbuf(ptr noundef %55, i32 noundef 0)
+51:                                               ; preds = %29
+  %52 = load ptr, ptr %10, align 8
+  %53 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %52, i32 0, i32 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 0
+  store i8 0, ptr %55, align 1
   %56 = load ptr, ptr %10, align 8
-  store ptr %56, ptr %5, align 8
-  br label %57
+  call void @allocate_recordbuf(ptr noundef %56, i32 noundef 0)
+  %57 = load ptr, ptr %10, align 8
+  store ptr %57, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %58
 
-57:                                               ; preds = %50, %45, %26, %14
-  %58 = load ptr, ptr %5, align 8
-  ret ptr %58
+58:                                               ; preds = %51, %46, %27, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %59 = load ptr, ptr %5, align 8
+  ret ptr %59
 }
 
-declare ptr @palloc_extended(i64 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @palloc_extended(i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @WALOpenSegmentInit(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -189,17 +199,17 @@ define internal void @WALOpenSegmentInit(ptr noundef %0, ptr noundef %1, i32 nou
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.WALOpenSegment, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %9, i32 0, i32 0
   store i32 -1, ptr %10, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.WALOpenSegment, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %11, i32 0, i32 1
   store i64 0, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.WALOpenSegment, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %13, i32 0, i32 2
   store i32 0, ptr %14, align 8
   %15 = load i32, ptr %7, align 4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.WALSegmentContext, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %16, i32 0, i32 1
   store i32 %15, ptr %17, align 4
   %18 = load ptr, ptr %8, align 8
   %19 = icmp ne ptr %18, null
@@ -207,7 +217,7 @@ define internal void @WALOpenSegmentInit(ptr noundef %0, ptr noundef %1, i32 nou
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.WALSegmentContext, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %21, i32 0, i32 0
   %23 = getelementptr inbounds [1024 x i8], ptr %22, i64 0, i64 0
   %24 = load ptr, ptr %8, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %23, i64 noundef 1024, ptr noundef @.str.25, ptr noundef %24)
@@ -224,6 +234,7 @@ define internal void @allocate_recordbuf(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
   %6 = load i32, ptr %4, align 4
   store i32 %6, ptr %5, align 4
   %7 = load i32, ptr %5, align 4
@@ -247,14 +258,14 @@ define internal void @allocate_recordbuf(ptr noundef %0, i32 noundef %1) #0 {
   %18 = phi i32 [ %15, %14 ], [ 40960, %16 ]
   store i32 %18, ptr %5, align 4
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.XLogReaderState, ptr %19, i32 0, i32 30
+  %20 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %19, i32 0, i32 30
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.XLogReaderState, ptr %24, i32 0, i32 30
+  %25 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %24, i32 0, i32 30
   %26 = load ptr, ptr %25, align 8
   call void @pfree(ptr noundef %26)
   br label %27
@@ -264,30 +275,34 @@ define internal void @allocate_recordbuf(ptr noundef %0, i32 noundef %1) #0 {
   %29 = zext i32 %28 to i64
   %30 = call ptr @palloc(i64 noundef %29)
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.XLogReaderState, ptr %31, i32 0, i32 30
+  %32 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %31, i32 0, i32 30
   store ptr %30, ptr %32, align 8
   %33 = load i32, ptr %5, align 4
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.XLogReaderState, ptr %34, i32 0, i32 31
+  %35 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %34, i32 0, i32 31
   store i32 %33, ptr %35, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogReaderFree(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.XLogReaderState, ptr %3, i32 0, i32 22
-  %5 = getelementptr inbounds %struct.WALOpenSegment, ptr %4, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %3, i32 0, i32 22
+  %5 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %4, i32 0, i32 0
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, -1
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.XLogReaderState, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %10, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %10, i32 0, i32 2
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
   call void %12(ptr noundef %13)
@@ -295,46 +310,46 @@ define dso_local void @XLogReaderFree(ptr noundef %0) #0 {
 
 14:                                               ; preds = %8, %1
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.XLogReaderState, ptr %15, i32 0, i32 12
+  %16 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %15, i32 0, i32 12
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.XLogReaderState, ptr %20, i32 0, i32 14
-  %22 = load i8, ptr %21, align 8
+  %21 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %20, i32 0, i32 14
+  %22 = load i8, ptr %21, align 8, !range !4, !noundef !5
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.XLogReaderState, ptr %25, i32 0, i32 12
+  %26 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %25, i32 0, i32 12
   %27 = load ptr, ptr %26, align 8
   call void @pfree(ptr noundef %27)
   br label %28
 
 28:                                               ; preds = %24, %19, %14
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.XLogReaderState, ptr %29, i32 0, i32 32
+  %30 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %29, i32 0, i32 32
   %31 = load ptr, ptr %30, align 8
   call void @pfree(ptr noundef %31)
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.XLogReaderState, ptr %32, i32 0, i32 30
+  %33 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %32, i32 0, i32 30
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %28
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.XLogReaderState, ptr %37, i32 0, i32 30
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 30
   %39 = load ptr, ptr %38, align 8
   call void @pfree(ptr noundef %39)
   br label %40
 
 40:                                               ; preds = %36, %28
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.XLogReaderState, ptr %41, i32 0, i32 19
+  %42 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %41, i32 0, i32 19
   %43 = load ptr, ptr %42, align 8
   call void @pfree(ptr noundef %43)
   %44 = load ptr, ptr %2, align 8
@@ -352,17 +367,17 @@ define dso_local void @XLogBeginRead(ptr noundef %0, i64 noundef %1) #0 {
   call void @ResetDecoder(ptr noundef %5)
   %6 = load i64, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.XLogReaderState, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %7, i32 0, i32 4
   store i64 %6, ptr %8, align 8
   %9 = load i64, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.XLogReaderState, ptr %10, i32 0, i32 9
+  %11 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %10, i32 0, i32 9
   store i64 %9, ptr %11, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.XLogReaderState, ptr %12, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %12, i32 0, i32 3
   store i64 0, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.XLogReaderState, ptr %14, i32 0, i32 8
+  %15 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %14, i32 0, i32 8
   store i64 0, ptr %15, align 8
   ret void
 }
@@ -372,11 +387,12 @@ define internal void @ResetDecoder(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   br label %4
 
 4:                                                ; preds = %21, %1
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.XLogReaderState, ptr %5, i32 0, i32 17
+  %6 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %5, i32 0, i32 17
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = icmp ne ptr %7, null
@@ -384,14 +400,14 @@ define internal void @ResetDecoder(ptr noundef %0) #0 {
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %10, i32 0, i32 2
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.XLogReaderState, ptr %13, i32 0, i32 17
+  %14 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %13, i32 0, i32 17
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %15, i32 0, i32 1
-  %17 = load i8, ptr %16, align 8
+  %16 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %15, i32 0, i32 1
+  %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %21
 
@@ -401,38 +417,39 @@ define internal void @ResetDecoder(ptr noundef %0) #0 {
   br label %21
 
 21:                                               ; preds = %19, %9
-  br label %4, !llvm.loop !5
+  br label %4, !llvm.loop !6
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.XLogReaderState, ptr %23, i32 0, i32 18
+  %24 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %23, i32 0, i32 18
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.XLogReaderState, ptr %25, i32 0, i32 17
+  %26 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %25, i32 0, i32 17
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.XLogReaderState, ptr %27, i32 0, i32 11
+  %28 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %27, i32 0, i32 11
   store ptr null, ptr %28, align 8
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.XLogReaderState, ptr %29, i32 0, i32 12
+  %30 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %29, i32 0, i32 12
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.XLogReaderState, ptr %32, i32 0, i32 16
+  %33 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %32, i32 0, i32 16
   store ptr %31, ptr %33, align 8
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.XLogReaderState, ptr %34, i32 0, i32 12
+  %35 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %34, i32 0, i32 12
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.XLogReaderState, ptr %37, i32 0, i32 15
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 15
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.XLogReaderState, ptr %39, i32 0, i32 32
+  %40 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %39, i32 0, i32 32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr i8, ptr %41, i64 0
+  %42 = getelementptr inbounds i8, ptr %41, i64 0
   store i8 0, ptr %42, align 1
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.XLogReaderState, ptr %43, i32 0, i32 33
+  %44 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %43, i32 0, i32 33
   store i8 0, ptr %44, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
@@ -442,139 +459,151 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.XLogReaderState, ptr %6, i32 0, i32 11
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %1
-  store i64 0, ptr %2, align 8
-  br label %89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %7, i32 0, i32 11
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.XLogReaderState, ptr %12, i32 0, i32 11
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %15, i32 0, i32 4
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %5, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.XLogReaderState, ptr %18, i32 0, i32 11
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.XLogReaderState, ptr %23, i32 0, i32 17
-  store ptr %22, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.XLogReaderState, ptr %25, i32 0, i32 18
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %33
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %92
 
-30:                                               ; preds = %11
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.XLogReaderState, ptr %31, i32 0, i32 18
-  store ptr null, ptr %32, align 8
-  br label %33
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %13, i32 0, i32 11
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %16, i32 0, i32 4
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %5, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %19, i32 0, i32 11
+  store ptr null, ptr %20, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %24, i32 0, i32 17
+  store ptr %23, ptr %25, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %26, i32 0, i32 18
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %30, %11
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %34, i32 0, i32 1
-  %36 = load i8, ptr %35, align 8
-  %37 = trunc i8 %36 to i1
-  %38 = zext i1 %37 to i32
-  %39 = icmp ne i32 %38, 0
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %45
+31:                                               ; preds = %12
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %32, i32 0, i32 18
+  store ptr null, ptr %33, align 8
+  br label %34
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %44)
-  br label %87
+34:                                               ; preds = %31, %12
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %35, i32 0, i32 1
+  %37 = load i8, ptr %36, align 8, !range !4, !noundef !5
+  %38 = trunc i8 %37 to i1
+  %39 = zext i1 %38 to i32
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = call i64 @llvm.expect.i64(i64 %42, i64 0)
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %47
 
-45:                                               ; preds = %33
+45:                                               ; preds = %34
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %4, align 8
-  br label %49
+  call void @pfree(ptr noundef %46)
+  br label %90
 
-49:                                               ; preds = %64, %45
-  %50 = load ptr, ptr %4, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %57
+47:                                               ; preds = %34
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %4, align 8
+  br label %51
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %53, i32 0, i32 1
-  %55 = load i8, ptr %54, align 8
-  %56 = trunc i8 %55 to i1
-  br label %57
+51:                                               ; preds = %67, %47
+  %52 = load ptr, ptr %4, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %59
 
-57:                                               ; preds = %52, %49
-  %58 = phi i1 [ false, %49 ], [ %56, %52 ]
-  %59 = zext i1 %58 to i32
-  %60 = icmp ne i32 %59, 0
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %55, i32 0, i32 1
+  %57 = load i8, ptr %56, align 8, !range !4, !noundef !5
+  %58 = trunc i8 %57 to i1
+  br label %59
+
+59:                                               ; preds = %54, %51
+  %60 = phi i1 [ false, %51 ], [ %58, %54 ]
   %61 = zext i1 %60 to i32
-  %62 = sext i32 %61 to i64
-  %63 = icmp ne i64 %62, 0
-  br i1 %63, label %64, label %68
+  %62 = icmp ne i32 %61, 0
+  %63 = zext i1 %62 to i32
+  %64 = sext i32 %63 to i64
+  %65 = call i64 @llvm.expect.i64(i64 %64, i64 0)
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %71
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %4, align 8
-  br label %49, !llvm.loop !7
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %4, align 8
+  br label %51, !llvm.loop !8
 
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %4, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %71, label %75
-
-71:                                               ; preds = %68
+71:                                               ; preds = %59
   %72 = load ptr, ptr %4, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.XLogReaderState, ptr %73, i32 0, i32 15
-  store ptr %72, ptr %74, align 8
-  br label %86
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %78
 
-75:                                               ; preds = %68
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %4, align 8
   %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.XLogReaderState, ptr %76, i32 0, i32 12
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.XLogReaderState, ptr %79, i32 0, i32 15
-  store ptr %78, ptr %80, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.XLogReaderState, ptr %81, i32 0, i32 12
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.XLogReaderState, ptr %84, i32 0, i32 16
-  store ptr %83, ptr %85, align 8
-  br label %86
-
-86:                                               ; preds = %75, %71
-  br label %87
-
-87:                                               ; preds = %86, %43
-  %88 = load i64, ptr %5, align 8
-  store i64 %88, ptr %2, align 8
+  %77 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %76, i32 0, i32 15
+  store ptr %75, ptr %77, align 8
   br label %89
 
-89:                                               ; preds = %87, %10
-  %90 = load i64, ptr %2, align 8
-  ret i64 %90
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %79, i32 0, i32 12
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %82, i32 0, i32 15
+  store ptr %81, ptr %83, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %84, i32 0, i32 12
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %87, i32 0, i32 16
+  store ptr %86, ptr %88, align 8
+  br label %89
+
+89:                                               ; preds = %78, %74
+  br label %90
+
+90:                                               ; preds = %89, %45
+  %91 = load i64, ptr %5, align 8
+  store i64 %91, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %92
+
+92:                                               ; preds = %90, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %93 = load i64, ptr %2, align 8
+  ret i64 %93
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
@@ -586,7 +615,7 @@ define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
   %6 = load ptr, ptr %4, align 8
   %7 = call i64 @XLogReleasePreviousRecord(ptr noundef %6)
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 17
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 17
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %35
@@ -595,16 +624,16 @@ define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
   %13 = load ptr, ptr %5, align 8
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.XLogReaderState, ptr %14, i32 0, i32 33
-  %16 = load i8, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %14, i32 0, i32 33
+  %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %34
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.XLogReaderState, ptr %19, i32 0, i32 32
+  %20 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %19, i32 0, i32 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr i8, ptr %21, i64 0
+  %22 = getelementptr inbounds i8, ptr %21, i64 0
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
   %25 = icmp ne i32 %24, 0
@@ -612,7 +641,7 @@ define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.XLogReaderState, ptr %27, i32 0, i32 32
+  %28 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %27, i32 0, i32 32
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %5, align 8
   store ptr %29, ptr %30, align 8
@@ -620,7 +649,7 @@ define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
 
 31:                                               ; preds = %26, %18
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.XLogReaderState, ptr %32, i32 0, i32 33
+  %33 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %32, i32 0, i32 33
   store i8 0, ptr %33, align 8
   br label %34
 
@@ -630,31 +659,31 @@ define dso_local ptr @XLogNextRecord(ptr noundef %0, ptr noundef %1) #0 {
 
 35:                                               ; preds = %2
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.XLogReaderState, ptr %36, i32 0, i32 17
+  %37 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %36, i32 0, i32 17
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.XLogReaderState, ptr %39, i32 0, i32 11
+  %40 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %39, i32 0, i32 11
   store ptr %38, ptr %40, align 8
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.XLogReaderState, ptr %41, i32 0, i32 11
+  %42 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %41, i32 0, i32 11
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %43, i32 0, i32 3
+  %44 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %43, i32 0, i32 3
   %45 = load i64, ptr %44, align 8
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.XLogReaderState, ptr %46, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %46, i32 0, i32 3
   store i64 %45, ptr %47, align 8
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.XLogReaderState, ptr %48, i32 0, i32 11
+  %49 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %48, i32 0, i32 11
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %50, i32 0, i32 4
+  %51 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %50, i32 0, i32 4
   %52 = load i64, ptr %51, align 8
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.XLogReaderState, ptr %53, i32 0, i32 4
+  %54 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %53, i32 0, i32 4
   store i64 %52, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   store ptr null, ptr %55, align 8
   %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.XLogReaderState, ptr %56, i32 0, i32 11
+  %57 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %56, i32 0, i32 11
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %3, align 8
   br label %59
@@ -670,57 +699,62 @@ define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i64 @XLogReleasePreviousRecord(ptr noundef %7)
-  %9 = load ptr, ptr %4, align 8
-  %10 = call zeroext i1 @XLogReaderHasQueuedRecordOrError(ptr noundef %9)
-  br i1 %10, label %14, label %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i64 @XLogReleasePreviousRecord(ptr noundef %8)
+  %10 = load ptr, ptr %4, align 8
+  %11 = call zeroext i1 @XLogReaderHasQueuedRecordOrError(ptr noundef %10)
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = call ptr @XLogReadAhead(ptr noundef %12, i1 noundef zeroext false)
-  br label %14
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = call ptr @XLogReadAhead(ptr noundef %13, i1 noundef zeroext false)
+  br label %15
 
-14:                                               ; preds = %11, %2
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr @XLogNextRecord(ptr noundef %15, ptr noundef %16)
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %23
+15:                                               ; preds = %12, %2
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call ptr @XLogNextRecord(ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %21, i32 0, i32 5
-  store ptr %22, ptr %3, align 8
-  br label %24
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %22, i32 0, i32 5
+  store ptr %23, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %25
 
-23:                                               ; preds = %14
+24:                                               ; preds = %15
   store ptr null, ptr %3, align 8
-  br label %24
+  store i32 1, ptr %7, align 4
+  br label %25
 
-24:                                               ; preds = %23, %20
-  %25 = load ptr, ptr %3, align 8
-  ret ptr %25
+25:                                               ; preds = %24, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %26 = load ptr, ptr %3, align 8
+  ret ptr %26
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @XLogReaderHasQueuedRecordOrError(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @XLogReaderHasQueuedRecordOrError(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.XLogReaderState, ptr %3, i32 0, i32 17
+  %4 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %3, i32 0, i32 17
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 33
-  %10 = load i8, ptr %9, align 8
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 33
+  %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
   %11 = trunc i8 %10 to i1
   br label %12
 
@@ -735,43 +769,49 @@ define dso_local ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  %7 = zext i1 %1 to i8
-  store i8 %7, ptr %5, align 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 33
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %25
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %9, i32 0, i32 33
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !5
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i8, ptr %5, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = call i32 @XLogDecodeNextRecord(ptr noundef %14, i1 noundef zeroext %16)
-  store i32 %17, ptr %6, align 4
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %24
-
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.XLogReaderState, ptr %21, i32 0, i32 18
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %3, align 8
-  br label %25
-
-24:                                               ; preds = %13
   store ptr null, ptr %3, align 8
-  br label %25
+  store i32 1, ptr %7, align 4
+  br label %26
 
-25:                                               ; preds = %24, %20, %12
-  %26 = load ptr, ptr %3, align 8
-  ret ptr %26
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %17 = trunc i8 %16 to i1
+  %18 = call i32 @XLogDecodeNextRecord(ptr noundef %15, i1 noundef zeroext %17)
+  store i32 %18, ptr %6, align 4
+  %19 = load i32, ptr %6, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %22, i32 0, i32 18
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %26
+
+25:                                               ; preds = %14
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %26
+
+26:                                               ; preds = %25, %21, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %27 = load ptr, ptr %3, align 8
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -795,923 +835,999 @@ define internal i32 @XLogDecodeNextRecord(ptr noundef %0, i1 noundef zeroext %1)
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  %22 = alloca ptr, align 8
+  %22 = alloca i32, align 4
   %23 = alloca ptr, align 8
   %24 = alloca ptr, align 8
-  %25 = alloca i32, align 4
+  %25 = alloca ptr, align 8
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  %28 = alloca [16384 x i8], align 16
+  %28 = alloca i32, align 4
+  %29 = alloca [16384 x i8], align 16
   store ptr %0, ptr %4, align 8
-  %29 = zext i1 %1 to i8
-  store i8 %29, ptr %5, align 1
+  %30 = zext i1 %1 to i8
+  store i8 %30, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
   store i8 0, ptr %9, align 1
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.XLogReaderState, ptr %30, i32 0, i32 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i8, ptr %32, i64 0
-  store i8 0, ptr %33, align 1
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %31, i32 0, i32 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 0
+  store i8 0, ptr %34, align 1
   store ptr null, ptr %17, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.XLogReaderState, ptr %34, i32 0, i32 5
-  store i64 0, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.XLogReaderState, ptr %36, i32 0, i32 6
-  store i64 0, ptr %37, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.XLogReaderState, ptr %38, i32 0, i32 9
-  %40 = load i64, ptr %39, align 8
-  store i64 %40, ptr %6, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.XLogReaderState, ptr %41, i32 0, i32 8
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp ne i64 %43, 0
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %2
-  br label %47
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %35, i32 0, i32 5
+  store i64 0, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 6
+  store i64 0, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %39, i32 0, i32 9
+  %41 = load i64, ptr %40, align 8
+  store i64 %41, ptr %6, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %42, i32 0, i32 8
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %46, label %47
 
 46:                                               ; preds = %2
-  store i8 1, ptr %9, align 1
-  br label %47
-
-47:                                               ; preds = %46, %45
   br label %48
 
-48:                                               ; preds = %262, %47
-  %49 = load i8, ptr %5, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.XLogReaderState, ptr %51, i32 0, i32 34
-  %53 = zext i1 %50 to i8
-  store i8 %53, ptr %52, align 1
-  %54 = load i64, ptr %6, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.XLogReaderState, ptr %55, i32 0, i32 26
-  store i64 %54, ptr %56, align 8
+47:                                               ; preds = %2
+  store i8 1, ptr %9, align 1
+  br label %48
+
+48:                                               ; preds = %47, %46
+  br label %49
+
+49:                                               ; preds = %464, %48
+  %50 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %51 = trunc i8 %50 to i1
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %52, i32 0, i32 34
+  %54 = zext i1 %51 to i8
+  store i8 %54, ptr %53, align 1
+  %55 = load i64, ptr %6, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %56, i32 0, i32 26
+  store i64 %55, ptr %57, align 8
   store i8 0, ptr %14, align 1
-  %57 = load i64, ptr %6, align 8
   %58 = load i64, ptr %6, align 8
-  %59 = urem i64 %58, 8192
-  %60 = sub i64 %57, %59
-  store i64 %60, ptr %8, align 8
-  %61 = load i64, ptr %6, align 8
-  %62 = urem i64 %61, 8192
-  %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %12, align 4
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i64, ptr %8, align 8
-  %66 = load i32, ptr %12, align 4
-  %67 = zext i32 %66 to i64
-  %68 = add i64 %67, 24
-  %69 = icmp ult i64 %68, 8192
-  br i1 %69, label %70, label %74
+  %59 = load i64, ptr %6, align 8
+  %60 = urem i64 %59, 8192
+  %61 = sub i64 %58, %60
+  store i64 %61, ptr %8, align 8
+  %62 = load i64, ptr %6, align 8
+  %63 = urem i64 %62, 8192
+  %64 = trunc i64 %63 to i32
+  store i32 %64, ptr %12, align 4
+  %65 = load ptr, ptr %4, align 8
+  %66 = load i64, ptr %8, align 8
+  %67 = load i32, ptr %12, align 4
+  %68 = zext i32 %67 to i64
+  %69 = add i64 %68, 24
+  %70 = icmp ult i64 %69, 8192
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %48
-  %71 = load i32, ptr %12, align 4
-  %72 = zext i32 %71 to i64
-  %73 = add i64 %72, 24
-  br label %75
+71:                                               ; preds = %49
+  %72 = load i32, ptr %12, align 4
+  %73 = zext i32 %72 to i64
+  %74 = add i64 %73, 24
+  br label %76
 
-74:                                               ; preds = %48
-  br label %75
+75:                                               ; preds = %49
+  br label %76
 
-75:                                               ; preds = %74, %70
-  %76 = phi i64 [ %73, %70 ], [ 8192, %74 ]
-  %77 = trunc i64 %76 to i32
-  %78 = call i32 @ReadPageInternal(ptr noundef %64, i64 noundef %65, i32 noundef %77)
-  store i32 %78, ptr %16, align 4
-  %79 = load i32, ptr %16, align 4
-  %80 = icmp eq i32 %79, -2
-  br i1 %80, label %81, label %82
+76:                                               ; preds = %75, %71
+  %77 = phi i64 [ %74, %71 ], [ 8192, %75 ]
+  %78 = trunc i64 %77 to i32
+  %79 = call i32 @ReadPageInternal(ptr noundef %65, i64 noundef %66, i32 noundef %78)
+  store i32 %79, ptr %16, align 4
+  %80 = load i32, ptr %16, align 4
+  %81 = icmp eq i32 %80, -2
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %75
+82:                                               ; preds = %76
   store i32 -2, ptr %3, align 4
-  br label %635
+  store i32 1, ptr %19, align 4
+  br label %644
 
-82:                                               ; preds = %75
-  %83 = load i32, ptr %16, align 4
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %86
+83:                                               ; preds = %76
+  %84 = load i32, ptr %16, align 4
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %82
-  br label %611
+86:                                               ; preds = %83
+  br label %620
 
-86:                                               ; preds = %82
-  br label %87
+87:                                               ; preds = %83
+  br label %88
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.XLogReaderState, ptr %88, i32 0, i32 19
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %90, i32 0, i32 1
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %94 = and i32 %93, 2
-  %95 = icmp ne i32 %94, 0
-  %96 = select i1 %95, i64 40, i64 24
-  %97 = trunc i64 %96 to i32
-  store i32 %97, ptr %13, align 4
-  %98 = load i32, ptr %12, align 4
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %106
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %89, i32 0, i32 19
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %91, i32 0, i32 1
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i32
+  %95 = and i32 %94, 2
+  %96 = icmp ne i32 %95, 0
+  %97 = select i1 %96, i64 40, i64 24
+  %98 = trunc i64 %97 to i32
+  store i32 %98, ptr %13, align 4
+  %99 = load i32, ptr %12, align 4
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %107
 
-100:                                              ; preds = %87
-  %101 = load i32, ptr %13, align 4
-  %102 = zext i32 %101 to i64
-  %103 = load i64, ptr %6, align 8
-  %104 = add i64 %103, %102
-  store i64 %104, ptr %6, align 8
-  %105 = load i32, ptr %13, align 4
-  store i32 %105, ptr %12, align 4
-  br label %122
+101:                                              ; preds = %88
+  %102 = load i32, ptr %13, align 4
+  %103 = zext i32 %102 to i64
+  %104 = load i64, ptr %6, align 8
+  %105 = add i64 %104, %103
+  store i64 %105, ptr %6, align 8
+  %106 = load i32, ptr %13, align 4
+  store i32 %106, ptr %12, align 4
+  br label %124
 
-106:                                              ; preds = %87
-  %107 = load i32, ptr %12, align 4
-  %108 = load i32, ptr %13, align 4
-  %109 = icmp ult i32 %107, %108
-  br i1 %109, label %110, label %121
+107:                                              ; preds = %88
+  %108 = load i32, ptr %12, align 4
+  %109 = load i32, ptr %13, align 4
+  %110 = icmp ult i32 %108, %109
+  br i1 %110, label %111, label %123
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %4, align 8
-  br label %112
-
-112:                                              ; preds = %110
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %4, align 8
   br label %113
 
-113:                                              ; preds = %112
-  store i32 1, ptr %19, align 4
-  %114 = load i64, ptr %6, align 8
-  %115 = lshr i64 %114, 32
-  %116 = trunc i64 %115 to i32
-  %117 = load i64, ptr %6, align 8
-  %118 = trunc i64 %117 to i32
-  %119 = load i32, ptr %13, align 4
-  %120 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %111, ptr noundef @.str.26, i32 noundef %116, i32 noundef %118, i32 noundef %119, i32 noundef %120)
-  br label %611
+113:                                              ; preds = %111
+  br label %114
 
-121:                                              ; preds = %106
-  br label %122
+114:                                              ; preds = %113
+  br label %115
 
-122:                                              ; preds = %121, %100
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.XLogReaderState, ptr %123, i32 0, i32 19
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %125, i32 0, i32 1
-  %127 = load i16, ptr %126, align 2
-  %128 = zext i16 %127 to i32
-  %129 = and i32 %128, 1
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %144
-
-131:                                              ; preds = %122
-  %132 = load i32, ptr %12, align 4
-  %133 = load i32, ptr %13, align 4
-  %134 = icmp eq i32 %132, %133
-  br i1 %134, label %135, label %144
-
-135:                                              ; preds = %131
-  %136 = load ptr, ptr %4, align 8
-  br label %137
-
-137:                                              ; preds = %135
-  br label %138
-
-138:                                              ; preds = %137
+115:                                              ; preds = %114
   store i32 1, ptr %20, align 4
-  %139 = load i64, ptr %6, align 8
-  %140 = lshr i64 %139, 32
-  %141 = trunc i64 %140 to i32
-  %142 = load i64, ptr %6, align 8
-  %143 = trunc i64 %142 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %136, ptr noundef @.str.27, i32 noundef %141, i32 noundef %143)
-  br label %611
+  %116 = load i64, ptr %6, align 8
+  %117 = lshr i64 %116, 32
+  %118 = trunc i64 %117 to i32
+  %119 = load i64, ptr %6, align 8
+  %120 = trunc i64 %119 to i32
+  %121 = load i32, ptr %13, align 4
+  %122 = load i32, ptr %12, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %112, ptr noundef @.str.26, i32 noundef %118, i32 noundef %120, i32 noundef %121, i32 noundef %122)
+  br label %620
 
-144:                                              ; preds = %131, %122
-  %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds %struct.XLogReaderState, ptr %145, i32 0, i32 19
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i64, ptr %6, align 8
-  %149 = urem i64 %148, 8192
-  %150 = getelementptr i8, ptr %147, i64 %149
-  store ptr %150, ptr %7, align 8
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct.XLogRecord, ptr %151, i32 0, i32 0
-  %153 = load i32, ptr %152, align 8
-  store i32 %153, ptr %11, align 4
-  %154 = load i32, ptr %12, align 4
-  %155 = zext i32 %154 to i64
-  %156 = icmp ule i64 %155, 8168
-  br i1 %156, label %157, label %169
+123:                                              ; preds = %107
+  br label %124
 
-157:                                              ; preds = %144
-  %158 = load ptr, ptr %4, align 8
-  %159 = load i64, ptr %6, align 8
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds %struct.XLogReaderState, ptr %160, i32 0, i32 8
-  %162 = load i64, ptr %161, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = load i8, ptr %9, align 1
-  %165 = trunc i8 %164 to i1
-  %166 = call zeroext i1 @ValidXLogRecordHeader(ptr noundef %158, i64 noundef %159, i64 noundef %162, ptr noundef %163, i1 noundef zeroext %165)
-  br i1 %166, label %168, label %167
+124:                                              ; preds = %123, %101
+  %125 = load ptr, ptr %4, align 8
+  %126 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %125, i32 0, i32 19
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %127, i32 0, i32 1
+  %129 = load i16, ptr %128, align 2
+  %130 = zext i16 %129 to i32
+  %131 = and i32 %130, 1
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %147
 
-167:                                              ; preds = %157
-  br label %611
+133:                                              ; preds = %124
+  %134 = load i32, ptr %12, align 4
+  %135 = load i32, ptr %13, align 4
+  %136 = icmp eq i32 %134, %135
+  br i1 %136, label %137, label %147
 
-168:                                              ; preds = %157
-  store i8 1, ptr %15, align 1
-  br label %184
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %4, align 8
+  br label %139
 
-169:                                              ; preds = %144
-  %170 = load i32, ptr %11, align 4
-  %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %171, 24
-  br i1 %172, label %173, label %183
+139:                                              ; preds = %137
+  br label %140
 
-173:                                              ; preds = %169
-  %174 = load ptr, ptr %4, align 8
-  br label %175
+140:                                              ; preds = %139
+  br label %141
 
-175:                                              ; preds = %173
-  br label %176
-
-176:                                              ; preds = %175
+141:                                              ; preds = %140
   store i32 1, ptr %21, align 4
-  %177 = load i64, ptr %6, align 8
-  %178 = lshr i64 %177, 32
-  %179 = trunc i64 %178 to i32
-  %180 = load i64, ptr %6, align 8
-  %181 = trunc i64 %180 to i32
-  %182 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %174, ptr noundef @.str.28, i32 noundef %179, i32 noundef %181, i32 noundef 24, i32 noundef %182)
-  br label %611
+  %142 = load i64, ptr %6, align 8
+  %143 = lshr i64 %142, 32
+  %144 = trunc i64 %143 to i32
+  %145 = load i64, ptr %6, align 8
+  %146 = trunc i64 %145 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %138, ptr noundef @.str.27, i32 noundef %144, i32 noundef %146)
+  br label %620
 
-183:                                              ; preds = %169
-  store i8 0, ptr %15, align 1
-  br label %184
+147:                                              ; preds = %133, %124
+  %148 = load ptr, ptr %4, align 8
+  %149 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %148, i32 0, i32 19
+  %150 = load ptr, ptr %149, align 8
+  %151 = load i64, ptr %6, align 8
+  %152 = urem i64 %151, 8192
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %152
+  store ptr %153, ptr %7, align 8
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds nuw %struct.XLogRecord, ptr %154, i32 0, i32 0
+  %156 = load i32, ptr %155, align 8
+  store i32 %156, ptr %11, align 4
+  %157 = load i32, ptr %12, align 4
+  %158 = zext i32 %157 to i64
+  %159 = icmp ule i64 %158, 8168
+  br i1 %159, label %160, label %172
 
-184:                                              ; preds = %183, %168
-  %185 = load ptr, ptr %4, align 8
+160:                                              ; preds = %147
+  %161 = load ptr, ptr %4, align 8
+  %162 = load i64, ptr %6, align 8
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %163, i32 0, i32 8
+  %165 = load i64, ptr %164, align 8
+  %166 = load ptr, ptr %7, align 8
+  %167 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %168 = trunc i8 %167 to i1
+  %169 = call zeroext i1 @ValidXLogRecordHeader(ptr noundef %161, i64 noundef %162, i64 noundef %165, ptr noundef %166, i1 noundef zeroext %168)
+  br i1 %169, label %171, label %170
+
+170:                                              ; preds = %160
+  br label %620
+
+171:                                              ; preds = %160
+  store i8 1, ptr %15, align 1
+  br label %188
+
+172:                                              ; preds = %147
+  %173 = load i32, ptr %11, align 4
+  %174 = zext i32 %173 to i64
+  %175 = icmp ult i64 %174, 24
+  br i1 %175, label %176, label %187
+
+176:                                              ; preds = %172
+  %177 = load ptr, ptr %4, align 8
+  br label %178
+
+178:                                              ; preds = %176
+  br label %179
+
+179:                                              ; preds = %178
+  br label %180
+
+180:                                              ; preds = %179
+  store i32 1, ptr %22, align 4
+  %181 = load i64, ptr %6, align 8
+  %182 = lshr i64 %181, 32
+  %183 = trunc i64 %182 to i32
+  %184 = load i64, ptr %6, align 8
+  %185 = trunc i64 %184 to i32
   %186 = load i32, ptr %11, align 4
-  %187 = zext i32 %186 to i64
-  %188 = call ptr @XLogReadRecordAlloc(ptr noundef %185, i64 noundef %187, i1 noundef zeroext false)
-  store ptr %188, ptr %17, align 8
-  %189 = load ptr, ptr %17, align 8
-  %190 = icmp eq ptr %189, null
-  br i1 %190, label %191, label %195
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %177, ptr noundef @.str.28, i32 noundef %183, i32 noundef %185, i32 noundef 24, i32 noundef %186)
+  br label %620
 
-191:                                              ; preds = %184
-  %192 = load i8, ptr %5, align 1
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %194, label %195
+187:                                              ; preds = %172
+  store i8 0, ptr %15, align 1
+  br label %188
 
-194:                                              ; preds = %191
+188:                                              ; preds = %187, %171
+  %189 = load ptr, ptr %4, align 8
+  %190 = load i32, ptr %11, align 4
+  %191 = zext i32 %190 to i64
+  %192 = call ptr @XLogReadRecordAlloc(ptr noundef %189, i64 noundef %191, i1 noundef zeroext false)
+  store ptr %192, ptr %17, align 8
+  %193 = load ptr, ptr %17, align 8
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %195, label %199
+
+195:                                              ; preds = %188
+  %196 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %195
   store i32 -2, ptr %3, align 4
-  br label %635
+  store i32 1, ptr %19, align 4
+  br label %644
 
-195:                                              ; preds = %191, %184
-  %196 = load i64, ptr %6, align 8
-  %197 = urem i64 %196, 8192
-  %198 = sub i64 8192, %197
-  %199 = trunc i64 %198 to i32
-  store i32 %199, ptr %10, align 4
-  %200 = load i32, ptr %11, align 4
-  %201 = load i32, ptr %10, align 4
-  %202 = icmp ugt i32 %200, %201
-  br i1 %202, label %203, label %458
+199:                                              ; preds = %195, %188
+  %200 = load i64, ptr %6, align 8
+  %201 = urem i64 %200, 8192
+  %202 = sub i64 8192, %201
+  %203 = trunc i64 %202 to i32
+  store i32 %203, ptr %10, align 4
+  %204 = load i32, ptr %11, align 4
+  %205 = load i32, ptr %10, align 4
+  %206 = icmp ugt i32 %204, %205
+  br i1 %206, label %207, label %467
 
-203:                                              ; preds = %195
+207:                                              ; preds = %199
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
   store i8 1, ptr %14, align 1
-  %204 = load ptr, ptr %4, align 8
-  %205 = getelementptr inbounds %struct.XLogReaderState, ptr %204, i32 0, i32 30
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds %struct.XLogReaderState, ptr %207, i32 0, i32 19
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i64, ptr %6, align 8
-  %211 = urem i64 %210, 8192
-  %212 = getelementptr i8, ptr %209, i64 %211
-  %213 = load i32, ptr %10, align 4
-  %214 = zext i32 %213 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %206, ptr align 1 %212, i64 %214, i1 false)
-  %215 = load ptr, ptr %4, align 8
-  %216 = getelementptr inbounds %struct.XLogReaderState, ptr %215, i32 0, i32 30
-  %217 = load ptr, ptr %216, align 8
-  %218 = load i32, ptr %10, align 4
-  %219 = zext i32 %218 to i64
-  %220 = getelementptr i8, ptr %217, i64 %219
-  store ptr %220, ptr %24, align 8
-  %221 = load i32, ptr %10, align 4
-  store i32 %221, ptr %25, align 4
-  br label %222
+  %208 = load ptr, ptr %4, align 8
+  %209 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %208, i32 0, i32 30
+  %210 = load ptr, ptr %209, align 8
+  %211 = load ptr, ptr %4, align 8
+  %212 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %211, i32 0, i32 19
+  %213 = load ptr, ptr %212, align 8
+  %214 = load i64, ptr %6, align 8
+  %215 = urem i64 %214, 8192
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 %215
+  %217 = load i32, ptr %10, align 4
+  %218 = zext i32 %217 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %210, ptr align 1 %216, i64 %218, i1 false)
+  %219 = load ptr, ptr %4, align 8
+  %220 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %219, i32 0, i32 30
+  %221 = load ptr, ptr %220, align 8
+  %222 = load i32, ptr %10, align 4
+  %223 = zext i32 %222 to i64
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 %223
+  store ptr %224, ptr %25, align 8
+  %225 = load i32, ptr %10, align 4
+  store i32 %225, ptr %26, align 4
+  br label %226
 
-222:                                              ; preds = %418, %203
-  %223 = load i64, ptr %8, align 8
-  %224 = add i64 %223, 8192
-  store i64 %224, ptr %8, align 8
-  %225 = load ptr, ptr %4, align 8
-  %226 = load i64, ptr %8, align 8
-  %227 = load i32, ptr %11, align 4
-  %228 = load i32, ptr %25, align 4
-  %229 = sub i32 %227, %228
-  %230 = zext i32 %229 to i64
-  %231 = add i64 %230, 24
-  %232 = icmp ult i64 %231, 8192
-  br i1 %232, label %233, label %239
+226:                                              ; preds = %424, %207
+  %227 = load i64, ptr %8, align 8
+  %228 = add i64 %227, 8192
+  store i64 %228, ptr %8, align 8
+  %229 = load ptr, ptr %4, align 8
+  %230 = load i64, ptr %8, align 8
+  %231 = load i32, ptr %11, align 4
+  %232 = load i32, ptr %26, align 4
+  %233 = sub i32 %231, %232
+  %234 = zext i32 %233 to i64
+  %235 = add i64 %234, 24
+  %236 = icmp ult i64 %235, 8192
+  br i1 %236, label %237, label %243
 
-233:                                              ; preds = %222
-  %234 = load i32, ptr %11, align 4
-  %235 = load i32, ptr %25, align 4
-  %236 = sub i32 %234, %235
-  %237 = zext i32 %236 to i64
-  %238 = add i64 %237, 24
-  br label %240
+237:                                              ; preds = %226
+  %238 = load i32, ptr %11, align 4
+  %239 = load i32, ptr %26, align 4
+  %240 = sub i32 %238, %239
+  %241 = zext i32 %240 to i64
+  %242 = add i64 %241, 24
+  br label %244
 
-239:                                              ; preds = %222
-  br label %240
+243:                                              ; preds = %226
+  br label %244
 
-240:                                              ; preds = %239, %233
-  %241 = phi i64 [ %238, %233 ], [ 8192, %239 ]
-  %242 = trunc i64 %241 to i32
-  %243 = call i32 @ReadPageInternal(ptr noundef %225, i64 noundef %226, i32 noundef %242)
-  store i32 %243, ptr %16, align 4
-  %244 = load i32, ptr %16, align 4
-  %245 = icmp eq i32 %244, -2
-  br i1 %245, label %246, label %247
-
-246:                                              ; preds = %240
-  store i32 -2, ptr %3, align 4
-  br label %635
-
-247:                                              ; preds = %240
+244:                                              ; preds = %243, %237
+  %245 = phi i64 [ %242, %237 ], [ 8192, %243 ]
+  %246 = trunc i64 %245 to i32
+  %247 = call i32 @ReadPageInternal(ptr noundef %229, i64 noundef %230, i32 noundef %246)
+  store i32 %247, ptr %16, align 4
   %248 = load i32, ptr %16, align 4
-  %249 = icmp slt i32 %248, 0
+  %249 = icmp eq i32 %248, -2
   br i1 %249, label %250, label %251
 
-250:                                              ; preds = %247
-  br label %611
-
-251:                                              ; preds = %247
-  br label %252
-
-252:                                              ; preds = %251
-  %253 = load ptr, ptr %4, align 8
-  %254 = getelementptr inbounds %struct.XLogReaderState, ptr %253, i32 0, i32 19
-  %255 = load ptr, ptr %254, align 8
-  store ptr %255, ptr %23, align 8
-  %256 = load ptr, ptr %23, align 8
-  %257 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %256, i32 0, i32 1
-  %258 = load i16, ptr %257, align 2
-  %259 = zext i16 %258 to i32
-  %260 = and i32 %259, 8
-  %261 = icmp ne i32 %260, 0
-  br i1 %261, label %262, label %267
-
-262:                                              ; preds = %252
-  %263 = load i64, ptr %6, align 8
-  %264 = load ptr, ptr %4, align 8
-  %265 = getelementptr inbounds %struct.XLogReaderState, ptr %264, i32 0, i32 7
-  store i64 %263, ptr %265, align 8
-  %266 = load i64, ptr %8, align 8
-  store i64 %266, ptr %6, align 8
-  br label %48
-
-267:                                              ; preds = %252
-  %268 = load ptr, ptr %23, align 8
-  %269 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %268, i32 0, i32 1
-  %270 = load i16, ptr %269, align 2
-  %271 = zext i16 %270 to i32
-  %272 = and i32 %271, 1
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %283, label %274
-
-274:                                              ; preds = %267
-  %275 = load ptr, ptr %4, align 8
-  br label %276
-
-276:                                              ; preds = %274
-  br label %277
-
-277:                                              ; preds = %276
-  store i32 1, ptr %26, align 4
-  %278 = load i64, ptr %6, align 8
-  %279 = lshr i64 %278, 32
-  %280 = trunc i64 %279 to i32
-  %281 = load i64, ptr %6, align 8
-  %282 = trunc i64 %281 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %275, ptr noundef @.str.29, i32 noundef %280, i32 noundef %282)
-  br label %611
-
-283:                                              ; preds = %267
-  %284 = load ptr, ptr %23, align 8
-  %285 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %284, i32 0, i32 4
-  %286 = load i32, ptr %285, align 8
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %296, label %288
-
-288:                                              ; preds = %283
-  %289 = load i32, ptr %11, align 4
-  %290 = load ptr, ptr %23, align 8
-  %291 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %290, i32 0, i32 4
-  %292 = load i32, ptr %291, align 8
-  %293 = load i32, ptr %25, align 4
-  %294 = add i32 %292, %293
-  %295 = icmp ne i32 %289, %294
-  br i1 %295, label %296, label %313
-
-296:                                              ; preds = %288, %283
-  %297 = load ptr, ptr %4, align 8
-  %298 = load ptr, ptr %23, align 8
-  %299 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %298, i32 0, i32 4
-  %300 = load i32, ptr %299, align 8
-  %301 = load i32, ptr %11, align 4
-  %302 = zext i32 %301 to i64
-  %303 = load i32, ptr %25, align 4
-  %304 = zext i32 %303 to i64
-  %305 = sub i64 %302, %304
-  br label %306
-
-306:                                              ; preds = %296
-  br label %307
-
-307:                                              ; preds = %306
-  store i32 1, ptr %27, align 4
-  %308 = load i64, ptr %6, align 8
-  %309 = lshr i64 %308, 32
-  %310 = trunc i64 %309 to i32
-  %311 = load i64, ptr %6, align 8
-  %312 = trunc i64 %311 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %297, ptr noundef @.str.30, i32 noundef %300, i64 noundef %305, i32 noundef %310, i32 noundef %312)
-  br label %611
-
-313:                                              ; preds = %288
-  %314 = load ptr, ptr %23, align 8
-  %315 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %314, i32 0, i32 1
-  %316 = load i16, ptr %315, align 2
-  %317 = zext i16 %316 to i32
-  %318 = and i32 %317, 2
-  %319 = icmp ne i32 %318, 0
-  %320 = select i1 %319, i64 40, i64 24
-  %321 = trunc i64 %320 to i32
-  store i32 %321, ptr %13, align 4
-  %322 = load i32, ptr %16, align 4
-  %323 = load i32, ptr %13, align 4
-  %324 = icmp ult i32 %322, %323
-  br i1 %324, label %325, label %330
-
-325:                                              ; preds = %313
-  %326 = load ptr, ptr %4, align 8
-  %327 = load i64, ptr %8, align 8
-  %328 = load i32, ptr %13, align 4
-  %329 = call i32 @ReadPageInternal(ptr noundef %326, i64 noundef %327, i32 noundef %328)
-  store i32 %329, ptr %16, align 4
-  br label %330
-
-330:                                              ; preds = %325, %313
-  %331 = load ptr, ptr %4, align 8
-  %332 = getelementptr inbounds %struct.XLogReaderState, ptr %331, i32 0, i32 19
-  %333 = load ptr, ptr %332, align 8
-  %334 = load i32, ptr %13, align 4
-  %335 = zext i32 %334 to i64
-  %336 = getelementptr i8, ptr %333, i64 %335
-  store ptr %336, ptr %22, align 8
-  %337 = load i32, ptr %13, align 4
-  %338 = sub i32 8192, %337
-  store i32 %338, ptr %10, align 4
-  %339 = load ptr, ptr %23, align 8
-  %340 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %339, i32 0, i32 4
-  %341 = load i32, ptr %340, align 8
-  %342 = load i32, ptr %10, align 4
-  %343 = icmp ult i32 %341, %342
-  br i1 %343, label %344, label %348
-
-344:                                              ; preds = %330
-  %345 = load ptr, ptr %23, align 8
-  %346 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %345, i32 0, i32 4
-  %347 = load i32, ptr %346, align 8
-  store i32 %347, ptr %10, align 4
-  br label %348
-
-348:                                              ; preds = %344, %330
-  %349 = load i32, ptr %16, align 4
-  %350 = load i32, ptr %13, align 4
-  %351 = load i32, ptr %10, align 4
-  %352 = add i32 %350, %351
-  %353 = icmp ult i32 %349, %352
-  br i1 %353, label %354, label %361
-
-354:                                              ; preds = %348
-  %355 = load ptr, ptr %4, align 8
-  %356 = load i64, ptr %8, align 8
-  %357 = load i32, ptr %13, align 4
-  %358 = load i32, ptr %10, align 4
-  %359 = add i32 %357, %358
-  %360 = call i32 @ReadPageInternal(ptr noundef %355, i64 noundef %356, i32 noundef %359)
-  store i32 %360, ptr %16, align 4
-  br label %361
-
-361:                                              ; preds = %354, %348
-  %362 = load ptr, ptr %24, align 8
-  %363 = load ptr, ptr %22, align 8
-  %364 = load i32, ptr %10, align 4
-  %365 = zext i32 %364 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %362, ptr align 1 %363, i64 %365, i1 false)
-  %366 = load i32, ptr %10, align 4
-  %367 = load ptr, ptr %24, align 8
-  %368 = zext i32 %366 to i64
-  %369 = getelementptr i8, ptr %367, i64 %368
-  store ptr %369, ptr %24, align 8
-  %370 = load i32, ptr %10, align 4
-  %371 = load i32, ptr %25, align 4
-  %372 = add i32 %371, %370
-  store i32 %372, ptr %25, align 4
-  %373 = load i8, ptr %15, align 1
-  %374 = trunc i8 %373 to i1
-  br i1 %374, label %390, label %375
-
-375:                                              ; preds = %361
-  %376 = load ptr, ptr %4, align 8
-  %377 = getelementptr inbounds %struct.XLogReaderState, ptr %376, i32 0, i32 30
-  %378 = load ptr, ptr %377, align 8
-  store ptr %378, ptr %7, align 8
-  %379 = load ptr, ptr %4, align 8
-  %380 = load i64, ptr %6, align 8
-  %381 = load ptr, ptr %4, align 8
-  %382 = getelementptr inbounds %struct.XLogReaderState, ptr %381, i32 0, i32 8
-  %383 = load i64, ptr %382, align 8
-  %384 = load ptr, ptr %7, align 8
-  %385 = load i8, ptr %9, align 1
-  %386 = trunc i8 %385 to i1
-  %387 = call zeroext i1 @ValidXLogRecordHeader(ptr noundef %379, i64 noundef %380, i64 noundef %383, ptr noundef %384, i1 noundef zeroext %386)
-  br i1 %387, label %389, label %388
-
-388:                                              ; preds = %375
-  br label %611
-
-389:                                              ; preds = %375
-  store i8 1, ptr %15, align 1
-  br label %390
-
-390:                                              ; preds = %389, %361
-  %391 = load i32, ptr %11, align 4
-  %392 = load ptr, ptr %4, align 8
-  %393 = getelementptr inbounds %struct.XLogReaderState, ptr %392, i32 0, i32 31
-  %394 = load i32, ptr %393, align 8
-  %395 = icmp ugt i32 %391, %394
-  br i1 %395, label %396, label %417
-
-396:                                              ; preds = %390
-  %397 = getelementptr inbounds [16384 x i8], ptr %28, i64 0, i64 0
-  %398 = load ptr, ptr %4, align 8
-  %399 = getelementptr inbounds %struct.XLogReaderState, ptr %398, i32 0, i32 30
-  %400 = load ptr, ptr %399, align 8
-  %401 = load i32, ptr %25, align 4
-  %402 = zext i32 %401 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %397, ptr align 1 %400, i64 %402, i1 false)
-  %403 = load ptr, ptr %4, align 8
-  %404 = load i32, ptr %11, align 4
-  call void @allocate_recordbuf(ptr noundef %403, i32 noundef %404)
-  %405 = load ptr, ptr %4, align 8
-  %406 = getelementptr inbounds %struct.XLogReaderState, ptr %405, i32 0, i32 30
-  %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds [16384 x i8], ptr %28, i64 0, i64 0
-  %409 = load i32, ptr %25, align 4
-  %410 = zext i32 %409 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %407, ptr align 16 %408, i64 %410, i1 false)
-  %411 = load ptr, ptr %4, align 8
-  %412 = getelementptr inbounds %struct.XLogReaderState, ptr %411, i32 0, i32 30
-  %413 = load ptr, ptr %412, align 8
-  %414 = load i32, ptr %25, align 4
-  %415 = zext i32 %414 to i64
-  %416 = getelementptr i8, ptr %413, i64 %415
-  store ptr %416, ptr %24, align 8
-  br label %417
-
-417:                                              ; preds = %396, %390
-  br label %418
-
-418:                                              ; preds = %417
-  %419 = load i32, ptr %25, align 4
-  %420 = load i32, ptr %11, align 4
-  %421 = icmp ult i32 %419, %420
-  br i1 %421, label %222, label %422, !llvm.loop !8
-
-422:                                              ; preds = %418
-  %423 = load ptr, ptr %4, align 8
-  %424 = getelementptr inbounds %struct.XLogReaderState, ptr %423, i32 0, i32 30
-  %425 = load ptr, ptr %424, align 8
-  store ptr %425, ptr %7, align 8
-  %426 = load ptr, ptr %4, align 8
-  %427 = load ptr, ptr %7, align 8
-  %428 = load i64, ptr %6, align 8
-  %429 = call zeroext i1 @ValidXLogRecord(ptr noundef %426, ptr noundef %427, i64 noundef %428)
-  br i1 %429, label %431, label %430
-
-430:                                              ; preds = %422
-  br label %611
-
-431:                                              ; preds = %422
-  %432 = load ptr, ptr %4, align 8
-  %433 = getelementptr inbounds %struct.XLogReaderState, ptr %432, i32 0, i32 19
-  %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %434, i32 0, i32 1
-  %436 = load i16, ptr %435, align 2
-  %437 = zext i16 %436 to i32
-  %438 = and i32 %437, 2
-  %439 = icmp ne i32 %438, 0
-  %440 = select i1 %439, i64 40, i64 24
-  %441 = trunc i64 %440 to i32
-  store i32 %441, ptr %13, align 4
-  %442 = load i64, ptr %6, align 8
-  %443 = load ptr, ptr %4, align 8
-  %444 = getelementptr inbounds %struct.XLogReaderState, ptr %443, i32 0, i32 8
-  store i64 %442, ptr %444, align 8
-  %445 = load i64, ptr %8, align 8
-  %446 = load i32, ptr %13, align 4
-  %447 = zext i32 %446 to i64
-  %448 = add i64 %445, %447
-  %449 = load ptr, ptr %23, align 8
-  %450 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %449, i32 0, i32 4
-  %451 = load i32, ptr %450, align 8
-  %452 = zext i32 %451 to i64
-  %453 = add i64 %452, 7
-  %454 = and i64 %453, -8
-  %455 = add i64 %448, %454
-  %456 = load ptr, ptr %4, align 8
-  %457 = getelementptr inbounds %struct.XLogReaderState, ptr %456, i32 0, i32 9
-  store i64 %455, ptr %457, align 8
-  br label %499
-
-458:                                              ; preds = %195
-  %459 = load ptr, ptr %4, align 8
-  %460 = load i64, ptr %8, align 8
-  %461 = load i32, ptr %12, align 4
-  %462 = load i32, ptr %11, align 4
-  %463 = add i32 %461, %462
-  %464 = icmp ult i32 %463, 8192
-  br i1 %464, label %465, label %469
-
-465:                                              ; preds = %458
-  %466 = load i32, ptr %12, align 4
-  %467 = load i32, ptr %11, align 4
-  %468 = add i32 %466, %467
-  br label %470
-
-469:                                              ; preds = %458
-  br label %470
-
-470:                                              ; preds = %469, %465
-  %471 = phi i32 [ %468, %465 ], [ 8192, %469 ]
-  %472 = call i32 @ReadPageInternal(ptr noundef %459, i64 noundef %460, i32 noundef %471)
-  store i32 %472, ptr %16, align 4
-  %473 = load i32, ptr %16, align 4
-  %474 = icmp eq i32 %473, -2
-  br i1 %474, label %475, label %476
-
-475:                                              ; preds = %470
+250:                                              ; preds = %244
   store i32 -2, ptr %3, align 4
-  br label %635
+  store i32 1, ptr %19, align 4
+  br label %464
 
-476:                                              ; preds = %470
-  %477 = load i32, ptr %16, align 4
-  %478 = icmp slt i32 %477, 0
-  br i1 %478, label %479, label %480
+251:                                              ; preds = %244
+  %252 = load i32, ptr %16, align 4
+  %253 = icmp slt i32 %252, 0
+  br i1 %253, label %254, label %255
 
-479:                                              ; preds = %476
-  br label %611
+254:                                              ; preds = %251
+  store i32 3, ptr %19, align 4
+  br label %464
 
-480:                                              ; preds = %476
-  br label %481
+255:                                              ; preds = %251
+  br label %256
 
-481:                                              ; preds = %480
-  %482 = load ptr, ptr %4, align 8
-  %483 = load ptr, ptr %7, align 8
-  %484 = load i64, ptr %6, align 8
-  %485 = call zeroext i1 @ValidXLogRecord(ptr noundef %482, ptr noundef %483, i64 noundef %484)
-  br i1 %485, label %487, label %486
+256:                                              ; preds = %255
+  %257 = load ptr, ptr %4, align 8
+  %258 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %257, i32 0, i32 19
+  %259 = load ptr, ptr %258, align 8
+  store ptr %259, ptr %24, align 8
+  %260 = load ptr, ptr %24, align 8
+  %261 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %260, i32 0, i32 1
+  %262 = load i16, ptr %261, align 2
+  %263 = zext i16 %262 to i32
+  %264 = and i32 %263, 8
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %266, label %271
 
-486:                                              ; preds = %481
-  br label %611
+266:                                              ; preds = %256
+  %267 = load i64, ptr %6, align 8
+  %268 = load ptr, ptr %4, align 8
+  %269 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %268, i32 0, i32 7
+  store i64 %267, ptr %269, align 8
+  %270 = load i64, ptr %8, align 8
+  store i64 %270, ptr %6, align 8
+  store i32 2, ptr %19, align 4
+  br label %464
 
-487:                                              ; preds = %481
-  %488 = load i64, ptr %6, align 8
-  %489 = load i32, ptr %11, align 4
-  %490 = zext i32 %489 to i64
-  %491 = add i64 %490, 7
-  %492 = and i64 %491, -8
-  %493 = add i64 %488, %492
-  %494 = load ptr, ptr %4, align 8
-  %495 = getelementptr inbounds %struct.XLogReaderState, ptr %494, i32 0, i32 9
-  store i64 %493, ptr %495, align 8
-  %496 = load i64, ptr %6, align 8
-  %497 = load ptr, ptr %4, align 8
-  %498 = getelementptr inbounds %struct.XLogReaderState, ptr %497, i32 0, i32 8
-  store i64 %496, ptr %498, align 8
-  br label %499
+271:                                              ; preds = %256
+  %272 = load ptr, ptr %24, align 8
+  %273 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %272, i32 0, i32 1
+  %274 = load i16, ptr %273, align 2
+  %275 = zext i16 %274 to i32
+  %276 = and i32 %275, 1
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %288, label %278
 
-499:                                              ; preds = %487, %431
-  %500 = load ptr, ptr %7, align 8
-  %501 = getelementptr inbounds %struct.XLogRecord, ptr %500, i32 0, i32 4
-  %502 = load i8, ptr %501, align 1
-  %503 = zext i8 %502 to i32
-  %504 = icmp eq i32 %503, 0
-  br i1 %504, label %505, label %537
+278:                                              ; preds = %271
+  %279 = load ptr, ptr %4, align 8
+  br label %280
 
-505:                                              ; preds = %499
-  %506 = load ptr, ptr %7, align 8
-  %507 = getelementptr inbounds %struct.XLogRecord, ptr %506, i32 0, i32 3
-  %508 = load i8, ptr %507, align 8
-  %509 = zext i8 %508 to i32
-  %510 = and i32 %509, -16
-  %511 = icmp eq i32 %510, 64
-  br i1 %511, label %512, label %537
+280:                                              ; preds = %278
+  br label %281
 
-512:                                              ; preds = %505
-  %513 = load ptr, ptr %4, align 8
-  %514 = getelementptr inbounds %struct.XLogReaderState, ptr %513, i32 0, i32 21
-  %515 = getelementptr inbounds %struct.WALSegmentContext, ptr %514, i32 0, i32 1
-  %516 = load i32, ptr %515, align 4
-  %517 = sub i32 %516, 1
-  %518 = sext i32 %517 to i64
-  %519 = load ptr, ptr %4, align 8
-  %520 = getelementptr inbounds %struct.XLogReaderState, ptr %519, i32 0, i32 9
-  %521 = load i64, ptr %520, align 8
-  %522 = add i64 %521, %518
-  store i64 %522, ptr %520, align 8
-  %523 = load ptr, ptr %4, align 8
-  %524 = getelementptr inbounds %struct.XLogReaderState, ptr %523, i32 0, i32 9
-  %525 = load i64, ptr %524, align 8
-  %526 = load ptr, ptr %4, align 8
-  %527 = getelementptr inbounds %struct.XLogReaderState, ptr %526, i32 0, i32 21
-  %528 = getelementptr inbounds %struct.WALSegmentContext, ptr %527, i32 0, i32 1
-  %529 = load i32, ptr %528, align 4
-  %530 = sub i32 %529, 1
-  %531 = sext i32 %530 to i64
-  %532 = and i64 %525, %531
-  %533 = load ptr, ptr %4, align 8
-  %534 = getelementptr inbounds %struct.XLogReaderState, ptr %533, i32 0, i32 9
-  %535 = load i64, ptr %534, align 8
-  %536 = sub i64 %535, %532
-  store i64 %536, ptr %534, align 8
-  br label %537
+281:                                              ; preds = %280
+  br label %282
 
-537:                                              ; preds = %512, %505, %499
-  %538 = load ptr, ptr %17, align 8
-  %539 = icmp eq ptr %538, null
-  br i1 %539, label %540, label %545
+282:                                              ; preds = %281
+  store i32 1, ptr %27, align 4
+  %283 = load i64, ptr %6, align 8
+  %284 = lshr i64 %283, 32
+  %285 = trunc i64 %284 to i32
+  %286 = load i64, ptr %6, align 8
+  %287 = trunc i64 %286 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %279, ptr noundef @.str.29, i32 noundef %285, i32 noundef %287)
+  store i32 3, ptr %19, align 4
+  br label %464
 
-540:                                              ; preds = %537
-  %541 = load ptr, ptr %4, align 8
-  %542 = load i32, ptr %11, align 4
-  %543 = zext i32 %542 to i64
-  %544 = call ptr @XLogReadRecordAlloc(ptr noundef %541, i64 noundef %543, i1 noundef zeroext true)
-  store ptr %544, ptr %17, align 8
-  br label %545
+288:                                              ; preds = %271
+  %289 = load ptr, ptr %24, align 8
+  %290 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %289, i32 0, i32 4
+  %291 = load i32, ptr %290, align 8
+  %292 = icmp eq i32 %291, 0
+  br i1 %292, label %301, label %293
 
-545:                                              ; preds = %540, %537
-  %546 = load ptr, ptr %4, align 8
+293:                                              ; preds = %288
+  %294 = load i32, ptr %11, align 4
+  %295 = load ptr, ptr %24, align 8
+  %296 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %295, i32 0, i32 4
+  %297 = load i32, ptr %296, align 8
+  %298 = load i32, ptr %26, align 4
+  %299 = add i32 %297, %298
+  %300 = icmp ne i32 %294, %299
+  br i1 %300, label %301, label %319
+
+301:                                              ; preds = %293, %288
+  %302 = load ptr, ptr %4, align 8
+  %303 = load ptr, ptr %24, align 8
+  %304 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %303, i32 0, i32 4
+  %305 = load i32, ptr %304, align 8
+  %306 = load i32, ptr %11, align 4
+  %307 = zext i32 %306 to i64
+  %308 = load i32, ptr %26, align 4
+  %309 = zext i32 %308 to i64
+  %310 = sub i64 %307, %309
+  br label %311
+
+311:                                              ; preds = %301
+  br label %312
+
+312:                                              ; preds = %311
+  br label %313
+
+313:                                              ; preds = %312
+  store i32 1, ptr %28, align 4
+  %314 = load i64, ptr %6, align 8
+  %315 = lshr i64 %314, 32
+  %316 = trunc i64 %315 to i32
+  %317 = load i64, ptr %6, align 8
+  %318 = trunc i64 %317 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %302, ptr noundef @.str.30, i32 noundef %305, i64 noundef %310, i32 noundef %316, i32 noundef %318)
+  store i32 3, ptr %19, align 4
+  br label %464
+
+319:                                              ; preds = %293
+  %320 = load ptr, ptr %24, align 8
+  %321 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %320, i32 0, i32 1
+  %322 = load i16, ptr %321, align 2
+  %323 = zext i16 %322 to i32
+  %324 = and i32 %323, 2
+  %325 = icmp ne i32 %324, 0
+  %326 = select i1 %325, i64 40, i64 24
+  %327 = trunc i64 %326 to i32
+  store i32 %327, ptr %13, align 4
+  %328 = load i32, ptr %16, align 4
+  %329 = load i32, ptr %13, align 4
+  %330 = icmp ult i32 %328, %329
+  br i1 %330, label %331, label %336
+
+331:                                              ; preds = %319
+  %332 = load ptr, ptr %4, align 8
+  %333 = load i64, ptr %8, align 8
+  %334 = load i32, ptr %13, align 4
+  %335 = call i32 @ReadPageInternal(ptr noundef %332, i64 noundef %333, i32 noundef %334)
+  store i32 %335, ptr %16, align 4
+  br label %336
+
+336:                                              ; preds = %331, %319
+  %337 = load ptr, ptr %4, align 8
+  %338 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %337, i32 0, i32 19
+  %339 = load ptr, ptr %338, align 8
+  %340 = load i32, ptr %13, align 4
+  %341 = zext i32 %340 to i64
+  %342 = getelementptr inbounds nuw i8, ptr %339, i64 %341
+  store ptr %342, ptr %23, align 8
+  %343 = load i32, ptr %13, align 4
+  %344 = sub i32 8192, %343
+  store i32 %344, ptr %10, align 4
+  %345 = load ptr, ptr %24, align 8
+  %346 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %345, i32 0, i32 4
+  %347 = load i32, ptr %346, align 8
+  %348 = load i32, ptr %10, align 4
+  %349 = icmp ult i32 %347, %348
+  br i1 %349, label %350, label %354
+
+350:                                              ; preds = %336
+  %351 = load ptr, ptr %24, align 8
+  %352 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %351, i32 0, i32 4
+  %353 = load i32, ptr %352, align 8
+  store i32 %353, ptr %10, align 4
+  br label %354
+
+354:                                              ; preds = %350, %336
+  %355 = load i32, ptr %16, align 4
+  %356 = load i32, ptr %13, align 4
+  %357 = load i32, ptr %10, align 4
+  %358 = add i32 %356, %357
+  %359 = icmp ult i32 %355, %358
+  br i1 %359, label %360, label %367
+
+360:                                              ; preds = %354
+  %361 = load ptr, ptr %4, align 8
+  %362 = load i64, ptr %8, align 8
+  %363 = load i32, ptr %13, align 4
+  %364 = load i32, ptr %10, align 4
+  %365 = add i32 %363, %364
+  %366 = call i32 @ReadPageInternal(ptr noundef %361, i64 noundef %362, i32 noundef %365)
+  store i32 %366, ptr %16, align 4
+  br label %367
+
+367:                                              ; preds = %360, %354
+  %368 = load ptr, ptr %25, align 8
+  %369 = load ptr, ptr %23, align 8
+  %370 = load i32, ptr %10, align 4
+  %371 = zext i32 %370 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %368, ptr align 1 %369, i64 %371, i1 false)
+  %372 = load i32, ptr %10, align 4
+  %373 = load ptr, ptr %25, align 8
+  %374 = zext i32 %372 to i64
+  %375 = getelementptr inbounds nuw i8, ptr %373, i64 %374
+  store ptr %375, ptr %25, align 8
+  %376 = load i32, ptr %10, align 4
+  %377 = load i32, ptr %26, align 4
+  %378 = add i32 %377, %376
+  store i32 %378, ptr %26, align 4
+  %379 = load i8, ptr %15, align 1, !range !4, !noundef !5
+  %380 = trunc i8 %379 to i1
+  br i1 %380, label %396, label %381
+
+381:                                              ; preds = %367
+  %382 = load ptr, ptr %4, align 8
+  %383 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %382, i32 0, i32 30
+  %384 = load ptr, ptr %383, align 8
+  store ptr %384, ptr %7, align 8
+  %385 = load ptr, ptr %4, align 8
+  %386 = load i64, ptr %6, align 8
+  %387 = load ptr, ptr %4, align 8
+  %388 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %387, i32 0, i32 8
+  %389 = load i64, ptr %388, align 8
+  %390 = load ptr, ptr %7, align 8
+  %391 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %392 = trunc i8 %391 to i1
+  %393 = call zeroext i1 @ValidXLogRecordHeader(ptr noundef %385, i64 noundef %386, i64 noundef %389, ptr noundef %390, i1 noundef zeroext %392)
+  br i1 %393, label %395, label %394
+
+394:                                              ; preds = %381
+  store i32 3, ptr %19, align 4
+  br label %464
+
+395:                                              ; preds = %381
+  store i8 1, ptr %15, align 1
+  br label %396
+
+396:                                              ; preds = %395, %367
+  %397 = load i32, ptr %11, align 4
+  %398 = load ptr, ptr %4, align 8
+  %399 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %398, i32 0, i32 31
+  %400 = load i32, ptr %399, align 8
+  %401 = icmp ugt i32 %397, %400
+  br i1 %401, label %402, label %423
+
+402:                                              ; preds = %396
+  call void @llvm.lifetime.start.p0(i64 16384, ptr %29) #10
+  %403 = getelementptr inbounds [16384 x i8], ptr %29, i64 0, i64 0
+  %404 = load ptr, ptr %4, align 8
+  %405 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %404, i32 0, i32 30
+  %406 = load ptr, ptr %405, align 8
+  %407 = load i32, ptr %26, align 4
+  %408 = zext i32 %407 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %403, ptr align 1 %406, i64 %408, i1 false)
+  %409 = load ptr, ptr %4, align 8
+  %410 = load i32, ptr %11, align 4
+  call void @allocate_recordbuf(ptr noundef %409, i32 noundef %410)
+  %411 = load ptr, ptr %4, align 8
+  %412 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %411, i32 0, i32 30
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds [16384 x i8], ptr %29, i64 0, i64 0
+  %415 = load i32, ptr %26, align 4
+  %416 = zext i32 %415 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %413, ptr align 16 %414, i64 %416, i1 false)
+  %417 = load ptr, ptr %4, align 8
+  %418 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %417, i32 0, i32 30
+  %419 = load ptr, ptr %418, align 8
+  %420 = load i32, ptr %26, align 4
+  %421 = zext i32 %420 to i64
+  %422 = getelementptr inbounds nuw i8, ptr %419, i64 %421
+  store ptr %422, ptr %25, align 8
+  call void @llvm.lifetime.end.p0(i64 16384, ptr %29) #10
+  br label %423
+
+423:                                              ; preds = %402, %396
+  br label %424
+
+424:                                              ; preds = %423
+  %425 = load i32, ptr %26, align 4
+  %426 = load i32, ptr %11, align 4
+  %427 = icmp ult i32 %425, %426
+  br i1 %427, label %226, label %428, !llvm.loop !9
+
+428:                                              ; preds = %424
+  %429 = load ptr, ptr %4, align 8
+  %430 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %429, i32 0, i32 30
+  %431 = load ptr, ptr %430, align 8
+  store ptr %431, ptr %7, align 8
+  %432 = load ptr, ptr %4, align 8
+  %433 = load ptr, ptr %7, align 8
+  %434 = load i64, ptr %6, align 8
+  %435 = call zeroext i1 @ValidXLogRecord(ptr noundef %432, ptr noundef %433, i64 noundef %434)
+  br i1 %435, label %437, label %436
+
+436:                                              ; preds = %428
+  store i32 3, ptr %19, align 4
+  br label %464
+
+437:                                              ; preds = %428
+  %438 = load ptr, ptr %4, align 8
+  %439 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %438, i32 0, i32 19
+  %440 = load ptr, ptr %439, align 8
+  %441 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %440, i32 0, i32 1
+  %442 = load i16, ptr %441, align 2
+  %443 = zext i16 %442 to i32
+  %444 = and i32 %443, 2
+  %445 = icmp ne i32 %444, 0
+  %446 = select i1 %445, i64 40, i64 24
+  %447 = trunc i64 %446 to i32
+  store i32 %447, ptr %13, align 4
+  %448 = load i64, ptr %6, align 8
+  %449 = load ptr, ptr %4, align 8
+  %450 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %449, i32 0, i32 8
+  store i64 %448, ptr %450, align 8
+  %451 = load i64, ptr %8, align 8
+  %452 = load i32, ptr %13, align 4
+  %453 = zext i32 %452 to i64
+  %454 = add i64 %451, %453
+  %455 = load ptr, ptr %24, align 8
+  %456 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %455, i32 0, i32 4
+  %457 = load i32, ptr %456, align 8
+  %458 = zext i32 %457 to i64
+  %459 = add i64 %458, 7
+  %460 = and i64 %459, -8
+  %461 = add i64 %454, %460
+  %462 = load ptr, ptr %4, align 8
+  %463 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %462, i32 0, i32 9
+  store i64 %461, ptr %463, align 8
+  store i32 0, ptr %19, align 4
+  br label %464
+
+464:                                              ; preds = %436, %394, %313, %282, %254, %437, %266, %250
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  %465 = load i32, ptr %19, align 4
+  switch i32 %465, label %644 [
+    i32 0, label %466
+    i32 2, label %49
+    i32 3, label %620
+  ]
+
+466:                                              ; preds = %464
+  br label %508
+
+467:                                              ; preds = %199
+  %468 = load ptr, ptr %4, align 8
+  %469 = load i64, ptr %8, align 8
+  %470 = load i32, ptr %12, align 4
+  %471 = load i32, ptr %11, align 4
+  %472 = add i32 %470, %471
+  %473 = icmp ult i32 %472, 8192
+  br i1 %473, label %474, label %478
+
+474:                                              ; preds = %467
+  %475 = load i32, ptr %12, align 4
+  %476 = load i32, ptr %11, align 4
+  %477 = add i32 %475, %476
+  br label %479
+
+478:                                              ; preds = %467
+  br label %479
+
+479:                                              ; preds = %478, %474
+  %480 = phi i32 [ %477, %474 ], [ 8192, %478 ]
+  %481 = call i32 @ReadPageInternal(ptr noundef %468, i64 noundef %469, i32 noundef %480)
+  store i32 %481, ptr %16, align 4
+  %482 = load i32, ptr %16, align 4
+  %483 = icmp eq i32 %482, -2
+  br i1 %483, label %484, label %485
+
+484:                                              ; preds = %479
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %19, align 4
+  br label %644
+
+485:                                              ; preds = %479
+  %486 = load i32, ptr %16, align 4
+  %487 = icmp slt i32 %486, 0
+  br i1 %487, label %488, label %489
+
+488:                                              ; preds = %485
+  br label %620
+
+489:                                              ; preds = %485
+  br label %490
+
+490:                                              ; preds = %489
+  %491 = load ptr, ptr %4, align 8
+  %492 = load ptr, ptr %7, align 8
+  %493 = load i64, ptr %6, align 8
+  %494 = call zeroext i1 @ValidXLogRecord(ptr noundef %491, ptr noundef %492, i64 noundef %493)
+  br i1 %494, label %496, label %495
+
+495:                                              ; preds = %490
+  br label %620
+
+496:                                              ; preds = %490
+  %497 = load i64, ptr %6, align 8
+  %498 = load i32, ptr %11, align 4
+  %499 = zext i32 %498 to i64
+  %500 = add i64 %499, 7
+  %501 = and i64 %500, -8
+  %502 = add i64 %497, %501
+  %503 = load ptr, ptr %4, align 8
+  %504 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %503, i32 0, i32 9
+  store i64 %502, ptr %504, align 8
+  %505 = load i64, ptr %6, align 8
+  %506 = load ptr, ptr %4, align 8
+  %507 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %506, i32 0, i32 8
+  store i64 %505, ptr %507, align 8
+  br label %508
+
+508:                                              ; preds = %496, %466
+  %509 = load ptr, ptr %7, align 8
+  %510 = getelementptr inbounds nuw %struct.XLogRecord, ptr %509, i32 0, i32 4
+  %511 = load i8, ptr %510, align 1
+  %512 = zext i8 %511 to i32
+  %513 = icmp eq i32 %512, 0
+  br i1 %513, label %514, label %546
+
+514:                                              ; preds = %508
+  %515 = load ptr, ptr %7, align 8
+  %516 = getelementptr inbounds nuw %struct.XLogRecord, ptr %515, i32 0, i32 3
+  %517 = load i8, ptr %516, align 8
+  %518 = zext i8 %517 to i32
+  %519 = and i32 %518, -16
+  %520 = icmp eq i32 %519, 64
+  br i1 %520, label %521, label %546
+
+521:                                              ; preds = %514
+  %522 = load ptr, ptr %4, align 8
+  %523 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %522, i32 0, i32 21
+  %524 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %523, i32 0, i32 1
+  %525 = load i32, ptr %524, align 4
+  %526 = sub i32 %525, 1
+  %527 = sext i32 %526 to i64
+  %528 = load ptr, ptr %4, align 8
+  %529 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %528, i32 0, i32 9
+  %530 = load i64, ptr %529, align 8
+  %531 = add i64 %530, %527
+  store i64 %531, ptr %529, align 8
+  %532 = load ptr, ptr %4, align 8
+  %533 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %532, i32 0, i32 9
+  %534 = load i64, ptr %533, align 8
+  %535 = load ptr, ptr %4, align 8
+  %536 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %535, i32 0, i32 21
+  %537 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %536, i32 0, i32 1
+  %538 = load i32, ptr %537, align 4
+  %539 = sub i32 %538, 1
+  %540 = sext i32 %539 to i64
+  %541 = and i64 %534, %540
+  %542 = load ptr, ptr %4, align 8
+  %543 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %542, i32 0, i32 9
+  %544 = load i64, ptr %543, align 8
+  %545 = sub i64 %544, %541
+  store i64 %545, ptr %543, align 8
+  br label %546
+
+546:                                              ; preds = %521, %514, %508
   %547 = load ptr, ptr %17, align 8
-  %548 = load ptr, ptr %7, align 8
-  %549 = load i64, ptr %6, align 8
-  %550 = call zeroext i1 @DecodeXLogRecord(ptr noundef %546, ptr noundef %547, ptr noundef %548, i64 noundef %549, ptr noundef %18)
-  br i1 %550, label %551, label %610
+  %548 = icmp eq ptr %547, null
+  br i1 %548, label %549, label %554
 
-551:                                              ; preds = %545
-  %552 = load ptr, ptr %4, align 8
-  %553 = getelementptr inbounds %struct.XLogReaderState, ptr %552, i32 0, i32 9
-  %554 = load i64, ptr %553, align 8
-  %555 = load ptr, ptr %17, align 8
-  %556 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %555, i32 0, i32 4
-  store i64 %554, ptr %556, align 8
-  %557 = load ptr, ptr %17, align 8
-  %558 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %557, i32 0, i32 1
-  %559 = load i8, ptr %558, align 8
-  %560 = trunc i8 %559 to i1
-  br i1 %560, label %586, label %561
+549:                                              ; preds = %546
+  %550 = load ptr, ptr %4, align 8
+  %551 = load i32, ptr %11, align 4
+  %552 = zext i32 %551 to i64
+  %553 = call ptr @XLogReadRecordAlloc(ptr noundef %550, i64 noundef %552, i1 noundef zeroext true)
+  store ptr %553, ptr %17, align 8
+  br label %554
 
-561:                                              ; preds = %551
-  %562 = load ptr, ptr %17, align 8
-  %563 = load ptr, ptr %4, align 8
-  %564 = getelementptr inbounds %struct.XLogReaderState, ptr %563, i32 0, i32 12
-  %565 = load ptr, ptr %564, align 8
-  %566 = icmp eq ptr %562, %565
-  br i1 %566, label %567, label %577
+554:                                              ; preds = %549, %546
+  %555 = load ptr, ptr %4, align 8
+  %556 = load ptr, ptr %17, align 8
+  %557 = load ptr, ptr %7, align 8
+  %558 = load i64, ptr %6, align 8
+  %559 = call zeroext i1 @DecodeXLogRecord(ptr noundef %555, ptr noundef %556, ptr noundef %557, i64 noundef %558, ptr noundef %18)
+  br i1 %559, label %560, label %619
 
-567:                                              ; preds = %561
-  %568 = load ptr, ptr %4, align 8
-  %569 = getelementptr inbounds %struct.XLogReaderState, ptr %568, i32 0, i32 12
-  %570 = load ptr, ptr %569, align 8
+560:                                              ; preds = %554
+  %561 = load ptr, ptr %4, align 8
+  %562 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %561, i32 0, i32 9
+  %563 = load i64, ptr %562, align 8
+  %564 = load ptr, ptr %17, align 8
+  %565 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %564, i32 0, i32 4
+  store i64 %563, ptr %565, align 8
+  %566 = load ptr, ptr %17, align 8
+  %567 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %566, i32 0, i32 1
+  %568 = load i8, ptr %567, align 8, !range !4, !noundef !5
+  %569 = trunc i8 %568 to i1
+  br i1 %569, label %595, label %570
+
+570:                                              ; preds = %560
   %571 = load ptr, ptr %17, align 8
-  %572 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %571, i32 0, i32 0
-  %573 = load i64, ptr %572, align 8
-  %574 = getelementptr i8, ptr %570, i64 %573
-  %575 = load ptr, ptr %4, align 8
-  %576 = getelementptr inbounds %struct.XLogReaderState, ptr %575, i32 0, i32 16
-  store ptr %574, ptr %576, align 8
-  br label %585
+  %572 = load ptr, ptr %4, align 8
+  %573 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %572, i32 0, i32 12
+  %574 = load ptr, ptr %573, align 8
+  %575 = icmp eq ptr %571, %574
+  br i1 %575, label %576, label %586
 
-577:                                              ; preds = %561
-  %578 = load ptr, ptr %17, align 8
-  %579 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %578, i32 0, i32 0
-  %580 = load i64, ptr %579, align 8
-  %581 = load ptr, ptr %4, align 8
-  %582 = getelementptr inbounds %struct.XLogReaderState, ptr %581, i32 0, i32 16
-  %583 = load ptr, ptr %582, align 8
-  %584 = getelementptr i8, ptr %583, i64 %580
-  store ptr %584, ptr %582, align 8
-  br label %585
+576:                                              ; preds = %570
+  %577 = load ptr, ptr %4, align 8
+  %578 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %577, i32 0, i32 12
+  %579 = load ptr, ptr %578, align 8
+  %580 = load ptr, ptr %17, align 8
+  %581 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %580, i32 0, i32 0
+  %582 = load i64, ptr %581, align 8
+  %583 = getelementptr inbounds nuw i8, ptr %579, i64 %582
+  %584 = load ptr, ptr %4, align 8
+  %585 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %584, i32 0, i32 16
+  store ptr %583, ptr %585, align 8
+  br label %594
 
-585:                                              ; preds = %577, %567
-  br label %586
+586:                                              ; preds = %570
+  %587 = load ptr, ptr %17, align 8
+  %588 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %587, i32 0, i32 0
+  %589 = load i64, ptr %588, align 8
+  %590 = load ptr, ptr %4, align 8
+  %591 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %590, i32 0, i32 16
+  %592 = load ptr, ptr %591, align 8
+  %593 = getelementptr inbounds nuw i8, ptr %592, i64 %589
+  store ptr %593, ptr %591, align 8
+  br label %594
 
-586:                                              ; preds = %585, %551
-  %587 = load ptr, ptr %4, align 8
-  %588 = getelementptr inbounds %struct.XLogReaderState, ptr %587, i32 0, i32 18
-  %589 = load ptr, ptr %588, align 8
-  %590 = icmp ne ptr %589, null
-  br i1 %590, label %591, label %597
+594:                                              ; preds = %586, %576
+  br label %595
 
-591:                                              ; preds = %586
-  %592 = load ptr, ptr %17, align 8
-  %593 = load ptr, ptr %4, align 8
-  %594 = getelementptr inbounds %struct.XLogReaderState, ptr %593, i32 0, i32 18
-  %595 = load ptr, ptr %594, align 8
-  %596 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %595, i32 0, i32 2
-  store ptr %592, ptr %596, align 8
-  br label %597
+595:                                              ; preds = %594, %560
+  %596 = load ptr, ptr %4, align 8
+  %597 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %596, i32 0, i32 18
+  %598 = load ptr, ptr %597, align 8
+  %599 = icmp ne ptr %598, null
+  br i1 %599, label %600, label %606
 
-597:                                              ; preds = %591, %586
-  %598 = load ptr, ptr %17, align 8
-  %599 = load ptr, ptr %4, align 8
-  %600 = getelementptr inbounds %struct.XLogReaderState, ptr %599, i32 0, i32 18
-  store ptr %598, ptr %600, align 8
-  %601 = load ptr, ptr %4, align 8
-  %602 = getelementptr inbounds %struct.XLogReaderState, ptr %601, i32 0, i32 17
-  %603 = load ptr, ptr %602, align 8
-  %604 = icmp ne ptr %603, null
-  br i1 %604, label %609, label %605
+600:                                              ; preds = %595
+  %601 = load ptr, ptr %17, align 8
+  %602 = load ptr, ptr %4, align 8
+  %603 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %602, i32 0, i32 18
+  %604 = load ptr, ptr %603, align 8
+  %605 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %604, i32 0, i32 2
+  store ptr %601, ptr %605, align 8
+  br label %606
 
-605:                                              ; preds = %597
-  %606 = load ptr, ptr %17, align 8
-  %607 = load ptr, ptr %4, align 8
-  %608 = getelementptr inbounds %struct.XLogReaderState, ptr %607, i32 0, i32 17
-  store ptr %606, ptr %608, align 8
-  br label %609
+606:                                              ; preds = %600, %595
+  %607 = load ptr, ptr %17, align 8
+  %608 = load ptr, ptr %4, align 8
+  %609 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %608, i32 0, i32 18
+  store ptr %607, ptr %609, align 8
+  %610 = load ptr, ptr %4, align 8
+  %611 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %610, i32 0, i32 17
+  %612 = load ptr, ptr %611, align 8
+  %613 = icmp ne ptr %612, null
+  br i1 %613, label %618, label %614
 
-609:                                              ; preds = %605, %597
-  store i32 0, ptr %3, align 4
-  br label %635
-
-610:                                              ; preds = %545
-  br label %611
-
-611:                                              ; preds = %610, %486, %479, %430, %388, %307, %277, %250, %176, %167, %138, %113, %85
-  %612 = load i8, ptr %14, align 1
-  %613 = trunc i8 %612 to i1
-  br i1 %613, label %614, label %623
-
-614:                                              ; preds = %611
-  %615 = load i64, ptr %6, align 8
+614:                                              ; preds = %606
+  %615 = load ptr, ptr %17, align 8
   %616 = load ptr, ptr %4, align 8
-  %617 = getelementptr inbounds %struct.XLogReaderState, ptr %616, i32 0, i32 5
-  store i64 %615, ptr %617, align 8
-  %618 = load i64, ptr %8, align 8
-  %619 = load ptr, ptr %4, align 8
-  %620 = getelementptr inbounds %struct.XLogReaderState, ptr %619, i32 0, i32 6
-  store i64 %618, ptr %620, align 8
-  %621 = load ptr, ptr %4, align 8
-  %622 = getelementptr inbounds %struct.XLogReaderState, ptr %621, i32 0, i32 33
-  store i8 1, ptr %622, align 8
-  br label %623
+  %617 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %616, i32 0, i32 17
+  store ptr %615, ptr %617, align 8
+  br label %618
 
-623:                                              ; preds = %614, %611
-  %624 = load ptr, ptr %17, align 8
-  %625 = icmp ne ptr %624, null
-  br i1 %625, label %626, label %633
+618:                                              ; preds = %614, %606
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %19, align 4
+  br label %644
 
-626:                                              ; preds = %623
-  %627 = load ptr, ptr %17, align 8
-  %628 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %627, i32 0, i32 1
-  %629 = load i8, ptr %628, align 8
-  %630 = trunc i8 %629 to i1
-  br i1 %630, label %631, label %633
+619:                                              ; preds = %554
+  br label %620
 
-631:                                              ; preds = %626
-  %632 = load ptr, ptr %17, align 8
-  call void @pfree(ptr noundef %632)
-  br label %633
+620:                                              ; preds = %619, %464, %495, %488, %180, %170, %141, %115, %86
+  %621 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %622 = trunc i8 %621 to i1
+  br i1 %622, label %623, label %632
 
-633:                                              ; preds = %631, %626, %623
-  %634 = load ptr, ptr %4, align 8
-  call void @XLogReaderInvalReadState(ptr noundef %634)
+623:                                              ; preds = %620
+  %624 = load i64, ptr %6, align 8
+  %625 = load ptr, ptr %4, align 8
+  %626 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %625, i32 0, i32 5
+  store i64 %624, ptr %626, align 8
+  %627 = load i64, ptr %8, align 8
+  %628 = load ptr, ptr %4, align 8
+  %629 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %628, i32 0, i32 6
+  store i64 %627, ptr %629, align 8
+  %630 = load ptr, ptr %4, align 8
+  %631 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %630, i32 0, i32 33
+  store i8 1, ptr %631, align 8
+  br label %632
+
+632:                                              ; preds = %623, %620
+  %633 = load ptr, ptr %17, align 8
+  %634 = icmp ne ptr %633, null
+  br i1 %634, label %635, label %642
+
+635:                                              ; preds = %632
+  %636 = load ptr, ptr %17, align 8
+  %637 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %636, i32 0, i32 1
+  %638 = load i8, ptr %637, align 8, !range !4, !noundef !5
+  %639 = trunc i8 %638 to i1
+  br i1 %639, label %640, label %642
+
+640:                                              ; preds = %635
+  %641 = load ptr, ptr %17, align 8
+  call void @pfree(ptr noundef %641)
+  br label %642
+
+642:                                              ; preds = %640, %635, %632
+  %643 = load ptr, ptr %4, align 8
+  call void @XLogReaderInvalReadState(ptr noundef %643)
   store i32 -1, ptr %3, align 4
-  br label %635
+  store i32 1, ptr %19, align 4
+  br label %644
 
-635:                                              ; preds = %633, %609, %475, %246, %194, %81
-  %636 = load i32, ptr %3, align 4
-  ret i32 %636
+644:                                              ; preds = %642, %618, %484, %464, %198, %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %645 = load i32, ptr %3, align 4
+  ret i32 %645
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1725,381 +1841,437 @@ define dso_local zeroext i1 @XLogReaderValidatePageHeader(ptr noundef %0, i64 no
   %10 = alloca ptr, align 8
   %11 = alloca [64 x i8], align 16
   %12 = alloca i32, align 4
-  %13 = alloca [64 x i8], align 16
-  %14 = alloca i32, align 4
-  %15 = alloca ptr, align 8
-  %16 = alloca [64 x i8], align 16
-  %17 = alloca i32, align 4
-  %18 = alloca [64 x i8], align 16
-  %19 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [64 x i8], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca [64 x i8], align 16
+  %18 = alloca i32, align 4
+  %19 = alloca [64 x i8], align 16
   %20 = alloca i32, align 4
-  %21 = alloca [64 x i8], align 16
-  %22 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca [64 x i8], align 16
+  %23 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  store ptr %23, ptr %10, align 8
-  %24 = load i64, ptr %6, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.XLogReaderState, ptr %25, i32 0, i32 21
-  %27 = getelementptr inbounds %struct.WALSegmentContext, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  %30 = udiv i64 %24, %29
-  store i64 %30, ptr %8, align 8
-  %31 = load i64, ptr %6, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.XLogReaderState, ptr %32, i32 0, i32 21
-  %34 = getelementptr inbounds %struct.WALSegmentContext, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 4
-  %36 = sub i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = and i64 %31, %37
-  %39 = trunc i64 %38 to i32
-  store i32 %39, ptr %9, align 4
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %40, i32 0, i32 0
-  %42 = load i16, ptr %41, align 8
-  %43 = zext i16 %42 to i32
-  %44 = icmp ne i32 %43, 53524
-  br i1 %44, label %45, label %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %24 = load ptr, ptr %7, align 8
+  store ptr %24, ptr %10, align 8
+  %25 = load i64, ptr %6, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %26, i32 0, i32 21
+  %28 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = sext i32 %29 to i64
+  %31 = udiv i64 %25, %30
+  store i64 %31, ptr %8, align 8
+  %32 = load i64, ptr %6, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %33, i32 0, i32 21
+  %35 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = sub i32 %36, 1
+  %38 = sext i32 %37 to i64
+  %39 = and i64 %32, %38
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %9, align 4
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %41, i32 0, i32 0
+  %43 = load i16, ptr %42, align 8
+  %44 = zext i16 %43 to i32
+  %45 = icmp ne i32 %44, 53528
+  br i1 %45, label %46, label %72
 
-45:                                               ; preds = %3
-  %46 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.XLogReaderState, ptr %47, i32 0, i32 22
-  %49 = getelementptr inbounds %struct.WALOpenSegment, ptr %48, i32 0, i32 2
-  %50 = load i32, ptr %49, align 8
-  %51 = load i64, ptr %8, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.XLogReaderState, ptr %52, i32 0, i32 21
-  %54 = getelementptr inbounds %struct.WALSegmentContext, ptr %53, i32 0, i32 1
-  %55 = load i32, ptr %54, align 4
-  call void @XLogFileName(ptr noundef %46, i32 noundef %50, i64 noundef %51, i32 noundef %55)
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %57, i32 0, i32 0
-  %59 = load i16, ptr %58, align 8
-  %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
-  br label %62
-
-62:                                               ; preds = %45
+46:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 64, ptr %11) #10
+  %47 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %48, i32 0, i32 22
+  %50 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8
+  %52 = load i64, ptr %8, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %53, i32 0, i32 21
+  %55 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4
+  call void @XLogFileName(ptr noundef %47, i32 noundef %51, i64 noundef %52, i32 noundef %56)
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %58, i32 0, i32 0
+  %60 = load i16, ptr %59, align 8
+  %61 = zext i16 %60 to i32
+  %62 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
   br label %63
 
-63:                                               ; preds = %62
+63:                                               ; preds = %46
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
   store i32 1, ptr %12, align 4
-  %64 = load i64, ptr %6, align 8
-  %65 = lshr i64 %64, 32
-  %66 = trunc i64 %65 to i32
-  %67 = load i64, ptr %6, align 8
+  %66 = load i64, ptr %6, align 8
+  %67 = lshr i64 %66, 32
   %68 = trunc i64 %67 to i32
-  %69 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %56, ptr noundef @.str, i32 noundef %60, ptr noundef %61, i32 noundef %66, i32 noundef %68, i32 noundef %69)
+  %69 = load i64, ptr %6, align 8
+  %70 = trunc i64 %69 to i32
+  %71 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %57, ptr noundef @.str, i32 noundef %61, ptr noundef %62, i32 noundef %68, i32 noundef %70, i32 noundef %71)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %11) #10
+  br label %280
 
-70:                                               ; preds = %3
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %71, i32 0, i32 1
-  %73 = load i16, ptr %72, align 2
-  %74 = zext i16 %73 to i32
-  %75 = and i32 %74, -16
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %102
+72:                                               ; preds = %3
+  %73 = load ptr, ptr %10, align 8
+  %74 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %73, i32 0, i32 1
+  %75 = load i16, ptr %74, align 2
+  %76 = zext i16 %75 to i32
+  %77 = and i32 %76, -16
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %105
 
-77:                                               ; preds = %70
-  %78 = getelementptr inbounds [64 x i8], ptr %13, i64 0, i64 0
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.XLogReaderState, ptr %79, i32 0, i32 22
-  %81 = getelementptr inbounds %struct.WALOpenSegment, ptr %80, i32 0, i32 2
-  %82 = load i32, ptr %81, align 8
-  %83 = load i64, ptr %8, align 8
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.XLogReaderState, ptr %84, i32 0, i32 21
-  %86 = getelementptr inbounds %struct.WALSegmentContext, ptr %85, i32 0, i32 1
-  %87 = load i32, ptr %86, align 4
-  call void @XLogFileName(ptr noundef %78, i32 noundef %82, i64 noundef %83, i32 noundef %87)
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %89, i32 0, i32 1
-  %91 = load i16, ptr %90, align 2
-  %92 = zext i16 %91 to i32
-  %93 = getelementptr inbounds [64 x i8], ptr %13, i64 0, i64 0
-  br label %94
+79:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 64, ptr %14) #10
+  %80 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 0
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %81, i32 0, i32 22
+  %83 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %82, i32 0, i32 2
+  %84 = load i32, ptr %83, align 8
+  %85 = load i64, ptr %8, align 8
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %86, i32 0, i32 21
+  %88 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  call void @XLogFileName(ptr noundef %80, i32 noundef %84, i64 noundef %85, i32 noundef %89)
+  %90 = load ptr, ptr %5, align 8
+  %91 = load ptr, ptr %10, align 8
+  %92 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %91, i32 0, i32 1
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i32
+  %95 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 0
+  br label %96
 
-94:                                               ; preds = %77
-  br label %95
+96:                                               ; preds = %79
+  br label %97
 
-95:                                               ; preds = %94
-  store i32 1, ptr %14, align 4
-  %96 = load i64, ptr %6, align 8
-  %97 = lshr i64 %96, 32
-  %98 = trunc i64 %97 to i32
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97
+  store i32 1, ptr %15, align 4
   %99 = load i64, ptr %6, align 8
-  %100 = trunc i64 %99 to i32
-  %101 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %88, ptr noundef @.str.1, i32 noundef %92, ptr noundef %93, i32 noundef %98, i32 noundef %100, i32 noundef %101)
+  %100 = lshr i64 %99, 32
+  %101 = trunc i64 %100 to i32
+  %102 = load i64, ptr %6, align 8
+  %103 = trunc i64 %102 to i32
+  %104 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %90, ptr noundef @.str.1, i32 noundef %94, ptr noundef %95, i32 noundef %101, i32 noundef %103, i32 noundef %104)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %14) #10
+  br label %280
 
-102:                                              ; preds = %70
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %103, i32 0, i32 1
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = and i32 %106, 2
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %109, label %152
+105:                                              ; preds = %72
+  %106 = load ptr, ptr %10, align 8
+  %107 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %106, i32 0, i32 1
+  %108 = load i16, ptr %107, align 2
+  %109 = zext i16 %108 to i32
+  %110 = and i32 %109, 2
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %112, label %158
 
-109:                                              ; preds = %102
-  %110 = load ptr, ptr %10, align 8
-  store ptr %110, ptr %15, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct.XLogReaderState, ptr %111, i32 0, i32 1
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp ne i64 %113, 0
-  br i1 %114, label %115, label %131
+112:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  %113 = load ptr, ptr %10, align 8
+  store ptr %113, ptr %16, align 8
+  %114 = load ptr, ptr %5, align 8
+  %115 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %114, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp ne i64 %116, 0
+  br i1 %117, label %118, label %134
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %15, align 8
-  %117 = getelementptr inbounds %struct.XLogLongPageHeaderData, ptr %116, i32 0, i32 1
-  %118 = load i64, ptr %117, align 8
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.XLogReaderState, ptr %119, i32 0, i32 1
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %16, align 8
+  %120 = getelementptr inbounds nuw %struct.XLogLongPageHeaderData, ptr %119, i32 0, i32 1
   %121 = load i64, ptr %120, align 8
-  %122 = icmp ne i64 %118, %121
-  br i1 %122, label %123, label %131
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %122, i32 0, i32 1
+  %124 = load i64, ptr %123, align 8
+  %125 = icmp ne i64 %121, %124
+  br i1 %125, label %126, label %134
 
-123:                                              ; preds = %115
-  %124 = load ptr, ptr %5, align 8
-  %125 = load ptr, ptr %15, align 8
-  %126 = getelementptr inbounds %struct.XLogLongPageHeaderData, ptr %125, i32 0, i32 1
-  %127 = load i64, ptr %126, align 8
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.XLogReaderState, ptr %128, i32 0, i32 1
+126:                                              ; preds = %118
+  %127 = load ptr, ptr %5, align 8
+  %128 = load ptr, ptr %16, align 8
+  %129 = getelementptr inbounds nuw %struct.XLogLongPageHeaderData, ptr %128, i32 0, i32 1
   %130 = load i64, ptr %129, align 8
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %124, ptr noundef @.str.2, i64 noundef %127, i64 noundef %130)
+  %131 = load ptr, ptr %5, align 8
+  %132 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %131, i32 0, i32 1
+  %133 = load i64, ptr %132, align 8
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %127, ptr noundef @.str.2, i64 noundef %130, i64 noundef %133)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  br label %155
 
-131:                                              ; preds = %115, %109
-  %132 = load ptr, ptr %15, align 8
-  %133 = getelementptr inbounds %struct.XLogLongPageHeaderData, ptr %132, i32 0, i32 2
-  %134 = load i32, ptr %133, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds %struct.XLogReaderState, ptr %135, i32 0, i32 21
-  %137 = getelementptr inbounds %struct.WALSegmentContext, ptr %136, i32 0, i32 1
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp ne i32 %134, %138
-  br i1 %139, label %140, label %142
+134:                                              ; preds = %118, %112
+  %135 = load ptr, ptr %16, align 8
+  %136 = getelementptr inbounds nuw %struct.XLogLongPageHeaderData, ptr %135, i32 0, i32 2
+  %137 = load i32, ptr %136, align 8
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %138, i32 0, i32 21
+  %140 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %139, i32 0, i32 1
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp ne i32 %137, %141
+  br i1 %142, label %143, label %145
 
-140:                                              ; preds = %131
-  %141 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %141, ptr noundef @.str.3)
+143:                                              ; preds = %134
+  %144 = load ptr, ptr %5, align 8
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %144, ptr noundef @.str.3)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  br label %155
 
-142:                                              ; preds = %131
-  %143 = load ptr, ptr %15, align 8
-  %144 = getelementptr inbounds %struct.XLogLongPageHeaderData, ptr %143, i32 0, i32 3
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp ne i32 %145, 8192
-  br i1 %146, label %147, label %149
+145:                                              ; preds = %134
+  %146 = load ptr, ptr %16, align 8
+  %147 = getelementptr inbounds nuw %struct.XLogLongPageHeaderData, ptr %146, i32 0, i32 3
+  %148 = load i32, ptr %147, align 4
+  %149 = icmp ne i32 %148, 8192
+  br i1 %149, label %150, label %152
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %148, ptr noundef @.str.4)
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %5, align 8
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %151, ptr noundef @.str.4)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  br label %155
 
-149:                                              ; preds = %142
-  br label %150
+152:                                              ; preds = %145
+  br label %153
 
-150:                                              ; preds = %149
-  br label %151
+153:                                              ; preds = %152
+  br label %154
 
-151:                                              ; preds = %150
-  br label %181
+154:                                              ; preds = %153
+  store i32 0, ptr %13, align 4
+  br label %155
 
-152:                                              ; preds = %102
-  %153 = load i32, ptr %9, align 4
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %155, label %180
+155:                                              ; preds = %154, %150, %143, %126
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  %156 = load i32, ptr %13, align 4
+  switch i32 %156, label %280 [
+    i32 0, label %157
+  ]
 
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds %struct.XLogReaderState, ptr %157, i32 0, i32 22
-  %159 = getelementptr inbounds %struct.WALOpenSegment, ptr %158, i32 0, i32 2
-  %160 = load i32, ptr %159, align 8
-  %161 = load i64, ptr %8, align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.XLogReaderState, ptr %162, i32 0, i32 21
-  %164 = getelementptr inbounds %struct.WALSegmentContext, ptr %163, i32 0, i32 1
-  %165 = load i32, ptr %164, align 4
-  call void @XLogFileName(ptr noundef %156, i32 noundef %160, i64 noundef %161, i32 noundef %165)
-  %166 = load ptr, ptr %5, align 8
-  %167 = load ptr, ptr %10, align 8
-  %168 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %167, i32 0, i32 1
-  %169 = load i16, ptr %168, align 2
-  %170 = zext i16 %169 to i32
-  %171 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  br label %172
+157:                                              ; preds = %155
+  br label %188
 
-172:                                              ; preds = %155
-  br label %173
+158:                                              ; preds = %105
+  %159 = load i32, ptr %9, align 4
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %187
 
-173:                                              ; preds = %172
-  store i32 1, ptr %17, align 4
-  %174 = load i64, ptr %6, align 8
-  %175 = lshr i64 %174, 32
-  %176 = trunc i64 %175 to i32
-  %177 = load i64, ptr %6, align 8
-  %178 = trunc i64 %177 to i32
-  %179 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %166, ptr noundef @.str.1, i32 noundef %170, ptr noundef %171, i32 noundef %176, i32 noundef %178, i32 noundef %179)
+161:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 64, ptr %17) #10
+  %162 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 0
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %163, i32 0, i32 22
+  %165 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %164, i32 0, i32 2
+  %166 = load i32, ptr %165, align 8
+  %167 = load i64, ptr %8, align 8
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %168, i32 0, i32 21
+  %170 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %169, i32 0, i32 1
+  %171 = load i32, ptr %170, align 4
+  call void @XLogFileName(ptr noundef %162, i32 noundef %166, i64 noundef %167, i32 noundef %171)
+  %172 = load ptr, ptr %5, align 8
+  %173 = load ptr, ptr %10, align 8
+  %174 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %173, i32 0, i32 1
+  %175 = load i16, ptr %174, align 2
+  %176 = zext i16 %175 to i32
+  %177 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 0
+  br label %178
+
+178:                                              ; preds = %161
+  br label %179
+
+179:                                              ; preds = %178
+  br label %180
+
+180:                                              ; preds = %179
+  store i32 1, ptr %18, align 4
+  %181 = load i64, ptr %6, align 8
+  %182 = lshr i64 %181, 32
+  %183 = trunc i64 %182 to i32
+  %184 = load i64, ptr %6, align 8
+  %185 = trunc i64 %184 to i32
+  %186 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %172, ptr noundef @.str.1, i32 noundef %176, ptr noundef %177, i32 noundef %183, i32 noundef %185, i32 noundef %186)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %17) #10
+  br label %280
 
-180:                                              ; preds = %152
-  br label %181
+187:                                              ; preds = %158
+  br label %188
 
-181:                                              ; preds = %180, %151
-  %182 = load ptr, ptr %10, align 8
-  %183 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %182, i32 0, i32 3
-  %184 = load i64, ptr %183, align 8
-  %185 = load i64, ptr %6, align 8
-  %186 = icmp ne i64 %184, %185
-  br i1 %186, label %187, label %219
+188:                                              ; preds = %187, %157
+  %189 = load ptr, ptr %10, align 8
+  %190 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %189, i32 0, i32 3
+  %191 = load i64, ptr %190, align 8
+  %192 = load i64, ptr %6, align 8
+  %193 = icmp ne i64 %191, %192
+  br i1 %193, label %194, label %228
 
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 0
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.XLogReaderState, ptr %189, i32 0, i32 22
-  %191 = getelementptr inbounds %struct.WALOpenSegment, ptr %190, i32 0, i32 2
-  %192 = load i32, ptr %191, align 8
-  %193 = load i64, ptr %8, align 8
-  %194 = load ptr, ptr %5, align 8
-  %195 = getelementptr inbounds %struct.XLogReaderState, ptr %194, i32 0, i32 21
-  %196 = getelementptr inbounds %struct.WALSegmentContext, ptr %195, i32 0, i32 1
-  %197 = load i32, ptr %196, align 4
-  call void @XLogFileName(ptr noundef %188, i32 noundef %192, i64 noundef %193, i32 noundef %197)
-  %198 = load ptr, ptr %5, align 8
-  br label %199
+194:                                              ; preds = %188
+  call void @llvm.lifetime.start.p0(i64 64, ptr %19) #10
+  %195 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 0
+  %196 = load ptr, ptr %5, align 8
+  %197 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %196, i32 0, i32 22
+  %198 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %197, i32 0, i32 2
+  %199 = load i32, ptr %198, align 8
+  %200 = load i64, ptr %8, align 8
+  %201 = load ptr, ptr %5, align 8
+  %202 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %201, i32 0, i32 21
+  %203 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %202, i32 0, i32 1
+  %204 = load i32, ptr %203, align 4
+  call void @XLogFileName(ptr noundef %195, i32 noundef %199, i64 noundef %200, i32 noundef %204)
+  %205 = load ptr, ptr %5, align 8
+  br label %206
 
-199:                                              ; preds = %187
-  br label %200
+206:                                              ; preds = %194
+  br label %207
 
-200:                                              ; preds = %199
-  store i32 1, ptr %19, align 4
-  %201 = load ptr, ptr %10, align 8
-  %202 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %201, i32 0, i32 3
-  %203 = load i64, ptr %202, align 8
-  %204 = lshr i64 %203, 32
-  %205 = trunc i64 %204 to i32
-  %206 = load ptr, ptr %10, align 8
-  %207 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %206, i32 0, i32 3
-  %208 = load i64, ptr %207, align 8
-  %209 = trunc i64 %208 to i32
-  %210 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 0
-  br label %211
+207:                                              ; preds = %206
+  br label %208
 
-211:                                              ; preds = %200
-  br label %212
-
-212:                                              ; preds = %211
+208:                                              ; preds = %207
   store i32 1, ptr %20, align 4
-  %213 = load i64, ptr %6, align 8
-  %214 = lshr i64 %213, 32
-  %215 = trunc i64 %214 to i32
-  %216 = load i64, ptr %6, align 8
+  %209 = load ptr, ptr %10, align 8
+  %210 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %209, i32 0, i32 3
+  %211 = load i64, ptr %210, align 8
+  %212 = lshr i64 %211, 32
+  %213 = trunc i64 %212 to i32
+  %214 = load ptr, ptr %10, align 8
+  %215 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %214, i32 0, i32 3
+  %216 = load i64, ptr %215, align 8
   %217 = trunc i64 %216 to i32
-  %218 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %198, ptr noundef @.str.5, i32 noundef %205, i32 noundef %209, ptr noundef %210, i32 noundef %215, i32 noundef %217, i32 noundef %218)
+  %218 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 0
+  br label %219
+
+219:                                              ; preds = %208
+  br label %220
+
+220:                                              ; preds = %219
+  br label %221
+
+221:                                              ; preds = %220
+  store i32 1, ptr %21, align 4
+  %222 = load i64, ptr %6, align 8
+  %223 = lshr i64 %222, 32
+  %224 = trunc i64 %223 to i32
+  %225 = load i64, ptr %6, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %205, ptr noundef @.str.5, i32 noundef %213, i32 noundef %217, ptr noundef %218, i32 noundef %224, i32 noundef %226, i32 noundef %227)
   store i1 false, ptr %4, align 1
-  br label %270
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %19) #10
+  br label %280
 
-219:                                              ; preds = %181
-  %220 = load i64, ptr %6, align 8
-  %221 = load ptr, ptr %5, align 8
-  %222 = getelementptr inbounds %struct.XLogReaderState, ptr %221, i32 0, i32 24
-  %223 = load i64, ptr %222, align 8
-  %224 = icmp ugt i64 %220, %223
-  br i1 %224, label %225, label %261
+228:                                              ; preds = %188
+  %229 = load i64, ptr %6, align 8
+  %230 = load ptr, ptr %5, align 8
+  %231 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %230, i32 0, i32 24
+  %232 = load i64, ptr %231, align 8
+  %233 = icmp ugt i64 %229, %232
+  br i1 %233, label %234, label %271
 
-225:                                              ; preds = %219
-  %226 = load ptr, ptr %10, align 8
-  %227 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %226, i32 0, i32 2
-  %228 = load i32, ptr %227, align 4
-  %229 = load ptr, ptr %5, align 8
-  %230 = getelementptr inbounds %struct.XLogReaderState, ptr %229, i32 0, i32 25
-  %231 = load i32, ptr %230, align 8
-  %232 = icmp ult i32 %228, %231
-  br i1 %232, label %233, label %260
+234:                                              ; preds = %228
+  %235 = load ptr, ptr %10, align 8
+  %236 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %235, i32 0, i32 2
+  %237 = load i32, ptr %236, align 4
+  %238 = load ptr, ptr %5, align 8
+  %239 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %238, i32 0, i32 25
+  %240 = load i32, ptr %239, align 8
+  %241 = icmp ult i32 %237, %240
+  br i1 %241, label %242, label %270
 
-233:                                              ; preds = %225
-  %234 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  %235 = load ptr, ptr %5, align 8
-  %236 = getelementptr inbounds %struct.XLogReaderState, ptr %235, i32 0, i32 22
-  %237 = getelementptr inbounds %struct.WALOpenSegment, ptr %236, i32 0, i32 2
-  %238 = load i32, ptr %237, align 8
-  %239 = load i64, ptr %8, align 8
-  %240 = load ptr, ptr %5, align 8
-  %241 = getelementptr inbounds %struct.XLogReaderState, ptr %240, i32 0, i32 21
-  %242 = getelementptr inbounds %struct.WALSegmentContext, ptr %241, i32 0, i32 1
-  %243 = load i32, ptr %242, align 4
-  call void @XLogFileName(ptr noundef %234, i32 noundef %238, i64 noundef %239, i32 noundef %243)
+242:                                              ; preds = %234
+  call void @llvm.lifetime.start.p0(i64 64, ptr %22) #10
+  %243 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
   %244 = load ptr, ptr %5, align 8
-  %245 = load ptr, ptr %10, align 8
-  %246 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %245, i32 0, i32 2
-  %247 = load i32, ptr %246, align 4
-  %248 = load ptr, ptr %5, align 8
-  %249 = getelementptr inbounds %struct.XLogReaderState, ptr %248, i32 0, i32 25
-  %250 = load i32, ptr %249, align 8
-  %251 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  br label %252
-
-252:                                              ; preds = %233
-  br label %253
-
-253:                                              ; preds = %252
-  store i32 1, ptr %22, align 4
-  %254 = load i64, ptr %6, align 8
-  %255 = lshr i64 %254, 32
-  %256 = trunc i64 %255 to i32
-  %257 = load i64, ptr %6, align 8
-  %258 = trunc i64 %257 to i32
-  %259 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %244, ptr noundef @.str.6, i32 noundef %247, i32 noundef %250, ptr noundef %251, i32 noundef %256, i32 noundef %258, i32 noundef %259)
-  store i1 false, ptr %4, align 1
-  br label %270
-
-260:                                              ; preds = %225
+  %245 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %244, i32 0, i32 22
+  %246 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %245, i32 0, i32 2
+  %247 = load i32, ptr %246, align 8
+  %248 = load i64, ptr %8, align 8
+  %249 = load ptr, ptr %5, align 8
+  %250 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %249, i32 0, i32 21
+  %251 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %250, i32 0, i32 1
+  %252 = load i32, ptr %251, align 4
+  call void @XLogFileName(ptr noundef %243, i32 noundef %247, i64 noundef %248, i32 noundef %252)
+  %253 = load ptr, ptr %5, align 8
+  %254 = load ptr, ptr %10, align 8
+  %255 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %254, i32 0, i32 2
+  %256 = load i32, ptr %255, align 4
+  %257 = load ptr, ptr %5, align 8
+  %258 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %257, i32 0, i32 25
+  %259 = load i32, ptr %258, align 8
+  %260 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
   br label %261
 
-261:                                              ; preds = %260, %219
-  %262 = load i64, ptr %6, align 8
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds %struct.XLogReaderState, ptr %263, i32 0, i32 24
-  store i64 %262, ptr %264, align 8
-  %265 = load ptr, ptr %10, align 8
-  %266 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %265, i32 0, i32 2
-  %267 = load i32, ptr %266, align 4
-  %268 = load ptr, ptr %5, align 8
-  %269 = getelementptr inbounds %struct.XLogReaderState, ptr %268, i32 0, i32 25
-  store i32 %267, ptr %269, align 8
-  store i1 true, ptr %4, align 1
-  br label %270
+261:                                              ; preds = %242
+  br label %262
 
-270:                                              ; preds = %261, %253, %212, %173, %147, %140, %123, %95, %63
-  %271 = load i1, ptr %4, align 1
-  ret i1 %271
+262:                                              ; preds = %261
+  br label %263
+
+263:                                              ; preds = %262
+  store i32 1, ptr %23, align 4
+  %264 = load i64, ptr %6, align 8
+  %265 = lshr i64 %264, 32
+  %266 = trunc i64 %265 to i32
+  %267 = load i64, ptr %6, align 8
+  %268 = trunc i64 %267 to i32
+  %269 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %253, ptr noundef @.str.6, i32 noundef %256, i32 noundef %259, ptr noundef %260, i32 noundef %266, i32 noundef %268, i32 noundef %269)
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %22) #10
+  br label %280
+
+270:                                              ; preds = %234
+  br label %271
+
+271:                                              ; preds = %270, %228
+  %272 = load i64, ptr %6, align 8
+  %273 = load ptr, ptr %5, align 8
+  %274 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %273, i32 0, i32 24
+  store i64 %272, ptr %274, align 8
+  %275 = load ptr, ptr %10, align 8
+  %276 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %275, i32 0, i32 2
+  %277 = load i32, ptr %276, align 4
+  %278 = load ptr, ptr %5, align 8
+  %279 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %278, i32 0, i32 25
+  store i32 %277, ptr %279, align 8
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %13, align 4
+  br label %280
+
+280:                                              ; preds = %271, %263, %221, %180, %155, %98, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %281 = load i1, ptr %4, align 1
+  ret i1 %281
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -2133,21 +2305,23 @@ define internal void @report_invalid_record(ptr noundef %0, ptr noundef %1, ...)
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #10
   %6 = load ptr, ptr %4, align 8
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 32
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 32
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %13 = call i32 @pg_vsnprintf(ptr noundef %10, i64 noundef 1000, ptr noundef %11, ptr noundef %12)
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.XLogReaderState, ptr %15, i32 0, i32 33
+  %16 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %15, i32 0, i32 33
   store i8 1, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #10
   ret void
 }
 
@@ -2156,12 +2330,12 @@ define dso_local void @XLogReaderResetError(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.XLogReaderState, ptr %3, i32 0, i32 32
+  %4 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %3, i32 0, i32 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i8, ptr %5, i64 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.XLogReaderState, ptr %7, i32 0, i32 33
+  %8 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %7, i32 0, i32 33
   store i8 0, ptr %8, align 8
   ret void
 }
@@ -2179,168 +2353,206 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef %0, i64 noundef %1) #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   store i64 0, ptr %7, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.XLogReaderState, ptr %14, i32 0, i32 34
-  store i8 0, ptr %15, align 1
-  %16 = load i64, ptr %5, align 8
-  store i64 %16, ptr %6, align 8
-  br label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %15, i32 0, i32 34
+  store i8 0, ptr %16, align 1
+  %17 = load i64, ptr %5, align 8
+  store i64 %17, ptr %6, align 8
+  br label %18
 
-17:                                               ; preds = %90, %2
-  %18 = load i64, ptr %6, align 8
-  %19 = urem i64 %18, 8192
-  %20 = trunc i64 %19 to i32
-  store i32 %20, ptr %11, align 4
-  %21 = load i64, ptr %6, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = sext i32 %22 to i64
-  %24 = sub i64 %21, %23
-  store i64 %24, ptr %10, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = load i64, ptr %10, align 8
-  %27 = load i32, ptr %11, align 4
-  %28 = call i32 @ReadPageInternal(ptr noundef %25, i64 noundef %26, i32 noundef %27)
-  store i32 %28, ptr %13, align 4
-  %29 = load i32, ptr %13, align 4
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %32
+18:                                               ; preds = %95, %2
+  br label %19
 
-31:                                               ; preds = %17
-  br label %113
+19:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %20 = load i64, ptr %6, align 8
+  %21 = urem i64 %20, 8192
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %11, align 4
+  %23 = load i64, ptr %6, align 8
+  %24 = load i32, ptr %11, align 4
+  %25 = sext i32 %24 to i64
+  %26 = sub i64 %23, %25
+  store i64 %26, ptr %10, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = load i64, ptr %10, align 8
+  %29 = load i32, ptr %11, align 4
+  %30 = call i32 @ReadPageInternal(ptr noundef %27, i64 noundef %28, i32 noundef %29)
+  store i32 %30, ptr %13, align 4
+  %31 = load i32, ptr %13, align 4
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %17
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.XLogReaderState, ptr %33, i32 0, i32 19
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %8, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %36, i32 0, i32 1
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = and i32 %39, 2
-  %41 = icmp ne i32 %40, 0
-  %42 = select i1 %41, i64 40, i64 24
-  %43 = trunc i64 %42 to i32
-  store i32 %43, ptr %12, align 4
-  %44 = load ptr, ptr %4, align 8
-  %45 = load i64, ptr %10, align 8
-  %46 = load i32, ptr %12, align 4
-  %47 = call i32 @ReadPageInternal(ptr noundef %44, i64 noundef %45, i32 noundef %46)
-  store i32 %47, ptr %13, align 4
-  %48 = load i32, ptr %13, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %51
+33:                                               ; preds = %19
+  store i32 4, ptr %14, align 4
+  br label %93
 
-50:                                               ; preds = %32
-  br label %113
+34:                                               ; preds = %19
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %35, i32 0, i32 19
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %8, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %38, i32 0, i32 1
+  %40 = load i16, ptr %39, align 2
+  %41 = zext i16 %40 to i32
+  %42 = and i32 %41, 2
+  %43 = icmp ne i32 %42, 0
+  %44 = select i1 %43, i64 40, i64 24
+  %45 = trunc i64 %44 to i32
+  store i32 %45, ptr %12, align 4
+  %46 = load ptr, ptr %4, align 8
+  %47 = load i64, ptr %10, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @ReadPageInternal(ptr noundef %46, i64 noundef %47, i32 noundef %48)
+  store i32 %49, ptr %13, align 4
+  %50 = load i32, ptr %13, align 4
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %32
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %52, i32 0, i32 1
-  %54 = load i16, ptr %53, align 2
-  %55 = zext i16 %54 to i32
-  %56 = and i32 %55, 1
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %85
+52:                                               ; preds = %34
+  store i32 4, ptr %14, align 4
+  br label %93
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %59, i32 0, i32 4
-  %61 = load i32, ptr %60, align 8
-  %62 = zext i32 %61 to i64
-  %63 = add i64 %62, 7
-  %64 = and i64 %63, -8
-  %65 = load i32, ptr %12, align 4
-  %66 = sub i32 8192, %65
-  %67 = zext i32 %66 to i64
-  %68 = icmp uge i64 %64, %67
-  br i1 %68, label %69, label %72
+53:                                               ; preds = %34
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %54, i32 0, i32 1
+  %56 = load i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %58 = and i32 %57, 1
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %87
 
-69:                                               ; preds = %58
-  %70 = load i64, ptr %10, align 8
-  %71 = add i64 %70, 8192
-  store i64 %71, ptr %6, align 8
-  br label %84
+60:                                               ; preds = %53
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %61, i32 0, i32 4
+  %63 = load i32, ptr %62, align 8
+  %64 = zext i32 %63 to i64
+  %65 = add i64 %64, 7
+  %66 = and i64 %65, -8
+  %67 = load i32, ptr %12, align 4
+  %68 = sub i32 8192, %67
+  %69 = zext i32 %68 to i64
+  %70 = icmp uge i64 %66, %69
+  br i1 %70, label %71, label %74
 
-72:                                               ; preds = %58
-  %73 = load i64, ptr %10, align 8
-  %74 = load i32, ptr %12, align 4
-  %75 = zext i32 %74 to i64
-  %76 = add i64 %73, %75
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %77, i32 0, i32 4
-  %79 = load i32, ptr %78, align 8
-  %80 = zext i32 %79 to i64
-  %81 = add i64 %80, 7
-  %82 = and i64 %81, -8
-  %83 = add i64 %76, %82
-  store i64 %83, ptr %6, align 8
-  br label %91
+71:                                               ; preds = %60
+  %72 = load i64, ptr %10, align 8
+  %73 = add i64 %72, 8192
+  store i64 %73, ptr %6, align 8
+  br label %86
 
-84:                                               ; preds = %69
-  br label %90
+74:                                               ; preds = %60
+  %75 = load i64, ptr %10, align 8
+  %76 = load i32, ptr %12, align 4
+  %77 = zext i32 %76 to i64
+  %78 = add i64 %75, %77
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 8
+  %82 = zext i32 %81 to i64
+  %83 = add i64 %82, 7
+  %84 = and i64 %83, -8
+  %85 = add i64 %78, %84
+  store i64 %85, ptr %6, align 8
+  store i32 3, ptr %14, align 4
+  br label %93
 
-85:                                               ; preds = %51
-  %86 = load i64, ptr %10, align 8
-  %87 = load i32, ptr %12, align 4
-  %88 = zext i32 %87 to i64
-  %89 = add i64 %86, %88
-  store i64 %89, ptr %6, align 8
-  br label %91
+86:                                               ; preds = %71
+  br label %92
 
-90:                                               ; preds = %84
-  br label %17
+87:                                               ; preds = %53
+  %88 = load i64, ptr %10, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = zext i32 %89 to i64
+  %91 = add i64 %88, %90
+  store i64 %91, ptr %6, align 8
+  store i32 3, ptr %14, align 4
+  br label %93
 
-91:                                               ; preds = %85, %72
-  %92 = load ptr, ptr %4, align 8
-  %93 = load i64, ptr %6, align 8
-  call void @XLogBeginRead(ptr noundef %92, i64 noundef %93)
-  br label %94
+92:                                               ; preds = %86
+  store i32 0, ptr %14, align 4
+  br label %93
 
-94:                                               ; preds = %111, %91
-  %95 = load ptr, ptr %4, align 8
-  %96 = call ptr @XLogReadRecord(ptr noundef %95, ptr noundef %9)
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %112
+93:                                               ; preds = %52, %33, %92, %87, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %94 = load i32, ptr %14, align 4
+  switch i32 %94, label %120 [
+    i32 0, label %95
+    i32 3, label %96
+    i32 4, label %118
+  ]
 
-98:                                               ; preds = %94
-  %99 = load i64, ptr %5, align 8
+95:                                               ; preds = %93
+  br label %18
+
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %4, align 8
+  %98 = load i64, ptr %6, align 8
+  call void @XLogBeginRead(ptr noundef %97, i64 noundef %98)
+  br label %99
+
+99:                                               ; preds = %116, %96
   %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds %struct.XLogReaderState, ptr %100, i32 0, i32 3
-  %102 = load i64, ptr %101, align 8
-  %103 = icmp ule i64 %99, %102
-  br i1 %103, label %104, label %111
+  %101 = call ptr @XLogReadRecord(ptr noundef %100, ptr noundef %9)
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %117
 
-104:                                              ; preds = %98
+103:                                              ; preds = %99
+  %104 = load i64, ptr %5, align 8
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.XLogReaderState, ptr %105, i32 0, i32 3
+  %106 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %105, i32 0, i32 3
   %107 = load i64, ptr %106, align 8
-  store i64 %107, ptr %7, align 8
-  %108 = load ptr, ptr %4, align 8
-  %109 = load i64, ptr %7, align 8
-  call void @XLogBeginRead(ptr noundef %108, i64 noundef %109)
-  %110 = load i64, ptr %7, align 8
-  store i64 %110, ptr %3, align 8
-  br label %115
+  %108 = icmp ule i64 %104, %107
+  br i1 %108, label %109, label %116
 
-111:                                              ; preds = %98
-  br label %94, !llvm.loop !9
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %4, align 8
+  %111 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %110, i32 0, i32 3
+  %112 = load i64, ptr %111, align 8
+  store i64 %112, ptr %7, align 8
+  %113 = load ptr, ptr %4, align 8
+  %114 = load i64, ptr %7, align 8
+  call void @XLogBeginRead(ptr noundef %113, i64 noundef %114)
+  %115 = load i64, ptr %7, align 8
+  store i64 %115, ptr %3, align 8
+  store i32 1, ptr %14, align 4
+  br label %120
 
-112:                                              ; preds = %94
-  br label %113
+116:                                              ; preds = %103
+  br label %99, !llvm.loop !10
 
-113:                                              ; preds = %112, %50, %31
-  %114 = load ptr, ptr %4, align 8
-  call void @XLogReaderInvalReadState(ptr noundef %114)
+117:                                              ; preds = %99
+  br label %118
+
+118:                                              ; preds = %117, %93
+  %119 = load ptr, ptr %4, align 8
+  call void @XLogReaderInvalReadState(ptr noundef %119)
   store i64 0, ptr %3, align 8
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %120
 
-115:                                              ; preds = %113, %104
-  %116 = load i64, ptr %3, align 8
-  ret i64 %116
+120:                                              ; preds = %118, %109, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %121 = load i64, ptr %3, align 8
+  ret i64 %121
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2353,288 +2565,318 @@ define internal i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32 nounde
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
   store ptr %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %13 = load i64, ptr %6, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.XLogReaderState, ptr %14, i32 0, i32 21
-  %16 = getelementptr inbounds %struct.WALSegmentContext, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = udiv i64 %13, %18
-  store i64 %19, ptr %10, align 8
-  %20 = load i64, ptr %6, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.XLogReaderState, ptr %21, i32 0, i32 21
-  %23 = getelementptr inbounds %struct.WALSegmentContext, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 4
-  %25 = sub i32 %24, 1
-  %26 = sext i32 %25 to i64
-  %27 = and i64 %20, %26
-  %28 = trunc i64 %27 to i32
-  store i32 %28, ptr %9, align 4
-  %29 = load i64, ptr %10, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.XLogReaderState, ptr %30, i32 0, i32 22
-  %32 = getelementptr inbounds %struct.WALOpenSegment, ptr %31, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %29, %33
-  br i1 %34, label %35, label %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %14 = load i64, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %15, i32 0, i32 21
+  %17 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = udiv i64 %14, %19
+  store i64 %20, ptr %10, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %22, i32 0, i32 21
+  %24 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = sub i32 %25, 1
+  %27 = sext i32 %26 to i64
+  %28 = and i64 %21, %27
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %9, align 4
+  %30 = load i64, ptr %10, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %31, i32 0, i32 22
+  %33 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %32, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp eq i64 %30, %34
+  br i1 %35, label %36, label %52
 
-35:                                               ; preds = %3
-  %36 = load i32, ptr %9, align 4
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.XLogReaderState, ptr %37, i32 0, i32 23
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %36, %39
-  br i1 %40, label %41, label %51
+36:                                               ; preds = %3
+  %37 = load i32, ptr %9, align 4
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %38, i32 0, i32 23
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp eq i32 %37, %40
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %35
-  %42 = load i32, ptr %7, align 4
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.XLogReaderState, ptr %43, i32 0, i32 20
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp ule i32 %42, %45
-  br i1 %46, label %47, label %51
+42:                                               ; preds = %36
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %44, i32 0, i32 20
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp ule i32 %43, %46
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.XLogReaderState, ptr %48, i32 0, i32 20
-  %50 = load i32, ptr %49, align 8
-  store i32 %50, ptr %4, align 4
-  br label %200
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %49, i32 0, i32 20
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %204
 
-51:                                               ; preds = %41, %35, %3
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.XLogReaderState, ptr %52, i32 0, i32 20
-  store i32 0, ptr %53, align 8
-  %54 = load i64, ptr %10, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.XLogReaderState, ptr %55, i32 0, i32 22
-  %57 = getelementptr inbounds %struct.WALOpenSegment, ptr %56, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = icmp ne i64 %54, %58
-  br i1 %59, label %60, label %98
+52:                                               ; preds = %42, %36, %3
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %53, i32 0, i32 20
+  store i32 0, ptr %54, align 8
+  %55 = load i64, ptr %10, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %56, i32 0, i32 22
+  %58 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %57, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp ne i64 %55, %59
+  br i1 %60, label %61, label %102
 
-60:                                               ; preds = %51
-  %61 = load i32, ptr %9, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %98
+61:                                               ; preds = %52
+  %62 = load i32, ptr %9, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %102
 
-63:                                               ; preds = %60
-  %64 = load i64, ptr %6, align 8
-  %65 = load i32, ptr %9, align 4
-  %66 = zext i32 %65 to i64
-  %67 = sub i64 %64, %66
-  store i64 %67, ptr %12, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.XLogReaderState, ptr %68, i32 0, i32 0
-  %70 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i64, ptr %12, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.XLogReaderState, ptr %74, i32 0, i32 26
-  %76 = load i64, ptr %75, align 8
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds %struct.XLogReaderState, ptr %77, i32 0, i32 19
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %71(ptr noundef %72, i64 noundef %73, i32 noundef 8192, i64 noundef %76, ptr noundef %79)
-  store i32 %80, ptr %8, align 4
-  %81 = load i32, ptr %8, align 4
-  %82 = icmp eq i32 %81, -2
-  br i1 %82, label %83, label %84
+64:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %65 = load i64, ptr %6, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = zext i32 %66 to i64
+  %68 = sub i64 %65, %67
+  store i64 %68, ptr %13, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = load i64, ptr %13, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %75, i32 0, i32 26
+  %77 = load i64, ptr %76, align 8
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %78, i32 0, i32 19
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 %72(ptr noundef %73, i64 noundef %74, i32 noundef 8192, i64 noundef %77, ptr noundef %80)
+  store i32 %81, ptr %8, align 4
+  %82 = load i32, ptr %8, align 4
+  %83 = icmp eq i32 %82, -2
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %63
+84:                                               ; preds = %64
   store i32 -2, ptr %4, align 4
-  br label %200
+  store i32 1, ptr %12, align 4
+  br label %99
 
-84:                                               ; preds = %63
-  %85 = load i32, ptr %8, align 4
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %88
+85:                                               ; preds = %64
+  %86 = load i32, ptr %8, align 4
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %84
-  br label %198
+88:                                               ; preds = %85
+  store i32 2, ptr %12, align 4
+  br label %99
 
-88:                                               ; preds = %84
-  br label %89
+89:                                               ; preds = %85
+  br label %90
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr %5, align 8
-  %91 = load i64, ptr %12, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.XLogReaderState, ptr %92, i32 0, i32 19
-  %94 = load ptr, ptr %93, align 8
-  %95 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef %90, i64 noundef %91, ptr noundef %94)
-  br i1 %95, label %97, label %96
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %5, align 8
+  %92 = load i64, ptr %13, align 8
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %93, i32 0, i32 19
+  %95 = load ptr, ptr %94, align 8
+  %96 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef %91, i64 noundef %92, ptr noundef %95)
+  br i1 %96, label %98, label %97
 
-96:                                               ; preds = %89
-  br label %198
+97:                                               ; preds = %90
+  store i32 2, ptr %12, align 4
+  br label %99
 
-97:                                               ; preds = %89
-  br label %98
+98:                                               ; preds = %90
+  store i32 0, ptr %12, align 4
+  br label %99
 
-98:                                               ; preds = %97, %60, %51
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct.XLogReaderState, ptr %99, i32 0, i32 0
-  %101 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %100, i32 0, i32 0
-  %102 = load ptr, ptr %101, align 8
+99:                                               ; preds = %97, %88, %98, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  %100 = load i32, ptr %12, align 4
+  switch i32 %100, label %204 [
+    i32 0, label %101
+    i32 2, label %202
+  ]
+
+101:                                              ; preds = %99
+  br label %102
+
+102:                                              ; preds = %101, %61, %52
   %103 = load ptr, ptr %5, align 8
-  %104 = load i64, ptr %6, align 8
-  %105 = load i32, ptr %7, align 4
-  %106 = sext i32 %105 to i64
-  %107 = icmp ugt i64 %106, 24
-  br i1 %107, label %108, label %111
-
-108:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %103, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %5, align 8
+  %108 = load i64, ptr %6, align 8
   %109 = load i32, ptr %7, align 4
   %110 = sext i32 %109 to i64
-  br label %112
+  %111 = icmp ugt i64 %110, 24
+  br i1 %111, label %112, label %115
 
-111:                                              ; preds = %98
-  br label %112
+112:                                              ; preds = %102
+  %113 = load i32, ptr %7, align 4
+  %114 = sext i32 %113 to i64
+  br label %116
 
-112:                                              ; preds = %111, %108
-  %113 = phi i64 [ %110, %108 ], [ 24, %111 ]
-  %114 = trunc i64 %113 to i32
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.XLogReaderState, ptr %115, i32 0, i32 26
-  %117 = load i64, ptr %116, align 8
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds %struct.XLogReaderState, ptr %118, i32 0, i32 19
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i32 %102(ptr noundef %103, i64 noundef %104, i32 noundef %114, i64 noundef %117, ptr noundef %120)
-  store i32 %121, ptr %8, align 4
-  %122 = load i32, ptr %8, align 4
-  %123 = icmp eq i32 %122, -2
-  br i1 %123, label %124, label %125
+115:                                              ; preds = %102
+  br label %116
 
-124:                                              ; preds = %112
-  store i32 -2, ptr %4, align 4
-  br label %200
-
-125:                                              ; preds = %112
+116:                                              ; preds = %115, %112
+  %117 = phi i64 [ %114, %112 ], [ 24, %115 ]
+  %118 = trunc i64 %117 to i32
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %119, i32 0, i32 26
+  %121 = load i64, ptr %120, align 8
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %122, i32 0, i32 19
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 %106(ptr noundef %107, i64 noundef %108, i32 noundef %118, i64 noundef %121, ptr noundef %124)
+  store i32 %125, ptr %8, align 4
   %126 = load i32, ptr %8, align 4
-  %127 = icmp slt i32 %126, 0
+  %127 = icmp eq i32 %126, -2
   br i1 %127, label %128, label %129
 
-128:                                              ; preds = %125
-  br label %198
-
-129:                                              ; preds = %125
-  br label %130
-
-130:                                              ; preds = %129
-  %131 = load i32, ptr %8, align 4
-  %132 = sext i32 %131 to i64
-  %133 = icmp ule i64 %132, 24
-  br i1 %133, label %134, label %135
-
-134:                                              ; preds = %130
-  br label %198
-
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds %struct.XLogReaderState, ptr %136, i32 0, i32 19
-  %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr %11, align 8
-  %139 = load i32, ptr %8, align 4
-  %140 = sext i32 %139 to i64
-  %141 = load ptr, ptr %11, align 8
-  %142 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %141, i32 0, i32 1
-  %143 = load i16, ptr %142, align 2
-  %144 = zext i16 %143 to i32
-  %145 = and i32 %144, 2
-  %146 = icmp ne i32 %145, 0
-  %147 = select i1 %146, i64 40, i64 24
-  %148 = icmp ult i64 %140, %147
-  br i1 %148, label %149, label %180
-
-149:                                              ; preds = %135
-  %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds %struct.XLogReaderState, ptr %150, i32 0, i32 0
-  %152 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %5, align 8
-  %155 = load i64, ptr %6, align 8
-  %156 = load ptr, ptr %11, align 8
-  %157 = getelementptr inbounds %struct.XLogPageHeaderData, ptr %156, i32 0, i32 1
-  %158 = load i16, ptr %157, align 2
-  %159 = zext i16 %158 to i32
-  %160 = and i32 %159, 2
-  %161 = icmp ne i32 %160, 0
-  %162 = select i1 %161, i64 40, i64 24
-  %163 = trunc i64 %162 to i32
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.XLogReaderState, ptr %164, i32 0, i32 26
-  %166 = load i64, ptr %165, align 8
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.XLogReaderState, ptr %167, i32 0, i32 19
-  %169 = load ptr, ptr %168, align 8
-  %170 = call i32 %153(ptr noundef %154, i64 noundef %155, i32 noundef %163, i64 noundef %166, ptr noundef %169)
-  store i32 %170, ptr %8, align 4
-  %171 = load i32, ptr %8, align 4
-  %172 = icmp eq i32 %171, -2
-  br i1 %172, label %173, label %174
-
-173:                                              ; preds = %149
+128:                                              ; preds = %116
   store i32 -2, ptr %4, align 4
-  br label %200
+  store i32 1, ptr %12, align 4
+  br label %204
 
-174:                                              ; preds = %149
+129:                                              ; preds = %116
+  %130 = load i32, ptr %8, align 4
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %133
+
+132:                                              ; preds = %129
+  br label %202
+
+133:                                              ; preds = %129
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load i32, ptr %8, align 4
+  %136 = sext i32 %135 to i64
+  %137 = icmp ule i64 %136, 24
+  br i1 %137, label %138, label %139
+
+138:                                              ; preds = %134
+  br label %202
+
+139:                                              ; preds = %134
+  %140 = load ptr, ptr %5, align 8
+  %141 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %140, i32 0, i32 19
+  %142 = load ptr, ptr %141, align 8
+  store ptr %142, ptr %11, align 8
+  %143 = load i32, ptr %8, align 4
+  %144 = sext i32 %143 to i64
+  %145 = load ptr, ptr %11, align 8
+  %146 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %145, i32 0, i32 1
+  %147 = load i16, ptr %146, align 2
+  %148 = zext i16 %147 to i32
+  %149 = and i32 %148, 2
+  %150 = icmp ne i32 %149, 0
+  %151 = select i1 %150, i64 40, i64 24
+  %152 = icmp ult i64 %144, %151
+  br i1 %152, label %153, label %184
+
+153:                                              ; preds = %139
+  %154 = load ptr, ptr %5, align 8
+  %155 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %154, i32 0, i32 0
+  %156 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %155, i32 0, i32 0
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr %5, align 8
+  %159 = load i64, ptr %6, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = getelementptr inbounds nuw %struct.XLogPageHeaderData, ptr %160, i32 0, i32 1
+  %162 = load i16, ptr %161, align 2
+  %163 = zext i16 %162 to i32
+  %164 = and i32 %163, 2
+  %165 = icmp ne i32 %164, 0
+  %166 = select i1 %165, i64 40, i64 24
+  %167 = trunc i64 %166 to i32
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %168, i32 0, i32 26
+  %170 = load i64, ptr %169, align 8
+  %171 = load ptr, ptr %5, align 8
+  %172 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %171, i32 0, i32 19
+  %173 = load ptr, ptr %172, align 8
+  %174 = call i32 %157(ptr noundef %158, i64 noundef %159, i32 noundef %167, i64 noundef %170, ptr noundef %173)
+  store i32 %174, ptr %8, align 4
   %175 = load i32, ptr %8, align 4
-  %176 = icmp slt i32 %175, 0
+  %176 = icmp eq i32 %175, -2
   br i1 %176, label %177, label %178
 
-177:                                              ; preds = %174
-  br label %198
+177:                                              ; preds = %153
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %204
 
-178:                                              ; preds = %174
-  br label %179
+178:                                              ; preds = %153
+  %179 = load i32, ptr %8, align 4
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %181, label %182
 
-179:                                              ; preds = %178
-  br label %180
+181:                                              ; preds = %178
+  br label %202
 
-180:                                              ; preds = %179, %135
-  %181 = load ptr, ptr %5, align 8
-  %182 = load i64, ptr %6, align 8
-  %183 = load ptr, ptr %11, align 8
-  %184 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef %181, i64 noundef %182, ptr noundef %183)
-  br i1 %184, label %186, label %185
+182:                                              ; preds = %178
+  br label %183
 
-185:                                              ; preds = %180
-  br label %198
+183:                                              ; preds = %182
+  br label %184
 
-186:                                              ; preds = %180
-  %187 = load i64, ptr %10, align 8
-  %188 = load ptr, ptr %5, align 8
-  %189 = getelementptr inbounds %struct.XLogReaderState, ptr %188, i32 0, i32 22
-  %190 = getelementptr inbounds %struct.WALOpenSegment, ptr %189, i32 0, i32 1
-  store i64 %187, ptr %190, align 8
-  %191 = load i32, ptr %9, align 4
+184:                                              ; preds = %183, %139
+  %185 = load ptr, ptr %5, align 8
+  %186 = load i64, ptr %6, align 8
+  %187 = load ptr, ptr %11, align 8
+  %188 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef %185, i64 noundef %186, ptr noundef %187)
+  br i1 %188, label %190, label %189
+
+189:                                              ; preds = %184
+  br label %202
+
+190:                                              ; preds = %184
+  %191 = load i64, ptr %10, align 8
   %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds %struct.XLogReaderState, ptr %192, i32 0, i32 23
-  store i32 %191, ptr %193, align 8
-  %194 = load i32, ptr %8, align 4
-  %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr inbounds %struct.XLogReaderState, ptr %195, i32 0, i32 20
-  store i32 %194, ptr %196, align 8
-  %197 = load i32, ptr %8, align 4
-  store i32 %197, ptr %4, align 4
-  br label %200
-
-198:                                              ; preds = %185, %177, %134, %128, %96, %87
+  %193 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %192, i32 0, i32 22
+  %194 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %193, i32 0, i32 1
+  store i64 %191, ptr %194, align 8
+  %195 = load i32, ptr %9, align 4
+  %196 = load ptr, ptr %5, align 8
+  %197 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %196, i32 0, i32 23
+  store i32 %195, ptr %197, align 8
+  %198 = load i32, ptr %8, align 4
   %199 = load ptr, ptr %5, align 8
-  call void @XLogReaderInvalReadState(ptr noundef %199)
-  store i32 -1, ptr %4, align 4
-  br label %200
+  %200 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %199, i32 0, i32 20
+  store i32 %198, ptr %200, align 8
+  %201 = load i32, ptr %8, align 4
+  store i32 %201, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %204
 
-200:                                              ; preds = %198, %186, %173, %124, %83, %47
-  %201 = load i32, ptr %4, align 4
-  ret i32 %201
+202:                                              ; preds = %99, %189, %181, %138, %132
+  %203 = load ptr, ptr %5, align 8
+  call void @XLogReaderInvalReadState(ptr noundef %203)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %204
+
+204:                                              ; preds = %202, %190, %177, %128, %99, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %205 = load i32, ptr %4, align 4
+  ret i32 %205
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2642,14 +2884,14 @@ define internal void @XLogReaderInvalReadState(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.XLogReaderState, ptr %3, i32 0, i32 22
-  %5 = getelementptr inbounds %struct.WALOpenSegment, ptr %4, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %3, i32 0, i32 22
+  %5 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %4, i32 0, i32 1
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.XLogReaderState, ptr %6, i32 0, i32 23
+  %7 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %6, i32 0, i32 23
   store i32 0, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 20
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 20
   store i32 0, ptr %9, align 8
   ret void
 }
@@ -2670,222 +2912,250 @@ define dso_local zeroext i1 @WALRead(ptr noundef %0, ptr noundef %1, i64 noundef
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i64, align 8
+  %21 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
   store ptr %1, ptr %9, align 8
   store i64 %2, ptr %10, align 8
   store i64 %3, ptr %11, align 8
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
-  %21 = load ptr, ptr %9, align 8
-  store ptr %21, ptr %14, align 8
-  %22 = load i64, ptr %10, align 8
-  store i64 %22, ptr %15, align 8
-  %23 = load i64, ptr %11, align 8
-  store i64 %23, ptr %16, align 8
-  br label %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %14, align 8
+  %23 = load i64, ptr %10, align 8
+  store i64 %23, ptr %15, align 8
+  %24 = load i64, ptr %11, align 8
+  store i64 %24, ptr %16, align 8
+  br label %25
 
-24:                                               ; preds = %149, %6
-  %25 = load i64, ptr %16, align 8
-  %26 = icmp ugt i64 %25, 0
-  br i1 %26, label %27, label %162
+25:                                               ; preds = %165, %6
+  %26 = load i64, ptr %16, align 8
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %166
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr %15, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.XLogReaderState, ptr %29, i32 0, i32 21
-  %31 = getelementptr inbounds %struct.WALSegmentContext, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 4
-  %33 = sub i32 %32, 1
-  %34 = sext i32 %33 to i64
-  %35 = and i64 %28, %34
-  %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %17, align 4
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.XLogReaderState, ptr %37, i32 0, i32 22
-  %39 = getelementptr inbounds %struct.WALOpenSegment, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %62, label %42
+28:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  %29 = load i64, ptr %15, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %30, i32 0, i32 21
+  %32 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = sub i32 %33, 1
+  %35 = sext i32 %34 to i64
+  %36 = and i64 %29, %35
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %17, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %38, i32 0, i32 22
+  %40 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %63, label %43
 
-42:                                               ; preds = %27
-  %43 = load i64, ptr %15, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.XLogReaderState, ptr %44, i32 0, i32 21
-  %46 = getelementptr inbounds %struct.WALSegmentContext, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = udiv i64 %43, %48
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.XLogReaderState, ptr %50, i32 0, i32 22
-  %52 = getelementptr inbounds %struct.WALOpenSegment, ptr %51, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp eq i64 %49, %53
-  br i1 %54, label %55, label %62
+43:                                               ; preds = %28
+  %44 = load i64, ptr %15, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %45, i32 0, i32 21
+  %47 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = udiv i64 %44, %49
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %51, i32 0, i32 22
+  %53 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %52, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp eq i64 %50, %54
+  br i1 %55, label %56, label %63
 
-55:                                               ; preds = %42
-  %56 = load i32, ptr %12, align 4
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.XLogReaderState, ptr %57, i32 0, i32 22
-  %59 = getelementptr inbounds %struct.WALOpenSegment, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp ne i32 %56, %60
-  br i1 %61, label %62, label %96
+56:                                               ; preds = %43
+  %57 = load i32, ptr %12, align 4
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %58, i32 0, i32 22
+  %60 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %59, i32 0, i32 2
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp ne i32 %57, %61
+  br i1 %62, label %63, label %97
 
-62:                                               ; preds = %55, %42, %27
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.XLogReaderState, ptr %63, i32 0, i32 22
-  %65 = getelementptr inbounds %struct.WALOpenSegment, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp sge i32 %66, 0
-  br i1 %67, label %68, label %74
+63:                                               ; preds = %56, %43, %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %64, i32 0, i32 22
+  %66 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp sge i32 %67, 0
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.XLogReaderState, ptr %69, i32 0, i32 0
-  %71 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %70, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %8, align 8
-  call void %72(ptr noundef %73)
-  br label %74
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %70, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %8, align 8
+  call void %73(ptr noundef %74)
+  br label %75
 
-74:                                               ; preds = %68, %62
-  %75 = load i64, ptr %15, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.XLogReaderState, ptr %76, i32 0, i32 21
-  %78 = getelementptr inbounds %struct.WALSegmentContext, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %79 to i64
-  %81 = udiv i64 %75, %80
-  store i64 %81, ptr %20, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.XLogReaderState, ptr %82, i32 0, i32 0
-  %84 = getelementptr inbounds %struct.XLogReaderRoutine, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = load i64, ptr %20, align 8
-  call void %85(ptr noundef %86, i64 noundef %87, ptr noundef %12)
-  %88 = load i32, ptr %12, align 4
-  %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct.XLogReaderState, ptr %89, i32 0, i32 22
-  %91 = getelementptr inbounds %struct.WALOpenSegment, ptr %90, i32 0, i32 2
-  store i32 %88, ptr %91, align 8
-  %92 = load i64, ptr %20, align 8
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.XLogReaderState, ptr %93, i32 0, i32 22
-  %95 = getelementptr inbounds %struct.WALOpenSegment, ptr %94, i32 0, i32 1
-  store i64 %92, ptr %95, align 8
-  br label %96
+75:                                               ; preds = %69, %63
+  %76 = load i64, ptr %15, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %77, i32 0, i32 21
+  %79 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 4
+  %81 = sext i32 %80 to i64
+  %82 = udiv i64 %76, %81
+  store i64 %82, ptr %20, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.XLogReaderRoutine, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %8, align 8
+  %88 = load i64, ptr %20, align 8
+  call void %86(ptr noundef %87, i64 noundef %88, ptr noundef %12)
+  %89 = load i32, ptr %12, align 4
+  %90 = load ptr, ptr %8, align 8
+  %91 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %90, i32 0, i32 22
+  %92 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %91, i32 0, i32 2
+  store i32 %89, ptr %92, align 8
+  %93 = load i64, ptr %20, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %94, i32 0, i32 22
+  %96 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %95, i32 0, i32 1
+  store i64 %93, ptr %96, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  br label %97
 
-96:                                               ; preds = %74, %55
-  %97 = load i64, ptr %16, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.XLogReaderState, ptr %98, i32 0, i32 21
-  %100 = getelementptr inbounds %struct.WALSegmentContext, ptr %99, i32 0, i32 1
-  %101 = load i32, ptr %100, align 4
-  %102 = load i32, ptr %17, align 4
-  %103 = sub i32 %101, %102
-  %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %97, %104
-  br i1 %105, label %106, label %113
+97:                                               ; preds = %75, %56
+  %98 = load i64, ptr %16, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %99, i32 0, i32 21
+  %101 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %100, i32 0, i32 1
+  %102 = load i32, ptr %101, align 4
+  %103 = load i32, ptr %17, align 4
+  %104 = sub i32 %102, %103
+  %105 = zext i32 %104 to i64
+  %106 = icmp ugt i64 %98, %105
+  br i1 %106, label %107, label %114
 
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.XLogReaderState, ptr %107, i32 0, i32 21
-  %109 = getelementptr inbounds %struct.WALSegmentContext, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 4
-  %111 = load i32, ptr %17, align 4
-  %112 = sub i32 %110, %111
-  store i32 %112, ptr %18, align 4
-  br label %116
+107:                                              ; preds = %97
+  %108 = load ptr, ptr %8, align 8
+  %109 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %108, i32 0, i32 21
+  %110 = getelementptr inbounds nuw %struct.WALSegmentContext, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 4
+  %112 = load i32, ptr %17, align 4
+  %113 = sub i32 %111, %112
+  store i32 %113, ptr %18, align 4
+  br label %117
 
-113:                                              ; preds = %96
-  %114 = load i64, ptr %16, align 8
-  %115 = trunc i64 %114 to i32
-  store i32 %115, ptr %18, align 4
-  br label %116
+114:                                              ; preds = %97
+  %115 = load i64, ptr %16, align 8
+  %116 = trunc i64 %115 to i32
+  store i32 %116, ptr %18, align 4
+  br label %117
 
-116:                                              ; preds = %113, %106
-  %117 = call ptr @__errno_location() #7
-  store i32 0, ptr %117, align 4
-  %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds %struct.XLogReaderState, ptr %118, i32 0, i32 22
-  %120 = getelementptr inbounds %struct.WALOpenSegment, ptr %119, i32 0, i32 0
-  %121 = load i32, ptr %120, align 8
-  %122 = load ptr, ptr %14, align 8
-  %123 = load i32, ptr %18, align 4
-  %124 = sext i32 %123 to i64
-  %125 = load i32, ptr %17, align 4
-  %126 = zext i32 %125 to i64
-  %127 = call i64 @pread(i32 noundef %121, ptr noundef %122, i64 noundef %124, i64 noundef %126)
-  %128 = trunc i64 %127 to i32
-  store i32 %128, ptr %19, align 4
-  %129 = load i32, ptr %19, align 4
-  %130 = icmp sle i32 %129, 0
-  br i1 %130, label %131, label %149
+117:                                              ; preds = %114, %107
+  %118 = call ptr @__errno_location() #11
+  store i32 0, ptr %118, align 4
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %119, i32 0, i32 22
+  %121 = getelementptr inbounds nuw %struct.WALOpenSegment, ptr %120, i32 0, i32 0
+  %122 = load i32, ptr %121, align 8
+  %123 = load ptr, ptr %14, align 8
+  %124 = load i32, ptr %18, align 4
+  %125 = sext i32 %124 to i64
+  %126 = load i32, ptr %17, align 4
+  %127 = zext i32 %126 to i64
+  %128 = call i64 @pread(i32 noundef %122, ptr noundef %123, i64 noundef %125, i64 noundef %127)
+  %129 = trunc i64 %128 to i32
+  store i32 %129, ptr %19, align 4
+  %130 = load i32, ptr %19, align 4
+  %131 = icmp sle i32 %130, 0
+  br i1 %131, label %132, label %150
 
-131:                                              ; preds = %116
-  %132 = call ptr @__errno_location() #7
-  %133 = load i32, ptr %132, align 4
-  %134 = load ptr, ptr %13, align 8
-  %135 = getelementptr inbounds %struct.WALReadError, ptr %134, i32 0, i32 0
-  store i32 %133, ptr %135, align 8
-  %136 = load i32, ptr %18, align 4
-  %137 = load ptr, ptr %13, align 8
-  %138 = getelementptr inbounds %struct.WALReadError, ptr %137, i32 0, i32 2
-  store i32 %136, ptr %138, align 8
-  %139 = load i32, ptr %19, align 4
-  %140 = load ptr, ptr %13, align 8
-  %141 = getelementptr inbounds %struct.WALReadError, ptr %140, i32 0, i32 3
-  store i32 %139, ptr %141, align 4
-  %142 = load i32, ptr %17, align 4
-  %143 = load ptr, ptr %13, align 8
-  %144 = getelementptr inbounds %struct.WALReadError, ptr %143, i32 0, i32 1
-  store i32 %142, ptr %144, align 4
-  %145 = load ptr, ptr %13, align 8
-  %146 = getelementptr inbounds %struct.WALReadError, ptr %145, i32 0, i32 4
-  %147 = load ptr, ptr %8, align 8
-  %148 = getelementptr inbounds %struct.XLogReaderState, ptr %147, i32 0, i32 22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %146, ptr align 8 %148, i64 24, i1 false)
+132:                                              ; preds = %117
+  %133 = call ptr @__errno_location() #11
+  %134 = load i32, ptr %133, align 4
+  %135 = load ptr, ptr %13, align 8
+  %136 = getelementptr inbounds nuw %struct.WALReadError, ptr %135, i32 0, i32 0
+  store i32 %134, ptr %136, align 8
+  %137 = load i32, ptr %18, align 4
+  %138 = load ptr, ptr %13, align 8
+  %139 = getelementptr inbounds nuw %struct.WALReadError, ptr %138, i32 0, i32 2
+  store i32 %137, ptr %139, align 8
+  %140 = load i32, ptr %19, align 4
+  %141 = load ptr, ptr %13, align 8
+  %142 = getelementptr inbounds nuw %struct.WALReadError, ptr %141, i32 0, i32 3
+  store i32 %140, ptr %142, align 4
+  %143 = load i32, ptr %17, align 4
+  %144 = load ptr, ptr %13, align 8
+  %145 = getelementptr inbounds nuw %struct.WALReadError, ptr %144, i32 0, i32 1
+  store i32 %143, ptr %145, align 4
+  %146 = load ptr, ptr %13, align 8
+  %147 = getelementptr inbounds nuw %struct.WALReadError, ptr %146, i32 0, i32 4
+  %148 = load ptr, ptr %8, align 8
+  %149 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %148, i32 0, i32 22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %147, ptr align 8 %149, i64 24, i1 false)
   store i1 false, ptr %7, align 1
+  store i32 1, ptr %21, align 4
   br label %163
 
-149:                                              ; preds = %116
-  %150 = load i32, ptr %19, align 4
-  %151 = sext i32 %150 to i64
-  %152 = load i64, ptr %15, align 8
-  %153 = add i64 %152, %151
-  store i64 %153, ptr %15, align 8
-  %154 = load i32, ptr %19, align 4
-  %155 = sext i32 %154 to i64
-  %156 = load i64, ptr %16, align 8
-  %157 = sub i64 %156, %155
-  store i64 %157, ptr %16, align 8
-  %158 = load i32, ptr %19, align 4
-  %159 = load ptr, ptr %14, align 8
-  %160 = sext i32 %158 to i64
-  %161 = getelementptr i8, ptr %159, i64 %160
-  store ptr %161, ptr %14, align 8
-  br label %24, !llvm.loop !10
+150:                                              ; preds = %117
+  %151 = load i32, ptr %19, align 4
+  %152 = sext i32 %151 to i64
+  %153 = load i64, ptr %15, align 8
+  %154 = add i64 %153, %152
+  store i64 %154, ptr %15, align 8
+  %155 = load i32, ptr %19, align 4
+  %156 = sext i32 %155 to i64
+  %157 = load i64, ptr %16, align 8
+  %158 = sub i64 %157, %156
+  store i64 %158, ptr %16, align 8
+  %159 = load i32, ptr %19, align 4
+  %160 = load ptr, ptr %14, align 8
+  %161 = sext i32 %159 to i64
+  %162 = getelementptr inbounds i8, ptr %160, i64 %161
+  store ptr %162, ptr %14, align 8
+  store i32 0, ptr %21, align 4
+  br label %163
 
-162:                                              ; preds = %24
+163:                                              ; preds = %150, %132
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  %164 = load i32, ptr %21, align 4
+  switch i32 %164, label %167 [
+    i32 0, label %165
+  ]
+
+165:                                              ; preds = %163
+  br label %25, !llvm.loop !11
+
+166:                                              ; preds = %25
   store i1 true, ptr %7, align 1
-  br label %163
+  store i32 1, ptr %21, align 4
+  br label %167
 
-163:                                              ; preds = %162, %131
-  %164 = load i1, ptr %7, align 1
-  ret i1 %164
+167:                                              ; preds = %166, %163
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  %168 = load i1, ptr %7, align 1
+  ret i1 %168
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #6
 
-declare i64 @pread(i32 noundef, ptr noundef, i64 noundef, i64 noundef) #1
+declare i64 @pread(i32 noundef, ptr noundef, i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   store i64 0, ptr %3, align 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 88
@@ -2907,6 +3177,7 @@ define dso_local i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) #0 {
   %16 = add i64 %15, 7
   store i64 %16, ptr %3, align 8
   %17 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %17
 }
 
@@ -2926,9 +3197,9 @@ define dso_local zeroext i1 @DecodeXLogRecord(ptr noundef %0, ptr noundef %1, pt
   %17 = alloca i8, align 1
   %18 = alloca i8, align 1
   %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
-  %21 = alloca i8, align 1
-  %22 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca ptr, align 8
+  %22 = alloca i8, align 1
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
@@ -2938,529 +3209,574 @@ define dso_local zeroext i1 @DecodeXLogRecord(ptr noundef %0, ptr noundef %1, pt
   %29 = alloca i32, align 4
   %30 = alloca i32, align 4
   %31 = alloca i32, align 4
-  %32 = alloca ptr, align 8
-  %33 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca ptr, align 8
+  %34 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i64 %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
   store ptr null, ptr %16, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %34, i32 0, i32 5
-  %36 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %36, i64 24, i1 false)
-  %37 = load i64, ptr %10, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %38, i32 0, i32 3
-  store i64 %37, ptr %39, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %40, i32 0, i32 2
-  store ptr null, ptr %41, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %42, i32 0, i32 6
-  store i16 0, ptr %43, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %44, i32 0, i32 7
-  store i32 0, ptr %45, align 4
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %46, i32 0, i32 8
-  store ptr null, ptr %47, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %48, i32 0, i32 9
-  store i32 0, ptr %49, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %50, i32 0, i32 10
-  store i32 -1, ptr %51, align 4
-  %52 = load ptr, ptr %9, align 8
-  store ptr %52, ptr %12, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr i8, ptr %53, i64 24
-  store ptr %54, ptr %12, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.XLogRecord, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 8
-  %58 = zext i32 %57 to i64
-  %59 = sub i64 %58, 24
-  %60 = trunc i64 %59 to i32
-  store i32 %60, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #10
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 24, i1 false)
+  %38 = load i64, ptr %10, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %39, i32 0, i32 3
+  store i64 %38, ptr %40, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %41, i32 0, i32 2
+  store ptr null, ptr %42, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %43, i32 0, i32 6
+  store i16 0, ptr %44, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %45, i32 0, i32 7
+  store i32 0, ptr %46, align 4
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %47, i32 0, i32 8
+  store ptr null, ptr %48, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %49, i32 0, i32 9
+  store i32 0, ptr %50, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %51, i32 0, i32 10
+  store i32 -1, ptr %52, align 4
+  %53 = load ptr, ptr %9, align 8
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store ptr %55, ptr %12, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds nuw %struct.XLogRecord, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 8
+  %59 = zext i32 %58 to i64
+  %60 = sub i64 %59, 24
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %14, align 4
   store i32 0, ptr %15, align 4
-  br label %61
+  br label %62
 
-61:                                               ; preds = %694, %5
-  %62 = load i32, ptr %14, align 4
-  %63 = load i32, ptr %15, align 4
-  %64 = icmp ugt i32 %62, %63
-  br i1 %64, label %65, label %695
+62:                                               ; preds = %725, %5
+  %63 = load i32, ptr %14, align 4
+  %64 = load i32, ptr %15, align 4
+  %65 = icmp ugt i32 %63, %64
+  br i1 %65, label %66, label %726
 
-65:                                               ; preds = %61
-  br label %66
+66:                                               ; preds = %62
+  br label %67
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr %14, align 4
-  %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %68, 1
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %66
+  %68 = load i32, ptr %14, align 4
+  %69 = zext i32 %68 to i64
+  %70 = icmp ult i64 %69, 1
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %66
-  br label %841
+71:                                               ; preds = %67
+  br label %875
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %72, i64 1, i1 false)
+72:                                               ; preds = %67
   %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr i8, ptr %73, i64 1
-  store ptr %74, ptr %12, align 8
-  %75 = load i32, ptr %14, align 4
-  %76 = zext i32 %75 to i64
-  %77 = sub i64 %76, 1
-  %78 = trunc i64 %77 to i32
-  store i32 %78, ptr %14, align 4
-  br label %79
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %73, i64 1, i1 false)
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  store ptr %75, ptr %12, align 8
+  %76 = load i32, ptr %14, align 4
+  %77 = zext i32 %76 to i64
+  %78 = sub i64 %77, 1
+  %79 = trunc i64 %78 to i32
+  store i32 %79, ptr %14, align 4
+  br label %80
 
-79:                                               ; preds = %71
-  %80 = load i8, ptr %17, align 1
-  %81 = zext i8 %80 to i32
-  %82 = icmp eq i32 %81, 255
-  br i1 %82, label %83, label %106
+80:                                               ; preds = %72
+  br label %81
 
-83:                                               ; preds = %79
-  br label %84
+81:                                               ; preds = %80
+  %82 = load i8, ptr %17, align 1
+  %83 = zext i8 %82 to i32
+  %84 = icmp eq i32 %83, 255
+  br i1 %84, label %85, label %111
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr %14, align 4
-  %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %86, 1
-  br i1 %87, label %88, label %89
+85:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #10
+  br label %86
 
-88:                                               ; preds = %84
-  br label %841
+86:                                               ; preds = %85
+  %87 = load i32, ptr %14, align 4
+  %88 = zext i32 %87 to i64
+  %89 = icmp ult i64 %88, 1
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %90, i64 1, i1 false)
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr i8, ptr %91, i64 1
-  store ptr %92, ptr %12, align 8
-  %93 = load i32, ptr %14, align 4
-  %94 = zext i32 %93 to i64
-  %95 = sub i64 %94, 1
-  %96 = trunc i64 %95 to i32
-  store i32 %96, ptr %14, align 4
-  br label %97
+90:                                               ; preds = %86
+  store i32 6, ptr %19, align 4
+  br label %109
 
-97:                                               ; preds = %89
-  %98 = load i8, ptr %18, align 1
-  %99 = zext i8 %98 to i32
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %100, i32 0, i32 9
-  store i32 %99, ptr %101, align 8
-  %102 = load i8, ptr %18, align 1
-  %103 = zext i8 %102 to i32
-  %104 = load i32, ptr %15, align 4
-  %105 = add i32 %104, %103
-  store i32 %105, ptr %15, align 4
-  br label %695
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %92, i64 1, i1 false)
+  %93 = load ptr, ptr %12, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %94, ptr %12, align 8
+  %95 = load i32, ptr %14, align 4
+  %96 = zext i32 %95 to i64
+  %97 = sub i64 %96, 1
+  %98 = trunc i64 %97 to i32
+  store i32 %98, ptr %14, align 4
+  br label %99
 
-106:                                              ; preds = %79
-  %107 = load i8, ptr %17, align 1
-  %108 = zext i8 %107 to i32
-  %109 = icmp eq i32 %108, 254
-  br i1 %109, label %110, label %131
+99:                                               ; preds = %91
+  br label %100
 
-110:                                              ; preds = %106
-  br label %111
+100:                                              ; preds = %99
+  %101 = load i8, ptr %18, align 1
+  %102 = zext i8 %101 to i32
+  %103 = load ptr, ptr %8, align 8
+  %104 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %103, i32 0, i32 9
+  store i32 %102, ptr %104, align 8
+  %105 = load i8, ptr %18, align 1
+  %106 = zext i8 %105 to i32
+  %107 = load i32, ptr %15, align 4
+  %108 = add i32 %107, %106
+  store i32 %108, ptr %15, align 4
+  store i32 3, ptr %19, align 4
+  br label %109
 
-111:                                              ; preds = %110
-  %112 = load i32, ptr %14, align 4
-  %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %113, 4
-  br i1 %114, label %115, label %116
+109:                                              ; preds = %90, %100
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #10
+  %110 = load i32, ptr %19, align 4
+  switch i32 %110, label %894 [
+    i32 3, label %726
+    i32 6, label %875
+  ]
+
+111:                                              ; preds = %81
+  %112 = load i8, ptr %17, align 1
+  %113 = zext i8 %112 to i32
+  %114 = icmp eq i32 %113, 254
+  br i1 %114, label %115, label %139
 
 115:                                              ; preds = %111
-  br label %841
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  br label %116
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 1 %117, i64 4, i1 false)
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr i8, ptr %118, i64 4
-  store ptr %119, ptr %12, align 8
-  %120 = load i32, ptr %14, align 4
-  %121 = zext i32 %120 to i64
-  %122 = sub i64 %121, 4
-  %123 = trunc i64 %122 to i32
-  store i32 %123, ptr %14, align 4
-  br label %124
+116:                                              ; preds = %115
+  %117 = load i32, ptr %14, align 4
+  %118 = zext i32 %117 to i64
+  %119 = icmp ult i64 %118, 4
+  br i1 %119, label %120, label %121
 
-124:                                              ; preds = %116
-  %125 = load i32, ptr %19, align 4
-  %126 = load ptr, ptr %8, align 8
-  %127 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %126, i32 0, i32 9
-  store i32 %125, ptr %127, align 8
-  %128 = load i32, ptr %19, align 4
-  %129 = load i32, ptr %15, align 4
-  %130 = add i32 %129, %128
-  store i32 %130, ptr %15, align 4
-  br label %695
+120:                                              ; preds = %116
+  store i32 6, ptr %19, align 4
+  br label %137
 
-131:                                              ; preds = %106
-  %132 = load i8, ptr %17, align 1
-  %133 = zext i8 %132 to i32
-  %134 = icmp eq i32 %133, 253
-  br i1 %134, label %135, label %152
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 1 %122, i64 4, i1 false)
+  %123 = load ptr, ptr %12, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  store ptr %124, ptr %12, align 8
+  %125 = load i32, ptr %14, align 4
+  %126 = zext i32 %125 to i64
+  %127 = sub i64 %126, 4
+  %128 = trunc i64 %127 to i32
+  store i32 %128, ptr %14, align 4
+  br label %129
 
-135:                                              ; preds = %131
-  br label %136
+129:                                              ; preds = %121
+  br label %130
 
-136:                                              ; preds = %135
-  %137 = load i32, ptr %14, align 4
-  %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %138, 2
-  br i1 %139, label %140, label %141
+130:                                              ; preds = %129
+  %131 = load i32, ptr %20, align 4
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %132, i32 0, i32 9
+  store i32 %131, ptr %133, align 8
+  %134 = load i32, ptr %20, align 4
+  %135 = load i32, ptr %15, align 4
+  %136 = add i32 %135, %134
+  store i32 %136, ptr %15, align 4
+  store i32 3, ptr %19, align 4
+  br label %137
 
-140:                                              ; preds = %136
-  br label %841
+137:                                              ; preds = %120, %130
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  %138 = load i32, ptr %19, align 4
+  switch i32 %138, label %894 [
+    i32 3, label %726
+    i32 6, label %875
+  ]
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %142, i32 0, i32 6
-  %144 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %143, ptr align 1 %144, i64 2, i1 false)
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr i8, ptr %145, i64 2
-  store ptr %146, ptr %12, align 8
-  %147 = load i32, ptr %14, align 4
-  %148 = zext i32 %147 to i64
-  %149 = sub i64 %148, 2
-  %150 = trunc i64 %149 to i32
-  store i32 %150, ptr %14, align 4
-  br label %151
+139:                                              ; preds = %111
+  %140 = load i8, ptr %17, align 1
+  %141 = zext i8 %140 to i32
+  %142 = icmp eq i32 %141, 253
+  br i1 %142, label %143, label %161
 
-151:                                              ; preds = %141
-  br label %692
+143:                                              ; preds = %139
+  br label %144
 
-152:                                              ; preds = %131
-  %153 = load i8, ptr %17, align 1
-  %154 = zext i8 %153 to i32
-  %155 = icmp eq i32 %154, 252
-  br i1 %155, label %156, label %173
+144:                                              ; preds = %143
+  %145 = load i32, ptr %14, align 4
+  %146 = zext i32 %145 to i64
+  %147 = icmp ult i64 %146, 2
+  br i1 %147, label %148, label %149
 
-156:                                              ; preds = %152
-  br label %157
+148:                                              ; preds = %144
+  br label %875
 
-157:                                              ; preds = %156
-  %158 = load i32, ptr %14, align 4
-  %159 = zext i32 %158 to i64
-  %160 = icmp ult i64 %159, 4
-  br i1 %160, label %161, label %162
+149:                                              ; preds = %144
+  %150 = load ptr, ptr %8, align 8
+  %151 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %150, i32 0, i32 6
+  %152 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 1 %152, i64 2, i1 false)
+  %153 = load ptr, ptr %12, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 2
+  store ptr %154, ptr %12, align 8
+  %155 = load i32, ptr %14, align 4
+  %156 = zext i32 %155 to i64
+  %157 = sub i64 %156, 2
+  %158 = trunc i64 %157 to i32
+  store i32 %158, ptr %14, align 4
+  br label %159
 
-161:                                              ; preds = %157
-  br label %841
+159:                                              ; preds = %149
+  br label %160
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %8, align 8
-  %164 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %163, i32 0, i32 7
-  %165 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %164, ptr align 1 %165, i64 4, i1 false)
-  %166 = load ptr, ptr %12, align 8
-  %167 = getelementptr i8, ptr %166, i64 4
-  store ptr %167, ptr %12, align 8
-  %168 = load i32, ptr %14, align 4
-  %169 = zext i32 %168 to i64
-  %170 = sub i64 %169, 4
-  %171 = trunc i64 %170 to i32
-  store i32 %171, ptr %14, align 4
-  br label %172
+160:                                              ; preds = %159
+  br label %723
 
-172:                                              ; preds = %162
-  br label %691
+161:                                              ; preds = %139
+  %162 = load i8, ptr %17, align 1
+  %163 = zext i8 %162 to i32
+  %164 = icmp eq i32 %163, 252
+  br i1 %164, label %165, label %183
 
-173:                                              ; preds = %152
-  %174 = load i8, ptr %17, align 1
-  %175 = zext i8 %174 to i32
-  %176 = icmp sle i32 %175, 32
-  br i1 %176, label %177, label %675
+165:                                              ; preds = %161
+  br label %166
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %8, align 8
-  %179 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %178, i32 0, i32 10
-  %180 = load i32, ptr %179, align 4
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %22, align 4
+166:                                              ; preds = %165
+  %167 = load i32, ptr %14, align 4
+  %168 = zext i32 %167 to i64
+  %169 = icmp ult i64 %168, 4
+  br i1 %169, label %170, label %171
+
+170:                                              ; preds = %166
+  br label %875
+
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %8, align 8
+  %173 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %172, i32 0, i32 7
+  %174 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %173, ptr align 1 %174, i64 4, i1 false)
+  %175 = load ptr, ptr %12, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  store ptr %176, ptr %12, align 8
+  %177 = load i32, ptr %14, align 4
+  %178 = zext i32 %177 to i64
+  %179 = sub i64 %178, 4
+  %180 = trunc i64 %179 to i32
+  store i32 %180, ptr %14, align 4
+  br label %181
+
+181:                                              ; preds = %171
   br label %182
 
-182:                                              ; preds = %194, %177
-  %183 = load i32, ptr %22, align 4
+182:                                              ; preds = %181
+  br label %722
+
+183:                                              ; preds = %161
   %184 = load i8, ptr %17, align 1
   %185 = zext i8 %184 to i32
-  %186 = icmp slt i32 %183, %185
-  br i1 %186, label %187, label %197
+  %186 = icmp sle i32 %185, 32
+  br i1 %186, label %187, label %705
 
-187:                                              ; preds = %182
+187:                                              ; preds = %183
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
   %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %188, i32 0, i32 11
-  %190 = load i32, ptr %22, align 4
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %189, i64 0, i64 %191
-  %193 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %192, i32 0, i32 0
-  store i8 0, ptr %193, align 8
-  br label %194
+  %189 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %188, i32 0, i32 10
+  %190 = load i32, ptr %189, align 4
+  %191 = add i32 %190, 1
+  store i32 %191, ptr %23, align 4
+  br label %192
 
-194:                                              ; preds = %187
-  %195 = load i32, ptr %22, align 4
-  %196 = add i32 %195, 1
-  store i32 %196, ptr %22, align 4
-  br label %182, !llvm.loop !11
+192:                                              ; preds = %205, %187
+  %193 = load i32, ptr %23, align 4
+  %194 = load i8, ptr %17, align 1
+  %195 = zext i8 %194 to i32
+  %196 = icmp slt i32 %193, %195
+  br i1 %196, label %198, label %197
 
-197:                                              ; preds = %182
-  %198 = load i8, ptr %17, align 1
-  %199 = zext i8 %198 to i32
-  %200 = load ptr, ptr %8, align 8
-  %201 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %200, i32 0, i32 10
-  %202 = load i32, ptr %201, align 4
-  %203 = icmp sle i32 %199, %202
-  br i1 %203, label %204, label %219
-
-204:                                              ; preds = %197
-  %205 = load ptr, ptr %7, align 8
-  %206 = load i8, ptr %17, align 1
-  %207 = zext i8 %206 to i32
+197:                                              ; preds = %192
+  store i32 15, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
   br label %208
 
-208:                                              ; preds = %204
-  br label %209
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %8, align 8
+  %200 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %199, i32 0, i32 11
+  %201 = load i32, ptr %23, align 4
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %200, i64 0, i64 %202
+  %204 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %203, i32 0, i32 0
+  store i8 0, ptr %204, align 8
+  br label %205
 
-209:                                              ; preds = %208
-  store i32 1, ptr %23, align 4
-  %210 = load ptr, ptr %7, align 8
-  %211 = getelementptr inbounds %struct.XLogReaderState, ptr %210, i32 0, i32 3
-  %212 = load i64, ptr %211, align 8
-  %213 = lshr i64 %212, 32
-  %214 = trunc i64 %213 to i32
-  %215 = load ptr, ptr %7, align 8
-  %216 = getelementptr inbounds %struct.XLogReaderState, ptr %215, i32 0, i32 3
-  %217 = load i64, ptr %216, align 8
-  %218 = trunc i64 %217 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %205, ptr noundef @.str.7, i32 noundef %207, i32 noundef %214, i32 noundef %218)
-  br label %854
+205:                                              ; preds = %198
+  %206 = load i32, ptr %23, align 4
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %23, align 4
+  br label %192, !llvm.loop !12
 
-219:                                              ; preds = %197
-  %220 = load i8, ptr %17, align 1
-  %221 = zext i8 %220 to i32
-  %222 = load ptr, ptr %8, align 8
-  %223 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %222, i32 0, i32 10
-  store i32 %221, ptr %223, align 4
-  %224 = load ptr, ptr %8, align 8
-  %225 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %224, i32 0, i32 11
-  %226 = load i8, ptr %17, align 1
-  %227 = zext i8 %226 to i64
-  %228 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %225, i64 0, i64 %227
-  store ptr %228, ptr %20, align 8
-  %229 = load ptr, ptr %20, align 8
-  %230 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %229, i32 0, i32 0
-  store i8 1, ptr %230, align 8
-  %231 = load ptr, ptr %20, align 8
-  %232 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %231, i32 0, i32 7
-  store i8 0, ptr %232, align 2
-  br label %233
+208:                                              ; preds = %197
+  %209 = load i8, ptr %17, align 1
+  %210 = zext i8 %209 to i32
+  %211 = load ptr, ptr %8, align 8
+  %212 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %211, i32 0, i32 10
+  %213 = load i32, ptr %212, align 4
+  %214 = icmp sle i32 %210, %213
+  br i1 %214, label %215, label %231
 
-233:                                              ; preds = %219
-  %234 = load i32, ptr %14, align 4
-  %235 = zext i32 %234 to i64
-  %236 = icmp ult i64 %235, 1
-  br i1 %236, label %237, label %238
+215:                                              ; preds = %208
+  %216 = load ptr, ptr %7, align 8
+  %217 = load i8, ptr %17, align 1
+  %218 = zext i8 %217 to i32
+  br label %219
 
-237:                                              ; preds = %233
-  br label %841
+219:                                              ; preds = %215
+  br label %220
 
-238:                                              ; preds = %233
-  %239 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %239, i64 1, i1 false)
-  %240 = load ptr, ptr %12, align 8
-  %241 = getelementptr i8, ptr %240, i64 1
-  store ptr %241, ptr %12, align 8
-  %242 = load i32, ptr %14, align 4
-  %243 = zext i32 %242 to i64
-  %244 = sub i64 %243, 1
-  %245 = trunc i64 %244 to i32
-  store i32 %245, ptr %14, align 4
-  br label %246
+220:                                              ; preds = %219
+  br label %221
 
-246:                                              ; preds = %238
-  %247 = load i8, ptr %21, align 1
-  %248 = zext i8 %247 to i32
-  %249 = and i32 %248, 15
-  %250 = load ptr, ptr %20, align 8
-  %251 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %250, i32 0, i32 2
-  store i32 %249, ptr %251, align 8
-  %252 = load i8, ptr %21, align 1
-  %253 = load ptr, ptr %20, align 8
-  %254 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %253, i32 0, i32 5
-  store i8 %252, ptr %254, align 4
-  %255 = load i8, ptr %21, align 1
-  %256 = zext i8 %255 to i32
-  %257 = and i32 %256, 16
-  %258 = icmp ne i32 %257, 0
-  %259 = load ptr, ptr %20, align 8
-  %260 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %259, i32 0, i32 6
-  %261 = zext i1 %258 to i8
-  store i8 %261, ptr %260, align 1
-  %262 = load i8, ptr %21, align 1
-  %263 = zext i8 %262 to i32
-  %264 = and i32 %263, 32
-  %265 = icmp ne i32 %264, 0
-  %266 = load ptr, ptr %20, align 8
-  %267 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %266, i32 0, i32 13
-  %268 = zext i1 %265 to i8
-  store i8 %268, ptr %267, align 1
-  %269 = load ptr, ptr %20, align 8
-  %270 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %269, i32 0, i32 4
-  store i32 0, ptr %270, align 8
-  br label %271
+221:                                              ; preds = %220
+  store i32 1, ptr %24, align 4
+  %222 = load ptr, ptr %7, align 8
+  %223 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %222, i32 0, i32 3
+  %224 = load i64, ptr %223, align 8
+  %225 = lshr i64 %224, 32
+  %226 = trunc i64 %225 to i32
+  %227 = load ptr, ptr %7, align 8
+  %228 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %227, i32 0, i32 3
+  %229 = load i64, ptr %228, align 8
+  %230 = trunc i64 %229 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %216, ptr noundef @.str.7, i32 noundef %218, i32 noundef %226, i32 noundef %230)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-271:                                              ; preds = %246
-  %272 = load i32, ptr %14, align 4
-  %273 = zext i32 %272 to i64
-  %274 = icmp ult i64 %273, 2
-  br i1 %274, label %275, label %276
+231:                                              ; preds = %208
+  %232 = load i8, ptr %17, align 1
+  %233 = zext i8 %232 to i32
+  %234 = load ptr, ptr %8, align 8
+  %235 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %234, i32 0, i32 10
+  store i32 %233, ptr %235, align 4
+  %236 = load ptr, ptr %8, align 8
+  %237 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %236, i32 0, i32 11
+  %238 = load i8, ptr %17, align 1
+  %239 = zext i8 %238 to i64
+  %240 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %237, i64 0, i64 %239
+  store ptr %240, ptr %21, align 8
+  %241 = load ptr, ptr %21, align 8
+  %242 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %241, i32 0, i32 0
+  store i8 1, ptr %242, align 8
+  %243 = load ptr, ptr %21, align 8
+  %244 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %243, i32 0, i32 7
+  store i8 0, ptr %244, align 2
+  br label %245
 
-275:                                              ; preds = %271
-  br label %841
+245:                                              ; preds = %231
+  %246 = load i32, ptr %14, align 4
+  %247 = zext i32 %246 to i64
+  %248 = icmp ult i64 %247, 1
+  br i1 %248, label %249, label %250
 
-276:                                              ; preds = %271
-  %277 = load ptr, ptr %20, align 8
-  %278 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %277, i32 0, i32 15
-  %279 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %278, ptr align 1 %279, i64 2, i1 false)
-  %280 = load ptr, ptr %12, align 8
-  %281 = getelementptr i8, ptr %280, i64 2
-  store ptr %281, ptr %12, align 8
-  %282 = load i32, ptr %14, align 4
-  %283 = zext i32 %282 to i64
-  %284 = sub i64 %283, 2
-  %285 = trunc i64 %284 to i32
-  store i32 %285, ptr %14, align 4
-  br label %286
+249:                                              ; preds = %245
+  store i32 6, ptr %19, align 4
+  br label %702
 
-286:                                              ; preds = %276
-  %287 = load ptr, ptr %20, align 8
-  %288 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %287, i32 0, i32 13
-  %289 = load i8, ptr %288, align 1
-  %290 = trunc i8 %289 to i1
-  br i1 %290, label %291, label %310
+250:                                              ; preds = %245
+  %251 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %251, i64 1, i1 false)
+  %252 = load ptr, ptr %12, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 1
+  store ptr %253, ptr %12, align 8
+  %254 = load i32, ptr %14, align 4
+  %255 = zext i32 %254 to i64
+  %256 = sub i64 %255, 1
+  %257 = trunc i64 %256 to i32
+  store i32 %257, ptr %14, align 4
+  br label %258
 
-291:                                              ; preds = %286
-  %292 = load ptr, ptr %20, align 8
-  %293 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %292, i32 0, i32 15
-  %294 = load i16, ptr %293, align 8
-  %295 = zext i16 %294 to i32
-  %296 = icmp eq i32 %295, 0
-  br i1 %296, label %297, label %310
+258:                                              ; preds = %250
+  br label %259
 
-297:                                              ; preds = %291
-  %298 = load ptr, ptr %7, align 8
+259:                                              ; preds = %258
+  %260 = load i8, ptr %22, align 1
+  %261 = zext i8 %260 to i32
+  %262 = and i32 %261, 15
+  %263 = load ptr, ptr %21, align 8
+  %264 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %263, i32 0, i32 2
+  store i32 %262, ptr %264, align 8
+  %265 = load i8, ptr %22, align 1
+  %266 = load ptr, ptr %21, align 8
+  %267 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %266, i32 0, i32 5
+  store i8 %265, ptr %267, align 4
+  %268 = load i8, ptr %22, align 1
+  %269 = zext i8 %268 to i32
+  %270 = and i32 %269, 16
+  %271 = icmp ne i32 %270, 0
+  %272 = load ptr, ptr %21, align 8
+  %273 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %272, i32 0, i32 6
+  %274 = zext i1 %271 to i8
+  store i8 %274, ptr %273, align 1
+  %275 = load i8, ptr %22, align 1
+  %276 = zext i8 %275 to i32
+  %277 = and i32 %276, 32
+  %278 = icmp ne i32 %277, 0
+  %279 = load ptr, ptr %21, align 8
+  %280 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %279, i32 0, i32 13
+  %281 = zext i1 %278 to i8
+  store i8 %281, ptr %280, align 1
+  %282 = load ptr, ptr %21, align 8
+  %283 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %282, i32 0, i32 4
+  store i32 0, ptr %283, align 8
+  br label %284
+
+284:                                              ; preds = %259
+  %285 = load i32, ptr %14, align 4
+  %286 = zext i32 %285 to i64
+  %287 = icmp ult i64 %286, 2
+  br i1 %287, label %288, label %289
+
+288:                                              ; preds = %284
+  store i32 6, ptr %19, align 4
+  br label %702
+
+289:                                              ; preds = %284
+  %290 = load ptr, ptr %21, align 8
+  %291 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %290, i32 0, i32 15
+  %292 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %291, ptr align 1 %292, i64 2, i1 false)
+  %293 = load ptr, ptr %12, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 2
+  store ptr %294, ptr %12, align 8
+  %295 = load i32, ptr %14, align 4
+  %296 = zext i32 %295 to i64
+  %297 = sub i64 %296, 2
+  %298 = trunc i64 %297 to i32
+  store i32 %298, ptr %14, align 4
   br label %299
 
-299:                                              ; preds = %297
+299:                                              ; preds = %289
   br label %300
 
 300:                                              ; preds = %299
-  store i32 1, ptr %24, align 4
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct.XLogReaderState, ptr %301, i32 0, i32 3
-  %303 = load i64, ptr %302, align 8
-  %304 = lshr i64 %303, 32
-  %305 = trunc i64 %304 to i32
-  %306 = load ptr, ptr %7, align 8
-  %307 = getelementptr inbounds %struct.XLogReaderState, ptr %306, i32 0, i32 3
-  %308 = load i64, ptr %307, align 8
-  %309 = trunc i64 %308 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %298, ptr noundef @.str.8, i32 noundef %305, i32 noundef %309)
-  br label %854
+  %301 = load ptr, ptr %21, align 8
+  %302 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %301, i32 0, i32 13
+  %303 = load i8, ptr %302, align 1, !range !4, !noundef !5
+  %304 = trunc i8 %303 to i1
+  br i1 %304, label %305, label %325
 
-310:                                              ; preds = %291, %286
-  %311 = load ptr, ptr %20, align 8
-  %312 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %311, i32 0, i32 13
-  %313 = load i8, ptr %312, align 1
-  %314 = trunc i8 %313 to i1
-  br i1 %314, label %338, label %315
+305:                                              ; preds = %300
+  %306 = load ptr, ptr %21, align 8
+  %307 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %306, i32 0, i32 15
+  %308 = load i16, ptr %307, align 8
+  %309 = zext i16 %308 to i32
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %311, label %325
 
-315:                                              ; preds = %310
-  %316 = load ptr, ptr %20, align 8
-  %317 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %316, i32 0, i32 15
-  %318 = load i16, ptr %317, align 8
-  %319 = zext i16 %318 to i32
-  %320 = icmp ne i32 %319, 0
-  br i1 %320, label %321, label %338
+311:                                              ; preds = %305
+  %312 = load ptr, ptr %7, align 8
+  br label %313
 
-321:                                              ; preds = %315
-  %322 = load ptr, ptr %7, align 8
-  %323 = load ptr, ptr %20, align 8
-  %324 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %323, i32 0, i32 15
-  %325 = load i16, ptr %324, align 8
-  %326 = zext i16 %325 to i32
-  br label %327
+313:                                              ; preds = %311
+  br label %314
 
-327:                                              ; preds = %321
-  br label %328
+314:                                              ; preds = %313
+  br label %315
 
-328:                                              ; preds = %327
+315:                                              ; preds = %314
   store i32 1, ptr %25, align 4
-  %329 = load ptr, ptr %7, align 8
-  %330 = getelementptr inbounds %struct.XLogReaderState, ptr %329, i32 0, i32 3
-  %331 = load i64, ptr %330, align 8
-  %332 = lshr i64 %331, 32
-  %333 = trunc i64 %332 to i32
-  %334 = load ptr, ptr %7, align 8
-  %335 = getelementptr inbounds %struct.XLogReaderState, ptr %334, i32 0, i32 3
-  %336 = load i64, ptr %335, align 8
-  %337 = trunc i64 %336 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %322, ptr noundef @.str.9, i32 noundef %326, i32 noundef %333, i32 noundef %337)
-  br label %854
+  %316 = load ptr, ptr %7, align 8
+  %317 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %316, i32 0, i32 3
+  %318 = load i64, ptr %317, align 8
+  %319 = lshr i64 %318, 32
+  %320 = trunc i64 %319 to i32
+  %321 = load ptr, ptr %7, align 8
+  %322 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %321, i32 0, i32 3
+  %323 = load i64, ptr %322, align 8
+  %324 = trunc i64 %323 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %312, ptr noundef @.str.8, i32 noundef %320, i32 noundef %324)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-338:                                              ; preds = %315, %310
-  %339 = load ptr, ptr %20, align 8
-  %340 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %339, i32 0, i32 15
-  %341 = load i16, ptr %340, align 8
-  %342 = zext i16 %341 to i32
-  %343 = load i32, ptr %15, align 4
-  %344 = add i32 %343, %342
-  store i32 %344, ptr %15, align 4
-  %345 = load ptr, ptr %20, align 8
-  %346 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %345, i32 0, i32 6
-  %347 = load i8, ptr %346, align 1
-  %348 = trunc i8 %347 to i1
-  br i1 %348, label %349, label %614
+325:                                              ; preds = %305, %300
+  %326 = load ptr, ptr %21, align 8
+  %327 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %326, i32 0, i32 13
+  %328 = load i8, ptr %327, align 1, !range !4, !noundef !5
+  %329 = trunc i8 %328 to i1
+  br i1 %329, label %354, label %330
 
-349:                                              ; preds = %338
-  br label %350
+330:                                              ; preds = %325
+  %331 = load ptr, ptr %21, align 8
+  %332 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %331, i32 0, i32 15
+  %333 = load i16, ptr %332, align 8
+  %334 = zext i16 %333 to i32
+  %335 = icmp ne i32 %334, 0
+  br i1 %335, label %336, label %354
 
-350:                                              ; preds = %349
-  %351 = load i32, ptr %14, align 4
-  %352 = zext i32 %351 to i64
-  %353 = icmp ult i64 %352, 2
-  br i1 %353, label %354, label %355
+336:                                              ; preds = %330
+  %337 = load ptr, ptr %7, align 8
+  %338 = load ptr, ptr %21, align 8
+  %339 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %338, i32 0, i32 15
+  %340 = load i16, ptr %339, align 8
+  %341 = zext i16 %340 to i32
+  br label %342
 
-354:                                              ; preds = %350
-  br label %841
+342:                                              ; preds = %336
+  br label %343
 
-355:                                              ; preds = %350
-  %356 = load ptr, ptr %20, align 8
-  %357 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %356, i32 0, i32 11
-  %358 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %357, ptr align 1 %358, i64 2, i1 false)
-  %359 = load ptr, ptr %12, align 8
-  %360 = getelementptr i8, ptr %359, i64 2
-  store ptr %360, ptr %12, align 8
-  %361 = load i32, ptr %14, align 4
-  %362 = zext i32 %361 to i64
-  %363 = sub i64 %362, 2
-  %364 = trunc i64 %363 to i32
-  store i32 %364, ptr %14, align 4
-  br label %365
+343:                                              ; preds = %342
+  br label %344
 
-365:                                              ; preds = %355
+344:                                              ; preds = %343
+  store i32 1, ptr %26, align 4
+  %345 = load ptr, ptr %7, align 8
+  %346 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %345, i32 0, i32 3
+  %347 = load i64, ptr %346, align 8
+  %348 = lshr i64 %347, 32
+  %349 = trunc i64 %348 to i32
+  %350 = load ptr, ptr %7, align 8
+  %351 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %350, i32 0, i32 3
+  %352 = load i64, ptr %351, align 8
+  %353 = trunc i64 %352 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %337, ptr noundef @.str.9, i32 noundef %341, i32 noundef %349, i32 noundef %353)
+  store i32 20, ptr %19, align 4
+  br label %702
+
+354:                                              ; preds = %330, %325
+  %355 = load ptr, ptr %21, align 8
+  %356 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %355, i32 0, i32 15
+  %357 = load i16, ptr %356, align 8
+  %358 = zext i16 %357 to i32
+  %359 = load i32, ptr %15, align 4
+  %360 = add i32 %359, %358
+  store i32 %360, ptr %15, align 4
+  %361 = load ptr, ptr %21, align 8
+  %362 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %361, i32 0, i32 6
+  %363 = load i8, ptr %362, align 1, !range !4, !noundef !5
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %365, label %638
+
+365:                                              ; preds = %354
   br label %366
 
 366:                                              ; preds = %365
@@ -3470,15 +3786,16 @@ define dso_local zeroext i1 @DecodeXLogRecord(ptr noundef %0, ptr noundef %1, pt
   br i1 %369, label %370, label %371
 
 370:                                              ; preds = %366
-  br label %841
+  store i32 6, ptr %19, align 4
+  br label %702
 
 371:                                              ; preds = %366
-  %372 = load ptr, ptr %20, align 8
-  %373 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %372, i32 0, i32 9
+  %372 = load ptr, ptr %21, align 8
+  %373 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %372, i32 0, i32 11
   %374 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %373, ptr align 1 %374, i64 2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %373, ptr align 1 %374, i64 2, i1 false)
   %375 = load ptr, ptr %12, align 8
-  %376 = getelementptr i8, ptr %375, i64 2
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 2
   store ptr %376, ptr %12, align 8
   %377 = load i32, ptr %14, align 4
   %378 = zext i32 %377 to i64
@@ -3491,701 +3808,816 @@ define dso_local zeroext i1 @DecodeXLogRecord(ptr noundef %0, ptr noundef %1, pt
   br label %382
 
 382:                                              ; preds = %381
-  %383 = load i32, ptr %14, align 4
-  %384 = zext i32 %383 to i64
-  %385 = icmp ult i64 %384, 1
-  br i1 %385, label %386, label %387
+  br label %383
 
-386:                                              ; preds = %382
-  br label %841
+383:                                              ; preds = %382
+  %384 = load i32, ptr %14, align 4
+  %385 = zext i32 %384 to i64
+  %386 = icmp ult i64 %385, 2
+  br i1 %386, label %387, label %388
 
-387:                                              ; preds = %382
-  %388 = load ptr, ptr %20, align 8
-  %389 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %388, i32 0, i32 12
-  %390 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %389, ptr align 1 %390, i64 1, i1 false)
+387:                                              ; preds = %383
+  store i32 6, ptr %19, align 4
+  br label %702
+
+388:                                              ; preds = %383
+  %389 = load ptr, ptr %21, align 8
+  %390 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %389, i32 0, i32 9
   %391 = load ptr, ptr %12, align 8
-  %392 = getelementptr i8, ptr %391, i64 1
-  store ptr %392, ptr %12, align 8
-  %393 = load i32, ptr %14, align 4
-  %394 = zext i32 %393 to i64
-  %395 = sub i64 %394, 1
-  %396 = trunc i64 %395 to i32
-  store i32 %396, ptr %14, align 4
-  br label %397
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %390, ptr align 1 %391, i64 2, i1 false)
+  %392 = load ptr, ptr %12, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 2
+  store ptr %393, ptr %12, align 8
+  %394 = load i32, ptr %14, align 4
+  %395 = zext i32 %394 to i64
+  %396 = sub i64 %395, 2
+  %397 = trunc i64 %396 to i32
+  store i32 %397, ptr %14, align 4
+  br label %398
 
-397:                                              ; preds = %387
-  %398 = load ptr, ptr %20, align 8
-  %399 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %398, i32 0, i32 12
-  %400 = load i8, ptr %399, align 2
-  %401 = zext i8 %400 to i32
-  %402 = and i32 %401, 2
-  %403 = icmp ne i32 %402, 0
-  %404 = load ptr, ptr %20, align 8
-  %405 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %404, i32 0, i32 7
-  %406 = zext i1 %403 to i8
-  store i8 %406, ptr %405, align 2
-  %407 = load ptr, ptr %20, align 8
-  %408 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %407, i32 0, i32 12
-  %409 = load i8, ptr %408, align 2
-  %410 = zext i8 %409 to i32
-  %411 = and i32 %410, 28
-  %412 = icmp ne i32 %411, 0
-  br i1 %412, label %413, label %441
+398:                                              ; preds = %388
+  br label %399
 
-413:                                              ; preds = %397
-  %414 = load ptr, ptr %20, align 8
-  %415 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %414, i32 0, i32 12
-  %416 = load i8, ptr %415, align 2
-  %417 = zext i8 %416 to i32
-  %418 = and i32 %417, 1
-  %419 = icmp ne i32 %418, 0
-  br i1 %419, label %420, label %437
+399:                                              ; preds = %398
+  br label %400
 
-420:                                              ; preds = %413
-  br label %421
+400:                                              ; preds = %399
+  %401 = load i32, ptr %14, align 4
+  %402 = zext i32 %401 to i64
+  %403 = icmp ult i64 %402, 1
+  br i1 %403, label %404, label %405
 
-421:                                              ; preds = %420
-  %422 = load i32, ptr %14, align 4
-  %423 = zext i32 %422 to i64
-  %424 = icmp ult i64 %423, 2
-  br i1 %424, label %425, label %426
+404:                                              ; preds = %400
+  store i32 6, ptr %19, align 4
+  br label %702
 
-425:                                              ; preds = %421
-  br label %841
+405:                                              ; preds = %400
+  %406 = load ptr, ptr %21, align 8
+  %407 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %406, i32 0, i32 12
+  %408 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %407, ptr align 1 %408, i64 1, i1 false)
+  %409 = load ptr, ptr %12, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 1
+  store ptr %410, ptr %12, align 8
+  %411 = load i32, ptr %14, align 4
+  %412 = zext i32 %411 to i64
+  %413 = sub i64 %412, 1
+  %414 = trunc i64 %413 to i32
+  store i32 %414, ptr %14, align 4
+  br label %415
 
-426:                                              ; preds = %421
-  %427 = load ptr, ptr %20, align 8
-  %428 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %427, i32 0, i32 10
-  %429 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %428, ptr align 1 %429, i64 2, i1 false)
-  %430 = load ptr, ptr %12, align 8
-  %431 = getelementptr i8, ptr %430, i64 2
-  store ptr %431, ptr %12, align 8
-  %432 = load i32, ptr %14, align 4
-  %433 = zext i32 %432 to i64
-  %434 = sub i64 %433, 2
-  %435 = trunc i64 %434 to i32
-  store i32 %435, ptr %14, align 4
-  br label %436
+415:                                              ; preds = %405
+  br label %416
 
-436:                                              ; preds = %426
+416:                                              ; preds = %415
+  %417 = load ptr, ptr %21, align 8
+  %418 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %417, i32 0, i32 12
+  %419 = load i8, ptr %418, align 2
+  %420 = zext i8 %419 to i32
+  %421 = and i32 %420, 2
+  %422 = icmp ne i32 %421, 0
+  %423 = load ptr, ptr %21, align 8
+  %424 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %423, i32 0, i32 7
+  %425 = zext i1 %422 to i8
+  store i8 %425, ptr %424, align 2
+  %426 = load ptr, ptr %21, align 8
+  %427 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %426, i32 0, i32 12
+  %428 = load i8, ptr %427, align 2
+  %429 = zext i8 %428 to i32
+  %430 = and i32 %429, 28
+  %431 = icmp ne i32 %430, 0
+  br i1 %431, label %432, label %461
+
+432:                                              ; preds = %416
+  %433 = load ptr, ptr %21, align 8
+  %434 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %433, i32 0, i32 12
+  %435 = load i8, ptr %434, align 2
+  %436 = zext i8 %435 to i32
+  %437 = and i32 %436, 1
+  %438 = icmp ne i32 %437, 0
+  br i1 %438, label %439, label %457
+
+439:                                              ; preds = %432
   br label %440
 
-437:                                              ; preds = %413
-  %438 = load ptr, ptr %20, align 8
-  %439 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %438, i32 0, i32 10
-  store i16 0, ptr %439, align 2
-  br label %440
+440:                                              ; preds = %439
+  %441 = load i32, ptr %14, align 4
+  %442 = zext i32 %441 to i64
+  %443 = icmp ult i64 %442, 2
+  br i1 %443, label %444, label %445
 
-440:                                              ; preds = %437, %436
-  br label %450
+444:                                              ; preds = %440
+  store i32 6, ptr %19, align 4
+  br label %702
 
-441:                                              ; preds = %397
-  %442 = load ptr, ptr %20, align 8
-  %443 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %442, i32 0, i32 11
-  %444 = load i16, ptr %443, align 4
-  %445 = zext i16 %444 to i32
-  %446 = sub i32 8192, %445
-  %447 = trunc i32 %446 to i16
-  %448 = load ptr, ptr %20, align 8
-  %449 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %448, i32 0, i32 10
-  store i16 %447, ptr %449, align 2
-  br label %450
+445:                                              ; preds = %440
+  %446 = load ptr, ptr %21, align 8
+  %447 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %446, i32 0, i32 10
+  %448 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %447, ptr align 1 %448, i64 2, i1 false)
+  %449 = load ptr, ptr %12, align 8
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 2
+  store ptr %450, ptr %12, align 8
+  %451 = load i32, ptr %14, align 4
+  %452 = zext i32 %451 to i64
+  %453 = sub i64 %452, 2
+  %454 = trunc i64 %453 to i32
+  store i32 %454, ptr %14, align 4
+  br label %455
 
-450:                                              ; preds = %441, %440
-  %451 = load ptr, ptr %20, align 8
-  %452 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %451, i32 0, i32 11
-  %453 = load i16, ptr %452, align 4
-  %454 = zext i16 %453 to i32
-  %455 = load i32, ptr %15, align 4
-  %456 = add i32 %455, %454
-  store i32 %456, ptr %15, align 4
-  %457 = load ptr, ptr %20, align 8
-  %458 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %457, i32 0, i32 12
-  %459 = load i8, ptr %458, align 2
-  %460 = zext i8 %459 to i32
-  %461 = and i32 %460, 1
-  %462 = icmp ne i32 %461, 0
-  br i1 %462, label %463, label %506
+455:                                              ; preds = %445
+  br label %456
 
-463:                                              ; preds = %450
-  %464 = load ptr, ptr %20, align 8
-  %465 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %464, i32 0, i32 9
-  %466 = load i16, ptr %465, align 8
-  %467 = zext i16 %466 to i32
-  %468 = icmp eq i32 %467, 0
-  br i1 %468, label %481, label %469
+456:                                              ; preds = %455
+  br label %460
 
-469:                                              ; preds = %463
-  %470 = load ptr, ptr %20, align 8
-  %471 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %470, i32 0, i32 10
-  %472 = load i16, ptr %471, align 2
-  %473 = zext i16 %472 to i32
-  %474 = icmp eq i32 %473, 0
-  br i1 %474, label %481, label %475
+457:                                              ; preds = %432
+  %458 = load ptr, ptr %21, align 8
+  %459 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %458, i32 0, i32 10
+  store i16 0, ptr %459, align 2
+  br label %460
 
-475:                                              ; preds = %469
-  %476 = load ptr, ptr %20, align 8
-  %477 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %476, i32 0, i32 11
-  %478 = load i16, ptr %477, align 4
-  %479 = zext i16 %478 to i32
-  %480 = icmp eq i32 %479, 8192
-  br i1 %480, label %481, label %506
+460:                                              ; preds = %457, %456
+  br label %470
 
-481:                                              ; preds = %475, %469, %463
-  %482 = load ptr, ptr %7, align 8
-  %483 = load ptr, ptr %20, align 8
-  %484 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %483, i32 0, i32 9
-  %485 = load i16, ptr %484, align 8
-  %486 = zext i16 %485 to i32
-  %487 = load ptr, ptr %20, align 8
-  %488 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %487, i32 0, i32 10
-  %489 = load i16, ptr %488, align 2
-  %490 = zext i16 %489 to i32
-  %491 = load ptr, ptr %20, align 8
-  %492 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %491, i32 0, i32 11
-  %493 = load i16, ptr %492, align 4
-  %494 = zext i16 %493 to i32
-  br label %495
+461:                                              ; preds = %416
+  %462 = load ptr, ptr %21, align 8
+  %463 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %462, i32 0, i32 11
+  %464 = load i16, ptr %463, align 4
+  %465 = zext i16 %464 to i32
+  %466 = sub i32 8192, %465
+  %467 = trunc i32 %466 to i16
+  %468 = load ptr, ptr %21, align 8
+  %469 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %468, i32 0, i32 10
+  store i16 %467, ptr %469, align 2
+  br label %470
 
-495:                                              ; preds = %481
-  br label %496
+470:                                              ; preds = %461, %460
+  %471 = load ptr, ptr %21, align 8
+  %472 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %471, i32 0, i32 11
+  %473 = load i16, ptr %472, align 4
+  %474 = zext i16 %473 to i32
+  %475 = load i32, ptr %15, align 4
+  %476 = add i32 %475, %474
+  store i32 %476, ptr %15, align 4
+  %477 = load ptr, ptr %21, align 8
+  %478 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %477, i32 0, i32 12
+  %479 = load i8, ptr %478, align 2
+  %480 = zext i8 %479 to i32
+  %481 = and i32 %480, 1
+  %482 = icmp ne i32 %481, 0
+  br i1 %482, label %483, label %527
 
-496:                                              ; preds = %495
-  store i32 1, ptr %26, align 4
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.XLogReaderState, ptr %497, i32 0, i32 3
-  %499 = load i64, ptr %498, align 8
-  %500 = lshr i64 %499, 32
-  %501 = trunc i64 %500 to i32
+483:                                              ; preds = %470
+  %484 = load ptr, ptr %21, align 8
+  %485 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %484, i32 0, i32 9
+  %486 = load i16, ptr %485, align 8
+  %487 = zext i16 %486 to i32
+  %488 = icmp eq i32 %487, 0
+  br i1 %488, label %501, label %489
+
+489:                                              ; preds = %483
+  %490 = load ptr, ptr %21, align 8
+  %491 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %490, i32 0, i32 10
+  %492 = load i16, ptr %491, align 2
+  %493 = zext i16 %492 to i32
+  %494 = icmp eq i32 %493, 0
+  br i1 %494, label %501, label %495
+
+495:                                              ; preds = %489
+  %496 = load ptr, ptr %21, align 8
+  %497 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %496, i32 0, i32 11
+  %498 = load i16, ptr %497, align 4
+  %499 = zext i16 %498 to i32
+  %500 = icmp eq i32 %499, 8192
+  br i1 %500, label %501, label %527
+
+501:                                              ; preds = %495, %489, %483
   %502 = load ptr, ptr %7, align 8
-  %503 = getelementptr inbounds %struct.XLogReaderState, ptr %502, i32 0, i32 3
-  %504 = load i64, ptr %503, align 8
-  %505 = trunc i64 %504 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %482, ptr noundef @.str.10, i32 noundef %486, i32 noundef %490, i32 noundef %494, i32 noundef %501, i32 noundef %505)
-  br label %854
+  %503 = load ptr, ptr %21, align 8
+  %504 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %503, i32 0, i32 9
+  %505 = load i16, ptr %504, align 8
+  %506 = zext i16 %505 to i32
+  %507 = load ptr, ptr %21, align 8
+  %508 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %507, i32 0, i32 10
+  %509 = load i16, ptr %508, align 2
+  %510 = zext i16 %509 to i32
+  %511 = load ptr, ptr %21, align 8
+  %512 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %511, i32 0, i32 11
+  %513 = load i16, ptr %512, align 4
+  %514 = zext i16 %513 to i32
+  br label %515
 
-506:                                              ; preds = %475, %450
-  %507 = load ptr, ptr %20, align 8
-  %508 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %507, i32 0, i32 12
-  %509 = load i8, ptr %508, align 2
-  %510 = zext i8 %509 to i32
-  %511 = and i32 %510, 1
-  %512 = icmp ne i32 %511, 0
-  br i1 %512, label %546, label %513
+515:                                              ; preds = %501
+  br label %516
 
-513:                                              ; preds = %506
-  %514 = load ptr, ptr %20, align 8
-  %515 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %514, i32 0, i32 9
-  %516 = load i16, ptr %515, align 8
-  %517 = zext i16 %516 to i32
-  %518 = icmp ne i32 %517, 0
-  br i1 %518, label %525, label %519
+516:                                              ; preds = %515
+  br label %517
 
-519:                                              ; preds = %513
-  %520 = load ptr, ptr %20, align 8
-  %521 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %520, i32 0, i32 10
-  %522 = load i16, ptr %521, align 2
-  %523 = zext i16 %522 to i32
-  %524 = icmp ne i32 %523, 0
-  br i1 %524, label %525, label %546
-
-525:                                              ; preds = %519, %513
-  %526 = load ptr, ptr %7, align 8
-  %527 = load ptr, ptr %20, align 8
-  %528 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %527, i32 0, i32 9
-  %529 = load i16, ptr %528, align 8
-  %530 = zext i16 %529 to i32
-  %531 = load ptr, ptr %20, align 8
-  %532 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %531, i32 0, i32 10
-  %533 = load i16, ptr %532, align 2
-  %534 = zext i16 %533 to i32
-  br label %535
-
-535:                                              ; preds = %525
-  br label %536
-
-536:                                              ; preds = %535
+517:                                              ; preds = %516
   store i32 1, ptr %27, align 4
-  %537 = load ptr, ptr %7, align 8
-  %538 = getelementptr inbounds %struct.XLogReaderState, ptr %537, i32 0, i32 3
-  %539 = load i64, ptr %538, align 8
-  %540 = lshr i64 %539, 32
-  %541 = trunc i64 %540 to i32
-  %542 = load ptr, ptr %7, align 8
-  %543 = getelementptr inbounds %struct.XLogReaderState, ptr %542, i32 0, i32 3
-  %544 = load i64, ptr %543, align 8
-  %545 = trunc i64 %544 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %526, ptr noundef @.str.11, i32 noundef %530, i32 noundef %534, i32 noundef %541, i32 noundef %545)
-  br label %854
+  %518 = load ptr, ptr %7, align 8
+  %519 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %518, i32 0, i32 3
+  %520 = load i64, ptr %519, align 8
+  %521 = lshr i64 %520, 32
+  %522 = trunc i64 %521 to i32
+  %523 = load ptr, ptr %7, align 8
+  %524 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %523, i32 0, i32 3
+  %525 = load i64, ptr %524, align 8
+  %526 = trunc i64 %525 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %502, ptr noundef @.str.10, i32 noundef %506, i32 noundef %510, i32 noundef %514, i32 noundef %522, i32 noundef %526)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-546:                                              ; preds = %519, %506
-  %547 = load ptr, ptr %20, align 8
-  %548 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %547, i32 0, i32 12
-  %549 = load i8, ptr %548, align 2
-  %550 = zext i8 %549 to i32
-  %551 = and i32 %550, 28
-  %552 = icmp ne i32 %551, 0
-  br i1 %552, label %553, label %576
+527:                                              ; preds = %495, %470
+  %528 = load ptr, ptr %21, align 8
+  %529 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %528, i32 0, i32 12
+  %530 = load i8, ptr %529, align 2
+  %531 = zext i8 %530 to i32
+  %532 = and i32 %531, 1
+  %533 = icmp ne i32 %532, 0
+  br i1 %533, label %568, label %534
 
-553:                                              ; preds = %546
-  %554 = load ptr, ptr %20, align 8
-  %555 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %554, i32 0, i32 11
-  %556 = load i16, ptr %555, align 4
-  %557 = zext i16 %556 to i32
-  %558 = icmp eq i32 %557, 8192
-  br i1 %558, label %559, label %576
+534:                                              ; preds = %527
+  %535 = load ptr, ptr %21, align 8
+  %536 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %535, i32 0, i32 9
+  %537 = load i16, ptr %536, align 8
+  %538 = zext i16 %537 to i32
+  %539 = icmp ne i32 %538, 0
+  br i1 %539, label %546, label %540
 
-559:                                              ; preds = %553
-  %560 = load ptr, ptr %7, align 8
-  %561 = load ptr, ptr %20, align 8
-  %562 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %561, i32 0, i32 11
-  %563 = load i16, ptr %562, align 4
-  %564 = zext i16 %563 to i32
-  br label %565
+540:                                              ; preds = %534
+  %541 = load ptr, ptr %21, align 8
+  %542 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %541, i32 0, i32 10
+  %543 = load i16, ptr %542, align 2
+  %544 = zext i16 %543 to i32
+  %545 = icmp ne i32 %544, 0
+  br i1 %545, label %546, label %568
 
-565:                                              ; preds = %559
-  br label %566
+546:                                              ; preds = %540, %534
+  %547 = load ptr, ptr %7, align 8
+  %548 = load ptr, ptr %21, align 8
+  %549 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %548, i32 0, i32 9
+  %550 = load i16, ptr %549, align 8
+  %551 = zext i16 %550 to i32
+  %552 = load ptr, ptr %21, align 8
+  %553 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %552, i32 0, i32 10
+  %554 = load i16, ptr %553, align 2
+  %555 = zext i16 %554 to i32
+  br label %556
 
-566:                                              ; preds = %565
+556:                                              ; preds = %546
+  br label %557
+
+557:                                              ; preds = %556
+  br label %558
+
+558:                                              ; preds = %557
   store i32 1, ptr %28, align 4
-  %567 = load ptr, ptr %7, align 8
-  %568 = getelementptr inbounds %struct.XLogReaderState, ptr %567, i32 0, i32 3
-  %569 = load i64, ptr %568, align 8
-  %570 = lshr i64 %569, 32
-  %571 = trunc i64 %570 to i32
-  %572 = load ptr, ptr %7, align 8
-  %573 = getelementptr inbounds %struct.XLogReaderState, ptr %572, i32 0, i32 3
-  %574 = load i64, ptr %573, align 8
-  %575 = trunc i64 %574 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %560, ptr noundef @.str.12, i32 noundef %564, i32 noundef %571, i32 noundef %575)
-  br label %854
+  %559 = load ptr, ptr %7, align 8
+  %560 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %559, i32 0, i32 3
+  %561 = load i64, ptr %560, align 8
+  %562 = lshr i64 %561, 32
+  %563 = trunc i64 %562 to i32
+  %564 = load ptr, ptr %7, align 8
+  %565 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %564, i32 0, i32 3
+  %566 = load i64, ptr %565, align 8
+  %567 = trunc i64 %566 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %547, ptr noundef @.str.11, i32 noundef %551, i32 noundef %555, i32 noundef %563, i32 noundef %567)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-576:                                              ; preds = %553, %546
-  %577 = load ptr, ptr %20, align 8
-  %578 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %577, i32 0, i32 12
-  %579 = load i8, ptr %578, align 2
-  %580 = zext i8 %579 to i32
-  %581 = and i32 %580, 1
-  %582 = icmp ne i32 %581, 0
-  br i1 %582, label %613, label %583
+568:                                              ; preds = %540, %527
+  %569 = load ptr, ptr %21, align 8
+  %570 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %569, i32 0, i32 12
+  %571 = load i8, ptr %570, align 2
+  %572 = zext i8 %571 to i32
+  %573 = and i32 %572, 28
+  %574 = icmp ne i32 %573, 0
+  br i1 %574, label %575, label %599
 
-583:                                              ; preds = %576
-  %584 = load ptr, ptr %20, align 8
-  %585 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %584, i32 0, i32 12
-  %586 = load i8, ptr %585, align 2
-  %587 = zext i8 %586 to i32
-  %588 = and i32 %587, 28
-  %589 = icmp ne i32 %588, 0
-  br i1 %589, label %613, label %590
+575:                                              ; preds = %568
+  %576 = load ptr, ptr %21, align 8
+  %577 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %576, i32 0, i32 11
+  %578 = load i16, ptr %577, align 4
+  %579 = zext i16 %578 to i32
+  %580 = icmp eq i32 %579, 8192
+  br i1 %580, label %581, label %599
 
-590:                                              ; preds = %583
-  %591 = load ptr, ptr %20, align 8
-  %592 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %591, i32 0, i32 11
-  %593 = load i16, ptr %592, align 4
-  %594 = zext i16 %593 to i32
-  %595 = icmp ne i32 %594, 8192
-  br i1 %595, label %596, label %613
+581:                                              ; preds = %575
+  %582 = load ptr, ptr %7, align 8
+  %583 = load ptr, ptr %21, align 8
+  %584 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %583, i32 0, i32 11
+  %585 = load i16, ptr %584, align 4
+  %586 = zext i16 %585 to i32
+  br label %587
 
-596:                                              ; preds = %590
-  %597 = load ptr, ptr %7, align 8
-  %598 = load ptr, ptr %20, align 8
-  %599 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %598, i32 0, i32 15
-  %600 = load i16, ptr %599, align 8
-  %601 = zext i16 %600 to i32
-  br label %602
+587:                                              ; preds = %581
+  br label %588
 
-602:                                              ; preds = %596
-  br label %603
+588:                                              ; preds = %587
+  br label %589
 
-603:                                              ; preds = %602
+589:                                              ; preds = %588
   store i32 1, ptr %29, align 4
-  %604 = load ptr, ptr %7, align 8
-  %605 = getelementptr inbounds %struct.XLogReaderState, ptr %604, i32 0, i32 3
-  %606 = load i64, ptr %605, align 8
-  %607 = lshr i64 %606, 32
-  %608 = trunc i64 %607 to i32
-  %609 = load ptr, ptr %7, align 8
-  %610 = getelementptr inbounds %struct.XLogReaderState, ptr %609, i32 0, i32 3
-  %611 = load i64, ptr %610, align 8
-  %612 = trunc i64 %611 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %597, ptr noundef @.str.13, i32 noundef %601, i32 noundef %608, i32 noundef %612)
-  br label %854
+  %590 = load ptr, ptr %7, align 8
+  %591 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %590, i32 0, i32 3
+  %592 = load i64, ptr %591, align 8
+  %593 = lshr i64 %592, 32
+  %594 = trunc i64 %593 to i32
+  %595 = load ptr, ptr %7, align 8
+  %596 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %595, i32 0, i32 3
+  %597 = load i64, ptr %596, align 8
+  %598 = trunc i64 %597 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %582, ptr noundef @.str.12, i32 noundef %586, i32 noundef %594, i32 noundef %598)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-613:                                              ; preds = %590, %583, %576
-  br label %614
+599:                                              ; preds = %575, %568
+  %600 = load ptr, ptr %21, align 8
+  %601 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %600, i32 0, i32 12
+  %602 = load i8, ptr %601, align 2
+  %603 = zext i8 %602 to i32
+  %604 = and i32 %603, 1
+  %605 = icmp ne i32 %604, 0
+  br i1 %605, label %637, label %606
 
-614:                                              ; preds = %613, %338
-  %615 = load i8, ptr %21, align 1
-  %616 = zext i8 %615 to i32
-  %617 = and i32 %616, 128
-  %618 = icmp ne i32 %617, 0
-  br i1 %618, label %638, label %619
+606:                                              ; preds = %599
+  %607 = load ptr, ptr %21, align 8
+  %608 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %607, i32 0, i32 12
+  %609 = load i8, ptr %608, align 2
+  %610 = zext i8 %609 to i32
+  %611 = and i32 %610, 28
+  %612 = icmp ne i32 %611, 0
+  br i1 %612, label %637, label %613
 
-619:                                              ; preds = %614
-  br label %620
+613:                                              ; preds = %606
+  %614 = load ptr, ptr %21, align 8
+  %615 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %614, i32 0, i32 11
+  %616 = load i16, ptr %615, align 4
+  %617 = zext i16 %616 to i32
+  %618 = icmp ne i32 %617, 8192
+  br i1 %618, label %619, label %637
 
-620:                                              ; preds = %619
-  %621 = load i32, ptr %14, align 4
-  %622 = zext i32 %621 to i64
-  %623 = icmp ult i64 %622, 12
-  br i1 %623, label %624, label %625
+619:                                              ; preds = %613
+  %620 = load ptr, ptr %7, align 8
+  %621 = load ptr, ptr %21, align 8
+  %622 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %621, i32 0, i32 15
+  %623 = load i16, ptr %622, align 8
+  %624 = zext i16 %623 to i32
+  br label %625
 
-624:                                              ; preds = %620
-  br label %841
+625:                                              ; preds = %619
+  br label %626
 
-625:                                              ; preds = %620
-  %626 = load ptr, ptr %20, align 8
-  %627 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %626, i32 0, i32 1
-  %628 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %627, ptr align 1 %628, i64 12, i1 false)
-  %629 = load ptr, ptr %12, align 8
-  %630 = getelementptr i8, ptr %629, i64 12
-  store ptr %630, ptr %12, align 8
-  %631 = load i32, ptr %14, align 4
-  %632 = zext i32 %631 to i64
-  %633 = sub i64 %632, 12
-  %634 = trunc i64 %633 to i32
-  store i32 %634, ptr %14, align 4
-  br label %635
+626:                                              ; preds = %625
+  br label %627
 
-635:                                              ; preds = %625
-  %636 = load ptr, ptr %20, align 8
-  %637 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %636, i32 0, i32 1
-  store ptr %637, ptr %16, align 8
-  br label %658
+627:                                              ; preds = %626
+  store i32 1, ptr %30, align 4
+  %628 = load ptr, ptr %7, align 8
+  %629 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %628, i32 0, i32 3
+  %630 = load i64, ptr %629, align 8
+  %631 = lshr i64 %630, 32
+  %632 = trunc i64 %631 to i32
+  %633 = load ptr, ptr %7, align 8
+  %634 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %633, i32 0, i32 3
+  %635 = load i64, ptr %634, align 8
+  %636 = trunc i64 %635 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %620, ptr noundef @.str.13, i32 noundef %624, i32 noundef %632, i32 noundef %636)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-638:                                              ; preds = %614
-  %639 = load ptr, ptr %16, align 8
-  %640 = icmp eq ptr %639, null
-  br i1 %640, label %641, label %654
+637:                                              ; preds = %613, %606, %599
+  br label %638
 
-641:                                              ; preds = %638
-  %642 = load ptr, ptr %7, align 8
-  br label %643
+638:                                              ; preds = %637, %354
+  %639 = load i8, ptr %22, align 1
+  %640 = zext i8 %639 to i32
+  %641 = and i32 %640, 128
+  %642 = icmp ne i32 %641, 0
+  br i1 %642, label %663, label %643
 
-643:                                              ; preds = %641
+643:                                              ; preds = %638
   br label %644
 
 644:                                              ; preds = %643
-  store i32 1, ptr %30, align 4
-  %645 = load ptr, ptr %7, align 8
-  %646 = getelementptr inbounds %struct.XLogReaderState, ptr %645, i32 0, i32 3
-  %647 = load i64, ptr %646, align 8
-  %648 = lshr i64 %647, 32
-  %649 = trunc i64 %648 to i32
-  %650 = load ptr, ptr %7, align 8
-  %651 = getelementptr inbounds %struct.XLogReaderState, ptr %650, i32 0, i32 3
-  %652 = load i64, ptr %651, align 8
-  %653 = trunc i64 %652 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %642, ptr noundef @.str.14, i32 noundef %649, i32 noundef %653)
-  br label %854
+  %645 = load i32, ptr %14, align 4
+  %646 = zext i32 %645 to i64
+  %647 = icmp ult i64 %646, 12
+  br i1 %647, label %648, label %649
 
-654:                                              ; preds = %638
-  %655 = load ptr, ptr %20, align 8
-  %656 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %655, i32 0, i32 1
-  %657 = load ptr, ptr %16, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %656, ptr align 4 %657, i64 12, i1 false)
-  br label %658
+648:                                              ; preds = %644
+  store i32 6, ptr %19, align 4
+  br label %702
 
-658:                                              ; preds = %654, %635
+649:                                              ; preds = %644
+  %650 = load ptr, ptr %21, align 8
+  %651 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %650, i32 0, i32 1
+  %652 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %651, ptr align 1 %652, i64 12, i1 false)
+  %653 = load ptr, ptr %12, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 12
+  store ptr %654, ptr %12, align 8
+  %655 = load i32, ptr %14, align 4
+  %656 = zext i32 %655 to i64
+  %657 = sub i64 %656, 12
+  %658 = trunc i64 %657 to i32
+  store i32 %658, ptr %14, align 4
   br label %659
 
-659:                                              ; preds = %658
-  %660 = load i32, ptr %14, align 4
-  %661 = zext i32 %660 to i64
-  %662 = icmp ult i64 %661, 4
-  br i1 %662, label %663, label %664
+659:                                              ; preds = %649
+  br label %660
 
-663:                                              ; preds = %659
-  br label %841
+660:                                              ; preds = %659
+  %661 = load ptr, ptr %21, align 8
+  %662 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %661, i32 0, i32 1
+  store ptr %662, ptr %16, align 8
+  br label %684
 
-664:                                              ; preds = %659
-  %665 = load ptr, ptr %20, align 8
-  %666 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %665, i32 0, i32 3
-  %667 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %666, ptr align 1 %667, i64 4, i1 false)
-  %668 = load ptr, ptr %12, align 8
-  %669 = getelementptr i8, ptr %668, i64 4
-  store ptr %669, ptr %12, align 8
-  %670 = load i32, ptr %14, align 4
-  %671 = zext i32 %670 to i64
-  %672 = sub i64 %671, 4
-  %673 = trunc i64 %672 to i32
-  store i32 %673, ptr %14, align 4
-  br label %674
+663:                                              ; preds = %638
+  %664 = load ptr, ptr %16, align 8
+  %665 = icmp eq ptr %664, null
+  br i1 %665, label %666, label %680
 
-674:                                              ; preds = %664
-  br label %690
+666:                                              ; preds = %663
+  %667 = load ptr, ptr %7, align 8
+  br label %668
 
-675:                                              ; preds = %173
-  %676 = load ptr, ptr %7, align 8
-  %677 = load i8, ptr %17, align 1
-  %678 = zext i8 %677 to i32
-  br label %679
+668:                                              ; preds = %666
+  br label %669
 
-679:                                              ; preds = %675
-  br label %680
+669:                                              ; preds = %668
+  br label %670
 
-680:                                              ; preds = %679
+670:                                              ; preds = %669
   store i32 1, ptr %31, align 4
-  %681 = load ptr, ptr %7, align 8
-  %682 = getelementptr inbounds %struct.XLogReaderState, ptr %681, i32 0, i32 3
-  %683 = load i64, ptr %682, align 8
-  %684 = lshr i64 %683, 32
-  %685 = trunc i64 %684 to i32
-  %686 = load ptr, ptr %7, align 8
-  %687 = getelementptr inbounds %struct.XLogReaderState, ptr %686, i32 0, i32 3
-  %688 = load i64, ptr %687, align 8
-  %689 = trunc i64 %688 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %676, ptr noundef @.str.15, i32 noundef %678, i32 noundef %685, i32 noundef %689)
-  br label %854
+  %671 = load ptr, ptr %7, align 8
+  %672 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %671, i32 0, i32 3
+  %673 = load i64, ptr %672, align 8
+  %674 = lshr i64 %673, 32
+  %675 = trunc i64 %674 to i32
+  %676 = load ptr, ptr %7, align 8
+  %677 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %676, i32 0, i32 3
+  %678 = load i64, ptr %677, align 8
+  %679 = trunc i64 %678 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %667, ptr noundef @.str.14, i32 noundef %675, i32 noundef %679)
+  store i32 20, ptr %19, align 4
+  br label %702
 
-690:                                              ; preds = %674
-  br label %691
+680:                                              ; preds = %663
+  %681 = load ptr, ptr %21, align 8
+  %682 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %681, i32 0, i32 1
+  %683 = load ptr, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %682, ptr align 4 %683, i64 12, i1 false)
+  br label %684
 
-691:                                              ; preds = %690, %172
-  br label %692
+684:                                              ; preds = %680, %660
+  br label %685
 
-692:                                              ; preds = %691, %151
-  br label %693
+685:                                              ; preds = %684
+  %686 = load i32, ptr %14, align 4
+  %687 = zext i32 %686 to i64
+  %688 = icmp ult i64 %687, 4
+  br i1 %688, label %689, label %690
 
-693:                                              ; preds = %692
-  br label %694
+689:                                              ; preds = %685
+  store i32 6, ptr %19, align 4
+  br label %702
 
-694:                                              ; preds = %693
-  br label %61, !llvm.loop !12
-
-695:                                              ; preds = %124, %97, %61
+690:                                              ; preds = %685
+  %691 = load ptr, ptr %21, align 8
+  %692 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %691, i32 0, i32 3
+  %693 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %692, ptr align 1 %693, i64 4, i1 false)
+  %694 = load ptr, ptr %12, align 8
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 4
+  store ptr %695, ptr %12, align 8
   %696 = load i32, ptr %14, align 4
-  %697 = load i32, ptr %15, align 4
-  %698 = icmp ne i32 %696, %697
-  br i1 %698, label %699, label %700
+  %697 = zext i32 %696 to i64
+  %698 = sub i64 %697, 4
+  %699 = trunc i64 %698 to i32
+  store i32 %699, ptr %14, align 4
+  br label %700
 
-699:                                              ; preds = %695
-  br label %841
+700:                                              ; preds = %690
+  br label %701
 
-700:                                              ; preds = %695
-  %701 = load ptr, ptr %8, align 8
-  %702 = getelementptr i8, ptr %701, i64 88
-  %703 = load ptr, ptr %8, align 8
-  %704 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %703, i32 0, i32 10
-  %705 = load i32, ptr %704, align 4
-  %706 = add i32 %705, 1
-  %707 = sext i32 %706 to i64
-  %708 = mul i64 64, %707
-  %709 = getelementptr i8, ptr %702, i64 %708
-  store ptr %709, ptr %13, align 8
-  store i8 0, ptr %17, align 1
+701:                                              ; preds = %700
+  store i32 0, ptr %19, align 4
+  br label %702
+
+702:                                              ; preds = %689, %670, %648, %627, %589, %558, %517, %444, %404, %387, %370, %344, %315, %288, %249, %221, %701
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  %703 = load i32, ptr %19, align 4
+  switch i32 %703, label %894 [
+    i32 0, label %704
+    i32 6, label %875
+    i32 20, label %889
+  ]
+
+704:                                              ; preds = %702
+  br label %721
+
+705:                                              ; preds = %183
+  %706 = load ptr, ptr %7, align 8
+  %707 = load i8, ptr %17, align 1
+  %708 = zext i8 %707 to i32
+  br label %709
+
+709:                                              ; preds = %705
   br label %710
 
-710:                                              ; preds = %794, %700
-  %711 = load i8, ptr %17, align 1
-  %712 = zext i8 %711 to i32
-  %713 = load ptr, ptr %8, align 8
-  %714 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %713, i32 0, i32 10
-  %715 = load i32, ptr %714, align 4
-  %716 = icmp sle i32 %712, %715
-  br i1 %716, label %717, label %797
+710:                                              ; preds = %709
+  br label %711
 
-717:                                              ; preds = %710
-  %718 = load ptr, ptr %8, align 8
-  %719 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %718, i32 0, i32 11
-  %720 = load i8, ptr %17, align 1
-  %721 = zext i8 %720 to i64
-  %722 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %719, i64 0, i64 %721
-  store ptr %722, ptr %32, align 8
-  %723 = load ptr, ptr %32, align 8
-  %724 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %723, i32 0, i32 0
-  %725 = load i8, ptr %724, align 8
-  %726 = trunc i8 %725 to i1
-  br i1 %726, label %728, label %727
+711:                                              ; preds = %710
+  store i32 1, ptr %32, align 4
+  %712 = load ptr, ptr %7, align 8
+  %713 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %712, i32 0, i32 3
+  %714 = load i64, ptr %713, align 8
+  %715 = lshr i64 %714, 32
+  %716 = trunc i64 %715 to i32
+  %717 = load ptr, ptr %7, align 8
+  %718 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %717, i32 0, i32 3
+  %719 = load i64, ptr %718, align 8
+  %720 = trunc i64 %719 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %706, ptr noundef @.str.15, i32 noundef %708, i32 noundef %716, i32 noundef %720)
+  br label %889
 
-727:                                              ; preds = %717
-  br label %794
+721:                                              ; preds = %704
+  br label %722
 
-728:                                              ; preds = %717
-  %729 = load ptr, ptr %32, align 8
-  %730 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %729, i32 0, i32 6
-  %731 = load i8, ptr %730, align 1
-  %732 = trunc i8 %731 to i1
-  br i1 %732, label %733, label %757
+722:                                              ; preds = %721, %182
+  br label %723
 
-733:                                              ; preds = %728
-  %734 = load ptr, ptr %13, align 8
-  %735 = load ptr, ptr %32, align 8
-  %736 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %735, i32 0, i32 8
-  store ptr %734, ptr %736, align 8
-  %737 = load ptr, ptr %13, align 8
-  %738 = load ptr, ptr %12, align 8
-  %739 = load ptr, ptr %32, align 8
-  %740 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %739, i32 0, i32 11
-  %741 = load i16, ptr %740, align 4
-  %742 = zext i16 %741 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %737, ptr align 1 %738, i64 %742, i1 false)
-  %743 = load ptr, ptr %32, align 8
-  %744 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %743, i32 0, i32 11
-  %745 = load i16, ptr %744, align 4
-  %746 = zext i16 %745 to i32
-  %747 = load ptr, ptr %12, align 8
-  %748 = sext i32 %746 to i64
-  %749 = getelementptr i8, ptr %747, i64 %748
-  store ptr %749, ptr %12, align 8
-  %750 = load ptr, ptr %32, align 8
-  %751 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %750, i32 0, i32 11
-  %752 = load i16, ptr %751, align 4
-  %753 = zext i16 %752 to i32
-  %754 = load ptr, ptr %13, align 8
-  %755 = sext i32 %753 to i64
-  %756 = getelementptr i8, ptr %754, i64 %755
-  store ptr %756, ptr %13, align 8
-  br label %757
+723:                                              ; preds = %722, %160
+  br label %724
 
-757:                                              ; preds = %733, %728
-  %758 = load ptr, ptr %32, align 8
-  %759 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %758, i32 0, i32 13
-  %760 = load i8, ptr %759, align 1
-  %761 = trunc i8 %760 to i1
-  br i1 %761, label %762, label %793
+724:                                              ; preds = %723
+  br label %725
 
-762:                                              ; preds = %757
-  %763 = load ptr, ptr %13, align 8
-  %764 = ptrtoint ptr %763 to i64
-  %765 = add i64 %764, 7
-  %766 = and i64 %765, -8
-  %767 = inttoptr i64 %766 to ptr
-  store ptr %767, ptr %13, align 8
+725:                                              ; preds = %724
+  br label %62, !llvm.loop !13
+
+726:                                              ; preds = %137, %109, %62
+  %727 = load i32, ptr %14, align 4
+  %728 = load i32, ptr %15, align 4
+  %729 = icmp ne i32 %727, %728
+  br i1 %729, label %730, label %731
+
+730:                                              ; preds = %726
+  br label %875
+
+731:                                              ; preds = %726
+  %732 = load ptr, ptr %8, align 8
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 88
+  %734 = load ptr, ptr %8, align 8
+  %735 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %734, i32 0, i32 10
+  %736 = load i32, ptr %735, align 4
+  %737 = add i32 %736, 1
+  %738 = sext i32 %737 to i64
+  %739 = mul i64 64, %738
+  %740 = getelementptr inbounds nuw i8, ptr %733, i64 %739
+  store ptr %740, ptr %13, align 8
+  store i8 0, ptr %17, align 1
+  br label %741
+
+741:                                              ; preds = %828, %731
+  %742 = load i8, ptr %17, align 1
+  %743 = zext i8 %742 to i32
+  %744 = load ptr, ptr %8, align 8
+  %745 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %744, i32 0, i32 10
+  %746 = load i32, ptr %745, align 4
+  %747 = icmp sle i32 %743, %746
+  br i1 %747, label %748, label %831
+
+748:                                              ; preds = %741
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #10
+  %749 = load ptr, ptr %8, align 8
+  %750 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %749, i32 0, i32 11
+  %751 = load i8, ptr %17, align 1
+  %752 = zext i8 %751 to i64
+  %753 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %750, i64 0, i64 %752
+  store ptr %753, ptr %33, align 8
+  %754 = load ptr, ptr %33, align 8
+  %755 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %754, i32 0, i32 0
+  %756 = load i8, ptr %755, align 8, !range !4, !noundef !5
+  %757 = trunc i8 %756 to i1
+  br i1 %757, label %759, label %758
+
+758:                                              ; preds = %748
+  store i32 55, ptr %19, align 4
+  br label %825
+
+759:                                              ; preds = %748
+  %760 = load ptr, ptr %33, align 8
+  %761 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %760, i32 0, i32 6
+  %762 = load i8, ptr %761, align 1, !range !4, !noundef !5
+  %763 = trunc i8 %762 to i1
+  br i1 %763, label %764, label %788
+
+764:                                              ; preds = %759
+  %765 = load ptr, ptr %13, align 8
+  %766 = load ptr, ptr %33, align 8
+  %767 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %766, i32 0, i32 8
+  store ptr %765, ptr %767, align 8
   %768 = load ptr, ptr %13, align 8
-  %769 = load ptr, ptr %32, align 8
-  %770 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %769, i32 0, i32 14
-  store ptr %768, ptr %770, align 8
-  %771 = load ptr, ptr %32, align 8
-  %772 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %771, i32 0, i32 14
-  %773 = load ptr, ptr %772, align 8
-  %774 = load ptr, ptr %12, align 8
-  %775 = load ptr, ptr %32, align 8
-  %776 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %775, i32 0, i32 15
-  %777 = load i16, ptr %776, align 8
-  %778 = zext i16 %777 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %773, ptr align 1 %774, i64 %778, i1 false)
-  %779 = load ptr, ptr %32, align 8
-  %780 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %779, i32 0, i32 15
-  %781 = load i16, ptr %780, align 8
-  %782 = zext i16 %781 to i32
-  %783 = load ptr, ptr %12, align 8
-  %784 = sext i32 %782 to i64
-  %785 = getelementptr i8, ptr %783, i64 %784
-  store ptr %785, ptr %12, align 8
-  %786 = load ptr, ptr %32, align 8
-  %787 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %786, i32 0, i32 15
-  %788 = load i16, ptr %787, align 8
-  %789 = zext i16 %788 to i32
-  %790 = load ptr, ptr %13, align 8
-  %791 = sext i32 %789 to i64
-  %792 = getelementptr i8, ptr %790, i64 %791
-  store ptr %792, ptr %13, align 8
-  br label %793
+  %769 = load ptr, ptr %12, align 8
+  %770 = load ptr, ptr %33, align 8
+  %771 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %770, i32 0, i32 11
+  %772 = load i16, ptr %771, align 4
+  %773 = zext i16 %772 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %768, ptr align 1 %769, i64 %773, i1 false)
+  %774 = load ptr, ptr %33, align 8
+  %775 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %774, i32 0, i32 11
+  %776 = load i16, ptr %775, align 4
+  %777 = zext i16 %776 to i32
+  %778 = load ptr, ptr %12, align 8
+  %779 = sext i32 %777 to i64
+  %780 = getelementptr inbounds i8, ptr %778, i64 %779
+  store ptr %780, ptr %12, align 8
+  %781 = load ptr, ptr %33, align 8
+  %782 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %781, i32 0, i32 11
+  %783 = load i16, ptr %782, align 4
+  %784 = zext i16 %783 to i32
+  %785 = load ptr, ptr %13, align 8
+  %786 = sext i32 %784 to i64
+  %787 = getelementptr inbounds i8, ptr %785, i64 %786
+  store ptr %787, ptr %13, align 8
+  br label %788
 
-793:                                              ; preds = %762, %757
-  br label %794
+788:                                              ; preds = %764, %759
+  %789 = load ptr, ptr %33, align 8
+  %790 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %789, i32 0, i32 13
+  %791 = load i8, ptr %790, align 1, !range !4, !noundef !5
+  %792 = trunc i8 %791 to i1
+  br i1 %792, label %793, label %824
 
-794:                                              ; preds = %793, %727
-  %795 = load i8, ptr %17, align 1
-  %796 = add i8 %795, 1
-  store i8 %796, ptr %17, align 1
-  br label %710, !llvm.loop !13
-
-797:                                              ; preds = %710
-  %798 = load ptr, ptr %8, align 8
-  %799 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %798, i32 0, i32 9
-  %800 = load i32, ptr %799, align 8
-  %801 = icmp ugt i32 %800, 0
-  br i1 %801, label %802, label %831
-
-802:                                              ; preds = %797
-  %803 = load ptr, ptr %13, align 8
-  %804 = ptrtoint ptr %803 to i64
-  %805 = add i64 %804, 7
-  %806 = and i64 %805, -8
-  %807 = inttoptr i64 %806 to ptr
-  store ptr %807, ptr %13, align 8
-  %808 = load ptr, ptr %13, align 8
-  %809 = load ptr, ptr %8, align 8
-  %810 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %809, i32 0, i32 8
-  store ptr %808, ptr %810, align 8
-  %811 = load ptr, ptr %8, align 8
-  %812 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %811, i32 0, i32 8
-  %813 = load ptr, ptr %812, align 8
+793:                                              ; preds = %788
+  %794 = load ptr, ptr %13, align 8
+  %795 = ptrtoint ptr %794 to i64
+  %796 = add i64 %795, 7
+  %797 = and i64 %796, -8
+  %798 = inttoptr i64 %797 to ptr
+  store ptr %798, ptr %13, align 8
+  %799 = load ptr, ptr %13, align 8
+  %800 = load ptr, ptr %33, align 8
+  %801 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %800, i32 0, i32 14
+  store ptr %799, ptr %801, align 8
+  %802 = load ptr, ptr %33, align 8
+  %803 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %802, i32 0, i32 14
+  %804 = load ptr, ptr %803, align 8
+  %805 = load ptr, ptr %12, align 8
+  %806 = load ptr, ptr %33, align 8
+  %807 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %806, i32 0, i32 15
+  %808 = load i16, ptr %807, align 8
+  %809 = zext i16 %808 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %804, ptr align 1 %805, i64 %809, i1 false)
+  %810 = load ptr, ptr %33, align 8
+  %811 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %810, i32 0, i32 15
+  %812 = load i16, ptr %811, align 8
+  %813 = zext i16 %812 to i32
   %814 = load ptr, ptr %12, align 8
-  %815 = load ptr, ptr %8, align 8
-  %816 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %815, i32 0, i32 9
-  %817 = load i32, ptr %816, align 8
-  %818 = zext i32 %817 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %813, ptr align 1 %814, i64 %818, i1 false)
-  %819 = load ptr, ptr %8, align 8
-  %820 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %819, i32 0, i32 9
-  %821 = load i32, ptr %820, align 8
-  %822 = load ptr, ptr %12, align 8
-  %823 = zext i32 %821 to i64
-  %824 = getelementptr i8, ptr %822, i64 %823
-  store ptr %824, ptr %12, align 8
-  %825 = load ptr, ptr %8, align 8
-  %826 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %825, i32 0, i32 9
-  %827 = load i32, ptr %826, align 8
-  %828 = load ptr, ptr %13, align 8
-  %829 = zext i32 %827 to i64
-  %830 = getelementptr i8, ptr %828, i64 %829
-  store ptr %830, ptr %13, align 8
-  br label %831
+  %815 = sext i32 %813 to i64
+  %816 = getelementptr inbounds i8, ptr %814, i64 %815
+  store ptr %816, ptr %12, align 8
+  %817 = load ptr, ptr %33, align 8
+  %818 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %817, i32 0, i32 15
+  %819 = load i16, ptr %818, align 8
+  %820 = zext i16 %819 to i32
+  %821 = load ptr, ptr %13, align 8
+  %822 = sext i32 %820 to i64
+  %823 = getelementptr inbounds i8, ptr %821, i64 %822
+  store ptr %823, ptr %13, align 8
+  br label %824
 
-831:                                              ; preds = %802, %797
-  %832 = load ptr, ptr %13, align 8
-  %833 = load ptr, ptr %8, align 8
-  %834 = ptrtoint ptr %832 to i64
-  %835 = ptrtoint ptr %833 to i64
-  %836 = sub i64 %834, %835
-  %837 = add i64 %836, 7
-  %838 = and i64 %837, -8
-  %839 = load ptr, ptr %8, align 8
-  %840 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %839, i32 0, i32 0
-  store i64 %838, ptr %840, align 8
+824:                                              ; preds = %793, %788
+  store i32 0, ptr %19, align 4
+  br label %825
+
+825:                                              ; preds = %824, %758
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #10
+  %826 = load i32, ptr %19, align 4
+  switch i32 %826, label %896 [
+    i32 0, label %827
+    i32 55, label %828
+  ]
+
+827:                                              ; preds = %825
+  br label %828
+
+828:                                              ; preds = %827, %825
+  %829 = load i8, ptr %17, align 1
+  %830 = add i8 %829, 1
+  store i8 %830, ptr %17, align 1
+  br label %741, !llvm.loop !14
+
+831:                                              ; preds = %741
+  %832 = load ptr, ptr %8, align 8
+  %833 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %832, i32 0, i32 9
+  %834 = load i32, ptr %833, align 8
+  %835 = icmp ugt i32 %834, 0
+  br i1 %835, label %836, label %865
+
+836:                                              ; preds = %831
+  %837 = load ptr, ptr %13, align 8
+  %838 = ptrtoint ptr %837 to i64
+  %839 = add i64 %838, 7
+  %840 = and i64 %839, -8
+  %841 = inttoptr i64 %840 to ptr
+  store ptr %841, ptr %13, align 8
+  %842 = load ptr, ptr %13, align 8
+  %843 = load ptr, ptr %8, align 8
+  %844 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %843, i32 0, i32 8
+  store ptr %842, ptr %844, align 8
+  %845 = load ptr, ptr %8, align 8
+  %846 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %845, i32 0, i32 8
+  %847 = load ptr, ptr %846, align 8
+  %848 = load ptr, ptr %12, align 8
+  %849 = load ptr, ptr %8, align 8
+  %850 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %849, i32 0, i32 9
+  %851 = load i32, ptr %850, align 8
+  %852 = zext i32 %851 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %847, ptr align 1 %848, i64 %852, i1 false)
+  %853 = load ptr, ptr %8, align 8
+  %854 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %853, i32 0, i32 9
+  %855 = load i32, ptr %854, align 8
+  %856 = load ptr, ptr %12, align 8
+  %857 = zext i32 %855 to i64
+  %858 = getelementptr inbounds nuw i8, ptr %856, i64 %857
+  store ptr %858, ptr %12, align 8
+  %859 = load ptr, ptr %8, align 8
+  %860 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %859, i32 0, i32 9
+  %861 = load i32, ptr %860, align 8
+  %862 = load ptr, ptr %13, align 8
+  %863 = zext i32 %861 to i64
+  %864 = getelementptr inbounds nuw i8, ptr %862, i64 %863
+  store ptr %864, ptr %13, align 8
+  br label %865
+
+865:                                              ; preds = %836, %831
+  %866 = load ptr, ptr %13, align 8
+  %867 = load ptr, ptr %8, align 8
+  %868 = ptrtoint ptr %866 to i64
+  %869 = ptrtoint ptr %867 to i64
+  %870 = sub i64 %868, %869
+  %871 = add i64 %870, 7
+  %872 = and i64 %871, -8
+  %873 = load ptr, ptr %8, align 8
+  %874 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %873, i32 0, i32 0
+  store i64 %872, ptr %874, align 8
   store i1 true, ptr %6, align 1
-  br label %859
+  store i32 1, ptr %19, align 4
+  br label %894
 
-841:                                              ; preds = %699, %663, %624, %425, %386, %370, %354, %275, %237, %161, %140, %115, %88, %70
-  %842 = load ptr, ptr %7, align 8
-  br label %843
+875:                                              ; preds = %702, %137, %109, %730, %170, %148, %71
+  %876 = load ptr, ptr %7, align 8
+  br label %877
 
-843:                                              ; preds = %841
-  br label %844
+877:                                              ; preds = %875
+  br label %878
 
-844:                                              ; preds = %843
-  store i32 1, ptr %33, align 4
-  %845 = load ptr, ptr %7, align 8
-  %846 = getelementptr inbounds %struct.XLogReaderState, ptr %845, i32 0, i32 3
-  %847 = load i64, ptr %846, align 8
-  %848 = lshr i64 %847, 32
-  %849 = trunc i64 %848 to i32
-  %850 = load ptr, ptr %7, align 8
-  %851 = getelementptr inbounds %struct.XLogReaderState, ptr %850, i32 0, i32 3
-  %852 = load i64, ptr %851, align 8
-  %853 = trunc i64 %852 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %842, ptr noundef @.str.16, i32 noundef %849, i32 noundef %853)
-  br label %854
+878:                                              ; preds = %877
+  br label %879
 
-854:                                              ; preds = %844, %680, %644, %603, %566, %536, %496, %328, %300, %209
-  %855 = load ptr, ptr %7, align 8
-  %856 = getelementptr inbounds %struct.XLogReaderState, ptr %855, i32 0, i32 32
-  %857 = load ptr, ptr %856, align 8
-  %858 = load ptr, ptr %11, align 8
-  store ptr %857, ptr %858, align 8
+879:                                              ; preds = %878
+  store i32 1, ptr %34, align 4
+  %880 = load ptr, ptr %7, align 8
+  %881 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %880, i32 0, i32 3
+  %882 = load i64, ptr %881, align 8
+  %883 = lshr i64 %882, 32
+  %884 = trunc i64 %883 to i32
+  %885 = load ptr, ptr %7, align 8
+  %886 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %885, i32 0, i32 3
+  %887 = load i64, ptr %886, align 8
+  %888 = trunc i64 %887 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %876, ptr noundef @.str.16, i32 noundef %884, i32 noundef %888)
+  br label %889
+
+889:                                              ; preds = %879, %702, %711
+  %890 = load ptr, ptr %7, align 8
+  %891 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %890, i32 0, i32 32
+  %892 = load ptr, ptr %891, align 8
+  %893 = load ptr, ptr %11, align 8
+  store ptr %892, ptr %893, align 8
   store i1 false, ptr %6, align 1
-  br label %859
+  store i32 1, ptr %19, align 4
+  br label %894
 
-859:                                              ; preds = %854, %831
-  %860 = load i1, ptr %6, align 1
-  ret i1 %860
+894:                                              ; preds = %889, %865, %702, %137, %109
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %895 = load i1, ptr %6, align 1
+  ret i1 %895
+
+896:                                              ; preds = %825
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4215,7 +4647,7 @@ define dso_local void @XLogRecGetBlockTag(ptr noundef %0, i8 noundef zeroext %1,
   %19 = load i8, ptr %7, align 1
   %20 = zext i8 %19 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.17, i32 noundef %20)
-  call void @exit(i32 noundef 1) #8
+  call void @exit(i32 noundef 1) #12
   unreachable
 
 21:                                               ; No predecessors!
@@ -4235,111 +4667,116 @@ define dso_local zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef %0, i8 nound
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
   store i8 %1, ptr %9, align 1
   store ptr %2, ptr %10, align 8
   store ptr %3, ptr %11, align 8
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.XLogReaderState, ptr %15, i32 0, i32 11
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %17, i32 0, i32 10
-  %19 = load i32, ptr %18, align 4
-  %20 = load i8, ptr %9, align 1
-  %21 = zext i8 %20 to i32
-  %22 = icmp sge i32 %19, %21
-  br i1 %22, label %23, label %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %16, i32 0, i32 11
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = load i8, ptr %9, align 1
+  %22 = zext i8 %21 to i32
+  %23 = icmp sge i32 %20, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %6
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.XLogReaderState, ptr %24, i32 0, i32 11
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %26, i32 0, i32 11
-  %28 = load i8, ptr %9, align 1
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %27, i64 0, i64 %29
-  %31 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %30, i32 0, i32 0
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %35, label %34
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %25, i32 0, i32 11
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %27, i32 0, i32 11
+  %29 = load i8, ptr %9, align 1
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %28, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %31, i32 0, i32 0
+  %33 = load i8, ptr %32, align 8, !range !4, !noundef !5
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %36, label %35
 
-34:                                               ; preds = %23, %6
+35:                                               ; preds = %24, %6
   store i1 false, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %75
+
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 11
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %39, i32 0, i32 11
+  %41 = load i8, ptr %9, align 1
+  %42 = zext i8 %41 to i64
+  %43 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %40, i64 0, i64 %42
+  store ptr %43, ptr %14, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %50
+
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %48, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %49, i64 12, i1 false)
+  br label %50
+
+50:                                               ; preds = %46, %36
+  %51 = load ptr, ptr %11, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %58
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %14, align 8
+  %55 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %54, i32 0, i32 2
+  %56 = load i32, ptr %55, align 8
+  %57 = load ptr, ptr %11, align 8
+  store i32 %56, ptr %57, align 4
+  br label %58
+
+58:                                               ; preds = %53, %50
+  %59 = load ptr, ptr %12, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %66
+
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %14, align 8
+  %63 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %62, i32 0, i32 3
+  %64 = load i32, ptr %63, align 4
+  %65 = load ptr, ptr %12, align 8
+  store i32 %64, ptr %65, align 4
+  br label %66
+
+66:                                               ; preds = %61, %58
+  %67 = load ptr, ptr %13, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %14, align 8
+  %71 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %70, i32 0, i32 4
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %13, align 8
+  store i32 %72, ptr %73, align 4
   br label %74
 
-35:                                               ; preds = %23
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.XLogReaderState, ptr %36, i32 0, i32 11
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %38, i32 0, i32 11
-  %40 = load i8, ptr %9, align 1
-  %41 = zext i8 %40 to i64
-  %42 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %39, i64 0, i64 %41
-  store ptr %42, ptr %14, align 8
-  %43 = load ptr, ptr %10, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %49
-
-45:                                               ; preds = %35
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %47, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %48, i64 12, i1 false)
-  br label %49
-
-49:                                               ; preds = %45, %35
-  %50 = load ptr, ptr %11, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %57
-
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %14, align 8
-  %54 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %53, i32 0, i32 2
-  %55 = load i32, ptr %54, align 8
-  %56 = load ptr, ptr %11, align 8
-  store i32 %55, ptr %56, align 4
-  br label %57
-
-57:                                               ; preds = %52, %49
-  %58 = load ptr, ptr %12, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %65
-
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %61, i32 0, i32 3
-  %63 = load i32, ptr %62, align 4
-  %64 = load ptr, ptr %12, align 8
-  store i32 %63, ptr %64, align 4
-  br label %65
-
-65:                                               ; preds = %60, %57
-  %66 = load ptr, ptr %13, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
-
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %14, align 8
-  %70 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %69, i32 0, i32 4
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %13, align 8
-  store i32 %71, ptr %72, align 4
-  br label %73
-
-73:                                               ; preds = %68, %65
+74:                                               ; preds = %69, %66
   store i1 true, ptr %7, align 1
-  br label %74
+  store i32 1, ptr %15, align 4
+  br label %75
 
-74:                                               ; preds = %73, %34
-  %75 = load i1, ptr %7, align 1
-  ret i1 %75
+75:                                               ; preds = %74, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  %76 = load i1, ptr %7, align 1
+  ret i1 %76
 }
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) #1
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #4
+declare void @exit(i32 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XLogRecGetBlockData(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #0 {
@@ -4348,89 +4785,95 @@ define dso_local ptr @XLogRecGetBlockData(ptr noundef %0, i8 noundef zeroext %1,
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   store ptr %2, ptr %7, align 8
-  %9 = load i8, ptr %6, align 1
-  %10 = zext i8 %9 to i32
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.XLogReaderState, ptr %11, i32 0, i32 11
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %13, i32 0, i32 10
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %10, %15
-  br i1 %16, label %28, label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load i8, ptr %6, align 1
+  %11 = zext i8 %10 to i32
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %12, i32 0, i32 11
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp sgt i32 %11, %16
+  br i1 %17, label %29, label %18
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.XLogReaderState, ptr %18, i32 0, i32 11
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %20, i32 0, i32 11
-  %22 = load i8, ptr %6, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %21, i64 0, i64 %23
-  %25 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %24, i32 0, i32 0
-  %26 = load i8, ptr %25, align 8
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %29, label %28
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %19, i32 0, i32 11
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %21, i32 0, i32 11
+  %23 = load i8, ptr %6, align 1
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %25, i32 0, i32 0
+  %27 = load i8, ptr %26, align 8, !range !4, !noundef !5
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %30, label %29
 
-28:                                               ; preds = %17, %3
+29:                                               ; preds = %18, %3
   store ptr null, ptr %4, align 8
-  br label %60
+  store i32 1, ptr %9, align 4
+  br label %61
 
-29:                                               ; preds = %17
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.XLogReaderState, ptr %30, i32 0, i32 11
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %32, i32 0, i32 11
-  %34 = load i8, ptr %6, align 1
-  %35 = zext i8 %34 to i64
-  %36 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %33, i64 0, i64 %35
-  store ptr %36, ptr %8, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %37, i32 0, i32 13
-  %39 = load i8, ptr %38, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %47, label %41
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %31, i32 0, i32 11
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %33, i32 0, i32 11
+  %35 = load i8, ptr %6, align 1
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %34, i64 0, i64 %36
+  store ptr %37, ptr %8, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %38, i32 0, i32 13
+  %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %48, label %42
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %7, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %46
+42:                                               ; preds = %30
+  %43 = load ptr, ptr %7, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %7, align 8
-  store i64 0, ptr %45, align 8
-  br label %46
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %7, align 8
+  store i64 0, ptr %46, align 8
+  br label %47
 
-46:                                               ; preds = %44, %41
+47:                                               ; preds = %45, %42
   store ptr null, ptr %4, align 8
-  br label %60
+  store i32 1, ptr %9, align 4
+  br label %61
 
-47:                                               ; preds = %29
-  %48 = load ptr, ptr %7, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %56
+48:                                               ; preds = %30
+  %49 = load ptr, ptr %7, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %57
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %51, i32 0, i32 15
-  %53 = load i16, ptr %52, align 8
-  %54 = zext i16 %53 to i64
-  %55 = load ptr, ptr %7, align 8
-  store i64 %54, ptr %55, align 8
-  br label %56
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %52, i32 0, i32 15
+  %54 = load i16, ptr %53, align 8
+  %55 = zext i16 %54 to i64
+  %56 = load ptr, ptr %7, align 8
+  store i64 %55, ptr %56, align 8
+  br label %57
 
-56:                                               ; preds = %50, %47
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %57, i32 0, i32 14
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %4, align 8
-  br label %60
+57:                                               ; preds = %51, %48
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %58, i32 0, i32 14
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %61
 
-60:                                               ; preds = %56, %46, %28
-  %61 = load ptr, ptr %4, align 8
-  ret ptr %61
+61:                                               ; preds = %57, %47, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %62 = load ptr, ptr %4, align 8
+  ret ptr %62
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4444,429 +4887,486 @@ define dso_local zeroext i1 @RestoreBlockImage(ptr noundef %0, i8 noundef zeroex
   %10 = alloca %union.PGAlignedBlock, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca i8, align 1
-  %14 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca i64, align 8
-  %21 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
   %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   store ptr %2, ptr %7, align 8
-  %23 = load i8, ptr %6, align 1
-  %24 = zext i8 %23 to i32
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.XLogReaderState, ptr %25, i32 0, i32 11
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %27, i32 0, i32 10
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp sgt i32 %24, %29
-  br i1 %30, label %42, label %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8192, ptr %10) #10
+  %24 = load i8, ptr %6, align 1
+  %25 = zext i8 %24 to i32
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %26, i32 0, i32 11
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %28, i32 0, i32 10
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %25, %30
+  br i1 %31, label %43, label %32
 
-31:                                               ; preds = %3
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.XLogReaderState, ptr %32, i32 0, i32 11
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %34, i32 0, i32 11
-  %36 = load i8, ptr %6, align 1
-  %37 = zext i8 %36 to i64
-  %38 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %35, i64 0, i64 %37
-  %39 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %38, i32 0, i32 0
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %57, label %42
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %33, i32 0, i32 11
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %35, i32 0, i32 11
+  %37 = load i8, ptr %6, align 1
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %36, i64 0, i64 %38
+  %40 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %39, i32 0, i32 0
+  %41 = load i8, ptr %40, align 8, !range !4, !noundef !5
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %59, label %43
 
-42:                                               ; preds = %31, %3
-  %43 = load ptr, ptr %5, align 8
-  br label %44
-
-44:                                               ; preds = %42
+43:                                               ; preds = %32, %3
+  %44 = load ptr, ptr %5, align 8
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %43
+  br label %46
+
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46
   store i32 1, ptr %11, align 4
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.XLogReaderState, ptr %46, i32 0, i32 3
-  %48 = load i64, ptr %47, align 8
-  %49 = lshr i64 %48, 32
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.XLogReaderState, ptr %51, i32 0, i32 3
-  %53 = load i64, ptr %52, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i8, ptr %6, align 1
-  %56 = zext i8 %55 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %43, ptr noundef @.str.18, i32 noundef %50, i32 noundef %54, i32 noundef %56)
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %48, i32 0, i32 3
+  %50 = load i64, ptr %49, align 8
+  %51 = lshr i64 %50, 32
+  %52 = trunc i64 %51 to i32
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %53, i32 0, i32 3
+  %55 = load i64, ptr %54, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i8, ptr %6, align 1
+  %58 = zext i8 %57 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %44, ptr noundef @.str.18, i32 noundef %52, i32 noundef %56, i32 noundef %58)
   store i1 false, ptr %4, align 1
-  br label %295
-
-57:                                               ; preds = %31
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.XLogReaderState, ptr %58, i32 0, i32 11
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %60, i32 0, i32 11
-  %62 = load i8, ptr %6, align 1
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %61, i64 0, i64 %63
-  %65 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %64, i32 0, i32 6
-  %66 = load i8, ptr %65, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %83, label %68
-
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %5, align 8
-  br label %70
-
-70:                                               ; preds = %68
-  br label %71
-
-71:                                               ; preds = %70
   store i32 1, ptr %12, align 4
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.XLogReaderState, ptr %72, i32 0, i32 3
-  %74 = load i64, ptr %73, align 8
-  %75 = lshr i64 %74, 32
-  %76 = trunc i64 %75 to i32
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds %struct.XLogReaderState, ptr %77, i32 0, i32 3
-  %79 = load i64, ptr %78, align 8
-  %80 = trunc i64 %79 to i32
-  %81 = load i8, ptr %6, align 1
-  %82 = zext i8 %81 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %69, ptr noundef @.str.19, i32 noundef %76, i32 noundef %80, i32 noundef %82)
-  store i1 false, ptr %4, align 1
-  br label %295
+  br label %306
 
-83:                                               ; preds = %57
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.XLogReaderState, ptr %84, i32 0, i32 11
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %86, i32 0, i32 11
-  %88 = load i8, ptr %6, align 1
-  %89 = zext i8 %88 to i64
-  %90 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %87, i64 0, i64 %89
-  store ptr %90, ptr %8, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %91, i32 0, i32 8
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %9, align 8
+59:                                               ; preds = %32
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %60, i32 0, i32 11
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %62, i32 0, i32 11
+  %64 = load i8, ptr %6, align 1
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %63, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %66, i32 0, i32 6
+  %68 = load i8, ptr %67, align 1, !range !4, !noundef !5
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %86, label %70
+
+70:                                               ; preds = %59
+  %71 = load ptr, ptr %5, align 8
+  br label %72
+
+72:                                               ; preds = %70
+  br label %73
+
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  store i32 1, ptr %13, align 4
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %75, i32 0, i32 3
+  %77 = load i64, ptr %76, align 8
+  %78 = lshr i64 %77, 32
+  %79 = trunc i64 %78 to i32
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %80, i32 0, i32 3
+  %82 = load i64, ptr %81, align 8
+  %83 = trunc i64 %82 to i32
+  %84 = load i8, ptr %6, align 1
+  %85 = zext i8 %84 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %71, ptr noundef @.str.19, i32 noundef %79, i32 noundef %83, i32 noundef %85)
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %306
+
+86:                                               ; preds = %59
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %87, i32 0, i32 11
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %89, i32 0, i32 11
+  %91 = load i8, ptr %6, align 1
+  %92 = zext i8 %91 to i64
+  %93 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %90, i64 0, i64 %92
+  store ptr %93, ptr %8, align 8
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %94, i32 0, i32 12
-  %96 = load i8, ptr %95, align 2
-  %97 = zext i8 %96 to i32
-  %98 = and i32 %97, 28
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %202
+  %95 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %94, i32 0, i32 8
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %9, align 8
+  %97 = load ptr, ptr %8, align 8
+  %98 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %97, i32 0, i32 12
+  %99 = load i8, ptr %98, align 2
+  %100 = zext i8 %99 to i32
+  %101 = and i32 %100, 28
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %212
 
-100:                                              ; preds = %83
-  store i8 1, ptr %13, align 1
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %101, i32 0, i32 12
-  %103 = load i8, ptr %102, align 2
-  %104 = zext i8 %103 to i32
-  %105 = and i32 %104, 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %123
+103:                                              ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  store i8 1, ptr %14, align 1
+  %104 = load ptr, ptr %8, align 8
+  %105 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %104, i32 0, i32 12
+  %106 = load i8, ptr %105, align 2
+  %107 = zext i8 %106 to i32
+  %108 = and i32 %107, 4
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %126
 
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %9, align 8
-  %109 = load ptr, ptr %8, align 8
-  %110 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %109, i32 0, i32 11
-  %111 = load i16, ptr %110, align 4
-  %112 = zext i16 %111 to i32
-  %113 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
-  %114 = load ptr, ptr %8, align 8
-  %115 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %114, i32 0, i32 10
-  %116 = load i16, ptr %115, align 2
-  %117 = zext i16 %116 to i32
-  %118 = sub i32 8192, %117
-  %119 = call i32 @pglz_decompress(ptr noundef %108, i32 noundef %112, ptr noundef %113, i32 noundef %118, i1 noundef zeroext true)
-  %120 = icmp slt i32 %119, 0
-  br i1 %120, label %121, label %122
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %9, align 8
+  %112 = load ptr, ptr %8, align 8
+  %113 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %112, i32 0, i32 11
+  %114 = load i16, ptr %113, align 4
+  %115 = zext i16 %114 to i32
+  %116 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
+  %117 = load ptr, ptr %8, align 8
+  %118 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %117, i32 0, i32 10
+  %119 = load i16, ptr %118, align 2
+  %120 = zext i16 %119 to i32
+  %121 = sub i32 8192, %120
+  %122 = call i32 @pglz_decompress(ptr noundef %111, i32 noundef %115, ptr noundef %116, i32 noundef %121, i1 noundef zeroext true)
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %124, label %125
 
-121:                                              ; preds = %107
-  store i8 0, ptr %13, align 1
-  br label %122
+124:                                              ; preds = %110
+  store i8 0, ptr %14, align 1
+  br label %125
 
-122:                                              ; preds = %121, %107
-  br label %182
-
-123:                                              ; preds = %100
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %124, i32 0, i32 12
-  %126 = load i8, ptr %125, align 2
-  %127 = zext i8 %126 to i32
-  %128 = and i32 %127, 8
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %145
-
-130:                                              ; preds = %123
-  %131 = load ptr, ptr %5, align 8
-  br label %132
-
-132:                                              ; preds = %130
-  br label %133
-
-133:                                              ; preds = %132
-  store i32 1, ptr %14, align 4
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.XLogReaderState, ptr %134, i32 0, i32 3
-  %136 = load i64, ptr %135, align 8
-  %137 = lshr i64 %136, 32
-  %138 = trunc i64 %137 to i32
-  %139 = load ptr, ptr %5, align 8
-  %140 = getelementptr inbounds %struct.XLogReaderState, ptr %139, i32 0, i32 3
-  %141 = load i64, ptr %140, align 8
-  %142 = trunc i64 %141 to i32
-  %143 = load i8, ptr %6, align 1
-  %144 = zext i8 %143 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %131, ptr noundef @.str.20, i32 noundef %138, i32 noundef %142, ptr noundef @.str.21, i32 noundef %144)
-  store i1 false, ptr %4, align 1
-  br label %295
-
-145:                                              ; preds = %123
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %146, i32 0, i32 12
-  %148 = load i8, ptr %147, align 2
-  %149 = zext i8 %148 to i32
-  %150 = and i32 %149, 16
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %167
-
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %5, align 8
-  br label %154
-
-154:                                              ; preds = %152
-  br label %155
-
-155:                                              ; preds = %154
-  store i32 1, ptr %15, align 4
-  %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds %struct.XLogReaderState, ptr %156, i32 0, i32 3
-  %158 = load i64, ptr %157, align 8
-  %159 = lshr i64 %158, 32
-  %160 = trunc i64 %159 to i32
-  %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr inbounds %struct.XLogReaderState, ptr %161, i32 0, i32 3
-  %163 = load i64, ptr %162, align 8
-  %164 = trunc i64 %163 to i32
-  %165 = load i8, ptr %6, align 1
-  %166 = zext i8 %165 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %153, ptr noundef @.str.20, i32 noundef %160, i32 noundef %164, ptr noundef @.str.22, i32 noundef %166)
-  store i1 false, ptr %4, align 1
-  br label %295
-
-167:                                              ; preds = %145
-  %168 = load ptr, ptr %5, align 8
-  br label %169
-
-169:                                              ; preds = %167
-  br label %170
-
-170:                                              ; preds = %169
-  store i32 1, ptr %16, align 4
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.XLogReaderState, ptr %171, i32 0, i32 3
-  %173 = load i64, ptr %172, align 8
-  %174 = lshr i64 %173, 32
-  %175 = trunc i64 %174 to i32
-  %176 = load ptr, ptr %5, align 8
-  %177 = getelementptr inbounds %struct.XLogReaderState, ptr %176, i32 0, i32 3
-  %178 = load i64, ptr %177, align 8
-  %179 = trunc i64 %178 to i32
-  %180 = load i8, ptr %6, align 1
-  %181 = zext i8 %180 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %168, ptr noundef @.str.23, i32 noundef %175, i32 noundef %179, i32 noundef %181)
-  store i1 false, ptr %4, align 1
-  br label %295
-
-182:                                              ; preds = %122
-  %183 = load i8, ptr %13, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %200, label %185
-
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %5, align 8
-  br label %187
-
-187:                                              ; preds = %185
+125:                                              ; preds = %124, %110
   br label %188
 
-188:                                              ; preds = %187
-  store i32 1, ptr %17, align 4
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.XLogReaderState, ptr %189, i32 0, i32 3
-  %191 = load i64, ptr %190, align 8
-  %192 = lshr i64 %191, 32
-  %193 = trunc i64 %192 to i32
-  %194 = load ptr, ptr %5, align 8
-  %195 = getelementptr inbounds %struct.XLogReaderState, ptr %194, i32 0, i32 3
-  %196 = load i64, ptr %195, align 8
-  %197 = trunc i64 %196 to i32
-  %198 = load i8, ptr %6, align 1
-  %199 = zext i8 %198 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %186, ptr noundef @.str.24, i32 noundef %193, i32 noundef %197, i32 noundef %199)
+126:                                              ; preds = %103
+  %127 = load ptr, ptr %8, align 8
+  %128 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %127, i32 0, i32 12
+  %129 = load i8, ptr %128, align 2
+  %130 = zext i8 %129 to i32
+  %131 = and i32 %130, 8
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %149
+
+133:                                              ; preds = %126
+  %134 = load ptr, ptr %5, align 8
+  br label %135
+
+135:                                              ; preds = %133
+  br label %136
+
+136:                                              ; preds = %135
+  br label %137
+
+137:                                              ; preds = %136
+  store i32 1, ptr %15, align 4
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %138, i32 0, i32 3
+  %140 = load i64, ptr %139, align 8
+  %141 = lshr i64 %140, 32
+  %142 = trunc i64 %141 to i32
+  %143 = load ptr, ptr %5, align 8
+  %144 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %143, i32 0, i32 3
+  %145 = load i64, ptr %144, align 8
+  %146 = trunc i64 %145 to i32
+  %147 = load i8, ptr %6, align 1
+  %148 = zext i8 %147 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %134, ptr noundef @.str.20, i32 noundef %142, i32 noundef %146, ptr noundef @.str.21, i32 noundef %148)
   store i1 false, ptr %4, align 1
-  br label %295
+  store i32 1, ptr %12, align 4
+  br label %209
 
-200:                                              ; preds = %182
-  %201 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
-  store ptr %201, ptr %9, align 8
-  br label %202
+149:                                              ; preds = %126
+  %150 = load ptr, ptr %8, align 8
+  %151 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %150, i32 0, i32 12
+  %152 = load i8, ptr %151, align 2
+  %153 = zext i8 %152 to i32
+  %154 = and i32 %153, 16
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %172
 
-202:                                              ; preds = %200, %83
-  %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %203, i32 0, i32 10
-  %205 = load i16, ptr %204, align 2
-  %206 = zext i16 %205 to i32
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %211
+156:                                              ; preds = %149
+  %157 = load ptr, ptr %5, align 8
+  br label %158
 
-208:                                              ; preds = %202
-  %209 = load ptr, ptr %7, align 8
-  %210 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %209, ptr align 1 %210, i64 8192, i1 false)
-  br label %294
+158:                                              ; preds = %156
+  br label %159
 
-211:                                              ; preds = %202
-  %212 = load ptr, ptr %7, align 8
-  %213 = load ptr, ptr %9, align 8
-  %214 = load ptr, ptr %8, align 8
-  %215 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %214, i32 0, i32 9
-  %216 = load i16, ptr %215, align 8
-  %217 = zext i16 %216 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr align 1 %213, i64 %217, i1 false)
-  br label %218
+159:                                              ; preds = %158
+  br label %160
 
-218:                                              ; preds = %211
+160:                                              ; preds = %159
+  store i32 1, ptr %16, align 4
+  %161 = load ptr, ptr %5, align 8
+  %162 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %161, i32 0, i32 3
+  %163 = load i64, ptr %162, align 8
+  %164 = lshr i64 %163, 32
+  %165 = trunc i64 %164 to i32
+  %166 = load ptr, ptr %5, align 8
+  %167 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %166, i32 0, i32 3
+  %168 = load i64, ptr %167, align 8
+  %169 = trunc i64 %168 to i32
+  %170 = load i8, ptr %6, align 1
+  %171 = zext i8 %170 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %157, ptr noundef @.str.20, i32 noundef %165, i32 noundef %169, ptr noundef @.str.22, i32 noundef %171)
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %209
+
+172:                                              ; preds = %149
+  %173 = load ptr, ptr %5, align 8
+  br label %174
+
+174:                                              ; preds = %172
+  br label %175
+
+175:                                              ; preds = %174
+  br label %176
+
+176:                                              ; preds = %175
+  store i32 1, ptr %17, align 4
+  %177 = load ptr, ptr %5, align 8
+  %178 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %177, i32 0, i32 3
+  %179 = load i64, ptr %178, align 8
+  %180 = lshr i64 %179, 32
+  %181 = trunc i64 %180 to i32
+  %182 = load ptr, ptr %5, align 8
+  %183 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %182, i32 0, i32 3
+  %184 = load i64, ptr %183, align 8
+  %185 = trunc i64 %184 to i32
+  %186 = load i8, ptr %6, align 1
+  %187 = zext i8 %186 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %173, ptr noundef @.str.23, i32 noundef %181, i32 noundef %185, i32 noundef %187)
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %209
+
+188:                                              ; preds = %125
+  %189 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %190 = trunc i8 %189 to i1
+  br i1 %190, label %207, label %191
+
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %5, align 8
+  br label %193
+
+193:                                              ; preds = %191
+  br label %194
+
+194:                                              ; preds = %193
+  br label %195
+
+195:                                              ; preds = %194
+  store i32 1, ptr %18, align 4
+  %196 = load ptr, ptr %5, align 8
+  %197 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %196, i32 0, i32 3
+  %198 = load i64, ptr %197, align 8
+  %199 = lshr i64 %198, 32
+  %200 = trunc i64 %199 to i32
+  %201 = load ptr, ptr %5, align 8
+  %202 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %201, i32 0, i32 3
+  %203 = load i64, ptr %202, align 8
+  %204 = trunc i64 %203 to i32
+  %205 = load i8, ptr %6, align 1
+  %206 = zext i8 %205 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %192, ptr noundef @.str.24, i32 noundef %200, i32 noundef %204, i32 noundef %206)
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %209
+
+207:                                              ; preds = %188
+  %208 = getelementptr inbounds [8192 x i8], ptr %10, i64 0, i64 0
+  store ptr %208, ptr %9, align 8
+  store i32 0, ptr %12, align 4
+  br label %209
+
+209:                                              ; preds = %207, %195, %176, %160, %137
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  %210 = load i32, ptr %12, align 4
+  switch i32 %210, label %306 [
+    i32 0, label %211
+  ]
+
+211:                                              ; preds = %209
+  br label %212
+
+212:                                              ; preds = %211, %86
+  %213 = load ptr, ptr %8, align 8
+  %214 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %213, i32 0, i32 10
+  %215 = load i16, ptr %214, align 2
+  %216 = zext i16 %215 to i32
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %221
+
+218:                                              ; preds = %212
   %219 = load ptr, ptr %7, align 8
-  %220 = load ptr, ptr %8, align 8
-  %221 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %220, i32 0, i32 9
-  %222 = load i16, ptr %221, align 8
-  %223 = zext i16 %222 to i32
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr i8, ptr %219, i64 %224
-  store ptr %225, ptr %18, align 8
-  store i32 0, ptr %19, align 4
-  %226 = load ptr, ptr %8, align 8
-  %227 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %226, i32 0, i32 10
-  %228 = load i16, ptr %227, align 2
-  %229 = zext i16 %228 to i64
-  store i64 %229, ptr %20, align 8
-  %230 = load ptr, ptr %18, align 8
-  %231 = ptrtoint ptr %230 to i64
-  %232 = and i64 %231, 7
-  %233 = icmp eq i64 %232, 0
-  br i1 %233, label %234, label %257
+  %220 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr align 1 %220, i64 8192, i1 false)
+  br label %305
 
-234:                                              ; preds = %218
-  %235 = load i64, ptr %20, align 8
-  %236 = and i64 %235, 7
-  %237 = icmp eq i64 %236, 0
-  br i1 %237, label %238, label %257
+221:                                              ; preds = %212
+  %222 = load ptr, ptr %7, align 8
+  %223 = load ptr, ptr %9, align 8
+  %224 = load ptr, ptr %8, align 8
+  %225 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %224, i32 0, i32 9
+  %226 = load i16, ptr %225, align 8
+  %227 = zext i16 %226 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr align 1 %223, i64 %227, i1 false)
+  br label %228
 
-238:                                              ; preds = %234
-  %239 = load i32, ptr %19, align 4
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %257
+228:                                              ; preds = %221
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %229 = load ptr, ptr %7, align 8
+  %230 = load ptr, ptr %8, align 8
+  %231 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %230, i32 0, i32 9
+  %232 = load i16, ptr %231, align 8
+  %233 = zext i16 %232 to i32
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %229, i64 %234
+  store ptr %235, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  store i32 0, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  %236 = load ptr, ptr %8, align 8
+  %237 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %236, i32 0, i32 10
+  %238 = load i16, ptr %237, align 2
+  %239 = zext i16 %238 to i64
+  store i64 %239, ptr %21, align 8
+  %240 = load ptr, ptr %19, align 8
+  %241 = ptrtoint ptr %240 to i64
+  %242 = and i64 %241, 7
+  %243 = icmp eq i64 %242, 0
+  br i1 %243, label %244, label %267
 
-241:                                              ; preds = %238
-  %242 = load i64, ptr %20, align 8
-  %243 = icmp ule i64 %242, 1024
-  br i1 %243, label %244, label %257
+244:                                              ; preds = %228
+  %245 = load i64, ptr %21, align 8
+  %246 = and i64 %245, 7
+  %247 = icmp eq i64 %246, 0
+  br i1 %247, label %248, label %267
 
-244:                                              ; preds = %241
-  %245 = load ptr, ptr %18, align 8
-  store ptr %245, ptr %21, align 8
-  %246 = load ptr, ptr %21, align 8
-  %247 = load i64, ptr %20, align 8
-  %248 = getelementptr i8, ptr %246, i64 %247
-  store ptr %248, ptr %22, align 8
-  br label %249
+248:                                              ; preds = %244
+  %249 = load i32, ptr %20, align 4
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %251, label %267
 
-249:                                              ; preds = %253, %244
-  %250 = load ptr, ptr %21, align 8
-  %251 = load ptr, ptr %22, align 8
-  %252 = icmp ult ptr %250, %251
-  br i1 %252, label %253, label %256
+251:                                              ; preds = %248
+  %252 = load i64, ptr %21, align 8
+  %253 = icmp ule i64 %252, 1024
+  br i1 %253, label %254, label %267
 
-253:                                              ; preds = %249
-  %254 = load ptr, ptr %21, align 8
-  %255 = getelementptr i64, ptr %254, i32 1
-  store ptr %255, ptr %21, align 8
-  store i64 0, ptr %254, align 8
-  br label %249, !llvm.loop !14
+254:                                              ; preds = %251
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  %255 = load ptr, ptr %19, align 8
+  store ptr %255, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  %256 = load ptr, ptr %22, align 8
+  %257 = load i64, ptr %21, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 %257
+  store ptr %258, ptr %23, align 8
+  br label %259
 
-256:                                              ; preds = %249
-  br label %262
+259:                                              ; preds = %263, %254
+  %260 = load ptr, ptr %22, align 8
+  %261 = load ptr, ptr %23, align 8
+  %262 = icmp ult ptr %260, %261
+  br i1 %262, label %263, label %266
 
-257:                                              ; preds = %241, %238, %234, %218
-  %258 = load ptr, ptr %18, align 8
-  %259 = load i32, ptr %19, align 4
-  %260 = trunc i32 %259 to i8
-  %261 = load i64, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %258, i8 %260, i64 %261, i1 false)
-  br label %262
+263:                                              ; preds = %259
+  %264 = load ptr, ptr %22, align 8
+  %265 = getelementptr inbounds nuw i64, ptr %264, i32 1
+  store ptr %265, ptr %22, align 8
+  store i64 0, ptr %264, align 8
+  br label %259, !llvm.loop !15
 
-262:                                              ; preds = %257, %256
-  br label %263
+266:                                              ; preds = %259
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  br label %272
 
-263:                                              ; preds = %262
-  %264 = load ptr, ptr %7, align 8
-  %265 = load ptr, ptr %8, align 8
-  %266 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %265, i32 0, i32 9
-  %267 = load i16, ptr %266, align 8
-  %268 = zext i16 %267 to i32
-  %269 = load ptr, ptr %8, align 8
-  %270 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %269, i32 0, i32 10
-  %271 = load i16, ptr %270, align 2
-  %272 = zext i16 %271 to i32
-  %273 = add i32 %268, %272
-  %274 = sext i32 %273 to i64
-  %275 = getelementptr i8, ptr %264, i64 %274
-  %276 = load ptr, ptr %9, align 8
-  %277 = load ptr, ptr %8, align 8
-  %278 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %277, i32 0, i32 9
-  %279 = load i16, ptr %278, align 8
-  %280 = zext i16 %279 to i32
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr i8, ptr %276, i64 %281
-  %283 = load ptr, ptr %8, align 8
-  %284 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %283, i32 0, i32 9
-  %285 = load i16, ptr %284, align 8
-  %286 = zext i16 %285 to i32
-  %287 = load ptr, ptr %8, align 8
-  %288 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %287, i32 0, i32 10
-  %289 = load i16, ptr %288, align 2
-  %290 = zext i16 %289 to i32
-  %291 = add i32 %286, %290
-  %292 = sub i32 8192, %291
-  %293 = sext i32 %292 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr align 1 %282, i64 %293, i1 false)
-  br label %294
+267:                                              ; preds = %251, %248, %244, %228
+  %268 = load ptr, ptr %19, align 8
+  %269 = load i32, ptr %20, align 4
+  %270 = trunc i32 %269 to i8
+  %271 = load i64, ptr %21, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %268, i8 %270, i64 %271, i1 false)
+  br label %272
 
-294:                                              ; preds = %263, %208
+272:                                              ; preds = %267, %266
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  br label %273
+
+273:                                              ; preds = %272
+  br label %274
+
+274:                                              ; preds = %273
+  %275 = load ptr, ptr %7, align 8
+  %276 = load ptr, ptr %8, align 8
+  %277 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %276, i32 0, i32 9
+  %278 = load i16, ptr %277, align 8
+  %279 = zext i16 %278 to i32
+  %280 = load ptr, ptr %8, align 8
+  %281 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %280, i32 0, i32 10
+  %282 = load i16, ptr %281, align 2
+  %283 = zext i16 %282 to i32
+  %284 = add i32 %279, %283
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds i8, ptr %275, i64 %285
+  %287 = load ptr, ptr %9, align 8
+  %288 = load ptr, ptr %8, align 8
+  %289 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %288, i32 0, i32 9
+  %290 = load i16, ptr %289, align 8
+  %291 = zext i16 %290 to i32
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr inbounds i8, ptr %287, i64 %292
+  %294 = load ptr, ptr %8, align 8
+  %295 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %294, i32 0, i32 9
+  %296 = load i16, ptr %295, align 8
+  %297 = zext i16 %296 to i32
+  %298 = load ptr, ptr %8, align 8
+  %299 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %298, i32 0, i32 10
+  %300 = load i16, ptr %299, align 2
+  %301 = zext i16 %300 to i32
+  %302 = add i32 %297, %301
+  %303 = sub i32 8192, %302
+  %304 = sext i32 %303 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr align 1 %293, i64 %304, i1 false)
+  br label %305
+
+305:                                              ; preds = %274, %218
   store i1 true, ptr %4, align 1
-  br label %295
+  store i32 1, ptr %12, align 4
+  br label %306
 
-295:                                              ; preds = %294, %188, %170, %155, %133, %71, %45
-  %296 = load i1, ptr %4, align 1
-  ret i1 %296
+306:                                              ; preds = %305, %209, %74, %47
+  call void @llvm.lifetime.end.p0(i64 8192, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %307 = load i1, ptr %4, align 1
+  ret i1 %307
 }
 
-declare i32 @pglz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #1
+declare i32 @pglz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #0 {
@@ -4889,7 +5389,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
   %18 = zext i1 %4 to i8
   store i8 %18, ptr %11, align 1
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.XLogRecord, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.XLogRecord, ptr %19, i32 0, i32 0
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp ult i64 %22, 24
@@ -4910,7 +5410,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
   %31 = load i64, ptr %8, align 8
   %32 = trunc i64 %31 to i32
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct.XLogRecord, ptr %33, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.XLogRecord, ptr %33, i32 0, i32 0
   %35 = load i32, ptr %34, align 8
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %25, ptr noundef @.str.28, i32 noundef %30, i32 noundef %32, i32 noundef 24, i32 noundef %35)
   store i1 false, ptr %6, align 1
@@ -4918,7 +5418,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 
 36:                                               ; preds = %5
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds %struct.XLogRecord, ptr %37, i32 0, i32 4
+  %38 = getelementptr inbounds nuw %struct.XLogRecord, ptr %37, i32 0, i32 4
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = call zeroext i1 @RmgrIdIsBuiltin(i32 noundef %40)
@@ -4926,7 +5426,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.XLogRecord, ptr %43, i32 0, i32 4
+  %44 = getelementptr inbounds nuw %struct.XLogRecord, ptr %43, i32 0, i32 4
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = call zeroext i1 @RmgrIdIsCustom(i32 noundef %46)
@@ -4935,7 +5435,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 48:                                               ; preds = %42
   %49 = load ptr, ptr %7, align 8
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds %struct.XLogRecord, ptr %50, i32 0, i32 4
+  %51 = getelementptr inbounds nuw %struct.XLogRecord, ptr %50, i32 0, i32 4
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   br label %54
@@ -4955,13 +5455,13 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
   br label %119
 
 61:                                               ; preds = %42, %36
-  %62 = load i8, ptr %11, align 1
+  %62 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %91
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %struct.XLogRecord, ptr %65, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %struct.XLogRecord, ptr %65, i32 0, i32 2
   %67 = load i64, ptr %66, align 8
   %68 = load i64, ptr %8, align 8
   %69 = icmp ult i64 %67, %68
@@ -4977,12 +5477,12 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 73:                                               ; preds = %72
   store i32 1, ptr %14, align 4
   %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.XLogRecord, ptr %74, i32 0, i32 2
+  %75 = getelementptr inbounds nuw %struct.XLogRecord, ptr %74, i32 0, i32 2
   %76 = load i64, ptr %75, align 8
   %77 = lshr i64 %76, 32
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds %struct.XLogRecord, ptr %79, i32 0, i32 2
+  %80 = getelementptr inbounds nuw %struct.XLogRecord, ptr %79, i32 0, i32 2
   %81 = load i64, ptr %80, align 8
   %82 = trunc i64 %81 to i32
   br label %83
@@ -5006,7 +5506,7 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 
 91:                                               ; preds = %61
   %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.XLogRecord, ptr %92, i32 0, i32 2
+  %93 = getelementptr inbounds nuw %struct.XLogRecord, ptr %92, i32 0, i32 2
   %94 = load i64, ptr %93, align 8
   %95 = load i64, ptr %9, align 8
   %96 = icmp ne i64 %94, %95
@@ -5022,12 +5522,12 @@ define internal zeroext i1 @ValidXLogRecordHeader(ptr noundef %0, i64 noundef %1
 100:                                              ; preds = %99
   store i32 1, ptr %16, align 4
   %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct.XLogRecord, ptr %101, i32 0, i32 2
+  %102 = getelementptr inbounds nuw %struct.XLogRecord, ptr %101, i32 0, i32 2
   %103 = load i64, ptr %102, align 8
   %104 = lshr i64 %103, 32
   %105 = trunc i64 %104 to i32
   %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds %struct.XLogRecord, ptr %106, i32 0, i32 2
+  %107 = getelementptr inbounds nuw %struct.XLogRecord, ptr %106, i32 0, i32 2
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i32
   br label %110
@@ -5066,187 +5566,198 @@ define internal ptr @XLogReadRecordAlloc(ptr noundef %0, i64 noundef %1, i1 noun
   %7 = alloca i8, align 1
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
-  %10 = zext i1 %2 to i8
-  store i8 %10, ptr %7, align 1
-  %11 = load i64, ptr %6, align 8
-  %12 = call i64 @DecodeXLogRecordRequiredSpace(i64 noundef %11)
-  store i64 %12, ptr %8, align 8
+  %11 = zext i1 %2 to i8
+  store i8 %11, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %12 = load i64, ptr %6, align 8
+  %13 = call i64 @DecodeXLogRecordRequiredSpace(i64 noundef %12)
+  store i64 %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   store ptr null, ptr %9, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.XLogReaderState, ptr %13, i32 0, i32 12
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  %17 = zext i1 %16 to i32
-  %18 = icmp ne i32 %17, 0
-  %19 = zext i1 %18 to i32
-  %20 = sext i32 %19 to i64
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %49
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %14, i32 0, i32 12
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  %18 = zext i1 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %51
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.XLogReaderState, ptr %23, i32 0, i32 13
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %25, i32 0, i32 13
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %32
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.XLogReaderState, ptr %28, i32 0, i32 13
-  store i64 65536, ptr %29, align 8
-  br label %30
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %30, i32 0, i32 13
+  store i64 65536, ptr %31, align 8
+  br label %32
 
-30:                                               ; preds = %27, %22
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.XLogReaderState, ptr %31, i32 0, i32 13
-  %33 = load i64, ptr %32, align 8
-  %34 = call ptr @palloc(i64 noundef %33)
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.XLogReaderState, ptr %35, i32 0, i32 12
-  store ptr %34, ptr %36, align 8
+32:                                               ; preds = %29, %24
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %33, i32 0, i32 13
+  %35 = load i64, ptr %34, align 8
+  %36 = call ptr @palloc(i64 noundef %35)
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.XLogReaderState, ptr %37, i32 0, i32 12
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.XLogReaderState, ptr %40, i32 0, i32 15
-  store ptr %39, ptr %41, align 8
+  %38 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %37, i32 0, i32 12
+  store ptr %36, ptr %38, align 8
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %39, i32 0, i32 12
+  %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.XLogReaderState, ptr %42, i32 0, i32 12
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.XLogReaderState, ptr %45, i32 0, i32 16
-  store ptr %44, ptr %46, align 8
+  %43 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %42, i32 0, i32 15
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %44, i32 0, i32 12
+  %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.XLogReaderState, ptr %47, i32 0, i32 14
-  store i8 1, ptr %48, align 8
-  br label %49
+  %48 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %47, i32 0, i32 16
+  store ptr %46, ptr %48, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %49, i32 0, i32 14
+  store i8 1, ptr %50, align 8
+  br label %51
 
-49:                                               ; preds = %30, %3
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.XLogReaderState, ptr %50, i32 0, i32 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.XLogReaderState, ptr %53, i32 0, i32 15
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp uge ptr %52, %55
-  br i1 %56, label %57, label %101
+51:                                               ; preds = %32, %3
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %52, i32 0, i32 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %55, i32 0, i32 15
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp uge ptr %54, %57
+  br i1 %58, label %59, label %103
 
-57:                                               ; preds = %49
-  %58 = load i64, ptr %8, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.XLogReaderState, ptr %59, i32 0, i32 13
-  %61 = load i64, ptr %60, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.XLogReaderState, ptr %62, i32 0, i32 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.XLogReaderState, ptr %65, i32 0, i32 12
-  %67 = load ptr, ptr %66, align 8
-  %68 = ptrtoint ptr %64 to i64
-  %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = sub i64 %61, %70
-  %72 = icmp ule i64 %58, %71
-  br i1 %72, label %73, label %80
+59:                                               ; preds = %51
+  %60 = load i64, ptr %8, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %61, i32 0, i32 13
+  %63 = load i64, ptr %62, align 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %64, i32 0, i32 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %67, i32 0, i32 12
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %66 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = sub i64 %63, %72
+  %74 = icmp ule i64 %60, %73
+  br i1 %74, label %75, label %82
 
-73:                                               ; preds = %57
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.XLogReaderState, ptr %74, i32 0, i32 16
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %9, align 8
-  %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %77, i32 0, i32 1
-  store i8 0, ptr %78, align 8
+75:                                               ; preds = %59
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %76, i32 0, i32 16
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %9, align 8
   %79 = load ptr, ptr %9, align 8
-  store ptr %79, ptr %4, align 8
-  br label %131
+  %80 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %79, i32 0, i32 1
+  store i8 0, ptr %80, align 8
+  %81 = load ptr, ptr %9, align 8
+  store ptr %81, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %133
 
-80:                                               ; preds = %57
-  %81 = load i64, ptr %8, align 8
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.XLogReaderState, ptr %82, i32 0, i32 15
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.XLogReaderState, ptr %85, i32 0, i32 12
-  %87 = load ptr, ptr %86, align 8
-  %88 = ptrtoint ptr %84 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = icmp ult i64 %81, %90
-  br i1 %91, label %92, label %99
+82:                                               ; preds = %59
+  %83 = load i64, ptr %8, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %84, i32 0, i32 15
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %87, i32 0, i32 12
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %86 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = icmp ult i64 %83, %92
+  br i1 %93, label %94, label %101
 
-92:                                               ; preds = %80
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.XLogReaderState, ptr %93, i32 0, i32 12
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %9, align 8
-  %96 = load ptr, ptr %9, align 8
-  %97 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %96, i32 0, i32 1
-  store i8 0, ptr %97, align 8
+94:                                               ; preds = %82
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %95, i32 0, i32 12
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %9, align 8
   %98 = load ptr, ptr %9, align 8
-  store ptr %98, ptr %4, align 8
-  br label %131
+  %99 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %98, i32 0, i32 1
+  store i8 0, ptr %99, align 8
+  %100 = load ptr, ptr %9, align 8
+  store ptr %100, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %133
 
-99:                                               ; preds = %80
-  br label %100
+101:                                              ; preds = %82
+  br label %102
 
-100:                                              ; preds = %99
-  br label %121
+102:                                              ; preds = %101
+  br label %123
 
-101:                                              ; preds = %49
-  %102 = load i64, ptr %8, align 8
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.XLogReaderState, ptr %103, i32 0, i32 15
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.XLogReaderState, ptr %106, i32 0, i32 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = ptrtoint ptr %105 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  %112 = icmp ult i64 %102, %111
-  br i1 %112, label %113, label %120
+103:                                              ; preds = %51
+  %104 = load i64, ptr %8, align 8
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %105, i32 0, i32 15
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %108, i32 0, i32 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %107 to i64
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %114 = icmp ult i64 %104, %113
+  br i1 %114, label %115, label %122
 
-113:                                              ; preds = %101
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct.XLogReaderState, ptr %114, i32 0, i32 16
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %9, align 8
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %117, i32 0, i32 1
-  store i8 0, ptr %118, align 8
+115:                                              ; preds = %103
+  %116 = load ptr, ptr %5, align 8
+  %117 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %116, i32 0, i32 16
+  %118 = load ptr, ptr %117, align 8
+  store ptr %118, ptr %9, align 8
   %119 = load ptr, ptr %9, align 8
-  store ptr %119, ptr %4, align 8
-  br label %131
+  %120 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %119, i32 0, i32 1
+  store i8 0, ptr %120, align 8
+  %121 = load ptr, ptr %9, align 8
+  store ptr %121, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %133
 
-120:                                              ; preds = %101
-  br label %121
+122:                                              ; preds = %103
+  br label %123
 
-121:                                              ; preds = %120, %100
-  %122 = load i8, ptr %7, align 1
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %124, label %130
+123:                                              ; preds = %122, %102
+  %124 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %132
 
-124:                                              ; preds = %121
-  %125 = load i64, ptr %8, align 8
-  %126 = call ptr @palloc(i64 noundef %125)
-  store ptr %126, ptr %9, align 8
-  %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %127, i32 0, i32 1
-  store i8 1, ptr %128, align 8
+126:                                              ; preds = %123
+  %127 = load i64, ptr %8, align 8
+  %128 = call ptr @palloc(i64 noundef %127)
+  store ptr %128, ptr %9, align 8
   %129 = load ptr, ptr %9, align 8
-  store ptr %129, ptr %4, align 8
-  br label %131
+  %130 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %129, i32 0, i32 1
+  store i8 1, ptr %130, align 8
+  %131 = load ptr, ptr %9, align 8
+  store ptr %131, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %133
 
-130:                                              ; preds = %121
+132:                                              ; preds = %123
   store ptr null, ptr %4, align 8
-  br label %131
+  store i32 1, ptr %10, align 4
+  br label %133
 
-131:                                              ; preds = %130, %124, %113, %92, %73
-  %132 = load ptr, ptr %4, align 8
-  ret ptr %132
+133:                                              ; preds = %132, %126, %115, %94, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %134 = load ptr, ptr %4, align 8
+  ret ptr %134
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5257,65 +5768,73 @@ define internal zeroext i1 @ValidXLogRecord(ptr noundef %0, ptr noundef %1, i64 
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
   store i32 -1, ptr %8, align 4
-  %10 = load ptr, ptr @pg_comp_crc32c, align 8
-  %11 = load i32, ptr %8, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr i8, ptr %12, i64 24
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.XLogRecord, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8
-  %17 = zext i32 %16 to i64
-  %18 = sub i64 %17, 24
-  %19 = call i32 %10(i32 noundef %11, ptr noundef %13, i64 noundef %18)
-  store i32 %19, ptr %8, align 4
-  %20 = load ptr, ptr @pg_comp_crc32c, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i32 %20(i32 noundef %21, ptr noundef %22, i64 noundef 20)
-  store i32 %23, ptr %8, align 4
-  %24 = load i32, ptr %8, align 4
-  %25 = xor i32 %24, -1
-  store i32 %25, ptr %8, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.XLogRecord, ptr %26, i32 0, i32 5
-  %28 = load i32, ptr %27, align 4
-  %29 = load i32, ptr %8, align 4
-  %30 = icmp eq i32 %28, %29
-  br i1 %30, label %40, label %31
+  %11 = load ptr, ptr @pg_comp_crc32c, align 8
+  %12 = load i32, ptr %8, align 4
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.XLogRecord, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %17 to i64
+  %19 = sub i64 %18, 24
+  %20 = call i32 %11(i32 noundef %12, ptr noundef %14, i64 noundef %19)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr @pg_comp_crc32c, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i32 %21(i32 noundef %22, ptr noundef %23, i64 noundef 20)
+  store i32 %24, ptr %8, align 4
+  %25 = load i32, ptr %8, align 4
+  %26 = xor i32 %25, -1
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.XLogRecord, ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 4
+  %30 = load i32, ptr %8, align 4
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %42, label %32
 
-31:                                               ; preds = %3
-  %32 = load ptr, ptr %5, align 8
-  br label %33
-
-33:                                               ; preds = %31
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %5, align 8
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %32
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
   store i32 1, ptr %9, align 4
-  %35 = load i64, ptr %7, align 8
-  %36 = lshr i64 %35, 32
-  %37 = trunc i64 %36 to i32
-  %38 = load i64, ptr %7, align 8
+  %37 = load i64, ptr %7, align 8
+  %38 = lshr i64 %37, 32
   %39 = trunc i64 %38 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %32, ptr noundef @.str.33, i32 noundef %37, i32 noundef %39)
+  %40 = load i64, ptr %7, align 8
+  %41 = trunc i64 %40 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %33, ptr noundef @.str.33, i32 noundef %39, i32 noundef %41)
   store i1 false, ptr %4, align 1
-  br label %41
+  store i32 1, ptr %10, align 4
+  br label %43
 
-40:                                               ; preds = %3
+42:                                               ; preds = %3
   store i1 true, ptr %4, align 1
-  br label %41
+  store i32 1, ptr %10, align 4
+  br label %43
 
-41:                                               ; preds = %40, %34
-  %42 = load i1, ptr %4, align 1
-  ret i1 %42
+43:                                               ; preds = %42, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %44 = load i1, ptr %4, align 1
+  ret i1 %44
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @RmgrIdIsBuiltin(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @RmgrIdIsBuiltin(i32 noundef %0) #5 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -5323,8 +5842,8 @@ define internal zeroext i1 @RmgrIdIsBuiltin(i32 noundef %0) #0 {
   ret i1 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @RmgrIdIsCustom(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @RmgrIdIsCustom(i32 noundef %0) #5 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -5342,37 +5861,42 @@ define internal zeroext i1 @RmgrIdIsCustom(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
+declare void @llvm.va_start.p0(ptr) #9
 
-declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
+declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_end.p0(ptr) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

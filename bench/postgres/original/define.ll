@@ -48,7 +48,7 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -60,7 +60,7 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -70,10 +70,10 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 55, ptr noundef @__func__.defGetString)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 41, ptr noundef @__func__.defGetString)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -84,25 +84,25 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %68 [
-    i32 448, label %28
-    i32 449, label %36
-    i32 450, label %42
-    i32 451, label %50
-    i32 60, label %56
+    i32 464, label %28
+    i32 465, label %36
+    i32 466, label %42
+    i32 467, label %50
+    i32 68, label %56
     i32 1, label %61
-    i32 69, label %66
+    i32 77, label %66
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.2, i64 noundef %34)
@@ -111,19 +111,19 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 
 36:                                               ; preds = %22
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.DefElem, ptr %37, i32 0, i32 3
+  %38 = getelementptr inbounds nuw %struct.DefElem, ptr %37, i32 0, i32 3
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.Float, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct.Float, ptr %39, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %2, align 8
   br label %84
 
 42:                                               ; preds = %22
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.DefElem, ptr %43, i32 0, i32 3
+  %44 = getelementptr inbounds nuw %struct.DefElem, ptr %43, i32 0, i32 3
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.Boolean, ptr %45, i32 0, i32 1
-  %47 = load i8, ptr %46, align 4
+  %46 = getelementptr inbounds nuw %struct.Boolean, ptr %45, i32 0, i32 1
+  %47 = load i8, ptr %46, align 4, !range !4, !noundef !5
   %48 = trunc i8 %47 to i1
   %49 = select i1 %48, ptr @.str.3, ptr @.str.4
   store ptr %49, ptr %2, align 8
@@ -131,16 +131,16 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 
 50:                                               ; preds = %22
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.DefElem, ptr %51, i32 0, i32 3
+  %52 = getelementptr inbounds nuw %struct.DefElem, ptr %51, i32 0, i32 3
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.String, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.String, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %2, align 8
   br label %84
 
 56:                                               ; preds = %22
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.DefElem, ptr %57, i32 0, i32 3
+  %58 = getelementptr inbounds nuw %struct.DefElem, ptr %57, i32 0, i32 3
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @TypeNameToString(ptr noundef %59)
   store ptr %60, ptr %2, align 8
@@ -148,7 +148,7 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 
 61:                                               ; preds = %22
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.DefElem, ptr %62, i32 0, i32 3
+  %63 = getelementptr inbounds nuw %struct.DefElem, ptr %62, i32 0, i32 3
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @NameListToString(ptr noundef %64)
   store ptr %65, ptr %2, align 8
@@ -166,7 +166,7 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
   br i1 true, label %70, label %72
 
 70:                                               ; preds = %69
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %71, label %74, label %81
 
 72:                                               ; preds = %69
@@ -175,12 +175,12 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
 
 74:                                               ; preds = %72, %70
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.DefElem, ptr %75, i32 0, i32 3
+  %76 = getelementptr inbounds nuw %struct.DefElem, ptr %75, i32 0, i32 3
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.Node, ptr %77, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.Node, ptr %77, i32 0, i32 0
   %79 = load i32, ptr %78, align 4
   %80 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %79)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 73, ptr noundef @__func__.defGetString)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 59, ptr noundef @__func__.defGetString)
   br label %81
 
 81:                                               ; preds = %74, %72, %70
@@ -198,26 +198,29 @@ define dso_local ptr @defGetString(ptr noundef %0) #0 {
   ret ptr %85
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @psprintf(ptr noundef, ...) #2
+declare ptr @psprintf(ptr noundef, ...) #3
 
-declare ptr @TypeNameToString(ptr noundef) #2
+declare ptr @TypeNameToString(ptr noundef) #3
 
-declare ptr @NameListToString(ptr noundef) #2
+declare ptr @NameListToString(ptr noundef) #3
 
-declare ptr @pstrdup(ptr noundef) #2
+declare ptr @pstrdup(ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @defGetNumeric(ptr noundef %0) #0 {
@@ -225,7 +228,7 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -237,7 +240,7 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -247,10 +250,10 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 88, ptr noundef @__func__.defGetNumeric)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 74, ptr noundef @__func__.defGetNumeric)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -261,20 +264,20 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %42 [
-    i32 448, label %28
-    i32 449, label %35
+    i32 464, label %28
+    i32 465, label %35
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = sitofp i32 %33 to double
   store double %34, ptr %2, align 8
@@ -282,11 +285,11 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
 
 35:                                               ; preds = %22
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.DefElem, ptr %36, i32 0, i32 3
+  %37 = getelementptr inbounds nuw %struct.DefElem, ptr %36, i32 0, i32 3
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.Float, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.Float, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
-  %41 = call double @atof(ptr noundef %40) #6
+  %41 = call double @atof(ptr noundef %40) #10
   store double %41, ptr %2, align 8
   br label %57
 
@@ -297,7 +300,7 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
   br i1 true, label %44, label %46
 
 44:                                               ; preds = %43
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %45, label %48, label %54
 
 46:                                               ; preds = %43
@@ -307,10 +310,10 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
 48:                                               ; preds = %46, %44
   %49 = call i32 @errcode(i32 noundef 16801924)
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.DefElem, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.DefElem, ptr %50, i32 0, i32 2
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %52)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 99, ptr noundef @__func__.defGetNumeric)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 85, ptr noundef @__func__.defGetNumeric)
   br label %54
 
 54:                                               ; preds = %48, %46, %44
@@ -328,142 +331,172 @@ define dso_local double @defGetNumeric(ptr noundef %0) #0 {
   ret double %58
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare double @atof(ptr noundef) #3
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally double @atof(ptr noundef nonnull %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call double @strtod(ptr noundef %3, ptr noundef null) #11
+  ret double %4
+}
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @defGetBoolean(ptr noundef %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.DefElem, ptr %5, i32 0, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %63
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.DefElem, ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.DefElem, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.Node, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %26 [
-    i32 448, label %16
+  store i1 true, ptr %2, align 1
+  br label %67
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.DefElem, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.Node, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4
+  switch i32 %16, label %27 [
+    i32 464, label %17
   ]
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.DefElem, ptr %17, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.Integer, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %24 [
-    i32 0, label %22
-    i32 1, label %23
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.DefElem, ptr %18, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.Integer, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4
+  switch i32 %22, label %25 [
+    i32 0, label %23
+    i32 1, label %24
   ]
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   store i1 false, ptr %2, align 1
-  br label %63
+  br label %67
 
-23:                                               ; preds = %16
+24:                                               ; preds = %17
   store i1 true, ptr %2, align 1
-  br label %63
+  br label %67
 
-24:                                               ; preds = %16
-  br label %25
+25:                                               ; preds = %17
+  br label %26
 
-25:                                               ; preds = %24
-  br label %49
+26:                                               ; preds = %25
+  br label %53
 
-26:                                               ; preds = %10
-  %27 = load ptr, ptr %3, align 8
-  %28 = call ptr @defGetString(ptr noundef %27)
-  store ptr %28, ptr %4, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef @.str.3)
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %33
+27:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %28 = load ptr, ptr %3, align 8
+  %29 = call ptr @defGetString(ptr noundef %28)
+  store ptr %29, ptr %4, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = call i32 @pg_strcasecmp(ptr noundef %30, ptr noundef @.str.3)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %26
+33:                                               ; preds = %27
   store i1 true, ptr %2, align 1
-  br label %63
-
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %4, align 8
-  %35 = call i32 @pg_strcasecmp(ptr noundef %34, ptr noundef @.str.4)
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %33
-  store i1 false, ptr %2, align 1
-  br label %63
-
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %4, align 8
-  %40 = call i32 @pg_strcasecmp(ptr noundef %39, ptr noundef @.str.8)
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %38
-  store i1 true, ptr %2, align 1
-  br label %63
-
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %4, align 8
-  %45 = call i32 @pg_strcasecmp(ptr noundef %44, ptr noundef @.str.9)
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %48
-
-47:                                               ; preds = %43
-  store i1 false, ptr %2, align 1
-  br label %63
-
-48:                                               ; preds = %43
-  br label %49
-
-49:                                               ; preds = %48, %25
+  store i32 1, ptr %5, align 4
   br label %50
 
-50:                                               ; preds = %49
-  br i1 true, label %51, label %53
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %4, align 8
+  %36 = call i32 @pg_strcasecmp(ptr noundef %35, ptr noundef @.str.4)
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
 
-51:                                               ; preds = %50
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %52, label %55, label %61
+38:                                               ; preds = %34
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %50
 
-53:                                               ; preds = %50
-  %54 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %54, label %55, label %61
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %4, align 8
+  %41 = call i32 @pg_strcasecmp(ptr noundef %40, ptr noundef @.str.8)
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %44
 
-55:                                               ; preds = %53, %51
-  %56 = call i32 @errcode(i32 noundef 16801924)
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.DefElem, ptr %57, i32 0, i32 2
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10, ptr noundef %59)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 155, ptr noundef @__func__.defGetBoolean)
-  br label %61
+43:                                               ; preds = %39
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %50
 
-61:                                               ; preds = %55, %53, %51
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8
+  %46 = call i32 @pg_strcasecmp(ptr noundef %45, ptr noundef @.str.9)
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %44
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %50
+
+49:                                               ; preds = %44
+  store i32 0, ptr %5, align 4
+  br label %50
+
+50:                                               ; preds = %49, %48, %43, %38, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %51 = load i32, ptr %5, align 4
+  switch i32 %51, label %69 [
+    i32 0, label %52
+    i32 1, label %67
+  ]
+
+52:                                               ; preds = %50
+  br label %53
+
+53:                                               ; preds = %52, %26
+  br label %54
+
+54:                                               ; preds = %53
+  br i1 true, label %55, label %57
+
+55:                                               ; preds = %54
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %56, label %59, label %65
+
+57:                                               ; preds = %54
+  %58 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %58, label %59, label %65
+
+59:                                               ; preds = %57, %55
+  %60 = call i32 @errcode(i32 noundef 16801924)
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.DefElem, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10, ptr noundef %63)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 141, ptr noundef @__func__.defGetBoolean)
+  br label %65
+
+65:                                               ; preds = %59, %57, %55
   unreachable
 
-62:                                               ; No predecessors!
+66:                                               ; No predecessors!
   store i1 false, ptr %2, align 1
-  br label %63
+  br label %67
 
-63:                                               ; preds = %62, %47, %42, %37, %32, %23, %22, %9
-  %64 = load i1, ptr %2, align 1
-  ret i1 %64
+67:                                               ; preds = %66, %50, %24, %23, %10
+  %68 = load i1, ptr %2, align 1
+  ret i1 %68
+
+69:                                               ; preds = %50
+  unreachable
 }
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
@@ -471,7 +504,7 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -483,7 +516,7 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -493,10 +526,10 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 169, ptr noundef @__func__.defGetInt32)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 155, ptr noundef @__func__.defGetInt32)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -507,19 +540,19 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %34 [
-    i32 448, label %28
+    i32 464, label %28
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %2, align 4
   br label %49
@@ -531,7 +564,7 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
   br i1 true, label %36, label %38
 
 36:                                               ; preds = %35
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %37, label %40, label %46
 
 38:                                               ; preds = %35
@@ -541,10 +574,10 @@ define dso_local i32 @defGetInt32(ptr noundef %0) #0 {
 40:                                               ; preds = %38, %36
   %41 = call i32 @errcode(i32 noundef 16801924)
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.DefElem, ptr %42, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %struct.DefElem, ptr %42, i32 0, i32 2
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %44)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 178, ptr noundef @__func__.defGetInt32)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 164, ptr noundef @__func__.defGetInt32)
   br label %46
 
 46:                                               ; preds = %40, %38, %36
@@ -568,7 +601,7 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -580,7 +613,7 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -590,10 +623,10 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 193, ptr noundef @__func__.defGetInt64)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 179, ptr noundef @__func__.defGetInt64)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -604,20 +637,20 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %44 [
-    i32 448, label %28
-    i32 449, label %35
+    i32 464, label %28
+    i32 465, label %35
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   store i64 %34, ptr %2, align 8
@@ -625,9 +658,9 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
 
 35:                                               ; preds = %22
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.DefElem, ptr %36, i32 0, i32 3
+  %37 = getelementptr inbounds nuw %struct.DefElem, ptr %36, i32 0, i32 3
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.Float, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.Float, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
   %41 = call i64 @CStringGetDatum(ptr noundef %40)
   %42 = call i64 @DirectFunctionCall1Coll(ptr noundef @int8in, i32 noundef 0, i64 noundef %41)
@@ -642,7 +675,7 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
   br i1 true, label %46, label %48
 
 46:                                               ; preds = %45
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %47, label %50, label %56
 
 48:                                               ; preds = %45
@@ -652,10 +685,10 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
 50:                                               ; preds = %48, %46
   %51 = call i32 @errcode(i32 noundef 16801924)
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.DefElem, ptr %52, i32 0, i32 2
+  %53 = getelementptr inbounds nuw %struct.DefElem, ptr %52, i32 0, i32 2
   %54 = load ptr, ptr %53, align 8
   %55 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %54)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 211, ptr noundef @__func__.defGetInt64)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 197, ptr noundef @__func__.defGetInt64)
   br label %56
 
 56:                                               ; preds = %50, %48, %46
@@ -673,20 +706,20 @@ define dso_local i64 @defGetInt64(ptr noundef %0) #0 {
   ret i64 %60
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetInt64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetInt64(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #3
 
-declare i64 @int8in(ptr noundef) #2
+declare i64 @int8in(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CStringGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CStringGetDatum(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -700,7 +733,7 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -712,7 +745,7 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -722,10 +755,10 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 226, ptr noundef @__func__.defGetObjectId)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 212, ptr noundef @__func__.defGetObjectId)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -736,29 +769,29 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %43 [
-    i32 448, label %28
-    i32 449, label %34
+    i32 464, label %28
+    i32 465, label %34
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %2, align 4
   br label %58
 
 34:                                               ; preds = %22
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.DefElem, ptr %35, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.DefElem, ptr %35, i32 0, i32 3
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.Float, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.Float, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   %40 = call i64 @CStringGetDatum(ptr noundef %39)
   %41 = call i64 @DirectFunctionCall1Coll(ptr noundef @oidin, i32 noundef 0, i64 noundef %40)
@@ -773,7 +806,7 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
   br i1 true, label %45, label %47
 
 45:                                               ; preds = %44
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %46, label %49, label %55
 
 47:                                               ; preds = %44
@@ -783,10 +816,10 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
 49:                                               ; preds = %47, %45
   %50 = call i32 @errcode(i32 noundef 16801924)
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.DefElem, ptr %51, i32 0, i32 2
+  %52 = getelementptr inbounds nuw %struct.DefElem, ptr %51, i32 0, i32 2
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %53)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 244, ptr noundef @__func__.defGetObjectId)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 230, ptr noundef @__func__.defGetObjectId)
   br label %55
 
 55:                                               ; preds = %49, %47, %45
@@ -804,8 +837,8 @@ define dso_local i32 @defGetObjectId(ptr noundef %0) #0 {
   ret i32 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetObjectId(i64 noundef %0) #5 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -813,7 +846,7 @@ define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare i64 @oidin(ptr noundef) #2
+declare i64 @oidin(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
@@ -822,7 +855,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
   %4 = alloca %union.ListCell, align 8
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.DefElem, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.DefElem, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %23
@@ -834,7 +867,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
   br i1 true, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %12, label %15, label %21
 
 13:                                               ; preds = %10
@@ -844,10 +877,10 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
 15:                                               ; preds = %13, %11
   %16 = call i32 @errcode(i32 noundef 16801924)
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.DefElem, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.DefElem, ptr %17, i32 0, i32 2
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %19)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 259, ptr noundef @__func__.defGetQualifiedName)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 245, ptr noundef @__func__.defGetQualifiedName)
   br label %21
 
 21:                                               ; preds = %15, %13, %11
@@ -858,38 +891,38 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
 
 23:                                               ; preds = %22, %1
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.DefElem, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.DefElem, ptr %24, i32 0, i32 3
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.Node, ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.Node, ptr %26, i32 0, i32 0
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %46 [
-    i32 60, label %29
+    i32 68, label %29
     i32 1, label %35
-    i32 451, label %39
+    i32 467, label %39
   ]
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.DefElem, ptr %30, i32 0, i32 3
+  %31 = getelementptr inbounds nuw %struct.DefElem, ptr %30, i32 0, i32 3
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.TypeName, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.TypeName, ptr %32, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %2, align 8
   br label %61
 
 35:                                               ; preds = %23
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.DefElem, ptr %36, i32 0, i32 3
+  %37 = getelementptr inbounds nuw %struct.DefElem, ptr %36, i32 0, i32 3
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %2, align 8
   br label %61
 
 39:                                               ; preds = %23
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.DefElem, ptr %40, i32 0, i32 3
+  %41 = getelementptr inbounds nuw %struct.DefElem, ptr %40, i32 0, i32 3
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds %union.ListCell, ptr %4, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %union.ListCell, ptr %4, i32 0, i32 0
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @list_make1_impl(i32 noundef 1, ptr %44)
   store ptr %45, ptr %2, align 8
@@ -902,7 +935,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
   br i1 true, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %49, label %52, label %58
 
 50:                                               ; preds = %47
@@ -912,10 +945,10 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
 52:                                               ; preds = %50, %48
   %53 = call i32 @errcode(i32 noundef 16801924)
   %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.DefElem, ptr %54, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.DefElem, ptr %54, i32 0, i32 2
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12, ptr noundef %56)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 273, ptr noundef @__func__.defGetQualifiedName)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 259, ptr noundef @__func__.defGetQualifiedName)
   br label %58
 
 58:                                               ; preds = %52, %50, %48
@@ -933,7 +966,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef %0) #0 {
   ret ptr %62
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) #2
+declare ptr @list_make1_impl(i32 noundef, ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
@@ -942,7 +975,7 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
   %4 = alloca %union.ListCell, align 8
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.DefElem, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.DefElem, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %23
@@ -954,7 +987,7 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
   br i1 true, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %12, label %15, label %21
 
 13:                                               ; preds = %10
@@ -964,10 +997,10 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
 15:                                               ; preds = %13, %11
   %16 = call i32 @errcode(i32 noundef 16801924)
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.DefElem, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.DefElem, ptr %17, i32 0, i32 2
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %19)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 291, ptr noundef @__func__.defGetTypeName)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 277, ptr noundef @__func__.defGetTypeName)
   br label %21
 
 21:                                               ; preds = %15, %13, %11
@@ -978,28 +1011,28 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
 
 23:                                               ; preds = %22, %1
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.DefElem, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.DefElem, ptr %24, i32 0, i32 3
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.Node, ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.Node, ptr %26, i32 0, i32 0
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %41 [
-    i32 60, label %29
-    i32 451, label %33
+    i32 68, label %29
+    i32 467, label %33
   ]
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.DefElem, ptr %30, i32 0, i32 3
+  %31 = getelementptr inbounds nuw %struct.DefElem, ptr %30, i32 0, i32 3
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %2, align 8
   br label %56
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.DefElem, ptr %34, i32 0, i32 3
+  %35 = getelementptr inbounds nuw %struct.DefElem, ptr %34, i32 0, i32 3
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds %union.ListCell, ptr %4, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %union.ListCell, ptr %4, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @list_make1_impl(i32 noundef 1, ptr %38)
   %40 = call ptr @makeTypeNameFromNameList(ptr noundef %39)
@@ -1013,7 +1046,7 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
   br i1 true, label %43, label %45
 
 43:                                               ; preds = %42
-  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %44, label %47, label %53
 
 45:                                               ; preds = %42
@@ -1023,10 +1056,10 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
 47:                                               ; preds = %45, %43
   %48 = call i32 @errcode(i32 noundef 16801924)
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.DefElem, ptr %49, i32 0, i32 2
+  %50 = getelementptr inbounds nuw %struct.DefElem, ptr %49, i32 0, i32 2
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13, ptr noundef %51)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 303, ptr noundef @__func__.defGetTypeName)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 289, ptr noundef @__func__.defGetTypeName)
   br label %53
 
 53:                                               ; preds = %47, %45, %43
@@ -1044,7 +1077,7 @@ define dso_local ptr @defGetTypeName(ptr noundef %0) #0 {
   ret ptr %57
 }
 
-declare ptr @makeTypeNameFromNameList(ptr noundef) #2
+declare ptr @makeTypeNameFromNameList(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
@@ -1052,7 +1085,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.DefElem, ptr %4, i32 0, i32 3
+  %5 = getelementptr inbounds nuw %struct.DefElem, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %22
@@ -1064,7 +1097,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %11, label %14, label %20
 
 12:                                               ; preds = %9
@@ -1074,10 +1107,10 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %10
   %15 = call i32 @errcode(i32 noundef 16801924)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.DefElem, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.DefElem, ptr %16, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 319, ptr noundef @__func__.defGetTypeLength)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 305, ptr noundef @__func__.defGetTypeLength)
   br label %20
 
 20:                                               ; preds = %14, %12, %10
@@ -1088,26 +1121,26 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DefElem, ptr %23, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %struct.DefElem, ptr %23, i32 0, i32 3
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Node, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Node, ptr %25, i32 0, i32 0
   %27 = load i32, ptr %26, align 4
-  switch i32 %27, label %68 [
-    i32 448, label %28
-    i32 449, label %34
-    i32 451, label %48
-    i32 60, label %58
-    i32 1, label %67
+  switch i32 %27, label %67 [
+    i32 464, label %28
+    i32 465, label %34
+    i32 467, label %48
+    i32 68, label %58
+    i32 1, label %82
   ]
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.DefElem, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.DefElem, ptr %29, i32 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.Integer, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Integer, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %2, align 4
-  br label %99
+  br label %98
 
 34:                                               ; preds = %22
   br label %35
@@ -1116,7 +1149,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
   br i1 true, label %36, label %38
 
 36:                                               ; preds = %35
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %37, label %40, label %46
 
 38:                                               ; preds = %35
@@ -1126,23 +1159,23 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
 40:                                               ; preds = %38, %36
   %41 = call i32 @errcode(i32 noundef 16801924)
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.DefElem, ptr %42, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %struct.DefElem, ptr %42, i32 0, i32 2
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %44)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 328, ptr noundef @__func__.defGetTypeLength)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 314, ptr noundef @__func__.defGetTypeLength)
   br label %46
 
 46:                                               ; preds = %40, %38, %36
   unreachable
 
 47:                                               ; No predecessors!
-  br label %83
+  br label %82
 
 48:                                               ; preds = %22
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.DefElem, ptr %49, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.DefElem, ptr %49, i32 0, i32 3
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.String, ptr %51, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %struct.String, ptr %51, i32 0, i32 1
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @pg_strcasecmp(ptr noundef %53, ptr noundef @.str.14)
   %55 = icmp eq i32 %54, 0
@@ -1150,14 +1183,14 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
 
 56:                                               ; preds = %48
   store i32 -1, ptr %2, align 4
-  br label %99
+  br label %98
 
 57:                                               ; preds = %48
-  br label %83
+  br label %82
 
 58:                                               ; preds = %22
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.DefElem, ptr %59, i32 0, i32 3
+  %60 = getelementptr inbounds nuw %struct.DefElem, ptr %59, i32 0, i32 3
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @TypeNameToString(ptr noundef %61)
   %63 = call i32 @pg_strcasecmp(ptr noundef %62, ptr noundef @.str.14)
@@ -1166,79 +1199,76 @@ define dso_local i32 @defGetTypeLength(ptr noundef %0) #0 {
 
 65:                                               ; preds = %58
   store i32 -1, ptr %2, align 4
-  br label %99
+  br label %98
 
 66:                                               ; preds = %58
-  br label %83
+  br label %82
 
 67:                                               ; preds = %22
-  br label %83
+  br label %68
 
-68:                                               ; preds = %22
-  br label %69
+68:                                               ; preds = %67
+  br i1 true, label %69, label %71
 
 69:                                               ; preds = %68
-  br i1 true, label %70, label %72
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %70, label %73, label %80
 
-70:                                               ; preds = %69
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %71, label %74, label %81
+71:                                               ; preds = %68
+  %72 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %72, label %73, label %80
 
-72:                                               ; preds = %69
-  %73 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %73, label %74, label %81
+73:                                               ; preds = %71, %69
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.DefElem, ptr %74, i32 0, i32 3
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw %struct.Node, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4
+  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %78)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 330, ptr noundef @__func__.defGetTypeLength)
+  br label %80
 
-74:                                               ; preds = %72, %70
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.DefElem, ptr %75, i32 0, i32 3
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.Node, ptr %77, i32 0, i32 0
-  %79 = load i32, ptr %78, align 4
-  %80 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %79)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 344, ptr noundef @__func__.defGetTypeLength)
-  br label %81
-
-81:                                               ; preds = %74, %72, %70
+80:                                               ; preds = %73, %71, %69
   unreachable
 
-82:                                               ; No predecessors!
+81:                                               ; No predecessors!
+  br label %82
+
+82:                                               ; preds = %81, %22, %66, %57, %47
   br label %83
 
-83:                                               ; preds = %82, %67, %66, %57, %47
-  br label %84
+83:                                               ; preds = %82
+  br i1 true, label %84, label %86
 
 84:                                               ; preds = %83
-  br i1 true, label %85, label %87
+  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %85, label %88, label %96
 
-85:                                               ; preds = %84
-  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %86, label %89, label %97
+86:                                               ; preds = %83
+  %87 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %87, label %88, label %96
 
-87:                                               ; preds = %84
-  %88 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %88, label %89, label %97
+88:                                               ; preds = %86, %84
+  %89 = call i32 @errcode(i32 noundef 16801924)
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds nuw %struct.DefElem, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = call ptr @defGetString(ptr noundef %93)
+  %95 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %92, ptr noundef %94)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 335, ptr noundef @__func__.defGetTypeLength)
+  br label %96
 
-89:                                               ; preds = %87, %85
-  %90 = call i32 @errcode(i32 noundef 16801924)
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.DefElem, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %3, align 8
-  %95 = call ptr @defGetString(ptr noundef %94)
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %93, ptr noundef %95)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 349, ptr noundef @__func__.defGetTypeLength)
-  br label %97
-
-97:                                               ; preds = %89, %87, %85
+96:                                               ; preds = %88, %86, %84
   unreachable
 
-98:                                               ; No predecessors!
+97:                                               ; No predecessors!
   store i32 0, ptr %2, align 4
-  br label %99
+  br label %98
 
-99:                                               ; preds = %98, %65, %56, %28
-  %100 = load i32, ptr %2, align 4
-  ret i32 %100
+98:                                               ; preds = %97, %65, %56, %28
+  %99 = load i32, ptr %2, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1248,11 +1278,12 @@ define dso_local ptr @defGetStringList(ptr noundef %0) #0 {
   %4 = alloca %struct.ForEachState, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.DefElem, ptr %6, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %struct.DefElem, ptr %6, i32 0, i32 3
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %1
   br label %11
@@ -1261,7 +1292,7 @@ define dso_local ptr @defGetStringList(ptr noundef %0) #0 {
   br i1 true, label %12, label %14
 
 12:                                               ; preds = %11
-  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %13, label %16, label %22
 
 14:                                               ; preds = %11
@@ -1271,10 +1302,10 @@ define dso_local ptr @defGetStringList(ptr noundef %0) #0 {
 16:                                               ; preds = %14, %12
   %17 = call i32 @errcode(i32 noundef 16801924)
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.DefElem, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.DefElem, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %20)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 365, ptr noundef @__func__.defGetStringList)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 351, ptr noundef @__func__.defGetStringList)
   br label %22
 
 22:                                               ; preds = %16, %14, %12
@@ -1283,149 +1314,171 @@ define dso_local ptr @defGetStringList(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %1
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.DefElem, ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.Node, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp ne i32 %29, 1
-  br i1 %30, label %31, label %46
+24:                                               ; preds = %23
+  br label %25
 
-31:                                               ; preds = %24
-  br label %32
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.DefElem, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.Node, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp ne i32 %30, 1
+  br i1 %31, label %32, label %48
 
-32:                                               ; preds = %31
-  br i1 true, label %33, label %35
+32:                                               ; preds = %25
+  br label %33
 
 33:                                               ; preds = %32
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %34, label %37, label %44
+  br i1 true, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %36, label %37, label %44
+34:                                               ; preds = %33
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %35, label %38, label %45
 
-37:                                               ; preds = %35, %33
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.DefElem, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Node, ptr %40, i32 0, i32 0
-  %42 = load i32, ptr %41, align 4
-  %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %42)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 367, ptr noundef @__func__.defGetStringList)
-  br label %44
+36:                                               ; preds = %33
+  %37 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %37, label %38, label %45
 
-44:                                               ; preds = %37, %35, %33
+38:                                               ; preds = %36, %34
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.DefElem, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw %struct.Node, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4
+  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %43)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 353, ptr noundef @__func__.defGetStringList)
+  br label %45
+
+45:                                               ; preds = %38, %36, %34
   unreachable
 
-45:                                               ; No predecessors!
-  br label %46
+46:                                               ; No predecessors!
+  br label %47
 
-46:                                               ; preds = %45, %24
-  %47 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 0
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.DefElem, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %47, align 8
-  %51 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 1
-  store i32 0, ptr %51, align 8
-  br label %52
+47:                                               ; preds = %46
+  br label %48
 
-52:                                               ; preds = %98, %46
-  %53 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %73
+48:                                               ; preds = %47, %25
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #11
+  %49 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 0
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.DefElem, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %49, align 8
+  %53 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 1
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr i8, ptr %4, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 4, i1 false)
+  br label %55
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.List, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp slt i32 %58, %62
-  br i1 %63, label %64, label %73
+55:                                               ; preds = %103, %48
+  %56 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %76
 
-64:                                               ; preds = %56
-  %65 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.List, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 1
-  %70 = load i32, ptr %69, align 8
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr %union.ListCell, ptr %68, i64 %71
-  store ptr %72, ptr %3, align 8
-  br label %74
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw %struct.List, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp slt i32 %61, %65
+  br i1 %66, label %67, label %76
 
-73:                                               ; preds = %56, %52
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw %struct.List, ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 1
+  %73 = load i32, ptr %72, align 8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds %union.ListCell, ptr %71, i64 %74
+  store ptr %75, ptr %3, align 8
+  br label %77
+
+76:                                               ; preds = %59, %55
   store ptr null, ptr %3, align 8
-  br label %74
+  br label %77
 
-74:                                               ; preds = %73, %64
-  %75 = phi i32 [ 1, %64 ], [ 0, %73 ]
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %102
+77:                                               ; preds = %76, %67
+  %78 = phi i32 [ 1, %67 ], [ 0, %76 ]
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %81, label %80
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %3, align 8
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %5, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.Node, ptr %80, i32 0, i32 0
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, 451
-  br i1 %83, label %97, label %84
+80:                                               ; preds = %77
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #11
+  br label %107
 
-84:                                               ; preds = %77
-  br label %85
+81:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %82 = load ptr, ptr %3, align 8
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %5, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.Node, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp eq i32 %86, 467
+  br i1 %87, label %102, label %88
 
-85:                                               ; preds = %84
-  br i1 true, label %86, label %88
+88:                                               ; preds = %81
+  br label %89
 
-86:                                               ; preds = %85
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %87, label %90, label %95
+89:                                               ; preds = %88
+  br i1 true, label %90, label %92
 
-88:                                               ; preds = %85
-  %89 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %89, label %90, label %95
+90:                                               ; preds = %89
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %91, label %94, label %99
 
-90:                                               ; preds = %88, %86
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.Node, ptr %91, i32 0, i32 0
-  %93 = load i32, ptr %92, align 4
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.16, i32 noundef %93)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 375, ptr noundef @__func__.defGetStringList)
-  br label %95
+92:                                               ; preds = %89
+  %93 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %93, label %94, label %99
 
-95:                                               ; preds = %90, %88, %86
+94:                                               ; preds = %92, %90
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds nuw %struct.Node, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 4
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.16, i32 noundef %97)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 361, ptr noundef @__func__.defGetStringList)
+  br label %99
+
+99:                                               ; preds = %94, %92, %90
   unreachable
 
-96:                                               ; No predecessors!
-  br label %97
+100:                                              ; No predecessors!
+  br label %101
 
-97:                                               ; preds = %96, %77
-  br label %98
+101:                                              ; preds = %100
+  br label %102
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds %struct.ForEachState, ptr %4, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 8
-  br label %52, !llvm.loop !5
+102:                                              ; preds = %101, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %103
 
-102:                                              ; preds = %74
-  %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds %struct.DefElem, ptr %103, i32 0, i32 3
-  %105 = load ptr, ptr %104, align 8
-  ret ptr %105
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw %struct.ForEachState, ptr %4, i32 0, i32 1
+  %105 = load i32, ptr %104, align 8
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %104, align 8
+  br label %55, !llvm.loop !6
+
+107:                                              ; preds = %80
+  %108 = load ptr, ptr %2, align 8
+  %109 = getelementptr inbounds nuw %struct.DefElem, ptr %108, i32 0, i32 3
+  %110 = load ptr, ptr %109, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %110
 }
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @errorConflictingDefElem(ptr noundef %0, ptr noundef %1) #4 {
+define dso_local void @errorConflictingDefElem(ptr noundef %0, ptr noundef %1) #7 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1436,7 +1489,7 @@ define dso_local void @errorConflictingDefElem(ptr noundef %0, ptr noundef %1) #
   br i1 true, label %6, label %8
 
 6:                                                ; preds = %5
-  %7 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %7 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %7, label %10, label %18
 
 8:                                                ; preds = %5
@@ -1448,10 +1501,10 @@ define dso_local void @errorConflictingDefElem(ptr noundef %0, ptr noundef %1) #
   %12 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17)
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.DefElem, ptr %14, i32 0, i32 5
+  %15 = getelementptr inbounds nuw %struct.DefElem, ptr %14, i32 0, i32 5
   %16 = load i32, ptr %15, align 4
   %17 = call i32 @parser_errposition(ptr noundef %13, i32 noundef %16)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 390, ptr noundef @__func__.errorConflictingDefElem)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 376, ptr noundef @__func__.errorConflictingDefElem)
   br label %18
 
 18:                                               ; preds = %10, %8, %6
@@ -1461,10 +1514,13 @@ define dso_local void @errorConflictingDefElem(ptr noundef %0, ptr noundef %1) #
   unreachable
 }
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) #2
+declare i32 @parser_errposition(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: nounwind
+declare double @strtod(ptr noundef, ptr noundef) #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1472,20 +1528,26 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

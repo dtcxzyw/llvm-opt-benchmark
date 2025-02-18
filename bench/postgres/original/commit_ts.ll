@@ -49,9 +49,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [35 x i8] c"commit_ts_redo: unknown op code %u\00", align 1
 @__func__.commit_ts_redo = private unnamed_addr constant [15 x i8] c"commit_ts_redo\00", align 1
 @.str.9 = private unnamed_addr constant [36 x i8] c"could not get commit timestamp data\00", align 1
-@.str.10 = private unnamed_addr constant [71 x i8] c"Make sure the configuration parameter %s is set on the primary server.\00", align 1
+@.str.10 = private unnamed_addr constant [73 x i8] c"Make sure the configuration parameter \22%s\22 is set on the primary server.\00", align 1
 @.str.11 = private unnamed_addr constant [23 x i8] c"track_commit_timestamp\00", align 1
-@.str.12 = private unnamed_addr constant [49 x i8] c"Make sure the configuration parameter %s is set.\00", align 1
+@.str.12 = private unnamed_addr constant [51 x i8] c"Make sure the configuration parameter \22%s\22 is set.\00", align 1
 @__func__.error_commit_ts_disabled = private unnamed_addr constant [25 x i8] c"error_commit_ts_disabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -64,162 +64,200 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = alloca i64, align 8
-  %15 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
   store i32 %0, ptr %6, align 4
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
   store i64 %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
-  %16 = load ptr, ptr @commitTsShared, align 8
-  %17 = getelementptr inbounds %struct.CommitTimestampShared, ptr %16, i32 0, i32 2
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %5
-  br label %108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %17 = load ptr, ptr @commitTsShared, align 8
+  %18 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %17, i32 0, i32 2
+  %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %5
-  %22 = load i32, ptr %7, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %31
+  store i32 1, ptr %14, align 4
+  br label %112
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = sub i32 %26, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %25, i64 %28
-  %30 = load i32, ptr %29, align 4
-  store i32 %30, ptr %13, align 4
-  br label %33
+22:                                               ; preds = %5
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %32
 
-31:                                               ; preds = %21
-  %32 = load i32, ptr %6, align 4
-  store i32 %32, ptr %13, align 4
-  br label %33
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = sub i32 %27, 1
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %26, i64 %29
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr %13, align 4
+  br label %34
 
-33:                                               ; preds = %31, %24
-  %34 = load i32, ptr %6, align 4
-  store i32 %34, ptr %12, align 4
+32:                                               ; preds = %22
+  %33 = load i32, ptr %6, align 4
+  store i32 %33, ptr %13, align 4
+  br label %34
+
+34:                                               ; preds = %32, %25
+  %35 = load i32, ptr %6, align 4
+  store i32 %35, ptr %12, align 4
   store i32 0, ptr %11, align 4
-  br label %35
+  br label %36
 
-35:                                               ; preds = %73, %33
-  %36 = load i32, ptr %12, align 4
-  %37 = call i64 @TransactionIdToCTsPage(i32 noundef %36)
-  store i64 %37, ptr %14, align 8
-  %38 = load i32, ptr %11, align 4
-  store i32 %38, ptr %15, align 4
-  br label %39
+36:                                               ; preds = %84, %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %37 = load i32, ptr %12, align 4
+  %38 = call i64 @TransactionIdToCTsPage(i32 noundef %37)
+  store i64 %38, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %39 = load i32, ptr %11, align 4
+  store i32 %39, ptr %16, align 4
+  br label %40
 
-39:                                               ; preds = %54, %35
-  %40 = load i32, ptr %15, align 4
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %43, label %57
+40:                                               ; preds = %55, %36
+  %41 = load i32, ptr %16, align 4
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %58
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr i32, ptr %44, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = call i64 @TransactionIdToCTsPage(i32 noundef %48)
-  %50 = load i64, ptr %14, align 8
-  %51 = icmp ne i64 %49, %50
-  br i1 %51, label %52, label %53
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i32, ptr %16, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %45, i64 %47
+  %49 = load i32, ptr %48, align 4
+  %50 = call i64 @TransactionIdToCTsPage(i32 noundef %49)
+  %51 = load i64, ptr %15, align 8
+  %52 = icmp ne i64 %50, %51
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %43
-  br label %57
+53:                                               ; preds = %44
+  br label %58
 
-53:                                               ; preds = %43
-  br label %54
+54:                                               ; preds = %44
+  br label %55
 
-54:                                               ; preds = %53
-  %55 = load i32, ptr %15, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %15, align 4
-  br label %39, !llvm.loop !5
+55:                                               ; preds = %54
+  %56 = load i32, ptr %16, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %16, align 4
+  br label %40, !llvm.loop !6
 
-57:                                               ; preds = %52, %39
-  %58 = load i32, ptr %12, align 4
-  %59 = load i32, ptr %15, align 4
-  %60 = load i32, ptr %11, align 4
-  %61 = sub i32 %59, %60
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %11, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i32, ptr %62, i64 %64
-  %66 = load i64, ptr %9, align 8
-  %67 = load i16, ptr %10, align 2
-  %68 = load i64, ptr %14, align 8
-  call void @SetXidCommitTsInPage(i32 noundef %58, i32 noundef %61, ptr noundef %65, i64 noundef %66, i16 noundef zeroext %67, i64 noundef %68)
-  %69 = load i32, ptr %15, align 4
-  %70 = load i32, ptr %7, align 4
-  %71 = icmp sge i32 %69, %70
-  br i1 %71, label %72, label %73
+58:                                               ; preds = %53, %40
+  %59 = load i32, ptr %12, align 4
+  %60 = load i32, ptr %16, align 4
+  %61 = load i32, ptr %11, align 4
+  %62 = sub i32 %60, %61
+  %63 = load ptr, ptr %8, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i32, ptr %63, i64 %65
+  %67 = load i64, ptr %9, align 8
+  %68 = load i16, ptr %10, align 2
+  %69 = load i64, ptr %15, align 8
+  call void @SetXidCommitTsInPage(i32 noundef %59, i32 noundef %62, ptr noundef %66, i64 noundef %67, i16 noundef zeroext %68, i64 noundef %69)
+  %70 = load i32, ptr %16, align 4
+  %71 = load i32, ptr %7, align 4
+  %72 = icmp sge i32 %70, %71
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %57
-  br label %81
+73:                                               ; preds = %58
+  store i32 2, ptr %14, align 4
+  br label %82
 
-73:                                               ; preds = %57
-  %74 = load ptr, ptr %8, align 8
-  %75 = load i32, ptr %15, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr i32, ptr %74, i64 %76
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %12, align 4
-  %79 = load i32, ptr %15, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %11, align 4
-  br label %35
+74:                                               ; preds = %58
+  %75 = load ptr, ptr %8, align 8
+  %76 = load i32, ptr %16, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i32, ptr %75, i64 %77
+  %79 = load i32, ptr %78, align 4
+  store i32 %79, ptr %12, align 4
+  %80 = load i32, ptr %16, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %11, align 4
+  store i32 0, ptr %14, align 4
+  br label %82
 
-81:                                               ; preds = %72
-  %82 = load ptr, ptr @MainLWLockArray, align 8
-  %83 = getelementptr %union.LWLockPadded, ptr %82, i64 39
-  %84 = call zeroext i1 @LWLockAcquire(ptr noundef %83, i32 noundef 0)
-  %85 = load i32, ptr %6, align 4
-  %86 = load ptr, ptr @commitTsShared, align 8
-  %87 = getelementptr inbounds %struct.CommitTimestampShared, ptr %86, i32 0, i32 0
-  store i32 %85, ptr %87, align 8
-  %88 = load i64, ptr %9, align 8
-  %89 = load ptr, ptr @commitTsShared, align 8
-  %90 = getelementptr inbounds %struct.CommitTimestampShared, ptr %89, i32 0, i32 1
-  %91 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %90, i32 0, i32 0
-  store i64 %88, ptr %91, align 8
-  %92 = load i16, ptr %10, align 2
+82:                                               ; preds = %74, %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  %83 = load i32, ptr %14, align 4
+  switch i32 %83, label %115 [
+    i32 0, label %84
+    i32 2, label %85
+  ]
+
+84:                                               ; preds = %82
+  br label %36
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr @MainLWLockArray, align 8
+  %87 = getelementptr inbounds %union.LWLockPadded, ptr %86, i64 39
+  %88 = call zeroext i1 @LWLockAcquire(ptr noundef %87, i32 noundef 0)
+  %89 = load i32, ptr %6, align 4
+  %90 = load ptr, ptr @commitTsShared, align 8
+  %91 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %90, i32 0, i32 0
+  store i32 %89, ptr %91, align 8
+  %92 = load i64, ptr %9, align 8
   %93 = load ptr, ptr @commitTsShared, align 8
-  %94 = getelementptr inbounds %struct.CommitTimestampShared, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %94, i32 0, i32 1
-  store i16 %92, ptr %95, align 8
-  %96 = load ptr, ptr @TransamVariables, align 8
-  %97 = getelementptr inbounds %struct.TransamVariablesData, ptr %96, i32 0, i32 10
-  %98 = load i32, ptr %97, align 4
-  %99 = load i32, ptr %13, align 4
-  %100 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %98, i32 noundef %99)
-  br i1 %100, label %101, label %105
+  %94 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %93, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %94, i32 0, i32 0
+  store i64 %92, ptr %95, align 8
+  %96 = load i16, ptr %10, align 2
+  %97 = load ptr, ptr @commitTsShared, align 8
+  %98 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %97, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %98, i32 0, i32 1
+  store i16 %96, ptr %99, align 8
+  %100 = load ptr, ptr @TransamVariables, align 8
+  %101 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %100, i32 0, i32 10
+  %102 = load i32, ptr %101, align 4
+  %103 = load i32, ptr %13, align 4
+  %104 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %102, i32 noundef %103)
+  br i1 %104, label %105, label %109
 
-101:                                              ; preds = %81
-  %102 = load i32, ptr %13, align 4
-  %103 = load ptr, ptr @TransamVariables, align 8
-  %104 = getelementptr inbounds %struct.TransamVariablesData, ptr %103, i32 0, i32 10
-  store i32 %102, ptr %104, align 4
-  br label %105
+105:                                              ; preds = %85
+  %106 = load i32, ptr %13, align 4
+  %107 = load ptr, ptr @TransamVariables, align 8
+  %108 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %107, i32 0, i32 10
+  store i32 %106, ptr %108, align 4
+  br label %109
 
-105:                                              ; preds = %101, %81
-  %106 = load ptr, ptr @MainLWLockArray, align 8
-  %107 = getelementptr %union.LWLockPadded, ptr %106, i64 39
-  call void @LWLockRelease(ptr noundef %107)
-  br label %108
+109:                                              ; preds = %105, %85
+  %110 = load ptr, ptr @MainLWLockArray, align 8
+  %111 = getelementptr inbounds %union.LWLockPadded, ptr %110, i64 39
+  call void @LWLockRelease(ptr noundef %111)
+  store i32 0, ptr %14, align 4
+  br label %112
 
-108:                                              ; preds = %105, %20
+112:                                              ; preds = %109, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  %113 = load i32, ptr %14, align 4
+  switch i32 %113, label %115 [
+    i32 0, label %114
+    i32 1, label %114
+  ]
+
+114:                                              ; preds = %112, %112
   ret void
+
+115:                                              ; preds = %112, %82
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TransactionIdToCTsPage(i32 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TransactionIdToCTsPage(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -245,9 +283,12 @@ define internal void @SetXidCommitTsInPage(i32 noundef %0, i32 noundef %1, ptr n
   store i64 %3, ptr %10, align 8
   store i16 %4, ptr %11, align 2
   store i64 %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   %16 = load i64, ptr %12, align 8
   %17 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %16)
   store ptr %17, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
   %18 = load ptr, ptr %13, align 8
   %19 = call zeroext i1 @LWLockAcquire(ptr noundef %18, i32 noundef 0)
   %20 = load i64, ptr %12, align 8
@@ -272,7 +313,7 @@ define internal void @SetXidCommitTsInPage(i32 noundef %0, i32 noundef %1, ptr n
   %32 = load ptr, ptr %9, align 8
   %33 = load i32, ptr %15, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr i32, ptr %32, i64 %34
+  %35 = getelementptr inbounds i32, ptr %32, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = load i64, ptr %10, align 8
   %38 = load i16, ptr %11, align 2
@@ -284,26 +325,32 @@ define internal void @SetXidCommitTsInPage(i32 noundef %0, i32 noundef %1, ptr n
   %41 = load i32, ptr %15, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %15, align 4
-  br label %27, !llvm.loop !7
+  br label %27, !llvm.loop !8
 
 43:                                               ; preds = %27
   %44 = load ptr, ptr @CommitTsCtlData, align 8
-  %45 = getelementptr inbounds %struct.SlruSharedData, ptr %44, i32 0, i32 3
+  %45 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %44, i32 0, i32 3
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %14, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr i8, ptr %46, i64 %48
+  %49 = getelementptr inbounds i8, ptr %46, i64 %48
   store i8 1, ptr %49, align 1
   %50 = load ptr, ptr %13, align 8
   call void @LWLockRelease(ptr noundef %50)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) #1
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) #3
 
-declare void @LWLockRelease(ptr noundef) #1
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) #3
+
+declare void @LWLockRelease(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -317,223 +364,243 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %11 = alloca %struct.CommitTimestampEntry, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call i64 @TransactionIdToCTsPage(i32 noundef %14)
-  store i64 %15, ptr %8, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = urem i32 %16, 819
-  store i32 %17, ptr %9, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %32, label %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %15 = load i32, ptr %5, align 4
+  %16 = call i64 @TransactionIdToCTsPage(i32 noundef %15)
+  store i64 %16, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %17 = load i32, ptr %5, align 4
+  %18 = urem i32 %17, 819
+  store i32 %18, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %19 = load i32, ptr %5, align 4
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %34, label %21
 
-20:                                               ; preds = %3
-  br label %21
-
-21:                                               ; preds = %20
-  br i1 true, label %22, label %24
+21:                                               ; preds = %3
+  br label %22
 
 22:                                               ; preds = %21
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %23, label %26, label %30
+  br i1 true, label %23, label %25
 
-24:                                               ; preds = %21
-  %25 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %25, label %26, label %30
+23:                                               ; preds = %22
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %24, label %27, label %31
 
-26:                                               ; preds = %24, %22
-  %27 = call i32 @errcode(i32 noundef 50856066)
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, i32 noundef %28)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 290, ptr noundef @__func__.TransactionIdGetCommitTsData)
-  br label %30
+25:                                               ; preds = %22
+  %26 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %26, label %27, label %31
 
-30:                                               ; preds = %26, %24, %22
+27:                                               ; preds = %25, %23
+  %28 = call i32 @errcode(i32 noundef 50856066)
+  %29 = load i32, ptr %5, align 4
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, i32 noundef %29)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 287, ptr noundef @__func__.TransactionIdGetCommitTsData)
+  br label %31
+
+31:                                               ; preds = %27, %25, %23
   unreachable
 
-31:                                               ; No predecessors!
+32:                                               ; No predecessors!
+  br label %33
+
+33:                                               ; preds = %32
+  br label %45
+
+34:                                               ; preds = %3
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp uge i32 %35, 3
+  br i1 %36, label %44, label %37
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %6, align 8
+  store i64 0, ptr %38, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %7, align 8
+  store i16 0, ptr %42, align 2
   br label %43
 
-32:                                               ; preds = %3
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp uge i32 %33, 3
-  br i1 %34, label %42, label %35
-
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %6, align 8
-  store i64 0, ptr %36, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %7, align 8
-  store i16 0, ptr %40, align 2
-  br label %41
-
-41:                                               ; preds = %39, %35
+43:                                               ; preds = %41, %37
   store i1 false, ptr %4, align 1
-  br label %134
+  store i32 1, ptr %14, align 4
+  br label %136
 
-42:                                               ; preds = %32
-  br label %43
+44:                                               ; preds = %34
+  br label %45
 
-43:                                               ; preds = %42, %31
-  %44 = load ptr, ptr @MainLWLockArray, align 8
-  %45 = getelementptr %union.LWLockPadded, ptr %44, i64 39
-  %46 = call zeroext i1 @LWLockAcquire(ptr noundef %45, i32 noundef 1)
-  %47 = load ptr, ptr @commitTsShared, align 8
-  %48 = getelementptr inbounds %struct.CommitTimestampShared, ptr %47, i32 0, i32 2
-  %49 = load i8, ptr %48, align 8
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %52, label %51
+45:                                               ; preds = %44, %33
+  %46 = load ptr, ptr @MainLWLockArray, align 8
+  %47 = getelementptr inbounds %union.LWLockPadded, ptr %46, i64 39
+  %48 = call zeroext i1 @LWLockAcquire(ptr noundef %47, i32 noundef 1)
+  %49 = load ptr, ptr @commitTsShared, align 8
+  %50 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %49, i32 0, i32 2
+  %51 = load i8, ptr %50, align 8, !range !4, !noundef !5
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %54, label %53
 
-51:                                               ; preds = %43
+53:                                               ; preds = %45
   call void @error_commit_ts_disabled()
-  br label %52
+  br label %54
 
-52:                                               ; preds = %51, %43
-  %53 = load ptr, ptr @commitTsShared, align 8
-  %54 = getelementptr inbounds %struct.CommitTimestampShared, ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 8
-  %56 = load i32, ptr %5, align 4
-  %57 = icmp eq i32 %55, %56
-  br i1 %57, label %58, label %78
+54:                                               ; preds = %53, %45
+  %55 = load ptr, ptr @commitTsShared, align 8
+  %56 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %55, i32 0, i32 0
+  %57 = load i32, ptr %56, align 8
+  %58 = load i32, ptr %5, align 4
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %80
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr @commitTsShared, align 8
-  %60 = getelementptr inbounds %struct.CommitTimestampShared, ptr %59, i32 0, i32 1
-  %61 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %60, i32 0, i32 0
-  %62 = load i64, ptr %61, align 8
-  %63 = load ptr, ptr %6, align 8
-  store i64 %62, ptr %63, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %72
+60:                                               ; preds = %54
+  %61 = load ptr, ptr @commitTsShared, align 8
+  %62 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %61, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %62, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8
+  %65 = load ptr, ptr %6, align 8
+  store i64 %64, ptr %65, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %74
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr @commitTsShared, align 8
-  %68 = getelementptr inbounds %struct.CommitTimestampShared, ptr %67, i32 0, i32 1
-  %69 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %68, i32 0, i32 1
-  %70 = load i16, ptr %69, align 8
-  %71 = load ptr, ptr %7, align 8
-  store i16 %70, ptr %71, align 2
-  br label %72
+68:                                               ; preds = %60
+  %69 = load ptr, ptr @commitTsShared, align 8
+  %70 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %70, i32 0, i32 1
+  %72 = load i16, ptr %71, align 8
+  %73 = load ptr, ptr %7, align 8
+  store i16 %72, ptr %73, align 2
+  br label %74
 
-72:                                               ; preds = %66, %58
-  %73 = load ptr, ptr @MainLWLockArray, align 8
-  %74 = getelementptr %union.LWLockPadded, ptr %73, i64 39
-  call void @LWLockRelease(ptr noundef %74)
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp ne i64 %76, 0
-  store i1 %77, ptr %4, align 1
-  br label %134
+74:                                               ; preds = %68, %60
+  %75 = load ptr, ptr @MainLWLockArray, align 8
+  %76 = getelementptr inbounds %union.LWLockPadded, ptr %75, i64 39
+  call void @LWLockRelease(ptr noundef %76)
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ne i64 %78, 0
+  store i1 %79, ptr %4, align 1
+  store i32 1, ptr %14, align 4
+  br label %136
 
-78:                                               ; preds = %52
-  %79 = load ptr, ptr @TransamVariables, align 8
-  %80 = getelementptr inbounds %struct.TransamVariablesData, ptr %79, i32 0, i32 9
-  %81 = load i32, ptr %80, align 8
-  store i32 %81, ptr %12, align 4
-  %82 = load ptr, ptr @TransamVariables, align 8
-  %83 = getelementptr inbounds %struct.TransamVariablesData, ptr %82, i32 0, i32 10
-  %84 = load i32, ptr %83, align 4
-  store i32 %84, ptr %13, align 4
-  %85 = load ptr, ptr @MainLWLockArray, align 8
-  %86 = getelementptr %union.LWLockPadded, ptr %85, i64 39
-  call void @LWLockRelease(ptr noundef %86)
-  %87 = load i32, ptr %12, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %97
+80:                                               ; preds = %54
+  %81 = load ptr, ptr @TransamVariables, align 8
+  %82 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %81, i32 0, i32 9
+  %83 = load i32, ptr %82, align 8
+  store i32 %83, ptr %12, align 4
+  %84 = load ptr, ptr @TransamVariables, align 8
+  %85 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %84, i32 0, i32 10
+  %86 = load i32, ptr %85, align 4
+  store i32 %86, ptr %13, align 4
+  %87 = load ptr, ptr @MainLWLockArray, align 8
+  %88 = getelementptr inbounds %union.LWLockPadded, ptr %87, i64 39
+  call void @LWLockRelease(ptr noundef %88)
+  %89 = load i32, ptr %12, align 4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %99
 
-89:                                               ; preds = %78
-  %90 = load i32, ptr %5, align 4
-  %91 = load i32, ptr %12, align 4
-  %92 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %90, i32 noundef %91)
-  br i1 %92, label %97, label %93
+91:                                               ; preds = %80
+  %92 = load i32, ptr %5, align 4
+  %93 = load i32, ptr %12, align 4
+  %94 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %92, i32 noundef %93)
+  br i1 %94, label %99, label %95
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %13, align 4
-  %95 = load i32, ptr %5, align 4
-  %96 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %94, i32 noundef %95)
-  br i1 %96, label %97, label %104
+95:                                               ; preds = %91
+  %96 = load i32, ptr %13, align 4
+  %97 = load i32, ptr %5, align 4
+  %98 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %96, i32 noundef %97)
+  br i1 %98, label %99, label %106
 
-97:                                               ; preds = %93, %89, %78
-  %98 = load ptr, ptr %6, align 8
-  store i64 0, ptr %98, align 8
-  %99 = load ptr, ptr %7, align 8
-  %100 = icmp ne ptr %99, null
-  br i1 %100, label %101, label %103
+99:                                               ; preds = %95, %91, %80
+  %100 = load ptr, ptr %6, align 8
+  store i64 0, ptr %100, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %105
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %7, align 8
-  store i16 0, ptr %102, align 2
-  br label %103
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %7, align 8
+  store i16 0, ptr %104, align 2
+  br label %105
 
-103:                                              ; preds = %101, %97
+105:                                              ; preds = %103, %99
   store i1 false, ptr %4, align 1
-  br label %134
+  store i32 1, ptr %14, align 4
+  br label %136
 
-104:                                              ; preds = %93
-  %105 = load i64, ptr %8, align 8
-  %106 = load i32, ptr %5, align 4
-  %107 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef @CommitTsCtlData, i64 noundef %105, i32 noundef %106)
-  store i32 %107, ptr %10, align 4
-  %108 = load ptr, ptr @CommitTsCtlData, align 8
-  %109 = getelementptr inbounds %struct.SlruSharedData, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %10, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr ptr, ptr %110, i64 %112
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i32, ptr %9, align 4
-  %116 = sext i32 %115 to i64
-  %117 = mul i64 10, %116
-  %118 = getelementptr i8, ptr %114, i64 %117
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 1 %118, i64 10, i1 false)
-  %119 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %11, i32 0, i32 0
-  %120 = load i64, ptr %119, align 8
-  %121 = load ptr, ptr %6, align 8
-  store i64 %120, ptr %121, align 8
-  %122 = load ptr, ptr %7, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %124, label %128
+106:                                              ; preds = %95
+  %107 = load i64, ptr %8, align 8
+  %108 = load i32, ptr %5, align 4
+  %109 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef @CommitTsCtlData, i64 noundef %107, i32 noundef %108)
+  store i32 %109, ptr %10, align 4
+  %110 = load ptr, ptr @CommitTsCtlData, align 8
+  %111 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i32, ptr %10, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds ptr, ptr %112, i64 %114
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr %9, align 4
+  %118 = sext i32 %117 to i64
+  %119 = mul i64 10, %118
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 1 %120, i64 10, i1 false)
+  %121 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %11, i32 0, i32 0
+  %122 = load i64, ptr %121, align 8
+  %123 = load ptr, ptr %6, align 8
+  store i64 %122, ptr %123, align 8
+  %124 = load ptr, ptr %7, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %130
 
-124:                                              ; preds = %104
-  %125 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %11, i32 0, i32 1
-  %126 = load i16, ptr %125, align 8
-  %127 = load ptr, ptr %7, align 8
-  store i16 %126, ptr %127, align 2
-  br label %128
+126:                                              ; preds = %106
+  %127 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %11, i32 0, i32 1
+  %128 = load i16, ptr %127, align 8
+  %129 = load ptr, ptr %7, align 8
+  store i16 %128, ptr %129, align 2
+  br label %130
 
-128:                                              ; preds = %124, %104
-  %129 = load i64, ptr %8, align 8
-  %130 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %129)
-  call void @LWLockRelease(ptr noundef %130)
-  %131 = load ptr, ptr %6, align 8
-  %132 = load i64, ptr %131, align 8
-  %133 = icmp ne i64 %132, 0
-  store i1 %133, ptr %4, align 1
-  br label %134
+130:                                              ; preds = %126, %106
+  %131 = load i64, ptr %8, align 8
+  %132 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %131)
+  call void @LWLockRelease(ptr noundef %132)
+  %133 = load ptr, ptr %6, align 8
+  %134 = load i64, ptr %133, align 8
+  %135 = icmp ne i64 %134, 0
+  store i1 %135, ptr %4, align 1
+  store i32 1, ptr %14, align 4
+  br label %136
 
-134:                                              ; preds = %128, %103, %72, %41
-  %135 = load i1, ptr %4, align 1
-  ret i1 %135
+136:                                              ; preds = %130, %105, %74, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %137 = load i1, ptr %4, align 1
+  ret i1 %137
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @error_commit_ts_disabled() #0 {
@@ -543,7 +610,7 @@ define internal void @error_commit_ts_disabled() #0 {
   br i1 true, label %2, label %4
 
 2:                                                ; preds = %1
-  %3 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %3 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %3, label %6, label %15
 
 4:                                                ; preds = %1
@@ -565,7 +632,7 @@ define internal void @error_commit_ts_disabled() #0 {
   br label %14
 
 14:                                               ; preds = %12, %10
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 393, ptr noundef @__func__.error_commit_ts_disabled)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 390, ptr noundef @__func__.error_commit_ts_disabled)
   br label %15
 
 15:                                               ; preds = %14, %4, %2
@@ -575,34 +642,36 @@ define internal void @error_commit_ts_disabled() #0 {
   ret void
 }
 
-declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) #1
+declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: nounwind uwtable
-define internal ptr @SimpleLruGetBankLock(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @SimpleLruGetBankLock(ptr noundef %0, i64 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %6 = load i64, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.SlruCtlData, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.SlruCtlData, ptr %7, i32 0, i32 1
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i64
-  %11 = and i64 %6, %10
+  %11 = srem i64 %6, %10
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %5, align 4
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.SlruCtlData, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.SlruCtlData, ptr %13, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.SlruSharedData, ptr %15, i32 0, i32 7
+  %16 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %15, i32 0, i32 7
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %5, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %union.LWLockPadded, ptr %17, i64 %19
+  %20 = getelementptr inbounds %union.LWLockPadded, ptr %17, i64 %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret ptr %20
 }
 
@@ -613,12 +682,13 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %6 = load ptr, ptr @MainLWLockArray, align 8
-  %7 = getelementptr %union.LWLockPadded, ptr %6, i64 39
+  %7 = getelementptr inbounds %union.LWLockPadded, ptr %6, i64 39
   %8 = call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 1)
   %9 = load ptr, ptr @commitTsShared, align 8
-  %10 = getelementptr inbounds %struct.CommitTimestampShared, ptr %9, i32 0, i32 2
-  %11 = load i8, ptr %10, align 8
+  %10 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %9, i32 0, i32 2
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
   br i1 %12, label %14, label %13
 
@@ -628,7 +698,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %13, %2
   %15 = load ptr, ptr @commitTsShared, align 8
-  %16 = getelementptr inbounds %struct.CommitTimestampShared, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %5, align 4
   %18 = load ptr, ptr %3, align 8
@@ -637,8 +707,8 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr @commitTsShared, align 8
-  %22 = getelementptr inbounds %struct.CommitTimestampShared, ptr %21, i32 0, i32 1
-  %23 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = load ptr, ptr %3, align 8
   store i64 %24, ptr %25, align 8
@@ -651,8 +721,8 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef %0, ptr noundef %1) #0 {
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @commitTsShared, align 8
-  %31 = getelementptr inbounds %struct.CommitTimestampShared, ptr %30, i32 0, i32 1
-  %32 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %31, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %31, i32 0, i32 1
   %33 = load i16, ptr %32, align 8
   %34 = load ptr, ptr %4, align 8
   store i16 %33, ptr %34, align 2
@@ -660,9 +730,10 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef %0, ptr noundef %1) #0 {
 
 35:                                               ; preds = %29, %26
   %36 = load ptr, ptr @MainLWLockArray, align 8
-  %37 = getelementptr %union.LWLockPadded, ptr %36, i64 39
+  %37 = getelementptr inbounds %union.LWLockPadded, ptr %36, i64 39
   call void @LWLockRelease(ptr noundef %37)
   %38 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i32 %38
 }
 
@@ -673,48 +744,60 @@ define dso_local i64 @pg_xact_commit_timestamp(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = call i32 @DatumGetTransactionId(i64 noundef %11)
-  store i32 %12, ptr %4, align 4
-  %13 = load i32, ptr %4, align 4
-  %14 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %13, ptr noundef %5, ptr noundef null)
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %6, align 1
-  %16 = load i8, ptr %6, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %23, label %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = call i32 @DatumGetTransactionId(i64 noundef %12)
+  store i32 %13, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #7
+  %14 = load i32, ptr %4, align 4
+  %15 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %14, ptr noundef %5, ptr noundef null)
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %6, align 1
+  %17 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %25, label %19
 
-18:                                               ; preds = %1
-  br label %19
+19:                                               ; preds = %1
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 4
-  store i8 1, ptr %21, align 4
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 4
+  store i8 1, ptr %22, align 4
   store i64 0, ptr %2, align 8
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %28
 
-22:                                               ; No predecessors!
-  br label %23
+23:                                               ; No predecessors!
+  br label %24
 
-23:                                               ; preds = %22, %1
-  %24 = load i64, ptr %5, align 8
-  %25 = call i64 @TimestampTzGetDatum(i64 noundef %24)
-  store i64 %25, ptr %2, align 8
-  br label %26
+24:                                               ; preds = %23
+  br label %25
 
-26:                                               ; preds = %23, %19
-  %27 = load i64, ptr %2, align 8
-  ret i64 %27
+25:                                               ; preds = %24, %1
+  %26 = load i64, ptr %5, align 8
+  %27 = call i64 @TimestampTzGetDatum(i64 noundef %26)
+  store i64 %27, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %28
+
+28:                                               ; preds = %25, %20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  %29 = load i64, ptr %2, align 8
+  ret i64 %29
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetTransactionId(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetTransactionId(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -722,8 +805,8 @@ define internal i32 @DatumGetTransactionId(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TimestampTzGetDatum(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TimestampTzGetDatum(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -742,12 +825,19 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 3, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %10 = call i32 @GetLatestCommitTsData(ptr noundef %5, ptr noundef %4)
   store i32 %10, ptr %3, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @get_call_result_type(ptr noundef %11, ptr noundef null, ptr noundef %8)
   %13 = icmp ne i32 %12, 1
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %1
   br label %15
@@ -756,7 +846,7 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) #0 {
   br i1 true, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %17, label %20, label %22
 
 18:                                               ; preds = %15
@@ -765,7 +855,7 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) #0 {
 
 20:                                               ; preds = %18, %16
   %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 437, ptr noundef @__func__.pg_last_committed_xact)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 434, ptr noundef @__func__.pg_last_committed_xact)
   br label %22
 
 22:                                               ; preds = %20, %18, %16
@@ -774,58 +864,68 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) #0 {
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %1
-  %25 = load i32, ptr %3, align 4
-  %26 = icmp uge i32 %25, 3
-  br i1 %26, label %29, label %27
+24:                                               ; preds = %23
+  br label %25
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 1, i64 3, i1 false)
-  br label %43
+25:                                               ; preds = %24, %1
+  %26 = load i32, ptr %3, align 4
+  %27 = icmp uge i32 %26, 3
+  br i1 %27, label %30, label %28
 
-29:                                               ; preds = %24
-  %30 = load i32, ptr %3, align 4
-  %31 = call i64 @TransactionIdGetDatum(i32 noundef %30)
-  %32 = getelementptr [3 x i64], ptr %6, i64 0, i64 0
-  store i64 %31, ptr %32, align 16
-  %33 = getelementptr [3 x i8], ptr %7, i64 0, i64 0
-  store i8 0, ptr %33, align 1
-  %34 = load i64, ptr %5, align 8
-  %35 = call i64 @TimestampTzGetDatum(i64 noundef %34)
-  %36 = getelementptr [3 x i64], ptr %6, i64 0, i64 1
-  store i64 %35, ptr %36, align 8
-  %37 = getelementptr [3 x i8], ptr %7, i64 0, i64 1
-  store i8 0, ptr %37, align 1
-  %38 = load i16, ptr %4, align 2
-  %39 = zext i16 %38 to i32
-  %40 = call i64 @ObjectIdGetDatum(i32 noundef %39)
-  %41 = getelementptr [3 x i64], ptr %6, i64 0, i64 2
-  store i64 %40, ptr %41, align 16
-  %42 = getelementptr [3 x i8], ptr %7, i64 0, i64 2
-  store i8 0, ptr %42, align 1
-  br label %43
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %29, i8 1, i64 3, i1 false)
+  br label %44
 
-43:                                               ; preds = %29, %27
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 0
-  %46 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 0
-  %47 = call ptr @heap_form_tuple(ptr noundef %44, ptr noundef %45, ptr noundef %46)
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = call i64 @HeapTupleGetDatum(ptr noundef %48)
-  ret i64 %49
+30:                                               ; preds = %25
+  %31 = load i32, ptr %3, align 4
+  %32 = call i64 @TransactionIdGetDatum(i32 noundef %31)
+  %33 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 0
+  store i64 %32, ptr %33, align 16
+  %34 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 0
+  store i8 0, ptr %34, align 1
+  %35 = load i64, ptr %5, align 8
+  %36 = call i64 @TimestampTzGetDatum(i64 noundef %35)
+  %37 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 1
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 1
+  store i8 0, ptr %38, align 1
+  %39 = load i16, ptr %4, align 2
+  %40 = zext i16 %39 to i32
+  %41 = call i64 @ObjectIdGetDatum(i32 noundef %40)
+  %42 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 2
+  store i64 %41, ptr %42, align 16
+  %43 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 2
+  store i8 0, ptr %43, align 1
+  br label %44
+
+44:                                               ; preds = %30, %28
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 0
+  %47 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 0
+  %48 = call ptr @heap_form_tuple(ptr noundef %45, ptr noundef %46, ptr noundef %47)
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = call i64 @HeapTupleGetDatum(ptr noundef %49)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 3, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %50
 }
 
-declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TransactionIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TransactionIdGetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -833,8 +933,8 @@ define internal i64 @TransactionIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ObjectIdGetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -842,14 +942,14 @@ define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @HeapTupleGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @HeapTupleGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.HeapTupleData, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %5)
   ret i64 %6
@@ -867,13 +967,21 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
-  %13 = getelementptr [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
-  %14 = getelementptr inbounds %struct.NullableDatum, ptr %13, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
+  %13 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
+  %14 = getelementptr inbounds nuw %struct.NullableDatum, ptr %13, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @DatumGetTransactionId(i64 noundef %15)
   store i32 %16, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
   %17 = load i32, ptr %3, align 4
   %18 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %17, ptr noundef %5, ptr noundef %4)
   %19 = zext i1 %18 to i8
@@ -881,7 +989,7 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) #0 {
   %20 = load ptr, ptr %2, align 8
   %21 = call i32 @get_call_result_type(ptr noundef %20, ptr noundef null, ptr noundef %8)
   %22 = icmp ne i32 %21, 1
-  br i1 %22, label %23, label %33
+  br i1 %22, label %23, label %34
 
 23:                                               ; preds = %1
   br label %24
@@ -890,7 +998,7 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) #0 {
   br i1 true, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %26, label %29, label %31
 
 27:                                               ; preds = %24
@@ -899,7 +1007,7 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) #0 {
 
 29:                                               ; preds = %27, %25
   %30 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 481, ptr noundef @__func__.pg_xact_commit_timestamp_origin)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 478, ptr noundef @__func__.pg_xact_commit_timestamp_origin)
   br label %31
 
 31:                                               ; preds = %29, %27, %25
@@ -908,41 +1016,52 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) #0 {
 32:                                               ; No predecessors!
   br label %33
 
-33:                                               ; preds = %32, %1
-  %34 = load i8, ptr %10, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %38, label %36
+33:                                               ; preds = %32
+  br label %34
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %37, i8 1, i64 2, i1 false)
-  br label %48
+34:                                               ; preds = %33, %1
+  %35 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %39, label %37
 
-38:                                               ; preds = %33
-  %39 = load i64, ptr %5, align 8
-  %40 = call i64 @TimestampTzGetDatum(i64 noundef %39)
-  %41 = getelementptr [2 x i64], ptr %6, i64 0, i64 0
-  store i64 %40, ptr %41, align 16
-  %42 = getelementptr [2 x i8], ptr %7, i64 0, i64 0
-  store i8 0, ptr %42, align 1
-  %43 = load i16, ptr %4, align 2
-  %44 = zext i16 %43 to i32
-  %45 = call i64 @ObjectIdGetDatum(i32 noundef %44)
-  %46 = getelementptr [2 x i64], ptr %6, i64 0, i64 1
-  store i64 %45, ptr %46, align 8
-  %47 = getelementptr [2 x i8], ptr %7, i64 0, i64 1
-  store i8 0, ptr %47, align 1
-  br label %48
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 1, i64 2, i1 false)
+  br label %49
 
-48:                                               ; preds = %38, %36
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 0
-  %51 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 0
-  %52 = call ptr @heap_form_tuple(ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  store ptr %52, ptr %9, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = call i64 @HeapTupleGetDatum(ptr noundef %53)
-  ret i64 %54
+39:                                               ; preds = %34
+  %40 = load i64, ptr %5, align 8
+  %41 = call i64 @TimestampTzGetDatum(i64 noundef %40)
+  %42 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 0
+  store i64 %41, ptr %42, align 16
+  %43 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 0
+  store i8 0, ptr %43, align 1
+  %44 = load i16, ptr %4, align 2
+  %45 = zext i16 %44 to i32
+  %46 = call i64 @ObjectIdGetDatum(i32 noundef %45)
+  %47 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 1
+  store i64 %46, ptr %47, align 8
+  %48 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 1
+  store i8 0, ptr %48, align 1
+  br label %49
+
+49:                                               ; preds = %39, %37
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 0
+  %52 = getelementptr inbounds [2 x i8], ptr %7, i64 0, i64 0
+  %53 = call ptr @heap_form_tuple(ptr noundef %50, ptr noundef %51, ptr noundef %52)
+  store ptr %53, ptr %9, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = call i64 @HeapTupleGetDatum(ptr noundef %54)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i64 %55
 }
 
 ; Function Attrs: nounwind uwtable
@@ -953,7 +1072,7 @@ define dso_local i64 @CommitTsShmemSize() #0 {
   ret i64 %3
 }
 
-declare i64 @SimpleLruShmemSize(i32 noundef, i32 noundef) #1
+declare i64 @SimpleLruShmemSize(i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CommitTsShmemBuffers() #0 {
@@ -1017,11 +1136,13 @@ define internal i32 @CommitTsShmemBuffers() #0 {
 define dso_local void @CommitTsShmemInit() #0 {
   %1 = alloca i8, align 1
   %2 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %1) #7
   %3 = load i32, ptr @commit_timestamp_buffers, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 32, ptr %2) #7
   %6 = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 0
   %7 = call i32 @CommitTsShmemBuffers()
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %6, i64 noundef 32, ptr noundef @.str.3, i32 noundef %7)
@@ -1037,58 +1158,65 @@ define dso_local void @CommitTsShmemInit() #0 {
   br label %14
 
 14:                                               ; preds = %12, %5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %2) #7
   br label %15
 
 15:                                               ; preds = %14, %0
-  %16 = getelementptr inbounds %struct.SlruCtlData, ptr @CommitTsCtlData, i32 0, i32 4
-  store ptr @CommitTsPagePrecedes, ptr %16, align 8
-  %17 = call i32 @CommitTsShmemBuffers()
-  call void @SimpleLruInit(ptr noundef @CommitTsCtlData, ptr noundef @.str.5, i32 noundef %17, i32 noundef 0, ptr noundef @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false)
+  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds nuw (%struct.SlruCtlData, ptr @CommitTsCtlData, i32 0, i32 4), align 8
+  %16 = call i32 @CommitTsShmemBuffers()
+  call void @SimpleLruInit(ptr noundef @CommitTsCtlData, ptr noundef @.str.5, i32 noundef %16, i32 noundef 0, ptr noundef @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false)
+  br label %17
+
+17:                                               ; preds = %15
   br label %18
 
-18:                                               ; preds = %15
+18:                                               ; preds = %17
   br label %19
 
 19:                                               ; preds = %18
   %20 = call ptr @ShmemInitStruct(ptr noundef @.str.7, i64 noundef 32, ptr noundef %1)
   store ptr %20, ptr @commitTsShared, align 8
-  %21 = load i8, ptr @IsUnderPostmaster, align 1
+  %21 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %36, label %23
+  br i1 %22, label %37, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr @commitTsShared, align 8
-  %25 = getelementptr inbounds %struct.CommitTimestampShared, ptr %24, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %24, i32 0, i32 0
   store i32 0, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @commitTsShared, align 8
-  %28 = getelementptr inbounds %struct.CommitTimestampShared, ptr %27, i32 0, i32 1
-  %29 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %28, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %28, i32 0, i32 0
   store i64 -9223372036854775808, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr @commitTsShared, align 8
-  %32 = getelementptr inbounds %struct.CommitTimestampShared, ptr %31, i32 0, i32 1
-  %33 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %32, i32 0, i32 1
-  store i16 0, ptr %33, align 8
-  %34 = load ptr, ptr @commitTsShared, align 8
-  %35 = getelementptr inbounds %struct.CommitTimestampShared, ptr %34, i32 0, i32 2
-  store i8 0, ptr %35, align 8
-  br label %37
+  br label %31
 
-36:                                               ; preds = %19
-  br label %37
+31:                                               ; preds = %30
+  %32 = load ptr, ptr @commitTsShared, align 8
+  %33 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %33, i32 0, i32 1
+  store i16 0, ptr %34, align 8
+  %35 = load ptr, ptr @commitTsShared, align 8
+  %36 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %35, i32 0, i32 2
+  store i8 0, ptr %36, align 8
+  br label %38
 
-37:                                               ; preds = %36, %30
+37:                                               ; preds = %19
+  br label %38
+
+38:                                               ; preds = %37, %31
+  call void @llvm.lifetime.end.p0(i64 1, ptr %1) #7
   ret void
 }
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
-declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @CommitTsPagePrecedes(i64 noundef %0, i64 noundef %1) #0 {
@@ -1098,6 +1226,8 @@ define internal zeroext i1 @CommitTsPagePrecedes(i64 noundef %0, i64 noundef %1)
   %6 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
   %7 = load i64, ptr %3, align 8
   %8 = trunc i64 %7 to i32
   %9 = zext i32 %8 to i64
@@ -1133,12 +1263,14 @@ define internal zeroext i1 @CommitTsPagePrecedes(i64 noundef %0, i64 noundef %1)
 
 32:                                               ; preds = %24, %2
   %33 = phi i1 [ false, %2 ], [ %31, %24 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i1 %33
 }
 
-declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #1
+declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #3
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #1
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_commit_ts_buffers(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -1153,7 +1285,7 @@ define dso_local zeroext i1 @check_commit_ts_buffers(ptr noundef %0, ptr noundef
   ret i1 %8
 }
 
-declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) #1
+declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BootStrapCommitTs() #0 {
@@ -1170,101 +1302,122 @@ define dso_local void @StartupCommitTs() #0 {
 define internal void @ActivateCommitTs() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = load ptr, ptr @MainLWLockArray, align 8
-  %6 = getelementptr %union.LWLockPadded, ptr %5, i64 39
-  %7 = call zeroext i1 @LWLockAcquire(ptr noundef %6, i32 noundef 0)
-  %8 = load ptr, ptr @commitTsShared, align 8
-  %9 = getelementptr inbounds %struct.CommitTimestampShared, ptr %8, i32 0, i32 2
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %15
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %6 = load ptr, ptr @MainLWLockArray, align 8
+  %7 = getelementptr inbounds %union.LWLockPadded, ptr %6, i64 39
+  %8 = call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 0)
+  %9 = load ptr, ptr @commitTsShared, align 8
+  %10 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %9, i32 0, i32 2
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !5
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %0
-  %13 = load ptr, ptr @MainLWLockArray, align 8
-  %14 = getelementptr %union.LWLockPadded, ptr %13, i64 39
-  call void @LWLockRelease(ptr noundef %14)
-  br label %63
+13:                                               ; preds = %0
+  %14 = load ptr, ptr @MainLWLockArray, align 8
+  %15 = getelementptr inbounds %union.LWLockPadded, ptr %14, i64 39
+  call void @LWLockRelease(ptr noundef %15)
+  store i32 1, ptr %3, align 4
+  br label %64
 
-15:                                               ; preds = %0
-  %16 = load ptr, ptr @MainLWLockArray, align 8
-  %17 = getelementptr %union.LWLockPadded, ptr %16, i64 39
-  call void @LWLockRelease(ptr noundef %17)
-  %18 = load ptr, ptr @TransamVariables, align 8
-  %19 = getelementptr inbounds %struct.TransamVariablesData, ptr %18, i32 0, i32 2
-  %20 = getelementptr inbounds %struct.FullTransactionId, ptr %19, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = trunc i64 %21 to i32
-  store i32 %22, ptr %1, align 4
-  %23 = load i32, ptr %1, align 4
-  %24 = call i64 @TransactionIdToCTsPage(i32 noundef %23)
-  store i64 %24, ptr %2, align 8
-  %25 = load ptr, ptr @CommitTsCtlData, align 8
-  %26 = getelementptr inbounds %struct.SlruSharedData, ptr %25, i32 0, i32 11
-  %27 = load i64, ptr %2, align 8
-  call void @pg_atomic_write_u64(ptr noundef %26, i64 noundef %27)
-  %28 = load ptr, ptr @MainLWLockArray, align 8
-  %29 = getelementptr %union.LWLockPadded, ptr %28, i64 39
-  %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0)
-  %31 = load ptr, ptr @TransamVariables, align 8
-  %32 = getelementptr inbounds %struct.TransamVariablesData, ptr %31, i32 0, i32 9
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %41
+16:                                               ; preds = %0
+  %17 = load ptr, ptr @MainLWLockArray, align 8
+  %18 = getelementptr inbounds %union.LWLockPadded, ptr %17, i64 39
+  call void @LWLockRelease(ptr noundef %18)
+  %19 = load ptr, ptr @TransamVariables, align 8
+  %20 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %19, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %20, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %1, align 4
+  %24 = load i32, ptr %1, align 4
+  %25 = call i64 @TransactionIdToCTsPage(i32 noundef %24)
+  store i64 %25, ptr %2, align 8
+  %26 = load ptr, ptr @CommitTsCtlData, align 8
+  %27 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %26, i32 0, i32 11
+  %28 = load i64, ptr %2, align 8
+  call void @pg_atomic_write_u64(ptr noundef %27, i64 noundef %28)
+  %29 = load ptr, ptr @MainLWLockArray, align 8
+  %30 = getelementptr inbounds %union.LWLockPadded, ptr %29, i64 39
+  %31 = call zeroext i1 @LWLockAcquire(ptr noundef %30, i32 noundef 0)
+  %32 = load ptr, ptr @TransamVariables, align 8
+  %33 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %32, i32 0, i32 9
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %42
 
-35:                                               ; preds = %15
-  %36 = call i32 @ReadNextTransactionId()
-  %37 = load ptr, ptr @TransamVariables, align 8
-  %38 = getelementptr inbounds %struct.TransamVariablesData, ptr %37, i32 0, i32 10
-  store i32 %36, ptr %38, align 4
-  %39 = load ptr, ptr @TransamVariables, align 8
-  %40 = getelementptr inbounds %struct.TransamVariablesData, ptr %39, i32 0, i32 9
-  store i32 %36, ptr %40, align 8
-  br label %41
+36:                                               ; preds = %16
+  %37 = call i32 @ReadNextTransactionId()
+  %38 = load ptr, ptr @TransamVariables, align 8
+  %39 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %38, i32 0, i32 10
+  store i32 %37, ptr %39, align 4
+  %40 = load ptr, ptr @TransamVariables, align 8
+  %41 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %40, i32 0, i32 9
+  store i32 %37, ptr %41, align 8
+  br label %42
 
-41:                                               ; preds = %35, %15
-  %42 = load ptr, ptr @MainLWLockArray, align 8
-  %43 = getelementptr %union.LWLockPadded, ptr %42, i64 39
-  call void @LWLockRelease(ptr noundef %43)
-  %44 = load i64, ptr %2, align 8
-  %45 = call zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef @CommitTsCtlData, i64 noundef %44)
-  br i1 %45, label %55, label %46
+42:                                               ; preds = %36, %16
+  %43 = load ptr, ptr @MainLWLockArray, align 8
+  %44 = getelementptr inbounds %union.LWLockPadded, ptr %43, i64 39
+  call void @LWLockRelease(ptr noundef %44)
+  %45 = load i64, ptr %2, align 8
+  %46 = call zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef @CommitTsCtlData, i64 noundef %45)
+  br i1 %46, label %56, label %47
 
-46:                                               ; preds = %41
-  %47 = load i64, ptr %2, align 8
-  %48 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %47)
-  store ptr %48, ptr %3, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = call zeroext i1 @LWLockAcquire(ptr noundef %49, i32 noundef 0)
-  %51 = load i64, ptr %2, align 8
-  %52 = call i32 @ZeroCommitTsPage(i64 noundef %51, i1 noundef zeroext false)
-  store i32 %52, ptr %4, align 4
-  %53 = load i32, ptr %4, align 4
-  call void @SimpleLruWritePage(ptr noundef @CommitTsCtlData, i32 noundef %53)
-  %54 = load ptr, ptr %3, align 8
-  call void @LWLockRelease(ptr noundef %54)
-  br label %55
+47:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %48 = load i64, ptr %2, align 8
+  %49 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %48)
+  store ptr %49, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %50 = load ptr, ptr %4, align 8
+  %51 = call zeroext i1 @LWLockAcquire(ptr noundef %50, i32 noundef 0)
+  %52 = load i64, ptr %2, align 8
+  %53 = call i32 @ZeroCommitTsPage(i64 noundef %52, i1 noundef zeroext false)
+  store i32 %53, ptr %5, align 4
+  %54 = load i32, ptr %5, align 4
+  call void @SimpleLruWritePage(ptr noundef @CommitTsCtlData, i32 noundef %54)
+  %55 = load ptr, ptr %4, align 8
+  call void @LWLockRelease(ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %56
 
-55:                                               ; preds = %46, %41
-  %56 = load ptr, ptr @MainLWLockArray, align 8
-  %57 = getelementptr %union.LWLockPadded, ptr %56, i64 39
-  %58 = call zeroext i1 @LWLockAcquire(ptr noundef %57, i32 noundef 0)
-  %59 = load ptr, ptr @commitTsShared, align 8
-  %60 = getelementptr inbounds %struct.CommitTimestampShared, ptr %59, i32 0, i32 2
-  store i8 1, ptr %60, align 8
-  %61 = load ptr, ptr @MainLWLockArray, align 8
-  %62 = getelementptr %union.LWLockPadded, ptr %61, i64 39
-  call void @LWLockRelease(ptr noundef %62)
-  br label %63
+56:                                               ; preds = %47, %42
+  %57 = load ptr, ptr @MainLWLockArray, align 8
+  %58 = getelementptr inbounds %union.LWLockPadded, ptr %57, i64 39
+  %59 = call zeroext i1 @LWLockAcquire(ptr noundef %58, i32 noundef 0)
+  %60 = load ptr, ptr @commitTsShared, align 8
+  %61 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %60, i32 0, i32 2
+  store i8 1, ptr %61, align 8
+  %62 = load ptr, ptr @MainLWLockArray, align 8
+  %63 = getelementptr inbounds %union.LWLockPadded, ptr %62, i64 39
+  call void @LWLockRelease(ptr noundef %63)
+  store i32 0, ptr %3, align 4
+  br label %64
 
-63:                                               ; preds = %55, %12
+64:                                               ; preds = %56, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #7
+  %65 = load i32, ptr %3, align 4
+  switch i32 %65, label %67 [
+    i32 0, label %66
+    i32 1, label %66
+  ]
+
+66:                                               ; preds = %64, %64
   ret void
+
+67:                                               ; preds = %64
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CompleteCommitTsInitialization() #0 {
-  %1 = load i8, ptr @track_commit_timestamp, align 1
+  %1 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
   %2 = trunc i8 %1 to i1
   br i1 %2, label %4, label %3
 
@@ -1283,37 +1436,37 @@ define dso_local void @CompleteCommitTsInitialization() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @DeactivateCommitTs() #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
-  %2 = getelementptr %union.LWLockPadded, ptr %1, i64 39
+  %2 = getelementptr inbounds %union.LWLockPadded, ptr %1, i64 39
   %3 = call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 0)
   %4 = load ptr, ptr @commitTsShared, align 8
-  %5 = getelementptr inbounds %struct.CommitTimestampShared, ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %4, i32 0, i32 2
   store i8 0, ptr %5, align 8
   %6 = load ptr, ptr @commitTsShared, align 8
-  %7 = getelementptr inbounds %struct.CommitTimestampShared, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %6, i32 0, i32 0
   store i32 0, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %0
   %9 = load ptr, ptr @commitTsShared, align 8
-  %10 = getelementptr inbounds %struct.CommitTimestampShared, ptr %9, i32 0, i32 1
-  %11 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %10, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %10, i32 0, i32 0
   store i64 -9223372036854775808, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @commitTsShared, align 8
-  %14 = getelementptr inbounds %struct.CommitTimestampShared, ptr %13, i32 0, i32 1
-  %15 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %14, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %14, i32 0, i32 1
   store i16 0, ptr %15, align 8
   %16 = load ptr, ptr @TransamVariables, align 8
-  %17 = getelementptr inbounds %struct.TransamVariablesData, ptr %16, i32 0, i32 9
+  %17 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %16, i32 0, i32 9
   store i32 0, ptr %17, align 8
   %18 = load ptr, ptr @TransamVariables, align 8
-  %19 = getelementptr inbounds %struct.TransamVariablesData, ptr %18, i32 0, i32 10
+  %19 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %18, i32 0, i32 10
   store i32 0, ptr %19, align 4
   %20 = call zeroext i1 @SlruScanDirectory(ptr noundef @CommitTsCtlData, ptr noundef @SlruScanDirCbDeleteAll, ptr noundef null)
   %21 = load ptr, ptr @MainLWLockArray, align 8
-  %22 = getelementptr %union.LWLockPadded, ptr %21, i64 39
+  %22 = getelementptr inbounds %union.LWLockPadded, ptr %21, i64 39
   call void @LWLockRelease(ptr noundef %22)
   ret void
 }
@@ -1326,14 +1479,14 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
   store i8 %5, ptr %3, align 1
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %4, align 1
-  %7 = load i8, ptr %3, align 1
+  %7 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @commitTsShared, align 8
-  %11 = getelementptr inbounds %struct.CommitTimestampShared, ptr %10, i32 0, i32 2
-  %12 = load i8, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc i8 %12 to i1
   br i1 %13, label %15, label %14
 
@@ -1346,8 +1499,8 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr @commitTsShared, align 8
-  %18 = getelementptr inbounds %struct.CommitTimestampShared, ptr %17, i32 0, i32 2
-  %19 = load i8, ptr %18, align 8
+  %18 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %17, i32 0, i32 2
+  %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %22
 
@@ -1368,57 +1521,75 @@ define dso_local void @CheckPointCommitTs() #0 {
   ret void
 }
 
-declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) #1
+declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExtendCommitTs(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %5 = load ptr, ptr @commitTsShared, align 8
-  %6 = getelementptr inbounds %struct.CommitTimestampShared, ptr %5, i32 0, i32 2
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %1
-  br label %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr @commitTsShared, align 8
+  %7 = getelementptr inbounds nuw %struct.CommitTimestampShared, ptr %6, i32 0, i32 2
+  %8 = load i8, ptr %7, align 8, !range !4, !noundef !5
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %2, align 4
-  %12 = urem i32 %11, 819
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %18
+  store i32 1, ptr %5, align 4
+  br label %32
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr %2, align 4
-  %16 = icmp eq i32 %15, 3
-  br i1 %16, label %18, label %17
+11:                                               ; preds = %1
+  %12 = load i32, ptr %2, align 4
+  %13 = urem i32 %12, 819
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %19
 
-17:                                               ; preds = %14
-  br label %31
+15:                                               ; preds = %11
+  %16 = load i32, ptr %2, align 4
+  %17 = icmp eq i32 %16, 3
+  br i1 %17, label %19, label %18
 
-18:                                               ; preds = %14, %10
-  %19 = load i32, ptr %2, align 4
-  %20 = call i64 @TransactionIdToCTsPage(i32 noundef %19)
-  store i64 %20, ptr %3, align 8
-  %21 = load i64, ptr %3, align 8
-  %22 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %21)
-  store ptr %22, ptr %4, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = call zeroext i1 @LWLockAcquire(ptr noundef %23, i32 noundef 0)
-  %25 = load i64, ptr %3, align 8
-  %26 = load i8, ptr @InRecovery, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = xor i1 %27, true
-  %29 = call i32 @ZeroCommitTsPage(i64 noundef %25, i1 noundef zeroext %28)
-  %30 = load ptr, ptr %4, align 8
-  call void @LWLockRelease(ptr noundef %30)
-  br label %31
+18:                                               ; preds = %15
+  store i32 1, ptr %5, align 4
+  br label %32
 
-31:                                               ; preds = %18, %17, %9
+19:                                               ; preds = %15, %11
+  %20 = load i32, ptr %2, align 4
+  %21 = call i64 @TransactionIdToCTsPage(i32 noundef %20)
+  store i64 %21, ptr %3, align 8
+  %22 = load i64, ptr %3, align 8
+  %23 = call ptr @SimpleLruGetBankLock(ptr noundef @CommitTsCtlData, i64 noundef %22)
+  store ptr %23, ptr %4, align 8
+  %24 = load ptr, ptr %4, align 8
+  %25 = call zeroext i1 @LWLockAcquire(ptr noundef %24, i32 noundef 0)
+  %26 = load i64, ptr %3, align 8
+  %27 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
+  %28 = trunc i8 %27 to i1
+  %29 = xor i1 %28, true
+  %30 = call i32 @ZeroCommitTsPage(i64 noundef %26, i1 noundef zeroext %29)
+  %31 = load ptr, ptr %4, align 8
+  call void @LWLockRelease(ptr noundef %31)
+  store i32 0, ptr %5, align 4
+  br label %32
+
+32:                                               ; preds = %19, %18, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  %33 = load i32, ptr %5, align 4
+  switch i32 %33, label %35 [
+    i32 0, label %34
+    i32 1, label %34
+  ]
+
+34:                                               ; preds = %32, %32
   ret void
+
+35:                                               ; preds = %32
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1429,10 +1600,11 @@ define internal i32 @ZeroCommitTsPage(i64 noundef %0, i1 noundef zeroext %1) #0 
   store i64 %0, ptr %3, align 8
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %7 = load i64, ptr %3, align 8
   %8 = call i32 @SimpleLruZeroPage(ptr noundef @CommitTsCtlData, i64 noundef %7)
   store i32 %8, ptr %5, align 4
-  %9 = load i8, ptr %4, align 1
+  %9 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -1443,6 +1615,7 @@ define internal i32 @ZeroCommitTsPage(i64 noundef %0, i1 noundef zeroext %1) #0 
 
 13:                                               ; preds = %11, %2
   %14 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i32 %14
 }
 
@@ -1450,31 +1623,46 @@ define internal i32 @ZeroCommitTsPage(i64 noundef %0, i1 noundef zeroext %1) #0 
 define dso_local void @TruncateCommitTs(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
-  %5 = call i64 @TransactionIdToCTsPage(i32 noundef %4)
-  store i64 %5, ptr %3, align 8
-  %6 = call zeroext i1 @SlruScanDirectory(ptr noundef @CommitTsCtlData, ptr noundef @SlruScanDirCbReportPresence, ptr noundef %3)
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %1
-  br label %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load i32, ptr %2, align 4
+  %6 = call i64 @TransactionIdToCTsPage(i32 noundef %5)
+  store i64 %6, ptr %3, align 8
+  %7 = call zeroext i1 @SlruScanDirectory(ptr noundef @CommitTsCtlData, ptr noundef @SlruScanDirCbReportPresence, ptr noundef %3)
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %3, align 8
-  %10 = load i32, ptr %2, align 4
-  call void @WriteTruncateXlogRec(i64 noundef %9, i32 noundef %10)
-  %11 = load i64, ptr %3, align 8
-  call void @SimpleLruTruncate(ptr noundef @CommitTsCtlData, i64 noundef %11)
-  br label %12
+  store i32 1, ptr %4, align 4
+  br label %13
 
-12:                                               ; preds = %8, %7
+9:                                                ; preds = %1
+  %10 = load i64, ptr %3, align 8
+  %11 = load i32, ptr %2, align 4
+  call void @WriteTruncateXlogRec(i64 noundef %10, i32 noundef %11)
+  %12 = load i64, ptr %3, align 8
+  call void @SimpleLruTruncate(ptr noundef @CommitTsCtlData, i64 noundef %12)
+  store i32 0, ptr %4, align 4
+  br label %13
+
+13:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  %14 = load i32, ptr %4, align 4
+  switch i32 %14, label %16 [
+    i32 0, label %15
+    i32 1, label %15
+  ]
+
+15:                                               ; preds = %13, %13
   ret void
+
+16:                                               ; preds = %13
+  unreachable
 }
 
-declare zeroext i1 @SlruScanDirectory(ptr noundef, ptr noundef, ptr noundef) #1
+declare zeroext i1 @SlruScanDirectory(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @SlruScanDirCbReportPresence(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
+declare zeroext i1 @SlruScanDirCbReportPresence(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @WriteTruncateXlogRec(i64 noundef %0, i32 noundef %1) #0 {
@@ -1483,19 +1671,21 @@ define internal void @WriteTruncateXlogRec(i64 noundef %0, i32 noundef %1) #0 {
   %5 = alloca %struct.xl_commit_ts_truncate, align 8
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #7
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.xl_commit_ts_truncate, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.xl_commit_ts_truncate, ptr %5, i32 0, i32 0
   store i64 %6, ptr %7, align 8
   %8 = load i32, ptr %4, align 4
-  %9 = getelementptr inbounds %struct.xl_commit_ts_truncate, ptr %5, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.xl_commit_ts_truncate, ptr %5, i32 0, i32 1
   store i32 %8, ptr %9, align 8
   call void @XLogBeginInsert()
   call void @XLogRegisterData(ptr noundef %5, i32 noundef 12)
   %10 = call i64 @XLogInsert(i8 noundef zeroext 18, i8 noundef zeroext 16)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #7
   ret void
 }
 
-declare void @SimpleLruTruncate(ptr noundef, i64 noundef) #1
+declare void @SimpleLruTruncate(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) #0 {
@@ -1504,17 +1694,17 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr @MainLWLockArray, align 8
-  %6 = getelementptr %union.LWLockPadded, ptr %5, i64 39
+  %6 = getelementptr inbounds %union.LWLockPadded, ptr %5, i64 39
   %7 = call zeroext i1 @LWLockAcquire(ptr noundef %6, i32 noundef 0)
   %8 = load ptr, ptr @TransamVariables, align 8
-  %9 = getelementptr inbounds %struct.TransamVariablesData, ptr %8, i32 0, i32 9
+  %9 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %8, i32 0, i32 9
   %10 = load i32, ptr %9, align 8
   %11 = icmp ne i32 %10, 0
   br i1 %11, label %12, label %33
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @TransamVariables, align 8
-  %14 = getelementptr inbounds %struct.TransamVariablesData, ptr %13, i32 0, i32 9
+  %14 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %13, i32 0, i32 9
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr %3, align 4
   %17 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %15, i32 noundef %16)
@@ -1523,14 +1713,14 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) #0 {
 18:                                               ; preds = %12
   %19 = load i32, ptr %3, align 4
   %20 = load ptr, ptr @TransamVariables, align 8
-  %21 = getelementptr inbounds %struct.TransamVariablesData, ptr %20, i32 0, i32 9
+  %21 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %20, i32 0, i32 9
   store i32 %19, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %18, %12
   %23 = load i32, ptr %4, align 4
   %24 = load ptr, ptr @TransamVariables, align 8
-  %25 = getelementptr inbounds %struct.TransamVariablesData, ptr %24, i32 0, i32 10
+  %25 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %24, i32 0, i32 10
   %26 = load i32, ptr %25, align 4
   %27 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %23, i32 noundef %26)
   br i1 %27, label %28, label %32
@@ -1538,7 +1728,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) #0 {
 28:                                               ; preds = %22
   %29 = load i32, ptr %4, align 4
   %30 = load ptr, ptr @TransamVariables, align 8
-  %31 = getelementptr inbounds %struct.TransamVariablesData, ptr %30, i32 0, i32 10
+  %31 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %30, i32 0, i32 10
   store i32 %29, ptr %31, align 4
   br label %32
 
@@ -1548,17 +1738,17 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) #0 {
 33:                                               ; preds = %2
   %34 = load i32, ptr %3, align 4
   %35 = load ptr, ptr @TransamVariables, align 8
-  %36 = getelementptr inbounds %struct.TransamVariablesData, ptr %35, i32 0, i32 9
+  %36 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %35, i32 0, i32 9
   store i32 %34, ptr %36, align 8
   %37 = load i32, ptr %4, align 4
   %38 = load ptr, ptr @TransamVariables, align 8
-  %39 = getelementptr inbounds %struct.TransamVariablesData, ptr %38, i32 0, i32 10
+  %39 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %38, i32 0, i32 10
   store i32 %37, ptr %39, align 4
   br label %40
 
 40:                                               ; preds = %33, %32
   %41 = load ptr, ptr @MainLWLockArray, align 8
-  %42 = getelementptr %union.LWLockPadded, ptr %41, i64 39
+  %42 = getelementptr inbounds %union.LWLockPadded, ptr %41, i64 39
   call void @LWLockRelease(ptr noundef %42)
   ret void
 }
@@ -1568,17 +1758,17 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load ptr, ptr @MainLWLockArray, align 8
-  %4 = getelementptr %union.LWLockPadded, ptr %3, i64 39
+  %4 = getelementptr inbounds %union.LWLockPadded, ptr %3, i64 39
   %5 = call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0)
   %6 = load ptr, ptr @TransamVariables, align 8
-  %7 = getelementptr inbounds %struct.TransamVariablesData, ptr %6, i32 0, i32 9
+  %7 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %6, i32 0, i32 9
   %8 = load i32, ptr %7, align 8
   %9 = icmp ne i32 %8, 0
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr @TransamVariables, align 8
-  %12 = getelementptr inbounds %struct.TransamVariablesData, ptr %11, i32 0, i32 9
+  %12 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %11, i32 0, i32 9
   %13 = load i32, ptr %12, align 8
   %14 = load i32, ptr %2, align 4
   %15 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %13, i32 noundef %14)
@@ -1587,13 +1777,13 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) #0 {
 16:                                               ; preds = %10
   %17 = load i32, ptr %2, align 4
   %18 = load ptr, ptr @TransamVariables, align 8
-  %19 = getelementptr inbounds %struct.TransamVariablesData, ptr %18, i32 0, i32 9
+  %19 = getelementptr inbounds nuw %struct.TransamVariablesData, ptr %18, i32 0, i32 9
   store i32 %17, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %16, %10, %1
   %21 = load ptr, ptr @MainLWLockArray, align 8
-  %22 = getelementptr %union.LWLockPadded, ptr %21, i64 39
+  %22 = getelementptr inbounds %union.LWLockPadded, ptr %21, i64 39
   call void @LWLockRelease(ptr noundef %22)
   ret void
 }
@@ -1607,11 +1797,12 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.XLogReaderState, ptr %8, i32 0, i32 11
+  %9 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %8, i32 0, i32 11
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %10, i32 0, i32 5
-  %12 = getelementptr inbounds %struct.XLogRecord, ptr %11, i32 0, i32 3
+  %11 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %10, i32 0, i32 5
+  %12 = getelementptr inbounds nuw %struct.XLogRecord, ptr %11, i32 0, i32 3
   %13 = load i8, ptr %12, align 8
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, -16
@@ -1623,10 +1814,13 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.XLogReaderState, ptr %21, i32 0, i32 11
+  %22 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %21, i32 0, i32 11
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %23, i32 0, i32 8
+  %24 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %23, i32 0, i32 8
   %25 = load ptr, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 1 %25, i64 8, i1 false)
   %26 = load i64, ptr %4, align 8
@@ -1641,7 +1835,10 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   call void @SimpleLruWritePage(ptr noundef @CommitTsCtlData, i32 noundef %32)
   %33 = load ptr, ptr %6, align 8
   call void @LWLockRelease(ptr noundef %33)
-  br label %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %69
 
 34:                                               ; preds = %1
   %35 = load i8, ptr %3, align 1
@@ -1650,27 +1847,29 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   br i1 %37, label %38, label %55
 
 38:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.XLogReaderState, ptr %39, i32 0, i32 11
+  %40 = getelementptr inbounds nuw %struct.XLogReaderState, ptr %39, i32 0, i32 11
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.DecodedXLogRecord, ptr %41, i32 0, i32 8
+  %42 = getelementptr inbounds nuw %struct.DecodedXLogRecord, ptr %41, i32 0, i32 8
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %7, align 8
   %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.xl_commit_ts_truncate, ptr %44, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.xl_commit_ts_truncate, ptr %44, i32 0, i32 1
   %46 = load i32, ptr %45, align 8
   call void @AdvanceOldestCommitTsXid(i32 noundef %46)
   %47 = load ptr, ptr @CommitTsCtlData, align 8
-  %48 = getelementptr inbounds %struct.SlruSharedData, ptr %47, i32 0, i32 11
+  %48 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %47, i32 0, i32 11
   %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.xl_commit_ts_truncate, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.xl_commit_ts_truncate, ptr %49, i32 0, i32 0
   %51 = load i64, ptr %50, align 8
   call void @pg_atomic_write_u64(ptr noundef %48, i64 noundef %51)
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct.xl_commit_ts_truncate, ptr %52, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.xl_commit_ts_truncate, ptr %52, i32 0, i32 0
   %54 = load i64, ptr %53, align 8
   call void @SimpleLruTruncate(ptr noundef @CommitTsCtlData, i64 noundef %54)
-  br label %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %68
 
 55:                                               ; preds = %34
   br label %56
@@ -1679,7 +1878,7 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   br i1 true, label %57, label %59
 
 57:                                               ; preds = %56
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #5
+  %58 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
   br i1 %58, label %61, label %65
 
 59:                                               ; preds = %56
@@ -1690,7 +1889,7 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
   %62 = load i8, ptr %3, align 1
   %63 = zext i8 %62 to i32
   %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.8, i32 noundef %63)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1059, ptr noundef @__func__.commit_ts_redo)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1056, ptr noundef @__func__.commit_ts_redo)
   br label %65
 
 65:                                               ; preds = %61, %59, %57
@@ -1699,17 +1898,21 @@ define dso_local void @commit_ts_redo(ptr noundef %0) #0 {
 66:                                               ; No predecessors!
   br label %67
 
-67:                                               ; preds = %66, %38
+67:                                               ; preds = %66
   br label %68
 
-68:                                               ; preds = %67, %20
+68:                                               ; preds = %67, %38
+  br label %69
+
+69:                                               ; preds = %68, %20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
   ret void
 }
 
-declare void @SimpleLruWritePage(ptr noundef, i32 noundef) #1
+declare void @SimpleLruWritePage(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @pg_atomic_write_u64(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pg_atomic_write_u64(ptr noundef %0, i64 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
@@ -1732,9 +1935,9 @@ define dso_local i32 @committssyncfiletag(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %7
 }
 
-declare i32 @SlruSyncFileTag(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @SlruSyncFileTag(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) #1
+declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @TransactionIdSetCommitTs(i32 noundef %0, i64 noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
@@ -1748,65 +1951,69 @@ define internal void @TransactionIdSetCommitTs(i32 noundef %0, i64 noundef %1, i
   store i64 %1, ptr %6, align 8
   store i16 %2, ptr %7, align 2
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
   %11 = load i32, ptr %5, align 4
   %12 = urem i32 %11, 819
   store i32 %12, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #7
   %13 = load i64, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %10, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %10, i32 0, i32 0
   store i64 %13, ptr %14, align 8
   %15 = load i16, ptr %7, align 2
-  %16 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %10, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.CommitTimestampEntry, ptr %10, i32 0, i32 1
   store i16 %15, ptr %16, align 8
   %17 = load ptr, ptr @CommitTsCtlData, align 8
-  %18 = getelementptr inbounds %struct.SlruSharedData, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.SlruSharedData, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %9, align 4
   %25 = sext i32 %24 to i64
   %26 = mul i64 10, %25
-  %27 = getelementptr i8, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 8 %10, i64 10, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
-declare zeroext i1 @RecoveryInProgress() #1
+declare zeroext i1 @RecoveryInProgress() #3
 
-declare i32 @errhint(ptr noundef, ...) #1
+declare i32 @errhint(ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int64GetDatum(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int64GetDatum(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) #1
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) #3
 
-declare i32 @SimpleLruAutotuneBuffers(i32 noundef, i32 noundef) #1
+declare i32 @SimpleLruAutotuneBuffers(i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ReadNextTransactionId() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ReadNextTransactionId() #2 {
   %1 = alloca %struct.FullTransactionId, align 8
   %2 = call i64 @ReadNextFullTransactionId()
-  %3 = getelementptr inbounds %struct.FullTransactionId, ptr %1, i32 0, i32 0
+  %3 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %1, i32 0, i32 0
   store i64 %2, ptr %3, align 8
-  %4 = getelementptr inbounds %struct.FullTransactionId, ptr %1, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %1, i32 0, i32 0
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   ret i32 %6
 }
 
-declare zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef, i64 noundef) #1
+declare zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef, i64 noundef) #3
 
-declare i64 @ReadNextFullTransactionId() #1
+declare i64 @ReadNextFullTransactionId() #3
 
-declare zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
+declare zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) #1
+declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @WriteZeroPageXlogRec(i64 noundef %0) #0 {
@@ -1818,39 +2025,43 @@ define internal void @WriteZeroPageXlogRec(i64 noundef %0) #0 {
   ret void
 }
 
-declare void @XLogBeginInsert() #1
+declare void @XLogBeginInsert() #3
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) #1
+declare void @XLogRegisterData(ptr noundef, i32 noundef) #3
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #1
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @pg_atomic_write_u64_impl(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pg_atomic_write_u64_impl(ptr noundef %0, i64 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %6, i32 0, i32 0
   store volatile i64 %5, ptr %7, align 8
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/nodeIncrementalSort.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TuplesortInstrumentation = type { i32, i32, i64 }
 %struct.PresortedKeyData = type { %struct.FmgrInfo, ptr, i16 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitIncrementalSort(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 424) #8
-  store i32 411, ptr %4, align 4
+  store i32 426, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -78,6 +78,9 @@ define dso_local noundef ptr @ExecInitIncrementalSort(ptr noundef %0, ptr nounde
   ret ptr %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %2 = alloca %struct.TuplesortInstrumentation, align 8
@@ -88,13 +91,13 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %7 = load ptr, ptr %6, align 8
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9
+  br i1 %.not, label %10, label %9, !prof !4
 
 9:                                                ; preds = %1
   tail call void @ProcessInterrupts() #8
   br label %10
 
-10:                                               ; preds = %1, %9
+10:                                               ; preds = %9, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -126,8 +129,8 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %33 = load i8, ptr %32, align 8
-  %34 = trunc i8 %33 to i1
+  %33 = load i8, ptr %32, align 8, !range !5, !noundef !6
+  %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %459, label %35
 
 35:                                               ; preds = %31
@@ -179,14 +182,14 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 62:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
   %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr %struct.PresortedKeyData, ptr %63, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %63, i64 %indvars.iv.i
   %65 = load ptr, ptr %59, align 8
-  %66 = getelementptr i16, ptr %65, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i16 %67, ptr %68, align 8
   %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr i32, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @get_equality_op_for_ordering_op(i32 noundef %71, ptr noundef null) #8
   %.not.i = icmp eq i32 %72, 0
@@ -196,10 +199,10 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %74)
   %75 = load ptr, ptr %60, align 8
-  %76 = getelementptr i32, ptr %75, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %77) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.preparePresortedCols) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.preparePresortedCols) #8
   unreachable
 
 79:                                               ; preds = %62
@@ -211,12 +214,12 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %82)
   %83 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %72) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.preparePresortedCols) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 190, ptr noundef nonnull @__func__.preparePresortedCols) #8
   unreachable
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %80, ptr noundef %64, ptr noundef %85) #8
+  tail call void @fmgr_info_cxt(i32 noundef %80, ptr noundef nonnull %64, ptr noundef %85) #8
   %86 = tail call ptr @palloc0(i64 noundef 64) #8
   %87 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %86, ptr %87, align 8
@@ -228,7 +231,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %61, align 8
-  %93 = getelementptr i32, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %87, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -243,13 +246,13 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i8 0, ptr %102, align 8
   %103 = load ptr, ptr %87, align 8
-  %104 = getelementptr i8, ptr %103, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
   store i8 0, ptr %104, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %105 = load i32, ptr %51, align 8
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next.i, %106
-  br i1 %107, label %62, label %preparePresortedCols.exit, !llvm.loop !5
+  br i1 %107, label %62, label %preparePresortedCols.exit, !llvm.loop !7
 
 preparePresortedCols.exit:                        ; preds = %84, %49
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -264,8 +267,8 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr @work_mem, align 4
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %120 = load i8, ptr %119, align 8
-  %121 = trunc i8 %120 to i1
+  %120 = load i8, ptr %119, align 8, !range !5, !noundef !6
+  %121 = trunc nuw i8 %120 to i1
   %122 = select i1 %121, i32 2, i32 0
   %123 = tail call ptr @tuplesort_begin_heap(ptr noundef %44, i32 noundef %109, ptr noundef %111, ptr noundef %113, ptr noundef %115, ptr noundef %117, i32 noundef %118, ptr noundef null, i32 noundef %122) #8
   store ptr %123, ptr %15, align 8
@@ -278,8 +281,8 @@ preparePresortedCols.exit:                        ; preds = %84, %49
 125:                                              ; preds = %124, %preparePresortedCols.exit
   %.1162 = phi ptr [ %123, %preparePresortedCols.exit ], [ %16, %124 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %127 = load i8, ptr %126, align 8
-  %128 = trunc i8 %127 to i1
+  %127 = load i8, ptr %126, align 8, !range !5, !noundef !6
+  %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %139
 
 129:                                              ; preds = %125
@@ -373,17 +376,17 @@ ExecProcNode.exit:                                ; preds = %157, %159
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %176 = load i8, ptr %175, align 8
-  %177 = trunc i8 %176 to i1
+  %176 = load i8, ptr %175, align 8, !range !5, !noundef !6
+  %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %212
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %180 = load i32, ptr @ParallelWorkerNumber, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %179, i64 0, i64 %181
+  %182 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %179, i64 0, i64 %181
   %183 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %184 = load i64, ptr %182, align 8
   %185 = add i64 %184, 1
   store i64 %185, ptr %182, align 8
@@ -433,13 +436,13 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
   %210 = load i32, ptr %209, align 8
   %211 = or i32 %210, %208
   store i32 %211, ptr %209, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   br label %243
 
 212:                                              ; preds = %174, %171
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %214 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   %215 = load i64, ptr %213, align 8
   %216 = add i64 %215, 1
   store i64 %216, ptr %213, align 8
@@ -489,10 +492,10 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %241 = load i32, ptr %240, align 8
   %242 = or i32 %241, %239
   store i32 %242, ptr %240, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   br label %243
 
-243:                                              ; preds = %167, %instrumentSortedGroup.exit194, %instrumentSortedGroup.exit
+243:                                              ; preds = %instrumentSortedGroup.exit, %instrumentSortedGroup.exit194, %167
   store i32 2, ptr %17, align 8
   br label %.thread
 
@@ -510,7 +513,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %249 = load ptr, ptr %140, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 56
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 64
   %253 = load ptr, ptr %252, align 8
   tail call void %253(ptr noundef %249, ptr noundef nonnull %161) #8
   br label %.backedge
@@ -533,11 +536,11 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %260 = load ptr, ptr %140, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 56
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 64
   %264 = load ptr, ptr %263, align 8
   tail call void %264(ptr noundef %260, ptr noundef nonnull %161) #8
-  %265 = load i8, ptr %126, align 8
-  %266 = trunc i8 %265 to i1
+  %265 = load i8, ptr %126, align 8, !range !5, !noundef !6
+  %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %267, label %273
 
 267:                                              ; preds = %259
@@ -565,25 +568,25 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 279:                                              ; preds = %276
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %281 = load i8, ptr %280, align 8
-  %282 = trunc i8 %281 to i1
+  %281 = load i8, ptr %280, align 8, !range !5, !noundef !6
+  %282 = trunc nuw i8 %281 to i1
   br i1 %282, label %283, label %288
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %285 = load i32, ptr @ParallelWorkerNumber, align 4
   %286 = sext i32 %285 to i64
-  %287 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %284, i64 0, i64 %286
+  %287 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %284, i64 0, i64 %286
   br label %.sink.split
 
 288:                                              ; preds = %279, %276
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %.sink.split
 
-.sink.split:                                      ; preds = %283, %288
-  %.sink = phi ptr [ %289, %288 ], [ %287, %283 ]
+.sink.split:                                      ; preds = %288, %283
+  %.sink = phi ptr [ %287, %283 ], [ %289, %288 ]
   %290 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef %.sink, ptr noundef %290)
+  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %.sink, ptr noundef %290)
   br label %291
 
 291:                                              ; preds = %.sink.split, %273
@@ -621,25 +624,25 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %309 = load i8, ptr %308, align 8
-  %310 = trunc i8 %309 to i1
+  %309 = load i8, ptr %308, align 8, !range !5, !noundef !6
+  %310 = trunc nuw i8 %309 to i1
   br i1 %310, label %311, label %316
 
 311:                                              ; preds = %307
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %313 = load i32, ptr @ParallelWorkerNumber, align 4
   %314 = sext i32 %313 to i64
-  %315 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
+  %315 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
   br label %.sink.split240
 
 316:                                              ; preds = %307, %304
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %.sink.split240
 
-.sink.split240:                                   ; preds = %311, %316
-  %.sink241 = phi ptr [ %317, %316 ], [ %315, %311 ]
+.sink.split240:                                   ; preds = %316, %311
+  %.sink241 = phi ptr [ %315, %311 ], [ %317, %316 ]
   %318 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef %.sink241, ptr noundef %318)
+  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %.sink241, ptr noundef %318)
   br label %319
 
 319:                                              ; preds = %.sink.split240, %296
@@ -721,7 +724,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   %357 = load ptr, ptr %336, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 56
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 64
   %361 = load ptr, ptr %360, align 8
   tail call void %361(ptr noundef %357, ptr noundef nonnull %342) #8
   br label %362
@@ -742,8 +745,8 @@ ExecProcNode.exit196:                             ; preds = %338, %340
 
 369:                                              ; preds = %366
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %371 = load i8, ptr %370, align 8
-  %372 = trunc i8 %371 to i1
+  %371 = load i8, ptr %370, align 8, !range !5, !noundef !6
+  %372 = trunc nuw i8 %371 to i1
   br i1 %372, label %373, label %407
 
 373:                                              ; preds = %369
@@ -753,7 +756,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   %376 = getelementptr i8, ptr %368, i64 56
   %377 = getelementptr i8, ptr %376, i64 %.idx
   %378 = load ptr, ptr %337, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %379 = load i64, ptr %377, align 8
   %380 = add i64 %379, 1
   store i64 %380, ptr %377, align 8
@@ -803,13 +806,13 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
   %405 = load i32, ptr %404, align 8
   %406 = or i32 %405, %403
   store i32 %406, ptr %404, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   br label %438
 
 407:                                              ; preds = %369, %366
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %409 = load ptr, ptr %337, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %410 = load i64, ptr %408, align 8
   %411 = add i64 %410, 1
   store i64 %411, ptr %408, align 8
@@ -859,14 +862,14 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   %436 = load i32, ptr %435, align 8
   %437 = or i32 %436, %434
   store i32 %437, ptr %435, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   br label %438
 
-438:                                              ; preds = %362, %instrumentSortedGroup.exit198, %instrumentSortedGroup.exit197
+438:                                              ; preds = %instrumentSortedGroup.exit197, %instrumentSortedGroup.exit198, %362
   store i32 3, ptr %17, align 8
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %440 = load i8, ptr %439, align 8
-  %441 = trunc i8 %440 to i1
+  %440 = load i8, ptr %439, align 8, !range !5, !noundef !6
+  %441 = trunc nuw i8 %440 to i1
   br i1 %441, label %442, label %.thread
 
 442:                                              ; preds = %438
@@ -904,15 +907,18 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   ret ptr %.0
 }
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndIncrementalSort(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -950,11 +956,11 @@ define dso_local void @ExecEndIncrementalSort(ptr noundef captures(none) %0) loc
   ret void
 }
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
 
-declare void @tuplesort_end(ptr noundef) local_unnamed_addr #1
+declare void @tuplesort_end(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanIncrementalSort(ptr noundef captures(none) initializes((240, 241), (248, 260), (264, 272)) %0) local_unnamed_addr #0 {
@@ -1036,9 +1042,9 @@ define dso_local void @ExecReScanIncrementalSort(ptr noundef captures(none) init
   ret void
 }
 
-declare void @tuplesort_reset(ptr noundef) local_unnamed_addr #1
+declare void @tuplesort_reset(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortEstimate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -1073,9 +1079,9 @@ define dso_local void @ExecIncrementalSortEstimate(ptr noundef readonly captures
   ret void
 }
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeDSM(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1117,12 +1123,12 @@ define dso_local void @ExecIncrementalSortInitializeDSM(ptr noundef captures(non
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeWorker(ptr noundef captures(none) initializes((408, 409), (416, 424)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1141,7 +1147,7 @@ define dso_local void @ExecIncrementalSortInitializeWorker(ptr noundef captures(
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1165,16 +1171,16 @@ define dso_local void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef ca
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #1
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare zeroext i1 @tuplesort_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @tuplesort_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -1203,20 +1209,20 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %18 to i64
-  %25 = getelementptr i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds i16, ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr i32, ptr %27, i64 %24
+  %28 = getelementptr inbounds i32, ptr %27, i64 %24
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr i32, ptr %30, i64 %24
+  %31 = getelementptr inbounds i32, ptr %30, i64 %24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr i8, ptr %33, i64 %24
+  %34 = getelementptr inbounds i8, ptr %33, i64 %24
   %35 = load i32, ptr @work_mem, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %37 = load i8, ptr %36, align 8
-  %38 = trunc i8 %37 to i1
+  %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
+  %38 = trunc nuw i8 %37 to i1
   %39 = select i1 %38, i32 2, i32 0
   %40 = tail call ptr @tuplesort_begin_heap(ptr noundef %12, i32 noundef %21, ptr noundef %25, ptr noundef %28, ptr noundef %31, ptr noundef %34, i32 noundef %35, ptr noundef null, i32 noundef %39) #8
   store ptr %40, ptr %13, align 8
@@ -1228,8 +1234,8 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
 
 42:                                               ; preds = %41, %16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %44 = load i8, ptr %43, align 8
-  %45 = trunc i8 %44 to i1
+  %44 = load i8, ptr %43, align 8, !range !5, !noundef !6
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %42
@@ -1277,7 +1283,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %71 = load ptr, ptr %57, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef %70, ptr noundef %71) #8
   br label %104
@@ -1300,7 +1306,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %86 = load ptr, ptr %57, align 8
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef %79, ptr noundef %86) #8
   %.pre88 = load ptr, ptr %58, align 8
@@ -1332,7 +1338,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %105 = add nuw nsw i64 %.086, 1
   %106 = load i64, ptr %54, align 8
   %107 = icmp slt i64 %105, %106
-  br i1 %107, label %61, label %.loopexit, !llvm.loop !7
+  br i1 %107, label %61, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %104, %53, %98
   %108 = phi i64 [ %.pre89, %98 ], [ %55, %53 ], [ %106, %104 ]
@@ -1349,7 +1355,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = load ptr, ptr %118, align 8
   tail call void %119(ptr noundef %113, ptr noundef %115) #8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1378,8 +1384,8 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %135 = load i8, ptr %134, align 8
-  %136 = trunc i8 %135 to i1
+  %135 = load i8, ptr %134, align 8, !range !5, !noundef !6
+  %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %171
 
 137:                                              ; preds = %133
@@ -1389,7 +1395,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %140 = getelementptr i8, ptr %132, i64 56
   %141 = getelementptr i8, ptr %140, i64 %.idx
   %142 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %143 = load i64, ptr %141, align 8
   %144 = add i64 %143, 1
   store i64 %144, ptr %141, align 8
@@ -1439,13 +1445,13 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
   %169 = load i32, ptr %168, align 8
   %170 = or i32 %169, %167
   store i32 %170, ptr %168, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   br label %202
 
 171:                                              ; preds = %133, %130
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %173 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %174 = load i64, ptr %172, align 8
   %175 = add i64 %174, 1
   store i64 %175, ptr %172, align 8
@@ -1495,12 +1501,12 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   %200 = load i32, ptr %199, align 8
   %201 = or i32 %200, %198
   store i32 %201, ptr %199, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   br label %202
 
-202:                                              ; preds = %126, %instrumentSortedGroup.exit81, %instrumentSortedGroup.exit
-  %203 = load i8, ptr %43, align 8
-  %204 = trunc i8 %203 to i1
+202:                                              ; preds = %instrumentSortedGroup.exit, %instrumentSortedGroup.exit81, %126
+  %203 = load i8, ptr %43, align 8, !range !5, !noundef !6
+  %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %205, label %211
 
 205:                                              ; preds = %202
@@ -1522,17 +1528,18 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   ret void
 }
 
-declare ptr @tuplesort_begin_heap(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @tuplesort_begin_heap(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tuplesort_set_bound(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @tuplesort_set_bound(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tuplesort_puttupleslot(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @tuplesort_puttupleslot(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tuplesort_performsort(ptr noundef) local_unnamed_addr #1
+declare void @tuplesort_performsort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @instrumentSortedGroup(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.TuplesortInstrumentation, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %0, align 8
@@ -1582,6 +1589,7 @@ define internal fastcc void @instrumentSortedGroup(ptr noundef captures(none) %0
   %31 = load i32, ptr %30, align 8
   %32 = or i32 %31, %29
   store i32 %32, ptr %30, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret void
 }
 
@@ -1591,9 +1599,9 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr noundef readonly c
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load i32, ptr %6, align 8
-  %.02230 = add i32 %7, -1
-  %8 = icmp slt i32 %.02230, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %.02437 = add i32 %7, -1
+  %8 = icmp slt i32 %.02437, 0
+  br i1 %8, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -1603,13 +1611,13 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = zext nneg i32 %.02230 to i64
+  %16 = zext nneg i32 %.02437 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph, %71
-  %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %71 ]
+17:                                               ; preds = %.lr.ph, %select.unfold
+  %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr %struct.PresortedKeyData, ptr %18, i64 %indvars.iv, i32 2
+  %19 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %18, i64 %indvars.iv, i32 2
   %20 = load i16, ptr %19, align 8
   %21 = sext i16 %20 to i32
   %22 = load i16, ptr %10, align 2
@@ -1624,135 +1632,129 @@ slot_getattr.exit:                                ; preds = %17, %slot_getsomeat
   %24 = load ptr, ptr %11, align 8
   %25 = add nsw i32 %21, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i8, ptr %24, i64 %26
-  %28 = load i8, ptr %27, align 1
+  %27 = getelementptr inbounds i8, ptr %24, i64 %26
+  %28 = load i8, ptr %27, align 1, !range !5, !noundef !6
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr i64, ptr %29, i64 %26
+  %30 = getelementptr inbounds i64, ptr %29, i64 %26
   %31 = load i64, ptr %30, align 8
   %32 = load i16, ptr %13, align 2
   %33 = icmp sgt i16 %20, %32
-  br i1 %33, label %slot_getsomeattrs.exit.i23, label %slot_getattr.exit24
+  br i1 %33, label %slot_getsomeattrs.exit.i28, label %slot_getattr.exit29
 
-slot_getsomeattrs.exit.i23:                       ; preds = %slot_getattr.exit
+slot_getsomeattrs.exit.i28:                       ; preds = %slot_getattr.exit
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %21) #8
-  br label %slot_getattr.exit24
+  br label %slot_getattr.exit29
 
-slot_getattr.exit24:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i23
+slot_getattr.exit29:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i28
   %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr i8, ptr %34, i64 %26
-  %36 = load i8, ptr %35, align 1
+  %35 = getelementptr inbounds i8, ptr %34, i64 %26
+  %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
   %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr i64, ptr %37, i64 %26
+  %38 = getelementptr inbounds i64, ptr %37, i64 %26
   %39 = load i64, ptr %38, align 8
-  %40 = trunc i8 %28 to i1
+  %40 = trunc nuw i8 %28 to i1
   br i1 %40, label %43, label %41
 
-41:                                               ; preds = %slot_getattr.exit24
-  %42 = trunc i8 %36 to i1
-  br i1 %42, label %43, label %47
+41:                                               ; preds = %slot_getattr.exit29
+  %42 = trunc nuw i8 %36 to i1
+  br i1 %42, label %43, label %45
 
-43:                                               ; preds = %41, %slot_getattr.exit24
-  %44 = xor i8 %36, %28
-  %45 = and i8 %44, 1
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %71, label %._crit_edge
+43:                                               ; preds = %41, %slot_getattr.exit29
+  %44 = icmp eq i8 %28, %36
+  br i1 %44, label %select.unfold, label %.critedge
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr %struct.PresortedKeyData, ptr %48, i64 %indvars.iv
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store i64 %31, ptr %52, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr i8, ptr %53, i64 48
-  store i64 %39, ptr %54, align 8
-  %55 = load ptr, ptr %50, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
-  store i8 0, ptr %56, align 4
-  %57 = load ptr, ptr %50, align 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 %59(ptr noundef nonnull %57) #8
-  %61 = load ptr, ptr %50, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
-  %63 = load i8, ptr %62, align 4
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %70
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  store i64 %31, ptr %50, align 8
+  %51 = load ptr, ptr %48, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  store i64 %39, ptr %52, align 8
+  %53 = load ptr, ptr %48, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  store i8 0, ptr %54, align 4
+  %55 = load ptr, ptr %48, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call i64 %57(ptr noundef nonnull %55) #8
+  %59 = load ptr, ptr %48, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
+  %61 = load i8, ptr %60, align 4, !range !5, !noundef !6
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %68
 
-65:                                               ; preds = %47
-  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %68 = load i32, ptr %67, align 8
-  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %68) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.isCurrentGroup) #8
+63:                                               ; preds = %45
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %64)
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %66 = load i32, ptr %65, align 8
+  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %66) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.isCurrentGroup) #8
   unreachable
 
-70:                                               ; preds = %47
-  %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %._crit_edge, label %71
+68:                                               ; preds = %45
+  %.not = icmp eq i64 %58, 0
+  br i1 %.not, label %.critedge, label %select.unfold
 
-71:                                               ; preds = %70, %43
+select.unfold:                                    ; preds = %68, %43
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %72 = icmp slt i64 %indvars.iv, 1
-  br i1 %72, label %._crit_edge, label %17, !llvm.loop !8
+  %69 = icmp slt i64 %indvars.iv, 1
+  br i1 %69, label %.critedge, label %17, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %43, %70, %71, %3
-  %.lcssa28 = phi i1 [ true, %3 ], [ true, %71 ], [ false, %70 ], [ false, %43 ]
-  ret i1 %.lcssa28
+.critedge:                                        ; preds = %select.unfold, %43, %68, %3
+  %.lcssa35 = phi i1 [ true, %3 ], [ false, %68 ], [ false, %43 ], [ true, %select.unfold ]
+  ret i1 %.lcssa35
 }
 
-declare zeroext i1 @tuplesort_used_bound(ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @tuplesort_used_bound(ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
+declare i32 @get_opcode(i32 noundef) local_unnamed_addr #2
 
-declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.smin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

@@ -49,19 +49,19 @@ define dso_local ptr @defGetString(ptr noundef readonly captures(none) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 55, ptr noundef nonnull @__func__.defGetString) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__func__.defGetString) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %35 [
-    i32 448, label %13
-    i32 449, label %18
-    i32 450, label %21
-    i32 451, label %26
-    i32 60, label %29
+    i32 464, label %13
+    i32 465, label %18
+    i32 466, label %21
+    i32 467, label %26
+    i32 68, label %29
     i32 1, label %31
-    i32 69, label %33
+    i32 77, label %33
   ]
 
 13:                                               ; preds = %11
@@ -78,8 +78,8 @@ define dso_local ptr @defGetString(ptr noundef readonly captures(none) %0) local
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %23 = load i8, ptr %22, align 4
-  %24 = trunc i8 %23 to i1
+  %23 = load i8, ptr %22, align 4, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   %25 = select i1 %24, ptr @.str.3, ptr @.str.4
   br label %40
 
@@ -106,7 +106,7 @@ define dso_local ptr @defGetString(ptr noundef readonly captures(none) %0) local
   %37 = load ptr, ptr %2, align 8
   %38 = load i32, ptr %37, align 4
   %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %38) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.defGetString) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 59, ptr noundef nonnull @__func__.defGetString) #7
   unreachable
 
 40:                                               ; preds = %33, %31, %29, %26, %21, %18, %13
@@ -147,14 +147,14 @@ define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) l
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.defGetNumeric) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 74, ptr noundef nonnull @__func__.defGetNumeric) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %21 [
-    i32 448, label %13
-    i32 449, label %17
+    i32 464, label %13
+    i32 465, label %17
   ]
 
 13:                                               ; preds = %11
@@ -166,7 +166,7 @@ define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) l
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call double @atof(ptr noundef %19) #8
+  %20 = tail call double @strtod(ptr noundef nonnull captures(none) %19, ptr noundef null) #7
   br label %27
 
 21:                                               ; preds = %11
@@ -176,7 +176,7 @@ define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) l
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %25) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 99, ptr noundef nonnull @__func__.defGetNumeric) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.defGetNumeric) #7
   unreachable
 
 27:                                               ; preds = %17, %13
@@ -184,66 +184,63 @@ define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) l
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr noundef captures(none)) local_unnamed_addr #3
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @defGetBoolean(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %30, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %3, align 4
-  %cond = icmp eq i32 %6, 448
+  %cond = icmp eq i32 %6, 464
   br i1 %cond, label %7, label %11
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %24 [
-    i32 0, label %30
+  switch i32 %9, label %23 [
+    i32 0, label %.thread
     i32 1, label %10
   ]
 
 10:                                               ; preds = %7
-  br label %30
+  br label %.thread
 
 11:                                               ; preds = %5
   %12 = tail call ptr @defGetString(ptr noundef nonnull %0)
   %13 = tail call i32 @pg_strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.3) #7
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %30, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 @pg_strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.4) #7
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %30, label %18
+  br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i32 @pg_strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.8) #7
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %30, label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
   %22 = tail call i32 @pg_strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.9) #7
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %30, label %24
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %.thread, label %23
 
-24:                                               ; preds = %21, %7
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %28) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @__func__.defGetBoolean) #7
+23:                                               ; preds = %21, %7
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @errcode(i32 noundef 16801924) #7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %27) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.defGetBoolean) #7
   unreachable
 
-30:                                               ; preds = %21, %18, %15, %11, %7, %1, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %1 ], [ false, %7 ], [ true, %11 ], [ false, %15 ], [ true, %18 ], [ false, %21 ]
-  ret i1 %.0
+.thread:                                          ; preds = %18, %15, %11, %21, %7, %1, %10
+  %.010 = phi i1 [ true, %10 ], [ false, %21 ], [ true, %1 ], [ false, %7 ], [ true, %18 ], [ false, %15 ], [ true, %11 ]
+  ret i1 %.010
 }
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -262,12 +259,12 @@ define dso_local i32 @defGetInt32(ptr noundef readonly captures(none) %0) local_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 169, ptr noundef nonnull @__func__.defGetInt32) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @__func__.defGetInt32) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
-  %cond = icmp eq i32 %12, 448
+  %cond = icmp eq i32 %12, 464
   br i1 %cond, label %13, label %16
 
 13:                                               ; preds = %11
@@ -282,7 +279,7 @@ define dso_local i32 @defGetInt32(ptr noundef readonly captures(none) %0) local_
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.defGetInt32) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef nonnull @__func__.defGetInt32) #7
   unreachable
 }
 
@@ -300,14 +297,14 @@ define dso_local i64 @defGetInt64(ptr noundef readonly captures(none) %0) local_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.defGetInt64) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__.defGetInt64) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %22 [
-    i32 448, label %13
-    i32 449, label %17
+    i32 464, label %13
+    i32 465, label %17
   ]
 
 13:                                               ; preds = %11
@@ -330,7 +327,7 @@ define dso_local i64 @defGetInt64(ptr noundef readonly captures(none) %0) local_
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %26) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.defGetInt64) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 197, ptr noundef nonnull @__func__.defGetInt64) #7
   unreachable
 
 28:                                               ; preds = %17, %13
@@ -356,14 +353,14 @@ define dso_local i32 @defGetObjectId(ptr noundef readonly captures(none) %0) loc
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__.defGetObjectId) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @__func__.defGetObjectId) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %22 [
-    i32 448, label %13
-    i32 449, label %16
+    i32 464, label %13
+    i32 465, label %16
   ]
 
 13:                                               ; preds = %11
@@ -386,7 +383,7 @@ define dso_local i32 @defGetObjectId(ptr noundef readonly captures(none) %0) loc
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %26) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.defGetObjectId) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 230, ptr noundef nonnull @__func__.defGetObjectId) #7
   unreachable
 
 28:                                               ; preds = %16, %13
@@ -410,15 +407,15 @@ define dso_local ptr @defGetQualifiedName(ptr noundef readonly captures(none) %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.defGetQualifiedName) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 245, ptr noundef nonnull @__func__.defGetQualifiedName) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %18 [
-    i32 60, label %13
+    i32 68, label %13
     i32 1, label %24
-    i32 451, label %16
+    i32 467, label %16
   ]
 
 13:                                               ; preds = %11
@@ -437,7 +434,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef readonly captures(none) %0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %22) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.defGetQualifiedName) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.defGetQualifiedName) #7
   unreachable
 
 24:                                               ; preds = %11, %16, %13
@@ -461,14 +458,14 @@ define dso_local ptr @defGetTypeName(ptr noundef readonly captures(none) %0) loc
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @__func__.defGetTypeName) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.defGetTypeName) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %16 [
-    i32 60, label %22
-    i32 451, label %13
+    i32 68, label %22
+    i32 467, label %13
   ]
 
 13:                                               ; preds = %11
@@ -483,7 +480,7 @@ define dso_local ptr @defGetTypeName(ptr noundef readonly captures(none) %0) loc
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 303, ptr noundef nonnull @__func__.defGetTypeName) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__func__.defGetTypeName) #7
   unreachable
 
 22:                                               ; preds = %11, %13
@@ -507,16 +504,16 @@ define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) l
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.defGetTypeLength) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.defGetTypeLength) #7
   unreachable
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %3, align 4
   switch i32 %12, label %31 [
-    i32 448, label %13
-    i32 449, label %16
-    i32 451, label %22
-    i32 60, label %27
+    i32 464, label %13
+    i32 465, label %16
+    i32 467, label %22
+    i32 68, label %27
     i32 1, label %36
   ]
 
@@ -532,7 +529,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) l
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 328, ptr noundef nonnull @__func__.defGetTypeLength) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.defGetTypeLength) #7
   unreachable
 
 22:                                               ; preds = %11
@@ -554,10 +551,10 @@ define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) l
   %33 = load ptr, ptr %2, align 8
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %34) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__func__.defGetTypeLength) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @__func__.defGetTypeLength) #7
   unreachable
 
-36:                                               ; preds = %11, %27, %22
+36:                                               ; preds = %27, %22, %11
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %37)
   %38 = tail call i32 @errcode(i32 noundef 16801924) #7
@@ -565,7 +562,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) l
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @defGetString(ptr noundef nonnull %0)
   %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %40, ptr noundef %41) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.defGetTypeLength) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @__func__.defGetTypeLength) #7
   unreachable
 
 43:                                               ; preds = %27, %22, %13
@@ -587,7 +584,7 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.defGetStringList) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.defGetStringList) #7
   unreachable
 
 11:                                               ; preds = %1
@@ -613,20 +610,23 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
   %19 = load ptr, ptr %2, align 8
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__func__.defGetStringList) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.defGetStringList) #7
   unreachable
 
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %22, %.preheader
+  ret ptr %3
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, 451
+  %27 = icmp eq i32 %26, 467
   br i1 %27, label %22, label %28
 
 28:                                               ; preds = %23
@@ -634,15 +634,12 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
   tail call void @llvm.assume(i1 %29)
   %30 = load i32, ptr %25, align 4
   %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %30) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.defGetStringList) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.defGetStringList) #7
   unreachable
-
-._crit_edge:                                      ; preds = %22, %.preheader
-  ret ptr %3
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local void @errorConflictingDefElem(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @errorConflictingDefElem(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 16801924) #7
@@ -650,31 +647,34 @@ define dso_local void @errorConflictingDefElem(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @parser_errposition(ptr noundef %1, i32 noundef %7) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 390, ptr noundef nonnull @__func__.errorConflictingDefElem) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.errorConflictingDefElem) #7
   unreachable
 }
 
 declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { cold nounwind }
 attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

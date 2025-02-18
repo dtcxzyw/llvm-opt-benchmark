@@ -1,8 +1,8 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pg_enc2name = type { ptr, i32 }
 %struct.pg_encname = type { ptr, i32 }
+%struct.pg_enc2name = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"SQL_ASCII\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"EUC_JP\00", align 1
@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
 @.str.40 = private unnamed_addr constant [6 x i8] c"JOHAB\00", align 1
 @.str.41 = private unnamed_addr constant [15 x i8] c"SHIFT_JIS_2004\00", align 1
-@pg_enc2name_tbl = dso_local constant [42 x %struct.pg_enc2name] [%struct.pg_enc2name { ptr @.str, i32 0 }, %struct.pg_enc2name { ptr @.str.1, i32 1 }, %struct.pg_enc2name { ptr @.str.2, i32 2 }, %struct.pg_enc2name { ptr @.str.3, i32 3 }, %struct.pg_enc2name { ptr @.str.4, i32 4 }, %struct.pg_enc2name { ptr @.str.5, i32 5 }, %struct.pg_enc2name { ptr @.str.6, i32 6 }, %struct.pg_enc2name { ptr @.str.7, i32 7 }, %struct.pg_enc2name { ptr @.str.8, i32 8 }, %struct.pg_enc2name { ptr @.str.9, i32 9 }, %struct.pg_enc2name { ptr @.str.10, i32 10 }, %struct.pg_enc2name { ptr @.str.11, i32 11 }, %struct.pg_enc2name { ptr @.str.12, i32 12 }, %struct.pg_enc2name { ptr @.str.13, i32 13 }, %struct.pg_enc2name { ptr @.str.14, i32 14 }, %struct.pg_enc2name { ptr @.str.15, i32 15 }, %struct.pg_enc2name { ptr @.str.16, i32 16 }, %struct.pg_enc2name { ptr @.str.17, i32 17 }, %struct.pg_enc2name { ptr @.str.18, i32 18 }, %struct.pg_enc2name { ptr @.str.19, i32 19 }, %struct.pg_enc2name { ptr @.str.20, i32 20 }, %struct.pg_enc2name { ptr @.str.21, i32 21 }, %struct.pg_enc2name { ptr @.str.22, i32 22 }, %struct.pg_enc2name { ptr @.str.23, i32 23 }, %struct.pg_enc2name { ptr @.str.24, i32 24 }, %struct.pg_enc2name { ptr @.str.25, i32 25 }, %struct.pg_enc2name { ptr @.str.26, i32 26 }, %struct.pg_enc2name { ptr @.str.27, i32 27 }, %struct.pg_enc2name { ptr @.str.28, i32 28 }, %struct.pg_enc2name { ptr @.str.29, i32 29 }, %struct.pg_enc2name { ptr @.str.30, i32 30 }, %struct.pg_enc2name { ptr @.str.31, i32 31 }, %struct.pg_enc2name { ptr @.str.32, i32 32 }, %struct.pg_enc2name { ptr @.str.33, i32 33 }, %struct.pg_enc2name { ptr @.str.34, i32 34 }, %struct.pg_enc2name { ptr @.str.35, i32 35 }, %struct.pg_enc2name { ptr @.str.36, i32 36 }, %struct.pg_enc2name { ptr @.str.37, i32 37 }, %struct.pg_enc2name { ptr @.str.38, i32 38 }, %struct.pg_enc2name { ptr @.str.39, i32 39 }, %struct.pg_enc2name { ptr @.str.40, i32 40 }, %struct.pg_enc2name { ptr @.str.41, i32 41 }], align 16
+@pg_enc2name_tbl = dso_local constant [42 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.2, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.3, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.4, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.5, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.6, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.7, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.8, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.9, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.10, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.11, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.12, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.13, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.14, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.15, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.16, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.17, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.18, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.19, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.20, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.21, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.22, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.23, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.24, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.25, i32 25, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.26, i32 26, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.27, i32 27, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.28, i32 28, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.29, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.30, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.31, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.32, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.33, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.34, i32 34, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.35, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.36, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.37, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.38, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.39, i32 39, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.40, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.41, i32 41, [4 x i8] zeroinitializer }], align 16
 @.str.42 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
 @.str.43 = private unnamed_addr constant [7 x i8] c"EUC-JP\00", align 1
 @.str.44 = private unnamed_addr constant [7 x i8] c"EUC-CN\00", align 1
@@ -75,7 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [15 x i8] c"SHIFT_JISX0213\00", align 1
 @pg_enc2gettext_tbl = dso_local global [42 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.43, ptr @.str.47, ptr null, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.48, ptr @.str.17, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.67], align 16
 @pg_enc2icu_tbl = internal constant [35 x ptr] [ptr null, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr null, ptr @.str.47, ptr null, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr null, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr null, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.78, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65], align 16
-@pg_encname_tbl = internal constant [81 x %struct.pg_encname] [%struct.pg_encname { ptr @.str.79, i32 19 }, %struct.pg_encname { ptr @.str.80, i32 20 }, %struct.pg_encname { ptr @.str.81, i32 36 }, %struct.pg_encname { ptr @.str.82, i32 2 }, %struct.pg_encname { ptr @.str.83, i32 5 }, %struct.pg_encname { ptr @.str.84, i32 1 }, %struct.pg_encname { ptr @.str.85, i32 3 }, %struct.pg_encname { ptr @.str.86, i32 4 }, %struct.pg_encname { ptr @.str.87, i32 39 }, %struct.pg_encname { ptr @.str.88, i32 37 }, %struct.pg_encname { ptr @.str.89, i32 8 }, %struct.pg_encname { ptr @.str.90, i32 13 }, %struct.pg_encname { ptr @.str.91, i32 14 }, %struct.pg_encname { ptr @.str.92, i32 15 }, %struct.pg_encname { ptr @.str.93, i32 16 }, %struct.pg_encname { ptr @.str.94, i32 17 }, %struct.pg_encname { ptr @.str.95, i32 9 }, %struct.pg_encname { ptr @.str.96, i32 10 }, %struct.pg_encname { ptr @.str.97, i32 11 }, %struct.pg_encname { ptr @.str.98, i32 25 }, %struct.pg_encname { ptr @.str.99, i32 26 }, %struct.pg_encname { ptr @.str.100, i32 27 }, %struct.pg_encname { ptr @.str.101, i32 28 }, %struct.pg_encname { ptr @.str.102, i32 12 }, %struct.pg_encname { ptr @.str.103, i32 40 }, %struct.pg_encname { ptr @.str.104, i32 22 }, %struct.pg_encname { ptr @.str.105, i32 22 }, %struct.pg_encname { ptr @.str.106, i32 34 }, %struct.pg_encname { ptr @.str.107, i32 8 }, %struct.pg_encname { ptr @.str.108, i32 17 }, %struct.pg_encname { ptr @.str.109, i32 9 }, %struct.pg_encname { ptr @.str.110, i32 10 }, %struct.pg_encname { ptr @.str.111, i32 11 }, %struct.pg_encname { ptr @.str.112, i32 12 }, %struct.pg_encname { ptr @.str.113, i32 13 }, %struct.pg_encname { ptr @.str.114, i32 14 }, %struct.pg_encname { ptr @.str.115, i32 15 }, %struct.pg_encname { ptr @.str.116, i32 16 }, %struct.pg_encname { ptr @.str.117, i32 35 }, %struct.pg_encname { ptr @.str.118, i32 7 }, %struct.pg_encname { ptr @.str.119, i32 35 }, %struct.pg_encname { ptr @.str.120, i32 41 }, %struct.pg_encname { ptr @.str.121, i32 35 }, %struct.pg_encname { ptr @.str.122, i32 0 }, %struct.pg_encname { ptr @.str.123, i32 19 }, %struct.pg_encname { ptr @.str.124, i32 19 }, %struct.pg_encname { ptr @.str.125, i32 38 }, %struct.pg_encname { ptr @.str.126, i32 6 }, %struct.pg_encname { ptr @.str.127, i32 6 }, %struct.pg_encname { ptr @.str.128, i32 19 }, %struct.pg_encname { ptr @.str.129, i32 23 }, %struct.pg_encname { ptr @.str.130, i32 29 }, %struct.pg_encname { ptr @.str.131, i32 23 }, %struct.pg_encname { ptr @.str.132, i32 24 }, %struct.pg_encname { ptr @.str.133, i32 30 }, %struct.pg_encname { ptr @.str.134, i32 31 }, %struct.pg_encname { ptr @.str.135, i32 32 }, %struct.pg_encname { ptr @.str.136, i32 18 }, %struct.pg_encname { ptr @.str.137, i32 33 }, %struct.pg_encname { ptr @.str.138, i32 19 }, %struct.pg_encname { ptr @.str.139, i32 20 }, %struct.pg_encname { ptr @.str.140, i32 21 }, %struct.pg_encname { ptr @.str.141, i32 35 }, %struct.pg_encname { ptr @.str.142, i32 37 }, %struct.pg_encname { ptr @.str.143, i32 38 }, %struct.pg_encname { ptr @.str.144, i32 36 }, %struct.pg_encname { ptr @.str.145, i32 29 }, %struct.pg_encname { ptr @.str.146, i32 23 }, %struct.pg_encname { ptr @.str.147, i32 24 }, %struct.pg_encname { ptr @.str.148, i32 30 }, %struct.pg_encname { ptr @.str.149, i32 31 }, %struct.pg_encname { ptr @.str.150, i32 32 }, %struct.pg_encname { ptr @.str.151, i32 18 }, %struct.pg_encname { ptr @.str.152, i32 33 }, %struct.pg_encname { ptr @.str.153, i32 19 }, %struct.pg_encname { ptr @.str.154, i32 20 }, %struct.pg_encname { ptr @.str.155, i32 21 }, %struct.pg_encname { ptr @.str.156, i32 35 }, %struct.pg_encname { ptr @.str.157, i32 37 }, %struct.pg_encname { ptr @.str.158, i32 38 }, %struct.pg_encname { ptr @.str.159, i32 36 }], align 16
 @.str.68 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.69 = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
 @.str.70 = private unnamed_addr constant [11 x i8] c"ISO-8859-2\00", align 1
@@ -168,6 +167,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.157 = private unnamed_addr constant [11 x i8] c"windows936\00", align 1
 @.str.158 = private unnamed_addr constant [11 x i8] c"windows949\00", align 1
 @.str.159 = private unnamed_addr constant [11 x i8] c"windows950\00", align 1
+@pg_encname_tbl = internal constant [81 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str.79, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.80, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.81, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.82, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.83, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.84, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.85, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.86, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.87, i32 39, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.88, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.89, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.90, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.91, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.92, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.93, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.94, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.95, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.96, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.97, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.98, i32 25, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.99, i32 26, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.100, i32 27, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.101, i32 28, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.102, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.103, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.104, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.105, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.106, i32 34, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.107, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.108, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.109, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.110, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.111, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.112, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.113, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.114, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.115, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.116, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.117, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.118, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.119, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.120, i32 41, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.121, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.122, i32 0, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.123, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.124, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.125, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.126, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.127, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.128, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.129, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.130, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.131, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.132, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.133, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.134, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.135, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.136, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.137, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.138, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.139, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.140, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.141, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.142, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.143, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.144, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.145, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.146, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.147, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.148, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.149, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.150, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.151, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.152, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.153, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.154, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.155, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.156, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.157, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.158, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.159, i32 36, [4 x i8] zeroinitializer }], align 16
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @is_encoding_supported_by_icu(i32 noundef %0) #0 {
@@ -190,7 +190,7 @@ define dso_local zeroext i1 @is_encoding_supported_by_icu(i32 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = load i32, ptr %3, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %12
+  %13 = getelementptr inbounds [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   store i1 %15, ptr %2, align 1
@@ -222,7 +222,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = load i32, ptr %3, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %12
+  %13 = getelementptr inbounds [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %2, align 8
   br label %15
@@ -237,40 +237,49 @@ define dso_local i32 @pg_valid_client_encoding(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call i32 @pg_char_to_encoding_private(ptr noundef %5)
-  store i32 %6, ptr %4, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store i32 -1, ptr %2, align 4
-  br label %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i32 @pg_char_to_encoding_private(ptr noundef %6)
+  store i32 %7, ptr %4, align 4
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp sge i32 %10, 0
-  br i1 %11, label %12, label %15
-
-12:                                               ; preds = %9
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp slt i32 %13, 42
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %12, %9
   store i32 -1, ptr %2, align 4
-  br label %18
+  store i32 1, ptr %5, align 4
+  br label %19
 
-16:                                               ; preds = %12
-  %17 = load i32, ptr %4, align 4
-  store i32 %17, ptr %2, align 4
-  br label %18
+10:                                               ; preds = %1
+  %11 = load i32, ptr %4, align 4
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %16
 
-18:                                               ; preds = %16, %15, %8
-  %19 = load i32, ptr %2, align 4
-  ret i32 %19
+13:                                               ; preds = %10
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp slt i32 %14, 42
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %13, %10
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+17:                                               ; preds = %13
+  %18 = load i32, ptr %4, align 4
+  store i32 %18, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+19:                                               ; preds = %17, %16, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_char_to_encoding_private(ptr noundef %0) #0 {
@@ -283,168 +292,196 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef %0) #0 {
   %8 = alloca i32, align 4
   %9 = alloca [64 x i8], align 16
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
   store i32 81, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   store ptr @pg_encname_tbl, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %4, align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct.pg_encname, ptr %11, i64 %13
-  %15 = getelementptr %struct.pg_encname, ptr %14, i64 -1
-  store ptr %15, ptr %6, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %23, label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %struct.pg_encname, ptr %12, i64 %14
+  %16 = getelementptr inbounds %struct.pg_encname, ptr %15, i64 -1
+  store ptr %16, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %17 = load ptr, ptr %3, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-18:                                               ; preds = %1
-  %19 = load ptr, ptr %3, align 8
-  %20 = load i8, ptr %19, align 1
-  %21 = sext i8 %20 to i32
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %24
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i8, ptr %20, align 1
+  %22 = sext i8 %21 to i32
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %18, %1
+24:                                               ; preds = %19, %1
   store i32 -1, ptr %2, align 4
-  br label %84
+  store i32 1, ptr %11, align 4
+  br label %85
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %3, align 8
-  %26 = call i64 @strlen(ptr noundef %25) #3
-  %27 = icmp uge i64 %26, 64
-  br i1 %27, label %28, label %29
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %3, align 8
+  %27 = call i64 @strlen(ptr noundef %26) #5
+  %28 = icmp uge i64 %27, 64
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %24
+29:                                               ; preds = %25
   store i32 -1, ptr %2, align 4
-  br label %84
+  store i32 1, ptr %11, align 4
+  br label %85
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
-  %32 = call ptr @clean_encoding_name(ptr noundef %30, ptr noundef %31)
-  store ptr %32, ptr %10, align 8
-  br label %33
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
+  %33 = call ptr @clean_encoding_name(ptr noundef %31, ptr noundef %32)
+  store ptr %33, ptr %10, align 8
+  br label %34
 
-33:                                               ; preds = %82, %29
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = icmp uge ptr %34, %35
-  br i1 %36, label %37, label %83
+34:                                               ; preds = %83, %30
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = icmp uge ptr %35, %36
+  br i1 %37, label %38, label %84
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %5, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = ptrtoint ptr %39 to i64
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %5, align 8
   %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = sdiv exact i64 %43, 16
-  %45 = ashr i64 %44, 1
-  %46 = getelementptr %struct.pg_encname, ptr %38, i64 %45
-  store ptr %46, ptr %7, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr i8, ptr %47, i64 0
-  %49 = load i8, ptr %48, align 1
-  %50 = sext i8 %49 to i32
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.pg_encname, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i8, ptr %53, i64 0
-  %55 = load i8, ptr %54, align 1
-  %56 = sext i8 %55 to i32
-  %57 = sub i32 %50, %56
-  store i32 %57, ptr %8, align 4
-  %58 = load i32, ptr %8, align 4
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %73
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = sdiv exact i64 %44, 16
+  %46 = ashr i64 %45, 1
+  %47 = getelementptr inbounds %struct.pg_encname, ptr %39, i64 %46
+  store ptr %47, ptr %7, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  %50 = load i8, ptr %49, align 1
+  %51 = sext i8 %50 to i32
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds nuw %struct.pg_encname, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 0
+  %56 = load i8, ptr %55, align 1
+  %57 = sext i8 %56 to i32
+  %58 = sub i32 %51, %57
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %8, align 4
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %74
 
-60:                                               ; preds = %37
-  %61 = load ptr, ptr %10, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds %struct.pg_encname, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = call i32 @strcmp(ptr noundef %61, ptr noundef %64) #3
-  store i32 %65, ptr %8, align 4
-  %66 = load i32, ptr %8, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %72
+61:                                               ; preds = %38
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct.pg_encname, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 @strcmp(ptr noundef %62, ptr noundef %65) #5
+  store i32 %66, ptr %8, align 4
+  %67 = load i32, ptr %8, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %73
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.pg_encname, ptr %69, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  store i32 %71, ptr %2, align 4
-  br label %84
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw %struct.pg_encname, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %2, align 4
+  store i32 1, ptr %11, align 4
+  br label %85
 
-72:                                               ; preds = %60
-  br label %73
+73:                                               ; preds = %61
+  br label %74
 
-73:                                               ; preds = %72, %37
-  %74 = load i32, ptr %8, align 4
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %79
+74:                                               ; preds = %73, %38
+  %75 = load i32, ptr %8, align 4
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %77, label %80
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr %struct.pg_encname, ptr %77, i64 -1
-  store ptr %78, ptr %6, align 8
-  br label %82
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds %struct.pg_encname, ptr %78, i64 -1
+  store ptr %79, ptr %6, align 8
+  br label %83
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr %struct.pg_encname, ptr %80, i64 1
-  store ptr %81, ptr %5, align 8
-  br label %82
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds %struct.pg_encname, ptr %81, i64 1
+  store ptr %82, ptr %5, align 8
+  br label %83
 
-82:                                               ; preds = %79, %76
-  br label %33, !llvm.loop !5
+83:                                               ; preds = %80, %77
+  br label %34, !llvm.loop !4
 
-83:                                               ; preds = %33
+84:                                               ; preds = %34
   store i32 -1, ptr %2, align 4
-  br label %84
+  store i32 1, ptr %11, align 4
+  br label %85
 
-84:                                               ; preds = %83, %68, %28, %23
-  %85 = load i32, ptr %2, align 4
-  ret i32 %85
+85:                                               ; preds = %84, %69, %29, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %86 = load i32, ptr %2, align 4
+  ret i32 %86
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_valid_server_encoding_private(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call i32 @pg_char_to_encoding_private(ptr noundef %5)
-  store i32 %6, ptr %4, align 4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store i32 -1, ptr %2, align 4
-  br label %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i32 @pg_char_to_encoding_private(ptr noundef %6)
+  store i32 %7, ptr %4, align 4
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp sge i32 %10, 0
-  br i1 %11, label %12, label %15
-
-12:                                               ; preds = %9
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp sle i32 %13, 34
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %12, %9
   store i32 -1, ptr %2, align 4
-  br label %18
+  store i32 1, ptr %5, align 4
+  br label %19
 
-16:                                               ; preds = %12
-  %17 = load i32, ptr %4, align 4
-  store i32 %17, ptr %2, align 4
-  br label %18
+10:                                               ; preds = %1
+  %11 = load i32, ptr %4, align 4
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %16
 
-18:                                               ; preds = %16, %15, %8
-  %19 = load i32, ptr %2, align 4
-  ret i32 %19
+13:                                               ; preds = %10
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp sle i32 %14, 34
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %13, %10
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+17:                                               ; preds = %13
+  %18 = load i32, ptr %4, align 4
+  store i32 %18, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
+
+19:                                               ; preds = %17, %16, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -467,7 +504,7 @@ define dso_local i32 @pg_valid_server_encoding_id_private(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
@@ -477,6 +514,8 @@ define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
@@ -491,13 +530,13 @@ define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %13, label %14, label %55
 
 14:                                               ; preds = %9
-  %15 = call ptr @__ctype_b_loc() #4
+  %15 = call ptr @__ctype_b_loc() #6
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i16, ptr %16, i64 %20
+  %21 = getelementptr inbounds i16, ptr %16, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %24 = and i32 %23, 8
@@ -526,7 +565,7 @@ define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
   %41 = sub i32 %40, 65
   %42 = trunc i32 %41 to i8
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
   store ptr %44, ptr %6, align 8
   store i8 %42, ptr %43, align 1
   br label %50
@@ -535,7 +574,7 @@ define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
   %46 = load ptr, ptr %5, align 8
   %47 = load i8, ptr %46, align 1
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr i8, ptr %48, i32 1
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
   store ptr %49, ptr %6, align 8
   store i8 %47, ptr %48, align 1
   br label %50
@@ -548,19 +587,21 @@ define internal ptr @clean_encoding_name(ptr noundef %0, ptr noundef %1) #0 {
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr i8, ptr %53, i32 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i32 1
   store ptr %54, ptr %5, align 8
-  br label %9, !llvm.loop !7
+  br label %9, !llvm.loop !6
 
 55:                                               ; preds = %9
   %56 = load ptr, ptr %6, align 8
   store i8 0, ptr %56, align 1
   %57 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %57
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) #0 {
@@ -578,14 +619,16 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) #0 {
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %11 = load i32, ptr %3, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [42 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %12
+  %13 = getelementptr inbounds [42 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %12
   store ptr %13, ptr %4, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.pg_enc2name, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.pg_enc2name, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
   br label %18
 
 17:                                               ; preds = %7, %1
@@ -598,21 +641,22 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #2
+declare ptr @__ctype_b_loc() #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
-attributes #4 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

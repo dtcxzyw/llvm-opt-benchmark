@@ -21,7 +21,7 @@ define dso_local i64 @to_ascii_encname(ptr noundef readonly captures(none) %0) l
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #5
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call i32 @pg_char_to_encoding_private(ptr noundef %8) #5
@@ -61,7 +61,7 @@ define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned capture
   %4 = load i32, ptr %0, align 4
   %5 = lshr i32 %4, 2
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i8, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   switch i32 %1, label %11 [
     i32 8, label %16
     i32 9, label %8
@@ -88,35 +88,35 @@ define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned capture
   unreachable
 
 16:                                               ; preds = %10, %9, %8, %2
-  %.018.i = phi ptr [ @.str.4, %8 ], [ @.str.5, %9 ], [ @.str.6, %10 ], [ @.str.3, %2 ]
-  %.0.i = phi i32 [ 160, %8 ], [ 160, %9 ], [ 128, %10 ], [ 160, %2 ]
-  %17 = icmp ult ptr %3, %7
+  %.019.i = phi ptr [ @.str.4, %8 ], [ @.str.5, %9 ], [ @.str.6, %10 ], [ @.str.3, %2 ]
+  %.018.i = phi i32 [ 160, %8 ], [ 160, %9 ], [ 128, %10 ], [ 160, %2 ]
+  %17 = icmp ugt i32 %4, 19
   br i1 %17, label %.lr.ph.i, label %pg_to_ascii.exit
 
 .lr.ph.i:                                         ; preds = %16, %28
-  %.01924.i = phi ptr [ %29, %28 ], [ %3, %16 ]
-  %18 = load i8, ptr %.01924.i, align 1
+  %.024.i = phi ptr [ %.1.i, %28 ], [ %3, %16 ]
+  %18 = load i8, ptr %.024.i, align 1
   %19 = zext i8 %18 to i32
   %20 = icmp sgt i8 %18, -1
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = icmp samesign ugt i32 %.0.i, %19
+  %22 = icmp samesign ugt i32 %.018.i, %19
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = sub nuw nsw i32 %19, %.0.i
+  %24 = sub nuw nsw i32 %19, %.018.i
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr i8, ptr %.018.i, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 %25
   %27 = load i8, ptr %26, align 1
   br label %28
 
 28:                                               ; preds = %23, %21, %.lr.ph.i
   %.sink.i = phi i8 [ %27, %23 ], [ %18, %.lr.ph.i ], [ 32, %21 ]
-  store i8 %.sink.i, ptr %.01924.i, align 1
-  %29 = getelementptr i8, ptr %.01924.i, i64 1
-  %exitcond.not.i = icmp eq ptr %29, %7
-  br i1 %exitcond.not.i, label %pg_to_ascii.exit, label %.lr.ph.i, !llvm.loop !5
+  store i8 %.sink.i, ptr %.024.i, align 1
+  %.1.i = getelementptr i8, ptr %.024.i, i64 1
+  %exitcond.not.i = icmp eq ptr %.1.i, %7
+  br i1 %exitcond.not.i, label %pg_to_ascii.exit, label %.lr.ph.i, !llvm.loop !4
 
 pg_to_ascii.exit:                                 ; preds = %28, %16
   ret ptr %0
@@ -128,7 +128,7 @@ define dso_local i64 @to_ascii_enc(ptr noundef readonly captures(none) %0) local
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #5
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %or.cond = icmp ult i32 %8, 42
@@ -169,17 +169,17 @@ define dso_local void @ascii_safe_strlcpy(ptr noundef writeonly captures(none) %
 
 .preheader:                                       ; preds = %3
   %5 = add i64 %2, -1
-  %.not28 = icmp eq i64 %5, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %5, 0
+  br i1 %.not33, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %6 = phi i64 [ %16, %14 ], [ %5, %.preheader ]
-  %.030 = phi ptr [ %15, %14 ], [ %0, %.preheader ]
-  %.02429 = phi ptr [ %7, %14 ], [ %1, %.preheader ]
-  %7 = getelementptr i8, ptr %.02429, i64 1
-  %8 = load i8, ptr %.02429, align 1
+  %.02435 = phi ptr [ %15, %14 ], [ %0, %.preheader ]
+  %.02634 = phi ptr [ %7, %14 ], [ %1, %.preheader ]
+  %7 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
+  %8 = load i8, ptr %.02634, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %._crit_edge, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %.lr.ph
   %or.cond = icmp sgt i8 %8, 31
@@ -199,18 +199,18 @@ switch.lookup:                                    ; preds = %11
 
 14:                                               ; preds = %11, %switch.lookup, %10
   %.sink = phi i8 [ %8, %10 ], [ %switch.masked, %switch.lookup ], [ 63, %11 ]
-  store i8 %.sink, ptr %.030, align 1
-  %15 = getelementptr i8, ptr %.030, i64 1
+  store i8 %.sink, ptr %.02435, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %.02435, i64 1
   %16 = add i64 %6, -1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %14, %.lr.ph, %.preheader
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.030, %.lr.ph ], [ %15, %14 ]
-  store i8 0, ptr %.0.lcssa, align 1
+.thread:                                          ; preds = %14, %.lr.ph, %.preheader
+  %.024.lcssa = phi ptr [ %0, %.preheader ], [ %.02435, %.lr.ph ], [ %15, %14 ]
+  store i8 0, ptr %.024.lcssa, align 1
   br label %17
 
-17:                                               ; preds = %3, %._crit_edge
+17:                                               ; preds = %3, %.thread
   ret void
 }
 
@@ -219,21 +219,19 @@ declare ptr @pg_encoding_to_char_private(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

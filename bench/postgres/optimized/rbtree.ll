@@ -3,12 +3,10 @@ source_filename = "bench/postgres/original/rbtree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RBTNode = type { i8, ptr, ptr, ptr }
-
-@sentinel = internal global %struct.RBTNode { i8 0, ptr @sentinel, ptr @sentinel, ptr null }, align 8
 @.str = private unnamed_addr constant [40 x i8] c"unrecognized rbtree iteration order: %d\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"rbtree.c\00", align 1
 @__func__.rbt_begin_iterate = private unnamed_addr constant [18 x i8] c"rbt_begin_iterate\00", align 1
+@sentinel = internal global { i8, [7 x i8], ptr, ptr, ptr } { i8 0, [7 x i8] zeroinitializer, ptr @sentinel, ptr @sentinel, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_create(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -34,40 +32,40 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.01113 = load ptr, ptr %0, align 8
-  %.not14 = icmp eq ptr %.01113, @sentinel
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.01320 = load ptr, ptr %0, align 8
+  %.not21 = icmp eq ptr %.01320, @sentinel
+  br i1 %.not21, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %5
 
-5:                                                ; preds = %.lr.ph, %10
-  %.01115 = phi ptr [ %.01113, %.lr.ph ], [ %.011, %10 ]
+5:                                                ; preds = %.lr.ph, %9
+  %.01322 = phi ptr [ %.01320, %.lr.ph ], [ %.013, %9 ]
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01115, ptr noundef %7) #7
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %10
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01322, ptr noundef %7) #7
+  %.not17 = icmp eq i32 %8, 0
+  br i1 %.not17, label %.thread, label %9
 
-10:                                               ; preds = %5
-  %11 = icmp slt i32 %8, 0
-  %.1.in.v = select i1 %11, i64 8, i64 16
-  %.1.in = getelementptr inbounds nuw i8, ptr %.01115, i64 %.1.in.v
-  %.011 = load ptr, ptr %.1.in, align 8
-  %.not = icmp eq ptr %.011, @sentinel
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !5
+9:                                                ; preds = %5
+  %10 = icmp slt i32 %8, 0
+  %.215.in.v = select i1 %10, i64 8, i64 16
+  %.215.in = getelementptr inbounds nuw i8, ptr %.01322, i64 %.215.in.v
+  %.013 = load ptr, ptr %.215.in, align 8
+  %.not = icmp eq ptr %.013, @sentinel
+  br i1 %.not, label %.thread, label %5, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %5, %10, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ %.01115, %5 ]
-  ret ptr %.0
+.thread:                                          ; preds = %9, %5, %2
+  %.2 = phi ptr [ null, %2 ], [ %.01322, %5 ], [ null, %9 ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %.01618 = load ptr, ptr %0, align 8
-  %.not19 = icmp eq ptr %.01618, @sentinel
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.02026 = load ptr, ptr %0, align 8
+  %.not27 = icmp eq ptr %.02026, @sentinel
+  br i1 %.not27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -75,47 +73,47 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01621.us = phi ptr [ %.016.us, %.lr.ph.split.us ], [ %.01618, %.lr.ph ]
-  %.01520.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
+  %.02029.us = phi ptr [ %.020.us, %.lr.ph.split.us ], [ %.02026, %.lr.ph ]
+  %.01728.us = phi ptr [ %.219.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #7
   %9 = icmp slt i32 %8, 0
-  %.117.in.v.us = select i1 %9, i64 8, i64 16
-  %.117.in.us = getelementptr inbounds nuw i8, ptr %.01621.us, i64 %.117.in.v.us
-  %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
-  %.016.us = load ptr, ptr %.117.in.us, align 8
-  %.not.us = icmp eq ptr %.016.us, @sentinel
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  %.222.in.v.us = select i1 %9, i64 8, i64 16
+  %.222.in.us = getelementptr inbounds nuw i8, ptr %.02029.us, i64 %.222.in.v.us
+  %.219.us = select i1 %9, ptr %.02029.us, ptr %.01728.us
+  %.020.us = load ptr, ptr %.222.in.us, align 8
+  %.not.us = icmp eq ptr %.020.us, @sentinel
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
-  %.01621 = phi ptr [ %.016, %14 ], [ %.01618, %.lr.ph ]
-  %.01520 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
+  %.02029 = phi ptr [ %.020, %14 ], [ %.02026, %.lr.ph ]
+  %.01728 = phi ptr [ %.219, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01621, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #7
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %14
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp slt i32 %12, 0
-  %.117.in.v = select i1 %15, i64 8, i64 16
-  %.117.in = getelementptr inbounds nuw i8, ptr %.01621, i64 %.117.in.v
-  %.1 = select i1 %15, ptr %.01621, ptr %.01520
-  %.016 = load ptr, ptr %.117.in, align 8
-  %.not = icmp eq ptr %.016, @sentinel
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  %.222.in.v = select i1 %15, i64 8, i64 16
+  %.222.in = getelementptr inbounds nuw i8, ptr %.02029, i64 %.222.in.v
+  %.219 = select i1 %15, ptr %.02029, ptr %.01728
+  %.020 = load ptr, ptr %.222.in, align 8
+  %.not = icmp eq ptr %.020, @sentinel
+  br i1 %.not, label %.thread, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %14, %3
-  %.0 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01621, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
-  ret ptr %.0
+.thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
+  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %.01618 = load ptr, ptr %0, align 8
-  %.not19 = icmp eq ptr %.01618, @sentinel
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.02026 = load ptr, ptr %0, align 8
+  %.not27 = icmp eq ptr %.02026, @sentinel
+  br i1 %.not27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -123,40 +121,40 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01621.us = phi ptr [ %.016.us, %.lr.ph.split.us ], [ %.01618, %.lr.ph ]
-  %.01520.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
+  %.02029.us = phi ptr [ %.020.us, %.lr.ph.split.us ], [ %.02026, %.lr.ph ]
+  %.01728.us = phi ptr [ %.219.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #7
   %9 = icmp sgt i32 %8, 0
-  %.117.in.v.us = select i1 %9, i64 16, i64 8
-  %.117.in.us = getelementptr inbounds nuw i8, ptr %.01621.us, i64 %.117.in.v.us
-  %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
-  %.016.us = load ptr, ptr %.117.in.us, align 8
-  %.not.us = icmp eq ptr %.016.us, @sentinel
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  %.222.in.v.us = select i1 %9, i64 16, i64 8
+  %.222.in.us = getelementptr inbounds nuw i8, ptr %.02029.us, i64 %.222.in.v.us
+  %.219.us = select i1 %9, ptr %.02029.us, ptr %.01728.us
+  %.020.us = load ptr, ptr %.222.in.us, align 8
+  %.not.us = icmp eq ptr %.020.us, @sentinel
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
-  %.01621 = phi ptr [ %.016, %14 ], [ %.01618, %.lr.ph ]
-  %.01520 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
+  %.02029 = phi ptr [ %.020, %14 ], [ %.02026, %.lr.ph ]
+  %.01728 = phi ptr [ %.219, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01621, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #7
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %14
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp sgt i32 %12, 0
-  %.117.in.v = select i1 %15, i64 16, i64 8
-  %.117.in = getelementptr inbounds nuw i8, ptr %.01621, i64 %.117.in.v
-  %.1 = select i1 %15, ptr %.01621, ptr %.01520
-  %.016 = load ptr, ptr %.117.in, align 8
-  %.not = icmp eq ptr %.016, @sentinel
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  %.222.in.v = select i1 %15, i64 16, i64 8
+  %.222.in = getelementptr inbounds nuw i8, ptr %.02029, i64 %.222.in.v
+  %.219 = select i1 %15, ptr %.02029, ptr %.01728
+  %.020 = load ptr, ptr %.222.in, align 8
+  %.not = icmp eq ptr %.020, @sentinel
+  br i1 %.not, label %.thread, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %14, %3
-  %.0 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01621, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
-  ret ptr %.0
+.thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
+  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -170,7 +168,7 @@ define dso_local ptr @rbt_leftmost(ptr noundef readonly captures(none) %0) local
   %3 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, @sentinel
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ @sentinel, %1 ], [ %.0812, %.lr.ph ]
@@ -212,7 +210,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %.in = getelementptr inbounds nuw i8, ptr %.04149, i64 %.in.v
   %.041 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.041, @sentinel
-  br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %15
   %17 = icmp slt i32 %9, 0
@@ -236,10 +234,10 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   store ptr %.040.lcssa, ptr %25, align 8
   %26 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %26, align 8
-  %27 = getelementptr i8, ptr %22, i64 32
-  %28 = getelementptr i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = add i64 %.val, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr readonly align 8 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull readonly align 8 %28, i64 %29, i1 false)
   %.not43 = icmp eq ptr %.040.lcssa, null
   br i1 %.not43, label %35, label %30
 
@@ -272,16 +270,16 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   br i1 %40, label %.lr.ph52, label %rbt_insert_fixup.exit
 
 .lr.ph.i:                                         ; preds = %rbt_rotate_right.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = load i8, ptr %42, align 8
   %44 = icmp eq i8 %43, 1
-  br i1 %44, label %.lr.ph52, label %rbt_insert_fixup.exit, !llvm.loop !11
+  br i1 %44, label %.lr.ph52, label %rbt_insert_fixup.exit, !llvm.loop !8
 
 .lr.ph52:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %45 = phi ptr [ %42, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
   %46 = phi ptr [ %41, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
-  %.063.i51 = phi ptr [ %.2.i, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
+  %.063.i51 = phi ptr [ %.3.i, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -375,8 +373,8 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
 
 rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_left.exit_crit_edge.i, %64
   %86 = phi ptr [ %45, %64 ], [ %.pre68.i, %.rbt_rotate_left.exit_crit_edge.i ], [ %66, %85 ]
-  %.1.i = phi ptr [ %.063.i51, %64 ], [ @sentinel, %.rbt_rotate_left.exit_crit_edge.i ], [ %45, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
+  %.2.i = phi ptr [ %.063.i51, %64 ], [ @sentinel, %.rbt_rotate_left.exit_crit_edge.i ], [ %45, %85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
   store i8 0, ptr %86, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
@@ -525,8 +523,8 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
 
 rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_right.exit53_crit_edge.i, %123
   %145 = phi ptr [ %45, %123 ], [ %.pre.i, %.rbt_rotate_right.exit53_crit_edge.i ], [ %125, %144 ]
-  %.3.i = phi ptr [ %.063.i51, %123 ], [ @sentinel, %.rbt_rotate_right.exit53_crit_edge.i ], [ %45, %144 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
+  %.5.i = phi ptr [ %.063.i51, %123 ], [ @sentinel, %.rbt_rotate_right.exit53_crit_edge.i ], [ %45, %144 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.5.i, i64 24
   store i8 0, ptr %145, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
@@ -592,10 +590,10 @@ rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_r
   br label %rbt_rotate_right.exit.i
 
 rbt_rotate_right.exit.i:                          ; preds = %171, %170, %116, %112, %111, %57
-  %.2.i = phi ptr [ %63, %57 ], [ %122, %116 ], [ %.1.i, %111 ], [ %.1.i, %112 ], [ %.3.i, %170 ], [ %.3.i, %171 ]
+  %.3.i = phi ptr [ %63, %57 ], [ %122, %116 ], [ %.2.i, %111 ], [ %.2.i, %112 ], [ %.5.i, %170 ], [ %.5.i, %171 ]
   %172 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %.2.i, %172
-  br i1 %.not.i, label %rbt_insert_fixup.exit, label %.lr.ph.i, !llvm.loop !11
+  %.not.i = icmp eq ptr %.3.i, %172
+  br i1 %.not.i, label %rbt_insert_fixup.exit, label %.lr.ph.i, !llvm.loop !8
 
 rbt_insert_fixup.exit:                            ; preds = %rbt_rotate_right.exit.i, %.lr.ph.i, %.lr.ph.i.preheader, %36
   %.lcssa.i = phi ptr [ %37, %36 ], [ %37, %.lr.ph.i.preheader ], [ %172, %.lr.ph.i ], [ %172, %rbt_rotate_right.exit.i ]
@@ -631,7 +629,7 @@ define dso_local void @rbt_delete(ptr noundef captures(none) %0, ptr noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, @sentinel
-  br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !9
 
 .loopexit50.i:                                    ; preds = %.preheader.i, %5
   %.0.ph.i = phi ptr [ %1, %5 ], [ %.1.i, %.preheader.i ]
@@ -675,10 +673,10 @@ define dso_local void @rbt_delete(ptr noundef captures(none) %0, ptr noundef %1)
 29:                                               ; preds = %28
   %30 = getelementptr i8, ptr %0, i64 8
   %.val.i = load i64, ptr %30, align 8
-  %31 = getelementptr i8, ptr %1, i64 32
-  %32 = getelementptr i8, ptr %.048.i, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.048.i, i64 32
   %33 = add i64 %.val.i, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr readonly align 8 %32, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull readonly align 8 %32, i64 %33, i1 false)
   br label %34
 
 34:                                               ; preds = %29, %28
@@ -692,7 +690,7 @@ define dso_local void @rbt_delete(ptr noundef captures(none) %0, ptr noundef %1)
   br i1 %.not98.i.i, label %rbt_delete_fixup.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %37, %rbt_rotate_left.exit73.i.i
-  %.05699.i.i = phi ptr [ %.157.i.i, %rbt_rotate_left.exit73.i.i ], [ %.035.i, %37 ]
+  %.05699.i.i = phi ptr [ %.2.i.i, %rbt_rotate_left.exit73.i.i ], [ %.035.i, %37 ]
   %39 = load i8, ptr %.05699.i.i, align 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %rbt_delete_fixup.exit.i
@@ -1160,14 +1158,14 @@ rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   br label %rbt_rotate_left.exit73.i.i
 
 rbt_rotate_left.exit73.i.i:                       ; preds = %224, %223, %176, %136, %135, %88
-  %.157.in.i.i = phi ptr [ %42, %88 ], [ %42, %176 ], [ %0, %135 ], [ %0, %136 ], [ %0, %223 ], [ %0, %224 ]
-  %.157.i.i = load ptr, ptr %.157.in.i.i, align 8
+  %.2.in.i.i = phi ptr [ %42, %88 ], [ %42, %176 ], [ %0, %135 ], [ %0, %136 ], [ %0, %223 ], [ %0, %224 ]
+  %.2.i.i = load ptr, ptr %.2.in.i.i, align 8
   %225 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %.157.i.i, %225
-  br i1 %.not.i.i, label %rbt_delete_fixup.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  %.not.i.i = icmp eq ptr %.2.i.i, %225
+  br i1 %.not.i.i, label %rbt_delete_fixup.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 rbt_delete_fixup.exit.i:                          ; preds = %rbt_rotate_left.exit73.i.i, %.lr.ph.i.i, %37
-  %.056.lcssa.i.i = phi ptr [ %.035.i, %37 ], [ %.157.i.i, %rbt_rotate_left.exit73.i.i ], [ %.05699.i.i, %.lr.ph.i.i ]
+  %.056.lcssa.i.i = phi ptr [ %.035.i, %37 ], [ %.2.i.i, %rbt_rotate_left.exit73.i.i ], [ %.05699.i.i, %.lr.ph.i.i ]
   store i8 0, ptr %.056.lcssa.i.i, align 8
   br label %226
 
@@ -1232,26 +1230,26 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   br label %8
 
 8:                                                ; preds = %8, %5
-  %storemerge29 = phi ptr [ %7, %5 ], [ %10, %8 ]
-  store ptr %storemerge29, ptr %2, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %storemerge29, i64 8
+  %storemerge30 = phi ptr [ %7, %5 ], [ %10, %8 ]
+  store ptr %storemerge30, ptr %2, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %storemerge30, i64 8
   %10 = load ptr, ptr %9, align 8
-  %.not30 = icmp eq ptr %10, @sentinel
-  br i1 %.not30, label %.loopexit, label %8, !llvm.loop !14
+  %.not31 = icmp eq ptr %10, @sentinel
+  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
-  br i1 %.not, label %.preheader, label %.preheader32
+  br i1 %.not, label %.preheader, label %.preheader35
 
-.preheader32:                                     ; preds = %11, %.preheader32
-  %storemerge = phi ptr [ %15, %.preheader32 ], [ %13, %11 ]
+.preheader35:                                     ; preds = %11, %.preheader35
+  %storemerge = phi ptr [ %15, %.preheader35 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
   %15 = load ptr, ptr %14, align 8
-  %.not28 = icmp eq ptr %15, @sentinel
-  br i1 %.not28, label %.loopexit, label %.preheader32, !llvm.loop !15
+  %.not29 = icmp eq ptr %15, @sentinel
+  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !12
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1264,17 +1262,17 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
 20:                                               ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %21, align 8
-  br label %.loopexit
+  br label %select.unfold
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %16
-  br i1 %25, label %.loopexit, label %.preheader
+  br i1 %25, label %select.unfold, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader32, %22, %8, %20
-  %.0 = phi ptr [ null, %20 ], [ %storemerge29, %8 ], [ %18, %22 ], [ %storemerge, %.preheader32 ]
-  ret ptr %.0
+select.unfold:                                    ; preds = %.preheader35, %22, %8, %20
+  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader35 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1290,26 +1288,26 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   br label %8
 
 8:                                                ; preds = %8, %5
-  %storemerge29 = phi ptr [ %7, %5 ], [ %10, %8 ]
-  store ptr %storemerge29, ptr %2, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %storemerge29, i64 16
+  %storemerge30 = phi ptr [ %7, %5 ], [ %10, %8 ]
+  store ptr %storemerge30, ptr %2, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %storemerge30, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.not30 = icmp eq ptr %10, @sentinel
-  br i1 %.not30, label %.loopexit, label %8, !llvm.loop !16
+  %.not31 = icmp eq ptr %10, @sentinel
+  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !13
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
-  br i1 %.not, label %.preheader, label %.preheader32
+  br i1 %.not, label %.preheader, label %.preheader35
 
-.preheader32:                                     ; preds = %11, %.preheader32
-  %storemerge = phi ptr [ %15, %.preheader32 ], [ %13, %11 ]
+.preheader35:                                     ; preds = %11, %.preheader35
+  %storemerge = phi ptr [ %15, %.preheader35 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 16
   %15 = load ptr, ptr %14, align 8
-  %.not28 = icmp eq ptr %15, @sentinel
-  br i1 %.not28, label %.loopexit, label %.preheader32, !llvm.loop !17
+  %.not29 = icmp eq ptr %15, @sentinel
+  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !14
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1322,17 +1320,17 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
 20:                                               ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %21, align 8
-  br label %.loopexit
+  br label %select.unfold
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %16
-  br i1 %25, label %.loopexit, label %.preheader
+  br i1 %25, label %select.unfold, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader32, %22, %8, %20
-  %.0 = phi ptr [ null, %20 ], [ %storemerge29, %8 ], [ %18, %22 ], [ %storemerge, %.preheader32 ]
-  ret ptr %.0
+select.unfold:                                    ; preds = %.preheader35, %22, %8, %20
+  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader35 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: cold
@@ -1345,8 +1343,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !15, !noundef !16
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
@@ -1366,33 +1364,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = !{i8 0, i8 2}
+!16 = !{}

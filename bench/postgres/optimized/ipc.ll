@@ -114,7 +114,7 @@ define internal fastcc void @proc_exit_prepare(i32 noundef %0) unnamed_addr #4 {
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %10 = phi i32 [ %17, %.lr.ph ], [ %8, %6 ]
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
@@ -123,7 +123,7 @@ define internal fastcc void @proc_exit_prepare(i32 noundef %0) unnamed_addr #4 {
   %17 = add i32 %16, -1
   store i32 %17, ptr @on_proc_exit_index, align 4
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   store i32 0, ptr @on_proc_exit_index, align 4
@@ -155,7 +155,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %10 = phi i32 [ %17, %.lr.ph ], [ %8, %6 ]
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
@@ -164,7 +164,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %17 = add i32 %16, -1
   store i32 %17, ptr @before_shmem_exit_index, align 4
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   store i32 0, ptr @before_shmem_exit_index, align 4
@@ -188,7 +188,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
 .lr.ph6:                                          ; preds = %23, %.lr.ph6
   %27 = phi i32 [ %34, %.lr.ph6 ], [ %25, %23 ]
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 16
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
@@ -197,7 +197,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %34 = add i32 %33, -1
   store i32 %34, ptr @on_shmem_exit_index, align 4
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph6, label %._crit_edge7, !llvm.loop !8
+  br i1 %35, label %.lr.ph6, label %._crit_edge7, !llvm.loop !7
 
 ._crit_edge7:                                     ; preds = %.lr.ph6, %23
   store i32 0, ptr @on_shmem_exit_index, align 4
@@ -223,9 +223,9 @@ define dso_local void @on_proc_exit(ptr noundef %0, i64 noundef %1) local_unname
 
 9:                                                ; preds = %2
   %10 = sext i32 %3 to i64
-  %11 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %10
+  %11 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %10
   store ptr %0, ptr %11, align 16
-  %12 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %10, i32 1
+  %12 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %10, i32 1
   store i64 %1, ptr %12, align 8
   %13 = add nsw i32 %3, 1
   store i32 %13, ptr @on_proc_exit_index, align 4
@@ -268,9 +268,9 @@ define dso_local void @before_shmem_exit(ptr noundef %0, i64 noundef %1) local_u
 
 9:                                                ; preds = %2
   %10 = sext i32 %3 to i64
-  %11 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10
+  %11 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10
   store ptr %0, ptr %11, align 16
-  %12 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10, i32 1
+  %12 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %10, i32 1
   store i64 %1, ptr %12, align 8
   %13 = add nsw i32 %3, 1
   store i32 %13, ptr @before_shmem_exit_index, align 4
@@ -302,9 +302,9 @@ define dso_local void @on_shmem_exit(ptr noundef %0, i64 noundef %1) local_unnam
 
 9:                                                ; preds = %2
   %10 = sext i32 %3 to i64
-  %11 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %10
+  %11 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %10
   store ptr %0, ptr %11, align 16
-  %12 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %10, i32 1
+  %12 = getelementptr inbounds [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %10, i32 1
   store i64 %1, ptr %12, align 8
   %13 = add nsw i32 %3, 1
   store i32 %13, ptr @on_shmem_exit_index, align 4
@@ -329,7 +329,7 @@ define dso_local void @cancel_before_shmem_exit(ptr noundef %0, i64 noundef %1) 
 5:                                                ; preds = %2
   %6 = add nsw i32 %3, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 16
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %11, label %16
@@ -395,26 +395,25 @@ define dso_local void @check_on_shmem_exit_lists_are_empty() local_unnamed_addr 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
-attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }
 attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

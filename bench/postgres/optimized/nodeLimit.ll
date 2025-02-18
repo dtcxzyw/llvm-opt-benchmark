@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 280) #6
-  store i32 421, ptr %4, align 4
+  store i32 436, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -84,6 +84,9 @@ define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 
   ret ptr %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecLimit(ptr noundef %0) #0 {
   %2 = alloca i8, align 1
@@ -91,13 +94,13 @@ define internal ptr @ExecLimit(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6
+  br i1 %.not, label %7, label %6, !prof !4
 
 6:                                                ; preds = %1
   tail call void @ProcessInterrupts() #6
   br label %7
 
-7:                                                ; preds = %1, %6
+7:                                                ; preds = %6, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -133,8 +136,8 @@ define internal ptr @ExecLimit(ptr noundef %0) #0 {
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %25 = load i8, ptr %24, align 8
-  %26 = trunc i8 %25 to i1
+  %25 = load i8, ptr %24, align 8, !range !5, !noundef !6
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23
@@ -195,7 +198,7 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %56 = load ptr, ptr %34, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef %56, ptr noundef nonnull %40) #6
   %.pre = load i64, ptr %32, align 8
@@ -221,8 +224,8 @@ ExecProcNode.exit:                                ; preds = %36, %38
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %71 = load i8, ptr %70, align 8
-  %72 = trunc i8 %71 to i1
+  %71 = load i8, ptr %70, align 8, !range !5, !noundef !6
+  %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %86, label %73
 
 73:                                               ; preds = %69
@@ -301,7 +304,7 @@ ExecProcNode.exit121:                             ; preds = %86, %89
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = load ptr, ptr %118, align 8
   tail call void %119(ptr noundef %115, ptr noundef nonnull %92) #6
   br label %120
@@ -356,7 +359,7 @@ ExecProcNode.exit123:                             ; preds = %132, %135
   %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %145)
   %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @__func__.ExecLimit) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.ExecLimit) #6
   unreachable
 
 147:                                              ; preds = %140
@@ -408,12 +411,12 @@ ExecProcNode.exit125:                             ; preds = %153, %156
   store ptr %169, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %172 = load ptr, ptr %171, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %173 = icmp eq ptr %172, null
   br i1 %173, label %ExecQualAndReset.exit.thread, label %ExecQualAndReset.exit
 
 ExecQualAndReset.exit.thread:                     ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %175 = load ptr, ptr %174, align 8
   tail call void @MemoryContextReset(ptr noundef %175) #6
@@ -429,7 +432,7 @@ ExecQualAndReset.exit:                            ; preds = %166
   %181 = call i64 %180(ptr noundef nonnull %172, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
   store ptr %178, ptr @CurrentMemoryContext, align 8
   %.not133 = icmp eq i64 %181, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
   %182 = load ptr, ptr %176, align 8
   call void @MemoryContextReset(ptr noundef %182) #6
   br i1 %.not133, label %188, label %183
@@ -488,7 +491,7 @@ ExecProcNode.exit127:                             ; preds = %196, %199
   %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %209)
   %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @__func__.ExecLimit) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.ExecLimit) #6
   unreachable
 
 211:                                              ; preds = %204
@@ -532,7 +535,7 @@ ExecProcNode.exit129:                             ; preds = %217, %220
   %230 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %230)
   %231 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 287, ptr noundef nonnull @__func__.ExecLimit) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.ExecLimit) #6
   unreachable
 
 232:                                              ; preds = %225
@@ -579,7 +582,7 @@ ExecProcNode.exit131:                             ; preds = %240, %243
   %253 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %253)
   %254 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 306, ptr noundef nonnull @__func__.ExecLimit) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.ExecLimit) #6
   unreachable
 
 255:                                              ; preds = %248
@@ -609,7 +612,7 @@ ExecProcNode.exit131:                             ; preds = %240, %243
   tail call void @llvm.assume(i1 %266)
   %267 = load i32, ptr %14, align 4
   %268 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %267) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.ExecLimit) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 336, ptr noundef nonnull @__func__.ExecLimit) #6
   unreachable
 
 269:                                              ; preds = %66, %120, %147, %232, %262, %211, %183, %257, %255, %260, %234, %215, %7, %17, %195, %188, %165, %131, %98, %85, %46, %27
@@ -617,21 +620,24 @@ ExecProcNode.exit131:                             ; preds = %240, %243
   ret ptr %.0
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecGetResultSlotOps(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecGetResultSlotOps(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
+declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @execTuplesMatchPrepare(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @execTuplesMatchPrepare(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndLimit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -641,7 +647,7 @@ define dso_local void @ExecEndLimit(ptr noundef readonly captures(none) %0) loca
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanLimit(ptr noundef captures(none) initializes((224, 232)) %0) local_unnamed_addr #0 {
@@ -666,6 +672,7 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -680,8 +687,8 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 %12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %2) #6
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %14 = load i8, ptr %2, align 1
-  %15 = trunc i8 %14 to i1
+  %14 = load i8, ptr %2, align 1, !range !5, !noundef !6
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br i1 %15, label %17, label %18
 
@@ -699,7 +706,7 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   call void @llvm.assume(i1 %21)
   %22 = call i32 @errcode(i32 noundef 671350914) #6
   %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.recompute_limits) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__func__.recompute_limits) #6
   unreachable
 
 24:                                               ; preds = %1
@@ -722,8 +729,8 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   %34 = load ptr, ptr %33, align 8
   %35 = call i64 %34(ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull %2) #6
   store ptr %32, ptr @CurrentMemoryContext, align 8
-  %36 = load i8, ptr %2, align 1
-  %37 = trunc i8 %36 to i1
+  %36 = load i8, ptr %2, align 1, !range !5, !noundef !6
+  %37 = trunc nuw i8 %36 to i1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br i1 %37, label %39, label %40
 
@@ -741,7 +748,7 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   call void @llvm.assume(i1 %43)
   %44 = call i32 @errcode(i32 noundef 654573698) #6
   %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 400, ptr noundef nonnull @__func__.recompute_limits) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.recompute_limits) #6
   unreachable
 
 46:                                               ; preds = %26
@@ -781,55 +788,52 @@ compute_tuples_needed.exit:                       ; preds = %.thread, %51, %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load ptr, ptr %62, align 8
   call void @ExecSetTupleBound(i64 noundef %.0.i, ptr noundef %63) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
   ret void
 }
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #1
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ExecSetTupleBound(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecSetTupleBound(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{i8 0, i8 2}
+!6 = !{}

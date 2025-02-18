@@ -26,7 +26,7 @@ define dso_local i64 @tsquery_and(ptr noundef readonly captures(none) %0) local_
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -68,22 +68,22 @@ define dso_local i64 @tsquery_and(ptr noundef readonly captures(none) %0) local_
   %31 = tail call ptr @palloc0(i64 noundef 16) #9
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %17, align 4
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, 12
-  %37 = getelementptr i8, ptr %33, i64 %36
-  %38 = tail call ptr @QT2QTN(ptr noundef %33, ptr noundef %37) #9
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
+  %38 = tail call ptr @QT2QTN(ptr noundef nonnull %33, ptr noundef nonnull %37) #9
   %39 = load ptr, ptr %32, align 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i32, ptr %10, align 4
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, 12
-  %44 = getelementptr i8, ptr %40, i64 %43
-  %45 = tail call ptr @QT2QTN(ptr noundef %40, ptr noundef %44) #9
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %43
+  %45 = tail call ptr @QT2QTN(ptr noundef nonnull %40, ptr noundef nonnull %44) #9
   %46 = load ptr, ptr %32, align 8
-  %47 = getelementptr i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 2, ptr %48, align 4
@@ -98,7 +98,7 @@ define dso_local i64 @tsquery_and(ptr noundef readonly captures(none) %0) local_
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %53
 
-53:                                               ; preds = %52, %23
+53:                                               ; preds = %23, %52
   %54 = load i64, ptr %6, align 8
   %55 = inttoptr i64 %54 to ptr
   %.not26 = icmp eq ptr %9, %55
@@ -126,7 +126,7 @@ define dso_local i64 @tsquery_or(ptr noundef readonly captures(none) %0) local_u
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -168,22 +168,22 @@ define dso_local i64 @tsquery_or(ptr noundef readonly captures(none) %0) local_u
   %31 = tail call ptr @palloc0(i64 noundef 16) #9
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %17, align 4
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, 12
-  %37 = getelementptr i8, ptr %33, i64 %36
-  %38 = tail call ptr @QT2QTN(ptr noundef %33, ptr noundef %37) #9
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
+  %38 = tail call ptr @QT2QTN(ptr noundef nonnull %33, ptr noundef nonnull %37) #9
   %39 = load ptr, ptr %32, align 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i32, ptr %10, align 4
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, 12
-  %44 = getelementptr i8, ptr %40, i64 %43
-  %45 = tail call ptr @QT2QTN(ptr noundef %40, ptr noundef %44) #9
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %43
+  %45 = tail call ptr @QT2QTN(ptr noundef nonnull %40, ptr noundef nonnull %44) #9
   %46 = load ptr, ptr %32, align 8
-  %47 = getelementptr i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 2, ptr %48, align 4
@@ -198,7 +198,7 @@ define dso_local i64 @tsquery_or(ptr noundef readonly captures(none) %0) local_u
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %53
 
-53:                                               ; preds = %52, %23
+53:                                               ; preds = %23, %52
   %54 = load i64, ptr %6, align 8
   %55 = inttoptr i64 %54 to ptr
   %.not26 = icmp eq ptr %9, %55
@@ -222,11 +222,11 @@ define dso_local i64 @tsquery_phrase_distance(ptr noundef readonly captures(none
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %or.cond = icmp ugt i32 %12, 16384
@@ -283,22 +283,22 @@ define dso_local i64 @tsquery_phrase_distance(ptr noundef readonly captures(none
   %42 = tail call ptr @palloc0(i64 noundef 16) #9
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr i8, ptr %9, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %45 = load i32, ptr %25, align 4
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %46, 12
-  %48 = getelementptr i8, ptr %44, i64 %47
-  %49 = tail call ptr @QT2QTN(ptr noundef %44, ptr noundef %48) #9
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  %49 = tail call ptr @QT2QTN(ptr noundef nonnull %44, ptr noundef nonnull %48) #9
   %50 = load ptr, ptr %43, align 8
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load i32, ptr %18, align 4
   %53 = sext i32 %52 to i64
   %54 = mul nsw i64 %53, 12
-  %55 = getelementptr i8, ptr %51, i64 %54
-  %56 = tail call ptr @QT2QTN(ptr noundef %51, ptr noundef %55) #9
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %54
+  %56 = tail call ptr @QT2QTN(ptr noundef nonnull %51, ptr noundef nonnull %55) #9
   %57 = load ptr, ptr %43, align 8
-  %58 = getelementptr i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 2, ptr %59, align 4
@@ -313,7 +313,7 @@ define dso_local i64 @tsquery_phrase_distance(ptr noundef readonly captures(none
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %64
 
-64:                                               ; preds = %63, %31
+64:                                               ; preds = %31, %63
   %65 = load i64, ptr %6, align 8
   %66 = inttoptr i64 %65 to ptr
   %.not32 = icmp eq ptr %9, %66
@@ -344,7 +344,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local i64 @tsquery_phrase(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @tsquery_phrase_distance, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef 1) #9
   ret i64 %6
@@ -378,12 +378,12 @@ define dso_local i64 @tsquery_not(ptr noundef readonly captures(none) %0) local_
   %17 = tail call ptr @palloc0(i64 noundef 8) #9
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %6, align 4
   %21 = sext i32 %20 to i64
   %22 = mul nsw i64 %21, 12
-  %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = tail call ptr @QT2QTN(ptr noundef %19, ptr noundef %23) #9
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
+  %24 = tail call ptr @QT2QTN(ptr noundef nonnull %19, ptr noundef nonnull %23) #9
   %25 = load ptr, ptr %18, align 8
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -399,8 +399,8 @@ define dso_local i64 @tsquery_not(ptr noundef readonly captures(none) %0) local_
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %31
 
-31:                                               ; preds = %30, %9, %1
-  %.0.in = phi ptr [ %5, %1 ], [ %27, %9 ], [ %27, %30 ]
+31:                                               ; preds = %9, %30, %1
+  %.0.in = phi ptr [ %5, %1 ], [ %27, %30 ], [ %27, %9 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -415,7 +415,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr noundef
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -449,17 +449,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr noundef
   br i1 %.not25.i, label %CompareTSQ.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = sext i32 %11 to i64
   %29 = mul nsw i64 %28, 12
-  %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = tail call ptr @QT2QTN(ptr noundef %27, ptr noundef %30) #9
-  %32 = getelementptr i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = tail call ptr @QT2QTN(ptr noundef nonnull %27, ptr noundef nonnull %30) #9
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i32, ptr %12, align 4
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %34, 12
-  %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = tail call ptr @QT2QTN(ptr noundef %32, ptr noundef %36) #9
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
+  %37 = tail call ptr @QT2QTN(ptr noundef nonnull %32, ptr noundef nonnull %36) #9
   %38 = tail call i32 @QTNodeCompare(ptr noundef %31, ptr noundef %37) #9
   tail call void @QTNFree(ptr noundef %31) #9
   tail call void @QTNFree(ptr noundef %37) #9
@@ -476,7 +476,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %42
 
-42:                                               ; preds = %41, %CompareTSQ.exit
+42:                                               ; preds = %CompareTSQ.exit, %41
   %43 = load i64, ptr %6, align 8
   %44 = inttoptr i64 %43 to ptr
   %.not11 = icmp eq ptr %9, %44
@@ -486,7 +486,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %46
 
-46:                                               ; preds = %42, %45
+46:                                               ; preds = %45, %42
   %47 = sext i32 %.0.i to i64
   ret i64 %47
 }
@@ -497,7 +497,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -529,17 +529,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = sext i32 %11 to i64
   %27 = mul nsw i64 %26, 12
-  %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = tail call ptr @QT2QTN(ptr noundef %25, ptr noundef %28) #9
-  %30 = getelementptr i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %29 = tail call ptr @QT2QTN(ptr noundef nonnull %25, ptr noundef nonnull %28) #9
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load i32, ptr %12, align 4
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %32, 12
-  %34 = getelementptr i8, ptr %30, i64 %33
-  %35 = tail call ptr @QT2QTN(ptr noundef %30, ptr noundef %34) #9
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
+  %35 = tail call ptr @QT2QTN(ptr noundef nonnull %30, ptr noundef nonnull %34) #9
   %36 = tail call i32 @QTNodeCompare(ptr noundef %29, ptr noundef %35) #9
   tail call void @QTNFree(ptr noundef %29) #9
   tail call void @QTNFree(ptr noundef %35) #9
@@ -557,7 +557,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %41
 
-41:                                               ; preds = %40, %CompareTSQ.exit
+41:                                               ; preds = %CompareTSQ.exit, %40
   %42 = load i64, ptr %6, align 8
   %43 = inttoptr i64 %42 to ptr
   %.not11 = icmp eq ptr %9, %43
@@ -567,7 +567,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %45
 
-45:                                               ; preds = %41, %44
+45:                                               ; preds = %44, %41
   %46 = zext i1 %.0.i to i64
   ret i64 %46
 }
@@ -578,7 +578,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_le(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -610,17 +610,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_le(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = sext i32 %11 to i64
   %27 = mul nsw i64 %26, 12
-  %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = tail call ptr @QT2QTN(ptr noundef %25, ptr noundef %28) #9
-  %30 = getelementptr i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %29 = tail call ptr @QT2QTN(ptr noundef nonnull %25, ptr noundef nonnull %28) #9
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load i32, ptr %12, align 4
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %32, 12
-  %34 = getelementptr i8, ptr %30, i64 %33
-  %35 = tail call ptr @QT2QTN(ptr noundef %30, ptr noundef %34) #9
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
+  %35 = tail call ptr @QT2QTN(ptr noundef nonnull %30, ptr noundef nonnull %34) #9
   %36 = tail call i32 @QTNodeCompare(ptr noundef %29, ptr noundef %35) #9
   tail call void @QTNFree(ptr noundef %29) #9
   tail call void @QTNFree(ptr noundef %35) #9
@@ -638,7 +638,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %41
 
-41:                                               ; preds = %40, %CompareTSQ.exit
+41:                                               ; preds = %CompareTSQ.exit, %40
   %42 = load i64, ptr %6, align 8
   %43 = inttoptr i64 %42 to ptr
   %.not11 = icmp eq ptr %9, %43
@@ -648,7 +648,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %45
 
-45:                                               ; preds = %41, %44
+45:                                               ; preds = %44, %41
   %46 = zext i1 %.0.i to i64
   ret i64 %46
 }
@@ -659,7 +659,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -682,17 +682,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = sext i32 %11 to i64
   %21 = mul nsw i64 %20, 12
-  %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = tail call ptr @QT2QTN(ptr noundef %19, ptr noundef %22) #9
-  %24 = getelementptr i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %23 = tail call ptr @QT2QTN(ptr noundef nonnull %19, ptr noundef nonnull %22) #9
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i32, ptr %12, align 4
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 12
-  %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = tail call ptr @QT2QTN(ptr noundef %24, ptr noundef %28) #9
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  %29 = tail call ptr @QT2QTN(ptr noundef nonnull %24, ptr noundef nonnull %28) #9
   %30 = tail call i32 @QTNodeCompare(ptr noundef %23, ptr noundef %29) #9
   tail call void @QTNFree(ptr noundef %23) #9
   tail call void @QTNFree(ptr noundef %29) #9
@@ -711,7 +711,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %36
 
-36:                                               ; preds = %35, %CompareTSQ.exit
+36:                                               ; preds = %CompareTSQ.exit, %35
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
   %.not11 = icmp eq ptr %9, %38
@@ -721,7 +721,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %40
 
-40:                                               ; preds = %36, %39
+40:                                               ; preds = %39, %36
   ret i64 %.0.i
 }
 
@@ -731,7 +731,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -765,17 +765,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = sext i32 %11 to i64
   %29 = mul nsw i64 %28, 12
-  %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = tail call ptr @QT2QTN(ptr noundef %27, ptr noundef %30) #9
-  %32 = getelementptr i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = tail call ptr @QT2QTN(ptr noundef nonnull %27, ptr noundef nonnull %30) #9
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i32, ptr %12, align 4
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %34, 12
-  %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = tail call ptr @QT2QTN(ptr noundef %32, ptr noundef %36) #9
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
+  %37 = tail call ptr @QT2QTN(ptr noundef nonnull %32, ptr noundef nonnull %36) #9
   %38 = tail call i32 @QTNodeCompare(ptr noundef %31, ptr noundef %37) #9
   tail call void @QTNFree(ptr noundef %31) #9
   tail call void @QTNFree(ptr noundef %37) #9
@@ -792,7 +792,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %42
 
-42:                                               ; preds = %41, %CompareTSQ.exit
+42:                                               ; preds = %CompareTSQ.exit, %41
   %43 = load i64, ptr %6, align 8
   %44 = inttoptr i64 %43 to ptr
   %.not11 = icmp eq ptr %9, %44
@@ -802,7 +802,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %46
 
-46:                                               ; preds = %42, %45
+46:                                               ; preds = %45, %42
   %47 = icmp sgt i32 %.0.i, -1
   %48 = zext i1 %47 to i64
   ret i64 %48
@@ -814,7 +814,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -848,17 +848,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = sext i32 %11 to i64
   %29 = mul nsw i64 %28, 12
-  %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = tail call ptr @QT2QTN(ptr noundef %27, ptr noundef %30) #9
-  %32 = getelementptr i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = tail call ptr @QT2QTN(ptr noundef nonnull %27, ptr noundef nonnull %30) #9
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i32, ptr %12, align 4
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %34, 12
-  %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = tail call ptr @QT2QTN(ptr noundef %32, ptr noundef %36) #9
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
+  %37 = tail call ptr @QT2QTN(ptr noundef nonnull %32, ptr noundef nonnull %36) #9
   %38 = tail call i32 @QTNodeCompare(ptr noundef %31, ptr noundef %37) #9
   tail call void @QTNFree(ptr noundef %31) #9
   tail call void @QTNFree(ptr noundef %37) #9
@@ -875,7 +875,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %42
 
-42:                                               ; preds = %41, %CompareTSQ.exit
+42:                                               ; preds = %CompareTSQ.exit, %41
   %43 = load i64, ptr %6, align 8
   %44 = inttoptr i64 %43 to ptr
   %.not11 = icmp eq ptr %9, %44
@@ -885,7 +885,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %46
 
-46:                                               ; preds = %42, %45
+46:                                               ; preds = %45, %42
   %47 = icmp sgt i32 %.0.i, 0
   %48 = zext i1 %47 to i64
   ret i64 %48
@@ -897,7 +897,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr noundef readonly captures(n
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
@@ -920,17 +920,17 @@ define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr noundef readonly captures(n
   br i1 %.not25.i, label %CompareTSQ.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = sext i32 %11 to i64
   %21 = mul nsw i64 %20, 12
-  %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = tail call ptr @QT2QTN(ptr noundef %19, ptr noundef %22) #9
-  %24 = getelementptr i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %23 = tail call ptr @QT2QTN(ptr noundef nonnull %19, ptr noundef nonnull %22) #9
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i32, ptr %12, align 4
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 12
-  %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = tail call ptr @QT2QTN(ptr noundef %24, ptr noundef %28) #9
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  %29 = tail call ptr @QT2QTN(ptr noundef nonnull %24, ptr noundef nonnull %28) #9
   %30 = tail call i32 @QTNodeCompare(ptr noundef %23, ptr noundef %29) #9
   tail call void @QTNFree(ptr noundef %23) #9
   tail call void @QTNFree(ptr noundef %29) #9
@@ -949,7 +949,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
   tail call void @pfree(ptr noundef nonnull %5) #9
   br label %36
 
-36:                                               ; preds = %35, %CompareTSQ.exit
+36:                                               ; preds = %CompareTSQ.exit, %35
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
   %.not11 = icmp eq ptr %9, %38
@@ -959,7 +959,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
   tail call void @pfree(ptr noundef nonnull %9) #9
   br label %40
 
-40:                                               ; preds = %36, %39
+40:                                               ; preds = %39, %36
   ret i64 %.0.i
 }
 
@@ -971,7 +971,7 @@ define dso_local i64 @makeTSQuerySign(ptr noundef readonly captures(none) %0) lo
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %5 = getelementptr i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -993,10 +993,10 @@ define dso_local i64 @makeTSQuerySign(ptr noundef readonly captures(none) %0) lo
 
 15:                                               ; preds = %8, %.lr.ph
   %.1 = phi i64 [ %14, %8 ], [ %.012, %.lr.ph ]
-  %16 = getelementptr i8, ptr %.0811, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.0811, i64 12
   %17 = add nuw nsw i32 %.0910, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %15, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.1, %15 ]
@@ -1008,15 +1008,15 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 12
-  %13 = getelementptr i8, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %14 = shl nsw i64 %11, 3
   %15 = tail call ptr @palloc(i64 noundef %14) #9
   %16 = load i32, ptr %9, align 4
@@ -1042,14 +1042,14 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr noundef readonly capture
   %28 = load i32, ptr %22, align 4
   %29 = lshr i32 %28, 12
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr i8, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %30
   %32 = zext nneg i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %31, i64 %32, i1 false)
-  %33 = getelementptr i8, ptr %27, i64 %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull readonly align 1 %31, i64 %32, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   store i8 0, ptr %33, align 1
   %34 = add i32 %.02225.i, 1
   %35 = sext i32 %.02225.i to i64
-  %36 = getelementptr ptr, ptr %15, i64 %35
+  %36 = getelementptr inbounds ptr, ptr %15, i64 %35
   store ptr %27, ptr %36, align 8
   %.pre.i = load i32, ptr %9, align 4
   br label %37
@@ -1057,36 +1057,36 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr noundef readonly capture
 37:                                               ; preds = %21, %.lr.ph.i
   %38 = phi i32 [ %.pre.i, %21 ], [ %18, %.lr.ph.i ]
   %.1.i = phi i32 [ %34, %21 ], [ %.02225.i, %.lr.ph.i ]
-  %39 = getelementptr i8, ptr %.026.i, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %.026.i, i64 12
   %40 = add nuw nsw i32 %.02324.i, 1
   %41 = icmp slt i32 %40, %38
-  br i1 %41, label %.lr.ph.i, label %collectTSQueryValues.exit, !llvm.loop !7
+  br i1 %41, label %.lr.ph.i, label %collectTSQueryValues.exit, !llvm.loop !6
 
 collectTSQueryValues.exit:                        ; preds = %37, %1
   %.022.lcssa.i = phi i32 [ 0, %1 ], [ %.1.i, %37 ]
-  %42 = getelementptr i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %45, 12
-  %47 = getelementptr i8, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %46
   %48 = shl nsw i64 %45, 3
   %49 = tail call ptr @palloc(i64 noundef %48) #9
   %50 = load i32, ptr %43, align 4
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph.i20, label %collectTSQueryValues.exit26
+  br i1 %51, label %.lr.ph.i21, label %collectTSQueryValues.exit27
 
-.lr.ph.i20:                                       ; preds = %collectTSQueryValues.exit, %71
+.lr.ph.i21:                                       ; preds = %collectTSQueryValues.exit, %71
   %52 = phi i32 [ %72, %71 ], [ %50, %collectTSQueryValues.exit ]
-  %.026.i21 = phi ptr [ %73, %71 ], [ %42, %collectTSQueryValues.exit ]
-  %.02225.i22 = phi i32 [ %.1.i24, %71 ], [ 0, %collectTSQueryValues.exit ]
-  %.02324.i23 = phi i32 [ %74, %71 ], [ 0, %collectTSQueryValues.exit ]
-  %53 = load i8, ptr %.026.i21, align 4
+  %.026.i22 = phi ptr [ %73, %71 ], [ %42, %collectTSQueryValues.exit ]
+  %.02225.i23 = phi i32 [ %.1.i25, %71 ], [ 0, %collectTSQueryValues.exit ]
+  %.02324.i24 = phi i32 [ %74, %71 ], [ 0, %collectTSQueryValues.exit ]
+  %53 = load i8, ptr %.026.i22, align 4
   %54 = icmp eq i8 %53, 1
   br i1 %54, label %55, label %71
 
-55:                                               ; preds = %.lr.ph.i20
-  %56 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 8
+55:                                               ; preds = %.lr.ph.i21
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 8
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 4095
   %59 = add nuw nsw i32 %58, 1
@@ -1095,40 +1095,40 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   %62 = load i32, ptr %56, align 4
   %63 = lshr i32 %62, 12
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr i8, ptr %47, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 %64
   %66 = zext nneg i32 %58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %65, i64 %66, i1 false)
-  %67 = getelementptr i8, ptr %61, i64 %66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr nonnull readonly align 1 %65, i64 %66, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 %66
   store i8 0, ptr %67, align 1
-  %68 = add i32 %.02225.i22, 1
-  %69 = sext i32 %.02225.i22 to i64
-  %70 = getelementptr ptr, ptr %49, i64 %69
+  %68 = add i32 %.02225.i23, 1
+  %69 = sext i32 %.02225.i23 to i64
+  %70 = getelementptr inbounds ptr, ptr %49, i64 %69
   store ptr %61, ptr %70, align 8
-  %.pre.i25 = load i32, ptr %43, align 4
+  %.pre.i26 = load i32, ptr %43, align 4
   br label %71
 
-71:                                               ; preds = %55, %.lr.ph.i20
-  %72 = phi i32 [ %.pre.i25, %55 ], [ %52, %.lr.ph.i20 ]
-  %.1.i24 = phi i32 [ %68, %55 ], [ %.02225.i22, %.lr.ph.i20 ]
-  %73 = getelementptr i8, ptr %.026.i21, i64 12
-  %74 = add nuw nsw i32 %.02324.i23, 1
+71:                                               ; preds = %55, %.lr.ph.i21
+  %72 = phi i32 [ %.pre.i26, %55 ], [ %52, %.lr.ph.i21 ]
+  %.1.i25 = phi i32 [ %68, %55 ], [ %.02225.i23, %.lr.ph.i21 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 12
+  %74 = add nuw nsw i32 %.02324.i24, 1
   %75 = icmp slt i32 %74, %72
-  br i1 %75, label %.lr.ph.i20, label %collectTSQueryValues.exit26, !llvm.loop !7
+  br i1 %75, label %.lr.ph.i21, label %collectTSQueryValues.exit27, !llvm.loop !6
 
-collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQueryValues.exit
-  %.022.lcssa.i19 = phi i32 [ 0, %collectTSQueryValues.exit ], [ %.1.i24, %71 ]
+collectTSQueryValues.exit27:                      ; preds = %71, %collectTSQueryValues.exit
+  %.022.lcssa.i20 = phi i32 [ 0, %collectTSQueryValues.exit ], [ %.1.i25, %71 ]
   %76 = sext i32 %.022.lcssa.i to i64
   tail call void @pg_qsort(ptr noundef %15, i64 noundef %76, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
   %77 = icmp ult i32 %.022.lcssa.i, 2
   br i1 %77, label %qunique.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %collectTSQueryValues.exit26, %91
-  %.02.i = phi i64 [ %.1.i27, %91 ], [ 0, %collectTSQueryValues.exit26 ]
-  %.0231.i = phi i64 [ %92, %91 ], [ 1, %collectTSQueryValues.exit26 ]
+.preheader.i:                                     ; preds = %collectTSQueryValues.exit27, %91
+  %.02.i = phi i64 [ %.1.i28, %91 ], [ 0, %collectTSQueryValues.exit27 ]
+  %.0231.i = phi i64 [ %92, %91 ], [ 1, %collectTSQueryValues.exit27 ]
   %78 = shl i64 %.0231.i, 3
-  %79 = getelementptr i8, ptr %15, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 %78
   %80 = shl i64 %.02.i, 3
-  %81 = getelementptr i8, ptr %15, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 %80
   %82 = load ptr, ptr %79, align 8
   %83 = load ptr, ptr %81, align 8
   %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %83) #11
@@ -1143,119 +1143,119 @@ collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQuery
 
 88:                                               ; preds = %86
   %89 = shl i64 %87, 3
-  %90 = getelementptr i8, ptr %15, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 %89
   store i64 %85, ptr %90, align 1
   br label %91
 
 91:                                               ; preds = %88, %86, %.preheader.i
-  %.1.i27 = phi i64 [ %87, %88 ], [ %.0231.i, %86 ], [ %.02.i, %.preheader.i ]
+  %.1.i28 = phi i64 [ %87, %88 ], [ %.0231.i, %86 ], [ %.02.i, %.preheader.i ]
   %92 = add nuw i64 %.0231.i, 1
   %exitcond.not.i = icmp eq i64 %92, %76
-  br i1 %exitcond.not.i, label %93, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %93, label %.preheader.i, !llvm.loop !7
 
 93:                                               ; preds = %91
-  %94 = trunc i64 %.1.i27 to i32
+  %94 = trunc i64 %.1.i28 to i32
   %95 = add i32 %94, 1
   br label %qunique.exit
 
-qunique.exit:                                     ; preds = %collectTSQueryValues.exit26, %93
-  %.024.i = phi i32 [ %95, %93 ], [ %.022.lcssa.i, %collectTSQueryValues.exit26 ]
-  %96 = sext i32 %.022.lcssa.i19 to i64
+qunique.exit:                                     ; preds = %collectTSQueryValues.exit27, %93
+  %.024.i = phi i32 [ %95, %93 ], [ %.022.lcssa.i, %collectTSQueryValues.exit27 ]
+  %96 = sext i32 %.022.lcssa.i20 to i64
   tail call void @pg_qsort(ptr noundef %49, i64 noundef %96, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
-  %97 = icmp ult i32 %.022.lcssa.i19, 2
-  br i1 %97, label %qunique.exit36, label %.preheader.i28
+  %97 = icmp ult i32 %.022.lcssa.i20, 2
+  br i1 %97, label %qunique.exit37, label %.preheader.i29
 
-.preheader.i28:                                   ; preds = %qunique.exit, %111
-  %.02.i29 = phi i64 [ %.1.i33, %111 ], [ 0, %qunique.exit ]
-  %.0231.i30 = phi i64 [ %112, %111 ], [ 1, %qunique.exit ]
-  %98 = shl i64 %.0231.i30, 3
-  %99 = getelementptr i8, ptr %49, i64 %98
-  %100 = shl i64 %.02.i29, 3
-  %101 = getelementptr i8, ptr %49, i64 %100
+.preheader.i29:                                   ; preds = %qunique.exit, %111
+  %.02.i30 = phi i64 [ %.1.i34, %111 ], [ 0, %qunique.exit ]
+  %.0231.i31 = phi i64 [ %112, %111 ], [ 1, %qunique.exit ]
+  %98 = shl i64 %.0231.i31, 3
+  %99 = getelementptr inbounds nuw i8, ptr %49, i64 %98
+  %100 = shl i64 %.02.i30, 3
+  %101 = getelementptr inbounds nuw i8, ptr %49, i64 %100
   %102 = load ptr, ptr %99, align 8
   %103 = load ptr, ptr %101, align 8
   %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %103) #11
-  %.not.i31 = icmp eq i32 %104, 0
+  %.not.i32 = icmp eq i32 %104, 0
   %105 = ptrtoint ptr %102 to i64
-  br i1 %.not.i31, label %111, label %106
+  br i1 %.not.i32, label %111, label %106
 
-106:                                              ; preds = %.preheader.i28
-  %107 = add i64 %.02.i29, 1
-  %.not29.i32 = icmp eq i64 %107, %.0231.i30
-  br i1 %.not29.i32, label %111, label %108
+106:                                              ; preds = %.preheader.i29
+  %107 = add i64 %.02.i30, 1
+  %.not29.i33 = icmp eq i64 %107, %.0231.i31
+  br i1 %.not29.i33, label %111, label %108
 
 108:                                              ; preds = %106
   %109 = shl i64 %107, 3
-  %110 = getelementptr i8, ptr %49, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %49, i64 %109
   store i64 %105, ptr %110, align 1
   br label %111
 
-111:                                              ; preds = %108, %106, %.preheader.i28
-  %.1.i33 = phi i64 [ %107, %108 ], [ %.0231.i30, %106 ], [ %.02.i29, %.preheader.i28 ]
-  %112 = add nuw i64 %.0231.i30, 1
-  %exitcond.not.i34 = icmp eq i64 %112, %96
-  br i1 %exitcond.not.i34, label %113, label %.preheader.i28, !llvm.loop !8
+111:                                              ; preds = %108, %106, %.preheader.i29
+  %.1.i34 = phi i64 [ %107, %108 ], [ %.0231.i31, %106 ], [ %.02.i30, %.preheader.i29 ]
+  %112 = add nuw i64 %.0231.i31, 1
+  %exitcond.not.i35 = icmp eq i64 %112, %96
+  br i1 %exitcond.not.i35, label %113, label %.preheader.i29, !llvm.loop !7
 
 113:                                              ; preds = %111
-  %114 = trunc i64 %.1.i33 to i32
+  %114 = trunc i64 %.1.i34 to i32
   %115 = add i32 %114, 1
-  br label %qunique.exit36
+  br label %qunique.exit37
 
-qunique.exit36:                                   ; preds = %qunique.exit, %113
-  %.024.i35 = phi i32 [ %115, %113 ], [ %.022.lcssa.i19, %qunique.exit ]
-  %116 = icmp slt i32 %.024.i, %.024.i35
-  br i1 %116, label %.loopexit, label %.preheader44
+qunique.exit37:                                   ; preds = %qunique.exit, %113
+  %.024.i36 = phi i32 [ %115, %113 ], [ %.022.lcssa.i20, %qunique.exit ]
+  %116 = icmp slt i32 %.024.i, %.024.i36
+  br i1 %116, label %.loopexit, label %.preheader45
 
-.preheader44:                                     ; preds = %qunique.exit36
-  %117 = icmp sgt i32 %.024.i35, 0
-  br i1 %117, label %.preheader.preheader, label %.loopexit
+.preheader45:                                     ; preds = %qunique.exit37
+  %.not49 = icmp sgt i32 %.024.i36, 0
+  br i1 %.not49, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.preheader44
-  %118 = sext i32 %.024.i to i64
-  %wide.trip.count = zext nneg i32 %.024.i35 to i64
+.preheader.preheader:                             ; preds = %.preheader45
+  %117 = sext i32 %.024.i to i64
+  %wide.trip.count = zext nneg i32 %.024.i36 to i64
   br label %.preheader
 
-119:                                              ; preds = %._crit_edge
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %.preheader, !llvm.loop !9
+118:                                              ; preds = %._crit_edge
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.preheader:                                       ; preds = %.preheader.preheader, %119
-  %indvars.iv54 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next55, %119 ]
-  %.049 = phi i32 [ 0, %.preheader.preheader ], [ %.1.lcssa, %119 ]
-  %120 = icmp slt i32 %.049, %.024.i
-  br i1 %120, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %.preheader.preheader, %118
+  %indvars.iv56 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next57, %118 ]
+  %.051 = phi i32 [ 0, %.preheader.preheader ], [ %.1.lcssa, %118 ]
+  %119 = icmp slt i32 %.051, %.024.i
+  br i1 %119, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %121 = getelementptr ptr, ptr %49, i64 %indvars.iv54
-  %122 = load ptr, ptr %121, align 8
-  %123 = sext i32 %.049 to i64
-  br label %124
+  %120 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv56
+  %121 = load ptr, ptr %120, align 8
+  %122 = sext i32 %.051 to i64
+  br label %123
 
-124:                                              ; preds = %.lr.ph, %129
-  %indvars.iv = phi i64 [ %123, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %125 = getelementptr ptr, ptr %15, i64 %indvars.iv
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(1) %126) #11
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %._crit_edge.loopexit, label %129
+123:                                              ; preds = %.lr.ph, %128
+  %indvars.iv = phi i64 [ %122, %.lr.ph ], [ %indvars.iv.next, %128 ]
+  %124 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) %125) #11
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %._crit_edge.loopexit, label %128
 
-129:                                              ; preds = %124
+128:                                              ; preds = %123
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %118
-  br i1 %exitcond.not, label %.loopexit, label %124, !llvm.loop !10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %117
+  br i1 %exitcond.not, label %.loopexit, label %123, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %124
-  %130 = trunc nsw i64 %indvars.iv to i32
+._crit_edge.loopexit:                             ; preds = %123
+  %129 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.1.lcssa = phi i32 [ %.049, %.preheader ], [ %130, %._crit_edge.loopexit ]
-  %131 = icmp eq i32 %.1.lcssa, %.024.i
-  br i1 %131, label %.loopexit, label %119
+  %.1.lcssa = phi i32 [ %.051, %.preheader ], [ %129, %._crit_edge.loopexit ]
+  %130 = icmp eq i32 %.1.lcssa, %.024.i
+  br i1 %130, label %.loopexit, label %118
 
-.loopexit:                                        ; preds = %119, %._crit_edge, %129, %.preheader44, %qunique.exit36
-  %.018 = phi i64 [ 0, %qunique.exit36 ], [ 1, %.preheader44 ], [ 0, %129 ], [ 1, %119 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %118, %128, %.preheader45, %qunique.exit37
+  %.018 = phi i64 [ 0, %qunique.exit37 ], [ 1, %.preheader45 ], [ 0, %128 ], [ 0, %._crit_edge ], [ 1, %118 ]
   ret i64 %.018
 }
 
@@ -1275,7 +1275,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsq_mcontained(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = getelementptr i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %2, align 8
   %6 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @tsq_mcontains, i32 noundef 0, i64 noundef %4, i64 noundef %5) #9
@@ -1296,29 +1296,28 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

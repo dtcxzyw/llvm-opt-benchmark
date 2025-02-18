@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @StandbyMode = external global i8, align 1
 @.str.6 = private unnamed_addr constant [55 x i8] c"archive file \22%s\22 has wrong size: %lld instead of %lld\00", align 1
 @.str.7 = private unnamed_addr constant [36 x i8] c"restored log file \22%s\22 from archive\00", align 1
-@.str.8 = private unnamed_addr constant [64 x i8] c"restore_command returned a zero exit status, but stat() failed.\00", align 1
+@.str.8 = private unnamed_addr constant [66 x i8] c"\22restore_command\22 returned a zero exit status, but stat() failed.\00", align 1
 @.str.9 = private unnamed_addr constant [45 x i8] c"could not restore file \22%s\22 from archive: %s\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.11 = private unnamed_addr constant [18 x i8] c"executing %s \22%s\22\00", align 1
@@ -57,452 +57,500 @@ define dso_local zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr noundef %1,
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i64 %3, ptr %10, align 8
-  %22 = zext i1 %4 to i8
-  store i8 %22, ptr %11, align 1
-  %23 = load i8, ptr @ArchiveRecoveryRequested, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %26, label %25
-
-25:                                               ; preds = %5
-  br label %236
+  %23 = zext i1 %4 to i8
+  store i8 %23, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  %24 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %27, label %26
 
 26:                                               ; preds = %5
-  %27 = load ptr, ptr @recoveryRestoreCommand, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %33, label %29
+  br label %244
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr @recoveryRestoreCommand, align 8
-  %31 = call i32 @strcmp(ptr noundef %30, ptr noundef @.str) #8
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %34
+27:                                               ; preds = %5
+  %28 = load ptr, ptr @recoveryRestoreCommand, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %34, label %30
 
-33:                                               ; preds = %29, %26
-  br label %236
+30:                                               ; preds = %27
+  %31 = load ptr, ptr @recoveryRestoreCommand, align 8
+  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str) #11
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %36 = load ptr, ptr %9, align 8
-  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %35, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %36)
-  %38 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %39 = call i32 @stat(ptr noundef %38, ptr noundef %16) #9
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %58
+34:                                               ; preds = %30, %27
+  br label %244
 
-41:                                               ; preds = %34
-  %42 = call ptr @__errno_location() #10
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp ne i32 %43, 2
-  br i1 %44, label %45, label %57
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %37 = load ptr, ptr %9, align 8
+  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %36, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %37)
+  %39 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %40 = call i32 @stat(ptr noundef %39, ptr noundef %16) #10
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %60
 
-45:                                               ; preds = %41
-  br label %46
+42:                                               ; preds = %35
+  %43 = call ptr @__errno_location() #12
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp ne i32 %44, 2
+  br i1 %45, label %46, label %59
 
-46:                                               ; preds = %45
-  br i1 true, label %47, label %49
+46:                                               ; preds = %42
+  br label %47
 
 47:                                               ; preds = %46
-  %48 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %48, label %51, label %55
+  br i1 true, label %48, label %50
 
-49:                                               ; preds = %46
-  %50 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %50, label %51, label %55
+48:                                               ; preds = %47
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
+  br i1 %49, label %52, label %56
 
-51:                                               ; preds = %49, %47
-  %52 = call i32 @errcode_for_file_access()
-  %53 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %53)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 113, ptr noundef @__func__.RestoreArchivedFile)
-  br label %55
+50:                                               ; preds = %47
+  %51 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %51, label %52, label %56
 
-55:                                               ; preds = %51, %49, %47
+52:                                               ; preds = %50, %48
+  %53 = call i32 @errcode_for_file_access()
+  %54 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %54)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 112, ptr noundef @__func__.RestoreArchivedFile)
+  br label %56
+
+56:                                               ; preds = %52, %50, %48
   unreachable
 
-56:                                               ; No predecessors!
-  br label %57
+57:                                               ; No predecessors!
+  br label %58
 
-57:                                               ; preds = %56, %41
-  br label %75
+58:                                               ; preds = %57
+  br label %59
 
-58:                                               ; preds = %34
-  %59 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %60 = call i32 @unlink(ptr noundef %59) #9
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %74
+59:                                               ; preds = %58, %42
+  br label %78
 
-62:                                               ; preds = %58
-  br label %63
+60:                                               ; preds = %35
+  %61 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %62 = call i32 @unlink(ptr noundef %61) #10
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %77
 
-63:                                               ; preds = %62
-  br i1 true, label %64, label %66
+64:                                               ; preds = %60
+  br label %65
 
-64:                                               ; preds = %63
-  %65 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %65, label %68, label %72
+65:                                               ; preds = %64
+  br i1 true, label %66, label %68
 
-66:                                               ; preds = %63
-  %67 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %67, label %68, label %72
+66:                                               ; preds = %65
+  %67 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
+  br i1 %67, label %70, label %74
 
-68:                                               ; preds = %66, %64
-  %69 = call i32 @errcode_for_file_access()
-  %70 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %70)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 121, ptr noundef @__func__.RestoreArchivedFile)
-  br label %72
+68:                                               ; preds = %65
+  %69 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %69, label %70, label %74
 
-72:                                               ; preds = %68, %66, %64
-  unreachable
-
-73:                                               ; No predecessors!
+70:                                               ; preds = %68, %66
+  %71 = call i32 @errcode_for_file_access()
+  %72 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %72)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 120, ptr noundef @__func__.RestoreArchivedFile)
   br label %74
 
-74:                                               ; preds = %73, %58
-  br label %75
+74:                                               ; preds = %70, %68, %66
+  unreachable
 
-75:                                               ; preds = %74, %57
-  %76 = load i8, ptr %11, align 1
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %78, label %87
+75:                                               ; No predecessors!
+  br label %76
 
-78:                                               ; preds = %75
+76:                                               ; preds = %75
+  br label %77
+
+77:                                               ; preds = %76, %60
+  br label %78
+
+78:                                               ; preds = %77, %59
+  %79 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %90
+
+81:                                               ; preds = %78
   call void @GetOldestRestartPoint(ptr noundef %18, ptr noundef %19)
-  %79 = load i64, ptr %18, align 8
-  %80 = load i32, ptr @wal_segment_size, align 4
-  %81 = sext i32 %80 to i64
-  %82 = udiv i64 %79, %81
-  store i64 %82, ptr %17, align 8
-  %83 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
-  %84 = load i32, ptr %19, align 4
-  %85 = load i64, ptr %17, align 8
-  %86 = load i32, ptr @wal_segment_size, align 4
-  call void @XLogFileName(ptr noundef %83, i32 noundef %84, i64 noundef %85, i32 noundef %86)
-  br label %90
-
-87:                                               ; preds = %75
-  %88 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
+  %82 = load i64, ptr %18, align 8
+  %83 = load i32, ptr @wal_segment_size, align 4
+  %84 = sext i32 %83 to i64
+  %85 = udiv i64 %82, %84
+  store i64 %85, ptr %17, align 8
+  %86 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
+  %87 = load i32, ptr %19, align 4
+  %88 = load i64, ptr %17, align 8
   %89 = load i32, ptr @wal_segment_size, align 4
-  call void @XLogFileName(ptr noundef %88, i32 noundef 0, i64 noundef 0, i32 noundef %89)
-  br label %90
+  call void @XLogFileName(ptr noundef %86, i32 noundef %87, i64 noundef %88, i32 noundef %89)
+  br label %93
 
-90:                                               ; preds = %87, %78
-  %91 = load ptr, ptr @recoveryRestoreCommand, align 8
-  %92 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
-  %95 = call ptr @BuildRestoreCommand(ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94)
-  store ptr %95, ptr %13, align 8
-  br label %96
+90:                                               ; preds = %78
+  %91 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
+  %92 = load i32, ptr @wal_segment_size, align 4
+  call void @XLogFileName(ptr noundef %91, i32 noundef 0, i64 noundef 0, i32 noundef %92)
+  br label %93
 
-96:                                               ; preds = %90
-  br i1 false, label %97, label %99
+93:                                               ; preds = %90, %81
+  %94 = load ptr, ptr @recoveryRestoreCommand, align 8
+  %95 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %96 = load ptr, ptr %8, align 8
+  %97 = getelementptr inbounds [1024 x i8], ptr %14, i64 0, i64 0
+  %98 = call ptr @BuildRestoreCommand(ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97)
+  store ptr %98, ptr %13, align 8
+  br label %99
 
-97:                                               ; preds = %96
-  %98 = call zeroext i1 @errstart_cold(i32 noundef 12, ptr noundef null) #11
-  br i1 %98, label %101, label %104
+99:                                               ; preds = %93
+  br i1 false, label %100, label %102
 
-99:                                               ; preds = %96
-  %100 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null)
-  br i1 %100, label %101, label %104
+100:                                              ; preds = %99
+  %101 = call zeroext i1 @errstart_cold(i32 noundef 12, ptr noundef null) #13
+  br i1 %101, label %104, label %107
 
-101:                                              ; preds = %99, %97
-  %102 = load ptr, ptr %13, align 8
-  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, ptr noundef %102)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 160, ptr noundef @__func__.RestoreArchivedFile)
-  br label %104
+102:                                              ; preds = %99
+  %103 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null)
+  br i1 %103, label %104, label %107
 
-104:                                              ; preds = %101, %99, %97
-  br label %105
+104:                                              ; preds = %102, %100
+  %105 = load ptr, ptr %13, align 8
+  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, ptr noundef %105)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 159, ptr noundef @__func__.RestoreArchivedFile)
+  br label %107
 
-105:                                              ; preds = %104
-  %106 = call i32 @fflush(ptr noundef null)
-  call void @pgstat_report_wait_start(i32 noundef 134217777)
+107:                                              ; preds = %104, %102, %100
+  br label %108
+
+108:                                              ; preds = %107
+  br label %109
+
+109:                                              ; preds = %108
+  %110 = call i32 @fflush(ptr noundef null)
+  call void @pgstat_report_wait_start(i32 noundef 134217778)
   call void @PreRestoreCommand()
-  %107 = load ptr, ptr %13, align 8
-  %108 = call i32 @system(ptr noundef %107)
-  store i32 %108, ptr %15, align 4
+  %111 = load ptr, ptr %13, align 8
+  %112 = call i32 @system(ptr noundef %111)
+  store i32 %112, ptr %15, align 4
   call void @PostRestoreCommand()
   call void @pgstat_report_wait_end()
-  %109 = load ptr, ptr %13, align 8
-  call void @pfree(ptr noundef %109)
-  %110 = load i32, ptr %15, align 4
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %208
-
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %114 = call i32 @stat(ptr noundef %113, ptr noundef %16) #9
+  %113 = load ptr, ptr %13, align 8
+  call void @pfree(ptr noundef %113)
+  %114 = load i32, ptr %15, align 4
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %176
+  br i1 %115, label %116, label %215
 
-116:                                              ; preds = %112
-  %117 = load i64, ptr %10, align 8
-  %118 = icmp sgt i64 %117, 0
-  br i1 %118, label %119, label %162
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %118 = call i32 @stat(ptr noundef %117, ptr noundef %16) #10
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %182
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds %struct.stat, ptr %16, i32 0, i32 8
-  %121 = load i64, ptr %120, align 8
-  %122 = load i64, ptr %10, align 8
-  %123 = icmp ne i64 %121, %122
-  br i1 %123, label %124, label %162
+120:                                              ; preds = %116
+  %121 = load i64, ptr %10, align 8
+  %122 = icmp sgt i64 %121, 0
+  br i1 %122, label %123, label %167
 
-124:                                              ; preds = %119
-  %125 = load i8, ptr @StandbyMode, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %133
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw %struct.stat, ptr %16, i32 0, i32 8
+  %125 = load i64, ptr %124, align 8
+  %126 = load i64, ptr %10, align 8
+  %127 = icmp ne i64 %125, %126
+  br i1 %127, label %128, label %167
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds %struct.stat, ptr %16, i32 0, i32 8
-  %129 = load i64, ptr %128, align 8
-  %130 = load i64, ptr %10, align 8
-  %131 = icmp slt i64 %129, %130
-  br i1 %131, label %132, label %133
+128:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %129 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %131, label %137
 
-132:                                              ; preds = %127
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw %struct.stat, ptr %16, i32 0, i32 8
+  %133 = load i64, ptr %132, align 8
+  %134 = load i64, ptr %10, align 8
+  %135 = icmp slt i64 %133, %134
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %131
   store i32 14, ptr %20, align 4
-  br label %134
+  br label %138
 
-133:                                              ; preds = %127, %124
+137:                                              ; preds = %131, %128
   store i32 22, ptr %20, align 4
-  br label %134
+  br label %138
 
-134:                                              ; preds = %133, %132
-  br label %135
+138:                                              ; preds = %137, %136
+  br label %139
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %20, align 4
-  %137 = call i1 @llvm.is.constant.i32(i32 %136)
-  br i1 %137, label %138, label %144
+139:                                              ; preds = %138
+  %140 = load i32, ptr %20, align 4
+  %141 = call i1 @llvm.is.constant.i32(i32 %140)
+  br i1 %141, label %142, label %148
 
-138:                                              ; preds = %135
-  %139 = load i32, ptr %20, align 4
-  %140 = icmp sge i32 %139, 21
-  br i1 %140, label %141, label %144
+142:                                              ; preds = %139
+  %143 = load i32, ptr %20, align 4
+  %144 = icmp sge i32 %143, 21
+  br i1 %144, label %145, label %148
 
-141:                                              ; preds = %138
-  %142 = load i32, ptr %20, align 4
-  %143 = call zeroext i1 @errstart_cold(i32 noundef %142, ptr noundef null) #11
-  br i1 %143, label %147, label %153
+145:                                              ; preds = %142
+  %146 = load i32, ptr %20, align 4
+  %147 = call zeroext i1 @errstart_cold(i32 noundef %146, ptr noundef null) #13
+  br i1 %147, label %151, label %157
 
-144:                                              ; preds = %138, %135
-  %145 = load i32, ptr %20, align 4
-  %146 = call zeroext i1 @errstart(i32 noundef %145, ptr noundef null)
-  br i1 %146, label %147, label %153
+148:                                              ; preds = %142, %139
+  %149 = load i32, ptr %20, align 4
+  %150 = call zeroext i1 @errstart(i32 noundef %149, ptr noundef null)
+  br i1 %150, label %151, label %157
 
-147:                                              ; preds = %144, %141
-  %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds %struct.stat, ptr %16, i32 0, i32 8
-  %150 = load i64, ptr %149, align 8
-  %151 = load i64, ptr %10, align 8
-  %152 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6, ptr noundef %148, i64 noundef %150, i64 noundef %151)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 217, ptr noundef @__func__.RestoreArchivedFile)
-  br label %153
+151:                                              ; preds = %148, %145
+  %152 = load ptr, ptr %8, align 8
+  %153 = getelementptr inbounds nuw %struct.stat, ptr %16, i32 0, i32 8
+  %154 = load i64, ptr %153, align 8
+  %155 = load i64, ptr %10, align 8
+  %156 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6, ptr noundef %152, i64 noundef %154, i64 noundef %155)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 216, ptr noundef @__func__.RestoreArchivedFile)
+  br label %157
 
-153:                                              ; preds = %147, %144, %141
-  %154 = load i32, ptr %20, align 4
-  %155 = call i1 @llvm.is.constant.i32(i32 %154)
-  br i1 %155, label %156, label %160
+157:                                              ; preds = %151, %148, %145
+  %158 = load i32, ptr %20, align 4
+  %159 = call i1 @llvm.is.constant.i32(i32 %158)
+  br i1 %159, label %160, label %164
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %20, align 4
-  %158 = icmp sge i32 %157, 21
-  br i1 %158, label %159, label %160
+160:                                              ; preds = %157
+  %161 = load i32, ptr %20, align 4
+  %162 = icmp sge i32 %161, 21
+  br i1 %162, label %163, label %164
 
-159:                                              ; preds = %156
+163:                                              ; preds = %160
   unreachable
 
-160:                                              ; preds = %156, %153
-  br label %161
+164:                                              ; preds = %160, %157
+  br label %165
 
-161:                                              ; preds = %160
+165:                                              ; preds = %164
+  br label %166
+
+166:                                              ; preds = %165
   store i1 false, ptr %6, align 1
-  br label %240
+  store i32 1, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  br label %248
 
-162:                                              ; preds = %119, %116
-  br label %163
+167:                                              ; preds = %123, %120
+  br label %168
 
-163:                                              ; preds = %162
-  br i1 false, label %164, label %166
+168:                                              ; preds = %167
+  br i1 false, label %169, label %171
 
-164:                                              ; preds = %163
-  %165 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %165, label %168, label %171
+169:                                              ; preds = %168
+  %170 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %170, label %173, label %176
 
-166:                                              ; preds = %163
-  %167 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %167, label %168, label %171
+171:                                              ; preds = %168
+  %172 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %172, label %173, label %176
 
-168:                                              ; preds = %166, %164
-  %169 = load ptr, ptr %8, align 8
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %169)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 224, ptr noundef @__func__.RestoreArchivedFile)
-  br label %171
+173:                                              ; preds = %171, %169
+  %174 = load ptr, ptr %8, align 8
+  %175 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %174)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 223, ptr noundef @__func__.RestoreArchivedFile)
+  br label %176
 
-171:                                              ; preds = %168, %166, %164
-  br label %172
+176:                                              ; preds = %173, %171, %169
+  br label %177
 
-172:                                              ; preds = %171
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %175 = call ptr @strcpy(ptr noundef %173, ptr noundef %174) #9
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %181 = call ptr @strcpy(ptr noundef %179, ptr noundef %180) #10
   store i1 true, ptr %6, align 1
-  br label %240
+  store i32 1, ptr %21, align 4
+  br label %248
 
-176:                                              ; preds = %112
-  %177 = call ptr @__errno_location() #10
-  %178 = load i32, ptr %177, align 4
-  %179 = icmp eq i32 %178, 2
-  %180 = select i1 %179, i32 15, i32 22
-  store i32 %180, ptr %21, align 4
-  br label %181
+182:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  %183 = call ptr @__errno_location() #12
+  %184 = load i32, ptr %183, align 4
+  %185 = icmp eq i32 %184, 2
+  %186 = select i1 %185, i32 15, i32 22
+  store i32 %186, ptr %22, align 4
+  br label %187
 
-181:                                              ; preds = %176
-  %182 = load i32, ptr %21, align 4
-  %183 = call i1 @llvm.is.constant.i32(i32 %182)
-  br i1 %183, label %184, label %190
+187:                                              ; preds = %182
+  %188 = load i32, ptr %22, align 4
+  %189 = call i1 @llvm.is.constant.i32(i32 %188)
+  br i1 %189, label %190, label %196
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr %21, align 4
-  %186 = icmp sge i32 %185, 21
-  br i1 %186, label %187, label %190
+190:                                              ; preds = %187
+  %191 = load i32, ptr %22, align 4
+  %192 = icmp sge i32 %191, 21
+  br i1 %192, label %193, label %196
 
-187:                                              ; preds = %184
-  %188 = load i32, ptr %21, align 4
-  %189 = call zeroext i1 @errstart_cold(i32 noundef %188, ptr noundef null) #11
-  br i1 %189, label %193, label %198
+193:                                              ; preds = %190
+  %194 = load i32, ptr %22, align 4
+  %195 = call zeroext i1 @errstart_cold(i32 noundef %194, ptr noundef null) #13
+  br i1 %195, label %199, label %204
 
-190:                                              ; preds = %184, %181
-  %191 = load i32, ptr %21, align 4
-  %192 = call zeroext i1 @errstart(i32 noundef %191, ptr noundef null)
-  br i1 %192, label %193, label %198
+196:                                              ; preds = %190, %187
+  %197 = load i32, ptr %22, align 4
+  %198 = call zeroext i1 @errstart(i32 noundef %197, ptr noundef null)
+  br i1 %198, label %199, label %204
 
-193:                                              ; preds = %190, %187
-  %194 = call i32 @errcode_for_file_access()
-  %195 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %196 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %195)
-  %197 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.8)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 237, ptr noundef @__func__.RestoreArchivedFile)
-  br label %198
+199:                                              ; preds = %196, %193
+  %200 = call i32 @errcode_for_file_access()
+  %201 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
+  %202 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %201)
+  %203 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.8)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 236, ptr noundef @__func__.RestoreArchivedFile)
+  br label %204
 
-198:                                              ; preds = %193, %190, %187
-  %199 = load i32, ptr %21, align 4
-  %200 = call i1 @llvm.is.constant.i32(i32 %199)
-  br i1 %200, label %201, label %205
+204:                                              ; preds = %199, %196, %193
+  %205 = load i32, ptr %22, align 4
+  %206 = call i1 @llvm.is.constant.i32(i32 %205)
+  br i1 %206, label %207, label %211
 
-201:                                              ; preds = %198
-  %202 = load i32, ptr %21, align 4
-  %203 = icmp sge i32 %202, 21
-  br i1 %203, label %204, label %205
+207:                                              ; preds = %204
+  %208 = load i32, ptr %22, align 4
+  %209 = icmp sge i32 %208, 21
+  br i1 %209, label %210, label %211
 
-204:                                              ; preds = %201
+210:                                              ; preds = %207
   unreachable
 
-205:                                              ; preds = %201, %198
-  br label %206
+211:                                              ; preds = %207, %204
+  br label %212
 
-206:                                              ; preds = %205
-  br label %207
-
-207:                                              ; preds = %206
-  br label %208
-
-208:                                              ; preds = %207, %105
-  %209 = load i32, ptr %15, align 4
-  %210 = call zeroext i1 @wait_result_is_signal(i32 noundef %209, i32 noundef 15)
-  br i1 %210, label %211, label %212
-
-211:                                              ; preds = %208
-  call void @proc_exit(i32 noundef 1) #12
-  unreachable
-
-212:                                              ; preds = %208
+212:                                              ; preds = %211
   br label %213
 
 213:                                              ; preds = %212
-  br i1 false, label %214, label %224
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  br label %214
 
 214:                                              ; preds = %213
-  %215 = load i32, ptr %15, align 4
-  %216 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %215, i1 noundef zeroext true)
-  %217 = select i1 %216, i32 22, i32 13
-  %218 = icmp sge i32 %217, 21
-  br i1 %218, label %219, label %224
+  br label %215
 
-219:                                              ; preds = %214
-  %220 = load i32, ptr %15, align 4
-  %221 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %220, i1 noundef zeroext true)
-  %222 = select i1 %221, i32 22, i32 13
-  %223 = call zeroext i1 @errstart_cold(i32 noundef %222, ptr noundef null) #11
-  br i1 %223, label %229, label %234
+215:                                              ; preds = %214, %109
+  %216 = load i32, ptr %15, align 4
+  %217 = call zeroext i1 @wait_result_is_signal(i32 noundef %216, i32 noundef 15)
+  br i1 %217, label %218, label %219
 
-224:                                              ; preds = %214, %213
-  %225 = load i32, ptr %15, align 4
-  %226 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %225, i1 noundef zeroext true)
-  %227 = select i1 %226, i32 22, i32 13
-  %228 = call zeroext i1 @errstart(i32 noundef %227, ptr noundef null)
-  br i1 %228, label %229, label %234
+218:                                              ; preds = %215
+  call void @proc_exit(i32 noundef 1) #14
+  unreachable
 
-229:                                              ; preds = %224, %219
-  %230 = load ptr, ptr %8, align 8
-  %231 = load i32, ptr %15, align 4
-  %232 = call ptr @wait_result_to_str(i32 noundef %231)
-  %233 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9, ptr noundef %230, ptr noundef %232)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 270, ptr noundef @__func__.RestoreArchivedFile)
-  br label %234
+219:                                              ; preds = %215
+  br label %220
 
-234:                                              ; preds = %229, %224, %219
-  br label %235
+220:                                              ; preds = %219
+  br i1 false, label %221, label %231
 
-235:                                              ; preds = %234
-  br label %236
+221:                                              ; preds = %220
+  %222 = load i32, ptr %15, align 4
+  %223 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %222, i1 noundef zeroext true)
+  %224 = select i1 %223, i32 22, i32 13
+  %225 = icmp sge i32 %224, 21
+  br i1 %225, label %226, label %231
 
-236:                                              ; preds = %235, %33, %25
-  %237 = load ptr, ptr %7, align 8
-  %238 = load ptr, ptr %8, align 8
-  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %237, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %238)
+226:                                              ; preds = %221
+  %227 = load i32, ptr %15, align 4
+  %228 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %227, i1 noundef zeroext true)
+  %229 = select i1 %228, i32 22, i32 13
+  %230 = call zeroext i1 @errstart_cold(i32 noundef %229, ptr noundef null) #13
+  br i1 %230, label %236, label %241
+
+231:                                              ; preds = %221, %220
+  %232 = load i32, ptr %15, align 4
+  %233 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %232, i1 noundef zeroext true)
+  %234 = select i1 %233, i32 22, i32 13
+  %235 = call zeroext i1 @errstart(i32 noundef %234, ptr noundef null)
+  br i1 %235, label %236, label %241
+
+236:                                              ; preds = %231, %226
+  %237 = load ptr, ptr %8, align 8
+  %238 = load i32, ptr %15, align 4
+  %239 = call ptr @wait_result_to_str(i32 noundef %238)
+  %240 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9, ptr noundef %237, ptr noundef %239)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 269, ptr noundef @__func__.RestoreArchivedFile)
+  br label %241
+
+241:                                              ; preds = %236, %231, %226
+  br label %242
+
+242:                                              ; preds = %241
+  br label %243
+
+243:                                              ; preds = %242
+  br label %244
+
+244:                                              ; preds = %243, %34, %26
+  %245 = load ptr, ptr %7, align 8
+  %246 = load ptr, ptr %8, align 8
+  %247 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %245, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %246)
   store i1 false, ptr %6, align 1
-  br label %240
+  store i32 1, ptr %21, align 4
+  br label %248
 
-240:                                              ; preds = %236, %172, %161
-  %241 = load i1, ptr %6, align 1
-  ret i1 %241
+248:                                              ; preds = %244, %178, %166
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 144, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %12) #10
+  %249 = load i1, ptr %6, align 1
+  ret i1 %249
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #2
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare i32 @stat(ptr noundef, ptr noundef) #3
+declare i32 @stat(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #5
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errcode_for_file_access() #2
+declare i32 @errcode_for_file_access() #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #3
+declare i32 @unlink(ptr noundef) #4
 
-declare void @GetOldestRestartPoint(ptr noundef, ptr noundef) #2
+declare void @GetOldestRestartPoint(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #7 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -529,14 +577,17 @@ define internal void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %
   ret void
 }
 
-declare ptr @BuildRestoreCommand(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @BuildRestoreCommand(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare i32 @fflush(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @pgstat_report_wait_start(i32 noundef %0) #0 {
+declare i32 @fflush(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pgstat_report_wait_start(i32 noundef %0) #7 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -545,37 +596,37 @@ define internal void @pgstat_report_wait_start(i32 noundef %0) #0 {
   ret void
 }
 
-declare void @PreRestoreCommand() #2
+declare void @PreRestoreCommand() #3
 
-declare i32 @system(ptr noundef) #2
+declare i32 @system(ptr noundef) #3
 
-declare void @PostRestoreCommand() #2
+declare void @PostRestoreCommand() #3
 
-; Function Attrs: nounwind uwtable
-define internal void @pgstat_report_wait_end() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @pgstat_report_wait_end() #7 {
   %1 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %1, align 4
   ret void
 }
 
-declare void @pfree(ptr noundef) #2
+declare void @pfree(ptr noundef) #3
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #6
+declare i1 @llvm.is.constant.i32(i32) #8
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #3
+declare ptr @strcpy(ptr noundef, ptr noundef) #4
 
-declare i32 @errdetail(ptr noundef, ...) #2
+declare i32 @errdetail(ptr noundef, ...) #3
 
-declare zeroext i1 @wait_result_is_signal(i32 noundef, i32 noundef) #2
+declare zeroext i1 @wait_result_is_signal(i32 noundef, i32 noundef) #3
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) #7
+declare void @proc_exit(i32 noundef) #9
 
-declare zeroext i1 @wait_result_is_any_signal(i32 noundef, i1 noundef zeroext) #2
+declare zeroext i1 @wait_result_is_any_signal(i32 noundef, i1 noundef zeroext) #3
 
-declare ptr @wait_result_to_str(i32 noundef) #2
+declare ptr @wait_result_to_str(i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecuteRecoveryCommand(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) #0 {
@@ -594,6 +645,12 @@ define dso_local void @ExecuteRecoveryCommand(ptr noundef %0, ptr noundef %1, i1
   %15 = zext i1 %2 to i8
   store i8 %15, ptr %7, align 1
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
   call void @GetOldestRestartPoint(ptr noundef %13, ptr noundef %14)
   %16 = load i64, ptr %13, align 8
   %17 = load i32, ptr @wal_segment_size, align 4
@@ -616,7 +673,7 @@ define dso_local void @ExecuteRecoveryCommand(ptr noundef %0, ptr noundef %1, i1
   br i1 false, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 12, ptr noundef null) #11
+  %30 = call zeroext i1 @errstart_cold(i32 noundef 12, ptr noundef null) #13
   br i1 %30, label %33, label %37
 
 31:                                               ; preds = %28
@@ -627,100 +684,112 @@ define dso_local void @ExecuteRecoveryCommand(ptr noundef %0, ptr noundef %1, i1
   %34 = load ptr, ptr %6, align 8
   %35 = load ptr, ptr %5, align 8
   %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.11, ptr noundef %34, ptr noundef %35)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 324, ptr noundef @__func__.ExecuteRecoveryCommand)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 323, ptr noundef @__func__.ExecuteRecoveryCommand)
   br label %37
 
 37:                                               ; preds = %33, %31, %29
   br label %38
 
 38:                                               ; preds = %37
-  %39 = call i32 @fflush(ptr noundef null)
-  %40 = load i32, ptr %8, align 4
-  call void @pgstat_report_wait_start(i32 noundef %40)
-  %41 = load ptr, ptr %9, align 8
-  %42 = call i32 @system(ptr noundef %41)
-  store i32 %42, ptr %11, align 4
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = call i32 @fflush(ptr noundef null)
+  %41 = load i32, ptr %8, align 4
+  call void @pgstat_report_wait_start(i32 noundef %41)
+  %42 = load ptr, ptr %9, align 8
+  %43 = call i32 @system(ptr noundef %42)
+  store i32 %43, ptr %11, align 4
   call void @pgstat_report_wait_end()
-  %43 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %43)
-  %44 = load i32, ptr %11, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %86
+  %44 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %44)
+  %45 = load i32, ptr %11, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %88
 
-46:                                               ; preds = %38
-  br label %47
-
-47:                                               ; preds = %46
-  br i1 false, label %48, label %68
+47:                                               ; preds = %39
+  br label %48
 
 48:                                               ; preds = %47
-  %49 = load i8, ptr %7, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %54
+  br i1 false, label %49, label %69
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %11, align 4
-  %53 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %52, i1 noundef zeroext true)
-  br label %54
+49:                                               ; preds = %48
+  %50 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %55
 
-54:                                               ; preds = %51, %48
-  %55 = phi i1 [ false, %48 ], [ %53, %51 ]
-  %56 = select i1 %55, i32 22, i32 19
-  %57 = icmp sge i32 %56, 21
-  br i1 %57, label %58, label %68
+52:                                               ; preds = %49
+  %53 = load i32, ptr %11, align 4
+  %54 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %53, i1 noundef zeroext true)
+  br label %55
 
-58:                                               ; preds = %54
-  %59 = load i8, ptr %7, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %61, label %64
+55:                                               ; preds = %52, %49
+  %56 = phi i1 [ false, %49 ], [ %54, %52 ]
+  %57 = select i1 %56, i32 22, i32 19
+  %58 = icmp sge i32 %57, 21
+  br i1 %58, label %59, label %69
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %11, align 4
-  %63 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %62, i1 noundef zeroext true)
-  br label %64
+59:                                               ; preds = %55
+  %60 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %65
 
-64:                                               ; preds = %61, %58
-  %65 = phi i1 [ false, %58 ], [ %63, %61 ]
-  %66 = select i1 %65, i32 22, i32 19
-  %67 = call zeroext i1 @errstart_cold(i32 noundef %66, ptr noundef null) #11
-  br i1 %67, label %78, label %84
+62:                                               ; preds = %59
+  %63 = load i32, ptr %11, align 4
+  %64 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %63, i1 noundef zeroext true)
+  br label %65
 
-68:                                               ; preds = %54, %47
-  %69 = load i8, ptr %7, align 1
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %74
+65:                                               ; preds = %62, %59
+  %66 = phi i1 [ false, %59 ], [ %64, %62 ]
+  %67 = select i1 %66, i32 22, i32 19
+  %68 = call zeroext i1 @errstart_cold(i32 noundef %67, ptr noundef null) #13
+  br i1 %68, label %79, label %85
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %11, align 4
-  %73 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %72, i1 noundef zeroext true)
-  br label %74
+69:                                               ; preds = %55, %48
+  %70 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %75
 
-74:                                               ; preds = %71, %68
-  %75 = phi i1 [ false, %68 ], [ %73, %71 ]
-  %76 = select i1 %75, i32 22, i32 19
-  %77 = call zeroext i1 @errstart(i32 noundef %76, ptr noundef null)
-  br i1 %77, label %78, label %84
+72:                                               ; preds = %69
+  %73 = load i32, ptr %11, align 4
+  %74 = call zeroext i1 @wait_result_is_any_signal(i32 noundef %73, i1 noundef zeroext true)
+  br label %75
 
-78:                                               ; preds = %74, %64
-  %79 = load ptr, ptr %6, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = call ptr @wait_result_to_str(i32 noundef %81)
-  %83 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12, ptr noundef %79, ptr noundef %80, ptr noundef %82)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 348, ptr noundef @__func__.ExecuteRecoveryCommand)
-  br label %84
+75:                                               ; preds = %72, %69
+  %76 = phi i1 [ false, %69 ], [ %74, %72 ]
+  %77 = select i1 %76, i32 22, i32 19
+  %78 = call zeroext i1 @errstart(i32 noundef %77, ptr noundef null)
+  br i1 %78, label %79, label %85
 
-84:                                               ; preds = %78, %74, %64
+79:                                               ; preds = %75, %65
+  %80 = load ptr, ptr %6, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = load i32, ptr %11, align 4
+  %83 = call ptr @wait_result_to_str(i32 noundef %82)
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12, ptr noundef %80, ptr noundef %81, ptr noundef %83)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 347, ptr noundef @__func__.ExecuteRecoveryCommand)
   br label %85
 
-85:                                               ; preds = %84
+85:                                               ; preds = %79, %75, %65
   br label %86
 
-86:                                               ; preds = %85, %38
+86:                                               ; preds = %85
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
-declare ptr @replace_percent_placeholders(ptr noundef, ptr noundef, ptr noundef, ...) #2
+declare ptr @replace_percent_placeholders(ptr noundef, ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @KeepFileRestoredFromArchive(ptr noundef %0, ptr noundef %1) #0 {
@@ -732,23 +801,27 @@ define dso_local void @KeepFileRestoredFromArchive(ptr noundef %0, ptr noundef %
   %8 = alloca [1024 x i8], align 16
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #10
   store i8 0, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 144, ptr %7) #10
   %9 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
   %10 = load ptr, ptr %4, align 8
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %9, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %10)
   %12 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  %13 = call i32 @stat(ptr noundef %12, ptr noundef %7) #9
+  %13 = call i32 @stat(ptr noundef %12, ptr noundef %7) #10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %35
+  br i1 %14, label %15, label %36
 
 15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %8) #10
   %16 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
   %17 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
   %18 = call i64 @strlcpy(ptr noundef %16, ptr noundef %17, i64 noundef 1024)
   %19 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  %20 = call i32 @unlink(ptr noundef %19) #9
+  %20 = call i32 @unlink(ptr noundef %19) #10
   %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %35
 
 22:                                               ; preds = %15
   br label %23
@@ -757,7 +830,7 @@ define dso_local void @KeepFileRestoredFromArchive(ptr noundef %0, ptr noundef %
   br i1 true, label %24, label %26
 
 24:                                               ; preds = %23
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
   br i1 %25, label %28, label %32
 
 26:                                               ; preds = %23
@@ -768,7 +841,7 @@ define dso_local void @KeepFileRestoredFromArchive(ptr noundef %0, ptr noundef %
   %29 = call i32 @errcode_for_file_access()
   %30 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
   %31 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %30)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 401, ptr noundef @__func__.KeepFileRestoredFromArchive)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 400, ptr noundef @__func__.KeepFileRestoredFromArchive)
   br label %32
 
 32:                                               ; preds = %28, %26, %24
@@ -777,45 +850,52 @@ define dso_local void @KeepFileRestoredFromArchive(ptr noundef %0, ptr noundef %
 33:                                               ; No predecessors!
   br label %34
 
-34:                                               ; preds = %33, %15
-  store i8 1, ptr %6, align 1
+34:                                               ; preds = %33
   br label %35
 
-35:                                               ; preds = %34, %2
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  %38 = call i32 @durable_rename(ptr noundef %36, ptr noundef %37, i32 noundef 21)
-  %39 = load i32, ptr @XLogArchiveMode, align 4
-  %40 = icmp ne i32 %39, 2
-  br i1 %40, label %41, label %43
+35:                                               ; preds = %34, %15
+  store i8 1, ptr %6, align 1
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %8) #10
+  br label %36
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %4, align 8
-  call void @XLogArchiveForceDone(ptr noundef %42)
-  br label %45
+36:                                               ; preds = %35, %2
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
+  %39 = call i32 @durable_rename(ptr noundef %37, ptr noundef %38, i32 noundef 21)
+  %40 = load i32, ptr @XLogArchiveMode, align 4
+  %41 = icmp ne i32 %40, 2
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %4, align 8
-  call void @XLogArchiveNotify(ptr noundef %44)
-  br label %45
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %4, align 8
+  call void @XLogArchiveForceDone(ptr noundef %43)
+  br label %46
 
-45:                                               ; preds = %43, %41
-  %46 = load i8, ptr %6, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %49
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %4, align 8
+  call void @XLogArchiveNotify(ptr noundef %45)
+  br label %46
 
-48:                                               ; preds = %45
+46:                                               ; preds = %44, %42
+  %47 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %46
   call void @WalSndRqstFileReload()
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %45
+50:                                               ; preds = %49, %46
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 144, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %5) #10
   ret void
 }
 
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #2
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogArchiveForceDone(ptr noundef %0) #0 {
@@ -824,103 +904,136 @@ define dso_local void @XLogArchiveForceDone(ptr noundef %0) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %7 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %8 = load ptr, ptr %2, align 8
-  call void @StatusFilePath(ptr noundef %7, ptr noundef %8, ptr noundef @.str.17)
-  %9 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %10 = call i32 @stat(ptr noundef %9, ptr noundef %5) #9
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %1
-  br label %56
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %9 = load ptr, ptr %2, align 8
+  call void @StatusFilePath(ptr noundef %8, ptr noundef %9, ptr noundef @.str.17)
+  %10 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %11 = call i32 @stat(ptr noundef %10, ptr noundef %5) #10
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %15 = load ptr, ptr %2, align 8
-  call void @StatusFilePath(ptr noundef %14, ptr noundef %15, ptr noundef @.str.13)
-  %16 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %17 = call i32 @stat(ptr noundef %16, ptr noundef %5) #9
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %23
+  store i32 1, ptr %7, align 4
+  br label %60
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %21 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %22 = call i32 @durable_rename(ptr noundef %20, ptr noundef %21, i32 noundef 19)
-  br label %56
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %16 = load ptr, ptr %2, align 8
+  call void @StatusFilePath(ptr noundef %15, ptr noundef %16, ptr noundef @.str.13)
+  %17 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %18 = call i32 @stat(ptr noundef %17, ptr noundef %5) #10
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %24
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %25 = call ptr @AllocateFile(ptr noundef %24, ptr noundef @.str.14)
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %40
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %22 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %23 = call i32 @durable_rename(ptr noundef %21, ptr noundef %22, i32 noundef 19)
+  store i32 1, ptr %7, align 4
+  br label %60
 
-28:                                               ; preds = %23
-  br label %29
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %26 = call ptr @AllocateFile(ptr noundef %25, ptr noundef @.str.14)
+  store ptr %26, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %42
 
-29:                                               ; preds = %28
-  br i1 false, label %30, label %32
+29:                                               ; preds = %24
+  br label %30
 
 30:                                               ; preds = %29
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %31, label %34, label %38
+  br i1 false, label %31, label %33
 
-32:                                               ; preds = %29
-  %33 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %33, label %34, label %38
+31:                                               ; preds = %30
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %32, label %35, label %39
 
-34:                                               ; preds = %32, %30
-  %35 = call i32 @errcode_for_file_access()
-  %36 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %36)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 538, ptr noundef @__func__.XLogArchiveForceDone)
-  br label %38
+33:                                               ; preds = %30
+  %34 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %34, label %35, label %39
 
-38:                                               ; preds = %34, %32, %30
+35:                                               ; preds = %33, %31
+  %36 = call i32 @errcode_for_file_access()
+  %37 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %37)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 537, ptr noundef @__func__.XLogArchiveForceDone)
   br label %39
 
-39:                                               ; preds = %38
+39:                                               ; preds = %35, %33, %31
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  store i32 1, ptr %7, align 4
+  br label %60
+
+42:                                               ; preds = %24
+  %43 = load ptr, ptr %6, align 8
+  %44 = call i32 @FreeFile(ptr noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %59
+
+46:                                               ; preds = %42
+  br label %47
+
+47:                                               ; preds = %46
+  br i1 false, label %48, label %50
+
+48:                                               ; preds = %47
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %49, label %52, label %56
+
+50:                                               ; preds = %47
+  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %51, label %52, label %56
+
+52:                                               ; preds = %50, %48
+  %53 = call i32 @errcode_for_file_access()
+  %54 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %54)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 545, ptr noundef @__func__.XLogArchiveForceDone)
   br label %56
 
-40:                                               ; preds = %23
-  %41 = load ptr, ptr %6, align 8
-  %42 = call i32 @FreeFile(ptr noundef %41)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %56
+56:                                               ; preds = %52, %50, %48
+  br label %57
 
-44:                                               ; preds = %40
-  br label %45
+57:                                               ; preds = %56
+  br label %58
 
-45:                                               ; preds = %44
-  br i1 false, label %46, label %48
+58:                                               ; preds = %57
+  store i32 1, ptr %7, align 4
+  br label %60
 
-46:                                               ; preds = %45
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %47, label %50, label %54
+59:                                               ; preds = %42
+  store i32 0, ptr %7, align 4
+  br label %60
 
-48:                                               ; preds = %45
-  %49 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %49, label %50, label %54
+60:                                               ; preds = %59, %58, %41, %20, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %3) #10
+  %61 = load i32, ptr %7, align 4
+  switch i32 %61, label %63 [
+    i32 0, label %62
+    i32 1, label %62
+  ]
 
-50:                                               ; preds = %48, %46
-  %51 = call i32 @errcode_for_file_access()
-  %52 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %52)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 546, ptr noundef @__func__.XLogArchiveForceDone)
-  br label %54
-
-54:                                               ; preds = %50, %48, %46
-  br label %55
-
-55:                                               ; preds = %54
-  br label %56
-
-56:                                               ; preds = %55, %40, %39, %19, %12
+62:                                               ; preds = %60, %60
   ret void
+
+63:                                               ; preds = %60
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -928,105 +1041,132 @@ define dso_local void @XLogArchiveNotify(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [1024 x i8], align 16
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %6 = load ptr, ptr %2, align 8
-  call void @StatusFilePath(ptr noundef %5, ptr noundef %6, ptr noundef @.str.13)
-  %7 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %8 = call ptr @AllocateFile(ptr noundef %7, ptr noundef @.str.14)
-  store ptr %8, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %23
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %6 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %7 = load ptr, ptr %2, align 8
+  call void @StatusFilePath(ptr noundef %6, ptr noundef %7, ptr noundef @.str.13)
+  %8 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %9 = call ptr @AllocateFile(ptr noundef %8, ptr noundef @.str.14)
+  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %25
 
-11:                                               ; preds = %1
-  br label %12
-
-12:                                               ; preds = %11
-  br i1 false, label %13, label %15
+12:                                               ; preds = %1
+  br label %13
 
 13:                                               ; preds = %12
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %14, label %17, label %21
+  br i1 false, label %14, label %16
 
-15:                                               ; preds = %12
-  %16 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %16, label %17, label %21
+14:                                               ; preds = %13
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %15, label %18, label %22
 
-17:                                               ; preds = %15, %13
-  %18 = call i32 @errcode_for_file_access()
-  %19 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %19)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 458, ptr noundef @__func__.XLogArchiveNotify)
-  br label %21
+16:                                               ; preds = %13
+  %17 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %17, label %18, label %22
 
-21:                                               ; preds = %17, %15, %13
+18:                                               ; preds = %16, %14
+  %19 = call i32 @errcode_for_file_access()
+  %20 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %20)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 457, ptr noundef @__func__.XLogArchiveNotify)
   br label %22
 
-22:                                               ; preds = %21
-  br label %47
+22:                                               ; preds = %18, %16, %14
+  br label %23
 
-23:                                               ; preds = %1
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @FreeFile(ptr noundef %24)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %39
+23:                                               ; preds = %22
+  br label %24
 
-27:                                               ; preds = %23
-  br label %28
+24:                                               ; preds = %23
+  store i32 1, ptr %5, align 4
+  br label %51
 
-28:                                               ; preds = %27
-  br i1 false, label %29, label %31
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %4, align 8
+  %27 = call i32 @FreeFile(ptr noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %42
 
-29:                                               ; preds = %28
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %30, label %33, label %37
+29:                                               ; preds = %25
+  br label %30
 
-31:                                               ; preds = %28
-  %32 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %32, label %33, label %37
+30:                                               ; preds = %29
+  br i1 false, label %31, label %33
 
-33:                                               ; preds = %31, %29
-  %34 = call i32 @errcode_for_file_access()
-  %35 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %35)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 466, ptr noundef @__func__.XLogArchiveNotify)
-  br label %37
+31:                                               ; preds = %30
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %32, label %35, label %39
 
-37:                                               ; preds = %33, %31, %29
-  br label %38
+33:                                               ; preds = %30
+  %34 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %34, label %35, label %39
 
-38:                                               ; preds = %37
-  br label %47
+35:                                               ; preds = %33, %31
+  %36 = call i32 @errcode_for_file_access()
+  %37 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %37)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 465, ptr noundef @__func__.XLogArchiveNotify)
+  br label %39
 
-39:                                               ; preds = %23
-  %40 = load ptr, ptr %2, align 8
-  %41 = call zeroext i1 @IsTLHistoryFileName(ptr noundef %40)
-  br i1 %41, label %42, label %43
+39:                                               ; preds = %35, %33, %31
+  br label %40
 
-42:                                               ; preds = %39
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  store i32 1, ptr %5, align 4
+  br label %51
+
+42:                                               ; preds = %25
+  %43 = load ptr, ptr %2, align 8
+  %44 = call zeroext i1 @IsTLHistoryFileName(ptr noundef %43)
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
   call void @PgArchForceDirScan()
-  br label %43
+  br label %46
 
-43:                                               ; preds = %42, %39
-  %44 = load i8, ptr @IsUnderPostmaster, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %47
+46:                                               ; preds = %45, %42
+  %47 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %50
 
-46:                                               ; preds = %43
+49:                                               ; preds = %46
   call void @PgArchWakeup()
-  br label %47
+  br label %50
 
-47:                                               ; preds = %46, %43, %38, %22
+50:                                               ; preds = %49, %46
+  store i32 0, ptr %5, align 4
+  br label %51
+
+51:                                               ; preds = %50, %41, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %3) #10
+  %52 = load i32, ptr %5, align 4
+  switch i32 %52, label %54 [
+    i32 0, label %53
+    i32 1, label %53
+  ]
+
+53:                                               ; preds = %51, %51
   ret void
+
+54:                                               ; preds = %51
+  unreachable
 }
 
-declare void @WalSndRqstFileReload() #2
+declare void @WalSndRqstFileReload() #3
 
-declare void @WalSndWakeup(i1 noundef zeroext, i1 noundef zeroext) #2
+declare void @WalSndWakeup(i1 noundef zeroext, i1 noundef zeroext) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @StatusFilePath(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @StatusFilePath(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1040,29 +1180,29 @@ define internal void @StatusFilePath(ptr noundef %0, ptr noundef %1, ptr noundef
   ret void
 }
 
-declare ptr @AllocateFile(ptr noundef, ptr noundef) #2
+declare ptr @AllocateFile(ptr noundef, ptr noundef) #3
 
-declare i32 @FreeFile(ptr noundef) #2
+declare i32 @FreeFile(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @IsTLHistoryFileName(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @IsTLHistoryFileName(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #8
+  %4 = call i64 @strlen(ptr noundef %3) #11
   %5 = icmp eq i64 %4, 16
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = call i64 @strspn(ptr noundef %7, ptr noundef @.str.20) #8
+  %8 = call i64 @strspn(ptr noundef %7, ptr noundef @.str.20) #11
   %9 = icmp eq i64 %8, 8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr i8, ptr %11, i64 8
-  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.21) #8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.21) #11
   %14 = icmp eq i32 %13, 0
   br label %15
 
@@ -1071,9 +1211,9 @@ define internal zeroext i1 @IsTLHistoryFileName(ptr noundef %0) #0 {
   ret i1 %16
 }
 
-declare void @PgArchForceDirScan() #2
+declare void @PgArchForceDirScan() #3
 
-declare void @PgArchWakeup() #2
+declare void @PgArchWakeup() #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogArchiveNotifySeg(i64 noundef %0, i32 noundef %1) #0 {
@@ -1082,6 +1222,7 @@ define dso_local void @XLogArchiveNotifySeg(i64 noundef %0, i32 noundef %1) #0 {
   %5 = alloca [64 x i8], align 16
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #10
   %6 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 0
   %7 = load i32, ptr %4, align 4
   %8 = load i64, ptr %3, align 8
@@ -1089,6 +1230,7 @@ define dso_local void @XLogArchiveNotifySeg(i64 noundef %0, i32 noundef %1) #0 {
   call void @XLogFileName(ptr noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef %9)
   %10 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 0
   call void @XLogArchiveNotify(ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #10
   ret void
 }
 
@@ -1098,80 +1240,91 @@ define dso_local zeroext i1 @XLogArchiveCheckDone(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = load i32, ptr @XLogArchiveMode, align 4
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %39
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  %7 = load i32, ptr @XLogArchiveMode, align 4
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  %10 = load i32, ptr @XLogArchiveMode, align 4
-  %11 = icmp eq i32 %10, 2
-  br i1 %11, label %16, label %12
-
-12:                                               ; preds = %9
-  %13 = call i32 @GetRecoveryState()
-  %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %12
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-16:                                               ; preds = %12, %9
-  %17 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %18 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %17, ptr noundef %18, ptr noundef @.str.17)
-  %19 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %20 = call i32 @stat(ptr noundef %19, ptr noundef %5) #9
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+10:                                               ; preds = %1
+  %11 = load i32, ptr @XLogArchiveMode, align 4
+  %12 = icmp eq i32 %11, 2
+  br i1 %12, label %17, label %13
 
-22:                                               ; preds = %16
+13:                                               ; preds = %10
+  %14 = call i32 @GetRecoveryState()
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %13
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %25 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %24, ptr noundef %25, ptr noundef @.str.13)
-  %26 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %27 = call i32 @stat(ptr noundef %26, ptr noundef %5) #9
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %30
+17:                                               ; preds = %13, %10
+  %18 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %19 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %18, ptr noundef %19, ptr noundef @.str.17)
+  %20 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %21 = call i32 @stat(ptr noundef %20, ptr noundef %5) #10
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-29:                                               ; preds = %23
+23:                                               ; preds = %17
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %40
+
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %26 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %25, ptr noundef %26, ptr noundef @.str.13)
+  %27 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %28 = call i32 @stat(ptr noundef %27, ptr noundef %5) #10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %24
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %32 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %31, ptr noundef %32, ptr noundef @.str.17)
-  %33 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %34 = call i32 @stat(ptr noundef %33, ptr noundef %5) #9
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %33 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %32, ptr noundef %33, ptr noundef @.str.17)
+  %34 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %35 = call i32 @stat(ptr noundef %34, ptr noundef %5) #10
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %3, align 8
-  call void @XLogArchiveNotify(ptr noundef %38)
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %3, align 8
+  call void @XLogArchiveNotify(ptr noundef %39)
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-39:                                               ; preds = %37, %36, %29, %22, %15, %8
-  %40 = load i1, ptr %2, align 1
-  ret i1 %40
+40:                                               ; preds = %38, %37, %30, %23, %16, %9
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  %41 = load i1, ptr %2, align 1
+  ret i1 %41
 }
 
-declare i32 @GetRecoveryState() #2
+declare i32 @GetRecoveryState() #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @XLogArchiveIsBusy(ptr noundef %0) #0 {
@@ -1179,71 +1332,81 @@ define dso_local zeroext i1 @XLogArchiveIsBusy(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %7 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %6, ptr noundef %7, ptr noundef @.str.17)
-  %8 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %9 = call i32 @stat(ptr noundef %8, ptr noundef %5) #9
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %39
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  %7 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %8 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %7, ptr noundef %8, ptr noundef @.str.17)
+  %9 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %10 = call i32 @stat(ptr noundef %9, ptr noundef %5) #10
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %14 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %13, ptr noundef %14, ptr noundef @.str.13)
-  %15 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %16 = call i32 @stat(ptr noundef %15, ptr noundef %5) #9
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %12
-  store i1 true, ptr %2, align 1
-  br label %39
-
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %21 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %20, ptr noundef %21, ptr noundef @.str.17)
-  %22 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %23 = call i32 @stat(ptr noundef %22, ptr noundef %5) #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %19
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %28 = load ptr, ptr %3, align 8
-  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %27, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %28)
-  %30 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %31 = call i32 @stat(ptr noundef %30, ptr noundef %5) #9
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %38
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %15 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %14, ptr noundef %15, ptr noundef @.str.13)
+  %16 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %17 = call i32 @stat(ptr noundef %16, ptr noundef %5) #10
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %20
 
-33:                                               ; preds = %26
-  %34 = call ptr @__errno_location() #10
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %33
-  store i1 false, ptr %2, align 1
-  br label %39
-
-38:                                               ; preds = %33, %26
+19:                                               ; preds = %13
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %6, align 4
+  br label %40
 
-39:                                               ; preds = %38, %37, %25, %18, %11
-  %40 = load i1, ptr %2, align 1
-  ret i1 %40
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %22 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %21, ptr noundef %22, ptr noundef @.str.17)
+  %23 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %24 = call i32 @stat(ptr noundef %23, ptr noundef %5) #10
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %20
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %40
+
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %29 = load ptr, ptr %3, align 8
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %28, i64 noundef 1024, ptr noundef @.str.1, ptr noundef %29)
+  %31 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %32 = call i32 @stat(ptr noundef %31, ptr noundef %5) #10
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %39
+
+34:                                               ; preds = %27
+  %35 = call ptr @__errno_location() #12
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp eq i32 %36, 2
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %34
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %40
+
+39:                                               ; preds = %34, %27
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %40
+
+40:                                               ; preds = %39, %38, %26, %19, %12
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  %41 = load i1, ptr %2, align 1
+  ret i1 %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1252,52 +1415,61 @@ define dso_local zeroext i1 @XLogArchiveIsReadyOrDone(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %7 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %6, ptr noundef %7, ptr noundef @.str.17)
-  %8 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %9 = call i32 @stat(ptr noundef %8, ptr noundef %5) #9
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %27
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  %7 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %8 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %7, ptr noundef %8, ptr noundef @.str.17)
+  %9 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %10 = call i32 @stat(ptr noundef %9, ptr noundef %5) #10
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %14 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %13, ptr noundef %14, ptr noundef @.str.13)
-  %15 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %16 = call i32 @stat(ptr noundef %15, ptr noundef %5) #9
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %12
   store i1 true, ptr %2, align 1
-  br label %27
+  store i32 1, ptr %6, align 4
+  br label %28
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %21 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %20, ptr noundef %21, ptr noundef @.str.17)
-  %22 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %23 = call i32 @stat(ptr noundef %22, ptr noundef %5) #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %15 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %14, ptr noundef %15, ptr noundef @.str.13)
+  %16 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %17 = call i32 @stat(ptr noundef %16, ptr noundef %5) #10
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %20
 
-25:                                               ; preds = %19
+19:                                               ; preds = %13
   store i1 true, ptr %2, align 1
-  br label %27
+  store i32 1, ptr %6, align 4
+  br label %28
 
-26:                                               ; preds = %19
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %22 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %21, ptr noundef %22, ptr noundef @.str.17)
+  %23 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %24 = call i32 @stat(ptr noundef %23, ptr noundef %5) #10
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %20
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %28
+
+27:                                               ; preds = %20
   store i1 false, ptr %2, align 1
-  br label %27
+  store i32 1, ptr %6, align 4
+  br label %28
 
-27:                                               ; preds = %26, %25, %18, %11
-  %28 = load i1, ptr %2, align 1
-  ret i1 %28
+28:                                               ; preds = %27, %26, %19, %12
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  %29 = load i1, ptr %2, align 1
+  ret i1 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1306,26 +1478,33 @@ define dso_local zeroext i1 @XLogArchiveIsReady(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %7 = load ptr, ptr %3, align 8
-  call void @StatusFilePath(ptr noundef %6, ptr noundef %7, ptr noundef @.str.13)
-  %8 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %9 = call i32 @stat(ptr noundef %8, ptr noundef %5) #9
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %13
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  %7 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %8 = load ptr, ptr %3, align 8
+  call void @StatusFilePath(ptr noundef %7, ptr noundef %8, ptr noundef @.str.13)
+  %9 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %10 = call i32 @stat(ptr noundef %9, ptr noundef %5) #10
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %13
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %14
 
-13:                                               ; preds = %12, %11
-  %14 = load i1, ptr %2, align 1
-  ret i1 %14
+13:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %14
+
+14:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  %15 = load i1, ptr %2, align 1
+  ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1333,43 +1512,48 @@ define dso_local void @XLogArchiveCleanup(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [1024 x i8], align 16
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %3) #10
   %4 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
   %5 = load ptr, ptr %2, align 8
   call void @StatusFilePath(ptr noundef %4, ptr noundef %5, ptr noundef @.str.17)
   %6 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %7 = call i32 @unlink(ptr noundef %6) #9
+  %7 = call i32 @unlink(ptr noundef %6) #10
   %8 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
   %9 = load ptr, ptr %2, align 8
   call void @StatusFilePath(ptr noundef %8, ptr noundef %9, ptr noundef @.str.13)
   %10 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 0
-  %11 = call i32 @unlink(ptr noundef %10) #9
+  %11 = call i32 @unlink(ptr noundef %10) #10
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strspn(ptr noundef, ptr noundef) #1
+declare i64 @strspn(ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { cold }
-attributes #12 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { cold }
+attributes #14 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

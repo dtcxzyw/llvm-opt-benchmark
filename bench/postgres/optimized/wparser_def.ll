@@ -3,16 +3,15 @@ source_filename = "bench/postgres/original/wparser_def.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TParserStateAction = type { ptr, i32 }
-%struct.TParserStateActionItem = type { ptr, i8, i16, i32, i32, ptr }
 %struct.LexDescr = type { i32, ptr, ptr }
+%struct.TParserStateAction = type { ptr, i32 }
 %struct.hlCheck = type { ptr, i32 }
 %union.ListCell = type { ptr }
 %struct.HeadlineWordEntry = type { i32, i16, ptr, ptr }
 %struct.CoverPos = type { i32, i32, i32, i32, i8, i8 }
 
-@tok_alias = internal unnamed_addr constant [24 x ptr] [ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46], align 16
-@lex_descr = internal unnamed_addr constant [24 x ptr] [ptr @.str.23, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69], align 16
+@tok_alias = internal unnamed_addr constant [24 x ptr] [ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 16
+@lex_descr = internal unnamed_addr constant [24 x ptr] [ptr @.str.22, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68], align 16
 @.str = private unnamed_addr constant [9 x i8] c"MaxWords\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"MinWords\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"ShortWord\00", align 1
@@ -30,561 +29,451 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [38 x i8] c"unrecognized headline parameter: \22%s\22\00", align 1
 @.str.15 = private unnamed_addr constant [14 x i8] c"wparser_def.c\00", align 1
 @__func__.prsd_headline = private unnamed_addr constant [14 x i8] c"prsd_headline\00", align 1
-@.str.16 = private unnamed_addr constant [38 x i8] c"MinWords should be less than MaxWords\00", align 1
-@.str.17 = private unnamed_addr constant [28 x i8] c"MinWords should be positive\00", align 1
-@.str.18 = private unnamed_addr constant [25 x i8] c"ShortWord should be >= 0\00", align 1
-@.str.19 = private unnamed_addr constant [28 x i8] c"MaxFragments should be >= 0\00", align 1
-@.str.20 = private unnamed_addr constant [4 x i8] c"<b>\00", align 1
-@.str.21 = private unnamed_addr constant [5 x i8] c"</b>\00", align 1
-@.str.22 = private unnamed_addr constant [6 x i8] c" ... \00", align 1
-@.str.23 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.24 = private unnamed_addr constant [10 x i8] c"asciiword\00", align 1
-@.str.25 = private unnamed_addr constant [5 x i8] c"word\00", align 1
-@.str.26 = private unnamed_addr constant [8 x i8] c"numword\00", align 1
-@.str.27 = private unnamed_addr constant [6 x i8] c"email\00", align 1
-@.str.28 = private unnamed_addr constant [4 x i8] c"url\00", align 1
-@.str.29 = private unnamed_addr constant [5 x i8] c"host\00", align 1
-@.str.30 = private unnamed_addr constant [7 x i8] c"sfloat\00", align 1
-@.str.31 = private unnamed_addr constant [8 x i8] c"version\00", align 1
-@.str.32 = private unnamed_addr constant [14 x i8] c"hword_numpart\00", align 1
-@.str.33 = private unnamed_addr constant [11 x i8] c"hword_part\00", align 1
-@.str.34 = private unnamed_addr constant [16 x i8] c"hword_asciipart\00", align 1
-@.str.35 = private unnamed_addr constant [6 x i8] c"blank\00", align 1
-@.str.36 = private unnamed_addr constant [4 x i8] c"tag\00", align 1
-@.str.37 = private unnamed_addr constant [9 x i8] c"protocol\00", align 1
-@.str.38 = private unnamed_addr constant [9 x i8] c"numhword\00", align 1
-@.str.39 = private unnamed_addr constant [11 x i8] c"asciihword\00", align 1
-@.str.40 = private unnamed_addr constant [6 x i8] c"hword\00", align 1
-@.str.41 = private unnamed_addr constant [9 x i8] c"url_path\00", align 1
-@.str.42 = private unnamed_addr constant [5 x i8] c"file\00", align 1
-@.str.43 = private unnamed_addr constant [6 x i8] c"float\00", align 1
-@.str.44 = private unnamed_addr constant [4 x i8] c"int\00", align 1
-@.str.45 = private unnamed_addr constant [5 x i8] c"uint\00", align 1
-@.str.46 = private unnamed_addr constant [7 x i8] c"entity\00", align 1
-@.str.47 = private unnamed_addr constant [16 x i8] c"Word, all ASCII\00", align 1
-@.str.48 = private unnamed_addr constant [18 x i8] c"Word, all letters\00", align 1
-@.str.49 = private unnamed_addr constant [25 x i8] c"Word, letters and digits\00", align 1
-@.str.50 = private unnamed_addr constant [14 x i8] c"Email address\00", align 1
-@.str.51 = private unnamed_addr constant [4 x i8] c"URL\00", align 1
-@.str.52 = private unnamed_addr constant [5 x i8] c"Host\00", align 1
-@.str.53 = private unnamed_addr constant [20 x i8] c"Scientific notation\00", align 1
-@.str.54 = private unnamed_addr constant [15 x i8] c"Version number\00", align 1
-@.str.55 = private unnamed_addr constant [41 x i8] c"Hyphenated word part, letters and digits\00", align 1
-@.str.56 = private unnamed_addr constant [34 x i8] c"Hyphenated word part, all letters\00", align 1
-@.str.57 = private unnamed_addr constant [32 x i8] c"Hyphenated word part, all ASCII\00", align 1
-@.str.58 = private unnamed_addr constant [14 x i8] c"Space symbols\00", align 1
-@.str.59 = private unnamed_addr constant [8 x i8] c"XML tag\00", align 1
-@.str.60 = private unnamed_addr constant [14 x i8] c"Protocol head\00", align 1
-@.str.61 = private unnamed_addr constant [36 x i8] c"Hyphenated word, letters and digits\00", align 1
-@.str.62 = private unnamed_addr constant [27 x i8] c"Hyphenated word, all ASCII\00", align 1
-@.str.63 = private unnamed_addr constant [29 x i8] c"Hyphenated word, all letters\00", align 1
-@.str.64 = private unnamed_addr constant [9 x i8] c"URL path\00", align 1
-@.str.65 = private unnamed_addr constant [18 x i8] c"File or path name\00", align 1
-@.str.66 = private unnamed_addr constant [17 x i8] c"Decimal notation\00", align 1
-@.str.67 = private unnamed_addr constant [15 x i8] c"Signed integer\00", align 1
-@.str.68 = private unnamed_addr constant [17 x i8] c"Unsigned integer\00", align 1
-@.str.69 = private unnamed_addr constant [11 x i8] c"XML entity\00", align 1
+@.str.16 = private unnamed_addr constant [24 x i8] c"%s must be less than %s\00", align 1
+@.str.17 = private unnamed_addr constant [20 x i8] c"%s must be positive\00", align 1
+@.str.18 = private unnamed_addr constant [16 x i8] c"%s must be >= 0\00", align 1
+@.str.19 = private unnamed_addr constant [4 x i8] c"<b>\00", align 1
+@.str.20 = private unnamed_addr constant [5 x i8] c"</b>\00", align 1
+@.str.21 = private unnamed_addr constant [6 x i8] c" ... \00", align 1
+@.str.22 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.23 = private unnamed_addr constant [10 x i8] c"asciiword\00", align 1
+@.str.24 = private unnamed_addr constant [5 x i8] c"word\00", align 1
+@.str.25 = private unnamed_addr constant [8 x i8] c"numword\00", align 1
+@.str.26 = private unnamed_addr constant [6 x i8] c"email\00", align 1
+@.str.27 = private unnamed_addr constant [4 x i8] c"url\00", align 1
+@.str.28 = private unnamed_addr constant [5 x i8] c"host\00", align 1
+@.str.29 = private unnamed_addr constant [7 x i8] c"sfloat\00", align 1
+@.str.30 = private unnamed_addr constant [8 x i8] c"version\00", align 1
+@.str.31 = private unnamed_addr constant [14 x i8] c"hword_numpart\00", align 1
+@.str.32 = private unnamed_addr constant [11 x i8] c"hword_part\00", align 1
+@.str.33 = private unnamed_addr constant [16 x i8] c"hword_asciipart\00", align 1
+@.str.34 = private unnamed_addr constant [6 x i8] c"blank\00", align 1
+@.str.35 = private unnamed_addr constant [4 x i8] c"tag\00", align 1
+@.str.36 = private unnamed_addr constant [9 x i8] c"protocol\00", align 1
+@.str.37 = private unnamed_addr constant [9 x i8] c"numhword\00", align 1
+@.str.38 = private unnamed_addr constant [11 x i8] c"asciihword\00", align 1
+@.str.39 = private unnamed_addr constant [6 x i8] c"hword\00", align 1
+@.str.40 = private unnamed_addr constant [9 x i8] c"url_path\00", align 1
+@.str.41 = private unnamed_addr constant [5 x i8] c"file\00", align 1
+@.str.42 = private unnamed_addr constant [6 x i8] c"float\00", align 1
+@.str.43 = private unnamed_addr constant [4 x i8] c"int\00", align 1
+@.str.44 = private unnamed_addr constant [5 x i8] c"uint\00", align 1
+@.str.45 = private unnamed_addr constant [7 x i8] c"entity\00", align 1
+@.str.46 = private unnamed_addr constant [16 x i8] c"Word, all ASCII\00", align 1
+@.str.47 = private unnamed_addr constant [18 x i8] c"Word, all letters\00", align 1
+@.str.48 = private unnamed_addr constant [25 x i8] c"Word, letters and digits\00", align 1
+@.str.49 = private unnamed_addr constant [14 x i8] c"Email address\00", align 1
+@.str.50 = private unnamed_addr constant [4 x i8] c"URL\00", align 1
+@.str.51 = private unnamed_addr constant [5 x i8] c"Host\00", align 1
+@.str.52 = private unnamed_addr constant [20 x i8] c"Scientific notation\00", align 1
+@.str.53 = private unnamed_addr constant [15 x i8] c"Version number\00", align 1
+@.str.54 = private unnamed_addr constant [41 x i8] c"Hyphenated word part, letters and digits\00", align 1
+@.str.55 = private unnamed_addr constant [34 x i8] c"Hyphenated word part, all letters\00", align 1
+@.str.56 = private unnamed_addr constant [32 x i8] c"Hyphenated word part, all ASCII\00", align 1
+@.str.57 = private unnamed_addr constant [14 x i8] c"Space symbols\00", align 1
+@.str.58 = private unnamed_addr constant [8 x i8] c"XML tag\00", align 1
+@.str.59 = private unnamed_addr constant [14 x i8] c"Protocol head\00", align 1
+@.str.60 = private unnamed_addr constant [36 x i8] c"Hyphenated word, letters and digits\00", align 1
+@.str.61 = private unnamed_addr constant [27 x i8] c"Hyphenated word, all ASCII\00", align 1
+@.str.62 = private unnamed_addr constant [29 x i8] c"Hyphenated word, all letters\00", align 1
+@.str.63 = private unnamed_addr constant [9 x i8] c"URL path\00", align 1
+@.str.64 = private unnamed_addr constant [18 x i8] c"File or path name\00", align 1
+@.str.65 = private unnamed_addr constant [17 x i8] c"Decimal notation\00", align 1
+@.str.66 = private unnamed_addr constant [15 x i8] c"Signed integer\00", align 1
+@.str.67 = private unnamed_addr constant [17 x i8] c"Unsigned integer\00", align 1
+@.str.68 = private unnamed_addr constant [11 x i8] c"XML entity\00", align 1
 @database_ctype_is_c = external local_unnamed_addr global i8, align 1
 @InterruptPending = external global i32, align 4
-@Actions = internal unnamed_addr constant [77 x %struct.TParserStateAction] [%struct.TParserStateAction { ptr @actionTPS_Base, i32 0 }, %struct.TParserStateAction { ptr @actionTPS_InNumWord, i32 1 }, %struct.TParserStateAction { ptr @actionTPS_InAsciiWord, i32 2 }, %struct.TParserStateAction { ptr @actionTPS_InWord, i32 3 }, %struct.TParserStateAction { ptr @actionTPS_InUnsignedInt, i32 4 }, %struct.TParserStateAction { ptr @actionTPS_InSignedIntFirst, i32 5 }, %struct.TParserStateAction { ptr @actionTPS_InSignedInt, i32 6 }, %struct.TParserStateAction { ptr @actionTPS_InSpace, i32 7 }, %struct.TParserStateAction { ptr @actionTPS_InUDecimalFirst, i32 8 }, %struct.TParserStateAction { ptr @actionTPS_InUDecimal, i32 9 }, %struct.TParserStateAction { ptr @actionTPS_InDecimalFirst, i32 10 }, %struct.TParserStateAction { ptr @actionTPS_InDecimal, i32 11 }, %struct.TParserStateAction { ptr @actionTPS_InVerVersion, i32 12 }, %struct.TParserStateAction { ptr @actionTPS_InSVerVersion, i32 13 }, %struct.TParserStateAction { ptr @actionTPS_InVersionFirst, i32 14 }, %struct.TParserStateAction { ptr @actionTPS_InVersion, i32 15 }, %struct.TParserStateAction { ptr @actionTPS_InMantissaFirst, i32 16 }, %struct.TParserStateAction { ptr @actionTPS_InMantissaSign, i32 17 }, %struct.TParserStateAction { ptr @actionTPS_InMantissa, i32 18 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityFirst, i32 19 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntity, i32 20 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityNumFirst, i32 21 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityNum, i32 22 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityHexNumFirst, i32 23 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityHexNum, i32 24 }, %struct.TParserStateAction { ptr @actionTPS_InXMLEntityEnd, i32 25 }, %struct.TParserStateAction { ptr @actionTPS_InTagFirst, i32 26 }, %struct.TParserStateAction { ptr @actionTPS_InXMLBegin, i32 27 }, %struct.TParserStateAction { ptr @actionTPS_InTagCloseFirst, i32 28 }, %struct.TParserStateAction { ptr @actionTPS_InTagName, i32 29 }, %struct.TParserStateAction { ptr @actionTPS_InTagBeginEnd, i32 30 }, %struct.TParserStateAction { ptr @actionTPS_InTag, i32 31 }, %struct.TParserStateAction { ptr @actionTPS_InTagEscapeK, i32 32 }, %struct.TParserStateAction { ptr @actionTPS_InTagEscapeKK, i32 33 }, %struct.TParserStateAction { ptr @actionTPS_InTagBackSleshed, i32 34 }, %struct.TParserStateAction { ptr @actionTPS_InTagEnd, i32 35 }, %struct.TParserStateAction { ptr @actionTPS_InCommentFirst, i32 36 }, %struct.TParserStateAction { ptr @actionTPS_InCommentLast, i32 37 }, %struct.TParserStateAction { ptr @actionTPS_InComment, i32 38 }, %struct.TParserStateAction { ptr @actionTPS_InCloseCommentFirst, i32 39 }, %struct.TParserStateAction { ptr @actionTPS_InCloseCommentLast, i32 40 }, %struct.TParserStateAction { ptr @actionTPS_InCommentEnd, i32 41 }, %struct.TParserStateAction { ptr @actionTPS_InHostFirstDomain, i32 42 }, %struct.TParserStateAction { ptr @actionTPS_InHostDomainSecond, i32 43 }, %struct.TParserStateAction { ptr @actionTPS_InHostDomain, i32 44 }, %struct.TParserStateAction { ptr @actionTPS_InPortFirst, i32 45 }, %struct.TParserStateAction { ptr @actionTPS_InPort, i32 46 }, %struct.TParserStateAction { ptr @actionTPS_InHostFirstAN, i32 47 }, %struct.TParserStateAction { ptr @actionTPS_InHost, i32 48 }, %struct.TParserStateAction { ptr @actionTPS_InEmail, i32 49 }, %struct.TParserStateAction { ptr @actionTPS_InFileFirst, i32 50 }, %struct.TParserStateAction { ptr @actionTPS_InFileTwiddle, i32 51 }, %struct.TParserStateAction { ptr @actionTPS_InPathFirst, i32 52 }, %struct.TParserStateAction { ptr @actionTPS_InPathFirstFirst, i32 53 }, %struct.TParserStateAction { ptr @actionTPS_InPathSecond, i32 54 }, %struct.TParserStateAction { ptr @actionTPS_InFile, i32 55 }, %struct.TParserStateAction { ptr @actionTPS_InFileNext, i32 56 }, %struct.TParserStateAction { ptr @actionTPS_InURLPathFirst, i32 57 }, %struct.TParserStateAction { ptr @actionTPS_InURLPathStart, i32 58 }, %struct.TParserStateAction { ptr @actionTPS_InURLPath, i32 59 }, %struct.TParserStateAction { ptr @actionTPS_InFURL, i32 60 }, %struct.TParserStateAction { ptr @actionTPS_InProtocolFirst, i32 61 }, %struct.TParserStateAction { ptr @actionTPS_InProtocolSecond, i32 62 }, %struct.TParserStateAction { ptr @actionTPS_InProtocolEnd, i32 63 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenAsciiWordFirst, i32 64 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenAsciiWord, i32 65 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenWordFirst, i32 66 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenWord, i32 67 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenNumWordFirst, i32 68 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenNumWord, i32 69 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenDigitLookahead, i32 70 }, %struct.TParserStateAction { ptr @actionTPS_InParseHyphen, i32 71 }, %struct.TParserStateAction { ptr @actionTPS_InParseHyphenHyphen, i32 72 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenWordPart, i32 73 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenAsciiWordPart, i32 74 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenNumWordPart, i32 75 }, %struct.TParserStateAction { ptr @actionTPS_InHyphenUnsignedInt, i32 76 }], align 16
-@actionTPS_Base = internal constant [13 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 60, i16 4, i32 26, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isignore, i8 0, i16 0, i32 7, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 2, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 3, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 4, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 5, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 43, i16 4, i32 5, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 38, i16 4, i32 19, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 126, i16 4, i32 51, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 53, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 7, i32 0, ptr null }], align 16
-@actionTPS_InNumWord = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 3, ptr null }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 56, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 68, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 3, ptr null }], align 16
-@actionTPS_InAsciiWord = internal constant [15 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 1, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 42, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 56, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 64, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 4, i32 61, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 4, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 3, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 3, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 1, ptr null }], align 16
-@actionTPS_InWord = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 2, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 66, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 2, ptr null }], align 16
-@actionTPS_InUnsignedInt = internal constant [14 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 22, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 42, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 8, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 101, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 69, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 4, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 1, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 22, ptr null }], align 16
-@actionTPS_InSignedIntFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 6, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InSignedInt = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 21, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 10, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 101, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 69, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 21, ptr null }], align 16
-@actionTPS_InSpace = internal constant [9 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 60, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_isignore, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 43, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 38, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 1, i32 0, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_isnotalnum, i8 0, i16 0, i32 7, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 12, ptr null }], align 16
-@actionTPS_InUDecimalFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 9, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InUDecimal = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 20, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 9, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 14, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 101, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 69, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 20, ptr null }], align 16
-@actionTPS_InDecimalFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 11, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InDecimal = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 20, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 11, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 12, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 101, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 69, i16 4, i32 16, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 20, ptr null }], align 16
-@actionTPS_InVerVersion = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 8, i32 13, i32 0, ptr @SpecialVerVersion }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InSVerVersion = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 65, i32 4, i32 12, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InVersionFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 15, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InVersion = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 8, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 15, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 14, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 8, ptr null }], align 16
-@actionTPS_InMantissaFirst = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 18, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 43, i16 0, i32 17, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 17, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InMantissaSign = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 18, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InMantissa = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 7, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 18, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 7, ptr null }], align 16
-@actionTPS_InXMLEntityFirst = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 35, i16 0, i32 21, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntity = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 20, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 59, i16 0, i32 25, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntityNumFirst = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 120, i16 0, i32 23, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 88, i16 0, i32 23, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 22, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntityNum = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 22, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 59, i16 0, i32 25, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntityHexNumFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isxdigit, i8 0, i16 0, i32 24, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntityHexNum = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isxdigit, i8 0, i16 0, i32 24, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 59, i16 0, i32 25, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLEntityEnd = internal constant [1 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr null, i8 0, i16 17, i32 0, i32 23, ptr null }], align 16
-@actionTPS_InTagFirst = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 28, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 33, i16 4, i32 36, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 63, i16 4, i32 27, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 4, i32 29, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 4, i32 29, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 29, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InXMLBegin = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 120, i16 0, i32 31, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTagCloseFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 29, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTagName = internal constant [10 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 30, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 62, i16 0, i32 35, i32 0, ptr @SpecialTags }, %struct.TParserStateActionItem { ptr @p_isspace, i8 0, i16 0, i32 31, i32 0, ptr @SpecialTags }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTagBeginEnd = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 62, i16 0, i32 35, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTag = internal constant [19 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 62, i16 0, i32 35, i32 0, ptr @SpecialTags }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 39, i16 0, i32 32, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 34, i16 0, i32 33, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 61, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 35, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 38, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 63, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 37, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 126, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspace, i8 0, i16 0, i32 77, i32 0, ptr @SpecialTags }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTagEscapeK = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 92, i16 4, i32 34, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 39, i16 0, i32 31, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 32, i32 0, ptr null }], align 16
-@actionTPS_InTagEscapeKK = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 92, i16 4, i32 34, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 34, i16 0, i32 31, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 33, i32 0, ptr null }], align 16
-@actionTPS_InTagBackSleshed = internal constant [2 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 32, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InTagEnd = internal constant [1 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 0, i32 13, ptr null }], align 16
-@actionTPS_InCommentFirst = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 37, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 68, i16 0, i32 31, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 100, i16 0, i32 31, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InCommentLast = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 38, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InComment = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 39, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InCloseCommentFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 40, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 38, i32 0, ptr null }], align 16
-@actionTPS_InCloseCommentLast = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 62, i16 0, i32 41, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 38, i32 0, ptr null }], align 16
-@actionTPS_InCommentEnd = internal constant [1 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 0, i32 13, ptr null }], align 16
-@actionTPS_InHostFirstDomain = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 43, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHostDomainSecond = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 44, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 4, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 42, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHostDomain = internal constant [12 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 65, i32 0, i32 6, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 44, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 4, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 58, i16 4, i32 45, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 42, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isstophost, i8 0, i16 65, i32 58, i32 6, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 60, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 0, i32 6, ptr null }], align 16
-@actionTPS_InPortFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 46, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InPort = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 65, i32 0, i32 6, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 46, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isstophost, i8 0, i16 65, i32 58, i32 6, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 60, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 0, i32 6, ptr null }], align 16
-@actionTPS_InHostFirstAN = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHost = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 48, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 64, i16 4, i32 49, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 42, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 4, i32 47, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InEmail = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isstophost, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_ishost, i8 0, i16 65, i32 0, i32 4, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InFileFirst = internal constant [7 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 52, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 126, i16 4, i32 51, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InFileTwiddle = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InPathFirst = internal constant [7 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 54, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InPathFirstFirst = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 0, i32 54, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InPathSecond = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 17, i32 0, i32 19, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 17, i32 0, i32 19, ptr null }, %struct.TParserStateActionItem { ptr @p_isspace, i8 0, i16 17, i32 0, i32 19, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InFile = internal constant [8 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 19, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 46, i16 4, i32 56, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 0, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 4, i32 50, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 19, ptr null }], align 16
-@actionTPS_InFileNext = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 16, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 16, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 95, i16 16, i32 55, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InURLPathFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isurlchar, i8 0, i16 0, i32 59, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InURLPathStart = internal constant [1 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr null, i8 0, i16 0, i32 59, i32 0, ptr null }], align 16
-@actionTPS_InURLPath = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 18, ptr null }, %struct.TParserStateActionItem { ptr @p_isurlchar, i8 0, i16 0, i32 59, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 0, i32 18, ptr null }], align 16
-@actionTPS_InFURL = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isURLPath, i8 0, i16 65, i32 0, i32 5, ptr @SpecialFURL }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InProtocolFirst = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 62, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InProtocolSecond = internal constant [3 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 47, i16 0, i32 63, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InProtocolEnd = internal constant [1 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 0, i32 14, ptr null }], align 16
-@actionTPS_InHyphenAsciiWordFirst = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 65, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 70, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHyphenAsciiWord = internal constant [7 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 65, i32 71, i32 16, ptr @SpecialHyphen }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 65, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 64, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 71, i32 16, ptr @SpecialHyphen }], align 16
-@actionTPS_InHyphenWordFirst = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 70, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHyphenWord = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 65, i32 71, i32 17, ptr @SpecialHyphen }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 67, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 66, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 71, i32 17, ptr @SpecialHyphen }], align 16
-@actionTPS_InHyphenNumWordFirst = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 70, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHyphenNumWord = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 65, i32 71, i32 15, ptr @SpecialHyphen }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 68, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 65, i32 71, i32 15, ptr @SpecialHyphen }], align 16
-@actionTPS_InHyphenDigitLookahead = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 70, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 69, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InParseHyphen = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 8, i32 0, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 74, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 73, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 4, i32 76, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_iseqC, i8 45, i16 4, i32 72, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 8, i32 0, i32 0, ptr null }], align 16
-@actionTPS_InParseHyphenHyphen = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 17, i32 71, i32 12, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 17, i32 71, i32 12, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
-@actionTPS_InHyphenWordPart = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 10, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 73, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 73, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 71, i32 10, ptr null }], align 16
-@actionTPS_InHyphenAsciiWordPart = internal constant [6 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 11, ptr null }, %struct.TParserStateActionItem { ptr @p_isasclet, i8 0, i16 0, i32 74, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 0, i32 73, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 73, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 71, i32 11, ptr null }], align 16
-@actionTPS_InHyphenNumWordPart = internal constant [4 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 1, i32 0, i32 9, ptr null }, %struct.TParserStateActionItem { ptr @p_isalnum, i8 0, i16 0, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 0, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 1, i32 71, i32 9, ptr null }], align 16
-@actionTPS_InHyphenUnsignedInt = internal constant [5 x %struct.TParserStateActionItem] [%struct.TParserStateActionItem { ptr @p_isEOF, i8 0, i16 2, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isdigit, i8 0, i16 0, i32 77, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isalpha, i8 0, i16 16, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr @p_isspecial, i8 0, i16 16, i32 75, i32 0, ptr null }, %struct.TParserStateActionItem { ptr null, i8 0, i16 2, i32 77, i32 0, ptr null }], align 16
+@Actions = internal unnamed_addr constant [77 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @actionTPS_Base, i32 0, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InNumWord, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InAsciiWord, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InWord, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InUnsignedInt, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InSignedIntFirst, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InSignedInt, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InSpace, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InUDecimalFirst, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InUDecimal, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InDecimalFirst, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InDecimal, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InVerVersion, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InSVerVersion, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InVersionFirst, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InVersion, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InMantissaFirst, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InMantissaSign, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InMantissa, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityFirst, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntity, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityNumFirst, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityNum, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityHexNumFirst, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityHexNum, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLEntityEnd, i32 25, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagFirst, i32 26, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InXMLBegin, i32 27, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagCloseFirst, i32 28, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagName, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagBeginEnd, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTag, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagEscapeK, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagEscapeKK, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagBackSleshed, i32 34, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InTagEnd, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InCommentFirst, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InCommentLast, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InComment, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InCloseCommentFirst, i32 39, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InCloseCommentLast, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InCommentEnd, i32 41, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHostFirstDomain, i32 42, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHostDomainSecond, i32 43, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHostDomain, i32 44, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InPortFirst, i32 45, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InPort, i32 46, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHostFirstAN, i32 47, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHost, i32 48, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InEmail, i32 49, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InFileFirst, i32 50, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InFileTwiddle, i32 51, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InPathFirst, i32 52, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InPathFirstFirst, i32 53, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InPathSecond, i32 54, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InFile, i32 55, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InFileNext, i32 56, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InURLPathFirst, i32 57, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InURLPathStart, i32 58, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InURLPath, i32 59, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InFURL, i32 60, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InProtocolFirst, i32 61, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InProtocolSecond, i32 62, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InProtocolEnd, i32 63, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenAsciiWordFirst, i32 64, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenAsciiWord, i32 65, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenWordFirst, i32 66, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenWord, i32 67, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenNumWordFirst, i32 68, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenNumWord, i32 69, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenDigitLookahead, i32 70, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InParseHyphen, i32 71, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InParseHyphenHyphen, i32 72, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenWordPart, i32 73, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenAsciiWordPart, i32 74, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenNumWordPart, i32 75, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @actionTPS_InHyphenUnsignedInt, i32 76, [4 x i8] zeroinitializer }], align 16
+@actionTPS_Base = internal constant [13 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 60, i8 0, i16 4, i32 26, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isignore, i8 0, i8 0, i16 0, i32 7, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 2, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 3, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 4, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 5, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 43, i8 0, i16 4, i32 5, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 38, i8 0, i16 4, i32 19, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 126, i8 0, i16 4, i32 51, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 53, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 7, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InNumWord = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 3, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 56, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 68, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 3, [4 x i8] zeroinitializer, ptr null }], align 16
 @p_isspecial.strange_letter = internal constant [228 x i32] [i32 2307, i32 2366, i32 2367, i32 2368, i32 2377, i32 2378, i32 2379, i32 2380, i32 2434, i32 2435, i32 2494, i32 2495, i32 2496, i32 2503, i32 2504, i32 2507, i32 2508, i32 2519, i32 2563, i32 2622, i32 2623, i32 2624, i32 2691, i32 2750, i32 2751, i32 2752, i32 2761, i32 2763, i32 2764, i32 2818, i32 2819, i32 2878, i32 2880, i32 2887, i32 2888, i32 2891, i32 2892, i32 2903, i32 3006, i32 3007, i32 3009, i32 3010, i32 3014, i32 3015, i32 3016, i32 3018, i32 3019, i32 3020, i32 3031, i32 3073, i32 3074, i32 3075, i32 3137, i32 3138, i32 3139, i32 3140, i32 3202, i32 3203, i32 3262, i32 3264, i32 3265, i32 3266, i32 3267, i32 3268, i32 3271, i32 3272, i32 3274, i32 3275, i32 3285, i32 3286, i32 3330, i32 3331, i32 3390, i32 3391, i32 3392, i32 3398, i32 3399, i32 3400, i32 3402, i32 3403, i32 3404, i32 3415, i32 3458, i32 3459, i32 3535, i32 3536, i32 3537, i32 3544, i32 3545, i32 3546, i32 3547, i32 3548, i32 3549, i32 3550, i32 3551, i32 3570, i32 3571, i32 3902, i32 3903, i32 3967, i32 4139, i32 4140, i32 4145, i32 4152, i32 4155, i32 4156, i32 4182, i32 4183, i32 4194, i32 4195, i32 4196, i32 4199, i32 4200, i32 4201, i32 4202, i32 4203, i32 4204, i32 4205, i32 4227, i32 4228, i32 4231, i32 4232, i32 4233, i32 4234, i32 4235, i32 4236, i32 4239, i32 6070, i32 6078, i32 6079, i32 6080, i32 6081, i32 6082, i32 6083, i32 6084, i32 6085, i32 6087, i32 6088, i32 6435, i32 6436, i32 6437, i32 6438, i32 6441, i32 6442, i32 6443, i32 6448, i32 6449, i32 6451, i32 6452, i32 6453, i32 6454, i32 6455, i32 6456, i32 6576, i32 6577, i32 6578, i32 6579, i32 6580, i32 6581, i32 6582, i32 6583, i32 6584, i32 6585, i32 6586, i32 6587, i32 6588, i32 6589, i32 6590, i32 6591, i32 6592, i32 6600, i32 6601, i32 6681, i32 6682, i32 6683, i32 6916, i32 6965, i32 6971, i32 6973, i32 6974, i32 6975, i32 6976, i32 6977, i32 6979, i32 6980, i32 7042, i32 7073, i32 7078, i32 7079, i32 7082, i32 7204, i32 7205, i32 7206, i32 7207, i32 7208, i32 7209, i32 7210, i32 7211, i32 7220, i32 7221, i32 43043, i32 43044, i32 43047, i32 43136, i32 43137, i32 43188, i32 43189, i32 43190, i32 43191, i32 43192, i32 43193, i32 43194, i32 43195, i32 43196, i32 43197, i32 43198, i32 43199, i32 43200, i32 43201, i32 43202, i32 43203, i32 43346, i32 43347, i32 43567, i32 43568, i32 43571, i32 43572, i32 43597], align 16
-@.str.70 = private unnamed_addr constant [9 x i8] c"</script\00", align 1
-@.str.71 = private unnamed_addr constant [8 x i8] c"</style\00", align 1
-@.str.72 = private unnamed_addr constant [8 x i8] c"<script\00", align 1
-@.str.73 = private unnamed_addr constant [7 x i8] c"<style\00", align 1
+@actionTPS_InAsciiWord = internal constant [15 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 42, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 56, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 64, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 4, i32 61, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 4, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 3, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 3, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 1, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InWord = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 2, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 66, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 2, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InUnsignedInt = internal constant [14 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 22, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 42, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 8, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 101, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 69, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 4, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 1, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 22, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InSignedIntFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 6, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InSignedInt = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 21, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 10, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 101, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 69, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 21, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InSpace = internal constant [9 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 60, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isignore, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 43, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 38, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isnotalnum, i8 0, i8 0, i16 0, i32 7, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 12, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InUDecimalFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 9, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InUDecimal = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 20, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 9, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 14, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 101, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 69, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 20, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InDecimalFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 11, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InDecimal = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 20, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 11, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 12, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 101, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 69, i8 0, i16 4, i32 16, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 20, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InVerVersion = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 8, i32 13, i32 0, [4 x i8] zeroinitializer, ptr @SpecialVerVersion }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InSVerVersion = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 65, i32 4, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InVersionFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 15, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InVersion = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 8, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 15, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 14, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 8, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InMantissaFirst = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 18, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 43, i8 0, i16 0, i32 17, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 17, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InMantissaSign = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 18, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InMantissa = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 7, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 18, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 7, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityFirst = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 35, i8 0, i16 0, i32 21, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntity = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 20, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 59, i8 0, i16 0, i32 25, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityNumFirst = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 120, i8 0, i16 0, i32 23, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 88, i8 0, i16 0, i32 23, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 22, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityNum = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 22, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 59, i8 0, i16 0, i32 25, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityHexNumFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isxdigit, i8 0, i8 0, i16 0, i32 24, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityHexNum = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isxdigit, i8 0, i8 0, i16 0, i32 24, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 59, i8 0, i16 0, i32 25, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLEntityEnd = internal constant [1 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 17, i32 0, i32 23, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagFirst = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 28, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 33, i8 0, i16 4, i32 36, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 63, i8 0, i16 4, i32 27, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 4, i32 29, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 4, i32 29, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 29, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InXMLBegin = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 120, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagCloseFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 29, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagName = internal constant [10 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 30, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 62, i8 0, i16 0, i32 35, i32 0, [4 x i8] zeroinitializer, ptr @SpecialTags }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspace, i8 0, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr @SpecialTags }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@.str.100 = private unnamed_addr constant [9 x i8] c"</script\00", align 1
+@.str.101 = private unnamed_addr constant [8 x i8] c"</style\00", align 1
+@.str.102 = private unnamed_addr constant [8 x i8] c"<script\00", align 1
+@.str.103 = private unnamed_addr constant [7 x i8] c"<style\00", align 1
+@actionTPS_InTagBeginEnd = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 62, i8 0, i16 0, i32 35, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTag = internal constant [19 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 62, i8 0, i16 0, i32 35, i32 0, [4 x i8] zeroinitializer, ptr @SpecialTags }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 39, i8 0, i16 0, i32 32, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 34, i8 0, i16 0, i32 33, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 61, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 35, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 38, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 63, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 37, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 126, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspace, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr @SpecialTags }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagEscapeK = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 92, i8 0, i16 4, i32 34, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 39, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 32, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagEscapeKK = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 92, i8 0, i16 4, i32 34, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 34, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 33, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagBackSleshed = internal constant [2 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 32, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InTagEnd = internal constant [1 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 0, i32 13, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InCommentFirst = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 37, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 68, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 100, i8 0, i16 0, i32 31, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InCommentLast = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 38, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InComment = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 39, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InCloseCommentFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 40, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 38, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InCloseCommentLast = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 62, i8 0, i16 0, i32 41, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 38, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InCommentEnd = internal constant [1 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 0, i32 13, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHostFirstDomain = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 43, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHostDomainSecond = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 44, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 4, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 42, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHostDomain = internal constant [12 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 65, i32 0, i32 6, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 44, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 4, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 58, i8 0, i16 4, i32 45, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 42, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isstophost, i8 0, i8 0, i16 65, i32 58, i32 6, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 60, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 0, i32 6, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InPortFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 46, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InPort = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 65, i32 0, i32 6, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 46, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isstophost, i8 0, i8 0, i16 65, i32 58, i32 6, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 60, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 0, i32 6, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHostFirstAN = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHost = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 48, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 64, i8 0, i16 4, i32 49, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 42, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 4, i32 47, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InEmail = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isstophost, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_ishost, i8 0, i8 0, i16 65, i32 0, i32 4, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InFileFirst = internal constant [7 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 52, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 126, i8 0, i16 4, i32 51, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InFileTwiddle = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InPathFirst = internal constant [7 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 54, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InPathFirstFirst = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 0, i32 54, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InPathSecond = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 17, i32 0, i32 19, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 17, i32 0, i32 19, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspace, i8 0, i8 0, i16 17, i32 0, i32 19, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InFile = internal constant [8 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 19, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 46, i8 0, i16 4, i32 56, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 0, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 4, i32 50, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 19, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InFileNext = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 16, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 16, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 95, i8 0, i16 16, i32 55, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InURLPathFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isurlchar, i8 0, i8 0, i16 0, i32 59, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InURLPathStart = internal constant [1 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 0, i32 59, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InURLPath = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 18, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isurlchar, i8 0, i8 0, i16 0, i32 59, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 0, i32 18, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InFURL = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isURLPath, i8 0, i8 0, i16 65, i32 0, i32 5, [4 x i8] zeroinitializer, ptr @SpecialFURL }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InProtocolFirst = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 62, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InProtocolSecond = internal constant [3 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 47, i8 0, i16 0, i32 63, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InProtocolEnd = internal constant [1 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 0, i32 14, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenAsciiWordFirst = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 65, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 70, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenAsciiWord = internal constant [7 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 65, i32 71, i32 16, [4 x i8] zeroinitializer, ptr @SpecialHyphen }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 65, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 64, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 71, i32 16, [4 x i8] zeroinitializer, ptr @SpecialHyphen }], align 16
+@actionTPS_InHyphenWordFirst = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 70, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenWord = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 65, i32 71, i32 17, [4 x i8] zeroinitializer, ptr @SpecialHyphen }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 67, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 66, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 71, i32 17, [4 x i8] zeroinitializer, ptr @SpecialHyphen }], align 16
+@actionTPS_InHyphenNumWordFirst = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 70, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenNumWord = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 65, i32 71, i32 15, [4 x i8] zeroinitializer, ptr @SpecialHyphen }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 68, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 65, i32 71, i32 15, [4 x i8] zeroinitializer, ptr @SpecialHyphen }], align 16
+@actionTPS_InHyphenDigitLookahead = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 70, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 69, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InParseHyphen = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 8, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 74, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 73, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 4, i32 76, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_iseqC, i8 45, i8 0, i16 4, i32 72, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 8, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InParseHyphenHyphen = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 17, i32 71, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 17, i32 71, i32 12, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenWordPart = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 10, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 73, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 73, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 71, i32 10, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenAsciiWordPart = internal constant [6 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 11, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isasclet, i8 0, i8 0, i16 0, i32 74, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 0, i32 73, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 73, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 71, i32 11, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenNumWordPart = internal constant [4 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 1, i32 0, i32 9, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalnum, i8 0, i8 0, i16 0, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 0, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 1, i32 71, i32 9, [4 x i8] zeroinitializer, ptr null }], align 16
+@actionTPS_InHyphenUnsignedInt = internal constant [5 x { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr }] [{ ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isEOF, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isdigit, i8 0, i8 0, i16 0, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isalpha, i8 0, i8 0, i16 16, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr @p_isspecial, i8 0, i8 0, i16 16, i32 75, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i8, i8, i16, i32, i32, [4 x i8], ptr } { ptr null, i8 0, i8 0, i16 2, i32 77, i32 0, [4 x i8] zeroinitializer, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_make_compiler_happy() local_unnamed_addr #0 {
-  %1 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %2 = trunc i8 %1 to i1
+  %1 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4, !noundef !5
+  %2 = trunc nuw i8 %1 to i1
   %.pre45.pre74.pre79 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  tail call void @llvm.assume(i1 %2)
   %.not.i = icmp eq ptr %.pre45.pre74.pre79, null
-  %or.cond = select i1 %2, i1 %.not.i, i1 false
-  br i1 %or.cond, label %3, label %p_isalnum.exit
+  br i1 %.not.i, label %p_isalnum.exit, label %p_isnotxdigit.exit
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %5 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %4, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = tail call i32 @iswalnum(i32 noundef %10) #16
-  %.pre = load i8, ptr inttoptr (i64 32 to ptr), align 32
+p_isalnum.exit:                                   ; preds = %0
+  %3 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %4 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds i32, ptr %3, i64 %7
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 @iswalnum(i32 noundef %9) #16
+  %.pre = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre45.pre74.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isalnum.exit
+  %11 = trunc nuw i8 %.pre to i1
+  tail call void @llvm.assume(i1 %11)
+  %.not.i.i = icmp eq ptr %.pre45.pre74.pre, null
+  br i1 %.not.i.i, label %p_isnotalnum.exit, label %p_isnotxdigit.exit
 
-p_isalnum.exit:                                   ; preds = %0, %3
-  %.pre45.pre74 = phi ptr [ %.pre45.pre74.pre79, %0 ], [ %.pre45.pre74.pre, %3 ]
-  %12 = phi i8 [ %1, %0 ], [ %.pre, %3 ]
-  %13 = trunc i8 %12 to i1
-  %.not.i.i = icmp eq ptr %.pre45.pre74, null
-  %or.cond108 = select i1 %13, i1 %.not.i.i, i1 false
-  br i1 %or.cond108, label %14, label %p_isnotalnum.exit
-
-14:                                               ; preds = %p_isalnum.exit
-  %15 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %16 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+p_isnotalnum.exit:                                ; preds = %p_isalnum.exit
+  %12 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %13 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i32, ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %15, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 @iswalnum(i32 noundef %21) #16
-  %.pre42 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %19 = tail call i32 @iswalnum(i32 noundef %18) #16
+  %.pre42 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre45.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotalnum.exit
+  %20 = trunc nuw i8 %.pre42 to i1
+  tail call void @llvm.assume(i1 %20)
+  %.not.i3 = icmp eq ptr %.pre45.pre, null
+  br i1 %.not.i3, label %p_isalpha.exit, label %p_isnotxdigit.exit
 
-p_isnotalnum.exit:                                ; preds = %p_isalnum.exit, %14
-  %.pre45 = phi ptr [ %.pre45.pre74, %p_isalnum.exit ], [ %.pre45.pre, %14 ]
-  %23 = phi i8 [ %12, %p_isalnum.exit ], [ %.pre42, %14 ]
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %p_isalpha.exit
-
-25:                                               ; preds = %p_isnotalnum.exit
-  %.not.i3 = icmp eq ptr %.pre45, null
-  br i1 %.not.i3, label %26, label %p_isnotalpha.exit
-
-26:                                               ; preds = %25
-  %27 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %28 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr i32, ptr %27, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = tail call i32 @iswalpha(i32 noundef %33) #16
-  %.pre43 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit
+  %21 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %22 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i32, ptr %21, i64 %25
+  %27 = load i32, ptr %26, align 4
+  %28 = tail call i32 @iswalpha(i32 noundef %27) #16
+  %.pre43 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre44 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isalpha.exit
+  %29 = trunc nuw i8 %.pre43 to i1
+  tail call void @llvm.assume(i1 %29)
+  %.not.i.i4 = icmp eq ptr %.pre44, null
+  br i1 %.not.i.i4, label %p_isnotalpha.exit, label %p_isnotxdigit.exit
 
-p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit, %26
-  %35 = phi ptr [ %.pre45, %p_isnotalnum.exit ], [ %.pre44, %26 ]
-  %36 = phi i8 [ %23, %p_isnotalnum.exit ], [ %.pre43, %26 ]
-  %37 = trunc i8 %36 to i1
-  tail call void @llvm.assume(i1 %37)
-  %.not.i.i4 = icmp eq ptr %35, null
-  br i1 %.not.i.i4, label %38, label %p_isnotalpha.exit
+p_isnotalpha.exit:                                ; preds = %p_isalpha.exit
+  %30 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %31 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i32, ptr %30, i64 %34
+  %36 = load i32, ptr %35, align 4
+  %37 = tail call i32 @iswalpha(i32 noundef %36) #16
+  %.pre46 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre49.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %38 = trunc nuw i8 %.pre46 to i1
+  tail call void @llvm.assume(i1 %38)
+  %.not.i8 = icmp eq ptr %.pre49.pre, null
+  br i1 %.not.i8, label %p_isdigit.exit, label %p_isnotxdigit.exit
 
-38:                                               ; preds = %p_isalpha.exit
+p_isdigit.exit:                                   ; preds = %p_isnotalpha.exit
   %39 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %40 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds i32, ptr %39, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = tail call i32 @iswalpha(i32 noundef %45) #16
-  %.pre46 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre49.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotalpha.exit
-
-p_isnotalpha.exit:                                ; preds = %25, %p_isalpha.exit, %38
-  %.pre49 = phi ptr [ %35, %p_isalpha.exit ], [ %.pre49.pre, %38 ], [ %.pre45, %25 ]
-  %47 = phi i8 [ %36, %p_isalpha.exit ], [ %.pre46, %38 ], [ %23, %25 ]
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %p_isdigit.exit
-
-49:                                               ; preds = %p_isnotalpha.exit
-  %.not.i8 = icmp eq ptr %.pre49, null
-  br i1 %.not.i8, label %50, label %p_isnotdigit.exit.thread
-
-50:                                               ; preds = %49
-  %51 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %52 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr i32, ptr %51, i64 %55
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 @iswdigit(i32 noundef %57) #16
-  %.pre47 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %46 = tail call i32 @iswdigit(i32 noundef %45) #16
+  %.pre47 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre48 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isdigit.exit
-
-p_isdigit.exit:                                   ; preds = %p_isnotalpha.exit, %50
-  %59 = phi ptr [ %.pre49, %p_isnotalpha.exit ], [ %.pre48, %50 ]
-  %60 = phi i8 [ %47, %p_isnotalpha.exit ], [ %.pre47, %50 ]
-  %61 = trunc i8 %60 to i1
-  tail call void @llvm.assume(i1 %61)
-  %.not.i.i9 = icmp eq ptr %59, null
-  br i1 %.not.i.i9, label %p_isnotdigit.exit, label %p_isnotdigit.exit.thread
-
-p_isnotdigit.exit.thread:                         ; preds = %49, %p_isdigit.exit
-  %.ph = phi ptr [ %59, %p_isdigit.exit ], [ %.pre49, %49 ]
-  %.ph83 = phi i8 [ %60, %p_isdigit.exit ], [ %47, %49 ]
-  %62 = trunc i8 %.ph83 to i1
-  tail call void @llvm.assume(i1 %62)
-  br label %p_islower.exit.thread
+  %47 = trunc nuw i8 %.pre47 to i1
+  tail call void @llvm.assume(i1 %47)
+  %.not.i.i9 = icmp eq ptr %.pre48, null
+  br i1 %.not.i.i9, label %p_isnotdigit.exit, label %p_isnotxdigit.exit
 
 p_isnotdigit.exit:                                ; preds = %p_isdigit.exit
-  %63 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %64 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr i32, ptr %63, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = tail call i32 @iswdigit(i32 noundef %69) #16
-  %.pre50 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %48 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %49 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %48, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = tail call i32 @iswdigit(i32 noundef %54) #16
+  %.pre50 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre51 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %71 = trunc i8 %.pre50 to i1
-  tail call void @llvm.assume(i1 %71)
+  %56 = trunc nuw i8 %.pre50 to i1
+  tail call void @llvm.assume(i1 %56)
   %.not.i12 = icmp eq ptr %.pre51, null
-  br i1 %.not.i12, label %p_islower.exit, label %p_islower.exit.thread
-
-p_islower.exit.thread:                            ; preds = %p_isnotdigit.exit, %p_isnotdigit.exit.thread
-  %.ph85 = phi ptr [ %.ph, %p_isnotdigit.exit.thread ], [ %.pre51, %p_isnotdigit.exit ]
-  %.ph86 = phi i8 [ %.ph83, %p_isnotdigit.exit.thread ], [ %.pre50, %p_isnotdigit.exit ]
-  %72 = trunc i8 %.ph86 to i1
-  tail call void @llvm.assume(i1 %72)
-  br label %p_isnotlower.exit.thread
+  br i1 %.not.i12, label %p_islower.exit, label %p_isnotxdigit.exit
 
 p_islower.exit:                                   ; preds = %p_isnotdigit.exit
-  %73 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %74 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i32, ptr %73, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = tail call i32 @iswlower(i32 noundef %79) #16
-  %.pre52 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %57 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %58 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i32, ptr %57, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = tail call i32 @iswlower(i32 noundef %63) #16
+  %.pre52 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre53 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %81 = trunc i8 %.pre52 to i1
-  tail call void @llvm.assume(i1 %81)
+  %65 = trunc nuw i8 %.pre52 to i1
+  tail call void @llvm.assume(i1 %65)
   %.not.i.i14 = icmp eq ptr %.pre53, null
-  br i1 %.not.i.i14, label %p_isnotlower.exit, label %p_isnotlower.exit.thread
-
-p_isnotlower.exit.thread:                         ; preds = %p_islower.exit, %p_islower.exit.thread
-  %.ph88 = phi ptr [ %.ph85, %p_islower.exit.thread ], [ %.pre53, %p_islower.exit ]
-  %.ph89 = phi i8 [ %.ph86, %p_islower.exit.thread ], [ %.pre52, %p_islower.exit ]
-  %82 = trunc i8 %.ph89 to i1
-  tail call void @llvm.assume(i1 %82)
-  br label %p_isprint.exit.thread
+  br i1 %.not.i.i14, label %p_isnotlower.exit, label %p_isnotxdigit.exit
 
 p_isnotlower.exit:                                ; preds = %p_islower.exit
-  %83 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %84 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr i32, ptr %83, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = tail call i32 @iswlower(i32 noundef %89) #16
-  %.pre54 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %66 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %67 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %66, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = tail call i32 @iswlower(i32 noundef %72) #16
+  %.pre54 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre55 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %91 = trunc i8 %.pre54 to i1
-  tail call void @llvm.assume(i1 %91)
+  %74 = trunc nuw i8 %.pre54 to i1
+  tail call void @llvm.assume(i1 %74)
   %.not.i17 = icmp eq ptr %.pre55, null
-  br i1 %.not.i17, label %p_isprint.exit, label %p_isprint.exit.thread
-
-p_isprint.exit.thread:                            ; preds = %p_isnotlower.exit, %p_isnotlower.exit.thread
-  %.ph91 = phi ptr [ %.ph88, %p_isnotlower.exit.thread ], [ %.pre55, %p_isnotlower.exit ]
-  %.ph92 = phi i8 [ %.ph89, %p_isnotlower.exit.thread ], [ %.pre54, %p_isnotlower.exit ]
-  %92 = trunc i8 %.ph92 to i1
-  tail call void @llvm.assume(i1 %92)
-  br label %p_isnotprint.exit.thread
+  br i1 %.not.i17, label %p_isprint.exit, label %p_isnotxdigit.exit
 
 p_isprint.exit:                                   ; preds = %p_isnotlower.exit
+  %75 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %76 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %75, i64 %79
+  %81 = load i32, ptr %80, align 4
+  %82 = tail call i32 @iswprint(i32 noundef %81) #16
+  %.pre56 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre57 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %83 = trunc nuw i8 %.pre56 to i1
+  tail call void @llvm.assume(i1 %83)
+  %.not.i.i19 = icmp eq ptr %.pre57, null
+  br i1 %.not.i.i19, label %p_isnotprint.exit, label %p_isnotxdigit.exit
+
+p_isnotprint.exit:                                ; preds = %p_isprint.exit
+  %84 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %85 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %84, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = tail call i32 @iswprint(i32 noundef %90) #16
+  %.pre58 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre59 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %92 = trunc nuw i8 %.pre58 to i1
+  tail call void @llvm.assume(i1 %92)
+  %.not.i22 = icmp eq ptr %.pre59, null
+  br i1 %.not.i22, label %p_ispunct.exit, label %p_isnotxdigit.exit
+
+p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
   %93 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %94 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %93, i64 %97
+  %98 = getelementptr inbounds i32, ptr %93, i64 %97
   %99 = load i32, ptr %98, align 4
-  %100 = tail call i32 @iswprint(i32 noundef %99) #16
-  %.pre56 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre57 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %101 = trunc i8 %.pre56 to i1
-  tail call void @llvm.assume(i1 %101)
-  %.not.i.i19 = icmp eq ptr %.pre57, null
-  br i1 %.not.i.i19, label %p_isnotprint.exit, label %p_isnotprint.exit.thread
-
-p_isnotprint.exit.thread:                         ; preds = %p_isprint.exit, %p_isprint.exit.thread
-  %.ph94 = phi ptr [ %.ph91, %p_isprint.exit.thread ], [ %.pre57, %p_isprint.exit ]
-  %.ph95 = phi i8 [ %.ph92, %p_isprint.exit.thread ], [ %.pre56, %p_isprint.exit ]
-  %102 = trunc i8 %.ph95 to i1
-  tail call void @llvm.assume(i1 %102)
-  br label %p_ispunct.exit.thread
-
-p_isnotprint.exit:                                ; preds = %p_isprint.exit
-  %103 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %104 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %106 = load i32, ptr %105, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr i32, ptr %103, i64 %107
-  %109 = load i32, ptr %108, align 4
-  %110 = tail call i32 @iswprint(i32 noundef %109) #16
-  %.pre58 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre59 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %111 = trunc i8 %.pre58 to i1
-  tail call void @llvm.assume(i1 %111)
-  %.not.i22 = icmp eq ptr %.pre59, null
-  br i1 %.not.i22, label %p_ispunct.exit, label %p_ispunct.exit.thread
-
-p_ispunct.exit.thread:                            ; preds = %p_isnotprint.exit, %p_isnotprint.exit.thread
-  %.ph97 = phi ptr [ %.ph94, %p_isnotprint.exit.thread ], [ %.pre59, %p_isnotprint.exit ]
-  %.ph98 = phi i8 [ %.ph95, %p_isnotprint.exit.thread ], [ %.pre58, %p_isnotprint.exit ]
-  %112 = trunc i8 %.ph98 to i1
-  tail call void @llvm.assume(i1 %112)
-  br label %p_isnotpunct.exit
-
-p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
-  %113 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %114 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %116 = load i32, ptr %115, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr i32, ptr %113, i64 %117
-  %119 = load i32, ptr %118, align 4
-  %120 = tail call i32 @iswpunct(i32 noundef %119) #16
-  %.pre60 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+  %100 = tail call i32 @iswpunct(i32 noundef %99) #16
+  %.pre60 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre61 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %121 = trunc i8 %.pre60 to i1
-  tail call void @llvm.assume(i1 %121)
+  %101 = trunc nuw i8 %.pre60 to i1
+  tail call void @llvm.assume(i1 %101)
   %.not.i.i24 = icmp eq ptr %.pre61, null
-  br i1 %.not.i.i24, label %122, label %p_isnotpunct.exit
+  br i1 %.not.i.i24, label %p_isnotpunct.exit, label %p_isnotxdigit.exit
 
-122:                                              ; preds = %p_ispunct.exit
-  %123 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %124 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr i32, ptr %123, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %130 = tail call i32 @iswpunct(i32 noundef %129) #16
-  %.pre62 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+p_isnotpunct.exit:                                ; preds = %p_ispunct.exit
+  %102 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %103 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i32, ptr %102, i64 %106
+  %108 = load i32, ptr %107, align 4
+  %109 = tail call i32 @iswpunct(i32 noundef %108) #16
+  %.pre62 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre65.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotpunct.exit
+  %110 = trunc nuw i8 %.pre62 to i1
+  tail call void @llvm.assume(i1 %110)
+  %.not.i28 = icmp eq ptr %.pre65.pre, null
+  br i1 %.not.i28, label %p_isspace.exit, label %p_isnotxdigit.exit
 
-p_isnotpunct.exit:                                ; preds = %p_ispunct.exit.thread, %p_ispunct.exit, %122
-  %.pre65 = phi ptr [ %.pre61, %p_ispunct.exit ], [ %.pre65.pre, %122 ], [ %.ph97, %p_ispunct.exit.thread ]
-  %131 = phi i8 [ %.pre60, %p_ispunct.exit ], [ %.pre62, %122 ], [ %.ph98, %p_ispunct.exit.thread ]
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %p_isspace.exit
-
-133:                                              ; preds = %p_isnotpunct.exit
-  %.not.i28 = icmp eq ptr %.pre65, null
-  br i1 %.not.i28, label %134, label %p_isnotspace.exit.thread
-
-134:                                              ; preds = %133
-  %135 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %136 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  %138 = load i32, ptr %137, align 4
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr i32, ptr %135, i64 %139
-  %141 = load i32, ptr %140, align 4
-  %142 = tail call i32 @iswspace(i32 noundef %141) #16
-  %.pre63 = load i8, ptr inttoptr (i64 32 to ptr), align 32
+p_isspace.exit:                                   ; preds = %p_isnotpunct.exit
+  %111 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %112 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i32, ptr %111, i64 %115
+  %117 = load i32, ptr %116, align 4
+  %118 = tail call i32 @iswspace(i32 noundef %117) #16
+  %.pre63 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
   %.pre64 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isspace.exit
-
-p_isspace.exit:                                   ; preds = %p_isnotpunct.exit, %134
-  %143 = phi ptr [ %.pre65, %p_isnotpunct.exit ], [ %.pre64, %134 ]
-  %144 = phi i8 [ %131, %p_isnotpunct.exit ], [ %.pre63, %134 ]
-  %145 = trunc i8 %144 to i1
-  tail call void @llvm.assume(i1 %145)
-  %.not.i.i29 = icmp eq ptr %143, null
-  br i1 %.not.i.i29, label %p_isnotspace.exit, label %p_isnotspace.exit.thread
-
-p_isnotspace.exit.thread:                         ; preds = %133, %p_isspace.exit
-  %.ph101 = phi ptr [ %143, %p_isspace.exit ], [ %.pre65, %133 ]
-  %.ph102 = phi i8 [ %144, %p_isspace.exit ], [ %131, %133 ]
-  %146 = trunc i8 %.ph102 to i1
-  tail call void @llvm.assume(i1 %146)
-  br label %p_isupper.exit.thread
+  %119 = trunc nuw i8 %.pre63 to i1
+  tail call void @llvm.assume(i1 %119)
+  %.not.i.i29 = icmp eq ptr %.pre64, null
+  br i1 %.not.i.i29, label %p_isnotspace.exit, label %p_isnotxdigit.exit
 
 p_isnotspace.exit:                                ; preds = %p_isspace.exit
+  %120 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %121 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %123 = load i32, ptr %122, align 4
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i32, ptr %120, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = tail call i32 @iswspace(i32 noundef %126) #16
+  %.pre66 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre67 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %128 = trunc nuw i8 %.pre66 to i1
+  tail call void @llvm.assume(i1 %128)
+  %.not.i32 = icmp eq ptr %.pre67, null
+  br i1 %.not.i32, label %p_isupper.exit, label %p_isnotxdigit.exit
+
+p_isupper.exit:                                   ; preds = %p_isnotspace.exit
+  %129 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %130 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i32, ptr %129, i64 %133
+  %135 = load i32, ptr %134, align 4
+  %136 = tail call i32 @iswupper(i32 noundef %135) #16
+  %.pre68 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre69 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %137 = trunc nuw i8 %.pre68 to i1
+  tail call void @llvm.assume(i1 %137)
+  %.not.i.i34 = icmp eq ptr %.pre69, null
+  br i1 %.not.i.i34, label %p_isnotupper.exit, label %p_isnotxdigit.exit
+
+p_isnotupper.exit:                                ; preds = %p_isupper.exit
+  %138 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %139 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load i32, ptr %140, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i32, ptr %138, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = tail call i32 @iswupper(i32 noundef %144) #16
+  %.pre70 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre73.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %146 = trunc nuw i8 %.pre70 to i1
+  tail call void @llvm.assume(i1 %146)
+  %.not.i38 = icmp eq ptr %.pre73.pre, null
+  br i1 %.not.i38, label %p_isxdigit.exit, label %p_isnotxdigit.exit
+
+p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit
   %147 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %148 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr i32, ptr %147, i64 %151
+  %152 = getelementptr inbounds i32, ptr %147, i64 %151
   %153 = load i32, ptr %152, align 4
-  %154 = tail call i32 @iswspace(i32 noundef %153) #16
-  %.pre66 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre67 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %155 = trunc i8 %.pre66 to i1
+  %154 = tail call i32 @iswxdigit(i32 noundef %153) #16
+  %.pre71 = load i8, ptr inttoptr (i64 32 to ptr), align 32, !range !4
+  %.pre72 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
+  %155 = trunc nuw i8 %.pre71 to i1
   tail call void @llvm.assume(i1 %155)
-  %.not.i32 = icmp eq ptr %.pre67, null
-  br i1 %.not.i32, label %p_isupper.exit, label %p_isupper.exit.thread
+  %.not.i.i39 = icmp eq ptr %.pre72, null
+  br i1 %.not.i.i39, label %156, label %p_isnotxdigit.exit
 
-p_isupper.exit.thread:                            ; preds = %p_isnotspace.exit, %p_isnotspace.exit.thread
-  %.ph104 = phi ptr [ %.ph101, %p_isnotspace.exit.thread ], [ %.pre67, %p_isnotspace.exit ]
-  %.ph105 = phi i8 [ %.ph102, %p_isnotspace.exit.thread ], [ %.pre66, %p_isnotspace.exit ]
-  %156 = trunc i8 %.ph105 to i1
-  tail call void @llvm.assume(i1 %156)
-  br label %p_isnotupper.exit
-
-p_isupper.exit:                                   ; preds = %p_isnotspace.exit
+156:                                              ; preds = %p_isxdigit.exit
   %157 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %158 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr i32, ptr %157, i64 %161
+  %162 = getelementptr inbounds i32, ptr %157, i64 %161
   %163 = load i32, ptr %162, align 4
-  %164 = tail call i32 @iswupper(i32 noundef %163) #16
-  %.pre68 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre69 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %165 = trunc i8 %.pre68 to i1
-  tail call void @llvm.assume(i1 %165)
-  %.not.i.i34 = icmp eq ptr %.pre69, null
-  br i1 %.not.i.i34, label %166, label %p_isnotupper.exit
-
-166:                                              ; preds = %p_isupper.exit
-  %167 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %168 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %170 = load i32, ptr %169, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr i32, ptr %167, i64 %171
-  %173 = load i32, ptr %172, align 4
-  %174 = tail call i32 @iswupper(i32 noundef %173) #16
-  %.pre70 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre73.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotupper.exit
-
-p_isnotupper.exit:                                ; preds = %p_isupper.exit.thread, %p_isupper.exit, %166
-  %.pre73 = phi ptr [ %.pre69, %p_isupper.exit ], [ %.pre73.pre, %166 ], [ %.ph104, %p_isupper.exit.thread ]
-  %175 = phi i8 [ %.pre68, %p_isupper.exit ], [ %.pre70, %166 ], [ %.ph105, %p_isupper.exit.thread ]
-  %176 = trunc i8 %175 to i1
-  br i1 %176, label %177, label %p_isxdigit.exit
-
-177:                                              ; preds = %p_isnotupper.exit
-  %.not.i38 = icmp eq ptr %.pre73, null
-  br i1 %.not.i38, label %178, label %p_isnotxdigit.exit
-
-178:                                              ; preds = %177
-  %179 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %180 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  %182 = load i32, ptr %181, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr i32, ptr %179, i64 %183
-  %185 = load i32, ptr %184, align 4
-  %186 = tail call i32 @iswxdigit(i32 noundef %185) #16
-  %.pre71 = load i8, ptr inttoptr (i64 32 to ptr), align 32
-  %.pre72 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isxdigit.exit
-
-p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit, %178
-  %187 = phi ptr [ %.pre73, %p_isnotupper.exit ], [ %.pre72, %178 ]
-  %188 = phi i8 [ %175, %p_isnotupper.exit ], [ %.pre71, %178 ]
-  %189 = trunc i8 %188 to i1
-  tail call void @llvm.assume(i1 %189)
-  %.not.i.i39 = icmp eq ptr %187, null
-  br i1 %.not.i.i39, label %190, label %p_isnotxdigit.exit
-
-190:                                              ; preds = %p_isxdigit.exit
-  %191 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %192 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
-  %194 = load i32, ptr %193, align 4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr i32, ptr %191, i64 %195
-  %197 = load i32, ptr %196, align 4
-  %198 = tail call i32 @iswxdigit(i32 noundef %197) #16
+  %164 = tail call i32 @iswxdigit(i32 noundef %163) #16
   br label %p_isnotxdigit.exit
 
-p_isnotxdigit.exit:                               ; preds = %177, %p_isxdigit.exit, %190
-  %199 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %201 = load i32, ptr %200, align 8
-  %202 = icmp ne i32 %201, 1
-  tail call void @llvm.assume(i1 %202)
+p_isnotxdigit.exit:                               ; preds = %p_isupper.exit, %p_isnotupper.exit, %p_isspace.exit, %p_isnotprint.exit, %p_isnotlower.exit, %p_isnotdigit.exit, %p_isalpha.exit, %p_isnotalpha.exit, %p_isnotalnum.exit, %0, %p_isalnum.exit, %p_isdigit.exit, %p_islower.exit, %p_isprint.exit, %p_isnotpunct.exit, %p_ispunct.exit, %p_isnotspace.exit, %p_isxdigit.exit, %156
+  %165 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load i32, ptr %166, align 8
+  %168 = icmp ne i32 %167, 1
+  tail call void @llvm.assume(i1 %168)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -599,7 +488,7 @@ define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %51, label %17
@@ -608,7 +497,7 @@ define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %24 = zext nneg i16 %23 to i32
@@ -622,7 +511,7 @@ define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswalnum(i32 noundef %34) #16
   br label %51
@@ -635,25 +524,25 @@ define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 8
   %50 = zext nneg i16 %49 to i32
   br label %51
 
-51:                                               ; preds = %8, %36, %25, %17
-  %.0 = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 1, %8 ]
-  ret i32 %.0
+51:                                               ; preds = %17, %8, %36, %25
+  %.1 = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 1, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -668,7 +557,7 @@ define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %p_isalnum.exit, label %17
@@ -677,7 +566,7 @@ define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %24 = zext nneg i16 %23 to i32
@@ -691,7 +580,7 @@ define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswalnum(i32 noundef %34) #16
   br label %p_isalnum.exit
@@ -704,18 +593,18 @@ define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 8
   %50 = zext nneg i16 %49 to i32
   br label %p_isalnum.exit
 
 p_isalnum.exit:                                   ; preds = %8, %17, %25, %36
-  %.0.i = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 1, %8 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.1.i = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 1, %8 ]
+  %.not = icmp eq i32 %.1.i, 0
   %51 = zext i1 %.not to i32
   ret i32 %51
 }
@@ -723,8 +612,8 @@ p_isalnum.exit:                                   ; preds = %8, %17, %25, %36
 ; Function Attrs: nounwind uwtable
 define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -739,7 +628,7 @@ define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %51, label %17
@@ -748,7 +637,7 @@ define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 1024
   %24 = zext nneg i16 %23 to i32
@@ -762,7 +651,7 @@ define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswalpha(i32 noundef %34) #16
   br label %51
@@ -775,25 +664,25 @@ define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 1024
   %50 = zext nneg i16 %49 to i32
   br label %51
 
-51:                                               ; preds = %8, %36, %25, %17
-  %.0 = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 1, %8 ]
-  ret i32 %.0
+51:                                               ; preds = %17, %8, %36, %25
+  %.1 = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 1, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -808,7 +697,7 @@ define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %51, label %17
@@ -817,7 +706,7 @@ define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 2048
   %24 = zext nneg i16 %23 to i32
@@ -831,7 +720,7 @@ define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswdigit(i32 noundef %34) #16
   br label %51
@@ -844,25 +733,25 @@ define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 2048
   %50 = zext nneg i16 %49 to i32
   br label %51
 
-51:                                               ; preds = %8, %36, %25, %17
-  %.0 = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 0, %8 ]
-  ret i32 %.0
+51:                                               ; preds = %17, %8, %36, %25
+  %.1 = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 0, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -877,7 +766,7 @@ define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %51, label %17
@@ -886,7 +775,7 @@ define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8192
   %24 = zext nneg i16 %23 to i32
@@ -900,7 +789,7 @@ define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswspace(i32 noundef %34) #16
   br label %51
@@ -913,25 +802,25 @@ define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 8192
   %50 = zext nneg i16 %49 to i32
   br label %51
 
-51:                                               ; preds = %8, %36, %25, %17
-  %.0 = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 0, %8 ]
-  ret i32 %.0
+51:                                               ; preds = %17, %8, %36, %25
+  %.1 = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 0, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %1
@@ -946,7 +835,7 @@ define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %7, i64 %13
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 127
   br i1 %16, label %51, label %17
@@ -955,7 +844,7 @@ define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %18 = tail call ptr @__ctype_b_loc() #17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 4096
   %24 = zext nneg i16 %23 to i32
@@ -969,7 +858,7 @@ define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @iswxdigit(i32 noundef %34) #16
   br label %51
@@ -982,18 +871,18 @@ define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %39, i64 %43
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 4096
   %50 = zext nneg i16 %49 to i32
   br label %51
 
-51:                                               ; preds = %8, %36, %25, %17
-  %.0 = phi i32 [ %24, %17 ], [ %35, %25 ], [ %50, %36 ], [ 0, %8 ]
-  ret i32 %.0
+51:                                               ; preds = %17, %8, %36, %25
+  %.1 = phi i32 [ %35, %25 ], [ %50, %36 ], [ %24, %17 ], [ 0, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1033,7 +922,7 @@ define internal range(i32 0, 2) i32 @p_iseqC(ptr noundef readonly captures(none)
   %10 = load ptr, ptr %0, align 8
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr i8, ptr %10, i64 %12
+  %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, %9
   %16 = zext i1 %15 to i32
@@ -1055,37 +944,43 @@ define dso_local i64 @prsd_lextype(ptr noundef readnone captures(none) %0) local
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr [24 x ptr], ptr @tok_alias, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x ptr], ptr @tok_alias, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @pstrdup(ptr noundef %8) #16
   %10 = getelementptr i8, ptr %4, i64 -16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr [24 x ptr], ptr @lex_descr, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x ptr], ptr @lex_descr, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @pstrdup(ptr noundef %12) #16
   %14 = getelementptr i8, ptr %4, i64 -8
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %15, label %3, !llvm.loop !5
+  br i1 %exitcond.not, label %15, label %3, !llvm.loop !6
 
 15:                                               ; preds = %3
-  %16 = getelementptr i8, ptr %2, i64 552
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 552
   store i32 0, ptr %16, align 8
   %17 = ptrtoint ptr %2 to i64
   ret i64 %17
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @prsd_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = tail call ptr @palloc0(i64 noundef 80) #16
@@ -1101,8 +996,8 @@ define dso_local i64 @prsd_start(ptr noundef readonly captures(none) %0) local_u
 
 14:                                               ; preds = %1
   store i8 1, ptr %13, align 8
-  %15 = load i8, ptr @database_ctype_is_c, align 1
-  %16 = trunc i8 %15 to i1
+  %15 = load i8, ptr @database_ctype_is_c, align 1, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
   %17 = shl i64 %6, 32
   %sext = add i64 %17, 4294967296
   %18 = ashr exact i64 %sext, 30
@@ -1148,9 +1043,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @prsd_nexttoken(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc zeroext i1 @TParserGet(ptr noundef %4)
   br i1 %9, label %10, label %20
@@ -1178,13 +1073,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @prsd_nexttoken(ptr noun
 define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3
+  br i1 %.not, label %4, label %3, !prof !8
 
 3:                                                ; preds = %1
   tail call void @ProcessInterrupts() #16
   br label %4
 
-4:                                                ; preds = %1, %3
+4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -1196,7 +1091,7 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
   %12 = sext i32 %7 to i64
-  %13 = getelementptr i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1230,7 +1125,7 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
 32:                                               ; preds = %29
   %33 = load ptr, ptr %0, align 8
   %34 = sext i32 %26 to i64
-  %35 = getelementptr i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = tail call i32 @pg_mblen(ptr noundef %35) #16
   %.pre = load ptr, ptr %5, align 8
   br label %37
@@ -1247,7 +1142,7 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not104, label %44, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %40, align 8
   br label %50
 
@@ -1255,7 +1150,7 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr [77 x %struct.TParserStateAction], ptr @Actions, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [77 x %struct.TParserStateAction], ptr @Actions, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 16
   br label %50
 
@@ -1276,10 +1171,10 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not106, label %56, label %._crit_edge
 
 56:                                               ; preds = %.lr.ph
-  %57 = getelementptr i8, ptr %.3127, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.3127, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not105 = icmp eq ptr %58, null
-  br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %56, %.lr.ph, %50
   %.3.lcssa = phi ptr [ %.2, %50 ], [ %.3127, %.lr.ph ], [ %57, %56 ]
@@ -1403,7 +1298,7 @@ newTParserPosition.exit:                          ; preds = %91, %92
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load ptr, ptr %116, align 8
   %.not114 = icmp eq ptr %117, null
-  br i1 %.not114, label %.loopexit, label %.lr.ph131, !llvm.loop !8
+  br i1 %.not114, label %.loopexit, label %.lr.ph131, !llvm.loop !10
 
 118:                                              ; preds = %105
   %119 = and i32 %78, 32
@@ -1510,7 +1405,7 @@ newTParserPosition.exit:                          ; preds = %91, %92
   %178 = phi i32 [ %152, %158 ], [ %.pre140, %161 ], [ %152, %156 ]
   %179 = phi ptr [ %151, %158 ], [ %.pre139, %161 ], [ %151, %156 ]
   %.not103 = icmp sgt i32 %178, %177
-  br i1 %.not103, label %._crit_edge135..thread_crit_edge, label %24, !llvm.loop !9
+  br i1 %.not103, label %._crit_edge135..thread_crit_edge, label %24, !llvm.loop !11
 
 ._crit_edge135..thread_crit_edge:                 ; preds = %.backedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 10
@@ -1545,7 +1440,7 @@ define dso_local noundef i64 @prsd_end(ptr noundef readonly captures(none) %0) l
   tail call void @pfree(ptr noundef nonnull %7) #16
   store ptr %9, ptr %5, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1584,9 +1479,9 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1604,15 +1499,23 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph312, label %._crit_edge
 
+._crit_edge:                                      ; preds = %98, %.lr.ph
+  %.076133.lcssa = phi i32 [ 15, %.lr.ph ], [ %.1, %98 ]
+  %.077132.lcssa = phi i32 [ 35, %.lr.ph ], [ %.178, %98 ]
+  %.079130.lcssa = phi i32 [ 3, %.lr.ph ], [ %.180, %98 ]
+  %.082129.lcssa = phi i1 [ false, %.lr.ph ], [ %.183, %98 ]
+  %.084128.lcssa = phi i32 [ 0, %.lr.ph ], [ %.185, %98 ]
+  br i1 %.082129.lcssa, label %.thread235, label %102
+
 .lr.ph312:                                        ; preds = %.lr.ph, %98
-  %.084128311 = phi i32 [ %.185, %98 ], [ 3, %.lr.ph ]
-  %.082129310 = phi i32 [ %.183, %98 ], [ 0, %.lr.ph ]
-  %.080130309 = phi i1 [ %.181, %98 ], [ false, %.lr.ph ]
+  %.084128311 = phi i32 [ %.185, %98 ], [ 0, %.lr.ph ]
+  %.082129310 = phi i1 [ %.183, %98 ], [ false, %.lr.ph ]
+  %.079130309 = phi i32 [ %.180, %98 ], [ 3, %.lr.ph ]
   %.077132308 = phi i32 [ %.178, %98 ], [ 35, %.lr.ph ]
   %.076133307 = phi i32 [ %.1, %98 ], [ 15, %.lr.ph ]
   %indvars.iv306 = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv306
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv306
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @defGetString(ptr noundef %27) #16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1730,13 +1633,13 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %95 = tail call i32 @errcode(i32 noundef 50856066) #16
   %96 = load ptr, ptr %29, align 8
   %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %96) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2664, ptr noundef nonnull @__func__.prsd_headline) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2665, ptr noundef nonnull @__func__.prsd_headline) #16
   unreachable
 
-98:                                               ; preds = %75, %78, %81, %84, %87, %90, %33, %45, %57, %69, %63, %51, %39
-  %.185 = phi i32 [ %.084128311, %33 ], [ %.084128311, %39 ], [ %46, %45 ], [ %.084128311, %51 ], [ %.084128311, %57 ], [ %.084128311, %63 ], [ %.084128311, %69 ], [ %.084128311, %90 ], [ %.084128311, %87 ], [ %.084128311, %84 ], [ %.084128311, %81 ], [ %.084128311, %78 ], [ %.084128311, %75 ]
-  %.183 = phi i32 [ %.082129310, %33 ], [ %.082129310, %39 ], [ %.082129310, %45 ], [ %52, %51 ], [ %.082129310, %57 ], [ %.082129310, %63 ], [ %.082129310, %69 ], [ %.082129310, %90 ], [ %.082129310, %87 ], [ %.082129310, %84 ], [ %.082129310, %81 ], [ %.082129310, %78 ], [ %.082129310, %75 ]
-  %.181 = phi i1 [ %.080130309, %33 ], [ %.080130309, %39 ], [ %.080130309, %45 ], [ %.080130309, %51 ], [ %.080130309, %57 ], [ %.080130309, %63 ], [ %.080130309, %69 ], [ %92, %90 ], [ true, %87 ], [ true, %84 ], [ true, %81 ], [ true, %78 ], [ true, %75 ]
+98:                                               ; preds = %75, %78, %81, %84, %87, %90, %39, %51, %63, %69, %57, %45, %33
+  %.185 = phi i32 [ %.084128311, %33 ], [ %.084128311, %39 ], [ %.084128311, %45 ], [ %52, %51 ], [ %.084128311, %57 ], [ %.084128311, %63 ], [ %.084128311, %69 ], [ %.084128311, %90 ], [ %.084128311, %87 ], [ %.084128311, %84 ], [ %.084128311, %81 ], [ %.084128311, %78 ], [ %.084128311, %75 ]
+  %.183 = phi i1 [ %.082129310, %33 ], [ %.082129310, %39 ], [ %.082129310, %45 ], [ %.082129310, %51 ], [ %.082129310, %57 ], [ %.082129310, %63 ], [ %.082129310, %69 ], [ %92, %90 ], [ true, %87 ], [ true, %84 ], [ true, %81 ], [ true, %78 ], [ true, %75 ]
+  %.180 = phi i32 [ %.079130309, %33 ], [ %.079130309, %39 ], [ %46, %45 ], [ %.079130309, %51 ], [ %.079130309, %57 ], [ %.079130309, %63 ], [ %.079130309, %69 ], [ %.079130309, %90 ], [ %.079130309, %87 ], [ %.079130309, %84 ], [ %.079130309, %81 ], [ %.079130309, %78 ], [ %.079130309, %75 ]
   %.178 = phi i32 [ %34, %33 ], [ %.077132308, %39 ], [ %.077132308, %45 ], [ %.077132308, %51 ], [ %.077132308, %57 ], [ %.077132308, %63 ], [ %.077132308, %69 ], [ %.077132308, %90 ], [ %.077132308, %87 ], [ %.077132308, %84 ], [ %.077132308, %81 ], [ %.077132308, %78 ], [ %.077132308, %75 ]
   %.1 = phi i32 [ %.076133307, %33 ], [ %40, %39 ], [ %.076133307, %45 ], [ %.076133307, %51 ], [ %.076133307, %57 ], [ %.076133307, %63 ], [ %.076133307, %69 ], [ %.076133307, %90 ], [ %.076133307, %87 ], [ %.076133307, %84 ], [ %.076133307, %81 ], [ %.076133307, %78 ], [ %.076133307, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv306, 1
@@ -1744,14 +1647,6 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next, %100
   br i1 %101, label %.lr.ph312, label %._crit_edge
-
-._crit_edge:                                      ; preds = %98, %.lr.ph
-  %.076133.lcssa = phi i32 [ 15, %.lr.ph ], [ %.1, %98 ]
-  %.077132.lcssa = phi i32 [ 35, %.lr.ph ], [ %.178, %98 ]
-  %.080130.lcssa = phi i1 [ false, %.lr.ph ], [ %.181, %98 ]
-  %.082129.lcssa = phi i32 [ 0, %.lr.ph ], [ %.183, %98 ]
-  %.084128.lcssa = phi i32 [ 3, %.lr.ph ], [ %.185, %98 ]
-  br i1 %.080130.lcssa, label %.thread235, label %102
 
 102:                                              ; preds = %._crit_edge
   %.not88 = icmp slt i32 %.076133.lcssa, %.077132.lcssa
@@ -1761,8 +1656,8 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %104)
   %105 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2673, ptr noundef nonnull @__func__.prsd_headline) #16
+  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2674, ptr noundef nonnull @__func__.prsd_headline) #16
   unreachable
 
 107:                                              ; preds = %102
@@ -1773,69 +1668,71 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %110)
   %111 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2677, ptr noundef nonnull @__func__.prsd_headline) #16
+  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2678, ptr noundef nonnull @__func__.prsd_headline) #16
   unreachable
 
 113:                                              ; preds = %107
-  %114 = icmp slt i32 %.084128.lcssa, 0
+  %114 = icmp slt i32 %.079130.lcssa, 0
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %113
   %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %116)
   %117 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %118 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2681, ptr noundef nonnull @__func__.prsd_headline) #16
+  %118 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2682, ptr noundef nonnull @__func__.prsd_headline) #16
   unreachable
 
 119:                                              ; preds = %113
-  %120 = icmp slt i32 %.082129.lcssa, 0
+  %120 = icmp slt i32 %.084128.lcssa, 0
   br i1 %120, label %121, label %.thread235
 
 121:                                              ; preds = %119
   %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %122)
   %123 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %124 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2685, ptr noundef nonnull @__func__.prsd_headline) #16
+  %124 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.3) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 2686, ptr noundef nonnull @__func__.prsd_headline) #16
   unreachable
 
 .thread235:                                       ; preds = %1, %119, %._crit_edge
   %.076.lcssa201 = phi i32 [ %.076133.lcssa, %119 ], [ %.076133.lcssa, %._crit_edge ], [ 15, %1 ]
   %.077.lcssa199 = phi i32 [ %.077132.lcssa, %119 ], [ %.077132.lcssa, %._crit_edge ], [ 35, %1 ]
-  %.080.lcssa197 = phi i1 [ false, %119 ], [ true, %._crit_edge ], [ false, %1 ]
-  %.082.lcssa195 = phi i32 [ %.082129.lcssa, %119 ], [ %.082129.lcssa, %._crit_edge ], [ 0, %1 ]
-  %.084.lcssa193 = phi i32 [ %.084128.lcssa, %119 ], [ %.084128.lcssa, %._crit_edge ], [ 3, %1 ]
+  %.079.lcssa197 = phi i32 [ %.079130.lcssa, %119 ], [ %.079130.lcssa, %._crit_edge ], [ 3, %1 ]
+  %.082.lcssa195 = phi i1 [ false, %119 ], [ true, %._crit_edge ], [ false, %1 ]
+  %.084.lcssa193 = phi i32 [ %.084128.lcssa, %119 ], [ %.084128.lcssa, %._crit_edge ], [ 0, %1 ]
   %125 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp sgt i32 %126, 0
   br i1 %127, label %128, label %135
 
 128:                                              ; preds = %.thread235
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
   %129 = load ptr, ptr %11, align 8
   store ptr %129, ptr %8, align 8
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %131, ptr %132, align 8
-  %133 = getelementptr i8, ptr %16, i64 8
-  %134 = call ptr @TS_execute_locations(ptr noundef %133, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #16
+  %133 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %134 = call ptr @TS_execute_locations(ptr noundef nonnull %133, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   br label %135
 
 135:                                              ; preds = %.thread235, %128
   %.0 = phi ptr [ %134, %128 ], [ null, %.thread235 ]
-  %136 = icmp eq i32 %.082.lcssa195, 0
+  %136 = icmp eq i32 %.084.lcssa193, 0
   br i1 %136, label %137, label %313
 
 137:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   store i32 0, ptr %7, align 4
-  br i1 %.080.lcssa197, label %308, label %.preheader430.i
+  br i1 %.082.lcssa195, label %308, label %.preheader430.i
 
 .preheader430.i:                                  ; preds = %137
   %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -1866,7 +1763,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.0337433.i = phi i32 [ 0, %.lr.ph.i ], [ %.1338.i, %154 ]
   %.0343432.i = phi i32 [ 0, %.lr.ph.i ], [ %.1344.i, %154 ]
   %148 = sext i32 %.0434.i to i64
-  %149 = getelementptr %struct.HeadlineWordEntry, ptr %146, i64 %148
+  %149 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %146, i64 %148
   %150 = load i32, ptr %149, align 8
   %151 = lshr i32 %150, 8
   %trunc426.i = trunc i32 %151 to i8
@@ -1897,7 +1794,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %161 = icmp sle i32 %160, %143
   %162 = icmp slt i32 %.1338.i, %.077.lcssa199
   %163 = select i1 %161, i1 %162, i1 false
-  br i1 %163, label %147, label %._crit_edge.i, !llvm.loop !11
+  br i1 %163, label %147, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %154, %141
   %.0355.lcssa.i = phi i32 [ %142, %141 ], [ %.0434.i, %154 ]
@@ -1927,7 +1824,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.2339455.i = phi i32 [ %.0337.lcssa.i, %.lr.ph458.i ], [ %.4341.i, %197 ]
   %.2345454.i = phi i32 [ %.0343.lcssa.i, %.lr.ph458.i ], [ %.4347.i, %197 ]
   %175 = icmp sgt i64 %indvars.iv.i, %172
-  %176 = getelementptr %struct.HeadlineWordEntry, ptr %170, i64 %indvars.iv.i
+  %176 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %170, i64 %indvars.iv.i
   %177 = load i32, ptr %176, align 8
   %178 = lshr i32 %177, 8
   %trunc420.i = trunc i32 %178 to i8
@@ -1982,11 +1879,11 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 189:                                              ; preds = %._crit_edge510.i
   %190 = lshr i32 %177, 16
-  %.not389.i = icmp sgt i32 %190, %.084.lcssa193
+  %.not389.i = icmp sgt i32 %190, %.079.lcssa197
   br i1 %.not389.i, label %196, label %191
 
 191:                                              ; preds = %189, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i, %._crit_edge510.i
-  %192 = getelementptr %struct.HeadlineWordEntry, ptr %170, i64 %indvars.iv.i, i32 3
+  %192 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %170, i64 %indvars.iv.i, i32 3
   %193 = load ptr, ptr %192, align 8
   %.not390.i = icmp eq ptr %193, null
   br i1 %.not390.i, label %197, label %194
@@ -2007,7 +1904,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %198 = icmp slt i64 %indvars.iv.next.i, %173
   %199 = icmp slt i32 %.4341.i, %.077.lcssa199
   %200 = select i1 %198, i1 %199, i1 false
-  br i1 %200, label %174, label %._crit_edge459.loopexit.i, !llvm.loop !12
+  br i1 %200, label %174, label %._crit_edge459.loopexit.i, !llvm.loop !14
 
 ._crit_edge459.loopexit.i:                        ; preds = %197, %196, %194
   %201 = trunc nsw i64 %indvars.iv.i to i32
@@ -2034,7 +1931,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %indvars.iv504.i = phi i64 [ %205, %.lr.ph475.i ], [ %indvars.iv.next505.i, %225 ]
   %.6473.i = phi i32 [ %.3340.i, %.lr.ph475.i ], [ %.7.i, %225 ]
   %.5348472.i = phi i32 [ %.3346.i, %.lr.ph475.i ], [ %.7350.i, %225 ]
-  %207 = getelementptr %struct.HeadlineWordEntry, ptr %204, i64 %indvars.iv504.i
+  %207 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %204, i64 %indvars.iv504.i
   %208 = load i32, ptr %207, align 8
   %209 = lshr i32 %208, 8
   %trunc422.i = trunc i32 %209 to i8
@@ -2083,7 +1980,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 219:                                              ; preds = %218
   %220 = lshr i32 %208, 16
-  %.not396.i = icmp sgt i32 %220, %.084.lcssa193
+  %.not396.i = icmp sgt i32 %220, %.079.lcssa197
   br i1 %.not396.i, label %224, label %221
 
 221:                                              ; preds = %219, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218
@@ -2103,7 +2000,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 225:                                              ; preds = %224, %222, %221
   %indvars.iv.next505.i = add nsw i64 %indvars.iv504.i, -1
   %226 = icmp sgt i64 %indvars.iv504.i, 0
-  br i1 %226, label %206, label %.loopexit428.i, !llvm.loop !13
+  br i1 %226, label %206, label %.loopexit428.i, !llvm.loop !15
 
 227:                                              ; preds = %._crit_edge.i
   %228 = icmp sgt i32 %.0337.lcssa.i, %.076.lcssa201
@@ -2120,7 +2017,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.9352441.i = phi i32 [ %.0343.lcssa.i, %.lr.ph445.i ], [ %.10353.i, %244 ]
   %.4359440.i = phi i32 [ %.0355.lcssa.i, %.lr.ph445.i ], [ %247, %244 ]
   %231 = sext i32 %.4443.i to i64
-  %232 = getelementptr %struct.HeadlineWordEntry, ptr %229, i64 %231
+  %232 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %229, i64 %231
   %233 = load i32, ptr %232, align 8
   %234 = lshr i32 %233, 8
   %trunc418.i = trunc i32 %234 to i8
@@ -2142,7 +2039,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 235:                                              ; preds = %230
   %236 = lshr i32 %233, 16
-  %.not.i = icmp sgt i32 %236, %.084.lcssa193
+  %.not.i = icmp sgt i32 %236, %.079.lcssa197
   br i1 %.not.i, label %.loopexit428.i, label %237
 
 237:                                              ; preds = %235, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230, %230
@@ -2177,7 +2074,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.10353.i = add i32 %spec.select412.i, %.9352441.i
   %247 = add i32 %.4443.i, -1
   %248 = icmp sgt i32 %.9.i, %.076.lcssa201
-  br i1 %248, label %230, label %.loopexit428.i, !llvm.loop !14
+  br i1 %248, label %230, label %.loopexit428.i, !llvm.loop !16
 
 .loopexit428.loopexit.split.loop.exit520.i:       ; preds = %212
   %249 = trunc nuw nsw i64 %indvars.iv504.i to i32
@@ -2218,7 +2115,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 264:                                              ; preds = %262
   %265 = load ptr, ptr %11, align 8
   %266 = sext i32 %.3358.i to i64
-  %267 = getelementptr %struct.HeadlineWordEntry, ptr %265, i64 %266
+  %267 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %265, i64 %266
   %268 = load i32, ptr %267, align 8
   %269 = lshr i32 %268, 8
   %trunc424.i = trunc i32 %269 to i8
@@ -2240,7 +2137,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 270:                                              ; preds = %264
   %271 = lshr i32 %268, 16
-  %.not400.i = icmp sgt i32 %271, %.084.lcssa193
+  %.not400.i = icmp sgt i32 %271, %.079.lcssa197
   br i1 %.not400.i, label %276, label %272
 
 272:                                              ; preds = %270, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264
@@ -2254,7 +2151,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 276:                                              ; preds = %272, %270
   %277 = sext i32 %.0365487.i to i64
-  %278 = getelementptr %struct.HeadlineWordEntry, ptr %265, i64 %277
+  %278 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %265, i64 %277
   %279 = load i32, ptr %278, align 8
   %280 = lshr i32 %279, 8
   %trunc425.i = trunc i32 %280 to i8
@@ -2276,7 +2173,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 
 281:                                              ; preds = %276
   %282 = lshr i32 %279, 16
-  %.not403.i = icmp sgt i32 %282, %.084.lcssa193
+  %.not403.i = icmp sgt i32 %282, %.079.lcssa197
   br i1 %.not403.i, label %288, label %283
 
 283:                                              ; preds = %281, %276, %276, %276, %276, %276, %276, %276, %276, %276, %276, %276, %276, %276
@@ -2297,7 +2194,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.1362.i = phi i8 [ %255, %287 ], [ %.0361489.i, %281 ], [ %.0361489.i, %272 ], [ %.0361489.i, %262 ], [ %.0361489.i, %283 ]
   %.1335.i = phi i32 [ %.0354.i, %287 ], [ %.0334490.i, %281 ], [ %.0334490.i, %272 ], [ %.0334490.i, %262 ], [ %.0334490.i, %283 ]
   %289 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  br i1 %289, label %141, label %._crit_edge492.i, !llvm.loop !15
+  br i1 %289, label %141, label %._crit_edge492.i, !llvm.loop !17
 
 ._crit_edge492.i:                                 ; preds = %288
   %290 = icmp slt i32 %.1364.i, 0
@@ -2319,7 +2216,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 298:                                              ; preds = %304, %.lr.ph498.i
   %indvars.iv507.i = phi i64 [ 0, %.lr.ph498.i ], [ %indvars.iv.next508.i, %304 ]
   %.10496.i = phi i32 [ 0, %.lr.ph498.i ], [ %.11.i, %304 ]
-  %299 = getelementptr %struct.HeadlineWordEntry, ptr %296, i64 %indvars.iv507.i
+  %299 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %296, i64 %indvars.iv507.i
   %300 = load i32, ptr %299, align 8
   %301 = lshr i32 %300, 8
   %trunc.i = trunc i32 %301 to i8
@@ -2342,7 +2239,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %305 = icmp samesign ult i64 %indvars.iv.next508.i, %297
   %306 = icmp slt i32 %.11.i, %.076.lcssa201
   %307 = select i1 %305, i1 %306, i1 false
-  br i1 %307, label %298, label %.loopexit.loopexit.i, !llvm.loop !16
+  br i1 %307, label %298, label %.loopexit.loopexit.i, !llvm.loop !18
 
 308:                                              ; preds = %137
   %309 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -2357,18 +2254,18 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
 mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %.preheader.i, %308, %.loopexit.loopexit.i
   %.2367.i = phi i32 [ %311, %308 ], [ %.1366.i, %._crit_edge492.i ], [ -1, %.preheader.i ], [ %312, %.loopexit.loopexit.i ]
   %.2336.i = phi i32 [ 0, %308 ], [ %.1335.i, %._crit_edge492.i ], [ 0, %.preheader.i ], [ 0, %.loopexit.loopexit.i ]
-  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.080.lcssa197, i32 noundef %.2336.i, i32 noundef %.2367.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.082.lcssa195, i32 noundef %.2336.i, i32 noundef %.2367.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %515
 
 313:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   store i32 0, ptr %4, align 4
   %314 = call ptr @palloc(i64 noundef 640) #16
   %315 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -2379,10 +2276,10 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i101 ], [ %.2266.i, %486 ]
   %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i101 ], [ %.2.i, %486 ]
   %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  br i1 %316, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !17
+  br i1 %316, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !19
 
 .preheader382.i:                                  ; preds = %.loopexit.i
-  %317 = icmp sgt i32 %.082.lcssa195, 0
+  %317 = icmp sgt i32 %.084.lcssa193, 0
   br i1 %317, label %.preheader381.lr.ph.i, label %.preheader.i93
 
 .preheader381.lr.ph.i:                            ; preds = %.preheader382.i
@@ -2400,16 +2297,16 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.0258400.i.us = phi i32 [ %.1259.i.us, %341 ], [ 0, %.preheader381.i.us ]
   %.0260399.i.us = phi i32 [ %.1261.i.us, %341 ], [ 2147483647, %.preheader381.i.us ]
   %.0262398.i.us = phi i32 [ %.1263.i.us, %341 ], [ -1, %.preheader381.i.us ]
-  %320 = getelementptr %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv.i95.us
+  %320 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv.i95.us
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
-  %322 = load i8, ptr %321, align 4
-  %323 = trunc i8 %322 to i1
+  %322 = load i8, ptr %321, align 4, !range !4, !noundef !5
+  %323 = trunc nuw i8 %322 to i1
   br i1 %323, label %341, label %324
 
 324:                                              ; preds = %.lr.ph401.i.us
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 17
-  %326 = load i8, ptr %325, align 1
-  %327 = trunc i8 %326 to i1
+  %326 = load i8, ptr %325, align 1, !range !4, !noundef !5
+  %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %341, label %328
 
 328:                                              ; preds = %324
@@ -2444,7 +2341,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.1259.i.us = phi i32 [ %.0258400.i.us, %.lr.ph401.i.us ], [ %.0258400.i.us, %324 ], [ %330, %338 ], [ %.0258400.i.us, %334 ], [ %.0258400.i.us, %332 ]
   %indvars.iv.next.i96.us = add nuw nsw i64 %indvars.iv.i95.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i96.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %._crit_edge.i97.us, label %.lr.ph401.i.us, !llvm.loop !18
+  br i1 %exitcond.not.i.us, label %._crit_edge.i97.us, label %.lr.ph401.i.us, !llvm.loop !20
 
 ._crit_edge.i97.us:                               ; preds = %341
   %342 = icmp sgt i32 %.1263.i.us, -1
@@ -2452,7 +2349,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 343:                                              ; preds = %._crit_edge.i97.us
   %344 = zext nneg i32 %.1263.i.us to i64
-  %345 = getelementptr %struct.CoverPos, ptr %.1.lcssa.i, i64 %344
+  %345 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store i8 1, ptr %346, align 4
   %347 = load i32, ptr %345, align 4
@@ -2475,7 +2372,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 .lr.ph410.i.us:                                   ; preds = %353
   %358 = load ptr, ptr %11, align 8
   %359 = zext nneg i32 %.1272403.i.us to i64
-  %360 = getelementptr %struct.HeadlineWordEntry, ptr %358, i64 %359
+  %360 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %358, i64 %359
   %361 = load i32, ptr %360, align 8
   %362 = and i32 %361, 2
   %.not.i98144.us = icmp eq i32 %362, 0
@@ -2483,11 +2380,11 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 363:                                              ; preds = %372
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -1
-  %364 = getelementptr %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv.next182
+  %364 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv.next182
   %365 = load i32, ptr %364, align 8
   %366 = and i32 %365, 2
   %.not.i98.us = icmp eq i32 %366, 0
-  br i1 %.not.i98.us, label %.lr.ph148.us, label %.critedge.i.us, !llvm.loop !19
+  br i1 %.not.i98.us, label %.lr.ph148.us, label %.critedge.i.us, !llvm.loop !21
 
 .lr.ph148.us:                                     ; preds = %.lr.ph410.i.us, %363
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %363 ], [ %359, %.lr.ph410.i.us ]
@@ -2516,7 +2413,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %373 = icmp sgt i64 %indvars.iv181, 0
   %374 = icmp slt i32 %.1275.i.us, %355
   %or.cond.i100.us = select i1 %373, i1 %374, i1 false
-  br i1 %or.cond.i100.us, label %363, label %.critedge.i.us, !llvm.loop !19
+  br i1 %or.cond.i100.us, label %363, label %.critedge.i.us, !llvm.loop !21
 
 .critedge.i.us:                                   ; preds = %363, %372
   %375 = trunc nuw nsw i64 %indvars.iv181 to i32
@@ -2531,7 +2428,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 378:                                              ; preds = %391, %.lr.ph418.i.us
   %indvars.iv464.i.us = phi i64 [ %377, %.lr.ph418.i.us ], [ %indvars.iv.next465.i.us, %391 ]
   %.3358416.i.us = phi i32 [ %.2357.i99.us, %.lr.ph418.i.us ], [ %.4359.i.us, %391 ]
-  %379 = getelementptr %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv464.i.us
+  %379 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv464.i.us
   %380 = load i32, ptr %379, align 8
   %381 = lshr i32 %380, 8
   %trunc374.i.us = trunc i32 %381 to i8
@@ -2553,7 +2450,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 382:                                              ; preds = %378
   %383 = lshr i32 %380, 16
-  %.not292.i.us = icmp sgt i32 %383, %.084.lcssa193
+  %.not292.i.us = icmp sgt i32 %383, %.079.lcssa197
   br i1 %.not292.i.us, label %.critedge2.loopexit.split.loop.exit490.i.us, label %384
 
 384:                                              ; preds = %382, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378
@@ -2588,7 +2485,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %indvars.iv.next465.i.us = add nsw i64 %indvars.iv464.i.us, 1
   %lftr.wideiv.i.us = trunc i64 %indvars.iv.next465.i.us to i32
   %exitcond467.not.i.us = icmp eq i32 %347, %lftr.wideiv.i.us
-  br i1 %exitcond467.not.i.us, label %.critedge2.i.us, label %378, !llvm.loop !20
+  br i1 %exitcond467.not.i.us, label %.critedge2.i.us, label %378, !llvm.loop !22
 
 .critedge2.loopexit.split.loop.exit490.i.us:      ; preds = %382
   %392 = trunc nsw i64 %indvars.iv464.i.us to i32
@@ -2607,7 +2504,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 .lr.ph432.i.us:                                   ; preds = %.critedge2.i.us
   %396 = load ptr, ptr %11, align 8
   %397 = sext i32 %.3427.i.us to i64
-  %398 = getelementptr %struct.HeadlineWordEntry, ptr %396, i64 %397
+  %398 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %397
   %399 = load i32, ptr %398, align 8
   %400 = and i32 %399, 2
   %.not295.i154.us = icmp eq i32 %400, 0
@@ -2618,11 +2515,11 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   br label %.lr.ph157.us
 
 402:                                              ; preds = %410
-  %403 = getelementptr %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv.next185
+  %403 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv.next185
   %404 = load i32, ptr %403, align 8
   %405 = and i32 %404, 2
   %.not295.i.us = icmp eq i32 %405, 0
-  br i1 %.not295.i.us, label %.lr.ph157.us, label %.critedge4.i.us, !llvm.loop !21
+  br i1 %.not295.i.us, label %.lr.ph157.us, label %.critedge4.i.us, !llvm.loop !23
 
 .lr.ph157.us:                                     ; preds = %.lr.ph157.us.preheader, %402
   %indvars.iv184 = phi i64 [ %397, %.lr.ph157.us.preheader ], [ %indvars.iv.next185, %402 ]
@@ -2649,7 +2546,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %411 = icmp slt i64 %indvars.iv.next185, %401
   %412 = icmp slt i32 %.6361.i.us, %.077.lcssa199
   %or.cond371.i.us = select i1 %411, i1 %412, i1 false
-  br i1 %or.cond371.i.us, label %402, label %.critedge4.i.us, !llvm.loop !21
+  br i1 %or.cond371.i.us, label %402, label %.critedge4.i.us, !llvm.loop !23
 
 .critedge4.i.us:                                  ; preds = %402, %410
   %413 = trunc nsw i64 %indvars.iv184 to i32
@@ -2665,7 +2562,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 417:                                              ; preds = %430, %.lr.ph440.i.us
   %indvars.iv468.i.us = phi i64 [ %415, %.lr.ph440.i.us ], [ %indvars.iv.next469.i.us, %430 ]
   %.7438.i.us = phi i32 [ %.6361.i.us, %.lr.ph440.i.us ], [ %.8.i.us, %430 ]
-  %418 = getelementptr %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv468.i.us
+  %418 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv468.i.us
   %419 = load i32, ptr %418, align 8
   %420 = lshr i32 %419, 8
   %trunc376.i.us = trunc i32 %420 to i8
@@ -2687,7 +2584,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 421:                                              ; preds = %417
   %422 = lshr i32 %419, 16
-  %.not296.i.us = icmp sgt i32 %422, %.084.lcssa193
+  %.not296.i.us = icmp sgt i32 %422, %.079.lcssa197
   br i1 %.not296.i.us, label %.critedge6.loopexit.split.loop.exit494.i.us, label %423
 
 423:                                              ; preds = %421, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417
@@ -2721,7 +2618,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.8.i.us = phi i32 [ %429, %428 ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ]
   %indvars.iv.next469.i.us = add nsw i64 %indvars.iv468.i.us, -1
   %431 = icmp sgt i64 %indvars.iv.next469.i.us, %416
-  br i1 %431, label %417, label %.critedge6.i.us, !llvm.loop !22
+  br i1 %431, label %417, label %.critedge6.i.us, !llvm.loop !24
 
 .critedge6.loopexit.split.loop.exit494.i.us:      ; preds = %421
   %432 = trunc nsw i64 %indvars.iv468.i.us to i32
@@ -2734,7 +2631,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   store i32 %.0353.i.us, ptr %345, align 4
   store i32 %.0350.i.us, ptr %348, align 4
   store i32 %.0355.i.us, ptr %350, align 4
-  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.080.lcssa197, i32 noundef %.0353.i.us, i32 noundef %.0350.i.us)
+  call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.082.lcssa195, i32 noundef %.0353.i.us, i32 noundef %.0350.i.us)
   br label %.lr.ph450.i.us
 
 .lr.ph450.i.us:                                   ; preds = %441, %.critedge6.i.us
@@ -2743,7 +2640,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   br i1 %.not299.i.us, label %441, label %433
 
 433:                                              ; preds = %.lr.ph450.i.us
-  %434 = getelementptr %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv471.i.us
+  %434 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv471.i.us
   %435 = load i32, ptr %434, align 4
   %.not300.i.us = icmp slt i32 %435, %.0353.i.us
   %.not301.i.us = icmp sgt i32 %435, %.0350.i.us
@@ -2766,12 +2663,12 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 441:                                              ; preds = %439, %436, %.lr.ph450.i.us
   %indvars.iv.next472.i.us = add nuw nsw i64 %indvars.iv471.i.us, 1
   %exitcond475.not.i.us = icmp eq i64 %indvars.iv.next472.i.us, %wide.trip.count.i
-  br i1 %exitcond475.not.i.us, label %._crit_edge451.i.us, label %.lr.ph450.i.us, !llvm.loop !23
+  br i1 %exitcond475.not.i.us, label %._crit_edge451.i.us, label %.lr.ph450.i.us, !llvm.loop !25
 
 ._crit_edge451.i.us:                              ; preds = %441
   %442 = add nuw nsw i32 %.0276453.i.us, 1
-  %exitcond476.not.i.us = icmp eq i32 %442, %.082.lcssa195
-  br i1 %exitcond476.not.i.us, label %._crit_edge454.i, label %.preheader381.i.us, !llvm.loop !24
+  %exitcond476.not.i.us = icmp eq i32 %442, %.084.lcssa193
+  br i1 %exitcond476.not.i.us, label %._crit_edge454.i, label %.preheader381.i.us, !llvm.loop !26
 
 .lr.ph.i101:                                      ; preds = %313, %.loopexit.i
   %.0394.i = phi ptr [ %.1.lcssa.i, %.loopexit.i ], [ %314, %313 ]
@@ -2794,7 +2691,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.i.preheader.i
   %.075.i.i = phi i32 [ %storemerge304385.i, %.lr.ph.i.preheader.i ], [ %.075.i.i.be, %.lr.ph.i.i.backedge ]
   %445 = sext i32 %.075.i.i to i64
-  %446 = getelementptr %struct.HeadlineWordEntry, ptr %444, i64 %445
+  %446 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %444, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %448 = load ptr, ptr %447, align 8
   %.not65.i.i = icmp eq ptr %448, null
@@ -2816,7 +2713,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 .lr.ph.i.i.backedge:                              ; preds = %453, %449
   %.075.i.i.be = phi i32 [ %.old.i, %453 ], [ %452, %449 ]
-  br label %.lr.ph.i.i, !llvm.loop !25
+  br label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %453, %449
   %.not6777.i.i = icmp sgt i32 %.075.i.i, %storemerge389.i
@@ -2831,7 +2728,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 455:                                              ; preds = %.lr.ph80.i.i
   %456 = sext i32 %.178.i.i to i64
-  %457 = getelementptr %struct.HeadlineWordEntry, ptr %444, i64 %456
+  %457 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %444, i64 %456
   %458 = load i32, ptr %457, align 8
   %459 = lshr i32 %458, 8
   %trunc.i.i = trunc i32 %459 to i8
@@ -2860,7 +2757,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.2364.i = add i32 %.0362.i, %466
   %467 = add i32 %.178.i.i, 1
   %.not67.i.i = icmp sgt i32 %467, %storemerge389.i
-  br i1 %.not67.i.i, label %.critedge.i.i, label %.lr.ph80.i.i, !llvm.loop !26
+  br i1 %.not67.i.i, label %.critedge.i.i, label %.lr.ph80.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %462, %.lr.ph80.i.i, %._crit_edge.i.i
   %.1363.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.2364.i, %462 ], [ %.0362.i, %.lr.ph80.i.i ]
@@ -2877,7 +2774,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.13.i = phi i32 [ %.14.i, %479 ], [ %.12.i, %469 ]
   %.286.i.i = phi i32 [ %480, %479 ], [ %.1.lcssa.i.i, %469 ]
   %470 = sext i32 %.286.i.i to i64
-  %471 = getelementptr %struct.HeadlineWordEntry, ptr %444, i64 %470
+  %471 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %444, i64 %470
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
   %473 = load ptr, ptr %472, align 8
   %.not69.i.i = icmp ne ptr %473, null
@@ -2907,7 +2804,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.14.i = phi i32 [ %478, %477 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ]
   %480 = add i32 %.286.i.i, -1
   %.not68.i.i = icmp slt i32 %480, %.075.i.i
-  br i1 %.not68.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i, !llvm.loop !27
+  br i1 %.not68.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i, !llvm.loop !29
 
 get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i, %469, %.critedge.i.i
   %.16.i = phi i32 [ %.12.i, %469 ], [ %.12.i, %.critedge.i.i ], [ %.13.i, %.lr.ph88.i.i ], [ %.14.i, %479 ]
@@ -2926,7 +2823,7 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %.2266.i = phi i32 [ %482, %481 ], [ %.1265387.i, %get_next_fragment.exit.i ]
   %.2.i = phi ptr [ %485, %481 ], [ %.1388.i, %get_next_fragment.exit.i ]
   %487 = sext i32 %.1268386.i to i64
-  %488 = getelementptr %struct.CoverPos, ptr %.2.i, i64 %487
+  %488 = getelementptr inbounds %struct.CoverPos, ptr %.2.i, i64 %487
   store i32 %.075.i.i, ptr %488, align 4
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
   store i32 %.2352.i, ptr %489, align 4
@@ -2942,10 +2839,10 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %495 = add i32 %.2352.i, 1
   %storemerge.i = load i32, ptr %4, align 4
   %.not305.i = icmp sgt i32 %495, %storemerge.i
-  br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !28
+  br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !30
 
 ._crit_edge454.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge451.i.us
-  %.us-phi.ph = phi i32 [ %.0276453.i.us, %._crit_edge.i97.us ], [ %.082.lcssa195, %._crit_edge451.i.us ]
+  %.us-phi.ph = phi i32 [ %.0276453.i.us, %._crit_edge.i97.us ], [ %.084.lcssa193, %._crit_edge451.i.us ]
   %496 = icmp slt i32 %.us-phi.ph, 1
   br i1 %496, label %.preheader.i93, label %mark_hl_fragments.exit
 
@@ -2966,7 +2863,7 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
 504:                                              ; preds = %510, %.lr.ph460.i
   %indvars.iv477.i = phi i64 [ 0, %.lr.ph460.i ], [ %indvars.iv.next478.i, %510 ]
   %.9458.i = phi i32 [ 0, %.lr.ph460.i ], [ %.10.i, %510 ]
-  %505 = getelementptr %struct.HeadlineWordEntry, ptr %502, i64 %indvars.iv477.i
+  %505 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %502, i64 %indvars.iv477.i
   %506 = load i32, ptr %505, align 8
   %507 = lshr i32 %506, 8
   %trunc.i94 = trunc i32 %507 to i8
@@ -2989,7 +2886,7 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %511 = icmp samesign ult i64 %indvars.iv.next478.i, %503
   %512 = icmp slt i32 %.10.i, %.076.lcssa201
   %513 = select i1 %511, i1 %512, i1 false
-  br i1 %513, label %504, label %._crit_edge461.loopexit.i, !llvm.loop !29
+  br i1 %513, label %504, label %._crit_edge461.loopexit.i, !llvm.loop !31
 
 ._crit_edge461.loopexit.i:                        ; preds = %510
   %514 = trunc nuw nsw i64 %indvars.iv477.i to i32
@@ -2997,15 +2894,15 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
 
 ._crit_edge461.i:                                 ; preds = %._crit_edge461.loopexit.i, %.preheader.i93
   %.1351.lcssa.i = phi i32 [ -1, %.preheader.i93 ], [ %514, %._crit_edge461.loopexit.i ]
-  call fastcc void @mark_fragment(ptr noundef nonnull readonly %11, i1 noundef zeroext %.080.lcssa197, i32 noundef 0, i32 noundef %.1351.lcssa.i)
+  call fastcc void @mark_fragment(ptr noundef nonnull readonly %11, i1 noundef zeroext %.082.lcssa195, i32 noundef 0, i32 noundef %.1351.lcssa.i)
   br label %mark_hl_fragments.exit
 
 mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %._crit_edge461.i
   %.0.lcssa.i92244 = phi ptr [ %.1.lcssa.i, %._crit_edge454.i ], [ %.0.lcssa.i92245, %._crit_edge461.i ]
   call void @pfree(ptr noundef %.0.lcssa.i92244) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   br label %515
 
 515:                                              ; preds = %mark_hl_fragments.exit, %mark_hl_words.exit
@@ -3014,7 +2911,7 @@ mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %
   br i1 %.not89, label %517, label %519
 
 517:                                              ; preds = %515
-  %518 = call ptr @pstrdup(ptr noundef nonnull @.str.20) #16
+  %518 = call ptr @pstrdup(ptr noundef nonnull @.str.19) #16
   store ptr %518, ptr %17, align 8
   br label %519
 
@@ -3024,7 +2921,7 @@ mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %
   br i1 %.not90, label %521, label %523
 
 521:                                              ; preds = %519
-  %522 = call ptr @pstrdup(ptr noundef nonnull @.str.21) #16
+  %522 = call ptr @pstrdup(ptr noundef nonnull @.str.20) #16
   store ptr %522, ptr %18, align 8
   br label %523
 
@@ -3035,7 +2932,7 @@ mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %
   br i1 %.not91, label %526, label %528
 
 526:                                              ; preds = %523
-  %527 = call ptr @pstrdup(ptr noundef nonnull @.str.22) #16
+  %527 = call ptr @pstrdup(ptr noundef nonnull @.str.21) #16
   store ptr %527, ptr %19, align 8
   %.pre = load ptr, ptr %18, align 8
   br label %528
@@ -3059,22 +2956,25 @@ mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %
   ret i64 %10
 }
 
-declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @defGetString(ptr noundef) local_unnamed_addr #3
 
-declare i32 @pg_strtoint32(ptr noundef) local_unnamed_addr #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @pg_strtoint32(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @TS_execute_locations(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @TS_execute_locations(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(address_is_null) %2) #0 {
@@ -3091,13 +2991,13 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %9 = load ptr, ptr %0, align 8
-  %invariant.gep = getelementptr i8, ptr %9, i64 16
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = zext nneg i32 %5 to i64
   br label %11
 
 11:                                               ; preds = %14, %.lr.ph.split.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %14 ], [ 0, %.lr.ph.split.us ]
-  %gep = getelementptr %struct.HeadlineWordEntry, ptr %invariant.gep, i64 %indvars.iv35
+  %gep = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %invariant.gep, i64 %indvars.iv35
   %12 = load ptr, ptr %gep, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %.loopexit, label %14
@@ -3105,13 +3005,13 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
 14:                                               ; preds = %11
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %15 = icmp samesign ult i64 %indvars.iv.next36, %10
-  br i1 %15, label %11, label %._crit_edge, !llvm.loop !30
+  br i1 %15, label %11, label %._crit_edge, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph ]
   %16 = phi i32 [ %45, %44 ], [ %5, %.lr.ph ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr %struct.HeadlineWordEntry, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %1
@@ -3130,7 +3030,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
   store i8 1, ptr %8, align 4
   store i32 1, ptr %2, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr %struct.HeadlineWordEntry, ptr %28, i64 %indvars.iv, i32 1
+  %29 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %28, i64 %indvars.iv, i32 1
   %30 = load i16, ptr %29, align 4
   store i16 %30, ptr %27, align 2
   br label %44
@@ -3139,7 +3039,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
   %32 = load i32, ptr %2, align 8
   %33 = add i32 %32, -1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr i16, ptr %23, i64 %34
+  %35 = getelementptr inbounds i16, ptr %23, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %38 = load i16, ptr %37, align 4
@@ -3150,7 +3050,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
   %41 = add i32 %32, 1
   store i32 %41, ptr %2, align 8
   %42 = sext i32 %32 to i64
-  %43 = getelementptr i16, ptr %23, i64 %42
+  %43 = getelementptr inbounds i16, ptr %23, i64 %42
   store i16 %38, ptr %43, align 2
   br label %44
 
@@ -3159,7 +3059,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
   %45 = load i32, ptr %4, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
+  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %44, %14, %3
   %.not = icmp eq ptr %2, null
@@ -3179,65 +3079,61 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #5
+declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @iswalnum(i32 noundef) local_unnamed_addr #6
+declare i32 @iswalnum(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswalpha(i32 noundef) local_unnamed_addr #6
+declare i32 @iswalpha(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswdigit(i32 noundef) local_unnamed_addr #6
+declare i32 @iswdigit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswlower(i32 noundef) local_unnamed_addr #6
+declare i32 @iswlower(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswprint(i32 noundef) local_unnamed_addr #6
+declare i32 @iswprint(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswpunct(i32 noundef) local_unnamed_addr #6
+declare i32 @iswpunct(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswspace(i32 noundef) local_unnamed_addr #6
+declare i32 @iswspace(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswupper(i32 noundef) local_unnamed_addr #6
+declare i32 @iswupper(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @iswxdigit(i32 noundef) local_unnamed_addr #6
+declare i32 @iswxdigit(i32 noundef) local_unnamed_addr #8
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare i32 @pg_database_encoding_max_length() local_unnamed_addr #2
+declare i32 @pg_database_encoding_max_length() local_unnamed_addr #3
 
-declare i32 @pg_mb2wchar_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pg_mb2wchar_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @char2wchar(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @char2wchar(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @ProcessInterrupts() local_unnamed_addr #3
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #3
 
-declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
-
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @p_isignore(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 2) i32 @p_isignore(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = zext nneg i8 %4 to i32
-  ret i32 %5
+  %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
+  %4 = zext nneg i8 %3 to i32
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3253,15 +3149,15 @@ p_isascii.exit:                                   ; preds = %1
   %7 = load ptr, ptr %0, align 8
   %8 = load i32, ptr %3, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = icmp slt i8 %11, 0
   br i1 %12, label %p_isascii.exit.thread, label %13
 
 13:                                               ; preds = %p_isascii.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i8, ptr %14, align 8
-  %16 = trunc i8 %15 to i1
+  %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %44
 
 17:                                               ; preds = %13
@@ -3274,7 +3170,7 @@ p_isascii.exit:                                   ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr inbounds i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp ugt i32 %25, 127
   br i1 %26, label %p_isalpha.exit, label %27
@@ -3283,7 +3179,7 @@ p_isascii.exit:                                   ; preds = %1
   %28 = tail call ptr @__ctype_b_loc() #17
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 1024
   %34 = zext nneg i16 %33 to i32
@@ -3295,7 +3191,7 @@ p_isascii.exit:                                   ; preds = %1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds i32, ptr %37, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @iswalpha(i32 noundef %42) #16
   br label %p_isalpha.exit
@@ -3304,15 +3200,15 @@ p_isascii.exit:                                   ; preds = %1
   %45 = tail call ptr @__ctype_b_loc() #17
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i8 %11 to i64
-  %48 = getelementptr i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 1024
   %51 = zext nneg i16 %50 to i32
   br label %p_isalpha.exit
 
 p_isalpha.exit:                                   ; preds = %20, %27, %35, %44
-  %.0.i = phi i32 [ %34, %27 ], [ %43, %35 ], [ %51, %44 ], [ 1, %20 ]
-  %52 = icmp ne i32 %.0.i, 0
+  %.1.i = phi i32 [ %43, %35 ], [ %51, %44 ], [ %34, %27 ], [ 1, %20 ]
+  %52 = icmp ne i32 %.1.i, 0
   %53 = zext i1 %52 to i32
   br label %p_isascii.exit.thread
 
@@ -3328,21 +3224,21 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(n
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds i8, ptr %2, i64 %6
   %8 = tail call i32 @pg_dsplen(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.loopexit, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %1
   %11 = tail call i32 @GetDatabaseEncoding() #16
   %12 = icmp eq i32 %11, 6
-  br i1 %12, label %13, label %.loopexit
+  br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i8, ptr %14, align 8
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %.loopexit
+  %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3361,41 +3257,41 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(n
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr i32, ptr %.sink, i64 %27
-  %.0 = load i32, ptr %28, align 4
+  %28 = getelementptr inbounds i32, ptr %.sink, i64 %27
+  %.020 = load i32, ptr %28, align 4
   br label %29
 
 29:                                               ; preds = %23, %37
-  %.02026 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.1, %37 ]
-  %.02125 = phi ptr [ @p_isspecial.strange_letter, %23 ], [ %.122, %37 ]
-  %30 = ptrtoint ptr %.02026 to i64
-  %31 = ptrtoint ptr %.02125 to i64
+  %.02230 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.123, %37 ]
+  %.02429 = phi ptr [ @p_isspecial.strange_letter, %23 ], [ %.125, %37 ]
+  %30 = ptrtoint ptr %.02230 to i64
+  %31 = ptrtoint ptr %.02429 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
-  %34 = getelementptr i32, ptr %.02125, i64 %33
+  %34 = getelementptr inbounds i32, ptr %.02429, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, %.0
-  br i1 %36, label %.loopexit, label %37
+  %36 = icmp eq i32 %35, %.020
+  br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %29
-  %38 = icmp ult i32 %35, %.0
-  %39 = getelementptr i8, ptr %34, i64 4
-  %.122 = select i1 %38, ptr %39, ptr %.02125
-  %.1 = select i1 %38, ptr %.02026, ptr %34
-  %40 = icmp ult ptr %.122, %.1
-  br i1 %40, label %29, label %.loopexit, !llvm.loop !31
+  %38 = icmp ult i32 %35, %.020
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %.125 = select i1 %38, ptr %39, ptr %.02429
+  %.123 = select i1 %38, ptr %.02230, ptr %34
+  %40 = icmp ult ptr %.125, %.123
+  br i1 %40, label %29, label %.thread, !llvm.loop !33
 
-.loopexit:                                        ; preds = %37, %29, %10, %13, %1
-  %.019 = phi i32 [ 1, %1 ], [ 0, %13 ], [ 0, %10 ], [ 0, %37 ], [ 1, %29 ]
-  ret i32 %.019
+.thread:                                          ; preds = %37, %29, %10, %13, %1
+  %.021 = phi i32 [ 1, %1 ], [ 0, %13 ], [ 0, %10 ], [ 0, %37 ], [ 1, %29 ]
+  ret i32 %.021
 }
 
-declare i32 @pg_dsplen(ptr noundef) local_unnamed_addr #2
+declare i32 @pg_dsplen(ptr noundef) local_unnamed_addr #3
 
-declare i32 @GetDatabaseEncoding() local_unnamed_addr #2
+declare i32 @GetDatabaseEncoding() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialVerVersion(ptr noundef readonly captures(none) %0) #10 {
+define internal void @SpecialVerVersion(ptr noundef readonly captures(none) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3434,27 +3330,27 @@ define internal void @SpecialTags(ptr noundef captures(none) %0) #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @pg_strncasecmp(ptr noundef %8, ptr noundef nonnull @.str.70, i64 noundef 8) #16
+  %9 = tail call i32 @pg_strncasecmp(ptr noundef %8, ptr noundef nonnull @.str.100, i64 noundef 8) #16
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.sink.split, label %26
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @pg_strncasecmp(ptr noundef %13, ptr noundef nonnull @.str.71, i64 noundef 7) #16
+  %14 = tail call i32 @pg_strncasecmp(ptr noundef %13, ptr noundef nonnull @.str.101, i64 noundef 7) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %12, align 8
-  %18 = tail call i32 @pg_strncasecmp(ptr noundef %17, ptr noundef nonnull @.str.72, i64 noundef 7) #16
+  %18 = tail call i32 @pg_strncasecmp(ptr noundef %17, ptr noundef nonnull @.str.102, i64 noundef 7) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.sink.split, label %26
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @pg_strncasecmp(ptr noundef %22, ptr noundef nonnull @.str.73, i64 noundef 6) #16
+  %23 = tail call i32 @pg_strncasecmp(ptr noundef %22, ptr noundef nonnull @.str.103, i64 noundef 6) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.sink.split, label %26
 
@@ -3468,13 +3364,13 @@ define internal void @SpecialTags(ptr noundef captures(none) %0) #0 {
   ret void
 }
 
-declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @p_isstophost(ptr noundef captures(none) %0) #11 {
+define internal range(i32 0, 2) i32 @p_isstophost(ptr noundef captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %3 = load i8, ptr %2, align 1
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
@@ -3498,7 +3394,7 @@ define internal range(i32 0, 2) i32 @p_ishost(ptr noundef readonly captures(none
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i8, ptr %6, i64 %10
+  %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -3508,115 +3404,114 @@ define internal range(i32 0, 2) i32 @p_ishost(ptr noundef readonly captures(none
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i8, ptr %18, align 8
+  %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %21 = and i8 %19, 1
-  store i8 %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %31, label %24
+  store i8 %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %30, label %23
 
-24:                                               ; preds = %1
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %23, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %29, ptr %30, align 8
-  br label %31
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %22, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %28, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %24, %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not22.i = icmp eq ptr %33, null
-  br i1 %.not22.i, label %TParserCopyInit.exit, label %34
+30:                                               ; preds = %23, %1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %.not22.i = icmp eq ptr %32, null
+  br i1 %.not22.i, label %TParserCopyInit.exit, label %33
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr i32, ptr %33, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %39, ptr %40, align 8
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %38, ptr %39, align 8
   br label %TParserCopyInit.exit
 
-TParserCopyInit.exit:                             ; preds = %31, %34
-  %41 = tail call ptr @palloc(i64 noundef 40) #16
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 40, i1 false)
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 49
-  store i8 1, ptr %44, align 1
+TParserCopyInit.exit:                             ; preds = %30, %33
+  %40 = tail call ptr @palloc(i64 noundef 40) #16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 49
+  store i8 1, ptr %43, align 1
   tail call void @check_stack_depth() #16
-  %45 = tail call fastcc zeroext i1 @TParserGet(ptr noundef nonnull %2)
-  br i1 %45, label %46, label %77
+  %44 = tail call fastcc zeroext i1 @TParserGet(ptr noundef nonnull %2)
+  br i1 %44, label %45, label %76
 
-46:                                               ; preds = %TParserCopyInit.exit
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %48, 6
-  br i1 %49, label %50, label %77
+45:                                               ; preds = %TParserCopyInit.exit
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp eq i32 %47, 6
+  br i1 %48, label %49, label %76
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = load i32, ptr %53, align 8
-  %55 = add i32 %54, %52
-  store i32 %55, ptr %53, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %57 = load i32, ptr %56, align 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = add i32 %60, %57
-  store i32 %61, ptr %59, align 4
-  %62 = load i32, ptr %51, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i32, ptr %64, align 4
-  %66 = add i32 %65, %62
-  store i32 %66, ptr %64, align 4
-  %67 = load i32, ptr %56, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load i32, ptr %69, align 8
-  %71 = add i32 %70, %67
-  store i32 %71, ptr %69, align 8
-  %72 = load ptr, ptr %42, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i32 %74, ptr %76, align 8
-  br label %77
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %51 = load i32, ptr %50, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %52, align 8
+  %54 = add i32 %53, %51
+  store i32 %54, ptr %52, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %56 = load i32, ptr %55, align 4
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, %56
+  store i32 %60, ptr %58, align 4
+  %61 = load i32, ptr %50, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %64 = load i32, ptr %63, align 4
+  %65 = add i32 %64, %61
+  store i32 %65, ptr %63, align 4
+  %66 = load i32, ptr %55, align 4
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load i32, ptr %68, align 8
+  %70 = add i32 %69, %66
+  store i32 %70, ptr %68, align 8
+  %71 = load ptr, ptr %41, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %73, ptr %75, align 8
+  br label %76
 
-77:                                               ; preds = %50, %46, %TParserCopyInit.exit
-  %.0 = phi i32 [ 1, %50 ], [ 0, %46 ], [ 0, %TParserCopyInit.exit ]
-  %78 = load ptr, ptr %42, align 8
-  %.not6.i = icmp eq ptr %78, null
+76:                                               ; preds = %49, %45, %TParserCopyInit.exit
+  %.0 = phi i32 [ 1, %49 ], [ 0, %45 ], [ 0, %TParserCopyInit.exit ]
+  %77 = load ptr, ptr %41, align 8
+  %.not6.i = icmp eq ptr %77, null
   br i1 %.not6.i, label %TParserCopyClose.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %77, %.lr.ph.i
-  %79 = phi ptr [ %81, %.lr.ph.i ], [ %78, %77 ]
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %81 = load ptr, ptr %80, align 8
-  tail call void @pfree(ptr noundef nonnull %79) #16
-  store ptr %81, ptr %42, align 8
-  %.not.i15 = icmp eq ptr %81, null
-  br i1 %.not.i15, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !32
+.lr.ph.i:                                         ; preds = %76, %.lr.ph.i
+  %78 = phi ptr [ %80, %.lr.ph.i ], [ %77, %76 ]
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %80 = load ptr, ptr %79, align 8
+  tail call void @pfree(ptr noundef nonnull %78) #16
+  store ptr %80, ptr %41, align 8
+  %.not.i15 = icmp eq ptr %80, null
+  br i1 %.not.i15, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !34
 
-TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %77
+TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %76
   tail call void @pfree(ptr noundef nonnull %2) #16
   ret i32 %.0
 }
 
-declare void @check_stack_depth() local_unnamed_addr #2
+declare void @check_stack_depth() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @p_isurlchar(ptr noundef readonly captures(none) %0) #1 {
@@ -3631,7 +3526,7 @@ define internal range(i32 0, 2) i32 @p_isurlchar(ptr noundef readonly captures(n
   %7 = load ptr, ptr %0, align 8
   %8 = load i32, ptr %3, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, -127
   %or.cond = icmp ult i8 %12, -94
@@ -3670,7 +3565,7 @@ define internal range(i32 0, 2) i32 @p_isURLPath(ptr noundef readonly captures(n
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i8, ptr %6, i64 %10
+  %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -3680,135 +3575,134 @@ define internal range(i32 0, 2) i32 @p_isURLPath(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i8, ptr %18, align 8
+  %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %21 = and i8 %19, 1
-  store i8 %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %31, label %24
+  store i8 %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %30, label %23
 
-24:                                               ; preds = %1
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %23, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %29, ptr %30, align 8
-  br label %31
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %22, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %28, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %24, %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not22.i = icmp eq ptr %33, null
-  br i1 %.not22.i, label %TParserCopyInit.exit, label %34
+30:                                               ; preds = %23, %1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %.not22.i = icmp eq ptr %32, null
+  br i1 %.not22.i, label %TParserCopyInit.exit, label %33
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr i32, ptr %33, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %39, ptr %40, align 8
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %38, ptr %39, align 8
   br label %TParserCopyInit.exit
 
-TParserCopyInit.exit:                             ; preds = %31, %34
-  %41 = tail call ptr @palloc(i64 noundef 40) #16
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 40, i1 false)
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  store i32 0, ptr %43, align 4
-  %44 = load ptr, ptr %42, align 8
-  %45 = tail call ptr @palloc(i64 noundef 40) #16
-  %.not.i17 = icmp eq ptr %44, null
-  br i1 %.not.i17, label %47, label %46
+TParserCopyInit.exit:                             ; preds = %30, %33
+  %40 = tail call ptr @palloc(i64 noundef 40) #16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 0, ptr %42, align 4
+  %43 = load ptr, ptr %41, align 8
+  %44 = tail call ptr @palloc(i64 noundef 40) #16
+  %.not.i17 = icmp eq ptr %43, null
+  br i1 %.not.i17, label %46, label %45
+
+45:                                               ; preds = %TParserCopyInit.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 24, i1 false)
+  br label %newTParserPosition.exit
 
 46:                                               ; preds = %TParserCopyInit.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 24, i1 false)
   br label %newTParserPosition.exit
 
-47:                                               ; preds = %TParserCopyInit.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 24, i1 false)
-  br label %newTParserPosition.exit
-
-newTParserPosition.exit:                          ; preds = %46, %47
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %44, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store ptr null, ptr %49, align 8
-  store ptr %45, ptr %42, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  store i32 57, ptr %50, align 4
+newTParserPosition.exit:                          ; preds = %45, %46
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %43, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store ptr null, ptr %48, align 8
+  store ptr %44, ptr %41, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  store i32 57, ptr %49, align 4
   tail call void @check_stack_depth() #16
-  %51 = tail call fastcc zeroext i1 @TParserGet(ptr noundef nonnull %2)
-  br i1 %51, label %52, label %83
+  %50 = tail call fastcc zeroext i1 @TParserGet(ptr noundef nonnull %2)
+  br i1 %50, label %51, label %82
 
-52:                                               ; preds = %newTParserPosition.exit
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 18
-  br i1 %55, label %56, label %83
+51:                                               ; preds = %newTParserPosition.exit
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 18
+  br i1 %54, label %55, label %82
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = load i32, ptr %59, align 8
-  %61 = add i32 %60, %58
-  store i32 %61, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %63 = load i32, ptr %62, align 4
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = add i32 %66, %63
-  store i32 %67, ptr %65, align 4
-  %68 = load i32, ptr %57, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %71 = load i32, ptr %70, align 4
-  %72 = add i32 %71, %68
-  store i32 %72, ptr %70, align 4
-  %73 = load i32, ptr %62, align 4
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i32, ptr %75, align 8
-  %77 = add i32 %76, %73
-  store i32 %77, ptr %75, align 8
-  %78 = load ptr, ptr %42, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i32 %80, ptr %82, align 8
-  br label %83
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %57 = load i32, ptr %56, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %58, align 8
+  %60 = add i32 %59, %57
+  store i32 %60, ptr %58, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %62 = load i32, ptr %61, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = add i32 %65, %62
+  store i32 %66, ptr %64, align 4
+  %67 = load i32, ptr %56, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %70 = load i32, ptr %69, align 4
+  %71 = add i32 %70, %67
+  store i32 %71, ptr %69, align 4
+  %72 = load i32, ptr %61, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, %72
+  store i32 %76, ptr %74, align 8
+  %77 = load ptr, ptr %41, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i32, ptr %78, align 8
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i32 %79, ptr %81, align 8
+  br label %82
 
-83:                                               ; preds = %56, %52, %newTParserPosition.exit
-  %.0 = phi i32 [ 1, %56 ], [ 0, %52 ], [ 0, %newTParserPosition.exit ]
-  %84 = load ptr, ptr %42, align 8
-  %.not6.i = icmp eq ptr %84, null
+82:                                               ; preds = %55, %51, %newTParserPosition.exit
+  %.0 = phi i32 [ 1, %55 ], [ 0, %51 ], [ 0, %newTParserPosition.exit ]
+  %83 = load ptr, ptr %41, align 8
+  %.not6.i = icmp eq ptr %83, null
   br i1 %.not6.i, label %TParserCopyClose.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %83, %.lr.ph.i
-  %85 = phi ptr [ %87, %.lr.ph.i ], [ %84, %83 ]
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %87 = load ptr, ptr %86, align 8
-  tail call void @pfree(ptr noundef nonnull %85) #16
-  store ptr %87, ptr %42, align 8
-  %.not.i18 = icmp eq ptr %87, null
-  br i1 %.not.i18, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !32
+.lr.ph.i:                                         ; preds = %82, %.lr.ph.i
+  %84 = phi ptr [ %86, %.lr.ph.i ], [ %83, %82 ]
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %86 = load ptr, ptr %85, align 8
+  tail call void @pfree(ptr noundef nonnull %84) #16
+  store ptr %86, ptr %41, align 8
+  %.not.i18 = icmp eq ptr %86, null
+  br i1 %.not.i18, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !34
 
-TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %83
+TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %82
   tail call void @pfree(ptr noundef nonnull %2) #16
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialFURL(ptr noundef captures(none) initializes((49, 50)) %0) #10 {
+define internal void @SpecialFURL(ptr noundef captures(none) initializes((49, 50)) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3829,7 +3723,7 @@ define internal void @SpecialFURL(ptr noundef captures(none) initializes((49, 50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialHyphen(ptr noundef readonly captures(none) %0) #10 {
+define internal void @SpecialHyphen(ptr noundef readonly captures(none) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3855,201 +3749,207 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = getelementptr i8, ptr %1, i64 8
-  br i1 %.not, label %.thread107, label %.lr.ph122.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %.not, label %.loopexit, label %.lr.ph172.lr.ph
 
-.lr.ph122.lr.ph:                                  ; preds = %6
+.lr.ph172.lr.ph:                                  ; preds = %6
   %13 = load i32, ptr %3, align 4
-  br label %.lr.ph122
+  br label %.lr.ph172
 
-.lr.ph122:                                        ; preds = %._crit_edge152.thread, %.lr.ph122.lr.ph
-  %.081195 = phi i32 [ %13, %.lr.ph122.lr.ph ], [ %82, %._crit_edge152.thread ]
+.lr.ph172:                                        ; preds = %.thread150, %.lr.ph172.lr.ph
+  %.0100249 = phi i32 [ %13, %.lr.ph172.lr.ph ], [ %79, %.thread150 ]
   %14 = load i32, ptr %8, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph132, label %.thread107
+  br i1 %15, label %.lr.ph183, label %.loopexit
 
-.lr.ph132:                                        ; preds = %.lr.ph122
+.lr.ph183:                                        ; preds = %.lr.ph172
   %16 = load ptr, ptr %9, align 8
+  %wide.trip.count214 = zext nneg i32 %14 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph132, %30
-  %.sroa.442.0120131 = phi i32 [ 0, %.lr.ph132 ], [ %31, %30 ]
-  %.084121130 = phi i32 [ -1, %.lr.ph132 ], [ %spec.select, %30 ]
-  %18 = zext nneg i32 %.sroa.442.0120131 to i64
-  %19 = getelementptr %union.ListCell, ptr %16, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %.thread107
+17:                                               ; preds = %.lr.ph183, %._crit_edge
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next212, %._crit_edge ]
+  %.0104170181 = phi i32 [ -1, %.lr.ph183 ], [ %spec.select, %._crit_edge ]
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv211
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %wide.trip.count = zext nneg i32 %21 to i64
-  br label %26
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %wide.trip.count = zext nneg i32 %20 to i64
+  br label %25
 
-25:                                               ; preds = %26
+24:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread107, label %26, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !35
 
-26:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %27 = getelementptr i16, ptr %24, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2
-  %29 = zext i16 %28 to i32
-  %.not102 = icmp sgt i32 %.081195, %29
-  br i1 %.not102, label %25, label %30
+25:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %26 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %27 = load i16, ptr %26, align 2
+  %28 = zext i16 %27 to i32
+  %.not127 = icmp sgt i32 %.0100249, %28
+  br i1 %.not127, label %24, label %._crit_edge
 
-30:                                               ; preds = %26
-  %spec.select = call i32 @llvm.smax.i32(i32 %.084121130, i32 %29)
-  %31 = add nuw nsw i32 %.sroa.442.0120131, 1
-  %exitcond163.not = icmp eq i32 %31, %14
-  br i1 %exitcond163.not, label %.lr.ph137, label %17
+._crit_edge:                                      ; preds = %25
+  %spec.select = call i32 @llvm.smax.i32(i32 %28, i32 %.0104170181)
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
+  br i1 %exitcond215.not, label %.lr.ph188, label %17
 
-.lr.ph137:                                        ; preds = %30
-  %32 = load i32, ptr %8, align 4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph146, label %._crit_edge138
+.lr.ph188:                                        ; preds = %._crit_edge
+  %29 = load i32, ptr %8, align 4
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph197, label %._crit_edge189
 
-.lr.ph146:                                        ; preds = %.lr.ph137
-  %34 = load ptr, ptr %9, align 8
-  %wide.trip.count171 = zext nneg i32 %32 to i64
-  br label %35
+.lr.ph197:                                        ; preds = %.lr.ph188
+  %31 = load ptr, ptr %9, align 8
+  %wide.trip.count223 = zext nneg i32 %29 to i64
+  br label %36
 
-35:                                               ; preds = %.lr.ph146, %53
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next168, %53 ]
-  %.082136144 = phi i32 [ 2147483646, %.lr.ph146 ], [ %spec.select103, %53 ]
-  %36 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv167
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %41 = zext i32 %38 to i64
-  br label %42
+._crit_edge189:                                   ; preds = %54, %.lr.ph188
+  %.0102.lcssa = phi i32 [ 2147483646, %.lr.ph188 ], [ %spec.select134, %54 ]
+  %32 = call i32 @llvm.smax.i32(i32 %.0102.lcssa, i32 %.0100249)
+  %.not129 = icmp sgt i32 %32, %spec.select
+  br i1 %.not129, label %.thread150, label %.preheader
 
-42:                                               ; preds = %45, %35
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %45 ], [ %41, %35 ]
-  %indvars.iv.next165 = add nsw i64 %indvars.iv164, -1
-  %43 = and i64 %indvars.iv.next165, 2147483648
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %53
+.preheader:                                       ; preds = %._crit_edge189
+  %33 = load i32, ptr %10, align 4
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph202, label %.thread150
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %39, align 8
-  %47 = and i64 %indvars.iv.next165, 2147483647
-  %48 = getelementptr i16, ptr %46, i64 %47
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = load i32, ptr %40, align 8
-  %52 = sub i32 %50, %51
-  %.not101 = icmp sgt i32 %52, %spec.select
-  br i1 %.not101, label %42, label %53, !llvm.loop !34
+.lr.ph202:                                        ; preds = %.preheader
+  %35 = load ptr, ptr %0, align 8
+  %wide.trip.count229 = zext nneg i32 %33 to i64
+  br label %55
 
-53:                                               ; preds = %45, %42
-  %.080 = phi i32 [ -1, %42 ], [ %52, %45 ]
-  %spec.select103 = call i32 @llvm.smin.i32(i32 %.080, i32 %.082136144)
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count171
-  br i1 %exitcond172.not, label %._crit_edge138, label %35
+36:                                               ; preds = %.lr.ph197, %54
+  %indvars.iv219 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next220, %54 ]
+  %.0102187195 = phi i32 [ 2147483646, %.lr.ph197 ], [ %spec.select134, %54 ]
+  %37 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv219
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %42 = zext i32 %39 to i64
+  br label %43
 
-._crit_edge138:                                   ; preds = %53, %.lr.ph137
-  %.082.lcssa = phi i32 [ 2147483646, %.lr.ph137 ], [ %spec.select103, %53 ]
-  %54 = call i32 @llvm.smax.i32(i32 %.082.lcssa, i32 %.081195)
-  %.not97 = icmp sgt i32 %54, %spec.select
-  br i1 %.not97, label %._crit_edge152.thread, label %.preheader
+43:                                               ; preds = %46, %36
+  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %46 ], [ %42, %36 ]
+  %indvars.iv.next217 = add nsw i64 %indvars.iv216, -1
+  %44 = and i64 %indvars.iv.next217, 2147483648
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %54
 
-.preheader:                                       ; preds = %._crit_edge138
-  %55 = load i32, ptr %10, align 4
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph151, label %._crit_edge152.thread
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %40, align 8
+  %48 = and i64 %indvars.iv.next217, 2147483647
+  %49 = getelementptr inbounds nuw i16, ptr %47, i64 %48
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i32
+  %52 = load i32, ptr %41, align 8
+  %53 = sub i32 %51, %52
+  %.not133 = icmp sgt i32 %53, %spec.select
+  br i1 %.not133, label %43, label %54, !llvm.loop !36
 
-.lr.ph151:                                        ; preds = %.preheader
-  %57 = load ptr, ptr %0, align 8
-  %wide.trip.count177 = zext nneg i32 %55 to i64
-  br label %58
+54:                                               ; preds = %43, %46
+  %.198 = phi i32 [ %53, %46 ], [ -1, %43 ]
+  %spec.select134 = call i32 @llvm.smin.i32(i32 %.198, i32 %.0102187195)
+  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
+  %exitcond224.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count223
+  br i1 %exitcond224.not, label %._crit_edge189, label %36
 
-58:                                               ; preds = %.lr.ph151, %71
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next174, %71 ]
-  %.075149 = phi i32 [ -1, %.lr.ph151 ], [ %.1, %71 ]
-  %.076148 = phi i32 [ -1, %.lr.ph151 ], [ %.2, %71 ]
-  %59 = getelementptr %struct.HeadlineWordEntry, ptr %57, i64 %indvars.iv173
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %71, label %63
+55:                                               ; preds = %.lr.ph202, %68
+  %indvars.iv225 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next226, %68 ]
+  %.089200 = phi i32 [ -1, %.lr.ph202 ], [ %.1, %68 ]
+  %.090199 = phi i32 [ -1, %.lr.ph202 ], [ %.2, %68 ]
+  %56 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %35, i64 %indvars.iv225
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %68, label %60
 
-63:                                               ; preds = %58
-  %64 = icmp slt i32 %.076148, 0
-  br i1 %64, label %65, label %._crit_edge
+60:                                               ; preds = %55
+  %61 = icmp slt i32 %.090199, 0
+  br i1 %61, label %62, label %._crit_edge231
 
-._crit_edge:                                      ; preds = %63
-  %.phi.trans.insert = getelementptr %struct.HeadlineWordEntry, ptr %57, i64 %indvars.iv173, i32 1
+._crit_edge231:                                   ; preds = %60
+  %.phi.trans.insert = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %35, i64 %indvars.iv225, i32 1
   %.pre = load i16, ptr %.phi.trans.insert, align 4
-  %.pre179 = zext i16 %.pre to i32
-  %.pre180 = trunc nuw nsw i64 %indvars.iv173 to i32
-  br label %70
+  %.pre232 = zext i16 %.pre to i32
+  %.pre233 = trunc nuw nsw i64 %indvars.iv225 to i32
+  br label %67
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %67 = load i16, ptr %66, align 4
-  %68 = zext i16 %67 to i32
-  %.not98 = icmp sgt i32 %54, %68
-  %69 = trunc nuw nsw i64 %indvars.iv173 to i32
-  %spec.select104 = select i1 %.not98, i32 %.076148, i32 %69
-  br label %70
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %64 = load i16, ptr %63, align 4
+  %65 = zext i16 %64 to i32
+  %.not130 = icmp sgt i32 %32, %65
+  %66 = trunc nuw nsw i64 %indvars.iv225 to i32
+  %spec.select135 = select i1 %.not130, i32 %.090199, i32 %66
+  br label %67
 
-70:                                               ; preds = %._crit_edge, %65
-  %.pre-phi181 = phi i32 [ %.pre180, %._crit_edge ], [ %69, %65 ]
-  %.pre-phi = phi i32 [ %.pre179, %._crit_edge ], [ %68, %65 ]
-  %.3 = phi i32 [ %.076148, %._crit_edge ], [ %spec.select104, %65 ]
-  %.not99 = icmp samesign ult i32 %spec.select, %.pre-phi
-  br i1 %.not99, label %._crit_edge152, label %71
+67:                                               ; preds = %._crit_edge231, %62
+  %.pre-phi234 = phi i32 [ %.pre233, %._crit_edge231 ], [ %66, %62 ]
+  %.pre-phi = phi i32 [ %.pre232, %._crit_edge231 ], [ %65, %62 ]
+  %.3 = phi i32 [ %.090199, %._crit_edge231 ], [ %spec.select135, %62 ]
+  %.not131 = icmp samesign ult i32 %spec.select, %.pre-phi
+  br i1 %.not131, label %._crit_edge203, label %68
 
-71:                                               ; preds = %70, %58
-  %.2 = phi i32 [ %.076148, %58 ], [ %.3, %70 ]
-  %.1 = phi i32 [ %.075149, %58 ], [ %.pre-phi181, %70 ]
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge152, label %58, !llvm.loop !35
+68:                                               ; preds = %67, %55
+  %.2 = phi i32 [ %.090199, %55 ], [ %.3, %67 ]
+  %.1 = phi i32 [ %.089200, %55 ], [ %.pre-phi234, %67 ]
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond230.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count229
+  br i1 %exitcond230.not, label %._crit_edge203, label %55, !llvm.loop !37
 
-._crit_edge152:                                   ; preds = %71, %70
-  %.075.lcssa = phi i32 [ %.1, %71 ], [ %.075149, %70 ]
-  %.177 = phi i32 [ %.2, %71 ], [ %.3, %70 ]
-  %72 = icmp slt i32 %.177, 0
-  %.not100 = icmp slt i32 %.075.lcssa, %.177
-  %or.cond = select i1 %72, i1 true, i1 %.not100
-  br i1 %or.cond, label %._crit_edge152.thread, label %73
+._crit_edge203:                                   ; preds = %68, %67
+  %.089.lcssa = phi i32 [ %.1, %68 ], [ %.089200, %67 ]
+  %.191 = phi i32 [ %.2, %68 ], [ %.3, %67 ]
+  %69 = icmp slt i32 %.191, 0
+  %.not132 = icmp slt i32 %.089.lcssa, %.191
+  %or.cond = select i1 %69, i1 true, i1 %.not132
+  br i1 %or.cond, label %.thread150, label %70
 
-73:                                               ; preds = %._crit_edge152
-  %74 = load ptr, ptr %0, align 8
-  %75 = zext nneg i32 %.177 to i64
-  %76 = getelementptr %struct.HeadlineWordEntry, ptr %74, i64 %75
-  store ptr %76, ptr %7, align 8
-  %77 = add i32 %.075.lcssa, 1
-  %78 = sub i32 %77, %.177
-  store i32 %78, ptr %11, align 8
-  %79 = call zeroext i1 @TS_execute(ptr noundef %12, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #16
-  br i1 %79, label %80, label %._crit_edge152.thread
+70:                                               ; preds = %._crit_edge203
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  %71 = load ptr, ptr %0, align 8
+  %72 = zext nneg i32 %.191 to i64
+  %73 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %71, i64 %72
+  store ptr %73, ptr %7, align 8
+  %74 = add i32 %.089.lcssa, 1
+  %75 = sub i32 %74, %.191
+  store i32 %75, ptr %11, align 8
+  %76 = call zeroext i1 @TS_execute(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #16
+  br i1 %76, label %77, label %.thread153
 
-80:                                               ; preds = %73
-  %81 = add nsw i32 %54, 1
-  store i32 %81, ptr %3, align 4
-  store i32 %.177, ptr %4, align 4
-  store i32 %.075.lcssa, ptr %5, align 4
-  br label %.thread107
+.thread153:                                       ; preds = %70
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  br label %.thread150
 
-._crit_edge152.thread:                            ; preds = %.preheader, %._crit_edge152, %73, %._crit_edge138
-  %82 = add i32 %54, 1
-  br label %.lr.ph122
+77:                                               ; preds = %70
+  %78 = add nsw i32 %32, 1
+  store i32 %78, ptr %3, align 4
+  store i32 %.191, ptr %4, align 4
+  store i32 %.089.lcssa, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  br label %.loopexit
 
-.thread107:                                       ; preds = %.lr.ph122, %17, %25, %6, %80
-  %.078 = phi i1 [ true, %80 ], [ false, %6 ], [ false, %25 ], [ false, %17 ], [ false, %.lr.ph122 ]
-  ret i1 %.078
+.thread150:                                       ; preds = %.preheader, %._crit_edge203, %._crit_edge189, %.thread153
+  %79 = add i32 %32, 1
+  br label %.lr.ph172
+
+.loopexit:                                        ; preds = %.lr.ph172, %17, %24, %6, %77
+  %.4.ph = phi i1 [ true, %77 ], [ false, %6 ], [ false, %24 ], [ false, %17 ], [ false, %.lr.ph172 ]
+  ret i1 %.4.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #12 {
+define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #13 {
   %.not41 = icmp sgt i32 %2, %3
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
@@ -4060,7 +3960,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   %.042.us = phi i32 [ %29, %20 ], [ %2, %.lr.ph ]
   %5 = load ptr, ptr %0, align 8
   %6 = sext i32 %.042.us to i64
-  %7 = getelementptr %struct.HeadlineWordEntry, ptr %5, i64 %6
+  %7 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not38.us = icmp eq ptr %9, null
@@ -4075,7 +3975,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
 
 13:                                               ; preds = %10, %.lr.ph.split.us
   %14 = phi ptr [ %.pre44, %10 ], [ %5, %.lr.ph.split.us ]
-  %15 = getelementptr %struct.HeadlineWordEntry, ptr %14, i64 %6
+  %15 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %14, i64 %6
   %16 = load i32, ptr %15, align 8
   %17 = lshr i32 %16, 8
   %trunc40.us = trunc i32 %17 to i8
@@ -4090,14 +3990,14 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   %19 = or i32 %16, 16
   store i32 %19, ptr %15, align 8
   %.pre45 = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr %struct.HeadlineWordEntry, ptr %.pre45, i64 %6
+  %.phi.trans.insert = getelementptr inbounds %struct.HeadlineWordEntry, ptr %.pre45, i64 %6
   %.pre46 = load i32, ptr %.phi.trans.insert, align 8
   br label %20
 
 20:                                               ; preds = %18, %13
   %21 = phi i32 [ %.pre46, %18 ], [ %16, %13 ]
   %22 = phi ptr [ %.pre45, %18 ], [ %14, %13 ]
-  %23 = getelementptr %struct.HeadlineWordEntry, ptr %22, i64 %6
+  %23 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %22, i64 %6
   %24 = lshr i32 %21, 2
   %25 = and i32 %24, 2
   %26 = and i32 %21, -3
@@ -4106,13 +4006,13 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   store i32 %28, ptr %23, align 8
   %29 = add i32 %.042.us, 1
   %.not.us = icmp sgt i32 %29, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %.042 = phi i32 [ %54, %45 ], [ %2, %.lr.ph ]
   %30 = load ptr, ptr %0, align 8
   %31 = sext i32 %.042 to i64
-  %32 = getelementptr %struct.HeadlineWordEntry, ptr %30, i64 %31
+  %32 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not38 = icmp eq ptr %34, null
@@ -4127,7 +4027,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
 
 38:                                               ; preds = %35, %.lr.ph.split
   %39 = phi ptr [ %.pre, %35 ], [ %30, %.lr.ph.split ]
-  %40 = getelementptr %struct.HeadlineWordEntry, ptr %39, i64 %31
+  %40 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %39, i64 %31
   %41 = load i32, ptr %40, align 8
   %42 = lshr i32 %41, 8
   %trunc = trunc i32 %42 to i8
@@ -4150,7 +4050,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
 
 45:                                               ; preds = %.sink.split, %38
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr %struct.HeadlineWordEntry, ptr %46, i64 %31
+  %47 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %46, i64 %31
   %48 = load i32, ptr %47, align 8
   %49 = lshr i32 %48, 2
   %50 = and i32 %49, 2
@@ -4160,88 +4060,84 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   store i32 %53, ptr %47, align 8
   %54 = add i32 %.042, 1
   %.not = icmp sgt i32 %54, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %45, %20, %4
   ret void
 }
 
-declare zeroext i1 @TS_execute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @TS_execute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }
 attributes #18 = { cold nounwind }
 attributes #19 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}

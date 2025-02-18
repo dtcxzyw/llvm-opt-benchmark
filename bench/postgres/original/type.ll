@@ -6,143 +6,91 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ECPGstruct_member = type { ptr, ptr, ptr }
 %struct.variable = type { ptr, ptr, i32, ptr }
 
-@.str = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
-@.str.1 = private unnamed_addr constant [2 x i8] c"1\00", align 1
-@.str.2 = private unnamed_addr constant [64 x i8] c"variable \22%s\22 is hidden by a local variable of a different type\00", align 1
-@.str.3 = private unnamed_addr constant [44 x i8] c"variable \22%s\22 is hidden by a local variable\00", align 1
-@.str.4 = private unnamed_addr constant [74 x i8] c"indicator variable \22%s\22 is hidden by a local variable of a different type\00", align 1
-@.str.5 = private unnamed_addr constant [54 x i8] c"indicator variable \22%s\22 is hidden by a local variable\00", align 1
-@.str.6 = private unnamed_addr constant [52 x i8] c"indicator for array/pointer has to be array/pointer\00", align 1
-@.str.7 = private unnamed_addr constant [49 x i8] c"nested arrays are not supported (except strings)\00", align 1
-@.str.8 = private unnamed_addr constant [90 x i8] c"internal error: unknown datatype, please report this to <pgsql-bugs@lists.postgresql.org>\00", align 1
-@.str.9 = private unnamed_addr constant [3 x i8] c"-1\00", align 1
-@.str.10 = private unnamed_addr constant [40 x i8] c"indicator for struct has to be a struct\00", align 1
-@.str.11 = private unnamed_addr constant [34 x i8] c"type of union has to be specified\00", align 1
-@.str.12 = private unnamed_addr constant [48 x i8] c"indicator for simple data type has to be simple\00", align 1
-@.str.13 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@.str.14 = private unnamed_addr constant [46 x i8] c"internal error: found multidimensional array\0A\00", align 1
-@.str.15 = private unnamed_addr constant [35 x i8] c"unrecognized variable type code %d\00", align 1
-@.str.16 = private unnamed_addr constant [12 x i8] c"ECPGd_count\00", align 1
-@.str.17 = private unnamed_addr constant [11 x i8] c"ECPGd_data\00", align 1
-@.str.18 = private unnamed_addr constant [14 x i8] c"ECPGd_di_code\00", align 1
-@.str.19 = private unnamed_addr constant [19 x i8] c"ECPGd_di_precision\00", align 1
-@.str.20 = private unnamed_addr constant [16 x i8] c"ECPGd_indicator\00", align 1
-@.str.21 = private unnamed_addr constant [17 x i8] c"ECPGd_key_member\00", align 1
-@.str.22 = private unnamed_addr constant [13 x i8] c"ECPGd_length\00", align 1
-@.str.23 = private unnamed_addr constant [11 x i8] c"ECPGd_name\00", align 1
-@.str.24 = private unnamed_addr constant [15 x i8] c"ECPGd_nullable\00", align 1
-@.str.25 = private unnamed_addr constant [12 x i8] c"ECPGd_octet\00", align 1
-@.str.26 = private unnamed_addr constant [16 x i8] c"ECPGd_precision\00", align 1
-@.str.27 = private unnamed_addr constant [17 x i8] c"ECPGd_ret_length\00", align 1
-@.str.28 = private unnamed_addr constant [16 x i8] c"ECPGd_ret_octet\00", align 1
-@.str.29 = private unnamed_addr constant [12 x i8] c"ECPGd_scale\00", align 1
-@.str.30 = private unnamed_addr constant [11 x i8] c"ECPGd_type\00", align 1
-@.str.31 = private unnamed_addr constant [18 x i8] c"ECPGd_cardinality\00", align 1
-@.str.32 = private unnamed_addr constant [37 x i8] c"unrecognized descriptor item code %d\00", align 1
-@.str.33 = private unnamed_addr constant [42 x i8] c"\0A\09ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, \00", align 1
-@.str.34 = private unnamed_addr constant [37 x i8] c"\0A\09ECPGt_descriptor, %s, 1L, 1L, 1L, \00", align 1
-@.str.35 = private unnamed_addr constant [33 x i8] c"\0A\09ECPGt_sqlda, &%s, 0L, 0L, 0L, \00", align 1
-@.str.36 = private unnamed_addr constant [7 x i8] c"(%s%s)\00", align 1
-@.str.37 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.38 = private unnamed_addr constant [8 x i8] c"&(%s%s)\00", align 1
-@.str.39 = private unnamed_addr constant [15 x i8] c"struct varchar\00", align 1
-@.str.40 = private unnamed_addr constant [13 x i8] c"struct bytea\00", align 1
-@.str.41 = private unnamed_addr constant [14 x i8] c"sizeof(%s_%d)\00", align 1
-@.str.42 = private unnamed_addr constant [11 x i8] c"sizeof(%s)\00", align 1
-@.str.43 = private unnamed_addr constant [5 x i8] c"char\00", align 1
-@.str.44 = private unnamed_addr constant [7 x i8] c"char *\00", align 1
-@.str.45 = private unnamed_addr constant [16 x i8] c"(%s)*sizeof(%s)\00", align 1
-@.str.46 = private unnamed_addr constant [16 x i8] c"sizeof(numeric)\00", align 1
-@.str.47 = private unnamed_addr constant [17 x i8] c"sizeof(interval)\00", align 1
-@.str.48 = private unnamed_addr constant [13 x i8] c"sizeof(date)\00", align 1
-@.str.49 = private unnamed_addr constant [18 x i8] c"sizeof(timestamp)\00", align 1
-@.str.50 = private unnamed_addr constant [5 x i8] c"\22%s\22\00", align 1
-@.str.51 = private unnamed_addr constant [13 x i8] c"strlen(\22%s\22)\00", align 1
-@.str.52 = private unnamed_addr constant [31 x i8] c"\0A\09%s,%s,(long)%s,(long)%s,%s, \00", align 1
-@.str.53 = private unnamed_addr constant [11 x i8] c"ECPGt_char\00", align 1
-@.str.54 = private unnamed_addr constant [20 x i8] c"ECPGt_unsigned_char\00", align 1
-@.str.55 = private unnamed_addr constant [12 x i8] c"ECPGt_short\00", align 1
-@.str.56 = private unnamed_addr constant [21 x i8] c"ECPGt_unsigned_short\00", align 1
-@.str.57 = private unnamed_addr constant [10 x i8] c"ECPGt_int\00", align 1
-@.str.58 = private unnamed_addr constant [19 x i8] c"ECPGt_unsigned_int\00", align 1
-@.str.59 = private unnamed_addr constant [11 x i8] c"ECPGt_long\00", align 1
-@.str.60 = private unnamed_addr constant [20 x i8] c"ECPGt_unsigned_long\00", align 1
-@.str.61 = private unnamed_addr constant [16 x i8] c"ECPGt_long_long\00", align 1
-@.str.62 = private unnamed_addr constant [25 x i8] c"ECPGt_unsigned_long_long\00", align 1
-@.str.63 = private unnamed_addr constant [12 x i8] c"ECPGt_float\00", align 1
-@.str.64 = private unnamed_addr constant [13 x i8] c"ECPGt_double\00", align 1
-@.str.65 = private unnamed_addr constant [11 x i8] c"ECPGt_bool\00", align 1
-@.str.66 = private unnamed_addr constant [14 x i8] c"ECPGt_varchar\00", align 1
-@.str.67 = private unnamed_addr constant [12 x i8] c"ECPGt_bytea\00", align 1
-@.str.68 = private unnamed_addr constant [19 x i8] c"ECPGt_NO_INDICATOR\00", align 1
-@.str.69 = private unnamed_addr constant [20 x i8] c"ECPGt_char_variable\00", align 1
-@.str.70 = private unnamed_addr constant [12 x i8] c"ECPGt_const\00", align 1
-@.str.71 = private unnamed_addr constant [14 x i8] c"ECPGt_decimal\00", align 1
-@.str.72 = private unnamed_addr constant [14 x i8] c"ECPGt_numeric\00", align 1
-@.str.73 = private unnamed_addr constant [15 x i8] c"ECPGt_interval\00", align 1
-@.str.74 = private unnamed_addr constant [17 x i8] c"ECPGt_descriptor\00", align 1
-@.str.75 = private unnamed_addr constant [12 x i8] c"ECPGt_sqlda\00", align 1
-@.str.76 = private unnamed_addr constant [11 x i8] c"ECPGt_date\00", align 1
-@.str.77 = private unnamed_addr constant [16 x i8] c"ECPGt_timestamp\00", align 1
-@.str.78 = private unnamed_addr constant [13 x i8] c"ECPGt_string\00", align 1
-@.str.79 = private unnamed_addr constant [6 x i8] c"%s%s.\00", align 1
-@.str.80 = private unnamed_addr constant [7 x i8] c"%s%s->\00", align 1
+@.str = private unnamed_addr constant [2 x i8] c"1\00", align 1
+@.str.1 = private unnamed_addr constant [64 x i8] c"variable \22%s\22 is hidden by a local variable of a different type\00", align 1
+@.str.2 = private unnamed_addr constant [44 x i8] c"variable \22%s\22 is hidden by a local variable\00", align 1
+@.str.3 = private unnamed_addr constant [74 x i8] c"indicator variable \22%s\22 is hidden by a local variable of a different type\00", align 1
+@.str.4 = private unnamed_addr constant [54 x i8] c"indicator variable \22%s\22 is hidden by a local variable\00", align 1
+@.str.5 = private unnamed_addr constant [52 x i8] c"indicator for array/pointer has to be array/pointer\00", align 1
+@.str.6 = private unnamed_addr constant [49 x i8] c"nested arrays are not supported (except strings)\00", align 1
+@.str.7 = private unnamed_addr constant [90 x i8] c"internal error: unknown datatype, please report this to <pgsql-bugs@lists.postgresql.org>\00", align 1
+@.str.8 = private unnamed_addr constant [3 x i8] c"-1\00", align 1
+@.str.9 = private unnamed_addr constant [40 x i8] c"indicator for struct has to be a struct\00", align 1
+@.str.10 = private unnamed_addr constant [34 x i8] c"type of union has to be specified\00", align 1
+@.str.11 = private unnamed_addr constant [48 x i8] c"indicator for simple data type has to be simple\00", align 1
+@.str.12 = private unnamed_addr constant [2 x i8] c"0\00", align 1
+@.str.13 = private unnamed_addr constant [46 x i8] c"internal error: found multidimensional array\0A\00", align 1
+@.str.14 = private unnamed_addr constant [35 x i8] c"unrecognized variable type code %d\00", align 1
+@.str.15 = private unnamed_addr constant [12 x i8] c"ECPGd_count\00", align 1
+@.str.16 = private unnamed_addr constant [11 x i8] c"ECPGd_data\00", align 1
+@.str.17 = private unnamed_addr constant [14 x i8] c"ECPGd_di_code\00", align 1
+@.str.18 = private unnamed_addr constant [19 x i8] c"ECPGd_di_precision\00", align 1
+@.str.19 = private unnamed_addr constant [16 x i8] c"ECPGd_indicator\00", align 1
+@.str.20 = private unnamed_addr constant [17 x i8] c"ECPGd_key_member\00", align 1
+@.str.21 = private unnamed_addr constant [13 x i8] c"ECPGd_length\00", align 1
+@.str.22 = private unnamed_addr constant [11 x i8] c"ECPGd_name\00", align 1
+@.str.23 = private unnamed_addr constant [15 x i8] c"ECPGd_nullable\00", align 1
+@.str.24 = private unnamed_addr constant [12 x i8] c"ECPGd_octet\00", align 1
+@.str.25 = private unnamed_addr constant [16 x i8] c"ECPGd_precision\00", align 1
+@.str.26 = private unnamed_addr constant [17 x i8] c"ECPGd_ret_length\00", align 1
+@.str.27 = private unnamed_addr constant [16 x i8] c"ECPGd_ret_octet\00", align 1
+@.str.28 = private unnamed_addr constant [12 x i8] c"ECPGd_scale\00", align 1
+@.str.29 = private unnamed_addr constant [11 x i8] c"ECPGd_type\00", align 1
+@.str.30 = private unnamed_addr constant [18 x i8] c"ECPGd_cardinality\00", align 1
+@.str.31 = private unnamed_addr constant [37 x i8] c"unrecognized descriptor item code %d\00", align 1
+@.str.32 = private unnamed_addr constant [42 x i8] c"\0A\09ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, \00", align 1
+@.str.33 = private unnamed_addr constant [37 x i8] c"\0A\09ECPGt_descriptor, %s, 1L, 1L, 1L, \00", align 1
+@.str.34 = private unnamed_addr constant [33 x i8] c"\0A\09ECPGt_sqlda, &%s, 0L, 0L, 0L, \00", align 1
+@.str.35 = private unnamed_addr constant [7 x i8] c"(%s%s)\00", align 1
+@.str.36 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.37 = private unnamed_addr constant [8 x i8] c"&(%s%s)\00", align 1
+@.str.38 = private unnamed_addr constant [15 x i8] c"struct varchar\00", align 1
+@.str.39 = private unnamed_addr constant [13 x i8] c"struct bytea\00", align 1
+@.str.40 = private unnamed_addr constant [14 x i8] c"sizeof(%s_%d)\00", align 1
+@.str.41 = private unnamed_addr constant [11 x i8] c"sizeof(%s)\00", align 1
+@.str.42 = private unnamed_addr constant [5 x i8] c"char\00", align 1
+@.str.43 = private unnamed_addr constant [7 x i8] c"char *\00", align 1
+@.str.44 = private unnamed_addr constant [16 x i8] c"(%s)*sizeof(%s)\00", align 1
+@.str.45 = private unnamed_addr constant [16 x i8] c"sizeof(numeric)\00", align 1
+@.str.46 = private unnamed_addr constant [17 x i8] c"sizeof(interval)\00", align 1
+@.str.47 = private unnamed_addr constant [13 x i8] c"sizeof(date)\00", align 1
+@.str.48 = private unnamed_addr constant [18 x i8] c"sizeof(timestamp)\00", align 1
+@.str.49 = private unnamed_addr constant [5 x i8] c"\22%s\22\00", align 1
+@.str.50 = private unnamed_addr constant [13 x i8] c"strlen(\22%s\22)\00", align 1
+@.str.51 = private unnamed_addr constant [31 x i8] c"\0A\09%s,%s,(long)%s,(long)%s,%s, \00", align 1
+@.str.52 = private unnamed_addr constant [11 x i8] c"ECPGt_char\00", align 1
+@.str.53 = private unnamed_addr constant [20 x i8] c"ECPGt_unsigned_char\00", align 1
+@.str.54 = private unnamed_addr constant [12 x i8] c"ECPGt_short\00", align 1
+@.str.55 = private unnamed_addr constant [21 x i8] c"ECPGt_unsigned_short\00", align 1
+@.str.56 = private unnamed_addr constant [10 x i8] c"ECPGt_int\00", align 1
+@.str.57 = private unnamed_addr constant [19 x i8] c"ECPGt_unsigned_int\00", align 1
+@.str.58 = private unnamed_addr constant [11 x i8] c"ECPGt_long\00", align 1
+@.str.59 = private unnamed_addr constant [20 x i8] c"ECPGt_unsigned_long\00", align 1
+@.str.60 = private unnamed_addr constant [16 x i8] c"ECPGt_long_long\00", align 1
+@.str.61 = private unnamed_addr constant [25 x i8] c"ECPGt_unsigned_long_long\00", align 1
+@.str.62 = private unnamed_addr constant [12 x i8] c"ECPGt_float\00", align 1
+@.str.63 = private unnamed_addr constant [13 x i8] c"ECPGt_double\00", align 1
+@.str.64 = private unnamed_addr constant [11 x i8] c"ECPGt_bool\00", align 1
+@.str.65 = private unnamed_addr constant [14 x i8] c"ECPGt_varchar\00", align 1
+@.str.66 = private unnamed_addr constant [12 x i8] c"ECPGt_bytea\00", align 1
+@.str.67 = private unnamed_addr constant [19 x i8] c"ECPGt_NO_INDICATOR\00", align 1
+@.str.68 = private unnamed_addr constant [20 x i8] c"ECPGt_char_variable\00", align 1
+@.str.69 = private unnamed_addr constant [12 x i8] c"ECPGt_const\00", align 1
+@.str.70 = private unnamed_addr constant [14 x i8] c"ECPGt_decimal\00", align 1
+@.str.71 = private unnamed_addr constant [14 x i8] c"ECPGt_numeric\00", align 1
+@.str.72 = private unnamed_addr constant [15 x i8] c"ECPGt_interval\00", align 1
+@.str.73 = private unnamed_addr constant [17 x i8] c"ECPGt_descriptor\00", align 1
+@.str.74 = private unnamed_addr constant [12 x i8] c"ECPGt_sqlda\00", align 1
+@.str.75 = private unnamed_addr constant [11 x i8] c"ECPGt_date\00", align 1
+@.str.76 = private unnamed_addr constant [16 x i8] c"ECPGt_timestamp\00", align 1
+@.str.77 = private unnamed_addr constant [13 x i8] c"ECPGt_string\00", align 1
+@.str.78 = private unnamed_addr constant [6 x i8] c"%s%s.\00", align 1
+@.str.79 = private unnamed_addr constant [7 x i8] c"%s%s->\00", align 1
 @ecpg_no_indicator = external global %struct.ECPGtype, align 8
-@struct_no_indicator = internal global %struct.ECPGstruct_member { ptr @.str.83, ptr @ecpg_no_indicator, ptr null }, align 8
-@.str.81 = private unnamed_addr constant [42 x i8] c"indicator struct \22%s\22 has too few members\00", align 1
-@.str.82 = private unnamed_addr constant [43 x i8] c"indicator struct \22%s\22 has too many members\00", align 1
-@.str.83 = private unnamed_addr constant [13 x i8] c"no_indicator\00", align 1
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @mm_alloc(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call noalias ptr @malloc(i64 noundef %4) #6
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef @.str) #7
-  unreachable
-
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  ret ptr %10
-}
-
-; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
-
-; Function Attrs: noreturn
-declare void @mmfatal(i32 noundef, ptr noundef, ...) #2
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @mm_strdup(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call noalias ptr @strdup(ptr noundef %4) #8
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef @.str) #7
-  unreachable
-
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  ret ptr %10
-}
-
-; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #3
+@struct_no_indicator = internal global %struct.ECPGstruct_member { ptr @.str.82, ptr @ecpg_no_indicator, ptr null }, align 8
+@.str.80 = private unnamed_addr constant [42 x i8] c"indicator struct \22%s\22 has too few members\00", align 1
+@.str.81 = private unnamed_addr constant [43 x i8] c"indicator struct \22%s\22 has too many members\00", align 1
+@.str.82 = private unnamed_addr constant [13 x i8] c"no_indicator\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
@@ -150,6 +98,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   store ptr null, ptr %3, align 8
   br label %5
 
@@ -159,10 +108,11 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
   br i1 %7, label %8, label %139
 
 8:                                                ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.ECPGstruct_member, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.ECPGtype, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.ECPGtype, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %114 [
     i32 22, label %14
@@ -172,24 +122,24 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
 
 14:                                               ; preds = %8, %8
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.ECPGtype, ptr %17, i32 0, i32 4
+  %18 = getelementptr inbounds nuw %struct.ECPGtype, ptr %17, i32 0, i32 4
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.ECPGstruct_member, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.ECPGtype, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.ECPGtype, ptr %22, i32 0, i32 0
   %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.ECPGstruct_member, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.ECPGtype, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.ECPGtype, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.ECPGstruct_member, ptr %30, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %30, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.ECPGtype, ptr %32, i32 0, i32 3
+  %33 = getelementptr inbounds nuw %struct.ECPGtype, ptr %32, i32 0, i32 3
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @ECPGmake_struct_type(ptr noundef %19, i32 noundef %24, ptr noundef %29, ptr noundef %34)
   store ptr %35, ptr %4, align 8
@@ -197,54 +147,54 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
 
 36:                                               ; preds = %8
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.ECPGstruct_member, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.ECPGtype, ptr %39, i32 0, i32 4
+  %40 = getelementptr inbounds nuw %struct.ECPGtype, ptr %39, i32 0, i32 4
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.ECPGtype, ptr %41, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.ECPGtype, ptr %41, i32 0, i32 0
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 22
   br i1 %44, label %54, label %45
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.ECPGstruct_member, ptr %46, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %46, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.ECPGtype, ptr %48, i32 0, i32 4
+  %49 = getelementptr inbounds nuw %struct.ECPGtype, ptr %48, i32 0, i32 4
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.ECPGtype, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.ECPGtype, ptr %50, i32 0, i32 0
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 23
   br i1 %53, label %54, label %84
 
 54:                                               ; preds = %45, %36
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.ECPGstruct_member, ptr %55, i32 0, i32 1
+  %56 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %55, i32 0, i32 1
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.ECPGtype, ptr %57, i32 0, i32 4
+  %58 = getelementptr inbounds nuw %struct.ECPGtype, ptr %57, i32 0, i32 4
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.ECPGtype, ptr %59, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct.ECPGtype, ptr %59, i32 0, i32 4
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.ECPGstruct_member, ptr %62, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %62, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.ECPGtype, ptr %64, i32 0, i32 4
+  %65 = getelementptr inbounds nuw %struct.ECPGtype, ptr %64, i32 0, i32 4
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.ECPGtype, ptr %66, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct.ECPGtype, ptr %66, i32 0, i32 0
   %68 = load i32, ptr %67, align 8
   %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds %struct.ECPGstruct_member, ptr %69, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %69, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.ECPGtype, ptr %71, i32 0, i32 4
+  %72 = getelementptr inbounds nuw %struct.ECPGtype, ptr %71, i32 0, i32 4
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.ECPGtype, ptr %73, i32 0, i32 1
+  %74 = getelementptr inbounds nuw %struct.ECPGtype, ptr %73, i32 0, i32 1
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.ECPGstruct_member, ptr %76, i32 0, i32 1
+  %77 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %76, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.ECPGtype, ptr %78, i32 0, i32 4
+  %79 = getelementptr inbounds nuw %struct.ECPGtype, ptr %78, i32 0, i32 4
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.ECPGtype, ptr %80, i32 0, i32 3
+  %81 = getelementptr inbounds nuw %struct.ECPGtype, ptr %80, i32 0, i32 3
   %82 = load ptr, ptr %81, align 8
   %83 = call ptr @ECPGmake_struct_type(ptr noundef %61, i32 noundef %68, ptr noundef %75, ptr noundef %82)
   store ptr %83, ptr %4, align 8
@@ -252,31 +202,31 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
 
 84:                                               ; preds = %45
   %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.ECPGstruct_member, ptr %85, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %85, i32 0, i32 1
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.ECPGtype, ptr %87, i32 0, i32 4
+  %88 = getelementptr inbounds nuw %struct.ECPGtype, ptr %87, i32 0, i32 4
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.ECPGtype, ptr %89, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.ECPGtype, ptr %89, i32 0, i32 0
   %91 = load i32, ptr %90, align 8
   %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.ECPGstruct_member, ptr %92, i32 0, i32 1
+  %93 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %92, i32 0, i32 1
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct.ECPGtype, ptr %94, i32 0, i32 4
+  %95 = getelementptr inbounds nuw %struct.ECPGtype, ptr %94, i32 0, i32 4
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.ECPGtype, ptr %96, i32 0, i32 2
+  %97 = getelementptr inbounds nuw %struct.ECPGtype, ptr %96, i32 0, i32 2
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.ECPGstruct_member, ptr %99, i32 0, i32 1
+  %100 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %99, i32 0, i32 1
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.ECPGtype, ptr %101, i32 0, i32 4
+  %102 = getelementptr inbounds nuw %struct.ECPGtype, ptr %101, i32 0, i32 4
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.ECPGtype, ptr %103, i32 0, i32 5
+  %104 = getelementptr inbounds nuw %struct.ECPGtype, ptr %103, i32 0, i32 5
   %105 = load i32, ptr %104, align 8
   %106 = call ptr @ECPGmake_simple_type(i32 noundef %91, ptr noundef %98, i32 noundef %105)
   %107 = load ptr, ptr %2, align 8
-  %108 = getelementptr inbounds %struct.ECPGstruct_member, ptr %107, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %107, i32 0, i32 1
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.ECPGtype, ptr %109, i32 0, i32 2
+  %110 = getelementptr inbounds nuw %struct.ECPGtype, ptr %109, i32 0, i32 2
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr @ECPGmake_array_type(ptr noundef %106, ptr noundef %111)
   store ptr %112, ptr %4, align 8
@@ -287,19 +237,19 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
 
 114:                                              ; preds = %8
   %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds %struct.ECPGstruct_member, ptr %115, i32 0, i32 1
+  %116 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %115, i32 0, i32 1
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.ECPGtype, ptr %117, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.ECPGtype, ptr %117, i32 0, i32 0
   %119 = load i32, ptr %118, align 8
   %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds %struct.ECPGstruct_member, ptr %120, i32 0, i32 1
+  %121 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %120, i32 0, i32 1
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.ECPGtype, ptr %122, i32 0, i32 2
+  %123 = getelementptr inbounds nuw %struct.ECPGtype, ptr %122, i32 0, i32 2
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds %struct.ECPGstruct_member, ptr %125, i32 0, i32 1
+  %126 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %125, i32 0, i32 1
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.ECPGtype, ptr %127, i32 0, i32 5
+  %128 = getelementptr inbounds nuw %struct.ECPGtype, ptr %127, i32 0, i32 5
   %129 = load i32, ptr %128, align 8
   %130 = call ptr @ECPGmake_simple_type(i32 noundef %119, ptr noundef %124, i32 noundef %129)
   store ptr %130, ptr %4, align 8
@@ -307,20 +257,25 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef %0) #0 {
 
 131:                                              ; preds = %114, %113, %14
   %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds %struct.ECPGstruct_member, ptr %132, i32 0, i32 0
+  %133 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %132, i32 0, i32 0
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %4, align 8
   call void @ECPGmake_struct_member(ptr noundef %134, ptr noundef %135, ptr noundef %3)
   %136 = load ptr, ptr %2, align 8
-  %137 = getelementptr inbounds %struct.ECPGstruct_member, ptr %136, i32 0, i32 2
+  %137 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %136, i32 0, i32 2
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %2, align 8
-  br label %5, !llvm.loop !5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %5, !llvm.loop !4
 
 139:                                              ; preds = %5
   %140 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %140
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -333,25 +288,27 @@ define dso_local ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr n
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %10 = load i32, ptr %6, align 4
-  %11 = call ptr @mm_strdup(ptr noundef @.str.1)
-  %12 = call ptr @ECPGmake_simple_type(i32 noundef %10, ptr noundef %11, i32 noundef 0)
-  store ptr %12, ptr %9, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = call ptr @mm_strdup(ptr noundef %13)
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds %struct.ECPGtype, ptr %15, i32 0, i32 1
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @ECPGstruct_member_dup(ptr noundef %17)
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.ECPGtype, ptr %19, i32 0, i32 4
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %8, align 8
+  %11 = call ptr @ECPGmake_simple_type(i32 noundef %10, ptr noundef @.str, i32 noundef 0)
+  store ptr %11, ptr %9, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = call ptr @mm_strdup(ptr noundef %12)
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds nuw %struct.ECPGtype, ptr %14, i32 0, i32 1
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = call ptr @ECPGstruct_member_dup(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw %struct.ECPGtype, ptr %18, i32 0, i32 4
+  store ptr %17, ptr %19, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = call ptr @mm_strdup(ptr noundef %20)
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.ECPGtype, ptr %22, i32 0, i32 3
+  %23 = getelementptr inbounds nuw %struct.ECPGtype, ptr %22, i32 0, i32 3
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret ptr %24
 }
 
@@ -362,14 +319,16 @@ define dso_local ptr @ECPGmake_array_type(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %6 = load ptr, ptr %4, align 8
   %7 = call ptr @ECPGmake_simple_type(i32 noundef 21, ptr noundef %6, i32 noundef 0)
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.ECPGtype, ptr %9, i32 0, i32 4
+  %10 = getelementptr inbounds nuw %struct.ECPGtype, ptr %9, i32 0, i32 4
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %11
 }
 
@@ -382,31 +341,34 @@ define dso_local ptr @ECPGmake_simple_type(i32 noundef %0, ptr noundef %1, i32 n
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %8 = call ptr @mm_alloc(i64 noundef 48)
   store ptr %8, ptr %7, align 8
   %9 = load i32, ptr %4, align 4
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %struct.ECPGtype, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.ECPGtype, ptr %10, i32 0, i32 0
   store i32 %9, ptr %11, align 8
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds %struct.ECPGtype, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.ECPGtype, ptr %12, i32 0, i32 1
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.ECPGtype, ptr %15, i32 0, i32 2
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.ECPGtype, ptr %17, i32 0, i32 4
-  store ptr null, ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.ECPGtype, ptr %19, i32 0, i32 3
-  store ptr null, ptr %20, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.ECPGtype, ptr %22, i32 0, i32 5
-  store i32 %21, ptr %23, align 8
-  %24 = load ptr, ptr %7, align 8
-  ret ptr %24
+  %15 = call ptr @mm_strdup(ptr noundef %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.ECPGtype, ptr %16, i32 0, i32 2
+  store ptr %15, ptr %17, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw %struct.ECPGtype, ptr %18, i32 0, i32 4
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr inbounds nuw %struct.ECPGtype, ptr %20, i32 0, i32 3
+  store ptr null, ptr %21, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.ECPGtype, ptr %23, i32 0, i32 5
+  store i32 %22, ptr %24, align 8
+  %25 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -419,19 +381,21 @@ define dso_local void @ECPGmake_struct_member(ptr noundef %0, ptr noundef %1, pt
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
   %9 = call ptr @mm_alloc(i64 noundef 24)
   store ptr %9, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = call ptr @mm_strdup(ptr noundef %10)
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds %struct.ECPGstruct_member, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %12, i32 0, i32 0
   store ptr %11, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.ECPGstruct_member, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %17, i32 0, i32 2
   store ptr null, ptr %18, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %19, align 8
@@ -445,7 +409,7 @@ define dso_local void @ECPGmake_struct_member(ptr noundef %0, ptr noundef %1, pt
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.ECPGstruct_member, ptr %25, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %25, i32 0, i32 2
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
   br label %29
@@ -459,10 +423,10 @@ define dso_local void @ECPGmake_struct_member(ptr noundef %0, ptr noundef %1, pt
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.ECPGstruct_member, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %33, i32 0, i32 2
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %7, align 8
-  br label %21, !llvm.loop !7
+  br label %21, !llvm.loop !6
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %7, align 8
@@ -472,7 +436,7 @@ define dso_local void @ECPGmake_struct_member(ptr noundef %0, ptr noundef %1, pt
 39:                                               ; preds = %36
   %40 = load ptr, ptr %8, align 8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.ECPGstruct_member, ptr %41, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %41, i32 0, i32 2
   store ptr %40, ptr %42, align 8
   br label %46
 
@@ -483,8 +447,17 @@ define dso_local void @ECPGmake_struct_member(ptr noundef %0, ptr noundef %1, pt
   br label %46
 
 46:                                               ; preds = %43, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @mm_alloc(i64 noundef) #2
+
+declare ptr @mm_strdup(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
@@ -523,29 +496,30 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %9, ptr %22, align 8
   store ptr %10, ptr %23, align 8
   store ptr %11, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
   %36 = load ptr, ptr %15, align 8
-  %37 = getelementptr inbounds %struct.ECPGtype, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.ECPGtype, ptr %36, i32 0, i32 0
   %38 = load i32, ptr %37, align 8
   %39 = icmp ne i32 %38, 24
   br i1 %39, label %40, label %220
 
 40:                                               ; preds = %12
   %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds %struct.ECPGtype, ptr %41, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.ECPGtype, ptr %41, i32 0, i32 0
   %43 = load i32, ptr %42, align 8
   %44 = icmp ne i32 %43, 31
   br i1 %44, label %45, label %220
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %15, align 8
-  %47 = getelementptr inbounds %struct.ECPGtype, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.ECPGtype, ptr %46, i32 0, i32 0
   %48 = load i32, ptr %47, align 8
   %49 = icmp ne i32 %48, 25
   br i1 %49, label %50, label %220
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %15, align 8
-  %52 = getelementptr inbounds %struct.ECPGtype, ptr %51, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.ECPGtype, ptr %51, i32 0, i32 0
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 26
   br i1 %54, label %55, label %220
@@ -556,6 +530,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %57, label %58, label %220
 
 58:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
   %59 = load ptr, ptr %14, align 8
   %60 = call ptr @mm_strdup(ptr noundef %59)
   store ptr %60, ptr %26, align 8
@@ -563,87 +538,87 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %62 = call ptr @find_variable(ptr noundef %61)
   store ptr %62, ptr %25, align 8
   %63 = load ptr, ptr %26, align 8
-  call void @free(ptr noundef %63) #8
+  call void @free(ptr noundef %63) #7
   %64 = load ptr, ptr %25, align 8
-  %65 = getelementptr inbounds %struct.variable, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.variable, ptr %64, i32 0, i32 1
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.ECPGtype, ptr %66, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct.ECPGtype, ptr %66, i32 0, i32 0
   %68 = load i32, ptr %67, align 8
   %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds %struct.ECPGtype, ptr %69, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.ECPGtype, ptr %69, i32 0, i32 0
   %71 = load i32, ptr %70, align 8
   %72 = icmp ne i32 %68, %71
   br i1 %72, label %120, label %73
 
 73:                                               ; preds = %58
   %74 = load ptr, ptr %25, align 8
-  %75 = getelementptr inbounds %struct.variable, ptr %74, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.variable, ptr %74, i32 0, i32 1
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.ECPGtype, ptr %76, i32 0, i32 1
+  %77 = getelementptr inbounds nuw %struct.ECPGtype, ptr %76, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
   %79 = icmp ne ptr %78, null
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %73
   %81 = load ptr, ptr %15, align 8
-  %82 = getelementptr inbounds %struct.ECPGtype, ptr %81, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %struct.ECPGtype, ptr %81, i32 0, i32 1
   %83 = load ptr, ptr %82, align 8
   %84 = icmp ne ptr %83, null
   br i1 %84, label %85, label %120
 
 85:                                               ; preds = %80, %73
   %86 = load ptr, ptr %25, align 8
-  %87 = getelementptr inbounds %struct.variable, ptr %86, i32 0, i32 1
+  %87 = getelementptr inbounds nuw %struct.variable, ptr %86, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.ECPGtype, ptr %88, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.ECPGtype, ptr %88, i32 0, i32 1
   %90 = load ptr, ptr %89, align 8
   %91 = icmp ne ptr %90, null
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %85
   %93 = load ptr, ptr %15, align 8
-  %94 = getelementptr inbounds %struct.ECPGtype, ptr %93, i32 0, i32 1
+  %94 = getelementptr inbounds nuw %struct.ECPGtype, ptr %93, i32 0, i32 1
   %95 = load ptr, ptr %94, align 8
   %96 = icmp ne ptr %95, null
   br i1 %96, label %120, label %97
 
 97:                                               ; preds = %92, %85
   %98 = load ptr, ptr %25, align 8
-  %99 = getelementptr inbounds %struct.variable, ptr %98, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.variable, ptr %98, i32 0, i32 1
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.ECPGtype, ptr %100, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct.ECPGtype, ptr %100, i32 0, i32 1
   %102 = load ptr, ptr %101, align 8
   %103 = icmp ne ptr %102, null
   br i1 %103, label %104, label %122
 
 104:                                              ; preds = %97
   %105 = load ptr, ptr %15, align 8
-  %106 = getelementptr inbounds %struct.ECPGtype, ptr %105, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.ECPGtype, ptr %105, i32 0, i32 1
   %107 = load ptr, ptr %106, align 8
   %108 = icmp ne ptr %107, null
   br i1 %108, label %109, label %122
 
 109:                                              ; preds = %104
   %110 = load ptr, ptr %25, align 8
-  %111 = getelementptr inbounds %struct.variable, ptr %110, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.variable, ptr %110, i32 0, i32 1
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.ECPGtype, ptr %112, i32 0, i32 1
+  %113 = getelementptr inbounds nuw %struct.ECPGtype, ptr %112, i32 0, i32 1
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %15, align 8
-  %116 = getelementptr inbounds %struct.ECPGtype, ptr %115, i32 0, i32 1
+  %116 = getelementptr inbounds nuw %struct.ECPGtype, ptr %115, i32 0, i32 1
   %117 = load ptr, ptr %116, align 8
-  %118 = call i32 @strcmp(ptr noundef %114, ptr noundef %117) #9
+  %118 = call i32 @strcmp(ptr noundef %114, ptr noundef %117) #8
   %119 = icmp ne i32 %118, 0
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %109, %92, %80, %58
   %121 = load ptr, ptr %14, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.2, ptr noundef %121)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.1, ptr noundef %121)
   br label %131
 
 122:                                              ; preds = %109, %104, %97
   %123 = load ptr, ptr %25, align 8
-  %124 = getelementptr inbounds %struct.variable, ptr %123, i32 0, i32 2
+  %124 = getelementptr inbounds nuw %struct.variable, ptr %123, i32 0, i32 2
   %125 = load i32, ptr %124, align 8
   %126 = load i32, ptr %16, align 4
   %127 = icmp ne i32 %125, %126
@@ -651,7 +626,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 128:                                              ; preds = %122
   %129 = load ptr, ptr %14, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.3, ptr noundef %129)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.2, ptr noundef %129)
   br label %130
 
 130:                                              ; preds = %128, %122
@@ -669,7 +644,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %18, align 8
-  %139 = getelementptr inbounds %struct.ECPGtype, ptr %138, i32 0, i32 0
+  %139 = getelementptr inbounds nuw %struct.ECPGtype, ptr %138, i32 0, i32 0
   %140 = load i32, ptr %139, align 8
   %141 = icmp ne i32 %140, 29
   br i1 %141, label %142, label %219
@@ -687,87 +662,87 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %149 = call ptr @find_variable(ptr noundef %148)
   store ptr %149, ptr %25, align 8
   %150 = load ptr, ptr %26, align 8
-  call void @free(ptr noundef %150) #8
+  call void @free(ptr noundef %150) #7
   %151 = load ptr, ptr %25, align 8
-  %152 = getelementptr inbounds %struct.variable, ptr %151, i32 0, i32 1
+  %152 = getelementptr inbounds nuw %struct.variable, ptr %151, i32 0, i32 1
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct.ECPGtype, ptr %153, i32 0, i32 0
+  %154 = getelementptr inbounds nuw %struct.ECPGtype, ptr %153, i32 0, i32 0
   %155 = load i32, ptr %154, align 8
   %156 = load ptr, ptr %18, align 8
-  %157 = getelementptr inbounds %struct.ECPGtype, ptr %156, i32 0, i32 0
+  %157 = getelementptr inbounds nuw %struct.ECPGtype, ptr %156, i32 0, i32 0
   %158 = load i32, ptr %157, align 8
   %159 = icmp ne i32 %155, %158
   br i1 %159, label %207, label %160
 
 160:                                              ; preds = %145
   %161 = load ptr, ptr %25, align 8
-  %162 = getelementptr inbounds %struct.variable, ptr %161, i32 0, i32 1
+  %162 = getelementptr inbounds nuw %struct.variable, ptr %161, i32 0, i32 1
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds %struct.ECPGtype, ptr %163, i32 0, i32 1
+  %164 = getelementptr inbounds nuw %struct.ECPGtype, ptr %163, i32 0, i32 1
   %165 = load ptr, ptr %164, align 8
   %166 = icmp ne ptr %165, null
   br i1 %166, label %167, label %172
 
 167:                                              ; preds = %160
   %168 = load ptr, ptr %18, align 8
-  %169 = getelementptr inbounds %struct.ECPGtype, ptr %168, i32 0, i32 1
+  %169 = getelementptr inbounds nuw %struct.ECPGtype, ptr %168, i32 0, i32 1
   %170 = load ptr, ptr %169, align 8
   %171 = icmp ne ptr %170, null
   br i1 %171, label %172, label %207
 
 172:                                              ; preds = %167, %160
   %173 = load ptr, ptr %25, align 8
-  %174 = getelementptr inbounds %struct.variable, ptr %173, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct.variable, ptr %173, i32 0, i32 1
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.ECPGtype, ptr %175, i32 0, i32 1
+  %176 = getelementptr inbounds nuw %struct.ECPGtype, ptr %175, i32 0, i32 1
   %177 = load ptr, ptr %176, align 8
   %178 = icmp ne ptr %177, null
   br i1 %178, label %184, label %179
 
 179:                                              ; preds = %172
   %180 = load ptr, ptr %18, align 8
-  %181 = getelementptr inbounds %struct.ECPGtype, ptr %180, i32 0, i32 1
+  %181 = getelementptr inbounds nuw %struct.ECPGtype, ptr %180, i32 0, i32 1
   %182 = load ptr, ptr %181, align 8
   %183 = icmp ne ptr %182, null
   br i1 %183, label %207, label %184
 
 184:                                              ; preds = %179, %172
   %185 = load ptr, ptr %25, align 8
-  %186 = getelementptr inbounds %struct.variable, ptr %185, i32 0, i32 1
+  %186 = getelementptr inbounds nuw %struct.variable, ptr %185, i32 0, i32 1
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct.ECPGtype, ptr %187, i32 0, i32 1
+  %188 = getelementptr inbounds nuw %struct.ECPGtype, ptr %187, i32 0, i32 1
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
   br i1 %190, label %191, label %209
 
 191:                                              ; preds = %184
   %192 = load ptr, ptr %18, align 8
-  %193 = getelementptr inbounds %struct.ECPGtype, ptr %192, i32 0, i32 1
+  %193 = getelementptr inbounds nuw %struct.ECPGtype, ptr %192, i32 0, i32 1
   %194 = load ptr, ptr %193, align 8
   %195 = icmp ne ptr %194, null
   br i1 %195, label %196, label %209
 
 196:                                              ; preds = %191
   %197 = load ptr, ptr %25, align 8
-  %198 = getelementptr inbounds %struct.variable, ptr %197, i32 0, i32 1
+  %198 = getelementptr inbounds nuw %struct.variable, ptr %197, i32 0, i32 1
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds %struct.ECPGtype, ptr %199, i32 0, i32 1
+  %200 = getelementptr inbounds nuw %struct.ECPGtype, ptr %199, i32 0, i32 1
   %201 = load ptr, ptr %200, align 8
   %202 = load ptr, ptr %18, align 8
-  %203 = getelementptr inbounds %struct.ECPGtype, ptr %202, i32 0, i32 1
+  %203 = getelementptr inbounds nuw %struct.ECPGtype, ptr %202, i32 0, i32 1
   %204 = load ptr, ptr %203, align 8
-  %205 = call i32 @strcmp(ptr noundef %201, ptr noundef %204) #9
+  %205 = call i32 @strcmp(ptr noundef %201, ptr noundef %204) #8
   %206 = icmp ne i32 %205, 0
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %196, %179, %167, %145
   %208 = load ptr, ptr %17, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %208)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.3, ptr noundef %208)
   br label %218
 
 209:                                              ; preds = %196, %191, %184
   %210 = load ptr, ptr %25, align 8
-  %211 = getelementptr inbounds %struct.variable, ptr %210, i32 0, i32 2
+  %211 = getelementptr inbounds nuw %struct.variable, ptr %210, i32 0, i32 2
   %212 = load i32, ptr %211, align 8
   %213 = load i32, ptr %19, align 4
   %214 = icmp ne i32 %212, %213
@@ -775,7 +750,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 215:                                              ; preds = %209
   %216 = load ptr, ptr %17, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.5, ptr noundef %216)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.4, ptr noundef %216)
   br label %217
 
 217:                                              ; preds = %215, %209
@@ -785,11 +760,12 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   br label %219
 
 219:                                              ; preds = %218, %142, %137, %134, %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
   br label %220
 
 220:                                              ; preds = %219, %55, %50, %45, %40, %12
   %221 = load ptr, ptr %15, align 8
-  %222 = getelementptr inbounds %struct.ECPGtype, ptr %221, i32 0, i32 0
+  %222 = getelementptr inbounds nuw %struct.ECPGtype, ptr %221, i32 0, i32 0
   %223 = load i32, ptr %222, align 8
   switch i32 %223, label %516 [
     i32 21, label %224
@@ -806,27 +782,27 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 227:                                              ; preds = %224
   %228 = load ptr, ptr %18, align 8
-  %229 = getelementptr inbounds %struct.ECPGtype, ptr %228, i32 0, i32 0
+  %229 = getelementptr inbounds nuw %struct.ECPGtype, ptr %228, i32 0, i32 0
   %230 = load i32, ptr %229, align 8
   %231 = icmp ne i32 %230, 29
   br i1 %231, label %232, label %238
 
 232:                                              ; preds = %227
   %233 = load ptr, ptr %18, align 8
-  %234 = getelementptr inbounds %struct.ECPGtype, ptr %233, i32 0, i32 0
+  %234 = getelementptr inbounds nuw %struct.ECPGtype, ptr %233, i32 0, i32 0
   %235 = load i32, ptr %234, align 8
   %236 = icmp ne i32 %235, 21
   br i1 %236, label %237, label %238
 
 237:                                              ; preds = %232
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 4, ptr noundef @.str.6) #7
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 4, ptr noundef @.str.5) #9
   unreachable
 
 238:                                              ; preds = %232, %227, %224
   %239 = load ptr, ptr %15, align 8
-  %240 = getelementptr inbounds %struct.ECPGtype, ptr %239, i32 0, i32 4
+  %240 = getelementptr inbounds nuw %struct.ECPGtype, ptr %239, i32 0, i32 4
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.ECPGtype, ptr %241, i32 0, i32 0
+  %242 = getelementptr inbounds nuw %struct.ECPGtype, ptr %241, i32 0, i32 0
   %243 = load i32, ptr %242, align 8
   switch i32 %243, label %275 [
     i32 21, label %244
@@ -835,7 +811,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 244:                                              ; preds = %238
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.7)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.6)
   br label %372
 
 245:                                              ; preds = %238, %238
@@ -843,10 +819,10 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %247 = load ptr, ptr %14, align 8
   %248 = load ptr, ptr %17, align 8
   %249 = load ptr, ptr %15, align 8
-  %250 = getelementptr inbounds %struct.ECPGtype, ptr %249, i32 0, i32 2
+  %250 = getelementptr inbounds nuw %struct.ECPGtype, ptr %249, i32 0, i32 2
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %15, align 8
-  %253 = getelementptr inbounds %struct.ECPGtype, ptr %252, i32 0, i32 4
+  %253 = getelementptr inbounds nuw %struct.ECPGtype, ptr %252, i32 0, i32 4
   %254 = load ptr, ptr %253, align 8
   %255 = load ptr, ptr %18, align 8
   %256 = icmp eq ptr %255, null
@@ -857,7 +833,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 258:                                              ; preds = %245
   %259 = load ptr, ptr %18, align 8
-  %260 = getelementptr inbounds %struct.ECPGtype, ptr %259, i32 0, i32 0
+  %260 = getelementptr inbounds nuw %struct.ECPGtype, ptr %259, i32 0, i32 0
   %261 = load i32, ptr %260, align 8
   %262 = icmp eq i32 %261, 29
   br i1 %262, label %263, label %265
@@ -868,7 +844,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 265:                                              ; preds = %258
   %266 = load ptr, ptr %18, align 8
-  %267 = getelementptr inbounds %struct.ECPGtype, ptr %266, i32 0, i32 4
+  %267 = getelementptr inbounds nuw %struct.ECPGtype, ptr %266, i32 0, i32 4
   %268 = load ptr, ptr %267, align 8
   br label %269
 
@@ -885,59 +861,59 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 275:                                              ; preds = %238
   %276 = load ptr, ptr %15, align 8
-  %277 = getelementptr inbounds %struct.ECPGtype, ptr %276, i32 0, i32 4
+  %277 = getelementptr inbounds nuw %struct.ECPGtype, ptr %276, i32 0, i32 4
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds %struct.ECPGtype, ptr %278, i32 0, i32 0
+  %279 = getelementptr inbounds nuw %struct.ECPGtype, ptr %278, i32 0, i32 0
   %280 = load i32, ptr %279, align 8
   %281 = icmp uge i32 %280, 1
   br i1 %281, label %282, label %289
 
 282:                                              ; preds = %275
   %283 = load ptr, ptr %15, align 8
-  %284 = getelementptr inbounds %struct.ECPGtype, ptr %283, i32 0, i32 4
+  %284 = getelementptr inbounds nuw %struct.ECPGtype, ptr %283, i32 0, i32 4
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds %struct.ECPGtype, ptr %285, i32 0, i32 0
+  %286 = getelementptr inbounds nuw %struct.ECPGtype, ptr %285, i32 0, i32 0
   %287 = load i32, ptr %286, align 8
   %288 = icmp ule i32 %287, 20
   br i1 %288, label %304, label %289
 
 289:                                              ; preds = %282, %275
   %290 = load ptr, ptr %15, align 8
-  %291 = getelementptr inbounds %struct.ECPGtype, ptr %290, i32 0, i32 4
+  %291 = getelementptr inbounds nuw %struct.ECPGtype, ptr %290, i32 0, i32 4
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds %struct.ECPGtype, ptr %292, i32 0, i32 0
+  %293 = getelementptr inbounds nuw %struct.ECPGtype, ptr %292, i32 0, i32 0
   %294 = load i32, ptr %293, align 8
   %295 = icmp eq i32 %294, 30
   br i1 %295, label %304, label %296
 
 296:                                              ; preds = %289
   %297 = load ptr, ptr %15, align 8
-  %298 = getelementptr inbounds %struct.ECPGtype, ptr %297, i32 0, i32 4
+  %298 = getelementptr inbounds nuw %struct.ECPGtype, ptr %297, i32 0, i32 4
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds %struct.ECPGtype, ptr %299, i32 0, i32 0
+  %300 = getelementptr inbounds nuw %struct.ECPGtype, ptr %299, i32 0, i32 0
   %301 = load i32, ptr %300, align 8
   %302 = icmp eq i32 %301, 32
   br i1 %302, label %304, label %303
 
 303:                                              ; preds = %296
-  call void @base_yyerror(ptr noundef @.str.8)
+  call void @base_yyerror(ptr noundef @.str.7)
   br label %304
 
 304:                                              ; preds = %303, %296, %289, %282
   %305 = load ptr, ptr %13, align 8
   %306 = load ptr, ptr %14, align 8
   %307 = load ptr, ptr %15, align 8
-  %308 = getelementptr inbounds %struct.ECPGtype, ptr %307, i32 0, i32 4
+  %308 = getelementptr inbounds nuw %struct.ECPGtype, ptr %307, i32 0, i32 4
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds %struct.ECPGtype, ptr %309, i32 0, i32 0
+  %310 = getelementptr inbounds nuw %struct.ECPGtype, ptr %309, i32 0, i32 0
   %311 = load i32, ptr %310, align 8
   %312 = load ptr, ptr %15, align 8
-  %313 = getelementptr inbounds %struct.ECPGtype, ptr %312, i32 0, i32 4
+  %313 = getelementptr inbounds nuw %struct.ECPGtype, ptr %312, i32 0, i32 4
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.ECPGtype, ptr %314, i32 0, i32 2
+  %315 = getelementptr inbounds nuw %struct.ECPGtype, ptr %314, i32 0, i32 2
   %316 = load ptr, ptr %315, align 8
   %317 = load ptr, ptr %15, align 8
-  %318 = getelementptr inbounds %struct.ECPGtype, ptr %317, i32 0, i32 2
+  %318 = getelementptr inbounds nuw %struct.ECPGtype, ptr %317, i32 0, i32 2
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %23, align 8
   %321 = icmp ne ptr %320, null
@@ -954,9 +930,9 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %326 = phi ptr [ %323, %322 ], [ null, %324 ]
   %327 = load ptr, ptr %20, align 8
   %328 = load ptr, ptr %15, align 8
-  %329 = getelementptr inbounds %struct.ECPGtype, ptr %328, i32 0, i32 4
+  %329 = getelementptr inbounds nuw %struct.ECPGtype, ptr %328, i32 0, i32 4
   %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds %struct.ECPGtype, ptr %330, i32 0, i32 5
+  %331 = getelementptr inbounds nuw %struct.ECPGtype, ptr %330, i32 0, i32 5
   %332 = load i32, ptr %331, align 8
   call void @ECPGdump_a_simple(ptr noundef %305, ptr noundef %306, i32 noundef %311, ptr noundef %316, ptr noundef %319, ptr noundef %326, ptr noundef %327, i32 noundef %332)
   %333 = load ptr, ptr %18, align 8
@@ -965,44 +941,46 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 335:                                              ; preds = %325
   %336 = load ptr, ptr %18, align 8
-  %337 = getelementptr inbounds %struct.ECPGtype, ptr %336, i32 0, i32 0
+  %337 = getelementptr inbounds nuw %struct.ECPGtype, ptr %336, i32 0, i32 0
   %338 = load i32, ptr %337, align 8
   %339 = icmp eq i32 %338, 29
   br i1 %339, label %340, label %353
 
 340:                                              ; preds = %335
-  %341 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %341 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %341, ptr %27, align 8
   %342 = load ptr, ptr %13, align 8
   %343 = load ptr, ptr %17, align 8
   %344 = load ptr, ptr %18, align 8
-  %345 = getelementptr inbounds %struct.ECPGtype, ptr %344, i32 0, i32 0
+  %345 = getelementptr inbounds nuw %struct.ECPGtype, ptr %344, i32 0, i32 0
   %346 = load i32, ptr %345, align 8
   %347 = load ptr, ptr %18, align 8
-  %348 = getelementptr inbounds %struct.ECPGtype, ptr %347, i32 0, i32 2
+  %348 = getelementptr inbounds nuw %struct.ECPGtype, ptr %347, i32 0, i32 2
   %349 = load ptr, ptr %348, align 8
   %350 = load ptr, ptr %27, align 8
   %351 = load ptr, ptr %21, align 8
   call void @ECPGdump_a_simple(ptr noundef %342, ptr noundef %343, i32 noundef %346, ptr noundef %349, ptr noundef %350, ptr noundef null, ptr noundef %351, i32 noundef 0)
   %352 = load ptr, ptr %27, align 8
-  call void @free(ptr noundef %352) #8
+  call void @free(ptr noundef %352) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
   br label %370
 
 353:                                              ; preds = %335
   %354 = load ptr, ptr %13, align 8
   %355 = load ptr, ptr %17, align 8
   %356 = load ptr, ptr %18, align 8
-  %357 = getelementptr inbounds %struct.ECPGtype, ptr %356, i32 0, i32 4
+  %357 = getelementptr inbounds nuw %struct.ECPGtype, ptr %356, i32 0, i32 4
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds %struct.ECPGtype, ptr %358, i32 0, i32 0
+  %359 = getelementptr inbounds nuw %struct.ECPGtype, ptr %358, i32 0, i32 0
   %360 = load i32, ptr %359, align 8
   %361 = load ptr, ptr %18, align 8
-  %362 = getelementptr inbounds %struct.ECPGtype, ptr %361, i32 0, i32 4
+  %362 = getelementptr inbounds nuw %struct.ECPGtype, ptr %361, i32 0, i32 4
   %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds %struct.ECPGtype, ptr %363, i32 0, i32 2
+  %364 = getelementptr inbounds nuw %struct.ECPGtype, ptr %363, i32 0, i32 2
   %365 = load ptr, ptr %364, align 8
   %366 = load ptr, ptr %18, align 8
-  %367 = getelementptr inbounds %struct.ECPGtype, ptr %366, i32 0, i32 2
+  %367 = getelementptr inbounds nuw %struct.ECPGtype, ptr %366, i32 0, i32 2
   %368 = load ptr, ptr %367, align 8
   %369 = load ptr, ptr %21, align 8
   call void @ECPGdump_a_simple(ptr noundef %354, ptr noundef %355, i32 noundef %360, ptr noundef %365, ptr noundef %368, ptr noundef null, ptr noundef %369, i32 noundef 0)
@@ -1018,7 +996,8 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   br label %591
 
 373:                                              ; preds = %220
-  %374 = call ptr @mm_strdup(ptr noundef @.str.1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %374 = call ptr @mm_strdup(ptr noundef @.str)
   store ptr %374, ptr %28, align 8
   %375 = load ptr, ptr %18, align 8
   %376 = icmp ne ptr %375, null
@@ -1026,20 +1005,20 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 377:                                              ; preds = %373
   %378 = load ptr, ptr %18, align 8
-  %379 = getelementptr inbounds %struct.ECPGtype, ptr %378, i32 0, i32 0
+  %379 = getelementptr inbounds nuw %struct.ECPGtype, ptr %378, i32 0, i32 0
   %380 = load i32, ptr %379, align 8
   %381 = icmp ne i32 %380, 29
   br i1 %381, label %382, label %388
 
 382:                                              ; preds = %377
   %383 = load ptr, ptr %18, align 8
-  %384 = getelementptr inbounds %struct.ECPGtype, ptr %383, i32 0, i32 0
+  %384 = getelementptr inbounds nuw %struct.ECPGtype, ptr %383, i32 0, i32 0
   %385 = load i32, ptr %384, align 8
   %386 = icmp ne i32 %385, 22
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %382
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 6, ptr noundef @.str.10) #7
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 6, ptr noundef @.str.9) #9
   unreachable
 
 388:                                              ; preds = %382, %377, %373
@@ -1053,19 +1032,23 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %396 = load ptr, ptr %21, align 8
   call void @ECPGdump_a_struct(ptr noundef %389, ptr noundef %390, ptr noundef %391, ptr noundef %392, ptr noundef %393, ptr noundef %394, ptr noundef %395, ptr noundef %396)
   %397 = load ptr, ptr %28, align 8
-  call void @free(ptr noundef %397) #8
+  call void @free(ptr noundef %397) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
   br label %591
 
 398:                                              ; preds = %220
-  call void @base_yyerror(ptr noundef @.str.11)
+  call void @base_yyerror(ptr noundef @.str.10)
   br label %591
 
 399:                                              ; preds = %220
-  %400 = call ptr @mm_strdup(ptr noundef @.str.1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  %400 = call ptr @mm_strdup(ptr noundef @.str)
   store ptr %400, ptr %29, align 8
-  %401 = call ptr @mm_strdup(ptr noundef @.str.1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  %401 = call ptr @mm_strdup(ptr noundef @.str)
   store ptr %401, ptr %30, align 8
-  %402 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  %402 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %402, ptr %31, align 8
   %403 = load ptr, ptr %18, align 8
   %404 = icmp ne ptr %403, null
@@ -1073,34 +1056,34 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 405:                                              ; preds = %399
   %406 = load ptr, ptr %18, align 8
-  %407 = getelementptr inbounds %struct.ECPGtype, ptr %406, i32 0, i32 0
+  %407 = getelementptr inbounds nuw %struct.ECPGtype, ptr %406, i32 0, i32 0
   %408 = load i32, ptr %407, align 8
   %409 = icmp ne i32 %408, 29
   br i1 %409, label %410, label %421
 
 410:                                              ; preds = %405
   %411 = load ptr, ptr %18, align 8
-  %412 = getelementptr inbounds %struct.ECPGtype, ptr %411, i32 0, i32 0
+  %412 = getelementptr inbounds nuw %struct.ECPGtype, ptr %411, i32 0, i32 0
   %413 = load i32, ptr %412, align 8
   %414 = icmp eq i32 %413, 22
   br i1 %414, label %420, label %415
 
 415:                                              ; preds = %410
   %416 = load ptr, ptr %18, align 8
-  %417 = getelementptr inbounds %struct.ECPGtype, ptr %416, i32 0, i32 0
+  %417 = getelementptr inbounds nuw %struct.ECPGtype, ptr %416, i32 0, i32 0
   %418 = load i32, ptr %417, align 8
   %419 = icmp eq i32 %418, 21
   br i1 %419, label %420, label %421
 
 420:                                              ; preds = %415, %410
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.12) #7
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.11) #9
   unreachable
 
 421:                                              ; preds = %415, %405, %399
   %422 = load ptr, ptr %13, align 8
   %423 = load ptr, ptr %14, align 8
   %424 = load ptr, ptr %15, align 8
-  %425 = getelementptr inbounds %struct.ECPGtype, ptr %424, i32 0, i32 0
+  %425 = getelementptr inbounds nuw %struct.ECPGtype, ptr %424, i32 0, i32 0
   %426 = load i32, ptr %425, align 8
   %427 = load ptr, ptr %29, align 8
   %428 = load ptr, ptr %22, align 8
@@ -1109,7 +1092,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 430:                                              ; preds = %421
   %431 = load ptr, ptr %22, align 8
-  %432 = call i32 @strcmp(ptr noundef %431, ptr noundef @.str.13) #9
+  %432 = call i32 @strcmp(ptr noundef %431, ptr noundef @.str.12) #8
   %433 = icmp ne i32 %432, 0
   br i1 %433, label %434, label %436
 
@@ -1134,10 +1117,10 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %445 = load ptr, ptr %13, align 8
   %446 = load ptr, ptr %17, align 8
   %447 = load ptr, ptr %18, align 8
-  %448 = getelementptr inbounds %struct.ECPGtype, ptr %447, i32 0, i32 0
+  %448 = getelementptr inbounds nuw %struct.ECPGtype, ptr %447, i32 0, i32 0
   %449 = load i32, ptr %448, align 8
   %450 = load ptr, ptr %18, align 8
-  %451 = getelementptr inbounds %struct.ECPGtype, ptr %450, i32 0, i32 2
+  %451 = getelementptr inbounds nuw %struct.ECPGtype, ptr %450, i32 0, i32 2
   %452 = load ptr, ptr %451, align 8
   %453 = load ptr, ptr %22, align 8
   %454 = icmp ne ptr %453, null
@@ -1145,7 +1128,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 455:                                              ; preds = %444
   %456 = load ptr, ptr %22, align 8
-  %457 = call i32 @strcmp(ptr noundef %456, ptr noundef @.str.13) #9
+  %457 = call i32 @strcmp(ptr noundef %456, ptr noundef @.str.12) #8
   %458 = icmp ne i32 %457, 0
   br i1 %458, label %459, label %461
 
@@ -1166,17 +1149,22 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 467:                                              ; preds = %463, %438
   %468 = load ptr, ptr %29, align 8
-  call void @free(ptr noundef %468) #8
+  call void @free(ptr noundef %468) #7
   %469 = load ptr, ptr %30, align 8
-  call void @free(ptr noundef %469) #8
+  call void @free(ptr noundef %469) #7
   %470 = load ptr, ptr %31, align 8
-  call void @free(ptr noundef %470) #8
+  call void @free(ptr noundef %470) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
   br label %591
 
 471:                                              ; preds = %220
-  %472 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %472 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %472, ptr %32, align 8
-  %473 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  %473 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %473, ptr %33, align 8
   %474 = load ptr, ptr %18, align 8
   %475 = icmp ne ptr %474, null
@@ -1184,34 +1172,34 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 476:                                              ; preds = %471
   %477 = load ptr, ptr %18, align 8
-  %478 = getelementptr inbounds %struct.ECPGtype, ptr %477, i32 0, i32 0
+  %478 = getelementptr inbounds nuw %struct.ECPGtype, ptr %477, i32 0, i32 0
   %479 = load i32, ptr %478, align 8
   %480 = icmp ne i32 %479, 29
   br i1 %480, label %481, label %492
 
 481:                                              ; preds = %476
   %482 = load ptr, ptr %18, align 8
-  %483 = getelementptr inbounds %struct.ECPGtype, ptr %482, i32 0, i32 0
+  %483 = getelementptr inbounds nuw %struct.ECPGtype, ptr %482, i32 0, i32 0
   %484 = load i32, ptr %483, align 8
   %485 = icmp eq i32 %484, 22
   br i1 %485, label %491, label %486
 
 486:                                              ; preds = %481
   %487 = load ptr, ptr %18, align 8
-  %488 = getelementptr inbounds %struct.ECPGtype, ptr %487, i32 0, i32 0
+  %488 = getelementptr inbounds nuw %struct.ECPGtype, ptr %487, i32 0, i32 0
   %489 = load i32, ptr %488, align 8
   %490 = icmp eq i32 %489, 21
   br i1 %490, label %491, label %492
 
 491:                                              ; preds = %486, %481
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.12) #7
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.11) #9
   unreachable
 
 492:                                              ; preds = %486, %476, %471
   %493 = load ptr, ptr %13, align 8
   %494 = load ptr, ptr %14, align 8
   %495 = load ptr, ptr %15, align 8
-  %496 = getelementptr inbounds %struct.ECPGtype, ptr %495, i32 0, i32 0
+  %496 = getelementptr inbounds nuw %struct.ECPGtype, ptr %495, i32 0, i32 0
   %497 = load i32, ptr %496, align 8
   %498 = load ptr, ptr %32, align 8
   %499 = load ptr, ptr %20, align 8
@@ -1224,10 +1212,10 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %503 = load ptr, ptr %13, align 8
   %504 = load ptr, ptr %17, align 8
   %505 = load ptr, ptr %18, align 8
-  %506 = getelementptr inbounds %struct.ECPGtype, ptr %505, i32 0, i32 0
+  %506 = getelementptr inbounds nuw %struct.ECPGtype, ptr %505, i32 0, i32 0
   %507 = load i32, ptr %506, align 8
   %508 = load ptr, ptr %18, align 8
-  %509 = getelementptr inbounds %struct.ECPGtype, ptr %508, i32 0, i32 2
+  %509 = getelementptr inbounds nuw %struct.ECPGtype, ptr %508, i32 0, i32 2
   %510 = load ptr, ptr %509, align 8
   %511 = load ptr, ptr %33, align 8
   %512 = load ptr, ptr %21, align 8
@@ -1236,15 +1224,19 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 513:                                              ; preds = %502, %492
   %514 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %514) #8
+  call void @free(ptr noundef %514) #7
   %515 = load ptr, ptr %33, align 8
-  call void @free(ptr noundef %515) #8
+  call void @free(ptr noundef %515) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
   br label %591
 
 516:                                              ; preds = %220
-  %517 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  %517 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %517, ptr %34, align 8
-  %518 = call ptr @mm_strdup(ptr noundef @.str.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  %518 = call ptr @mm_strdup(ptr noundef @.str.8)
   store ptr %518, ptr %35, align 8
   %519 = load ptr, ptr %18, align 8
   %520 = icmp ne ptr %519, null
@@ -1252,37 +1244,37 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 521:                                              ; preds = %516
   %522 = load ptr, ptr %18, align 8
-  %523 = getelementptr inbounds %struct.ECPGtype, ptr %522, i32 0, i32 0
+  %523 = getelementptr inbounds nuw %struct.ECPGtype, ptr %522, i32 0, i32 0
   %524 = load i32, ptr %523, align 8
   %525 = icmp ne i32 %524, 29
   br i1 %525, label %526, label %537
 
 526:                                              ; preds = %521
   %527 = load ptr, ptr %18, align 8
-  %528 = getelementptr inbounds %struct.ECPGtype, ptr %527, i32 0, i32 0
+  %528 = getelementptr inbounds nuw %struct.ECPGtype, ptr %527, i32 0, i32 0
   %529 = load i32, ptr %528, align 8
   %530 = icmp eq i32 %529, 22
   br i1 %530, label %536, label %531
 
 531:                                              ; preds = %526
   %532 = load ptr, ptr %18, align 8
-  %533 = getelementptr inbounds %struct.ECPGtype, ptr %532, i32 0, i32 0
+  %533 = getelementptr inbounds nuw %struct.ECPGtype, ptr %532, i32 0, i32 0
   %534 = load i32, ptr %533, align 8
   %535 = icmp eq i32 %534, 21
   br i1 %535, label %536, label %537
 
 536:                                              ; preds = %531, %526
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.12) #7
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef @.str.11) #9
   unreachable
 
 537:                                              ; preds = %531, %521, %516
   %538 = load ptr, ptr %13, align 8
   %539 = load ptr, ptr %14, align 8
   %540 = load ptr, ptr %15, align 8
-  %541 = getelementptr inbounds %struct.ECPGtype, ptr %540, i32 0, i32 0
+  %541 = getelementptr inbounds nuw %struct.ECPGtype, ptr %540, i32 0, i32 0
   %542 = load i32, ptr %541, align 8
   %543 = load ptr, ptr %15, align 8
-  %544 = getelementptr inbounds %struct.ECPGtype, ptr %543, i32 0, i32 2
+  %544 = getelementptr inbounds nuw %struct.ECPGtype, ptr %543, i32 0, i32 2
   %545 = load ptr, ptr %544, align 8
   %546 = load ptr, ptr %22, align 8
   %547 = icmp ne ptr %546, null
@@ -1290,7 +1282,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 548:                                              ; preds = %537
   %549 = load ptr, ptr %22, align 8
-  %550 = call i32 @strcmp(ptr noundef %549, ptr noundef @.str.13) #9
+  %550 = call i32 @strcmp(ptr noundef %549, ptr noundef @.str.12) #8
   %551 = icmp ne i32 %550, 0
   br i1 %551, label %552, label %554
 
@@ -1307,7 +1299,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %558 = load ptr, ptr %23, align 8
   %559 = load ptr, ptr %20, align 8
   %560 = load ptr, ptr %15, align 8
-  %561 = getelementptr inbounds %struct.ECPGtype, ptr %560, i32 0, i32 5
+  %561 = getelementptr inbounds nuw %struct.ECPGtype, ptr %560, i32 0, i32 5
   %562 = load i32, ptr %561, align 8
   call void @ECPGdump_a_simple(ptr noundef %538, ptr noundef %539, i32 noundef %542, ptr noundef %545, ptr noundef %557, ptr noundef %558, ptr noundef %559, i32 noundef %562)
   %563 = load ptr, ptr %18, align 8
@@ -1318,10 +1310,10 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
   %566 = load ptr, ptr %13, align 8
   %567 = load ptr, ptr %17, align 8
   %568 = load ptr, ptr %18, align 8
-  %569 = getelementptr inbounds %struct.ECPGtype, ptr %568, i32 0, i32 0
+  %569 = getelementptr inbounds nuw %struct.ECPGtype, ptr %568, i32 0, i32 0
   %570 = load i32, ptr %569, align 8
   %571 = load ptr, ptr %18, align 8
-  %572 = getelementptr inbounds %struct.ECPGtype, ptr %571, i32 0, i32 2
+  %572 = getelementptr inbounds nuw %struct.ECPGtype, ptr %571, i32 0, i32 2
   %573 = load ptr, ptr %572, align 8
   %574 = load ptr, ptr %22, align 8
   %575 = icmp ne ptr %574, null
@@ -1329,7 +1321,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 576:                                              ; preds = %565
   %577 = load ptr, ptr %22, align 8
-  %578 = call i32 @strcmp(ptr noundef %577, ptr noundef @.str.13) #9
+  %578 = call i32 @strcmp(ptr noundef %577, ptr noundef @.str.12) #8
   %579 = icmp ne i32 %578, 0
   br i1 %579, label %580, label %582
 
@@ -1350,24 +1342,30 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 588:                                              ; preds = %584, %556
   %589 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %589) #8
+  call void @free(ptr noundef %589) #7
   %590 = load ptr, ptr %35, align 8
-  call void @free(ptr noundef %590) #8
+  call void @free(ptr noundef %590) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
   br label %591
 
 591:                                              ; preds = %588, %513, %467, %398, %388, %372
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
   ret void
 }
 
-declare ptr @find_variable(ptr noundef) #4
+declare ptr @find_variable(ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
-declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) #4
+declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: noreturn
+declare void @mmfatal(i32 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
@@ -1391,9 +1389,12 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %5, ptr %14, align 8
   store ptr %6, ptr %15, align 8
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
   %21 = load ptr, ptr %10, align 8
-  %22 = call i64 @strlen(ptr noundef %21) #9
+  %22 = call i64 @strlen(ptr noundef %21) #8
   %23 = load ptr, ptr %15, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -1403,7 +1404,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 26:                                               ; preds = %8
   %27 = load ptr, ptr %15, align 8
-  %28 = call i64 @strlen(ptr noundef %27) #9
+  %28 = call i64 @strlen(ptr noundef %27) #8
   br label %29
 
 29:                                               ; preds = %26, %25
@@ -1412,8 +1413,9 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   %32 = add i64 %31, 3
   %33 = call ptr @mm_alloc(i64 noundef %32)
   store ptr %33, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
   %34 = load ptr, ptr %11, align 8
-  %35 = call i64 @strlen(ptr noundef %34) #9
+  %35 = call i64 @strlen(ptr noundef %34) #8
   %36 = load ptr, ptr %16, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %39
@@ -1423,7 +1425,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %16, align 8
-  %41 = call i64 @strlen(ptr noundef %40) #9
+  %41 = call i64 @strlen(ptr noundef %40) #8
   br label %42
 
 42:                                               ; preds = %39, %38
@@ -1433,7 +1435,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   %46 = call ptr @mm_alloc(i64 noundef %45)
   store ptr %46, ptr %20, align 8
   %47 = load ptr, ptr %12, align 8
-  %48 = call i32 @atoi(ptr noundef %47) #9
+  %48 = call i32 @atoi(ptr noundef %47) #8
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %61
 
@@ -1451,9 +1453,9 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   br label %57
 
 57:                                               ; preds = %56, %54
-  %58 = phi ptr [ %55, %54 ], [ @.str.37, %56 ]
+  %58 = phi ptr [ %55, %54 ], [ @.str.36, %56 ]
   %59 = load ptr, ptr %10, align 8
-  %60 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %51, ptr noundef @.str.79, ptr noundef %58, ptr noundef %59)
+  %60 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %51, ptr noundef @.str.78, ptr noundef %58, ptr noundef %59)
   br label %72
 
 61:                                               ; preds = %42
@@ -1470,9 +1472,9 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   br label %68
 
 68:                                               ; preds = %67, %65
-  %69 = phi ptr [ %66, %65 ], [ @.str.37, %67 ]
+  %69 = phi ptr [ %66, %65 ], [ @.str.36, %67 ]
   %70 = load ptr, ptr %10, align 8
-  %71 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %62, ptr noundef @.str.80, ptr noundef %69, ptr noundef %70)
+  %71 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %62, ptr noundef @.str.79, ptr noundef %69, ptr noundef %70)
   br label %72
 
 72:                                               ; preds = %68, %57
@@ -1493,7 +1495,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr %12, align 8
-  %82 = call i32 @atoi(ptr noundef %81) #9
+  %82 = call i32 @atoi(ptr noundef %81) #8
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %84, label %95
 
@@ -1511,9 +1513,9 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   br label %91
 
 91:                                               ; preds = %90, %88
-  %92 = phi ptr [ %89, %88 ], [ @.str.37, %90 ]
+  %92 = phi ptr [ %89, %88 ], [ @.str.36, %90 ]
   %93 = load ptr, ptr %11, align 8
-  %94 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %85, ptr noundef @.str.79, ptr noundef %92, ptr noundef %93)
+  %94 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %85, ptr noundef @.str.78, ptr noundef %92, ptr noundef %93)
   br label %106
 
 95:                                               ; preds = %80
@@ -1530,16 +1532,16 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   br label %102
 
 102:                                              ; preds = %101, %99
-  %103 = phi ptr [ %100, %99 ], [ @.str.37, %101 ]
+  %103 = phi ptr [ %100, %99 ], [ @.str.36, %101 ]
   %104 = load ptr, ptr %11, align 8
-  %105 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %96, ptr noundef @.str.80, ptr noundef %103, ptr noundef %104)
+  %105 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %96, ptr noundef @.str.79, ptr noundef %103, ptr noundef %104)
   br label %106
 
 106:                                              ; preds = %102, %91
   %107 = load ptr, ptr %20, align 8
   store ptr %107, ptr %16, align 8
   %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds %struct.ECPGtype, ptr %108, i32 0, i32 4
+  %109 = getelementptr inbounds nuw %struct.ECPGtype, ptr %108, i32 0, i32 4
   %110 = load ptr, ptr %109, align 8
   store ptr %110, ptr %18, align 8
   br label %111
@@ -1549,7 +1551,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 112:                                              ; preds = %111, %76
   %113 = load ptr, ptr %13, align 8
-  %114 = getelementptr inbounds %struct.ECPGtype, ptr %113, i32 0, i32 4
+  %114 = getelementptr inbounds nuw %struct.ECPGtype, ptr %113, i32 0, i32 4
   %115 = load ptr, ptr %114, align 8
   store ptr %115, ptr %17, align 8
   br label %116
@@ -1562,10 +1564,10 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 119:                                              ; preds = %116
   %120 = load ptr, ptr %9, align 8
   %121 = load ptr, ptr %17, align 8
-  %122 = getelementptr inbounds %struct.ECPGstruct_member, ptr %121, i32 0, i32 0
+  %122 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %121, i32 0, i32 0
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %17, align 8
-  %125 = getelementptr inbounds %struct.ECPGstruct_member, ptr %124, i32 0, i32 1
+  %125 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %124, i32 0, i32 1
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %18, align 8
   %128 = icmp ne ptr %127, null
@@ -1573,7 +1575,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 129:                                              ; preds = %119
   %130 = load ptr, ptr %18, align 8
-  %131 = getelementptr inbounds %struct.ECPGstruct_member, ptr %130, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %130, i32 0, i32 0
   %132 = load ptr, ptr %131, align 8
   br label %134
 
@@ -1588,7 +1590,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %18, align 8
-  %140 = getelementptr inbounds %struct.ECPGstruct_member, ptr %139, i32 0, i32 1
+  %140 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %139, i32 0, i32 1
   %141 = load ptr, ptr %140, align 8
   br label %143
 
@@ -1601,7 +1603,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
   %146 = load ptr, ptr %16, align 8
   %147 = load ptr, ptr %12, align 8
   %148 = load ptr, ptr %13, align 8
-  %149 = getelementptr inbounds %struct.ECPGtype, ptr %148, i32 0, i32 3
+  %149 = getelementptr inbounds nuw %struct.ECPGtype, ptr %148, i32 0, i32 3
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %18, align 8
   %152 = icmp ne ptr %151, null
@@ -1609,7 +1611,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 153:                                              ; preds = %143
   %154 = load ptr, ptr %14, align 8
-  %155 = getelementptr inbounds %struct.ECPGtype, ptr %154, i32 0, i32 3
+  %155 = getelementptr inbounds nuw %struct.ECPGtype, ptr %154, i32 0, i32 3
   %156 = load ptr, ptr %155, align 8
   br label %158
 
@@ -1630,7 +1632,7 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %18, align 8
-  %167 = getelementptr inbounds %struct.ECPGstruct_member, ptr %166, i32 0, i32 2
+  %167 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %166, i32 0, i32 2
   %168 = load ptr, ptr %167, align 8
   store ptr %168, ptr %18, align 8
   %169 = load ptr, ptr %18, align 8
@@ -1639,14 +1641,14 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 171:                                              ; preds = %165
   %172 = load ptr, ptr %17, align 8
-  %173 = getelementptr inbounds %struct.ECPGstruct_member, ptr %172, i32 0, i32 2
+  %173 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %172, i32 0, i32 2
   %174 = load ptr, ptr %173, align 8
   %175 = icmp ne ptr %174, null
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %171
   %177 = load ptr, ptr %11, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.81, ptr noundef %177)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.80, ptr noundef %177)
   store ptr @struct_no_indicator, ptr %18, align 8
   br label %178
 
@@ -1658,10 +1660,10 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr %17, align 8
-  %182 = getelementptr inbounds %struct.ECPGstruct_member, ptr %181, i32 0, i32 2
+  %182 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %181, i32 0, i32 2
   %183 = load ptr, ptr %182, align 8
   store ptr %183, ptr %17, align 8
-  br label %116, !llvm.loop !8
+  br label %116, !llvm.loop !7
 
 184:                                              ; preds = %116
   %185 = load ptr, ptr %14, align 8
@@ -1680,18 +1682,22 @@ define internal void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noun
 
 193:                                              ; preds = %190
   %194 = load ptr, ptr %11, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.82, ptr noundef %194)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef @.str.81, ptr noundef %194)
   br label %195
 
 195:                                              ; preds = %193, %190, %187, %184
   %196 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %196) #8
+  call void @free(ptr noundef %196) #7
   %197 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %197) #8
+  call void @free(ptr noundef %197) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
   ret void
 }
 
-declare void @base_yyerror(ptr noundef) #4
+declare void @base_yyerror(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) #0 {
@@ -1721,7 +1727,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 23:                                               ; preds = %8
   %24 = load ptr, ptr %9, align 8
-  %25 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %24, ptr noundef @.str.33)
+  %25 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %24, ptr noundef @.str.32)
   br label %332
 
 26:                                               ; preds = %8
@@ -1732,7 +1738,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 29:                                               ; preds = %26
   %30 = load ptr, ptr %9, align 8
   %31 = load ptr, ptr %10, align 8
-  %32 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %30, ptr noundef @.str.34, ptr noundef %31)
+  %32 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %30, ptr noundef @.str.33, ptr noundef %31)
   br label %331
 
 33:                                               ; preds = %26
@@ -1743,12 +1749,13 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 36:                                               ; preds = %33
   %37 = load ptr, ptr %9, align 8
   %38 = load ptr, ptr %10, align 8
-  %39 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %37, ptr noundef @.str.35, ptr noundef %38)
+  %39 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %37, ptr noundef @.str.34, ptr noundef %38)
   br label %330
 
 40:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
   %41 = load ptr, ptr %10, align 8
-  %42 = call i64 @strlen(ptr noundef %41) #9
+  %42 = call i64 @strlen(ptr noundef %41) #8
   %43 = load ptr, ptr %15, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
@@ -1758,7 +1765,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %15, align 8
-  %48 = call i64 @strlen(ptr noundef %47) #9
+  %48 = call i64 @strlen(ptr noundef %47) #8
   br label %49
 
 49:                                               ; preds = %46, %45
@@ -1767,16 +1774,18 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   %52 = add i64 %51, 4
   %53 = call ptr @mm_alloc(i64 noundef %52)
   store ptr %53, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
   %54 = load ptr, ptr %10, align 8
-  %55 = call i64 @strlen(ptr noundef %54) #9
+  %55 = call i64 @strlen(ptr noundef %54) #8
   %56 = add i64 %55, 23
   %57 = add i64 %56, 1
   %58 = load ptr, ptr %12, align 8
-  %59 = call i64 @strlen(ptr noundef %58) #9
+  %59 = call i64 @strlen(ptr noundef %58) #8
   %60 = add i64 %57, %59
   %61 = add i64 %60, 106
   %62 = call ptr @mm_alloc(i64 noundef %61)
   store ptr %62, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
   %63 = load i32, ptr %11, align 4
   switch i32 %63, label %250 [
     i32 14, label %64
@@ -1794,19 +1803,19 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 64:                                               ; preds = %49, %49
   %65 = load ptr, ptr %13, align 8
-  %66 = call i32 @atoi(ptr noundef %65) #9
+  %66 = call i32 @atoi(ptr noundef %65) #8
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %76, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %13, align 8
-  %70 = call i32 @atoi(ptr noundef %69) #9
+  %70 = call i32 @atoi(ptr noundef %69) #8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %90
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %13, align 8
-  %74 = call i32 @strcmp(ptr noundef %73, ptr noundef @.str.13) #9
+  %74 = call i32 @strcmp(ptr noundef %73, ptr noundef @.str.12) #8
   %75 = icmp ne i32 %74, 0
   br i1 %75, label %76, label %90
 
@@ -1829,9 +1838,9 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %86
 
 86:                                               ; preds = %85, %83
-  %87 = phi ptr [ %84, %83 ], [ @.str.37, %85 ]
+  %87 = phi ptr [ %84, %83 ], [ @.str.36, %85 ]
   %88 = load ptr, ptr %10, align 8
-  %89 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %80, ptr noundef @.str.36, ptr noundef %87, ptr noundef %88)
+  %89 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %80, ptr noundef @.str.35, ptr noundef %87, ptr noundef %88)
   br label %101
 
 90:                                               ; preds = %76, %72, %68
@@ -1848,9 +1857,9 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %97
 
 97:                                               ; preds = %96, %94
-  %98 = phi ptr [ %95, %94 ], [ @.str.37, %96 ]
+  %98 = phi ptr [ %95, %94 ], [ @.str.36, %96 ]
   %99 = load ptr, ptr %10, align 8
-  %100 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %91, ptr noundef @.str.38, ptr noundef %98, ptr noundef %99)
+  %100 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %91, ptr noundef @.str.37, ptr noundef %98, ptr noundef %99)
   br label %101
 
 101:                                              ; preds = %97, %86
@@ -1859,11 +1868,11 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101
-  store ptr @.str.39, ptr %19, align 8
+  store ptr @.str.38, ptr %19, align 8
   br label %106
 
 105:                                              ; preds = %101
-  store ptr @.str.40, ptr %19, align 8
+  store ptr @.str.39, ptr %19, align 8
   br label %106
 
 106:                                              ; preds = %105, %104
@@ -1875,52 +1884,53 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   %110 = load ptr, ptr %18, align 8
   %111 = load ptr, ptr %19, align 8
   %112 = load i32, ptr %16, align 4
-  %113 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %110, ptr noundef @.str.41, ptr noundef %111, i32 noundef %112)
+  %113 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %110, ptr noundef @.str.40, ptr noundef %111, i32 noundef %112)
   br label %118
 
 114:                                              ; preds = %106
   %115 = load ptr, ptr %18, align 8
   %116 = load ptr, ptr %19, align 8
-  %117 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %115, ptr noundef @.str.42, ptr noundef %116)
+  %117 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %115, ptr noundef @.str.41, ptr noundef %116)
   br label %118
 
 118:                                              ; preds = %114, %109
   br label %292
 
 119:                                              ; preds = %49, %49, %49, %49
-  store ptr @.str.43, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  store ptr @.str.42, ptr %20, align 8
   %120 = load ptr, ptr %12, align 8
-  %121 = call i32 @atoi(ptr noundef %120) #9
+  %121 = call i32 @atoi(ptr noundef %120) #8
   %122 = icmp sgt i32 %121, 1
   br i1 %122, label %143, label %123
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %13, align 8
-  %125 = call i32 @atoi(ptr noundef %124) #9
+  %125 = call i32 @atoi(ptr noundef %124) #8
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %143, label %127
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %12, align 8
-  %129 = call i32 @atoi(ptr noundef %128) #9
+  %129 = call i32 @atoi(ptr noundef %128) #8
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %135
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %12, align 8
-  %133 = call i32 @strcmp(ptr noundef %132, ptr noundef @.str.13) #9
+  %133 = call i32 @strcmp(ptr noundef %132, ptr noundef @.str.12) #8
   %134 = icmp ne i32 %133, 0
   br i1 %134, label %143, label %135
 
 135:                                              ; preds = %131, %127
   %136 = load ptr, ptr %13, align 8
-  %137 = call i32 @atoi(ptr noundef %136) #9
+  %137 = call i32 @atoi(ptr noundef %136) #8
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %168
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %13, align 8
-  %141 = call i32 @strcmp(ptr noundef %140, ptr noundef @.str.13) #9
+  %141 = call i32 @strcmp(ptr noundef %140, ptr noundef @.str.12) #8
   %142 = icmp ne i32 %141, 0
   br i1 %142, label %143, label %168
 
@@ -1943,9 +1953,9 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %153
 
 153:                                              ; preds = %152, %150
-  %154 = phi ptr [ %151, %150 ], [ @.str.37, %152 ]
+  %154 = phi ptr [ %151, %150 ], [ @.str.36, %152 ]
   %155 = load ptr, ptr %10, align 8
-  %156 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %147, ptr noundef @.str.36, ptr noundef %154, ptr noundef %155)
+  %156 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %147, ptr noundef @.str.35, ptr noundef %154, ptr noundef %155)
   %157 = load i32, ptr %11, align 4
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %162, label %159
@@ -1957,12 +1967,12 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 162:                                              ; preds = %159, %153
   %163 = load ptr, ptr %12, align 8
-  %164 = call i32 @strcmp(ptr noundef %163, ptr noundef @.str.13) #9
+  %164 = call i32 @strcmp(ptr noundef %163, ptr noundef @.str.12) #8
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %162
-  store ptr @.str.44, ptr %20, align 8
+  store ptr @.str.43, ptr %20, align 8
   br label %167
 
 167:                                              ; preds = %166, %162, %159
@@ -1982,15 +1992,15 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %175
 
 175:                                              ; preds = %174, %172
-  %176 = phi ptr [ %173, %172 ], [ @.str.37, %174 ]
+  %176 = phi ptr [ %173, %172 ], [ @.str.36, %174 ]
   %177 = load ptr, ptr %10, align 8
-  %178 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %169, ptr noundef @.str.38, ptr noundef %176, ptr noundef %177)
+  %178 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %169, ptr noundef @.str.37, ptr noundef %176, ptr noundef %177)
   br label %179
 
 179:                                              ; preds = %175, %167
   %180 = load ptr, ptr %18, align 8
   %181 = load ptr, ptr %12, align 8
-  %182 = call i32 @strcmp(ptr noundef %181, ptr noundef @.str.13) #9
+  %182 = call i32 @strcmp(ptr noundef %181, ptr noundef @.str.12) #8
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %185
 
@@ -2002,9 +2012,10 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %187
 
 187:                                              ; preds = %185, %184
-  %188 = phi ptr [ @.str.1, %184 ], [ %186, %185 ]
+  %188 = phi ptr [ @.str, %184 ], [ %186, %185 ]
   %189 = load ptr, ptr %20, align 8
-  %190 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %180, ptr noundef @.str.45, ptr noundef %188, ptr noundef %189)
+  %190 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %180, ptr noundef @.str.44, ptr noundef %188, ptr noundef %189)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
   br label %292
 
 191:                                              ; preds = %49
@@ -2021,11 +2032,11 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %198
 
 198:                                              ; preds = %197, %195
-  %199 = phi ptr [ %196, %195 ], [ @.str.37, %197 ]
+  %199 = phi ptr [ %196, %195 ], [ @.str.36, %197 ]
   %200 = load ptr, ptr %10, align 8
-  %201 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %192, ptr noundef @.str.38, ptr noundef %199, ptr noundef %200)
+  %201 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %192, ptr noundef @.str.37, ptr noundef %199, ptr noundef %200)
   %202 = load ptr, ptr %18, align 8
-  %203 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %202, ptr noundef @.str.46)
+  %203 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %202, ptr noundef @.str.45)
   br label %292
 
 204:                                              ; preds = %49
@@ -2042,11 +2053,11 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %211
 
 211:                                              ; preds = %210, %208
-  %212 = phi ptr [ %209, %208 ], [ @.str.37, %210 ]
+  %212 = phi ptr [ %209, %208 ], [ @.str.36, %210 ]
   %213 = load ptr, ptr %10, align 8
-  %214 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %205, ptr noundef @.str.38, ptr noundef %212, ptr noundef %213)
+  %214 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %205, ptr noundef @.str.37, ptr noundef %212, ptr noundef %213)
   %215 = load ptr, ptr %18, align 8
-  %216 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %215, ptr noundef @.str.47)
+  %216 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %215, ptr noundef @.str.46)
   br label %292
 
 217:                                              ; preds = %49
@@ -2063,11 +2074,11 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %224
 
 224:                                              ; preds = %223, %221
-  %225 = phi ptr [ %222, %221 ], [ @.str.37, %223 ]
+  %225 = phi ptr [ %222, %221 ], [ @.str.36, %223 ]
   %226 = load ptr, ptr %10, align 8
-  %227 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %218, ptr noundef @.str.38, ptr noundef %225, ptr noundef %226)
+  %227 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %218, ptr noundef @.str.37, ptr noundef %225, ptr noundef %226)
   %228 = load ptr, ptr %18, align 8
-  %229 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %228, ptr noundef @.str.48)
+  %229 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %228, ptr noundef @.str.47)
   br label %292
 
 230:                                              ; preds = %49
@@ -2084,37 +2095,37 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %237
 
 237:                                              ; preds = %236, %234
-  %238 = phi ptr [ %235, %234 ], [ @.str.37, %236 ]
+  %238 = phi ptr [ %235, %234 ], [ @.str.36, %236 ]
   %239 = load ptr, ptr %10, align 8
-  %240 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %231, ptr noundef @.str.38, ptr noundef %238, ptr noundef %239)
+  %240 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %231, ptr noundef @.str.37, ptr noundef %238, ptr noundef %239)
   %241 = load ptr, ptr %18, align 8
-  %242 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %241, ptr noundef @.str.49)
+  %242 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %241, ptr noundef @.str.48)
   br label %292
 
 243:                                              ; preds = %49
   %244 = load ptr, ptr %17, align 8
   %245 = load ptr, ptr %10, align 8
-  %246 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %244, ptr noundef @.str.50, ptr noundef %245)
+  %246 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %244, ptr noundef @.str.49, ptr noundef %245)
   %247 = load ptr, ptr %18, align 8
   %248 = load ptr, ptr %10, align 8
-  %249 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %247, ptr noundef @.str.51, ptr noundef %248)
+  %249 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %247, ptr noundef @.str.50, ptr noundef %248)
   br label %292
 
 250:                                              ; preds = %49
   %251 = load ptr, ptr %13, align 8
-  %252 = call i32 @atoi(ptr noundef %251) #9
+  %252 = call i32 @atoi(ptr noundef %251) #8
   %253 = icmp sgt i32 %252, 0
   br i1 %253, label %262, label %254
 
 254:                                              ; preds = %250
   %255 = load ptr, ptr %13, align 8
-  %256 = call i32 @atoi(ptr noundef %255) #9
+  %256 = call i32 @atoi(ptr noundef %255) #8
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %276
 
 258:                                              ; preds = %254
   %259 = load ptr, ptr %13, align 8
-  %260 = call i32 @strcmp(ptr noundef %259, ptr noundef @.str.13) #9
+  %260 = call i32 @strcmp(ptr noundef %259, ptr noundef @.str.12) #8
   %261 = icmp ne i32 %260, 0
   br i1 %261, label %262, label %276
 
@@ -2137,9 +2148,9 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %272
 
 272:                                              ; preds = %271, %269
-  %273 = phi ptr [ %270, %269 ], [ @.str.37, %271 ]
+  %273 = phi ptr [ %270, %269 ], [ @.str.36, %271 ]
   %274 = load ptr, ptr %10, align 8
-  %275 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %266, ptr noundef @.str.36, ptr noundef %273, ptr noundef %274)
+  %275 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %266, ptr noundef @.str.35, ptr noundef %273, ptr noundef %274)
   br label %287
 
 276:                                              ; preds = %262, %258, %254
@@ -2156,21 +2167,21 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   br label %283
 
 283:                                              ; preds = %282, %280
-  %284 = phi ptr [ %281, %280 ], [ @.str.37, %282 ]
+  %284 = phi ptr [ %281, %280 ], [ @.str.36, %282 ]
   %285 = load ptr, ptr %10, align 8
-  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %277, ptr noundef @.str.38, ptr noundef %284, ptr noundef %285)
+  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %277, ptr noundef @.str.37, ptr noundef %284, ptr noundef %285)
   br label %287
 
 287:                                              ; preds = %283, %272
   %288 = load ptr, ptr %18, align 8
   %289 = load i32, ptr %11, align 4
   %290 = call ptr @ecpg_type_name(i32 noundef %289)
-  %291 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %288, ptr noundef @.str.42, ptr noundef %290)
+  %291 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %288, ptr noundef @.str.41, ptr noundef %290)
   br label %292
 
 292:                                              ; preds = %287, %243, %237, %224, %211, %198, %187, %118
   %293 = load ptr, ptr %13, align 8
-  %294 = call i32 @atoi(ptr noundef %293) #9
+  %294 = call i32 @atoi(ptr noundef %293) #8
   %295 = icmp slt i32 %294, 0
   br i1 %295, label %296, label %302
 
@@ -2181,7 +2192,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 299:                                              ; preds = %296
   %300 = load ptr, ptr %13, align 8
-  %301 = call ptr @strcpy(ptr noundef %300, ptr noundef @.str.1) #8
+  %301 = call ptr @strcpy(ptr noundef %300, ptr noundef @.str) #7
   br label %302
 
 302:                                              ; preds = %299, %296, %292
@@ -2191,7 +2202,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %14, align 8
-  %307 = call i64 @strlen(ptr noundef %306) #9
+  %307 = call i64 @strlen(ptr noundef %306) #8
   %308 = icmp eq i64 %307, 0
   br i1 %308, label %309, label %318
 
@@ -2203,7 +2214,7 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   %314 = load ptr, ptr %12, align 8
   %315 = load ptr, ptr %13, align 8
   %316 = load ptr, ptr %18, align 8
-  %317 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %310, ptr noundef @.str.52, ptr noundef %312, ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316)
+  %317 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %310, ptr noundef @.str.51, ptr noundef %312, ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316)
   br label %327
 
 318:                                              ; preds = %305
@@ -2214,14 +2225,17 @@ define internal void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noun
   %323 = load ptr, ptr %12, align 8
   %324 = load ptr, ptr %13, align 8
   %325 = load ptr, ptr %14, align 8
-  %326 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %319, ptr noundef @.str.52, ptr noundef %321, ptr noundef %322, ptr noundef %323, ptr noundef %324, ptr noundef %325)
+  %326 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %319, ptr noundef @.str.51, ptr noundef %321, ptr noundef %322, ptr noundef %323, ptr noundef %324, ptr noundef %325)
   br label %327
 
 327:                                              ; preds = %318, %309
   %328 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %328) #8
+  call void @free(ptr noundef %328) #7
   %329 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %329) #8
+  call void @free(ptr noundef %329) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
   br label %330
 
 330:                                              ; preds = %327, %36
@@ -2247,23 +2261,25 @@ define dso_local void @ECPGfree_struct_member(ptr noundef %0) #0 {
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.ECPGstruct_member, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %9, i32 0, i32 2
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.ECPGstruct_member, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %14) #8
+  call void @free(ptr noundef %14) #7
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.ECPGstruct_member, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @free(ptr noundef %17) #8
+  call void @ECPGfree_type(ptr noundef %17)
   %18 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %18) #8
-  br label %4, !llvm.loop !9
+  call void @free(ptr noundef %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  br label %4, !llvm.loop !8
 
 19:                                               ; preds = %4
   ret void
@@ -2274,141 +2290,147 @@ define dso_local void @ECPGfree_type(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.ECPGtype, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.ECPGtype, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 8
   %6 = icmp uge i32 %5, 1
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.ECPGtype, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.ECPGtype, ptr %8, i32 0, i32 0
   %10 = load i32, ptr %9, align 8
   %11 = icmp ule i32 %10, 20
-  br i1 %11, label %85, label %12
+  br i1 %11, label %80, label %12
 
 12:                                               ; preds = %7, %1
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ECPGtype, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.ECPGtype, ptr %13, i32 0, i32 0
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 30
-  br i1 %16, label %85, label %17
+  br i1 %16, label %80, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.ECPGtype, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.ECPGtype, ptr %18, i32 0, i32 0
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 32
-  br i1 %21, label %85, label %22
+  br i1 %21, label %80, label %22
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.ECPGtype, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.ECPGtype, ptr %23, i32 0, i32 0
   %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %80 [
+  switch i32 %25, label %75 [
     i32 21, label %26
-    i32 22, label %76
-    i32 23, label %76
+    i32 22, label %71
+    i32 23, label %71
   ]
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.ECPGtype, ptr %27, i32 0, i32 4
+  %28 = getelementptr inbounds nuw %struct.ECPGtype, ptr %27, i32 0, i32 4
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.ECPGtype, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.ECPGtype, ptr %29, i32 0, i32 0
   %31 = load i32, ptr %30, align 8
-  switch i32 %31, label %42 [
+  switch i32 %31, label %37 [
     i32 21, label %32
     i32 22, label %33
     i32 23, label %33
   ]
 
 32:                                               ; preds = %26
-  call void @base_yyerror(ptr noundef @.str.14)
-  br label %75
+  call void @base_yyerror(ptr noundef @.str.13)
+  br label %70
 
 33:                                               ; preds = %26, %26
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.ECPGtype, ptr %34, i32 0, i32 4
+  %35 = getelementptr inbounds nuw %struct.ECPGtype, ptr %34, i32 0, i32 4
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.ECPGtype, ptr %36, i32 0, i32 4
-  %38 = load ptr, ptr %37, align 8
-  call void @ECPGfree_struct_member(ptr noundef %38)
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.ECPGtype, ptr %39, i32 0, i32 4
-  %41 = load ptr, ptr %40, align 8
-  call void @free(ptr noundef %41) #8
-  br label %75
+  call void @ECPGfree_type(ptr noundef %36)
+  br label %70
 
-42:                                               ; preds = %26
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.ECPGtype, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.ECPGtype, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp uge i32 %47, 1
-  br i1 %48, label %49, label %56
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw %struct.ECPGtype, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.ECPGtype, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp uge i32 %42, 1
+  br i1 %43, label %44, label %51
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.ECPGtype, ptr %50, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.ECPGtype, ptr %52, i32 0, i32 0
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp ule i32 %54, 20
-  br i1 %55, label %71, label %56
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.ECPGtype, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw %struct.ECPGtype, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ule i32 %49, 20
+  br i1 %50, label %66, label %51
 
-56:                                               ; preds = %49, %42
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.ECPGtype, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.ECPGtype, ptr %59, i32 0, i32 0
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 30
-  br i1 %62, label %71, label %63
+51:                                               ; preds = %44, %37
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds nuw %struct.ECPGtype, ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw %struct.ECPGtype, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 30
+  br i1 %57, label %66, label %58
 
-63:                                               ; preds = %56
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.ECPGtype, ptr %64, i32 0, i32 4
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.ECPGtype, ptr %66, i32 0, i32 0
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp eq i32 %68, 32
-  br i1 %69, label %71, label %70
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds nuw %struct.ECPGtype, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw %struct.ECPGtype, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 32
+  br i1 %64, label %66, label %65
 
-70:                                               ; preds = %63
-  call void @base_yyerror(ptr noundef @.str.8)
-  br label %71
+65:                                               ; preds = %58
+  call void @base_yyerror(ptr noundef @.str.7)
+  br label %66
 
-71:                                               ; preds = %70, %63, %56, %49
+66:                                               ; preds = %65, %58, %51, %44
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds nuw %struct.ECPGtype, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  call void @ECPGfree_type(ptr noundef %69)
+  br label %70
+
+70:                                               ; preds = %66, %33, %32
+  br label %79
+
+71:                                               ; preds = %22, %22
   %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.ECPGtype, ptr %72, i32 0, i32 4
+  %73 = getelementptr inbounds nuw %struct.ECPGtype, ptr %72, i32 0, i32 4
   %74 = load ptr, ptr %73, align 8
-  call void @free(ptr noundef %74) #8
-  br label %75
+  call void @ECPGfree_struct_member(ptr noundef %74)
+  br label %79
 
-75:                                               ; preds = %71, %33, %32
-  br label %84
+75:                                               ; preds = %22
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds nuw %struct.ECPGtype, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.14, i32 noundef %78)
+  br label %79
 
-76:                                               ; preds = %22, %22
-  %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.ECPGtype, ptr %77, i32 0, i32 4
-  %79 = load ptr, ptr %78, align 8
-  call void @ECPGfree_struct_member(ptr noundef %79)
-  br label %84
+79:                                               ; preds = %75, %71, %70
+  br label %80
 
-80:                                               ; preds = %22
+80:                                               ; preds = %79, %17, %12, %7
   %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds %struct.ECPGtype, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 8
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.15, i32 noundef %83)
-  br label %84
-
-84:                                               ; preds = %80, %76, %75
-  br label %85
-
-85:                                               ; preds = %84, %17, %12, %7
-  %86 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %86) #8
+  %82 = getelementptr inbounds nuw %struct.ECPGtype, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  call void @free(ptr noundef %83) #7
+  %84 = load ptr, ptr %2, align 8
+  %85 = getelementptr inbounds nuw %struct.ECPGtype, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  call void @free(ptr noundef %86) #7
+  %87 = load ptr, ptr %2, align 8
+  %88 = getelementptr inbounds nuw %struct.ECPGtype, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  call void @free(ptr noundef %89) #7
+  %90 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %90) #7
   ret void
 }
 
@@ -2438,72 +2460,72 @@ define dso_local ptr @get_dtype(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1
-  store ptr @.str.16, ptr %2, align 8
+  store ptr @.str.15, ptr %2, align 8
   br label %24
 
 6:                                                ; preds = %1
-  store ptr @.str.17, ptr %2, align 8
+  store ptr @.str.16, ptr %2, align 8
   br label %24
 
 7:                                                ; preds = %1
-  store ptr @.str.18, ptr %2, align 8
+  store ptr @.str.17, ptr %2, align 8
   br label %24
 
 8:                                                ; preds = %1
-  store ptr @.str.19, ptr %2, align 8
+  store ptr @.str.18, ptr %2, align 8
   br label %24
 
 9:                                                ; preds = %1
-  store ptr @.str.20, ptr %2, align 8
+  store ptr @.str.19, ptr %2, align 8
   br label %24
 
 10:                                               ; preds = %1
-  store ptr @.str.21, ptr %2, align 8
+  store ptr @.str.20, ptr %2, align 8
   br label %24
 
 11:                                               ; preds = %1
-  store ptr @.str.22, ptr %2, align 8
+  store ptr @.str.21, ptr %2, align 8
   br label %24
 
 12:                                               ; preds = %1
-  store ptr @.str.23, ptr %2, align 8
+  store ptr @.str.22, ptr %2, align 8
   br label %24
 
 13:                                               ; preds = %1
-  store ptr @.str.24, ptr %2, align 8
+  store ptr @.str.23, ptr %2, align 8
   br label %24
 
 14:                                               ; preds = %1
-  store ptr @.str.25, ptr %2, align 8
+  store ptr @.str.24, ptr %2, align 8
   br label %24
 
 15:                                               ; preds = %1
-  store ptr @.str.26, ptr %2, align 8
+  store ptr @.str.25, ptr %2, align 8
   br label %24
 
 16:                                               ; preds = %1
-  store ptr @.str.27, ptr %2, align 8
+  store ptr @.str.26, ptr %2, align 8
   br label %24
 
 17:                                               ; preds = %1
-  store ptr @.str.28, ptr %2, align 8
+  store ptr @.str.27, ptr %2, align 8
   br label %24
 
 18:                                               ; preds = %1
-  store ptr @.str.29, ptr %2, align 8
+  store ptr @.str.28, ptr %2, align 8
   br label %24
 
 19:                                               ; preds = %1
-  store ptr @.str.30, ptr %2, align 8
+  store ptr @.str.29, ptr %2, align 8
   br label %24
 
 20:                                               ; preds = %1
-  store ptr @.str.31, ptr %2, align 8
+  store ptr @.str.30, ptr %2, align 8
   br label %24
 
 21:                                               ; preds = %1
   %22 = load i32, ptr %3, align 4
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.32, i32 noundef %22)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.31, i32 noundef %22)
   br label %23
 
 23:                                               ; preds = %21
@@ -2515,17 +2537,24 @@ define dso_local ptr @get_dtype(i32 noundef %0) #0 {
   ret ptr %25
 }
 
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #5
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #7
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @ecpg_type_name(i32 noundef) #4
+declare ptr @ecpg_type_name(i32 noundef) #2
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #3
@@ -2566,112 +2595,112 @@ define internal ptr @get_type(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1
-  store ptr @.str.53, ptr %2, align 8
+  store ptr @.str.52, ptr %2, align 8
   br label %34
 
 6:                                                ; preds = %1
-  store ptr @.str.54, ptr %2, align 8
+  store ptr @.str.53, ptr %2, align 8
   br label %34
 
 7:                                                ; preds = %1
-  store ptr @.str.55, ptr %2, align 8
+  store ptr @.str.54, ptr %2, align 8
   br label %34
 
 8:                                                ; preds = %1
-  store ptr @.str.56, ptr %2, align 8
+  store ptr @.str.55, ptr %2, align 8
   br label %34
 
 9:                                                ; preds = %1
-  store ptr @.str.57, ptr %2, align 8
+  store ptr @.str.56, ptr %2, align 8
   br label %34
 
 10:                                               ; preds = %1
-  store ptr @.str.58, ptr %2, align 8
+  store ptr @.str.57, ptr %2, align 8
   br label %34
 
 11:                                               ; preds = %1
-  store ptr @.str.59, ptr %2, align 8
+  store ptr @.str.58, ptr %2, align 8
   br label %34
 
 12:                                               ; preds = %1
-  store ptr @.str.60, ptr %2, align 8
+  store ptr @.str.59, ptr %2, align 8
   br label %34
 
 13:                                               ; preds = %1
-  store ptr @.str.61, ptr %2, align 8
+  store ptr @.str.60, ptr %2, align 8
   br label %34
 
 14:                                               ; preds = %1
-  store ptr @.str.62, ptr %2, align 8
+  store ptr @.str.61, ptr %2, align 8
   br label %34
 
 15:                                               ; preds = %1
-  store ptr @.str.63, ptr %2, align 8
+  store ptr @.str.62, ptr %2, align 8
   br label %34
 
 16:                                               ; preds = %1
-  store ptr @.str.64, ptr %2, align 8
+  store ptr @.str.63, ptr %2, align 8
   br label %34
 
 17:                                               ; preds = %1
-  store ptr @.str.65, ptr %2, align 8
+  store ptr @.str.64, ptr %2, align 8
   br label %34
 
 18:                                               ; preds = %1
-  store ptr @.str.66, ptr %2, align 8
+  store ptr @.str.65, ptr %2, align 8
   br label %34
 
 19:                                               ; preds = %1
-  store ptr @.str.67, ptr %2, align 8
+  store ptr @.str.66, ptr %2, align 8
   br label %34
 
 20:                                               ; preds = %1
-  store ptr @.str.68, ptr %2, align 8
+  store ptr @.str.67, ptr %2, align 8
   br label %34
 
 21:                                               ; preds = %1
-  store ptr @.str.69, ptr %2, align 8
+  store ptr @.str.68, ptr %2, align 8
   br label %34
 
 22:                                               ; preds = %1
-  store ptr @.str.70, ptr %2, align 8
+  store ptr @.str.69, ptr %2, align 8
   br label %34
 
 23:                                               ; preds = %1
-  store ptr @.str.71, ptr %2, align 8
+  store ptr @.str.70, ptr %2, align 8
   br label %34
 
 24:                                               ; preds = %1
-  store ptr @.str.72, ptr %2, align 8
+  store ptr @.str.71, ptr %2, align 8
   br label %34
 
 25:                                               ; preds = %1
-  store ptr @.str.73, ptr %2, align 8
+  store ptr @.str.72, ptr %2, align 8
   br label %34
 
 26:                                               ; preds = %1
-  store ptr @.str.74, ptr %2, align 8
+  store ptr @.str.73, ptr %2, align 8
   br label %34
 
 27:                                               ; preds = %1
-  store ptr @.str.75, ptr %2, align 8
+  store ptr @.str.74, ptr %2, align 8
   br label %34
 
 28:                                               ; preds = %1
-  store ptr @.str.76, ptr %2, align 8
+  store ptr @.str.75, ptr %2, align 8
   br label %34
 
 29:                                               ; preds = %1
-  store ptr @.str.77, ptr %2, align 8
+  store ptr @.str.76, ptr %2, align 8
   br label %34
 
 30:                                               ; preds = %1
-  store ptr @.str.78, ptr %2, align 8
+  store ptr @.str.77, ptr %2, align 8
   br label %34
 
 31:                                               ; preds = %1
   %32 = load i32, ptr %3, align 4
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.15, i32 noundef %32)
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.14, i32 noundef %32)
   br label %33
 
 33:                                               ; preds = %31
@@ -2683,26 +2712,28 @@ define internal ptr @get_type(i32 noundef %0) #0 {
   ret ptr %35
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { noreturn }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -21,7 +21,7 @@ define dso_local range(i32 -1, 65536) i32 @ScanECPGKeywordLookup(ptr noundef %0)
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr [0 x i16], ptr @SQLScanKeywordTokens, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [0 x i16], ptr @SQLScanKeywordTokens, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   br label %17
@@ -33,7 +33,7 @@ define dso_local range(i32 -1, 65536) i32 @ScanECPGKeywordLookup(ptr noundef %0)
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   br label %17
@@ -56,7 +56,7 @@ define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr noundef
   %.0913 = phi i32 [ %9, %.lr.ph ], [ 0, %2 ]
   %.01012 = phi ptr [ %4, %.lr.ph ], [ %0, %2 ]
   %3 = add i64 %.015, -1
-  %4 = getelementptr i8, ptr %.01012, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.01012, i64 1
   %5 = load i8, ptr %.01012, align 1
   %6 = or i8 %5, 32
   %7 = mul i32 %.0913, 257
@@ -65,7 +65,7 @@ define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr noundef
   %10 = mul i32 %.0814, 31
   %11 = add i32 %10, %8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = urem i32 %9, 83
@@ -77,27 +77,26 @@ define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr noundef
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.09.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
   %.08.lcssa = phi i64 [ 0, %2 ], [ %15, %._crit_edge.loopexit ]
-  %16 = getelementptr [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %.09.lcssa
+  %16 = getelementptr inbounds nuw [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %.09.lcssa
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
-  %19 = getelementptr [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %.08.lcssa
+  %19 = getelementptr inbounds nuw [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %.08.lcssa
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i32
   %22 = add nsw i32 %21, %18
   ret i32 %22
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

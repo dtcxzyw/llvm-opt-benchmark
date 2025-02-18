@@ -25,7 +25,7 @@ define dso_local i32 @pg_wchar_strncmp(ptr noundef %0, ptr noundef %1, i64 nound
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr i32, ptr %15, i32 1
+  %16 = getelementptr inbounds nuw i32, ptr %15, i32 1
   store ptr %16, ptr %6, align 8
   %17 = load i32, ptr %15, align 4
   %18 = icmp ne i32 %14, %17
@@ -35,7 +35,7 @@ define dso_local i32 @pg_wchar_strncmp(ptr noundef %0, ptr noundef %1, i64 nound
   %20 = load ptr, ptr %5, align 8
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr i32, ptr %22, i64 -1
+  %23 = getelementptr inbounds i32, ptr %22, i64 -1
   %24 = load i32, ptr %23, align 4
   %25 = sub i32 %21, %24
   store i32 %25, ptr %4, align 4
@@ -43,7 +43,7 @@ define dso_local i32 @pg_wchar_strncmp(ptr noundef %0, ptr noundef %1, i64 nound
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr i32, ptr %27, i32 1
+  %28 = getelementptr inbounds nuw i32, ptr %27, i32 1
   store ptr %28, ptr %5, align 8
   %29 = load i32, ptr %27, align 4
   %30 = icmp eq i32 %29, 0
@@ -60,7 +60,7 @@ define dso_local i32 @pg_wchar_strncmp(ptr noundef %0, ptr noundef %1, i64 nound
   %35 = add i64 %34, -1
   store i64 %35, ptr %7, align 8
   %36 = icmp ne i64 %35, 0
-  br i1 %36, label %12, label %37, !llvm.loop !5
+  br i1 %36, label %12, label %37, !llvm.loop !4
 
 37:                                               ; preds = %33, %31
   store i32 0, ptr %4, align 4
@@ -96,7 +96,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef %0, ptr noundef %1, 
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr i32, ptr %16, i32 1
+  %17 = getelementptr inbounds nuw i32, ptr %16, i32 1
   store ptr %17, ptr %6, align 8
   %18 = load i32, ptr %16, align 4
   %19 = icmp ne i32 %15, %18
@@ -107,7 +107,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef %0, ptr noundef %1, 
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr i32, ptr %24, i64 -1
+  %25 = getelementptr inbounds i32, ptr %24, i64 -1
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %23, %26
   store i32 %27, ptr %4, align 4
@@ -115,7 +115,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef %0, ptr noundef %1, 
 
 28:                                               ; preds = %12
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr i8, ptr %29, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i32 1
   store ptr %30, ptr %5, align 8
   %31 = load i8, ptr %29, align 1
   %32 = sext i8 %31 to i32
@@ -133,7 +133,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef %0, ptr noundef %1, 
   %38 = add i64 %37, -1
   store i64 %38, ptr %7, align 8
   %39 = icmp ne i64 %38, 0
-  br i1 %39, label %12, label %40, !llvm.loop !7
+  br i1 %39, label %12, label %40, !llvm.loop !6
 
 40:                                               ; preds = %36, %34
   store i32 0, ptr %4, align 4
@@ -149,6 +149,7 @@ define dso_local i64 @pg_wchar_strlen(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #2
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   br label %5
@@ -164,9 +165,9 @@ define dso_local i64 @pg_wchar_strlen(ptr noundef %0) #0 {
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr i32, ptr %11, i32 1
+  %12 = getelementptr inbounds nuw i32, ptr %11, i32 1
   store ptr %12, ptr %3, align 8
-  br label %5, !llvm.loop !8
+  br label %5, !llvm.loop !7
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %3, align 8
@@ -175,19 +176,27 @@ define dso_local i64 @pg_wchar_strlen(ptr noundef %0) #0 {
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #2
   ret i64 %19
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

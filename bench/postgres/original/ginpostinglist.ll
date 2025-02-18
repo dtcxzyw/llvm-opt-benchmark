@@ -21,191 +21,242 @@ define dso_local ptr @ginCompressPostingList(ptr noundef %0, i32 noundef %1, i32
   %16 = alloca i64, align 8
   %17 = alloca [7 x i8], align 1
   %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
-  %19 = load i32, ptr %7, align 4
-  %20 = sext i32 %19 to i64
-  %21 = and i64 %20, -2
-  %22 = trunc i64 %21 to i32
-  store i32 %22, ptr %7, align 4
-  %23 = load i32, ptr %7, align 4
-  %24 = sext i32 %23 to i64
-  %25 = call ptr @palloc(i64 noundef %24)
-  store ptr %25, ptr %12, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = sext i32 %26 to i64
-  %28 = sub i64 %27, 8
-  %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %11, align 4
-  %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds %struct.GinPostingList, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr %struct.ItemPointerData, ptr %32, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %31, ptr align 2 %33, i64 6, i1 false)
-  %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds %struct.GinPostingList, ptr %34, i32 0, i32 0
-  %36 = call i64 @itemptr_to_uint64(ptr noundef %35)
-  store i64 %36, ptr %9, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr inbounds %struct.GinPostingList, ptr %37, i32 0, i32 2
-  %39 = getelementptr inbounds [0 x i8], ptr %38, i64 0, i64 0
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct.GinPostingList, ptr %40, i32 0, i32 2
-  %42 = getelementptr inbounds [0 x i8], ptr %41, i64 0, i64 0
-  %43 = load i32, ptr %11, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr i8, ptr %42, i64 %44
-  store ptr %45, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %20 = load i32, ptr %7, align 4
+  %21 = sext i32 %20 to i64
+  %22 = and i64 %21, -2
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %7, align 4
+  %24 = load i32, ptr %7, align 4
+  %25 = sext i32 %24 to i64
+  %26 = call ptr @palloc(i64 noundef %25)
+  store ptr %26, ptr %12, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = sext i32 %27 to i64
+  %29 = sub i64 %28, 8
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %11, align 4
+  %31 = load ptr, ptr %12, align 8
+  %32 = getelementptr inbounds nuw %struct.GinPostingList, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.ItemPointerData, ptr %33, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 %34, i64 6, i1 false)
+  %35 = load ptr, ptr %12, align 8
+  %36 = getelementptr inbounds nuw %struct.GinPostingList, ptr %35, i32 0, i32 0
+  %37 = call i64 @itemptr_to_uint64(ptr noundef %36)
+  store i64 %37, ptr %9, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = getelementptr inbounds nuw %struct.GinPostingList, ptr %38, i32 0, i32 2
+  %40 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 0
+  store ptr %40, ptr %13, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = getelementptr inbounds nuw %struct.GinPostingList, ptr %41, i32 0, i32 2
+  %43 = getelementptr inbounds [0 x i8], ptr %42, i64 0, i64 0
+  %44 = load i32, ptr %11, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %43, i64 %45
+  store ptr %46, ptr %14, align 8
   store i32 1, ptr %10, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %99, %4
-  %47 = load i32, ptr %10, align 4
-  %48 = load i32, ptr %6, align 4
-  %49 = icmp slt i32 %47, %48
-  br i1 %49, label %50, label %102
+47:                                               ; preds = %106, %4
+  %48 = load i32, ptr %10, align 4
+  %49 = load i32, ptr %6, align 4
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %51, label %109
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %5, align 8
-  %52 = load i32, ptr %10, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.ItemPointerData, ptr %51, i64 %53
-  %55 = call i64 @itemptr_to_uint64(ptr noundef %54)
-  store i64 %55, ptr %15, align 8
-  %56 = load i64, ptr %15, align 8
-  %57 = load i64, ptr %9, align 8
-  %58 = sub i64 %56, %57
-  store i64 %58, ptr %16, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = ptrtoint ptr %59 to i64
+51:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %52 = load ptr, ptr %5, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.ItemPointerData, ptr %52, i64 %54
+  %56 = call i64 @itemptr_to_uint64(ptr noundef %55)
+  store i64 %56, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %57 = load i64, ptr %15, align 8
+  %58 = load i64, ptr %9, align 8
+  %59 = sub i64 %57, %58
+  store i64 %59, ptr %16, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = load ptr, ptr %13, align 8
   %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = icmp sge i64 %63, 7
-  br i1 %64, label %65, label %67
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = icmp sge i64 %64, 7
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %50
-  %66 = load i64, ptr %16, align 8
-  call void @encode_varbyte(i64 noundef %66, ptr noundef %13)
-  br label %97
+66:                                               ; preds = %51
+  %67 = load i64, ptr %16, align 8
+  call void @encode_varbyte(i64 noundef %67, ptr noundef %13)
+  br label %101
 
-67:                                               ; preds = %50
-  %68 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
-  store ptr %68, ptr %18, align 8
-  %69 = load i64, ptr %16, align 8
-  call void @encode_varbyte(i64 noundef %69, ptr noundef %18)
-  %70 = load ptr, ptr %18, align 8
-  %71 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
-  %72 = ptrtoint ptr %70 to i64
+68:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 7, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %69 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
+  store ptr %69, ptr %18, align 8
+  %70 = load i64, ptr %16, align 8
+  call void @encode_varbyte(i64 noundef %70, ptr noundef %18)
+  %71 = load ptr, ptr %18, align 8
+  %72 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
   %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = load ptr, ptr %14, align 8
-  %76 = load ptr, ptr %13, align 8
-  %77 = ptrtoint ptr %75 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = load ptr, ptr %14, align 8
+  %77 = load ptr, ptr %13, align 8
   %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = icmp sgt i64 %74, %79
-  br i1 %80, label %81, label %82
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = icmp sgt i64 %75, %80
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %67
-  br label %102
+82:                                               ; preds = %68
+  store i32 2, ptr %19, align 4
+  br label %98
 
-82:                                               ; preds = %67
-  %83 = load ptr, ptr %13, align 8
-  %84 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
-  %85 = load ptr, ptr %18, align 8
-  %86 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
-  %87 = ptrtoint ptr %85 to i64
+83:                                               ; preds = %68
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
+  %86 = load ptr, ptr %18, align 8
+  %87 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
   %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %87, %88
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %84, i64 %89, i1 false)
-  %90 = load ptr, ptr %18, align 8
-  %91 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
-  %92 = ptrtoint ptr %90 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %85, i64 %90, i1 false)
+  %91 = load ptr, ptr %18, align 8
+  %92 = getelementptr inbounds [7 x i8], ptr %17, i64 0, i64 0
   %93 = ptrtoint ptr %91 to i64
-  %94 = sub i64 %92, %93
-  %95 = load ptr, ptr %13, align 8
-  %96 = getelementptr i8, ptr %95, i64 %94
-  store ptr %96, ptr %13, align 8
-  br label %97
+  %94 = ptrtoint ptr %92 to i64
+  %95 = sub i64 %93, %94
+  %96 = load ptr, ptr %13, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 %95
+  store ptr %97, ptr %13, align 8
+  store i32 0, ptr %19, align 4
+  br label %98
 
-97:                                               ; preds = %82, %65
-  %98 = load i64, ptr %15, align 8
-  store i64 %98, ptr %9, align 8
-  br label %99
+98:                                               ; preds = %83, %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 7, ptr %17) #5
+  %99 = load i32, ptr %19, align 4
+  switch i32 %99, label %103 [
+    i32 0, label %100
+  ]
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr %10, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %10, align 4
-  br label %46, !llvm.loop !5
+100:                                              ; preds = %98
+  br label %101
 
-102:                                              ; preds = %81, %46
-  %103 = load ptr, ptr %13, align 8
-  %104 = load ptr, ptr %12, align 8
-  %105 = getelementptr inbounds %struct.GinPostingList, ptr %104, i32 0, i32 2
-  %106 = getelementptr inbounds [0 x i8], ptr %105, i64 0, i64 0
-  %107 = ptrtoint ptr %103 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = trunc i64 %109 to i16
+101:                                              ; preds = %100, %66
+  %102 = load i64, ptr %15, align 8
+  store i64 %102, ptr %9, align 8
+  store i32 0, ptr %19, align 4
+  br label %103
+
+103:                                              ; preds = %101, %98
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  %104 = load i32, ptr %19, align 4
+  switch i32 %104, label %147 [
+    i32 0, label %105
+    i32 2, label %109
+  ]
+
+105:                                              ; preds = %103
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load i32, ptr %10, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %10, align 4
+  br label %47, !llvm.loop !4
+
+109:                                              ; preds = %103, %47
+  %110 = load ptr, ptr %13, align 8
   %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.GinPostingList, ptr %111, i32 0, i32 1
-  store i16 %110, ptr %112, align 2
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct.GinPostingList, ptr %113, i32 0, i32 1
-  %115 = load i16, ptr %114, align 2
-  %116 = zext i16 %115 to i64
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds %struct.GinPostingList, ptr %117, i32 0, i32 1
-  %119 = load i16, ptr %118, align 2
-  %120 = zext i16 %119 to i64
-  %121 = add i64 %120, 1
-  %122 = and i64 %121, -2
-  %123 = icmp ne i64 %116, %122
-  br i1 %123, label %124, label %132
+  %112 = getelementptr inbounds nuw %struct.GinPostingList, ptr %111, i32 0, i32 2
+  %113 = getelementptr inbounds [0 x i8], ptr %112, i64 0, i64 0
+  %114 = ptrtoint ptr %110 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = trunc i64 %116 to i16
+  %118 = load ptr, ptr %12, align 8
+  %119 = getelementptr inbounds nuw %struct.GinPostingList, ptr %118, i32 0, i32 1
+  store i16 %117, ptr %119, align 2
+  %120 = load ptr, ptr %12, align 8
+  %121 = getelementptr inbounds nuw %struct.GinPostingList, ptr %120, i32 0, i32 1
+  %122 = load i16, ptr %121, align 2
+  %123 = zext i16 %122 to i64
+  %124 = load ptr, ptr %12, align 8
+  %125 = getelementptr inbounds nuw %struct.GinPostingList, ptr %124, i32 0, i32 1
+  %126 = load i16, ptr %125, align 2
+  %127 = zext i16 %126 to i64
+  %128 = add i64 %127, 1
+  %129 = and i64 %128, -2
+  %130 = icmp ne i64 %123, %129
+  br i1 %130, label %131, label %139
 
-124:                                              ; preds = %102
-  %125 = load ptr, ptr %12, align 8
-  %126 = getelementptr inbounds %struct.GinPostingList, ptr %125, i32 0, i32 2
-  %127 = load ptr, ptr %12, align 8
-  %128 = getelementptr inbounds %struct.GinPostingList, ptr %127, i32 0, i32 1
-  %129 = load i16, ptr %128, align 2
-  %130 = zext i16 %129 to i64
-  %131 = getelementptr [0 x i8], ptr %126, i64 0, i64 %130
-  store i8 0, ptr %131, align 1
-  br label %132
+131:                                              ; preds = %109
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds nuw %struct.GinPostingList, ptr %132, i32 0, i32 2
+  %134 = load ptr, ptr %12, align 8
+  %135 = getelementptr inbounds nuw %struct.GinPostingList, ptr %134, i32 0, i32 1
+  %136 = load i16, ptr %135, align 2
+  %137 = zext i16 %136 to i64
+  %138 = getelementptr inbounds nuw [0 x i8], ptr %133, i64 0, i64 %137
+  store i8 0, ptr %138, align 1
+  br label %139
 
-132:                                              ; preds = %124, %102
-  %133 = load ptr, ptr %8, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %138
+139:                                              ; preds = %131, %109
+  %140 = load ptr, ptr %8, align 8
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %142, label %145
 
-135:                                              ; preds = %132
-  %136 = load i32, ptr %10, align 4
-  %137 = load ptr, ptr %8, align 8
-  store i32 %136, ptr %137, align 4
-  br label %138
+142:                                              ; preds = %139
+  %143 = load i32, ptr %10, align 4
+  %144 = load ptr, ptr %8, align 8
+  store i32 %143, ptr %144, align 4
+  br label %145
 
-138:                                              ; preds = %135, %132
-  %139 = load ptr, ptr %12, align 8
-  ret ptr %139
+145:                                              ; preds = %142, %139
+  %146 = load ptr, ptr %12, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  ret ptr %146
+
+147:                                              ; preds = %103
+  unreachable
 }
 
-declare ptr @palloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @palloc(i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @itemptr_to_uint64(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @itemptr_to_uint64(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %4 = load ptr, ptr %2, align 8
   %5 = call i32 @ItemPointerGetBlockNumberNoCheck(ptr noundef %4)
   %6 = zext i32 %5 to i64
@@ -220,6 +271,7 @@ define internal i64 @itemptr_to_uint64(ptr noundef %0) #0 {
   %13 = or i64 %12, %11
   store i64 %13, ptr %3, align 8
   %14 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %14
 }
 
@@ -230,6 +282,7 @@ define internal void @encode_varbyte(i64 noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -246,26 +299,30 @@ define internal void @encode_varbyte(i64 noundef %0, ptr noundef %1) #0 {
   %14 = or i64 128, %13
   %15 = trunc i64 %14 to i8
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr i8, ptr %16, i32 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i32 1
   store ptr %17, ptr %5, align 8
   store i8 %15, ptr %16, align 1
   %18 = load i64, ptr %3, align 8
   %19 = lshr i64 %18, 7
   store i64 %19, ptr %3, align 8
-  br label %8, !llvm.loop !7
+  br label %8, !llvm.loop !6
 
 20:                                               ; preds = %8
   %21 = load i64, ptr %3, align 8
   %22 = trunc i64 %21 to i8
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr i8, ptr %23, i32 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i32 1
   store ptr %24, ptr %5, align 8
   store i8 %22, ptr %23, align 1
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %4, align 8
   store ptr %25, ptr %26, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginPostingListDecode(ptr noundef %0, ptr noundef %1) #0 {
@@ -275,7 +332,7 @@ define dso_local ptr @ginPostingListDecode(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.GinPostingList, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.GinPostingList, ptr %6, i32 0, i32 1
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
   %10 = add i64 %9, 1
@@ -302,13 +359,20 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 nounde
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %5, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i8, ptr %14, i64 %16
+  %17 = getelementptr inbounds i8, ptr %14, i64 %16
   store ptr %17, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.GinPostingList, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.GinPostingList, ptr %18, i32 0, i32 1
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %22 = mul i32 %21, 2
@@ -350,30 +414,30 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 nounde
   %45 = load ptr, ptr %7, align 8
   %46 = load i32, ptr %11, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr %struct.ItemPointerData, ptr %45, i64 %47
+  %48 = getelementptr inbounds %struct.ItemPointerData, ptr %45, i64 %47
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.GinPostingList, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.GinPostingList, ptr %49, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %48, ptr align 2 %50, i64 6, i1 false)
   %51 = load i32, ptr %11, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %11, align 4
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.GinPostingList, ptr %53, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.GinPostingList, ptr %53, i32 0, i32 0
   %55 = call i64 @itemptr_to_uint64(ptr noundef %54)
   store i64 %55, ptr %9, align 8
   %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.GinPostingList, ptr %56, i32 0, i32 2
+  %57 = getelementptr inbounds nuw %struct.GinPostingList, ptr %56, i32 0, i32 2
   %58 = getelementptr inbounds [0 x i8], ptr %57, i64 0, i64 0
   store ptr %58, ptr %12, align 8
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.GinPostingList, ptr %59, i32 0, i32 2
+  %60 = getelementptr inbounds nuw %struct.GinPostingList, ptr %59, i32 0, i32 2
   %61 = getelementptr inbounds [0 x i8], ptr %60, i64 0, i64 0
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.GinPostingList, ptr %62, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct.GinPostingList, ptr %62, i32 0, i32 1
   %64 = load i16, ptr %63, align 2
   %65 = zext i16 %64 to i32
   %66 = sext i32 %65 to i64
-  %67 = getelementptr i8, ptr %61, i64 %66
+  %67 = getelementptr inbounds i8, ptr %61, i64 %66
   store ptr %67, ptr %13, align 8
   br label %68
 
@@ -410,25 +474,25 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 nounde
   %89 = load ptr, ptr %7, align 8
   %90 = load i32, ptr %11, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct.ItemPointerData, ptr %89, i64 %91
+  %92 = getelementptr inbounds %struct.ItemPointerData, ptr %89, i64 %91
   call void @uint64_to_itemptr(i64 noundef %88, ptr noundef %92)
   %93 = load i32, ptr %11, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %11, align 4
-  br label %68, !llvm.loop !8
+  br label %68, !llvm.loop !7
 
 95:                                               ; preds = %68
   %96 = load ptr, ptr %4, align 8
   %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.GinPostingList, ptr %97, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.GinPostingList, ptr %97, i32 0, i32 1
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i64
   %101 = add i64 %100, 1
   %102 = and i64 %101, -2
   %103 = add i64 8, %102
-  %104 = getelementptr i8, ptr %96, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 %103
   store ptr %104, ptr %4, align 8
-  br label %28, !llvm.loop !9
+  br label %28, !llvm.loop !8
 
 105:                                              ; preds = %28
   %106 = load ptr, ptr %6, align 8
@@ -443,10 +507,17 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 nounde
 
 111:                                              ; preds = %108, %105
   %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret ptr %112
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) #1
+declare ptr @repalloc(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @decode_varbyte(ptr noundef %0) #0 {
@@ -455,11 +526,14 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr i8, ptr %8, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i32 1
   store ptr %9, ptr %4, align 8
   %10 = load i8, ptr %8, align 1
   %11 = zext i8 %10 to i64
@@ -474,7 +548,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr i8, ptr %18, i32 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %18, align 1
   %21 = zext i8 %20 to i64
@@ -492,7 +566,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr i8, ptr %31, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i32 1
   store ptr %32, ptr %4, align 8
   %33 = load i8, ptr %31, align 1
   %34 = zext i8 %33 to i64
@@ -510,7 +584,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 43:                                               ; preds = %30
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr i8, ptr %44, i32 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i32 1
   store ptr %45, ptr %4, align 8
   %46 = load i8, ptr %44, align 1
   %47 = zext i8 %46 to i64
@@ -528,7 +602,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 56:                                               ; preds = %43
   %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr i8, ptr %57, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %57, i32 1
   store ptr %58, ptr %4, align 8
   %59 = load i8, ptr %57, align 1
   %60 = zext i8 %59 to i64
@@ -546,7 +620,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 69:                                               ; preds = %56
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr i8, ptr %70, i32 1
+  %71 = getelementptr inbounds nuw i8, ptr %70, i32 1
   store ptr %71, ptr %4, align 8
   %72 = load i8, ptr %70, align 1
   %73 = zext i8 %72 to i64
@@ -564,7 +638,7 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
 
 82:                                               ; preds = %69
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr i8, ptr %83, i32 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i32 1
   store ptr %84, ptr %4, align 8
   %85 = load i8, ptr %83, align 1
   %86 = zext i8 %85 to i64
@@ -596,11 +670,14 @@ define internal i64 @decode_varbyte(ptr noundef %0) #0 {
   %98 = load ptr, ptr %2, align 8
   store ptr %97, ptr %98, align 8
   %99 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %99
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @uint64_to_itemptr(i64 noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @uint64_to_itemptr(i64 noundef %0, ptr noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %0, ptr %3, align 8
@@ -630,6 +707,8 @@ define dso_local i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef %0, i32 n
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %5, align 4
   %11 = call ptr @ginPostingListDecodeAllSegments(ptr noundef %9, i32 noundef %10, ptr noundef %7)
@@ -641,12 +720,14 @@ define dso_local i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef %0, i32 n
   %15 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %15)
   %16 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %16
 }
 
-declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #1
+declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -665,6 +746,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %16 = load i32, ptr %7, align 4
   %17 = load i32, ptr %9, align 4
   %18 = add i32 %16, %17
@@ -686,9 +768,9 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %29 = load i32, ptr %7, align 4
   %30 = sub i32 %29, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr %struct.ItemPointerData, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %28, i64 %31
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr %struct.ItemPointerData, ptr %33, i64 0
+  %34 = getelementptr inbounds %struct.ItemPointerData, ptr %33, i64 0
   %35 = call i32 @ginCompareItemPointers(ptr noundef %32, ptr noundef %34)
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %55
@@ -703,7 +785,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %43 = load ptr, ptr %11, align 8
   %44 = load i32, ptr %7, align 4
   %45 = zext i32 %44 to i64
-  %46 = getelementptr %struct.ItemPointerData, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %43, i64 %45
   %47 = load ptr, ptr %8, align 8
   %48 = load i32, ptr %9, align 4
   %49 = zext i32 %48 to i64
@@ -721,9 +803,9 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %57 = load i32, ptr %9, align 4
   %58 = sub i32 %57, 1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr %struct.ItemPointerData, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %56, i64 %59
   %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr %struct.ItemPointerData, ptr %61, i64 0
+  %62 = getelementptr inbounds %struct.ItemPointerData, ptr %61, i64 0
   %63 = call i32 @ginCompareItemPointers(ptr noundef %60, ptr noundef %62)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %83
@@ -738,7 +820,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %71 = load ptr, ptr %11, align 8
   %72 = load i32, ptr %9, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr %struct.ItemPointerData, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %71, i64 %73
   %75 = load ptr, ptr %6, align 8
   %76 = load i32, ptr %7, align 4
   %77 = zext i32 %76 to i64
@@ -752,10 +834,13 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   br label %178
 
 83:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %84 = load ptr, ptr %11, align 8
   store ptr %84, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %85 = load ptr, ptr %6, align 8
   store ptr %85, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
   %86 = load ptr, ptr %8, align 8
   store ptr %86, ptr %14, align 8
   br label %87
@@ -789,6 +874,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %108, label %109, label %137
 
 109:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %110 = load ptr, ptr %13, align 8
   %111 = load ptr, ptr %14, align 8
   %112 = call i32 @ginCompareItemPointers(ptr noundef %110, ptr noundef %111)
@@ -799,10 +885,10 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 
 115:                                              ; preds = %109
   %116 = load ptr, ptr %12, align 8
-  %117 = getelementptr %struct.ItemPointerData, ptr %116, i32 1
+  %117 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %116, i32 1
   store ptr %117, ptr %12, align 8
   %118 = load ptr, ptr %14, align 8
-  %119 = getelementptr %struct.ItemPointerData, ptr %118, i32 1
+  %119 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %118, i32 1
   store ptr %119, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %116, ptr align 2 %118, i64 6, i1 false)
   br label %136
@@ -814,23 +900,23 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr %12, align 8
-  %125 = getelementptr %struct.ItemPointerData, ptr %124, i32 1
+  %125 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %124, i32 1
   store ptr %125, ptr %12, align 8
   %126 = load ptr, ptr %14, align 8
-  %127 = getelementptr %struct.ItemPointerData, ptr %126, i32 1
+  %127 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %126, i32 1
   store ptr %127, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %124, ptr align 2 %126, i64 6, i1 false)
   %128 = load ptr, ptr %13, align 8
-  %129 = getelementptr %struct.ItemPointerData, ptr %128, i32 1
+  %129 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %128, i32 1
   store ptr %129, ptr %13, align 8
   br label %135
 
 130:                                              ; preds = %120
   %131 = load ptr, ptr %12, align 8
-  %132 = getelementptr %struct.ItemPointerData, ptr %131, i32 1
+  %132 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %131, i32 1
   store ptr %132, ptr %12, align 8
   %133 = load ptr, ptr %13, align 8
-  %134 = getelementptr %struct.ItemPointerData, ptr %133, i32 1
+  %134 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %133, i32 1
   store ptr %134, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %131, ptr align 2 %133, i64 6, i1 false)
   br label %135
@@ -839,7 +925,8 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   br label %136
 
 136:                                              ; preds = %135, %115
-  br label %87, !llvm.loop !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  br label %87, !llvm.loop !9
 
 137:                                              ; preds = %107
   br label %138
@@ -858,13 +945,13 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 
 148:                                              ; preds = %138
   %149 = load ptr, ptr %12, align 8
-  %150 = getelementptr %struct.ItemPointerData, ptr %149, i32 1
+  %150 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %149, i32 1
   store ptr %150, ptr %12, align 8
   %151 = load ptr, ptr %13, align 8
-  %152 = getelementptr %struct.ItemPointerData, ptr %151, i32 1
+  %152 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %151, i32 1
   store ptr %152, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %149, ptr align 2 %151, i64 6, i1 false)
-  br label %138, !llvm.loop !11
+  br label %138, !llvm.loop !10
 
 153:                                              ; preds = %138
   br label %154
@@ -883,13 +970,13 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 
 164:                                              ; preds = %154
   %165 = load ptr, ptr %12, align 8
-  %166 = getelementptr %struct.ItemPointerData, ptr %165, i32 1
+  %166 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %165, i32 1
   store ptr %166, ptr %12, align 8
   %167 = load ptr, ptr %14, align 8
-  %168 = getelementptr %struct.ItemPointerData, ptr %167, i32 1
+  %168 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %167, i32 1
   store ptr %168, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %165, ptr align 2 %167, i64 6, i1 false)
-  br label %154, !llvm.loop !12
+  br label %154, !llvm.loop !11
 
 169:                                              ; preds = %154
   %170 = load ptr, ptr %12, align 8
@@ -901,6 +988,9 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %176 = trunc i64 %175 to i32
   %177 = load ptr, ptr %10, align 8
   store i32 %176, ptr %177, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
   br label %178
 
 178:                                              ; preds = %169, %65
@@ -908,17 +998,19 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
 
 179:                                              ; preds = %178, %37
   %180 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret ptr %180
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ginCompareItemPointers(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ginCompareItemPointers(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %7 = load ptr, ptr %3, align 8
   %8 = call i32 @ItemPointerGetBlockNumberNoCheck(ptr noundef %7)
   %9 = zext i32 %8 to i64
@@ -928,6 +1020,7 @@ define internal i32 @ginCompareItemPointers(ptr noundef %0, ptr noundef %1) #0 {
   %13 = zext i16 %12 to i64
   %14 = or i64 %10, %13
   store i64 %14, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   %15 = load ptr, ptr %4, align 8
   %16 = call i32 @ItemPointerGetBlockNumberNoCheck(ptr noundef %15)
   %17 = zext i32 %16 to i64
@@ -940,74 +1033,76 @@ define internal i32 @ginCompareItemPointers(ptr noundef %0, ptr noundef %1) #0 {
   %23 = load i64, ptr %5, align 8
   %24 = load i64, ptr %6, align 8
   %25 = call i32 @pg_cmp_u64(i64 noundef %23, i64 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ItemPointerGetBlockNumberNoCheck(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ItemPointerGetBlockNumberNoCheck(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.ItemPointerData, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %3, i32 0, i32 0
   %5 = call i32 @BlockIdGetBlockNumber(ptr noundef %4)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @ItemPointerGetOffsetNumberNoCheck(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @ItemPointerGetOffsetNumberNoCheck(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.ItemPointerData, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %3, i32 0, i32 1
   %5 = load i16, ptr %4, align 2
   ret i16 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @BlockIdGetBlockNumber(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @BlockIdGetBlockNumber(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.BlockIdData, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.BlockIdData, ptr %3, i32 0, i32 0
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
   %7 = shl i32 %6, 16
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.BlockIdData, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.BlockIdData, ptr %8, i32 0, i32 1
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = or i32 %7, %11
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @ItemPointerSetOffsetNumber(ptr noundef %0, i16 noundef zeroext %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ItemPointerSetOffsetNumber(ptr noundef %0, i16 noundef zeroext %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   store ptr %0, ptr %3, align 8
   store i16 %1, ptr %4, align 2
   %5 = load i16, ptr %4, align 2
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.ItemPointerData, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %6, i32 0, i32 1
   store i16 %5, ptr %7, align 2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @ItemPointerSetBlockNumber(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ItemPointerSetBlockNumber(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.ItemPointerData, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   call void @BlockIdSet(ptr noundef %6, i32 noundef %7)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -1016,19 +1111,19 @@ define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
   %6 = lshr i32 %5, 16
   %7 = trunc i32 %6 to i16
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.BlockIdData, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.BlockIdData, ptr %8, i32 0, i32 0
   store i16 %7, ptr %9, align 2
   %10 = load i32, ptr %4, align 4
   %11 = and i32 %10, 65535
   %12 = trunc i32 %11 to i16
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.BlockIdData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.BlockIdData, ptr %13, i32 0, i32 1
   store i16 %12, ptr %14, align 2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pg_cmp_u64(i64 noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @pg_cmp_u64(i64 noundef %0, i64 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -1045,22 +1140,24 @@ define internal i32 @pg_cmp_u64(i64 noundef %0, i64 noundef %1) #0 {
   ret i32 %13
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

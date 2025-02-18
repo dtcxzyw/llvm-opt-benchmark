@@ -3,7 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
-%struct.stemmer_module = type { ptr, i32, ptr, ptr, ptr }
 %struct.ForEachState = type { ptr, i32 }
 %struct.FunctionCallInfoBaseData = type { ptr, ptr, ptr, i32, i8, i16, [0 x %struct.NullableDatum] }
 %struct.NullableDatum = type { i64, i8 }
@@ -12,10 +11,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DefElem = type { i32, ptr, ptr, ptr, i32, i32 }
 %struct.DictSnowball = type { ptr, %struct.StopList, i8, ptr, ptr }
 %struct.StopList = type { i32, ptr }
+%struct.stemmer_module = type { ptr, i32, ptr, ptr, ptr }
 %struct.TSLexeme = type { i16, i16, ptr }
 %struct.SN_env = type { ptr, i32, i32, i32, i32, i32, ptr, ptr }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_dsnowball_init.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @pg_finfo_dsnowball_lexize.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @.str = private unnamed_addr constant [10 x i8] c"stopwords\00", align 1
@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [38 x i8] c"unrecognized Snowball parameter: \22%s\22\00", align 1
 @.str.6 = private unnamed_addr constant [27 x i8] c"missing Language parameter\00", align 1
 @CurrentMemoryContext = external global ptr, align 8
-@stemmer_modules = internal constant [50 x %struct.stemmer_module] [%struct.stemmer_module { ptr @.str.8, i32 8, ptr @basque_ISO_8859_1_create_env, ptr @basque_ISO_8859_1_close_env, ptr @basque_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.9, i32 8, ptr @catalan_ISO_8859_1_create_env, ptr @catalan_ISO_8859_1_close_env, ptr @catalan_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.10, i32 8, ptr @danish_ISO_8859_1_create_env, ptr @danish_ISO_8859_1_close_env, ptr @danish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.11, i32 8, ptr @dutch_ISO_8859_1_create_env, ptr @dutch_ISO_8859_1_close_env, ptr @dutch_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.12, i32 8, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.13, i32 8, ptr @finnish_ISO_8859_1_create_env, ptr @finnish_ISO_8859_1_close_env, ptr @finnish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.14, i32 8, ptr @french_ISO_8859_1_create_env, ptr @french_ISO_8859_1_close_env, ptr @french_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.15, i32 8, ptr @german_ISO_8859_1_create_env, ptr @german_ISO_8859_1_close_env, ptr @german_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.16, i32 8, ptr @indonesian_ISO_8859_1_create_env, ptr @indonesian_ISO_8859_1_close_env, ptr @indonesian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.17, i32 8, ptr @irish_ISO_8859_1_create_env, ptr @irish_ISO_8859_1_close_env, ptr @irish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.18, i32 8, ptr @italian_ISO_8859_1_create_env, ptr @italian_ISO_8859_1_close_env, ptr @italian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.19, i32 8, ptr @norwegian_ISO_8859_1_create_env, ptr @norwegian_ISO_8859_1_close_env, ptr @norwegian_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.20, i32 8, ptr @porter_ISO_8859_1_create_env, ptr @porter_ISO_8859_1_close_env, ptr @porter_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.21, i32 8, ptr @portuguese_ISO_8859_1_create_env, ptr @portuguese_ISO_8859_1_close_env, ptr @portuguese_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.22, i32 8, ptr @spanish_ISO_8859_1_create_env, ptr @spanish_ISO_8859_1_close_env, ptr @spanish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.23, i32 8, ptr @swedish_ISO_8859_1_create_env, ptr @swedish_ISO_8859_1_close_env, ptr @swedish_ISO_8859_1_stem }, %struct.stemmer_module { ptr @.str.24, i32 9, ptr @hungarian_ISO_8859_2_create_env, ptr @hungarian_ISO_8859_2_close_env, ptr @hungarian_ISO_8859_2_stem }, %struct.stemmer_module { ptr @.str.25, i32 9, ptr @romanian_ISO_8859_2_create_env, ptr @romanian_ISO_8859_2_close_env, ptr @romanian_ISO_8859_2_stem }, %struct.stemmer_module { ptr @.str.26, i32 22, ptr @russian_KOI8_R_create_env, ptr @russian_KOI8_R_close_env, ptr @russian_KOI8_R_stem }, %struct.stemmer_module { ptr @.str.27, i32 6, ptr @arabic_UTF_8_create_env, ptr @arabic_UTF_8_close_env, ptr @arabic_UTF_8_stem }, %struct.stemmer_module { ptr @.str.28, i32 6, ptr @armenian_UTF_8_create_env, ptr @armenian_UTF_8_close_env, ptr @armenian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.8, i32 6, ptr @basque_UTF_8_create_env, ptr @basque_UTF_8_close_env, ptr @basque_UTF_8_stem }, %struct.stemmer_module { ptr @.str.9, i32 6, ptr @catalan_UTF_8_create_env, ptr @catalan_UTF_8_close_env, ptr @catalan_UTF_8_stem }, %struct.stemmer_module { ptr @.str.10, i32 6, ptr @danish_UTF_8_create_env, ptr @danish_UTF_8_close_env, ptr @danish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.11, i32 6, ptr @dutch_UTF_8_create_env, ptr @dutch_UTF_8_close_env, ptr @dutch_UTF_8_stem }, %struct.stemmer_module { ptr @.str.12, i32 6, ptr @english_UTF_8_create_env, ptr @english_UTF_8_close_env, ptr @english_UTF_8_stem }, %struct.stemmer_module { ptr @.str.13, i32 6, ptr @finnish_UTF_8_create_env, ptr @finnish_UTF_8_close_env, ptr @finnish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.14, i32 6, ptr @french_UTF_8_create_env, ptr @french_UTF_8_close_env, ptr @french_UTF_8_stem }, %struct.stemmer_module { ptr @.str.15, i32 6, ptr @german_UTF_8_create_env, ptr @german_UTF_8_close_env, ptr @german_UTF_8_stem }, %struct.stemmer_module { ptr @.str.29, i32 6, ptr @greek_UTF_8_create_env, ptr @greek_UTF_8_close_env, ptr @greek_UTF_8_stem }, %struct.stemmer_module { ptr @.str.30, i32 6, ptr @hindi_UTF_8_create_env, ptr @hindi_UTF_8_close_env, ptr @hindi_UTF_8_stem }, %struct.stemmer_module { ptr @.str.24, i32 6, ptr @hungarian_UTF_8_create_env, ptr @hungarian_UTF_8_close_env, ptr @hungarian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.16, i32 6, ptr @indonesian_UTF_8_create_env, ptr @indonesian_UTF_8_close_env, ptr @indonesian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.17, i32 6, ptr @irish_UTF_8_create_env, ptr @irish_UTF_8_close_env, ptr @irish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.18, i32 6, ptr @italian_UTF_8_create_env, ptr @italian_UTF_8_close_env, ptr @italian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.31, i32 6, ptr @lithuanian_UTF_8_create_env, ptr @lithuanian_UTF_8_close_env, ptr @lithuanian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.32, i32 6, ptr @nepali_UTF_8_create_env, ptr @nepali_UTF_8_close_env, ptr @nepali_UTF_8_stem }, %struct.stemmer_module { ptr @.str.19, i32 6, ptr @norwegian_UTF_8_create_env, ptr @norwegian_UTF_8_close_env, ptr @norwegian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.20, i32 6, ptr @porter_UTF_8_create_env, ptr @porter_UTF_8_close_env, ptr @porter_UTF_8_stem }, %struct.stemmer_module { ptr @.str.21, i32 6, ptr @portuguese_UTF_8_create_env, ptr @portuguese_UTF_8_close_env, ptr @portuguese_UTF_8_stem }, %struct.stemmer_module { ptr @.str.25, i32 6, ptr @romanian_UTF_8_create_env, ptr @romanian_UTF_8_close_env, ptr @romanian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.26, i32 6, ptr @russian_UTF_8_create_env, ptr @russian_UTF_8_close_env, ptr @russian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.33, i32 6, ptr @serbian_UTF_8_create_env, ptr @serbian_UTF_8_close_env, ptr @serbian_UTF_8_stem }, %struct.stemmer_module { ptr @.str.22, i32 6, ptr @spanish_UTF_8_create_env, ptr @spanish_UTF_8_close_env, ptr @spanish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.23, i32 6, ptr @swedish_UTF_8_create_env, ptr @swedish_UTF_8_close_env, ptr @swedish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.34, i32 6, ptr @tamil_UTF_8_create_env, ptr @tamil_UTF_8_close_env, ptr @tamil_UTF_8_stem }, %struct.stemmer_module { ptr @.str.35, i32 6, ptr @turkish_UTF_8_create_env, ptr @turkish_UTF_8_close_env, ptr @turkish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.36, i32 6, ptr @yiddish_UTF_8_create_env, ptr @yiddish_UTF_8_close_env, ptr @yiddish_UTF_8_stem }, %struct.stemmer_module { ptr @.str.12, i32 0, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, %struct.stemmer_module zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [66 x i8] c"no Snowball stemmer available for language \22%s\22 and encoding \22%s\22\00", align 1
 @__func__.locate_stem_module = private unnamed_addr constant [19 x i8] c"locate_stem_module\00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c"basque\00", align 1
@@ -59,6 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [6 x i8] c"tamil\00", align 1
 @.str.35 = private unnamed_addr constant [8 x i8] c"turkish\00", align 1
 @.str.36 = private unnamed_addr constant [8 x i8] c"yiddish\00", align 1
+@stemmer_modules = internal constant [50 x { ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.8, i32 8, [4 x i8] zeroinitializer, ptr @basque_ISO_8859_1_create_env, ptr @basque_ISO_8859_1_close_env, ptr @basque_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.9, i32 8, [4 x i8] zeroinitializer, ptr @catalan_ISO_8859_1_create_env, ptr @catalan_ISO_8859_1_close_env, ptr @catalan_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.10, i32 8, [4 x i8] zeroinitializer, ptr @danish_ISO_8859_1_create_env, ptr @danish_ISO_8859_1_close_env, ptr @danish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.11, i32 8, [4 x i8] zeroinitializer, ptr @dutch_ISO_8859_1_create_env, ptr @dutch_ISO_8859_1_close_env, ptr @dutch_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 8, [4 x i8] zeroinitializer, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.13, i32 8, [4 x i8] zeroinitializer, ptr @finnish_ISO_8859_1_create_env, ptr @finnish_ISO_8859_1_close_env, ptr @finnish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.14, i32 8, [4 x i8] zeroinitializer, ptr @french_ISO_8859_1_create_env, ptr @french_ISO_8859_1_close_env, ptr @french_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.15, i32 8, [4 x i8] zeroinitializer, ptr @german_ISO_8859_1_create_env, ptr @german_ISO_8859_1_close_env, ptr @german_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.16, i32 8, [4 x i8] zeroinitializer, ptr @indonesian_ISO_8859_1_create_env, ptr @indonesian_ISO_8859_1_close_env, ptr @indonesian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.17, i32 8, [4 x i8] zeroinitializer, ptr @irish_ISO_8859_1_create_env, ptr @irish_ISO_8859_1_close_env, ptr @irish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.18, i32 8, [4 x i8] zeroinitializer, ptr @italian_ISO_8859_1_create_env, ptr @italian_ISO_8859_1_close_env, ptr @italian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.19, i32 8, [4 x i8] zeroinitializer, ptr @norwegian_ISO_8859_1_create_env, ptr @norwegian_ISO_8859_1_close_env, ptr @norwegian_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.20, i32 8, [4 x i8] zeroinitializer, ptr @porter_ISO_8859_1_create_env, ptr @porter_ISO_8859_1_close_env, ptr @porter_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.21, i32 8, [4 x i8] zeroinitializer, ptr @portuguese_ISO_8859_1_create_env, ptr @portuguese_ISO_8859_1_close_env, ptr @portuguese_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.22, i32 8, [4 x i8] zeroinitializer, ptr @spanish_ISO_8859_1_create_env, ptr @spanish_ISO_8859_1_close_env, ptr @spanish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.23, i32 8, [4 x i8] zeroinitializer, ptr @swedish_ISO_8859_1_create_env, ptr @swedish_ISO_8859_1_close_env, ptr @swedish_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.24, i32 9, [4 x i8] zeroinitializer, ptr @hungarian_ISO_8859_2_create_env, ptr @hungarian_ISO_8859_2_close_env, ptr @hungarian_ISO_8859_2_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.25, i32 9, [4 x i8] zeroinitializer, ptr @romanian_ISO_8859_2_create_env, ptr @romanian_ISO_8859_2_close_env, ptr @romanian_ISO_8859_2_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.26, i32 22, [4 x i8] zeroinitializer, ptr @russian_KOI8_R_create_env, ptr @russian_KOI8_R_close_env, ptr @russian_KOI8_R_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.27, i32 6, [4 x i8] zeroinitializer, ptr @arabic_UTF_8_create_env, ptr @arabic_UTF_8_close_env, ptr @arabic_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.28, i32 6, [4 x i8] zeroinitializer, ptr @armenian_UTF_8_create_env, ptr @armenian_UTF_8_close_env, ptr @armenian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.8, i32 6, [4 x i8] zeroinitializer, ptr @basque_UTF_8_create_env, ptr @basque_UTF_8_close_env, ptr @basque_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.9, i32 6, [4 x i8] zeroinitializer, ptr @catalan_UTF_8_create_env, ptr @catalan_UTF_8_close_env, ptr @catalan_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.10, i32 6, [4 x i8] zeroinitializer, ptr @danish_UTF_8_create_env, ptr @danish_UTF_8_close_env, ptr @danish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.11, i32 6, [4 x i8] zeroinitializer, ptr @dutch_UTF_8_create_env, ptr @dutch_UTF_8_close_env, ptr @dutch_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 6, [4 x i8] zeroinitializer, ptr @english_UTF_8_create_env, ptr @english_UTF_8_close_env, ptr @english_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.13, i32 6, [4 x i8] zeroinitializer, ptr @finnish_UTF_8_create_env, ptr @finnish_UTF_8_close_env, ptr @finnish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.14, i32 6, [4 x i8] zeroinitializer, ptr @french_UTF_8_create_env, ptr @french_UTF_8_close_env, ptr @french_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.15, i32 6, [4 x i8] zeroinitializer, ptr @german_UTF_8_create_env, ptr @german_UTF_8_close_env, ptr @german_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.29, i32 6, [4 x i8] zeroinitializer, ptr @greek_UTF_8_create_env, ptr @greek_UTF_8_close_env, ptr @greek_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.30, i32 6, [4 x i8] zeroinitializer, ptr @hindi_UTF_8_create_env, ptr @hindi_UTF_8_close_env, ptr @hindi_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.24, i32 6, [4 x i8] zeroinitializer, ptr @hungarian_UTF_8_create_env, ptr @hungarian_UTF_8_close_env, ptr @hungarian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.16, i32 6, [4 x i8] zeroinitializer, ptr @indonesian_UTF_8_create_env, ptr @indonesian_UTF_8_close_env, ptr @indonesian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.17, i32 6, [4 x i8] zeroinitializer, ptr @irish_UTF_8_create_env, ptr @irish_UTF_8_close_env, ptr @irish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.18, i32 6, [4 x i8] zeroinitializer, ptr @italian_UTF_8_create_env, ptr @italian_UTF_8_close_env, ptr @italian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.31, i32 6, [4 x i8] zeroinitializer, ptr @lithuanian_UTF_8_create_env, ptr @lithuanian_UTF_8_close_env, ptr @lithuanian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.32, i32 6, [4 x i8] zeroinitializer, ptr @nepali_UTF_8_create_env, ptr @nepali_UTF_8_close_env, ptr @nepali_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.19, i32 6, [4 x i8] zeroinitializer, ptr @norwegian_UTF_8_create_env, ptr @norwegian_UTF_8_close_env, ptr @norwegian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.20, i32 6, [4 x i8] zeroinitializer, ptr @porter_UTF_8_create_env, ptr @porter_UTF_8_close_env, ptr @porter_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.21, i32 6, [4 x i8] zeroinitializer, ptr @portuguese_UTF_8_create_env, ptr @portuguese_UTF_8_close_env, ptr @portuguese_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.25, i32 6, [4 x i8] zeroinitializer, ptr @romanian_UTF_8_create_env, ptr @romanian_UTF_8_close_env, ptr @romanian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.26, i32 6, [4 x i8] zeroinitializer, ptr @russian_UTF_8_create_env, ptr @russian_UTF_8_close_env, ptr @russian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.33, i32 6, [4 x i8] zeroinitializer, ptr @serbian_UTF_8_create_env, ptr @serbian_UTF_8_close_env, ptr @serbian_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.22, i32 6, [4 x i8] zeroinitializer, ptr @spanish_UTF_8_create_env, ptr @spanish_UTF_8_close_env, ptr @spanish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.23, i32 6, [4 x i8] zeroinitializer, ptr @swedish_UTF_8_create_env, ptr @swedish_UTF_8_close_env, ptr @swedish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.34, i32 6, [4 x i8] zeroinitializer, ptr @tamil_UTF_8_create_env, ptr @tamil_UTF_8_close_env, ptr @tamil_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.35, i32 6, [4 x i8] zeroinitializer, ptr @turkish_UTF_8_create_env, ptr @turkish_UTF_8_close_env, ptr @turkish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.36, i32 6, [4 x i8] zeroinitializer, ptr @yiddish_UTF_8_create_env, ptr @yiddish_UTF_8_close_env, ptr @yiddish_UTF_8_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } { ptr @.str.12, i32 0, [4 x i8] zeroinitializer, ptr @english_ISO_8859_1_create_env, ptr @english_ISO_8859_1_close_env, ptr @english_ISO_8859_1_stem }, { ptr, i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
 define ptr @Pg_magic_func() #0 {
@@ -85,246 +85,278 @@ define i64 @dsnowball_init(ptr noundef %0) #0 {
   %7 = alloca %struct.ForEachState, align 8
   %8 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
-  %11 = getelementptr [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.NullableDatum, ptr %11, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %11, i32 0, i32 0
   %13 = load i64, ptr %12, align 8
   %14 = call ptr @DatumGetPointer(i64 noundef %13)
   store ptr %14, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #8
   store i8 0, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   %15 = call ptr @palloc0(i64 noundef 48)
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  %16 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
   %17 = load ptr, ptr %3, align 8
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
   store i32 0, ptr %18, align 8
-  br label %19
+  %19 = getelementptr i8, ptr %7, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 4, i1 false)
+  br label %20
 
-19:                                               ; preds = %113, %1
-  %20 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %40
+20:                                               ; preds = %118, %1
+  %21 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %41
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.List, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp slt i32 %25, %29
-  br i1 %30, label %31, label %40
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.List, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp slt i32 %26, %30
+  br i1 %31, label %32, label %41
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.List, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr %union.ListCell, ptr %35, i64 %38
-  store ptr %39, ptr %6, align 8
-  br label %41
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.List, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %union.ListCell, ptr %36, i64 %39
+  store ptr %40, ptr %6, align 8
+  br label %42
 
-40:                                               ; preds = %23, %19
+41:                                               ; preds = %24, %20
   store ptr null, ptr %6, align 8
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %31
-  %42 = phi i32 [ 1, %31 ], [ 0, %40 ]
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %117
+42:                                               ; preds = %41, %32
+  %43 = phi i32 [ 1, %32 ], [ 0, %41 ]
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %46, label %45
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %6, align 8
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.DefElem, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @strcmp(ptr noundef %49, ptr noundef @.str) #5
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %71
+45:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  br label %122
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %5, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %66
+46:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %47 = load ptr, ptr %6, align 8
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %8, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.DefElem, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i32 @strcmp(ptr noundef %51, ptr noundef @.str) #9
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %74
 
-55:                                               ; preds = %52
-  br label %56
+54:                                               ; preds = %46
+  %55 = load i8, ptr %5, align 1, !range !3, !noundef !4
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %69
 
-56:                                               ; preds = %55
-  br i1 true, label %57, label %59
+57:                                               ; preds = %54
+  br label %58
 
-57:                                               ; preds = %56
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %58, label %61, label %64
+58:                                               ; preds = %57
+  br i1 true, label %59, label %61
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %60, label %61, label %64
+59:                                               ; preds = %58
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %60, label %63, label %66
 
-61:                                               ; preds = %59, %57
-  %62 = call i32 @errcode(i32 noundef 50856066)
-  %63 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.1)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 238, ptr noundef @__func__.dsnowball_init)
-  br label %64
+61:                                               ; preds = %58
+  %62 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %62, label %63, label %66
 
-64:                                               ; preds = %61, %59, %57
-  unreachable
-
-65:                                               ; No predecessors!
+63:                                               ; preds = %61, %59
+  %64 = call i32 @errcode(i32 noundef 50856066)
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.1)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 240, ptr noundef @__func__.dsnowball_init)
   br label %66
 
-66:                                               ; preds = %65, %52
-  %67 = load ptr, ptr %8, align 8
-  %68 = call ptr @defGetString(ptr noundef %67)
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.DictSnowball, ptr %69, i32 0, i32 1
-  call void @readstoplist(ptr noundef %68, ptr noundef %70, ptr noundef @lowerstr)
+66:                                               ; preds = %63, %61, %59
+  unreachable
+
+67:                                               ; No predecessors!
+  br label %68
+
+68:                                               ; preds = %67
+  br label %69
+
+69:                                               ; preds = %68, %54
+  %70 = load ptr, ptr %8, align 8
+  %71 = call ptr @defGetString(ptr noundef %70)
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct.DictSnowball, ptr %72, i32 0, i32 1
+  call void @readstoplist(ptr noundef %71, ptr noundef %73, ptr noundef @str_tolower)
   store i8 1, ptr %5, align 1
-  br label %112
+  br label %117
 
-71:                                               ; preds = %44
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.DefElem, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef %74, ptr noundef @.str.3) #5
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %97
+74:                                               ; preds = %46
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds nuw %struct.DefElem, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @strcmp(ptr noundef %77, ptr noundef @.str.3) #9
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %101
 
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.DictSnowball, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %93
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw %struct.DictSnowball, ptr %81, i32 0, i32 3
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %97
 
-82:                                               ; preds = %77
-  br label %83
+85:                                               ; preds = %80
+  br label %86
 
-83:                                               ; preds = %82
-  br i1 true, label %84, label %86
+86:                                               ; preds = %85
+  br i1 true, label %87, label %89
 
-84:                                               ; preds = %83
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %85, label %88, label %91
+87:                                               ; preds = %86
+  %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %88, label %91, label %94
 
-86:                                               ; preds = %83
-  %87 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %87, label %88, label %91
+89:                                               ; preds = %86
+  %90 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %90, label %91, label %94
 
-88:                                               ; preds = %86, %84
-  %89 = call i32 @errcode(i32 noundef 50856066)
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 247, ptr noundef @__func__.dsnowball_init)
-  br label %91
+91:                                               ; preds = %89, %87
+  %92 = call i32 @errcode(i32 noundef 50856066)
+  %93 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 249, ptr noundef @__func__.dsnowball_init)
+  br label %94
 
-91:                                               ; preds = %88, %86, %84
+94:                                               ; preds = %91, %89, %87
   unreachable
 
-92:                                               ; No predecessors!
-  br label %93
+95:                                               ; No predecessors!
+  br label %96
 
-93:                                               ; preds = %92, %77
-  %94 = load ptr, ptr %4, align 8
-  %95 = load ptr, ptr %8, align 8
-  %96 = call ptr @defGetString(ptr noundef %95)
-  call void @locate_stem_module(ptr noundef %94, ptr noundef %96)
-  br label %111
+96:                                               ; preds = %95
+  br label %97
 
-97:                                               ; preds = %71
-  br label %98
+97:                                               ; preds = %96, %80
+  %98 = load ptr, ptr %4, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = call ptr @defGetString(ptr noundef %99)
+  call void @locate_stem_module(ptr noundef %98, ptr noundef %100)
+  br label %116
 
-98:                                               ; preds = %97
-  br i1 true, label %99, label %101
+101:                                              ; preds = %74
+  br label %102
 
-99:                                               ; preds = %98
-  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %100, label %103, label %109
+102:                                              ; preds = %101
+  br i1 true, label %103, label %105
 
-101:                                              ; preds = %98
-  %102 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %102, label %103, label %109
+103:                                              ; preds = %102
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %104, label %107, label %113
 
-103:                                              ; preds = %101, %99
-  %104 = call i32 @errcode(i32 noundef 50856066)
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.DefElem, ptr %105, i32 0, i32 2
-  %107 = load ptr, ptr %106, align 8
-  %108 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %107)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 255, ptr noundef @__func__.dsnowball_init)
-  br label %109
+105:                                              ; preds = %102
+  %106 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %106, label %107, label %113
 
-109:                                              ; preds = %103, %101, %99
-  unreachable
-
-110:                                              ; No predecessors!
-  br label %111
-
-111:                                              ; preds = %110, %93
-  br label %112
-
-112:                                              ; preds = %111, %66
+107:                                              ; preds = %105, %103
+  %108 = call i32 @errcode(i32 noundef 50856066)
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.DefElem, ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8
+  %112 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %111)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 257, ptr noundef @__func__.dsnowball_init)
   br label %113
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %115 = load i32, ptr %114, align 8
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %114, align 8
-  br label %19, !llvm.loop !4
-
-117:                                              ; preds = %41
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.DictSnowball, ptr %118, i32 0, i32 3
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %133, label %122
-
-122:                                              ; preds = %117
-  br label %123
-
-123:                                              ; preds = %122
-  br i1 true, label %124, label %126
-
-124:                                              ; preds = %123
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %125, label %128, label %131
-
-126:                                              ; preds = %123
-  %127 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %127, label %128, label %131
-
-128:                                              ; preds = %126, %124
-  %129 = call i32 @errcode(i32 noundef 50856066)
-  %130 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 262, ptr noundef @__func__.dsnowball_init)
-  br label %131
-
-131:                                              ; preds = %128, %126, %124
+113:                                              ; preds = %107, %105, %103
   unreachable
 
-132:                                              ; No predecessors!
-  br label %133
+114:                                              ; No predecessors!
+  br label %115
 
-133:                                              ; preds = %132, %117
-  %134 = load ptr, ptr @CurrentMemoryContext, align 8
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %struct.DictSnowball, ptr %135, i32 0, i32 4
-  store ptr %134, ptr %136, align 8
-  %137 = load ptr, ptr %4, align 8
-  %138 = call i64 @PointerGetDatum(ptr noundef %137)
-  ret i64 %138
+115:                                              ; preds = %114
+  br label %116
+
+116:                                              ; preds = %115, %97
+  br label %117
+
+117:                                              ; preds = %116, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %120 = load i32, ptr %119, align 8
+  %121 = add i32 %120, 1
+  store i32 %121, ptr %119, align 8
+  br label %20, !llvm.loop !5
+
+122:                                              ; preds = %45
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds nuw %struct.DictSnowball, ptr %123, i32 0, i32 3
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %139, label %127
+
+127:                                              ; preds = %122
+  br label %128
+
+128:                                              ; preds = %127
+  br i1 true, label %129, label %131
+
+129:                                              ; preds = %128
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %130, label %133, label %136
+
+131:                                              ; preds = %128
+  %132 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %132, label %133, label %136
+
+133:                                              ; preds = %131, %129
+  %134 = call i32 @errcode(i32 noundef 50856066)
+  %135 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 264, ptr noundef @__func__.dsnowball_init)
+  br label %136
+
+136:                                              ; preds = %133, %131, %129
+  unreachable
+
+137:                                              ; No predecessors!
+  br label %138
+
+138:                                              ; preds = %137
+  br label %139
+
+139:                                              ; preds = %138, %122
+  %140 = load ptr, ptr @CurrentMemoryContext, align 8
+  %141 = load ptr, ptr %4, align 8
+  %142 = getelementptr inbounds nuw %struct.DictSnowball, ptr %141, i32 0, i32 4
+  store ptr %140, ptr %142, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = call i64 @PointerGetDatum(ptr noundef %143)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %144
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -332,183 +364,211 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @defGetString(ptr noundef) #1
+declare ptr @defGetString(ptr noundef) #3
 
-declare ptr @lowerstr(ptr noundef) #1
+declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @locate_stem_module(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   store ptr @stemmer_modules, ptr %5, align 8
-  br label %6
+  br label %7
 
-6:                                                ; preds = %44, %2
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.stemmer_module, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %47
+7:                                                ; preds = %45, %2
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %struct.stemmer_module, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %48
 
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.stemmer_module, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %22, label %16
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.stemmer_module, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.stemmer_module, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = call i32 @GetDatabaseEncoding()
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %43
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.stemmer_module, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = call i32 @GetDatabaseEncoding()
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %44
 
-22:                                               ; preds = %16, %11
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.stemmer_module, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = call i32 @pg_strcasecmp(ptr noundef %25, ptr noundef %26)
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %43
+23:                                               ; preds = %17, %12
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.stemmer_module, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = call i32 @pg_strcasecmp(ptr noundef %26, ptr noundef %27)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %44
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.stemmer_module, ptr %30, i32 0, i32 4
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.DictSnowball, ptr %33, i32 0, i32 3
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.stemmer_module, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr %37()
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.DictSnowball, ptr %39, i32 0, i32 0
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.DictSnowball, ptr %41, i32 0, i32 2
-  store i8 0, ptr %42, align 8
-  br label %95
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.stemmer_module, ptr %31, i32 0, i32 4
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.DictSnowball, ptr %34, i32 0, i32 3
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.stemmer_module, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr %38()
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds nuw %struct.DictSnowball, ptr %40, i32 0, i32 0
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.DictSnowball, ptr %42, i32 0, i32 2
+  store i8 0, ptr %43, align 8
+  store i32 1, ptr %6, align 4
+  br label %98
 
-43:                                               ; preds = %22, %16
-  br label %44
+44:                                               ; preds = %23, %17
+  br label %45
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr %struct.stemmer_module, ptr %45, i32 1
-  store ptr %46, ptr %5, align 8
-  br label %6, !llvm.loop !6
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.stemmer_module, ptr %46, i32 1
+  store ptr %47, ptr %5, align 8
+  br label %7, !llvm.loop !7
 
-47:                                               ; preds = %6
+48:                                               ; preds = %7
   store ptr @stemmer_modules, ptr %5, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %80, %47
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.stemmer_module, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %83
+49:                                               ; preds = %81, %48
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.stemmer_module, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %84
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.stemmer_module, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 6
-  br i1 %57, label %58, label %79
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.stemmer_module, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %57, 6
+  br i1 %58, label %59, label %80
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.stemmer_module, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = call i32 @pg_strcasecmp(ptr noundef %61, ptr noundef %62)
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %79
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.stemmer_module, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %4, align 8
+  %64 = call i32 @pg_strcasecmp(ptr noundef %62, ptr noundef %63)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %80
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.stemmer_module, ptr %66, i32 0, i32 4
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.DictSnowball, ptr %69, i32 0, i32 3
-  store ptr %68, ptr %70, align 8
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.stemmer_module, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr %73()
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.DictSnowball, ptr %75, i32 0, i32 0
-  store ptr %74, ptr %76, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.DictSnowball, ptr %77, i32 0, i32 2
-  store i8 1, ptr %78, align 8
-  br label %95
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.stemmer_module, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.DictSnowball, ptr %70, i32 0, i32 3
+  store ptr %69, ptr %71, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds nuw %struct.stemmer_module, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr %74()
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds nuw %struct.DictSnowball, ptr %76, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.DictSnowball, ptr %78, i32 0, i32 2
+  store i8 1, ptr %79, align 8
+  store i32 1, ptr %6, align 4
+  br label %98
 
-79:                                               ; preds = %58, %53
-  br label %80
+80:                                               ; preds = %59, %54
+  br label %81
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr %struct.stemmer_module, ptr %81, i32 1
-  store ptr %82, ptr %5, align 8
-  br label %48, !llvm.loop !7
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.stemmer_module, ptr %82, i32 1
+  store ptr %83, ptr %5, align 8
+  br label %49, !llvm.loop !8
 
-83:                                               ; preds = %48
-  br label %84
-
-84:                                               ; preds = %83
-  br i1 true, label %85, label %87
+84:                                               ; preds = %49
+  br label %85
 
 85:                                               ; preds = %84
-  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %86, label %89, label %94
+  br i1 true, label %86, label %88
 
-87:                                               ; preds = %84
-  %88 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %88, label %89, label %94
+86:                                               ; preds = %85
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %87, label %90, label %95
 
-89:                                               ; preds = %87, %85
-  %90 = call i32 @errcode(i32 noundef 67137668)
-  %91 = load ptr, ptr %4, align 8
-  %92 = call ptr @GetDatabaseEncodingName()
-  %93 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %91, ptr noundef %92)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 216, ptr noundef @__func__.locate_stem_module)
-  br label %94
+88:                                               ; preds = %85
+  %89 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %89, label %90, label %95
 
-94:                                               ; preds = %89, %87, %85
+90:                                               ; preds = %88, %86
+  %91 = call i32 @errcode(i32 noundef 67137668)
+  %92 = load ptr, ptr %4, align 8
+  %93 = call ptr @GetDatabaseEncodingName()
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %92, ptr noundef %93)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 218, ptr noundef @__func__.locate_stem_module)
+  br label %95
+
+95:                                               ; preds = %90, %88, %86
   unreachable
 
-95:                                               ; preds = %65, %29
+96:                                               ; No predecessors!
+  br label %97
+
+97:                                               ; preds = %96
+  store i32 0, ptr %6, align 4
+  br label %98
+
+98:                                               ; preds = %97, %66, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %99 = load i32, ptr %6, align 4
+  switch i32 %99, label %101 [
+    i32 0, label %100
+    i32 1, label %100
+  ]
+
+100:                                              ; preds = %98, %98
   ret void
+
+101:                                              ; preds = %98
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -528,214 +588,231 @@ define i64 @dsnowball_lexize(ptr noundef %0) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
-  %13 = getelementptr [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
-  %14 = getelementptr inbounds %struct.NullableDatum, ptr %13, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
+  %13 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
+  %14 = getelementptr inbounds nuw %struct.NullableDatum, ptr %13, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @DatumGetPointer(i64 noundef %15)
   store ptr %16, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 6
-  %19 = getelementptr [0 x %struct.NullableDatum], ptr %18, i64 0, i64 1
-  %20 = getelementptr inbounds %struct.NullableDatum, ptr %19, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 6
+  %19 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %18, i64 0, i64 1
+  %20 = getelementptr inbounds nuw %struct.NullableDatum, ptr %19, i32 0, i32 0
   %21 = load i64, ptr %20, align 8
   %22 = call ptr @DatumGetPointer(i64 noundef %21)
   store ptr %22, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
-  %25 = getelementptr [0 x %struct.NullableDatum], ptr %24, i64 0, i64 2
-  %26 = getelementptr inbounds %struct.NullableDatum, ptr %25, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
+  %25 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %24, i64 0, i64 2
+  %26 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i32 0, i32 0
   %27 = load i64, ptr %26, align 8
   %28 = call i32 @DatumGetInt32(i64 noundef %27)
   store i32 %28, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   %29 = load ptr, ptr %4, align 8
   %30 = load i32, ptr %5, align 4
-  %31 = call ptr @lowerstr_with_len(ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr %6, align 8
-  %32 = call ptr @palloc0(i64 noundef 32)
-  store ptr %32, ptr %7, align 8
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp sgt i32 %33, 1000
-  br i1 %34, label %35, label %39
+  %31 = sext i32 %30 to i64
+  %32 = call ptr @str_tolower(ptr noundef %29, i64 noundef %31, i32 noundef 100)
+  store ptr %32, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %33 = call ptr @palloc0(i64 noundef 32)
+  store ptr %33, ptr %7, align 8
+  %34 = load i32, ptr %5, align 4
+  %35 = icmp sgt i32 %34, 1000
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %1
-  %36 = load ptr, ptr %6, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.TSLexeme, ptr %37, i32 0, i32 2
-  store ptr %36, ptr %38, align 8
+36:                                               ; preds = %1
+  %37 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw %struct.TSLexeme, ptr %38, i32 0, i32 2
+  store ptr %37, ptr %39, align 8
+  br label %158
+
+40:                                               ; preds = %1
+  %41 = load ptr, ptr %6, align 8
+  %42 = load i8, ptr %41, align 1
+  %43 = sext i8 %42 to i32
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %50, label %45
+
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds nuw %struct.DictSnowball, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %6, align 8
+  %49 = call zeroext i1 @searchstoplist(ptr noundef %47, ptr noundef %48)
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %45, %40
+  %51 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %51)
   br label %157
 
-39:                                               ; preds = %1
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %49, label %44
+52:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.DictSnowball, ptr %53, i32 0, i32 2
+  %55 = load i8, ptr %54, align 8, !range !3, !noundef !4
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %70
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.DictSnowball, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %6, align 8
-  %48 = call zeroext i1 @searchstoplist(ptr noundef %46, ptr noundef %47)
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %44, %39
-  %50 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %50)
-  br label %156
-
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.DictSnowball, ptr %52, i32 0, i32 2
-  %54 = load i8, ptr %53, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %69
-
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %6, align 8
+57:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %58 = load ptr, ptr %6, align 8
-  %59 = call i64 @strlen(ptr noundef %58) #5
-  %60 = trunc i64 %59 to i32
-  %61 = call ptr @pg_server_to_any(ptr noundef %57, i32 noundef %60, i32 noundef 6)
-  store ptr %61, ptr %9, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = icmp ne ptr %62, %63
-  br i1 %64, label %65, label %68
+  %59 = load ptr, ptr %6, align 8
+  %60 = call i64 @strlen(ptr noundef %59) #9
+  %61 = trunc i64 %60 to i32
+  %62 = call ptr @pg_server_to_any(ptr noundef %58, i32 noundef %61, i32 noundef 6)
+  store ptr %62, ptr %9, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = icmp ne ptr %63, %64
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %56
-  %66 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %66)
-  %67 = load ptr, ptr %9, align 8
-  store ptr %67, ptr %6, align 8
-  br label %68
-
-68:                                               ; preds = %65, %56
+66:                                               ; preds = %57
+  %67 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %67)
+  %68 = load ptr, ptr %9, align 8
+  store ptr %68, ptr %6, align 8
   br label %69
 
-69:                                               ; preds = %68, %51
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.DictSnowball, ptr %70, i32 0, i32 4
-  %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @MemoryContextSwitchTo(ptr noundef %72)
-  store ptr %73, ptr %8, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.DictSnowball, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = call i64 @strlen(ptr noundef %77) #5
-  %79 = trunc i64 %78 to i32
-  %80 = load ptr, ptr %6, align 8
-  %81 = call i32 @SN_set_current(ptr noundef %76, i32 noundef %79, ptr noundef %80)
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.DictSnowball, ptr %82, i32 0, i32 3
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.DictSnowball, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i32 %84(ptr noundef %87)
-  %89 = load ptr, ptr %8, align 8
-  %90 = call ptr @MemoryContextSwitchTo(ptr noundef %89)
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.DictSnowball, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct.SN_env, ptr %93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %134
+69:                                               ; preds = %66, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %70
 
-97:                                               ; preds = %69
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.DictSnowball, ptr %98, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.SN_env, ptr %100, i32 0, i32 2
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %134
+70:                                               ; preds = %69, %52
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.DictSnowball, ptr %71, i32 0, i32 4
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr @MemoryContextSwitchTo(ptr noundef %73)
+  store ptr %74, ptr %8, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.DictSnowball, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = call i64 @strlen(ptr noundef %78) #9
+  %80 = trunc i64 %79 to i32
+  %81 = load ptr, ptr %6, align 8
+  %82 = call i32 @SN_set_current(ptr noundef %77, i32 noundef %80, ptr noundef %81)
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds nuw %struct.DictSnowball, ptr %83, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw %struct.DictSnowball, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = call i32 %85(ptr noundef %88)
+  %90 = load ptr, ptr %8, align 8
+  %91 = call ptr @MemoryContextSwitchTo(ptr noundef %90)
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.DictSnowball, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw %struct.SN_env, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %135
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr %6, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.DictSnowball, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.SN_env, ptr %108, i32 0, i32 2
-  %110 = load i32, ptr %109, align 4
-  %111 = add i32 %110, 1
-  %112 = sext i32 %111 to i64
-  %113 = call ptr @repalloc(ptr noundef %105, i64 noundef %112)
-  store ptr %113, ptr %6, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.DictSnowball, ptr %115, i32 0, i32 0
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.SN_env, ptr %117, i32 0, i32 0
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.DictSnowball, ptr %120, i32 0, i32 0
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.SN_env, ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 4
-  %125 = sext i32 %124 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %119, i64 %125, i1 false)
-  %126 = load ptr, ptr %6, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.DictSnowball, ptr %127, i32 0, i32 0
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %struct.SN_env, ptr %129, i32 0, i32 2
-  %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr i8, ptr %126, i64 %132
-  store i8 0, ptr %133, align 1
-  br label %134
+98:                                               ; preds = %70
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds nuw %struct.DictSnowball, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw %struct.SN_env, ptr %101, i32 0, i32 2
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %135
 
-134:                                              ; preds = %104, %97, %69
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.DictSnowball, ptr %135, i32 0, i32 2
-  %137 = load i8, ptr %136, align 8
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %152
+105:                                              ; preds = %98
+  %106 = load ptr, ptr %6, align 8
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds nuw %struct.DictSnowball, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw %struct.SN_env, ptr %109, i32 0, i32 2
+  %111 = load i32, ptr %110, align 4
+  %112 = add i32 %111, 1
+  %113 = sext i32 %112 to i64
+  %114 = call ptr @repalloc(ptr noundef %106, i64 noundef %113)
+  store ptr %114, ptr %6, align 8
+  %115 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %3, align 8
+  %117 = getelementptr inbounds nuw %struct.DictSnowball, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %struct.SN_env, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  %121 = load ptr, ptr %3, align 8
+  %122 = getelementptr inbounds nuw %struct.DictSnowball, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw %struct.SN_env, ptr %123, i32 0, i32 2
+  %125 = load i32, ptr %124, align 4
+  %126 = sext i32 %125 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 1 %120, i64 %126, i1 false)
+  %127 = load ptr, ptr %6, align 8
+  %128 = load ptr, ptr %3, align 8
+  %129 = getelementptr inbounds nuw %struct.DictSnowball, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw %struct.SN_env, ptr %130, i32 0, i32 2
+  %132 = load i32, ptr %131, align 4
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %127, i64 %133
+  store i8 0, ptr %134, align 1
+  br label %135
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %6, align 8
+135:                                              ; preds = %105, %98, %70
+  %136 = load ptr, ptr %3, align 8
+  %137 = getelementptr inbounds nuw %struct.DictSnowball, ptr %136, i32 0, i32 2
+  %138 = load i8, ptr %137, align 8, !range !3, !noundef !4
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %140, label %153
+
+140:                                              ; preds = %135
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   %141 = load ptr, ptr %6, align 8
-  %142 = call i64 @strlen(ptr noundef %141) #5
-  %143 = trunc i64 %142 to i32
-  %144 = call ptr @pg_any_to_server(ptr noundef %140, i32 noundef %143, i32 noundef 6)
-  store ptr %144, ptr %10, align 8
-  %145 = load ptr, ptr %10, align 8
-  %146 = load ptr, ptr %6, align 8
-  %147 = icmp ne ptr %145, %146
-  br i1 %147, label %148, label %151
+  %142 = load ptr, ptr %6, align 8
+  %143 = call i64 @strlen(ptr noundef %142) #9
+  %144 = trunc i64 %143 to i32
+  %145 = call ptr @pg_any_to_server(ptr noundef %141, i32 noundef %144, i32 noundef 6)
+  store ptr %145, ptr %10, align 8
+  %146 = load ptr, ptr %10, align 8
+  %147 = load ptr, ptr %6, align 8
+  %148 = icmp ne ptr %146, %147
+  br i1 %148, label %149, label %152
 
-148:                                              ; preds = %139
-  %149 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %149)
-  %150 = load ptr, ptr %10, align 8
-  store ptr %150, ptr %6, align 8
-  br label %151
-
-151:                                              ; preds = %148, %139
+149:                                              ; preds = %140
+  %150 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %150)
+  %151 = load ptr, ptr %10, align 8
+  store ptr %151, ptr %6, align 8
   br label %152
 
-152:                                              ; preds = %151, %134
-  %153 = load ptr, ptr %6, align 8
-  %154 = load ptr, ptr %7, align 8
-  %155 = getelementptr inbounds %struct.TSLexeme, ptr %154, i32 0, i32 2
-  store ptr %153, ptr %155, align 8
-  br label %156
+152:                                              ; preds = %149, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %153
 
-156:                                              ; preds = %152, %49
+153:                                              ; preds = %152, %135
+  %154 = load ptr, ptr %6, align 8
+  %155 = load ptr, ptr %7, align 8
+  %156 = getelementptr inbounds nuw %struct.TSLexeme, ptr %155, i32 0, i32 2
+  store ptr %154, ptr %156, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
   br label %157
 
-157:                                              ; preds = %156, %35
-  %158 = load ptr, ptr %7, align 8
-  %159 = call i64 @PointerGetDatum(ptr noundef %158)
-  ret i64 %159
+157:                                              ; preds = %153, %50
+  br label %158
+
+158:                                              ; preds = %157, %36
+  %159 = load ptr, ptr %7, align 8
+  %160 = call i64 @PointerGetDatum(ptr noundef %159)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %160
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -743,348 +820,353 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare ptr @lowerstr_with_len(ptr noundef, i32 noundef) #1
+declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) #1
+declare void @pfree(ptr noundef) #3
 
-declare void @pfree(ptr noundef) #1
-
-declare ptr @pg_server_to_any(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @pg_server_to_any(ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %6
 }
 
-declare i32 @SN_set_current(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @SN_set_current(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @repalloc(ptr noundef, i64 noundef) #1
+declare ptr @repalloc(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare ptr @pg_any_to_server(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @pg_any_to_server(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @GetDatabaseEncoding() #1
+declare i32 @GetDatabaseEncoding() #3
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) #1
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) #3
 
-declare ptr @GetDatabaseEncodingName() #1
+declare ptr @GetDatabaseEncodingName() #3
 
-declare ptr @basque_ISO_8859_1_create_env() #1
+declare ptr @basque_ISO_8859_1_create_env() #3
 
-declare void @basque_ISO_8859_1_close_env(ptr noundef) #1
+declare void @basque_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @basque_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @basque_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @catalan_ISO_8859_1_create_env() #1
+declare ptr @catalan_ISO_8859_1_create_env() #3
 
-declare void @catalan_ISO_8859_1_close_env(ptr noundef) #1
+declare void @catalan_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @catalan_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @catalan_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @danish_ISO_8859_1_create_env() #1
+declare ptr @danish_ISO_8859_1_create_env() #3
 
-declare void @danish_ISO_8859_1_close_env(ptr noundef) #1
+declare void @danish_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @danish_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @danish_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @dutch_ISO_8859_1_create_env() #1
+declare ptr @dutch_ISO_8859_1_create_env() #3
 
-declare void @dutch_ISO_8859_1_close_env(ptr noundef) #1
+declare void @dutch_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @dutch_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @dutch_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @english_ISO_8859_1_create_env() #1
+declare ptr @english_ISO_8859_1_create_env() #3
 
-declare void @english_ISO_8859_1_close_env(ptr noundef) #1
+declare void @english_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @english_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @english_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @finnish_ISO_8859_1_create_env() #1
+declare ptr @finnish_ISO_8859_1_create_env() #3
 
-declare void @finnish_ISO_8859_1_close_env(ptr noundef) #1
+declare void @finnish_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @finnish_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @finnish_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @french_ISO_8859_1_create_env() #1
+declare ptr @french_ISO_8859_1_create_env() #3
 
-declare void @french_ISO_8859_1_close_env(ptr noundef) #1
+declare void @french_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @french_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @french_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @german_ISO_8859_1_create_env() #1
+declare ptr @german_ISO_8859_1_create_env() #3
 
-declare void @german_ISO_8859_1_close_env(ptr noundef) #1
+declare void @german_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @german_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @german_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @indonesian_ISO_8859_1_create_env() #1
+declare ptr @indonesian_ISO_8859_1_create_env() #3
 
-declare void @indonesian_ISO_8859_1_close_env(ptr noundef) #1
+declare void @indonesian_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @indonesian_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @indonesian_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @irish_ISO_8859_1_create_env() #1
+declare ptr @irish_ISO_8859_1_create_env() #3
 
-declare void @irish_ISO_8859_1_close_env(ptr noundef) #1
+declare void @irish_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @irish_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @irish_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @italian_ISO_8859_1_create_env() #1
+declare ptr @italian_ISO_8859_1_create_env() #3
 
-declare void @italian_ISO_8859_1_close_env(ptr noundef) #1
+declare void @italian_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @italian_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @italian_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @norwegian_ISO_8859_1_create_env() #1
+declare ptr @norwegian_ISO_8859_1_create_env() #3
 
-declare void @norwegian_ISO_8859_1_close_env(ptr noundef) #1
+declare void @norwegian_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @norwegian_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @norwegian_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @porter_ISO_8859_1_create_env() #1
+declare ptr @porter_ISO_8859_1_create_env() #3
 
-declare void @porter_ISO_8859_1_close_env(ptr noundef) #1
+declare void @porter_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @porter_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @porter_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @portuguese_ISO_8859_1_create_env() #1
+declare ptr @portuguese_ISO_8859_1_create_env() #3
 
-declare void @portuguese_ISO_8859_1_close_env(ptr noundef) #1
+declare void @portuguese_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @portuguese_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @portuguese_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @spanish_ISO_8859_1_create_env() #1
+declare ptr @spanish_ISO_8859_1_create_env() #3
 
-declare void @spanish_ISO_8859_1_close_env(ptr noundef) #1
+declare void @spanish_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @spanish_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @spanish_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @swedish_ISO_8859_1_create_env() #1
+declare ptr @swedish_ISO_8859_1_create_env() #3
 
-declare void @swedish_ISO_8859_1_close_env(ptr noundef) #1
+declare void @swedish_ISO_8859_1_close_env(ptr noundef) #3
 
-declare i32 @swedish_ISO_8859_1_stem(ptr noundef) #1
+declare i32 @swedish_ISO_8859_1_stem(ptr noundef) #3
 
-declare ptr @hungarian_ISO_8859_2_create_env() #1
+declare ptr @hungarian_ISO_8859_2_create_env() #3
 
-declare void @hungarian_ISO_8859_2_close_env(ptr noundef) #1
+declare void @hungarian_ISO_8859_2_close_env(ptr noundef) #3
 
-declare i32 @hungarian_ISO_8859_2_stem(ptr noundef) #1
+declare i32 @hungarian_ISO_8859_2_stem(ptr noundef) #3
 
-declare ptr @romanian_ISO_8859_2_create_env() #1
+declare ptr @romanian_ISO_8859_2_create_env() #3
 
-declare void @romanian_ISO_8859_2_close_env(ptr noundef) #1
+declare void @romanian_ISO_8859_2_close_env(ptr noundef) #3
 
-declare i32 @romanian_ISO_8859_2_stem(ptr noundef) #1
+declare i32 @romanian_ISO_8859_2_stem(ptr noundef) #3
 
-declare ptr @russian_KOI8_R_create_env() #1
+declare ptr @russian_KOI8_R_create_env() #3
 
-declare void @russian_KOI8_R_close_env(ptr noundef) #1
+declare void @russian_KOI8_R_close_env(ptr noundef) #3
 
-declare i32 @russian_KOI8_R_stem(ptr noundef) #1
+declare i32 @russian_KOI8_R_stem(ptr noundef) #3
 
-declare ptr @arabic_UTF_8_create_env() #1
+declare ptr @arabic_UTF_8_create_env() #3
 
-declare void @arabic_UTF_8_close_env(ptr noundef) #1
+declare void @arabic_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @arabic_UTF_8_stem(ptr noundef) #1
+declare i32 @arabic_UTF_8_stem(ptr noundef) #3
 
-declare ptr @armenian_UTF_8_create_env() #1
+declare ptr @armenian_UTF_8_create_env() #3
 
-declare void @armenian_UTF_8_close_env(ptr noundef) #1
+declare void @armenian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @armenian_UTF_8_stem(ptr noundef) #1
+declare i32 @armenian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @basque_UTF_8_create_env() #1
+declare ptr @basque_UTF_8_create_env() #3
 
-declare void @basque_UTF_8_close_env(ptr noundef) #1
+declare void @basque_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @basque_UTF_8_stem(ptr noundef) #1
+declare i32 @basque_UTF_8_stem(ptr noundef) #3
 
-declare ptr @catalan_UTF_8_create_env() #1
+declare ptr @catalan_UTF_8_create_env() #3
 
-declare void @catalan_UTF_8_close_env(ptr noundef) #1
+declare void @catalan_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @catalan_UTF_8_stem(ptr noundef) #1
+declare i32 @catalan_UTF_8_stem(ptr noundef) #3
 
-declare ptr @danish_UTF_8_create_env() #1
+declare ptr @danish_UTF_8_create_env() #3
 
-declare void @danish_UTF_8_close_env(ptr noundef) #1
+declare void @danish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @danish_UTF_8_stem(ptr noundef) #1
+declare i32 @danish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @dutch_UTF_8_create_env() #1
+declare ptr @dutch_UTF_8_create_env() #3
 
-declare void @dutch_UTF_8_close_env(ptr noundef) #1
+declare void @dutch_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @dutch_UTF_8_stem(ptr noundef) #1
+declare i32 @dutch_UTF_8_stem(ptr noundef) #3
 
-declare ptr @english_UTF_8_create_env() #1
+declare ptr @english_UTF_8_create_env() #3
 
-declare void @english_UTF_8_close_env(ptr noundef) #1
+declare void @english_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @english_UTF_8_stem(ptr noundef) #1
+declare i32 @english_UTF_8_stem(ptr noundef) #3
 
-declare ptr @finnish_UTF_8_create_env() #1
+declare ptr @finnish_UTF_8_create_env() #3
 
-declare void @finnish_UTF_8_close_env(ptr noundef) #1
+declare void @finnish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @finnish_UTF_8_stem(ptr noundef) #1
+declare i32 @finnish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @french_UTF_8_create_env() #1
+declare ptr @french_UTF_8_create_env() #3
 
-declare void @french_UTF_8_close_env(ptr noundef) #1
+declare void @french_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @french_UTF_8_stem(ptr noundef) #1
+declare i32 @french_UTF_8_stem(ptr noundef) #3
 
-declare ptr @german_UTF_8_create_env() #1
+declare ptr @german_UTF_8_create_env() #3
 
-declare void @german_UTF_8_close_env(ptr noundef) #1
+declare void @german_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @german_UTF_8_stem(ptr noundef) #1
+declare i32 @german_UTF_8_stem(ptr noundef) #3
 
-declare ptr @greek_UTF_8_create_env() #1
+declare ptr @greek_UTF_8_create_env() #3
 
-declare void @greek_UTF_8_close_env(ptr noundef) #1
+declare void @greek_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @greek_UTF_8_stem(ptr noundef) #1
+declare i32 @greek_UTF_8_stem(ptr noundef) #3
 
-declare ptr @hindi_UTF_8_create_env() #1
+declare ptr @hindi_UTF_8_create_env() #3
 
-declare void @hindi_UTF_8_close_env(ptr noundef) #1
+declare void @hindi_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @hindi_UTF_8_stem(ptr noundef) #1
+declare i32 @hindi_UTF_8_stem(ptr noundef) #3
 
-declare ptr @hungarian_UTF_8_create_env() #1
+declare ptr @hungarian_UTF_8_create_env() #3
 
-declare void @hungarian_UTF_8_close_env(ptr noundef) #1
+declare void @hungarian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @hungarian_UTF_8_stem(ptr noundef) #1
+declare i32 @hungarian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @indonesian_UTF_8_create_env() #1
+declare ptr @indonesian_UTF_8_create_env() #3
 
-declare void @indonesian_UTF_8_close_env(ptr noundef) #1
+declare void @indonesian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @indonesian_UTF_8_stem(ptr noundef) #1
+declare i32 @indonesian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @irish_UTF_8_create_env() #1
+declare ptr @irish_UTF_8_create_env() #3
 
-declare void @irish_UTF_8_close_env(ptr noundef) #1
+declare void @irish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @irish_UTF_8_stem(ptr noundef) #1
+declare i32 @irish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @italian_UTF_8_create_env() #1
+declare ptr @italian_UTF_8_create_env() #3
 
-declare void @italian_UTF_8_close_env(ptr noundef) #1
+declare void @italian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @italian_UTF_8_stem(ptr noundef) #1
+declare i32 @italian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @lithuanian_UTF_8_create_env() #1
+declare ptr @lithuanian_UTF_8_create_env() #3
 
-declare void @lithuanian_UTF_8_close_env(ptr noundef) #1
+declare void @lithuanian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @lithuanian_UTF_8_stem(ptr noundef) #1
+declare i32 @lithuanian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @nepali_UTF_8_create_env() #1
+declare ptr @nepali_UTF_8_create_env() #3
 
-declare void @nepali_UTF_8_close_env(ptr noundef) #1
+declare void @nepali_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @nepali_UTF_8_stem(ptr noundef) #1
+declare i32 @nepali_UTF_8_stem(ptr noundef) #3
 
-declare ptr @norwegian_UTF_8_create_env() #1
+declare ptr @norwegian_UTF_8_create_env() #3
 
-declare void @norwegian_UTF_8_close_env(ptr noundef) #1
+declare void @norwegian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @norwegian_UTF_8_stem(ptr noundef) #1
+declare i32 @norwegian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @porter_UTF_8_create_env() #1
+declare ptr @porter_UTF_8_create_env() #3
 
-declare void @porter_UTF_8_close_env(ptr noundef) #1
+declare void @porter_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @porter_UTF_8_stem(ptr noundef) #1
+declare i32 @porter_UTF_8_stem(ptr noundef) #3
 
-declare ptr @portuguese_UTF_8_create_env() #1
+declare ptr @portuguese_UTF_8_create_env() #3
 
-declare void @portuguese_UTF_8_close_env(ptr noundef) #1
+declare void @portuguese_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @portuguese_UTF_8_stem(ptr noundef) #1
+declare i32 @portuguese_UTF_8_stem(ptr noundef) #3
 
-declare ptr @romanian_UTF_8_create_env() #1
+declare ptr @romanian_UTF_8_create_env() #3
 
-declare void @romanian_UTF_8_close_env(ptr noundef) #1
+declare void @romanian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @romanian_UTF_8_stem(ptr noundef) #1
+declare i32 @romanian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @russian_UTF_8_create_env() #1
+declare ptr @russian_UTF_8_create_env() #3
 
-declare void @russian_UTF_8_close_env(ptr noundef) #1
+declare void @russian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @russian_UTF_8_stem(ptr noundef) #1
+declare i32 @russian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @serbian_UTF_8_create_env() #1
+declare ptr @serbian_UTF_8_create_env() #3
 
-declare void @serbian_UTF_8_close_env(ptr noundef) #1
+declare void @serbian_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @serbian_UTF_8_stem(ptr noundef) #1
+declare i32 @serbian_UTF_8_stem(ptr noundef) #3
 
-declare ptr @spanish_UTF_8_create_env() #1
+declare ptr @spanish_UTF_8_create_env() #3
 
-declare void @spanish_UTF_8_close_env(ptr noundef) #1
+declare void @spanish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @spanish_UTF_8_stem(ptr noundef) #1
+declare i32 @spanish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @swedish_UTF_8_create_env() #1
+declare ptr @swedish_UTF_8_create_env() #3
 
-declare void @swedish_UTF_8_close_env(ptr noundef) #1
+declare void @swedish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @swedish_UTF_8_stem(ptr noundef) #1
+declare i32 @swedish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @tamil_UTF_8_create_env() #1
+declare ptr @tamil_UTF_8_create_env() #3
 
-declare void @tamil_UTF_8_close_env(ptr noundef) #1
+declare void @tamil_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @tamil_UTF_8_stem(ptr noundef) #1
+declare i32 @tamil_UTF_8_stem(ptr noundef) #3
 
-declare ptr @turkish_UTF_8_create_env() #1
+declare ptr @turkish_UTF_8_create_env() #3
 
-declare void @turkish_UTF_8_close_env(ptr noundef) #1
+declare void @turkish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @turkish_UTF_8_stem(ptr noundef) #1
+declare i32 @turkish_UTF_8_stem(ptr noundef) #3
 
-declare ptr @yiddish_UTF_8_create_env() #1
+declare ptr @yiddish_UTF_8_create_env() #3
 
-declare void @yiddish_UTF_8_close_env(ptr noundef) #1
+declare void @yiddish_UTF_8_close_env(ptr noundef) #3
 
-declare i32 @yiddish_UTF_8_stem(ptr noundef) #1
+declare i32 @yiddish_UTF_8_stem(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

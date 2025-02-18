@@ -6,6 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pg_fe_sasl_mech = type { ptr, ptr, ptr, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
 %struct.pg_conn_host = type { i32, ptr, ptr, ptr, ptr }
+%struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [40 x i8] c"Kerberos 4 authentication not supported\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"Kerberos 5 authentication not supported\00", align 1
@@ -17,892 +18,1009 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [99 x i8] c"fe_sendauth: invalid authentication request from server: AUTH_REQ_SASL_CONT without AUTH_REQ_SASL\0A\00", align 1
 @.str.8 = private unnamed_addr constant [43 x i8] c"fe_sendauth: error in SASL authentication\0A\00", align 1
 @.str.9 = private unnamed_addr constant [39 x i8] c"authentication method %u not supported\00", align 1
-@.str.10 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
-@.str.11 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
-@.str.12 = private unnamed_addr constant [25 x i8] c"show password_encryption\00", align 1
-@.str.13 = private unnamed_addr constant [49 x i8] c"unexpected shape of result set returned for SHOW\00", align 1
-@.str.14 = private unnamed_addr constant [35 x i8] c"password_encryption value too long\00", align 1
-@.str.16 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.17 = private unnamed_addr constant [4 x i8] c"md5\00", align 1
-@.str.18 = private unnamed_addr constant [14 x i8] c"scram-sha-256\00", align 1
-@.str.19 = private unnamed_addr constant [31 x i8] c"could not encrypt password: %s\00", align 1
-@.str.20 = private unnamed_addr constant [48 x i8] c"unrecognized password encryption algorithm \22%s\22\00", align 1
-@.str.21 = private unnamed_addr constant [26 x i8] c"ALTER USER %s PASSWORD %s\00", align 1
-@.str.22 = private unnamed_addr constant [42 x i8] c"server did not request an SSL certificate\00", align 1
-@.str.23 = private unnamed_addr constant [59 x i8] c"server accepted connection without a valid SSL certificate\00", align 1
-@.str.24 = private unnamed_addr constant [39 x i8] c"server did not complete authentication\00", align 1
-@.str.25 = private unnamed_addr constant [50 x i8] c"authentication method requirement \22%s\22 failed: %s\00", align 1
-@.str.26 = private unnamed_addr constant [82 x i8] c"channel binding required, but server authenticated client without channel binding\00", align 1
-@.str.27 = private unnamed_addr constant [78 x i8] c"channel binding required but not supported by server's authentication request\00", align 1
-@.str.28 = private unnamed_addr constant [38 x i8] c"server requested a cleartext password\00", align 1
-@.str.29 = private unnamed_addr constant [35 x i8] c"server requested a hashed password\00", align 1
-@.str.30 = private unnamed_addr constant [39 x i8] c"server requested GSSAPI authentication\00", align 1
-@.str.31 = private unnamed_addr constant [37 x i8] c"server requested SSPI authentication\00", align 1
-@.str.32 = private unnamed_addr constant [37 x i8] c"server requested SASL authentication\00", align 1
-@.str.33 = private unnamed_addr constant [48 x i8] c"server requested an unknown authentication type\00", align 1
-@.str.34 = private unnamed_addr constant [45 x i8] c"channel binding required, but SSL not in use\00", align 1
-@.str.35 = private unnamed_addr constant [38 x i8] c"duplicate SASL authentication request\00", align 1
-@.str.36 = private unnamed_addr constant [100 x i8] c"fe_sendauth: invalid authentication request from server: invalid list of authentication mechanisms\0A\00", align 1
-@.str.37 = private unnamed_addr constant [19 x i8] c"SCRAM-SHA-256-PLUS\00", align 1
-@.str.38 = private unnamed_addr constant [60 x i8] c"channel binding is required, but client does not support it\00", align 1
-@.str.39 = private unnamed_addr constant [75 x i8] c"server offered SCRAM-SHA-256-PLUS authentication over a non-SSL connection\00", align 1
-@.str.40 = private unnamed_addr constant [14 x i8] c"SCRAM-SHA-256\00", align 1
+@.str.10 = private unnamed_addr constant [40 x i8] c"could not look up local user ID %ld: %m\00", align 1
+@.str.11 = private unnamed_addr constant [38 x i8] c"local user with ID %ld does not exist\00", align 1
+@.str.12 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
+@.str.13 = private unnamed_addr constant [25 x i8] c"show password_encryption\00", align 1
+@.str.14 = private unnamed_addr constant [49 x i8] c"unexpected shape of result set returned for SHOW\00", align 1
+@.str.15 = private unnamed_addr constant [37 x i8] c"\22password_encryption\22 value too long\00", align 1
+@.str.17 = private unnamed_addr constant [4 x i8] c"off\00", align 1
+@.str.18 = private unnamed_addr constant [4 x i8] c"md5\00", align 1
+@.str.19 = private unnamed_addr constant [14 x i8] c"scram-sha-256\00", align 1
+@.str.20 = private unnamed_addr constant [31 x i8] c"could not encrypt password: %s\00", align 1
+@.str.21 = private unnamed_addr constant [48 x i8] c"unrecognized password encryption algorithm \22%s\22\00", align 1
+@.str.22 = private unnamed_addr constant [26 x i8] c"ALTER USER %s PASSWORD %s\00", align 1
+@.str.23 = private unnamed_addr constant [42 x i8] c"server did not request an SSL certificate\00", align 1
+@.str.24 = private unnamed_addr constant [59 x i8] c"server accepted connection without a valid SSL certificate\00", align 1
+@.str.25 = private unnamed_addr constant [39 x i8] c"server did not complete authentication\00", align 1
+@.str.26 = private unnamed_addr constant [50 x i8] c"authentication method requirement \22%s\22 failed: %s\00", align 1
+@.str.27 = private unnamed_addr constant [82 x i8] c"channel binding required, but server authenticated client without channel binding\00", align 1
+@.str.28 = private unnamed_addr constant [78 x i8] c"channel binding required but not supported by server's authentication request\00", align 1
+@.str.29 = private unnamed_addr constant [38 x i8] c"server requested a cleartext password\00", align 1
+@.str.30 = private unnamed_addr constant [35 x i8] c"server requested a hashed password\00", align 1
+@.str.31 = private unnamed_addr constant [39 x i8] c"server requested GSSAPI authentication\00", align 1
+@.str.32 = private unnamed_addr constant [37 x i8] c"server requested SSPI authentication\00", align 1
+@.str.33 = private unnamed_addr constant [37 x i8] c"server requested SASL authentication\00", align 1
+@.str.34 = private unnamed_addr constant [48 x i8] c"server requested an unknown authentication type\00", align 1
+@.str.35 = private unnamed_addr constant [45 x i8] c"channel binding required, but SSL not in use\00", align 1
+@.str.36 = private unnamed_addr constant [38 x i8] c"duplicate SASL authentication request\00", align 1
+@.str.37 = private unnamed_addr constant [100 x i8] c"fe_sendauth: invalid authentication request from server: invalid list of authentication mechanisms\0A\00", align 1
+@.str.38 = private unnamed_addr constant [19 x i8] c"SCRAM-SHA-256-PLUS\00", align 1
+@.str.39 = private unnamed_addr constant [60 x i8] c"channel binding is required, but client does not support it\00", align 1
+@.str.40 = private unnamed_addr constant [75 x i8] c"server offered SCRAM-SHA-256-PLUS authentication over a non-SSL connection\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"SCRAM-SHA-256\00", align 1
 @pg_scram_mech = external constant %struct.pg_fe_sasl_mech, align 8
-@.str.41 = private unnamed_addr constant [66 x i8] c"none of the server's SASL authentication mechanisms are supported\00", align 1
-@.str.42 = private unnamed_addr constant [109 x i8] c"channel binding is required, but server did not offer an authentication method that supports channel binding\00", align 1
-@.str.43 = private unnamed_addr constant [42 x i8] c"out of memory allocating SASL buffer (%d)\00", align 1
-@.str.44 = private unnamed_addr constant [88 x i8] c"AuthenticationSASLFinal received from server, but SASL authentication was not completed\00", align 1
-@.str.45 = private unnamed_addr constant [53 x i8] c"no client response found after SASL exchange success\00", align 1
-@switch.table.pg_fe_sendauth = private unnamed_addr constant [10 x ptr] [ptr @.str.28, ptr @.str.33, ptr @.str.29, ptr @.str.33, ptr @.str.30, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.32, ptr @.str.32], align 8
+@.str.42 = private unnamed_addr constant [66 x i8] c"none of the server's SASL authentication mechanisms are supported\00", align 1
+@.str.43 = private unnamed_addr constant [82 x i8] c"authentication method requirement \22%s\22 failed: server requested %s authentication\00", align 1
+@.str.44 = private unnamed_addr constant [109 x i8] c"channel binding is required, but server did not offer an authentication method that supports channel binding\00", align 1
+@.str.45 = private unnamed_addr constant [42 x i8] c"out of memory allocating SASL buffer (%d)\00", align 1
+@.str.46 = private unnamed_addr constant [88 x i8] c"AuthenticationSASLFinal received from server, but SASL authentication was not completed\00", align 1
+@.str.47 = private unnamed_addr constant [53 x i8] c"no client response found after SASL exchange success\00", align 1
+@switch.table.pg_fe_sendauth = private unnamed_addr constant [10 x ptr] [ptr @.str.29, ptr @.str.34, ptr @.str.30, ptr @.str.34, ptr @.str.31, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.33, ptr @.str.33], align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i8, align 1
-  %7 = alloca i8, align 1
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca i8, align 1
-  %11 = alloca i8, align 1
-  %12 = alloca %struct.PQExpBufferData, align 8
-  %13 = alloca [4 x i8], align 1
-  %14 = alloca ptr, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 114
-  %19 = icmp eq i32 %0, 0
-  %or.cond.i = and i1 %19, %18
-  br i1 %or.cond.i, label %20, label %30
+define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.PQExpBufferData, align 8
+  %10 = alloca [4 x i8], align 1
+  %11 = alloca ptr, align 8
+  store i8 0, ptr %3, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 114
+  %16 = icmp eq i32 %0, 0
+  %or.cond.i = and i1 %16, %15
+  br i1 %or.cond.i, label %17, label %27
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 997
-  %22 = load i8, ptr %21, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %25, label %24
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1113
+  %19 = load i8, ptr %18, align 1, !range !3, !noundef !4
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %22, label %21
 
-24:                                               ; preds = %20
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.22) #9
-  br label %check_expected_areq.exit.thread48
+21:                                               ; preds = %17
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.23) #10
+  br label %.critedge
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 998
-  %27 = load i8, ptr %26, align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %30, label %29
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1114
+  %24 = load i8, ptr %23, align 2, !range !3, !noundef !4
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %27, label %26
 
-29:                                               ; preds = %25
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.23) #9
-  br label %check_expected_areq.exit.thread48
+26:                                               ; preds = %22
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.24) #10
+  br label %.critedge
 
-30:                                               ; preds = %25, %3
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %32 = load ptr, ptr %31, align 8
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %.thread.i, label %33
+27:                                               ; preds = %22, %4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %29 = load ptr, ptr %28, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %.thread.i, label %30
 
-33:                                               ; preds = %30
+30:                                               ; preds = %27
   switch i32 %0, label %auth_method_description.exit.i [
-    i32 0, label %34
-    i32 3, label %42
-    i32 5, label %42
-    i32 7, label %42
-    i32 8, label %42
-    i32 9, label %42
-    i32 10, label %42
-    i32 11, label %42
-    i32 12, label %42
+    i32 0, label %31
+    i32 3, label %39
+    i32 5, label %39
+    i32 7, label %39
+    i32 8, label %39
+    i32 9, label %39
+    i32 10, label %39
+    i32 11, label %39
+    i32 12, label %39
   ]
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 776
-  %36 = load i8, ptr %35, align 8
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %.thread.i
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 824
+  %33 = load i8, ptr %32, align 8, !range !3, !noundef !4
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %.thread.i
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 784
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %.thread.i, label %auth_method_description.exit.i
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 840
+  %37 = load i8, ptr %36, align 8, !range !3, !noundef !4
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %.thread.i, label %auth_method_description.exit.i
 
-42:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 780
-  %44 = load i32, ptr %43, align 4
-  %45 = lshr i32 %44, %0
-  %46 = trunc i32 %45 to i1
-  br i1 %46, label %.thread.i, label %.thread48.i
+39:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 828
+  %41 = load i32, ptr %40, align 4
+  %42 = lshr i32 %41, %0
+  %43 = trunc i32 %42 to i1
+  br i1 %43, label %.thread.i, label %.thread48.i
 
-.thread48.i:                                      ; preds = %42
+.thread48.i:                                      ; preds = %39
   %switch.tableidx = add i32 %0, -3
-  %47 = icmp ult i32 %switch.tableidx, 10
-  br i1 %47, label %switch.lookup, label %auth_method_description.exit.i
+  %44 = icmp ult i32 %switch.tableidx, 10
+  br i1 %44, label %switch.lookup, label %auth_method_description.exit.i
 
 switch.lookup:                                    ; preds = %.thread48.i
-  %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.pg_fe_sendauth, i64 0, i64 %48
+  %45 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.pg_fe_sendauth, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %auth_method_description.exit.i
 
-auth_method_description.exit.i:                   ; preds = %33, %.thread48.i, %switch.lookup, %38
-  %.1.i = phi ptr [ @.str.24, %38 ], [ %switch.load, %switch.lookup ], [ @.str.33, %.thread48.i ], [ @.str.33, %33 ]
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %32, ptr noundef nonnull %.1.i) #9
-  br label %check_expected_areq.exit.thread48
+auth_method_description.exit.i:                   ; preds = %30, %.thread48.i, %switch.lookup, %35
+  %.1.i = phi ptr [ @.str.25, %35 ], [ %switch.load, %switch.lookup ], [ @.str.34, %.thread48.i ], [ @.str.34, %30 ]
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.26, ptr noundef nonnull %29, ptr noundef nonnull %.1.i) #10
+  br label %.critedge
 
-.thread.i:                                        ; preds = %42, %38, %34, %30
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 114
-  br i1 %52, label %53, label %check_expected_areq.exit
+.thread.i:                                        ; preds = %39, %35, %31, %27
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 114
+  br i1 %49, label %50, label %check_expected_areq.exit
 
-53:                                               ; preds = %.thread.i
-  switch i32 %0, label %64 [
-    i32 0, label %54
-    i32 10, label %114
-    i32 11, label %220
-    i32 12, label %220
+50:                                               ; preds = %.thread.i
+  switch i32 %0, label %61 [
+    i32 0, label %51
+    i32 10, label %125
+    i32 11, label %261
+    i32 12, label %261
   ]
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 976
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 1088
+  %53 = load ptr, ptr %52, align 8
+  %.not33.i = icmp eq ptr %53, null
+  br i1 %.not33.i, label %60, label %54
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
-  %.not33.i = icmp eq ptr %56, null
-  br i1 %.not33.i, label %63, label %57
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 1096
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call zeroext i1 %56(ptr noundef %58) #10
+  br i1 %59, label %.critedge, label %60
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 984
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call zeroext i1 %59(ptr noundef %61) #9
-  br i1 %62, label %check_expected_areq.exit.thread48, label %63
+60:                                               ; preds = %54, %51
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.27) #10
+  br label %.critedge
 
-63:                                               ; preds = %57, %54
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.26) #9
-  br label %check_expected_areq.exit.thread48
-
-64:                                               ; preds = %53
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.27) #9
-  br label %check_expected_areq.exit.thread48
+61:                                               ; preds = %50
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.28) #10
+  br label %.critedge
 
 check_expected_areq.exit:                         ; preds = %.thread.i
-  switch i32 %0, label %275 [
-    i32 0, label %check_expected_areq.exit.thread48
-    i32 1, label %65
-    i32 2, label %66
-    i32 7, label %67
-    i32 8, label %67
-    i32 9, label %68
-    i32 4, label %69
-    i32 5, label %70
-    i32 3, label %70
-    i32 10, label %114
-    i32 11, label %220
-    i32 12, label %220
+  switch i32 %0, label %324 [
+    i32 0, label %.critedge
+    i32 1, label %62
+    i32 2, label %63
+    i32 7, label %64
+    i32 8, label %64
+    i32 9, label %65
+    i32 4, label %66
+    i32 5, label %67
+    i32 3, label %67
+    i32 10, label %125
+    i32 11, label %261
+    i32 12, label %261
   ]
 
+62:                                               ; preds = %check_expected_areq.exit
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str) #10
+  br label %.critedge
+
+63:                                               ; preds = %check_expected_areq.exit
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #10
+  br label %.critedge
+
+64:                                               ; preds = %check_expected_areq.exit, %check_expected_areq.exit
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #10
+  br label %.critedge
+
 65:                                               ; preds = %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str) #9
-  br label %check_expected_areq.exit.thread48
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #10
+  br label %.critedge
 
 66:                                               ; preds = %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #9
-  br label %check_expected_areq.exit.thread48
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #10
+  br label %.critedge
 
 67:                                               ; preds = %check_expected_areq.exit, %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #9
-  br label %check_expected_areq.exit.thread48
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 809
+  store i8 1, ptr %68, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 480
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 476
+  %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds %struct.pg_conn_host, ptr %70, i64 %73, i32 4
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %.thread
 
-68:                                               ; preds = %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #9
-  br label %check_expected_areq.exit.thread48
+77:                                               ; preds = %67
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %83, label %.thread
 
-69:                                               ; preds = %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #9
-  br label %check_expected_areq.exit.thread48
+.thread:                                          ; preds = %67, %77
+  %.04162 = phi ptr [ %79, %77 ], [ %75, %67 ]
+  %81 = load i8, ptr %.04162, align 1
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %83, label %85
 
-70:                                               ; preds = %check_expected_areq.exit, %check_expected_areq.exit
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 761
-  store i8 1, ptr %71, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 428
-  %75 = load i32, ptr %74, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.pg_conn_host, ptr %73, i64 %76, i32 4
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %.thread
+83:                                               ; preds = %.thread, %77
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %84, ptr noundef nonnull @.str.5) #10
+  br label %.critedge
 
-80:                                               ; preds = %70
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %86, label %.thread
+85:                                               ; preds = %.thread
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  %86 = icmp eq i32 %0, 5
+  br i1 %86, label %87, label %89
 
-.thread:                                          ; preds = %70, %80
-  %.050 = phi ptr [ %82, %80 ], [ %78, %70 ]
-  %84 = load i8, ptr %.050, align 1
-  %85 = icmp eq i8 %84, 0
-  br i1 %85, label %86, label %88
+87:                                               ; preds = %85
+  %88 = call i32 @pqGetnchar(ptr noundef nonnull %10, i64 noundef 4, ptr noundef nonnull %2) #10
+  %.not.i50 = icmp eq i32 %88, 0
+  br i1 %.not.i50, label %89, label %pg_password_sendauth.exit.thread
 
-86:                                               ; preds = %.thread, %80
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  tail call void @appendPQExpBufferStr(ptr noundef nonnull %87, ptr noundef nonnull @.str.5) #9
-  br label %check_expected_areq.exit.thread48
+89:                                               ; preds = %87, %85
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 352
+  %91 = load ptr, ptr %90, align 8
+  %.not34.i = icmp eq ptr %91, null
+  br i1 %.not34.i, label %99, label %92
 
-88:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 1000
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 1012
+  %96 = load i32, ptr %95, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr %94, i64 %97
+  call void @pqTraceOutputMessage(ptr noundef nonnull %2, ptr noundef %98, i1 noundef zeroext false) #10
+  br label %99
+
+99:                                               ; preds = %92, %89
   switch i32 %0, label %pg_password_sendauth.exit.thread [
-    i32 5, label %89
+    i32 5, label %100
     i32 3, label %pg_password_sendauth.exit
   ]
 
-89:                                               ; preds = %88
-  %90 = call i32 @pqGetnchar(ptr noundef nonnull %13, i64 noundef 4, ptr noundef nonnull %2) #9
-  %.not.i38 = icmp eq i32 %90, 0
-  br i1 %.not.i38, label %91, label %pg_password_sendauth.exit.thread
+100:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  store ptr null, ptr %11, align 8
+  %101 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #11
+  %.not35.i = icmp eq ptr %101, null
+  br i1 %.not35.i, label %102, label %103
 
-91:                                               ; preds = %89
-  store ptr null, ptr %14, align 8
-  %92 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #10
-  %.not26.i = icmp eq ptr %92, null
-  br i1 %.not26.i, label %93, label %94
+102:                                              ; preds = %100
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #10
+  br label %.critedge.i
 
-93:                                               ; preds = %91
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #9
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 36
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %106 = load ptr, ptr %105, align 8
+  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #12
+  %108 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %.04162, ptr noundef nonnull %106, i64 noundef %107, ptr noundef nonnull %104, ptr noundef nonnull %11) #10
+  br i1 %108, label %111, label %109
+
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.20, ptr noundef %110) #10
+  call void @free(ptr noundef nonnull %101) #10
+  br label %.critedge.i
+
+111:                                              ; preds = %103
+  %112 = getelementptr inbounds nuw i8, ptr %101, i64 39
+  %113 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %112, ptr noundef nonnull %10, i64 noundef 4, ptr noundef nonnull %101, ptr noundef nonnull %11) #10
+  br i1 %113, label %116, label %114
+
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.20, ptr noundef %115) #10
+  call void @free(ptr noundef nonnull %101) #10
+  br label %.critedge.i
+
+116:                                              ; preds = %111
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  br label %pg_password_sendauth.exit
+
+.critedge.i:                                      ; preds = %114, %109, %102
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
   br label %pg_password_sendauth.exit.thread
 
-94:                                               ; preds = %91
-  %95 = getelementptr i8, ptr %92, i64 36
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %97 = load ptr, ptr %96, align 8
-  %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #11
-  %99 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %.050, ptr noundef nonnull %97, i64 noundef %98, ptr noundef %95, ptr noundef nonnull %14) #9
-  br i1 %99, label %102, label %100
+pg_password_sendauth.exit.thread:                 ; preds = %87, %.critedge.i, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  br label %121
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef %101) #9
-  call void @free(ptr noundef nonnull %92) #9
-  br label %pg_password_sendauth.exit.thread
+pg_password_sendauth.exit:                        ; preds = %99, %116
+  %.032.i = phi ptr [ %101, %116 ], [ null, %99 ]
+  %.131.i = phi ptr [ %101, %116 ], [ %.04162, %99 ]
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 841
+  store i8 80, ptr %117, align 1
+  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.131.i) #12
+  %119 = add i64 %118, 1
+  %120 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %.131.i, i64 noundef %119) #10
+  call void @free(ptr noundef %.032.i) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  %.not47 = icmp eq i32 %120, 0
+  br i1 %.not47, label %123, label %121
 
-102:                                              ; preds = %94
-  %103 = getelementptr i8, ptr %92, i64 39
-  %104 = call zeroext i1 @pg_md5_encrypt(ptr noundef %103, ptr noundef nonnull %13, i64 noundef 4, ptr noundef nonnull %92, ptr noundef nonnull %14) #9
-  br i1 %104, label %pg_password_sendauth.exit, label %105
+121:                                              ; preds = %pg_password_sendauth.exit.thread, %pg_password_sendauth.exit
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  call void @appendPQExpBufferStr(ptr noundef nonnull %122, ptr noundef nonnull @.str.6) #10
+  br label %.critedge
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef %106) #9
-  call void @free(ptr noundef nonnull %92) #9
-  br label %pg_password_sendauth.exit.thread
+123:                                              ; preds = %pg_password_sendauth.exit
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 840
+  store i8 1, ptr %124, align 8
+  br label %.critedge
 
-pg_password_sendauth.exit.thread:                 ; preds = %105, %100, %93, %89, %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %110
+125:                                              ; preds = %50, %check_expected_areq.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
+  call void @initPQExpBuffer(ptr noundef nonnull %9) #10
+  %126 = load ptr, ptr %46, align 8
+  %127 = load i8, ptr %126, align 1
+  %128 = icmp eq i8 %127, 114
+  br i1 %128, label %129, label %134
 
-pg_password_sendauth.exit:                        ; preds = %88, %102
-  %.024.i = phi ptr [ %92, %102 ], [ null, %88 ]
-  %.023.i = phi ptr [ %92, %102 ], [ %.050, %88 ]
-  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.023.i) #11
-  %108 = add i64 %107, 1
-  %109 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %.023.i, i64 noundef %108) #9
-  call void @free(ptr noundef %.024.i) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %.not37 = icmp eq i32 %109, 0
-  br i1 %.not37, label %112, label %110
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 1111
+  %131 = load i8, ptr %130, align 1, !range !3, !noundef !4
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %134, label %133
 
-110:                                              ; preds = %pg_password_sendauth.exit.thread, %pg_password_sendauth.exit
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  call void @appendPQExpBufferStr(ptr noundef nonnull %111, ptr noundef nonnull @.str.6) #9
-  br label %check_expected_areq.exit.thread48
+133:                                              ; preds = %129
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.35) #10
+  br label %258
 
-112:                                              ; preds = %pg_password_sendauth.exit
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 784
-  store i8 1, ptr %113, align 8
-  br label %check_expected_areq.exit.thread48
+134:                                              ; preds = %129, %125
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 1096
+  %136 = load ptr, ptr %135, align 8
+  %.not.i51 = icmp eq ptr %136, null
+  br i1 %.not.i51, label %141, label %137
 
-114:                                              ; preds = %53, %check_expected_areq.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  store ptr null, ptr %8, align 8
-  call void @initPQExpBuffer(ptr noundef nonnull %12) #9
-  %115 = load ptr, ptr %49, align 8
-  %116 = load i8, ptr %115, align 1
-  %117 = icmp eq i8 %116, 114
-  br i1 %117, label %118, label %123
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 848
+  %139 = load ptr, ptr %138, align 8
+  %.not76.i = icmp eq ptr %139, null
+  br i1 %.not76.i, label %140, label %141
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %2, i64 996
-  %120 = load i8, ptr %119, align 4
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %123, label %122
+140:                                              ; preds = %137
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.36) #10
+  br label %258
 
-122:                                              ; preds = %118
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.34) #9
-  br label %216
+141:                                              ; preds = %137, %134
+  %142 = call i32 @pqGets(ptr noundef nonnull %9, ptr noundef nonnull %2) #10
+  %.not77102.i = icmp eq i32 %142, 0
+  br i1 %.not77102.i, label %.lr.ph.i, label %._crit_edge.i
 
-123:                                              ; preds = %118, %114
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 984
-  %125 = load ptr, ptr %124, align 8
-  %.not.i39 = icmp eq ptr %125, null
-  br i1 %.not.i39, label %.preheader.i, label %130
+.lr.ph.i:                                         ; preds = %141
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 1088
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 809
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 1111
+  br label %148
 
-.preheader.i:                                     ; preds = %123
-  %126 = call i32 @pqGets(ptr noundef nonnull %12, ptr noundef nonnull %2) #9
-  %.not4764.i = icmp eq i32 %126, 0
-  br i1 %.not4764.i, label %.lr.ph.i, label %._crit_edge.i
+._crit_edge.i:                                    ; preds = %172, %141
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  call void @appendPQExpBufferStr(ptr noundef nonnull %147, ptr noundef nonnull @.str.37) #10
+  br label %258
 
-.lr.ph.i:                                         ; preds = %.preheader.i
-  %127 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 976
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 996
-  br label %132
+148:                                              ; preds = %172, %.lr.ph.i
+  %.071103.i = phi ptr [ null, %.lr.ph.i ], [ %.172.i, %172 ]
+  %149 = load i64, ptr %143, align 8
+  %150 = icmp eq i64 %149, 0
+  br i1 %150, label %.loopexit.i, label %151
 
-130:                                              ; preds = %123
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.35) #9
-  br label %216
-
-._crit_edge.i:                                    ; preds = %156, %.preheader.i
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  call void @appendPQExpBufferStr(ptr noundef nonnull %131, ptr noundef nonnull @.str.36) #9
-  br label %216
-
-132:                                              ; preds = %156, %.lr.ph.i
-  %.04365.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i41, %156 ]
-  %133 = load i64, ptr %127, align 8
-  %134 = icmp eq i64 %133, 0
-  br i1 %134, label %.loopexit.i, label %135
-
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %12, align 8
-  %137 = load i8, ptr %136, align 1
-  %138 = icmp eq i8 %137, 0
-  br i1 %138, label %158, label %139
-
-139:                                              ; preds = %135
-  %140 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(19) @.str.37) #11
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %151
-
-142:                                              ; preds = %139
-  %143 = load i8, ptr %129, align 4
-  %144 = trunc i8 %143 to i1
-  br i1 %144, label %145, label %150
-
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %49, align 8
-  %147 = load i8, ptr %146, align 1
-  %148 = icmp eq i8 %147, 114
-  br i1 %148, label %149, label %156
-
-149:                                              ; preds = %145
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.38) #9
-  br label %216
-
-150:                                              ; preds = %142
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.39) #9
-  br label %216
-
-151:                                              ; preds = %139
-  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(14) @.str.40) #11
-  %153 = icmp ne i32 %152, 0
-  %154 = icmp ne ptr %.04365.i, null
-  %or.cond.i40 = select i1 %153, i1 true, i1 %154
-  br i1 %or.cond.i40, label %156, label %155
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %9, align 8
+  %153 = load i8, ptr %152, align 1
+  %154 = icmp eq i8 %153, 0
+  br i1 %154, label %174, label %155
 
 155:                                              ; preds = %151
-  store ptr @pg_scram_mech, ptr %128, align 8
-  br label %156
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(19) @.str.38) #12
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %158, label %167
 
-156:                                              ; preds = %155, %151, %145
-  %.1.i41 = phi ptr [ %.04365.i, %145 ], [ %.04365.i, %151 ], [ @.str.40, %155 ]
-  %157 = call i32 @pqGets(ptr noundef nonnull %12, ptr noundef nonnull %2) #9
-  %.not47.i = icmp eq i32 %157, 0
-  br i1 %.not47.i, label %132, label %._crit_edge.i
+158:                                              ; preds = %155
+  %159 = load i8, ptr %146, align 1, !range !3, !noundef !4
+  %160 = trunc nuw i8 %159 to i1
+  br i1 %160, label %161, label %166
 
-158:                                              ; preds = %135
-  %.not48.i = icmp eq ptr %.04365.i, null
-  br i1 %.not48.i, label %159, label %160
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %46, align 8
+  %163 = load i8, ptr %162, align 1
+  %164 = icmp eq i8 %163, 114
+  br i1 %164, label %165, label %172
 
-159:                                              ; preds = %158
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.41) #9
-  br label %216
+165:                                              ; preds = %161
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.39) #10
+  br label %258
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr %49, align 8
-  %162 = load i8, ptr %161, align 1
-  %163 = icmp eq i8 %162, 114
-  br i1 %163, label %164, label %167
+166:                                              ; preds = %158
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.40) #10
+  br label %258
 
-164:                                              ; preds = %160
-  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.04365.i, ptr noundef nonnull dereferenceable(19) @.str.37) #11
-  %.not49.i = icmp eq i32 %165, 0
-  br i1 %.not49.i, label %167, label %166
+167:                                              ; preds = %155
+  %168 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(14) @.str.41) #12
+  %169 = icmp ne i32 %168, 0
+  %170 = icmp ne ptr %.071103.i, null
+  %or.cond.i52 = select i1 %169, i1 true, i1 %170
+  br i1 %or.cond.i52, label %172, label %171
 
-166:                                              ; preds = %164
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.42) #9
-  br label %216
+171:                                              ; preds = %167
+  store ptr @pg_scram_mech, ptr %144, align 8
+  store i8 1, ptr %145, align 1
+  br label %172
 
-167:                                              ; preds = %164, %160
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 761
-  store i8 1, ptr %168, align 1
-  %169 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 428
-  %172 = load i32, ptr %171, align 4
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr %struct.pg_conn_host, ptr %170, i64 %173, i32 4
-  %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %.thread.i42
+172:                                              ; preds = %171, %167, %161
+  %.172.i = phi ptr [ %.071103.i, %161 ], [ %.071103.i, %167 ], [ @.str.41, %171 ]
+  %173 = call i32 @pqGets(ptr noundef nonnull %9, ptr noundef nonnull %2) #10
+  %.not77.i = icmp eq i32 %173, 0
+  br i1 %.not77.i, label %148, label %._crit_edge.i
 
-177:                                              ; preds = %167
-  %178 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %179 = load ptr, ptr %178, align 8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %183, label %.thread.i42
+174:                                              ; preds = %151
+  %.not78.i = icmp eq ptr %.071103.i, null
+  br i1 %.not78.i, label %175, label %176
 
-.thread.i42:                                      ; preds = %177, %167
-  %.059.i = phi ptr [ %179, %177 ], [ %175, %167 ]
-  %181 = load i8, ptr %.059.i, align 1
-  %182 = icmp eq i8 %181, 0
-  br i1 %182, label %183, label %185
+175:                                              ; preds = %174
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.42) #10
+  br label %258
 
-183:                                              ; preds = %.thread.i42, %177
-  %184 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  call void @appendPQExpBufferStr(ptr noundef nonnull %184, ptr noundef nonnull @.str.5) #9
-  br label %216
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %28, align 8
+  %.not79.i = icmp eq ptr %177, null
+  br i1 %.not79.i, label %.thread.i54, label %.critedge.i53
 
-185:                                              ; preds = %.thread.i42
-  %186 = load ptr, ptr %128, align 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = call ptr %187(ptr noundef nonnull %2, ptr noundef nonnull %.059.i, ptr noundef nonnull %.04365.i) #9
-  store ptr %188, ptr %124, align 8
-  %.not50.i = icmp eq ptr %188, null
-  br i1 %.not50.i, label %..loopexit_crit_edge.i, label %189
+.critedge.i53:                                    ; preds = %176
+  %178 = load ptr, ptr %144, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 832
+  %180 = load ptr, ptr %179, align 8
+  %181 = icmp eq ptr %178, %180
+  br i1 %181, label %.thread.i54, label %182, !llvm.loop !5
 
-..loopexit_crit_edge.i:                           ; preds = %185
-  %.pre.i = load ptr, ptr %8, align 8
+182:                                              ; preds = %.critedge.i53
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %177, ptr noundef nonnull %.071103.i) #10
+  br label %258
+
+.thread.i54:                                      ; preds = %.critedge.i53, %176
+  %183 = load ptr, ptr %46, align 8
+  %184 = load i8, ptr %183, align 1
+  %185 = icmp eq i8 %184, 114
+  br i1 %185, label %186, label %189
+
+186:                                              ; preds = %.thread.i54
+  %187 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.071103.i, ptr noundef nonnull dereferenceable(19) @.str.38) #12
+  %.not80.i = icmp eq i32 %187, 0
+  br i1 %.not80.i, label %189, label %188
+
+188:                                              ; preds = %186
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.44) #10
+  br label %258
+
+189:                                              ; preds = %186, %.thread.i54
+  %190 = load i8, ptr %145, align 1, !range !3, !noundef !4
+  %191 = trunc nuw i8 %190 to i1
+  br i1 %191, label %192, label %212
+
+192:                                              ; preds = %189
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 912
+  %194 = load ptr, ptr %193, align 8
+  %.not81.i = icmp eq ptr %194, null
+  br i1 %.not81.i, label %195, label %212
+
+195:                                              ; preds = %192
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 480
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 476
+  %199 = load i32, ptr %198, align 4
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds %struct.pg_conn_host, ptr %197, i64 %200, i32 4
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %.thread95.i
+
+204:                                              ; preds = %195
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %210, label %.thread95.i
+
+.thread95.i:                                      ; preds = %204, %195
+  %.197.i = phi ptr [ %206, %204 ], [ %202, %195 ]
+  %208 = load i8, ptr %.197.i, align 1
+  %209 = icmp eq i8 %208, 0
+  br i1 %209, label %210, label %212
+
+210:                                              ; preds = %.thread95.i, %204
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  call void @appendPQExpBufferStr(ptr noundef nonnull %211, ptr noundef nonnull @.str.5) #10
+  br label %258
+
+212:                                              ; preds = %.thread95.i, %192, %189
+  %.070.i = phi ptr [ null, %192 ], [ %.197.i, %.thread95.i ], [ null, %189 ]
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 352
+  %214 = load ptr, ptr %213, align 8
+  %.not82.i = icmp eq ptr %214, null
+  br i1 %.not82.i, label %222, label %215
+
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 1000
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 1012
+  %219 = load i32, ptr %218, align 4
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %217, i64 %220
+  call void @pqTraceOutputMessage(ptr noundef nonnull %2, ptr noundef %221, i1 noundef zeroext false) #10
+  br label %222
+
+222:                                              ; preds = %215, %212
+  %223 = load ptr, ptr %135, align 8
+  %.not83.i = icmp eq ptr %223, null
+  br i1 %.not83.i, label %224, label %228
+
+224:                                              ; preds = %222
+  %225 = load ptr, ptr %144, align 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = call ptr %226(ptr noundef nonnull %2, ptr noundef %.070.i, ptr noundef nonnull %.071103.i) #10
+  store ptr %227, ptr %135, align 8
+  %.not84.i = icmp eq ptr %227, null
+  br i1 %.not84.i, label %..loopexit_crit_edge.i, label %230
+
+..loopexit_crit_edge.i:                           ; preds = %224
+  %.pre.i = load ptr, ptr %7, align 8
   br label %.loopexit.i
 
-189:                                              ; preds = %185
-  %190 = load ptr, ptr %128, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %192 = load ptr, ptr %191, align 8
-  call void %192(ptr noundef nonnull %188, ptr noundef null, i32 noundef -1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
-  %193 = load i8, ptr %10, align 1
-  %194 = trunc i8 %193 to i1
-  br i1 %194, label %195, label %198
+228:                                              ; preds = %222
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 848
+  store ptr null, ptr %229, align 8
+  br label %230
 
-195:                                              ; preds = %189
-  %196 = load i8, ptr %11, align 1
-  %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %216
+230:                                              ; preds = %228, %224
+  %231 = phi ptr [ %227, %224 ], [ %223, %228 ]
+  %232 = load ptr, ptr %144, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %234 = load ptr, ptr %233, align 8
+  %235 = call i32 %234(ptr noundef nonnull %231, i1 noundef zeroext false, ptr noundef null, i32 noundef -1, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  switch i32 %235, label %237 [
+    i32 1, label %258
+    i32 3, label %236
+  ]
 
-198:                                              ; preds = %195, %189
-  %199 = call i32 @pqPutMsgStart(i8 noundef signext 112, ptr noundef nonnull %2) #9
-  %.not51.i = icmp eq i32 %199, 0
-  br i1 %.not51.i, label %200, label %216
-
-200:                                              ; preds = %198
-  %201 = call i32 @pqPuts(ptr noundef nonnull %.04365.i, ptr noundef nonnull %2) #9
-  %.not52.i = icmp eq i32 %201, 0
-  br i1 %.not52.i, label %202, label %216
-
-202:                                              ; preds = %200
-  %203 = load ptr, ptr %8, align 8
-  %.not53.i = icmp eq ptr %203, null
-  br i1 %.not53.i, label %212, label %204
-
-204:                                              ; preds = %202
-  %205 = load i32, ptr %9, align 4
-  %206 = call i32 @pqPutInt(i32 noundef %205, i64 noundef 4, ptr noundef nonnull %2) #9
-  %.not54.i = icmp eq i32 %206, 0
-  br i1 %.not54.i, label %207, label %216
-
-207:                                              ; preds = %204
-  %208 = load ptr, ptr %8, align 8
-  %209 = load i32, ptr %9, align 4
-  %210 = sext i32 %209 to i64
-  %211 = call i32 @pqPutnchar(ptr noundef %208, i64 noundef %210, ptr noundef nonnull %2) #9
-  %.not55.i = icmp eq i32 %211, 0
-  br i1 %.not55.i, label %212, label %216
-
-212:                                              ; preds = %207, %202
-  %213 = call i32 @pqPutMsgEnd(ptr noundef nonnull %2) #9
-  %.not56.i = icmp eq i32 %213, 0
-  br i1 %.not56.i, label %214, label %216
-
-214:                                              ; preds = %212
-  %215 = call i32 @pqFlush(ptr noundef nonnull %2) #9
-  %.not57.i = icmp eq i32 %215, 0
-  br i1 %.not57.i, label %pg_SASL_init.exit, label %216
-
-216:                                              ; preds = %214, %212, %207, %204, %200, %198, %195, %183, %166, %159, %150, %149, %._crit_edge.i, %130, %122
-  call void @termPQExpBuffer(ptr noundef nonnull %12) #9
-  %217 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %217) #9
+236:                                              ; preds = %230
+  store i8 1, ptr %3, align 1
   br label %pg_SASL_init.exit.thread
 
-.loopexit.i:                                      ; preds = %132, %..loopexit_crit_edge.i
-  %218 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ null, %132 ]
-  call void @termPQExpBuffer(ptr noundef nonnull %12) #9
-  call void @free(ptr noundef %218) #9
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #9
+237:                                              ; preds = %230
+  %238 = call i32 @pqPutMsgStart(i8 noundef signext 112, ptr noundef nonnull %2) #10
+  %.not85.i = icmp eq i32 %238, 0
+  br i1 %.not85.i, label %239, label %258
+
+239:                                              ; preds = %237
+  %240 = call i32 @pqPuts(ptr noundef nonnull %.071103.i, ptr noundef nonnull %2) #10
+  %.not86.i = icmp eq i32 %240, 0
+  br i1 %.not86.i, label %241, label %258
+
+241:                                              ; preds = %239
+  %242 = load ptr, ptr %7, align 8
+  %.not87.i = icmp eq ptr %242, null
+  br i1 %.not87.i, label %251, label %243
+
+243:                                              ; preds = %241
+  %244 = load i32, ptr %8, align 4
+  %245 = call i32 @pqPutInt(i32 noundef %244, i64 noundef 4, ptr noundef nonnull %2) #10
+  %.not88.i = icmp eq i32 %245, 0
+  br i1 %.not88.i, label %246, label %258
+
+246:                                              ; preds = %243
+  %247 = load ptr, ptr %7, align 8
+  %248 = load i32, ptr %8, align 4
+  %249 = sext i32 %248 to i64
+  %250 = call i32 @pqPutnchar(ptr noundef %247, i64 noundef %249, ptr noundef nonnull %2) #10
+  %.not89.i = icmp eq i32 %250, 0
+  br i1 %.not89.i, label %251, label %258
+
+251:                                              ; preds = %246, %241
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 841
+  store i8 73, ptr %252, align 1
+  %253 = call i32 @pqPutMsgEnd(ptr noundef nonnull %2) #10
+  %.not90.i = icmp eq i32 %253, 0
+  br i1 %.not90.i, label %254, label %258
+
+254:                                              ; preds = %251
+  %255 = call i32 @pqFlush(ptr noundef nonnull %2) #10
+  %.not91.i = icmp eq i32 %255, 0
+  br i1 %.not91.i, label %256, label %258
+
+256:                                              ; preds = %254
+  call void @termPQExpBuffer(ptr noundef nonnull %9) #10
+  %257 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %257) #10
   br label %pg_SASL_init.exit.thread
 
-pg_SASL_init.exit.thread:                         ; preds = %216, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %check_expected_areq.exit.thread48
+258:                                              ; preds = %254, %251, %246, %243, %239, %237, %230, %210, %188, %182, %175, %166, %165, %._crit_edge.i, %140, %133
+  call void @termPQExpBuffer(ptr noundef nonnull %9) #10
+  %259 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %259) #10
+  br label %pg_SASL_init.exit
 
-pg_SASL_init.exit:                                ; preds = %214
-  call void @termPQExpBuffer(ptr noundef nonnull %12) #9
-  %219 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %219) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %check_expected_areq.exit.thread48
+.loopexit.i:                                      ; preds = %148, %..loopexit_crit_edge.i
+  %260 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ null, %148 ]
+  call void @termPQExpBuffer(ptr noundef nonnull %9) #10
+  call void @free(ptr noundef %260) #10
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #10
+  br label %pg_SASL_init.exit
 
-220:                                              ; preds = %53, %53, %check_expected_areq.exit, %check_expected_areq.exit
-  %221 = getelementptr inbounds nuw i8, ptr %2, i64 984
-  %222 = load ptr, ptr %221, align 8
-  %223 = icmp eq ptr %222, null
-  %224 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  br i1 %223, label %225, label %226
+pg_SASL_init.exit.thread:                         ; preds = %236, %256
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  br label %.critedge
 
-225:                                              ; preds = %220
-  tail call void @appendPQExpBufferStr(ptr noundef nonnull %224, ptr noundef nonnull @.str.7) #9
-  br label %check_expected_areq.exit.thread48
+pg_SASL_init.exit:                                ; preds = %258, %.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  br label %.critedge
 
-226:                                              ; preds = %220
-  %227 = getelementptr inbounds nuw i8, ptr %2, i64 1008
-  %228 = load i64, ptr %227, align 8
-  %229 = icmp eq i32 %0, 12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %230 = add i32 %1, 1
-  %231 = sext i32 %230 to i64
-  %232 = tail call noalias ptr @malloc(i64 noundef %231) #10
-  %.not.i43 = icmp eq ptr %232, null
-  br i1 %.not.i43, label %233, label %234
+261:                                              ; preds = %50, %50, %check_expected_areq.exit, %check_expected_areq.exit
+  %262 = getelementptr inbounds nuw i8, ptr %2, i64 1096
+  %263 = load ptr, ptr %262, align 8
+  %264 = icmp eq ptr %263, null
+  %265 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  br i1 %264, label %266, label %267
 
-233:                                              ; preds = %226
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, i32 noundef %1) #9
-  br label %270
+266:                                              ; preds = %261
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %265, ptr noundef nonnull @.str.7) #10
+  br label %.critedge
 
-234:                                              ; preds = %226
-  %235 = sext i32 %1 to i64
-  %236 = tail call i32 @pqGetnchar(ptr noundef nonnull %232, i64 noundef %235, ptr noundef nonnull %2) #9
-  %.not22.i = icmp eq i32 %236, 0
-  br i1 %.not22.i, label %238, label %237
+267:                                              ; preds = %261
+  %268 = getelementptr inbounds nuw i8, ptr %2, i64 1128
+  %269 = load i64, ptr %268, align 8
+  %270 = icmp eq i32 %0, 12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  %271 = add i32 %1, 1
+  %272 = sext i32 %271 to i64
+  %273 = tail call noalias ptr @malloc(i64 noundef %272) #11
+  %.not.i55 = icmp eq ptr %273, null
+  br i1 %.not.i55, label %274, label %275
 
-237:                                              ; preds = %234
-  tail call void @free(ptr noundef nonnull %232) #9
-  br label %270
+274:                                              ; preds = %267
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.45, i32 noundef %1) #10
+  br label %pg_SASL_continue.exit.thread
 
-238:                                              ; preds = %234
-  %239 = getelementptr i8, ptr %232, i64 %235
-  store i8 0, ptr %239, align 1
-  %240 = getelementptr inbounds nuw i8, ptr %2, i64 976
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = load ptr, ptr %221, align 8
-  call void %243(ptr noundef %244, ptr noundef nonnull %232, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  call void @free(ptr noundef nonnull %232) #9
-  br i1 %229, label %245, label %253
+275:                                              ; preds = %267
+  %276 = sext i32 %1 to i64
+  %277 = tail call i32 @pqGetnchar(ptr noundef nonnull %273, i64 noundef %276, ptr noundef nonnull %2) #10
+  %.not35.i56 = icmp eq i32 %277, 0
+  br i1 %.not35.i56, label %279, label %278
 
-245:                                              ; preds = %238
-  %246 = load i8, ptr %6, align 1
-  %247 = trunc i8 %246 to i1
-  br i1 %247, label %253, label %248
+278:                                              ; preds = %275
+  tail call void @free(ptr noundef nonnull %273) #10
+  br label %pg_SASL_continue.exit.thread
 
-248:                                              ; preds = %245
-  %249 = load i32, ptr %5, align 4
-  %.not23.i = icmp eq i32 %249, 0
-  br i1 %.not23.i, label %252, label %250
+279:                                              ; preds = %275
+  %280 = getelementptr inbounds nuw i8, ptr %2, i64 352
+  %281 = load ptr, ptr %280, align 8
+  %.not36.i = icmp eq ptr %281, null
+  br i1 %.not36.i, label %289, label %282
 
-250:                                              ; preds = %248
-  %251 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %251) #9
-  br label %252
+282:                                              ; preds = %279
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 1000
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 1012
+  %286 = load i32, ptr %285, align 4
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds i8, ptr %284, i64 %287
+  tail call void @pqTraceOutputMessage(ptr noundef nonnull %2, ptr noundef %288, i1 noundef zeroext false) #10
+  br label %289
 
-252:                                              ; preds = %250, %248
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.44) #9
-  br label %270
+289:                                              ; preds = %282, %279
+  %290 = getelementptr inbounds i8, ptr %273, i64 %276
+  store i8 0, ptr %290, align 1
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 1088
+  %292 = load ptr, ptr %291, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %294 = load ptr, ptr %293, align 8
+  %295 = load ptr, ptr %262, align 8
+  %296 = call i32 %294(ptr noundef %295, i1 noundef zeroext %270, ptr noundef nonnull %273, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @free(ptr noundef nonnull %273) #10
+  %297 = icmp eq i32 %296, 3
+  br i1 %297, label %.thread41.i, label %300
 
-253:                                              ; preds = %245, %238
-  %254 = load ptr, ptr %4, align 8
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %256, label %260
+.thread41.i:                                      ; preds = %289
+  store i8 1, ptr %3, align 1
+  %298 = load ptr, ptr %5, align 8
+  %299 = icmp eq ptr %298, null
+  br i1 %299, label %pg_SASL_continue.exit.thread69, label %312
 
-256:                                              ; preds = %253
-  %257 = load i8, ptr %6, align 1
-  %258 = trunc i8 %257 to i1
-  br i1 %258, label %.thread.i46, label %259
+pg_SASL_continue.exit.thread69:                   ; preds = %.thread41.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  br label %.critedge
 
-259:                                              ; preds = %256
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.45) #9
-  br label %270
+300:                                              ; preds = %289
+  %301 = icmp eq i32 %296, 2
+  %or.cond.i58 = and i1 %270, %301
+  br i1 %or.cond.i58, label %302, label %307
 
-260:                                              ; preds = %253
-  %261 = load i32, ptr %5, align 4
-  %262 = sext i32 %261 to i64
-  %263 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %254, i64 noundef %262) #9
-  %264 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %264) #9
-  %.not25.i = icmp eq i32 %263, 0
-  br i1 %.not25.i, label %..thread_crit_edge.i, label %270
+302:                                              ; preds = %300
+  %303 = load i32, ptr %6, align 4
+  %.not39.i = icmp eq i32 %303, 0
+  br i1 %.not39.i, label %306, label %304
 
-..thread_crit_edge.i:                             ; preds = %260
-  %.pre.i45 = load i8, ptr %6, align 1
-  br label %.thread.i46
+304:                                              ; preds = %302
+  %305 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %305) #10
+  br label %306
 
-.thread.i46:                                      ; preds = %..thread_crit_edge.i, %256
-  %265 = phi i8 [ %.pre.i45, %..thread_crit_edge.i ], [ %257, %256 ]
-  %266 = trunc i8 %265 to i1
-  br i1 %266, label %267, label %pg_SASL_continue.exit
+306:                                              ; preds = %304, %302
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.46) #10
+  br label %pg_SASL_continue.exit.thread
 
-267:                                              ; preds = %.thread.i46
-  %268 = load i8, ptr %7, align 1
-  %269 = trunc i8 %268 to i1
-  br i1 %269, label %pg_SASL_continue.exit, label %270
+307:                                              ; preds = %300
+  %308 = load ptr, ptr %5, align 8
+  %309 = icmp eq ptr %308, null
+  %or.cond3.i = and i1 %301, %309
+  br i1 %or.cond3.i, label %310, label %311
 
-pg_SASL_continue.exit:                            ; preds = %.thread.i46, %267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %check_expected_areq.exit.thread48
+310:                                              ; preds = %307
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.47) #10
+  br label %pg_SASL_continue.exit.thread
 
-270:                                              ; preds = %237, %259, %252, %233, %260, %267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %271 = load i64, ptr %227, align 8
-  %sext = shl i64 %228, 32
-  %272 = ashr exact i64 %sext, 32
-  %273 = icmp eq i64 %271, %272
-  br i1 %273, label %274, label %check_expected_areq.exit.thread48
+311:                                              ; preds = %307
+  br i1 %309, label %pg_SASL_continue.exit, label %312
 
-274:                                              ; preds = %270
-  call void @appendPQExpBufferStr(ptr noundef nonnull %224, ptr noundef nonnull @.str.8) #9
-  br label %check_expected_areq.exit.thread48
+312:                                              ; preds = %311, %.thread41.i
+  %313 = phi ptr [ %298, %.thread41.i ], [ %308, %311 ]
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 841
+  store i8 83, ptr %314, align 1
+  %315 = load i32, ptr %6, align 4
+  %316 = sext i32 %315 to i64
+  %317 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %313, i64 noundef %316) #10
+  %318 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %318) #10
+  %.not38.i = icmp eq i32 %317, 0
+  br i1 %.not38.i, label %pg_SASL_continue.exit, label %pg_SASL_continue.exit.thread
 
-275:                                              ; preds = %check_expected_areq.exit
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i32 noundef %0) #9
-  br label %check_expected_areq.exit.thread48
+pg_SASL_continue.exit.thread:                     ; preds = %278, %306, %310, %274, %312
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  br label %319
 
-check_expected_areq.exit.thread48:                ; preds = %63, %64, %24, %29, %auth_method_description.exit.i, %57, %112, %check_expected_areq.exit, %pg_SASL_init.exit, %pg_SASL_continue.exit, %pg_SASL_init.exit.thread, %270, %274, %275, %225, %110, %86, %69, %68, %67, %66, %65
-  %.034 = phi i32 [ -1, %275 ], [ -1, %225 ], [ -1, %86 ], [ -1, %110 ], [ -1, %69 ], [ -1, %68 ], [ -1, %67 ], [ -1, %66 ], [ -1, %65 ], [ -1, %274 ], [ -1, %270 ], [ -1, %pg_SASL_init.exit.thread ], [ 0, %pg_SASL_continue.exit ], [ 0, %pg_SASL_init.exit ], [ %0, %check_expected_areq.exit ], [ 0, %112 ], [ 0, %57 ], [ -1, %auth_method_description.exit.i ], [ -1, %29 ], [ -1, %24 ], [ -1, %64 ], [ -1, %63 ]
-  ret i32 %.034
+pg_SASL_continue.exit:                            ; preds = %311, %312
+  %.not = icmp eq i32 %296, 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  br i1 %.not, label %319, label %.critedge
+
+319:                                              ; preds = %pg_SASL_continue.exit.thread, %pg_SASL_continue.exit
+  %320 = load i64, ptr %268, align 8
+  %sext = shl i64 %269, 32
+  %321 = ashr exact i64 %sext, 32
+  %322 = icmp eq i64 %320, %321
+  br i1 %322, label %323, label %.critedge
+
+323:                                              ; preds = %319
+  call void @appendPQExpBufferStr(ptr noundef nonnull %265, ptr noundef nonnull @.str.8) #10
+  br label %.critedge
+
+324:                                              ; preds = %check_expected_areq.exit
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i32 noundef %0) #10
+  br label %.critedge
+
+.critedge:                                        ; preds = %60, %61, %21, %26, %auth_method_description.exit.i, %54, %check_expected_areq.exit, %123, %pg_SASL_continue.exit, %pg_SASL_init.exit.thread, %pg_SASL_continue.exit.thread69, %pg_SASL_init.exit, %266, %323, %319, %83, %121, %324, %66, %65, %64, %63, %62
+  %.043 = phi i32 [ -1, %324 ], [ -1, %66 ], [ -1, %65 ], [ -1, %64 ], [ -1, %63 ], [ -1, %62 ], [ -1, %pg_SASL_init.exit ], [ -1, %121 ], [ -1, %83 ], [ -1, %319 ], [ -1, %323 ], [ -1, %266 ], [ 0, %pg_SASL_continue.exit.thread69 ], [ 0, %pg_SASL_init.exit.thread ], [ 0, %pg_SASL_continue.exit ], [ 0, %123 ], [ %0, %check_expected_areq.exit ], [ 0, %54 ], [ -1, %auth_method_description.exit.i ], [ -1, %26 ], [ -1, %21 ], [ -1, %61 ], [ -1, %60 ]
+  ret i32 %.043
 }
 
-declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @pg_fe_getusername(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = alloca [8192 x i8], align 16
-  %4 = call zeroext i1 @pg_get_user_name(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 8192) #9
-  br i1 %4, label %7, label %5
-
-5:                                                ; preds = %2
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %6
-
-6:                                                ; preds = %5
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #9
-  br label %.thread
+  %3 = alloca %struct.passwd, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [1024 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
+  %6 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull %4) #10
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = call noalias ptr @strdup(ptr noundef nonnull %3) #9
-  %9 = icmp eq ptr %8, null
-  %10 = icmp ne ptr %1, null
-  %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %.thread
+  %8 = tail call ptr @__errno_location() #13
+  store i32 %6, ptr %8, align 4
+  %.not22 = icmp eq ptr %1, null
+  br i1 %.not22, label %.thread, label %9
 
-11:                                               ; preds = %7
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.11) #9
+9:                                                ; preds = %7
+  %10 = zext i32 %0 to i64
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i64 noundef %10) #10
   br label %.thread
 
-.thread:                                          ; preds = %5, %6, %7, %11
-  %.09 = phi ptr [ null, %11 ], [ %8, %7 ], [ null, %6 ], [ null, %5 ]
-  ret ptr %.09
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  %.not20 = icmp eq ptr %12, null
+  br i1 %.not20, label %13, label %16
+
+13:                                               ; preds = %11
+  %.not21 = icmp eq ptr %1, null
+  br i1 %.not21, label %.thread, label %14
+
+14:                                               ; preds = %13
+  %15 = zext i32 %0 to i64
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef %15) #10
+  br label %.thread
+
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %12, align 8
+  %.not23 = icmp eq ptr %17, null
+  br i1 %.not23, label %.thread, label %18
+
+18:                                               ; preds = %16
+  %19 = call noalias ptr @strdup(ptr noundef nonnull %17) #10
+  %20 = icmp eq ptr %19, null
+  %21 = icmp ne ptr %1, null
+  %or.cond = and i1 %21, %20
+  br i1 %or.cond, label %22, label %.thread
+
+22:                                               ; preds = %18
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.12) #10
+  br label %.thread
+
+.thread:                                          ; preds = %13, %14, %7, %9, %18, %22, %16
+  %.0 = phi ptr [ null, %22 ], [ %19, %18 ], [ null, %16 ], [ null, %9 ], [ null, %7 ], [ null, %14 ], [ null, %13 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #10
+  ret ptr %.0
 }
 
-declare zeroext i1 @pg_get_user_name(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #3
+
+declare void @libpq_append_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
-
-declare void @libpq_append_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @pg_fe_getauthname(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca [8192 x i8], align 16
-  %3 = tail call i32 @geteuid() #9
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2)
-  %4 = call zeroext i1 @pg_get_user_name(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 8192) #9
-  br i1 %4, label %7, label %5
-
-5:                                                ; preds = %1
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %pg_fe_getusername.exit, label %6
-
-6:                                                ; preds = %5
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #9
-  br label %pg_fe_getusername.exit
-
-7:                                                ; preds = %1
-  %8 = call noalias ptr @strdup(ptr noundef nonnull %2) #9
-  %9 = icmp eq ptr %8, null
-  %10 = icmp ne ptr %0, null
-  %or.cond.i = and i1 %10, %9
-  br i1 %or.cond.i, label %11, label %pg_fe_getusername.exit
-
-11:                                               ; preds = %7
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #9
-  br label %pg_fe_getusername.exit
-
-pg_fe_getusername.exit:                           ; preds = %5, %6, %7, %11
-  %.09.i = phi ptr [ null, %11 ], [ %8, %7 ], [ null, %6 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2)
-  ret ptr %.09.i
+  %2 = tail call i32 @geteuid() #10
+  %3 = tail call ptr @pg_fe_getusername(i32 noundef %2, ptr noundef %0)
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind
-declare i32 @geteuid() local_unnamed_addr #3
+declare i32 @geteuid() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @PQencryptPassword(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store ptr null, ptr %3, align 8
-  %4 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #10
+  %4 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %7 = call zeroext i1 @pg_md5_encrypt(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
+  %7 = call zeroext i1 @pg_md5_encrypt(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  call void @free(ptr noundef nonnull %4) #9
+  call void @free(ptr noundef nonnull %4) #10
   br label %9
 
 9:                                                ; preds = %5, %2, %8
   %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %4, %5 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-declare zeroext i1 @pg_md5_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @pg_md5_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [51 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %5) #10
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %58, label %8
+  br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %9) #9
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %9) #10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %10, align 8
   %11 = icmp eq ptr %3, null
   br i1 %11, label %12, label %sub_0
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @PQexec(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #9
+  %13 = tail call ptr @PQexec(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #10
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %58, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @PQresultStatus(ptr noundef nonnull %13) #9
-  %.not47 = icmp eq i32 %16, 2
-  br i1 %.not47, label %18, label %17
+  %16 = tail call i32 @PQresultStatus(ptr noundef nonnull %13) #10
+  %.not48 = icmp eq i32 %16, 2
+  br i1 %.not48, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void @PQclear(ptr noundef nonnull %13) #9
-  br label %58
+  tail call void @PQclear(ptr noundef nonnull %13) #10
+  br label %.thread
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @PQntuples(ptr noundef nonnull %13) #9
-  %.not48 = icmp eq i32 %19, 1
-  br i1 %.not48, label %20, label %22
+  %19 = tail call i32 @PQntuples(ptr noundef nonnull %13) #10
+  %.not49 = icmp eq i32 %19, 1
+  br i1 %.not49, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @PQnfields(ptr noundef nonnull %13) #9
-  %.not49 = icmp eq i32 %21, 1
-  br i1 %.not49, label %23, label %22
+  %21 = tail call i32 @PQnfields(ptr noundef nonnull %13) #10
+  %.not50 = icmp eq i32 %21, 1
+  br i1 %.not50, label %23, label %22
 
 22:                                               ; preds = %20, %18
-  tail call void @PQclear(ptr noundef nonnull %13) #9
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #9
-  br label %58
+  tail call void @PQclear(ptr noundef nonnull %13) #10
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #10
+  br label %.thread
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @PQgetvalue(ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0) #9
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #11
+  %24 = tail call ptr @PQgetvalue(ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0) #10
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #12
   %26 = icmp ugt i64 %25, 50
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @PQclear(ptr noundef nonnull %13) #9
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #9
-  br label %58
+  tail call void @PQclear(ptr noundef nonnull %13) #10
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #10
+  br label %.thread
 
 28:                                               ; preds = %23
-  %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %24) #9
-  call void @PQclear(ptr noundef nonnull %13) #9
+  %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %24) #10
+  call void @PQclear(ptr noundef nonnull %13) #10
   br label %sub_0
 
 sub_0:                                            ; preds = %8, %28
   %.038 = phi ptr [ %5, %28 ], [ %3, %8 ]
   %.038.sroa.phi = getelementptr inbounds nuw i8, ptr %.038, i64 2
   %30 = load i8, ptr %.038, align 1
-  %.not52 = icmp eq i8 %30, 111
-  br i1 %.not52, label %sub_1, label %.tail.thread
+  %.not55 = icmp eq i8 %30, 111
+  br i1 %.not55, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %.038.sroa.phi58 = getelementptr inbounds nuw i8, ptr %.038, i64 1
-  %31 = load i8, ptr %.038.sroa.phi58, align 1
-  %.not53 = icmp eq i8 %31, 110
-  br i1 %.not53, label %.tail, label %.tail.thread
+  %.038.sroa.phi61 = getelementptr inbounds nuw i8, ptr %.038, i64 1
+  %31 = load i8, ptr %.038.sroa.phi61, align 1
+  %.not56 = icmp eq i8 %31, 110
+  br i1 %.not56, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %32 = load i8, ptr %.038.sroa.phi, align 1
@@ -910,7 +1028,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %33, label %36, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038, ptr noundef nonnull dereferenceable(4) @.str.16) #11
+  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038, ptr noundef nonnull dereferenceable(4) @.str.17) #12
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
@@ -918,80 +1036,92 @@ sub_1:                                            ; preds = %sub_0
   br label %37
 
 37:                                               ; preds = %36, %.tail.thread
-  %.1 = phi ptr [ @.str.17, %36 ], [ %.038, %.tail.thread ]
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(14) @.str.18) #11
+  %.2 = phi ptr [ @.str.18, %36 ], [ %.038, %.tail.thread ]
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(14) @.str.19) #12
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %46
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr null, ptr %6, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load i32, ptr %41, align 8
-  %43 = call ptr @pg_fe_scram_build_secret(ptr noundef %1, i32 noundef %42, ptr noundef nonnull %6) #9
-  %.not51 = icmp eq ptr %43, null
-  br i1 %.not51, label %44, label %58
+  %43 = call ptr @pg_fe_scram_build_secret(ptr noundef %1, i32 noundef %42, ptr noundef nonnull %6) #10
+  %.not52 = icmp eq ptr %43, null
+  br i1 %.not52, label %44, label %46
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %45) #9
-  br label %58
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef %45) #10
+  br label %46
 
-46:                                               ; preds = %37
-  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(4) @.str.17) #11
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %57
+46:                                               ; preds = %44, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  br label %.thread
 
-49:                                               ; preds = %46
-  %50 = call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #10
-  %.not50 = icmp eq ptr %50, null
-  br i1 %.not50, label %56, label %51
+47:                                               ; preds = %37
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(4) @.str.18) #12
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %59
 
-51:                                               ; preds = %49
+50:                                               ; preds = %47
+  %51 = call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #11
+  %.not51 = icmp eq ptr %51, null
+  br i1 %.not51, label %58, label %52
+
+52:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   store ptr null, ptr %7, align 8
-  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %53 = call zeroext i1 @pg_md5_encrypt(ptr noundef %1, ptr noundef nonnull %2, i64 noundef %52, ptr noundef nonnull %50, ptr noundef nonnull %7) #9
-  br i1 %53, label %58, label %54
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
+  %54 = call zeroext i1 @pg_md5_encrypt(ptr noundef %1, ptr noundef nonnull %2, i64 noundef %53, ptr noundef nonnull %51, ptr noundef nonnull %7) #10
+  br i1 %54, label %57, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %55) #9
-  call void @free(ptr noundef nonnull %50) #9
-  br label %58
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef %56) #10
+  call void @free(ptr noundef nonnull %51) #10
+  br label %57
 
-56:                                               ; preds = %49
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #9
-  br label %58
+57:                                               ; preds = %55, %52
+  %.142 = phi ptr [ %51, %52 ], [ null, %55 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  br label %.thread
 
-57:                                               ; preds = %46
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %.1) #9
-  br label %58
+58:                                               ; preds = %50
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #10
+  br label %.thread
 
-58:                                               ; preds = %44, %40, %56, %54, %51, %12, %4, %57, %27, %22, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %57 ], [ null, %4 ], [ null, %12 ], [ %43, %40 ], [ null, %44 ], [ %50, %51 ], [ null, %54 ], [ null, %56 ]
+59:                                               ; preds = %47
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %.2) #10
+  br label %.thread
+
+.thread:                                          ; preds = %12, %27, %22, %17, %46, %57, %58, %4, %59
+  %.0 = phi ptr [ null, %59 ], [ null, %4 ], [ %43, %46 ], [ %.142, %57 ], [ null, %58 ], [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %12 ]
+  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %5) #10
   ret ptr %.0
 }
 
-declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1
+declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
+declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #1
+declare void @PQclear(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
+declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
+declare i32 @PQnfields(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
-declare ptr @pg_fe_scram_build_secret(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @pg_fe_scram_build_secret(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQchangePassword(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1001,89 +1131,92 @@ define ptr @PQchangePassword(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #11
-  %8 = tail call ptr @PQescapeLiteral(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7) #9
-  tail call void @PQfreemem(ptr noundef nonnull %5) #9
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
+  %8 = tail call ptr @PQescapeLiteral(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7) #10
+  tail call void @PQfreemem(ptr noundef nonnull %5) #10
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %11 = tail call ptr @PQescapeIdentifier(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %10) #9
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
+  %11 = tail call ptr @PQescapeIdentifier(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %10) #10
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @PQfreemem(ptr noundef nonnull %8) #9
+  tail call void @PQfreemem(ptr noundef nonnull %8) #10
   br label %16
 
 13:                                               ; preds = %9
-  call void @initPQExpBuffer(ptr noundef nonnull %4) #9
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef nonnull %11, ptr noundef nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @initPQExpBuffer(ptr noundef nonnull %4) #10
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %11, ptr noundef nonnull %8) #10
   %14 = load ptr, ptr %4, align 8
-  %15 = call ptr @PQexec(ptr noundef %0, ptr noundef %14) #9
-  call void @termPQExpBuffer(ptr noundef nonnull %4) #9
-  call void @PQfreemem(ptr noundef nonnull %11) #9
-  call void @PQfreemem(ptr noundef nonnull %8) #9
+  %15 = call ptr @PQexec(ptr noundef %0, ptr noundef %14) #10
+  call void @termPQExpBuffer(ptr noundef nonnull %4) #10
+  call void @PQfreemem(ptr noundef nonnull %11) #10
+  call void @PQfreemem(ptr noundef nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
   br label %16
 
-16:                                               ; preds = %6, %3, %13, %12
-  %.0 = phi ptr [ %15, %13 ], [ null, %12 ], [ null, %3 ], [ null, %6 ]
+16:                                               ; preds = %6, %13, %12, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ %15, %13 ], [ null, %12 ]
   ret ptr %.0
 }
 
-declare ptr @PQescapeLiteral(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @PQescapeLiteral(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PQfreemem(ptr noundef) local_unnamed_addr #1
+declare void @PQfreemem(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQescapeIdentifier(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @PQescapeIdentifier(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqGetnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pqGetnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqPacketSend(ptr noundef, i8 noundef signext, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @pqTraceOutputMessage(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @pqGets(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pqPacketSend(ptr noundef, i8 noundef signext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @pqPutMsgStart(i8 noundef signext, ptr noundef) local_unnamed_addr #1
+declare i32 @pqGets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqPuts(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pqPutMsgStart(i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqPutInt(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pqPuts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqPutnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pqPutInt(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqPutMsgEnd(ptr noundef) local_unnamed_addr #1
+declare i32 @pqPutnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pqFlush(ptr noundef) local_unnamed_addr #1
+declare i32 @pqPutMsgEnd(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare i32 @pqFlush(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(none) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

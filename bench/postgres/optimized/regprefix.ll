@@ -89,7 +89,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %11, align 4
   %.not97 = icmp eq i16 %12, -1
@@ -98,7 +98,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr i8, ptr %0, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 22
   br label %16
 
 16:                                               ; preds = %.lr.ph, %27
@@ -125,10 +125,10 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 
 27:                                               ; preds = %22, %26
   %.172 = phi i32 [ %.07198, %26 ], [ %25, %22 ]
-  %28 = getelementptr i8, ptr %.099, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.099, i64 8
   %29 = load i16, ptr %28, align 4
   %.not = icmp eq i16 %29, -1
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %27
   %30 = icmp eq i32 %.172, -1
@@ -136,9 +136,9 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 
 .preheader:                                       ; preds = %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %32 = getelementptr i8, ptr %0, i64 22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = getelementptr i8, ptr %0, i64 26
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -148,7 +148,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %.273 = phi i32 [ %.4, %92 ], [ %.172, %.preheader ]
   %39 = load ptr, ptr %7, align 8
   %40 = sext i32 %.273 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = load i16, ptr %42, align 4
   %.not81100 = icmp eq i16 %43, -1
@@ -205,10 +205,10 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 68:                                               ; preds = %66, %63, %45, %49
   %.4 = phi i32 [ %.3101, %45 ], [ %.3101, %49 ], [ %65, %63 ], [ -1, %66 ]
   %.270 = phi i16 [ %.068102, %45 ], [ %.068102, %49 ], [ %46, %63 ], [ %46, %66 ]
-  %69 = getelementptr i8, ptr %.1103, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %70 = load i16, ptr %69, align 4
   %.not81 = icmp eq i16 %70, -1
-  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !7
+  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !6
 
 ._crit_edge106:                                   ; preds = %68
   %71 = icmp eq i16 %.270, -1
@@ -217,7 +217,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 72:                                               ; preds = %._crit_edge106
   %73 = load ptr, ptr %36, align 8
   %74 = sext i16 %.270 to i64
-  %75 = getelementptr %struct.colordesc, ptr %73, i64 %74
+  %75 = getelementptr inbounds %struct.colordesc, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 8
   %.not83 = icmp eq i32 %76, 1
   br i1 %.not83, label %77, label %.thread.loopexit120
@@ -237,7 +237,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 84:                                               ; preds = %80
   %85 = load ptr, ptr %37, align 8
   %86 = zext nneg i32 %82 to i64
-  %87 = getelementptr i16, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %86
   %88 = load i16, ptr %87, align 2
   br label %91
 
@@ -254,14 +254,14 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %93 = load i64, ptr %3, align 8
   %94 = add i64 %93, 1
   store i64 %94, ptr %3, align 8
-  %95 = getelementptr i32, ptr %2, i64 %93
+  %95 = getelementptr inbounds nuw i32, ptr %2, i64 %93
   store i32 %82, ptr %95, align 4
   %.not86 = icmp eq i32 %.4, -1
-  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !8
+  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !7
 
 .thread.loopexit120:                              ; preds = %38, %92, %._crit_edge106, %72, %77, %91
   %.pre = load ptr, ptr %7, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %.pre, i64 %40
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %40
   %.pre122 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre123 = load i16, ptr %.pre122, align 4
   br label %.thread
@@ -300,10 +300,10 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
 
 110:                                              ; preds = %105, %109
   %.7 = phi i32 [ %.5110, %109 ], [ %108, %105 ]
-  %111 = getelementptr i8, ptr %.2111, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.2111, i64 8
   %112 = load i16, ptr %111, align 4
   %.not87 = icmp eq i16 %112, -1
-  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !9
+  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !8
 
 ._crit_edge113:                                   ; preds = %110, %109, %102, %.thread
   %.6 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.7, %110 ]
@@ -327,19 +327,18 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 declare signext i16 @pg_reg_getcolor(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/execJunk.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
@@ -45,28 +45,28 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
 .lr.ph42:                                         ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %16, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0293741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
+  %.0283741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 42
-  %23 = load i8, ptr %22, align 2
-  %24 = trunc i8 %23 to i1
+  %23 = load i8, ptr %22, align 2, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %.lr.ph42
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
-  %28 = sext i16 %.0293741 to i64
-  %29 = getelementptr i16, ptr %13, i64 %28
+  %28 = sext i16 %.0283741 to i64
+  %29 = getelementptr inbounds i16, ptr %13, i64 %28
   store i16 %27, ptr %29, align 2
-  %30 = add i16 %.0293741, 1
+  %30 = add i16 %.0283741, 1
   %.pre = load i32, ptr %14, align 4
   br label %31
 
-31:                                               ; preds = %.lr.ph42, %25
+31:                                               ; preds = %25, %.lr.ph42
   %32 = phi i32 [ %18, %.lr.ph42 ], [ %.pre, %25 ]
-  %.1 = phi i16 [ %.0293741, %.lr.ph42 ], [ %30, %25 ]
+  %.1 = phi i16 [ %.0283741, %.lr.ph42 ], [ %30, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
@@ -75,7 +75,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
 .thread:                                          ; preds = %31, %10, %.lr.ph, %7
   %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 40) #4
-  store i32 369, ptr %35, align 4
+  store i32 384, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -109,7 +109,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %2, %4 ], [ %6, %5 ]
+  %.029 = phi ptr [ %2, %4 ], [ %6, %5 ]
   %8 = load i32, ptr %1, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.loopexit
@@ -128,65 +128,65 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %14, %10
   %17 = phi ptr [ %16, %14 ], [ null, %10 ]
-  %18 = getelementptr i8, ptr %1, i64 119
+  %18 = getelementptr i8, ptr %1, i64 33
   %19 = getelementptr i8, ptr %0, i64 4
   %20 = getelementptr i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.02934 = phi ptr [ %17, %.lr.ph ], [ %.1, %38 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 104
+21:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %.03138 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
   %22 = getelementptr i8, ptr %18, i64 %.idx
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %38, label %.preheader
+  %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %37, label %.preheader
 
 .preheader:                                       ; preds = %21
   %.val = load i32, ptr %19, align 4
-  %.val33 = load ptr, ptr %20, align 8
+  %.val35 = load ptr, ptr %20, align 8
   %25 = sext i32 %.val to i64
-  %26 = getelementptr %union.ListCell, ptr %.val33, i64 %25
+  %26 = getelementptr inbounds %union.ListCell, ptr %.val35, i64 %25
   br label %27
 
 27:                                               ; preds = %.preheader, %27
-  %.2 = phi ptr [ %..i, %27 ], [ %.02934, %.preheader ]
+  %.2 = phi ptr [ %..i, %27 ], [ %.03138, %.preheader ]
   %28 = load ptr, ptr %.2, align 8
-  %29 = getelementptr i8, ptr %.2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %30 = icmp ult ptr %29, %26
   %..i = select i1 %30, ptr %29, ptr null
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 42
-  %32 = load i8, ptr %31, align 2
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %27, label %34
+  %32 = load i8, ptr %31, align 2, !range !4, !noundef !5
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %27, label %.thread
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %36 = load i16, ptr %35, align 8
-  %37 = getelementptr i16, ptr %13, i64 %indvars.iv
-  store i16 %36, ptr %37, align 2
-  br label %38
+.thread:                                          ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %35 = load i16, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
+  store i16 %35, ptr %36, align 2
+  br label %37
 
-38:                                               ; preds = %21, %34
-  %.1 = phi ptr [ %.02934, %21 ], [ %..i, %34 ]
+37:                                               ; preds = %.thread, %21
+  %.1 = phi ptr [ %.03138, %21 ], [ %..i, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
 
-.loopexit:                                        ; preds = %38, %7
-  %.030 = phi ptr [ null, %7 ], [ %13, %38 ]
-  %39 = tail call noundef ptr @palloc0(i64 noundef 40) #4
-  store i32 369, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr %.030, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %.0, ptr %43, align 8
-  ret ptr %39
+.loopexit:                                        ; preds = %37, %7
+  %.032 = phi ptr [ null, %7 ], [ %13, %37 ]
+  %38 = tail call noundef ptr @palloc0(i64 noundef 40) #4
+  store i32 384, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %0, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %1, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %.032, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr %.029, ptr %42, align 8
+  ret ptr %38
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
@@ -202,99 +202,99 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph21.i, label %ExecFindJunkAttributeInTlist.exit
+  br i1 %7, label %.lr.ph35.i, label %ExecFindJunkAttributeInTlist.exit
 
-.lr.ph21.i:                                       ; preds = %.lr.ph.i
+.lr.ph35.i:                                       ; preds = %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %10
 
-10:                                               ; preds = %24, %.lr.ph21.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next.i, %24 ]
-  %11 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv.i
+10:                                               ; preds = %22, %.lr.ph35.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %22 ]
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 42
-  %14 = load i8, ptr %13, align 2
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %24
+  %14 = load i8, ptr %13, align 2, !range !4, !noundef !5
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
-  %.not15.i = icmp eq ptr %18, null
-  br i1 %.not15.i, label %24, label %19
+  %.not20.i = icmp eq ptr %18, null
+  br i1 %.not20.i, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %1) #5
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.split.i, label %24
+  br i1 %21, label %.split.i, label %22
 
-.split.i:                                         ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %23 = load i16, ptr %22, align 8
-  br label %ExecFindJunkAttributeInTlist.exit
-
-24:                                               ; preds = %19, %16, %10
+22:                                               ; preds = %19, %16, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ExecFindJunkAttributeInTlist.exit, label %10
 
-ExecFindJunkAttributeInTlist.exit:                ; preds = %24, %2, %.lr.ph.i, %.split.i
-  %.0.i = phi i16 [ %23, %.split.i ], [ 0, %.lr.ph.i ], [ 0, %2 ], [ 0, %24 ]
-  ret i16 %.0.i
+.split.i:                                         ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %24 = load i16, ptr %23, align 8
+  br label %ExecFindJunkAttributeInTlist.exit
+
+ExecFindJunkAttributeInTlist.exit:                ; preds = %22, %2, %.lr.ph.i, %.split.i
+  %25 = phi i16 [ %24, %.split.i ], [ 0, %.lr.ph.i ], [ 0, %2 ], [ 0, %22 ]
+  ret i16 %25
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph21, label %.thread
+  br i1 %5, label %.lr.ph35, label %.loopexit
 
-.lr.ph21:                                         ; preds = %.lr.ph
+.lr.ph35:                                         ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph21, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %22 ]
-  %9 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
+8:                                                ; preds = %.lr.ph35, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next, %20 ]
+  %9 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 42
-  %12 = load i8, ptr %11, align 2
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %22
+  %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load ptr, ptr %15, align 8
-  %.not15 = icmp eq ptr %16, null
-  br i1 %.not15, label %22, label %17
+  %.not20 = icmp eq ptr %16, null
+  br i1 %.not20, label %20, label %17
 
 17:                                               ; preds = %14
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #5
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.split, label %22
+  br i1 %19, label %.split, label %20
 
-.split:                                           ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %21 = load i16, ptr %20, align 8
-  br label %.thread
-
-22:                                               ; preds = %8, %14, %17
+20:                                               ; preds = %17, %14, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %8
+  br i1 %exitcond.not, label %.loopexit, label %8
 
-.thread:                                          ; preds = %22, %2, %.lr.ph, %.split
-  %.0 = phi i16 [ %21, %.split ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %22 ]
-  ret i16 %.0
+.split:                                           ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %22 = load i16, ptr %21, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %20, %2, %.lr.ph, %.split
+  %23 = phi i16 [ %22, %.split ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %20 ]
+  ret i16 %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -343,61 +343,61 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %31 = getelementptr i16, ptr %19, i64 %indvars.iv
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
+  %31 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr i64, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   store i64 0, ptr %35, align 8
-  br label %45
+  br label %44
 
 36:                                               ; preds = %.lr.ph
   %37 = sext i16 %32 to i64
   %38 = add nsw i64 %37, -1
-  %39 = getelementptr i64, ptr %12, i64 %38
+  %39 = getelementptr inbounds i64, ptr %12, i64 %38
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr i64, ptr %27, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr i8, ptr %14, i64 %38
-  %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  br label %45
+  %42 = getelementptr inbounds i8, ptr %14, i64 %38
+  %43 = load i8, ptr %42, align 1, !range !4, !noundef !5
+  br label %44
 
-45:                                               ; preds = %34, %36
-  %.sink = phi i8 [ 1, %34 ], [ %44, %36 ]
-  %46 = getelementptr i8, ptr %29, i64 %indvars.iv
-  store i8 %.sink, ptr %46, align 1
+44:                                               ; preds = %36, %34
+  %.sink = phi i8 [ 1, %34 ], [ %43, %36 ]
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
+  store i8 %.sink, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %45, %slot_getallattrs.exit
-  %47 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %21) #4
-  ret ptr %47
+._crit_edge:                                      ; preds = %44, %slot_getallattrs.exit
+  %46 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %21) #4
+  ret ptr %46
 }
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
 declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

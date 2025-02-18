@@ -13,25 +13,27 @@ define dso_local void @ExceptionalCondition(ptr noundef %0, ptr noundef %1, i32 
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
-  %7 = tail call i32 @getpid() #5
+  %7 = tail call i32 @getpid() #6
   br i1 %or.cond, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str, i32 noundef %7) #5
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str, i32 noundef %7) #6
   br label %10
 
 9:                                                ; preds = %3
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %7) #5
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %7) #6
   br label %10
 
 10:                                               ; preds = %9, %8
   %11 = load ptr, ptr @stderr, align 8
   %12 = tail call i32 @fflush(ptr noundef %11)
-  %13 = call i32 @backtrace(ptr noundef nonnull %4, i32 noundef 100) #5
+  call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %4) #6
+  %13 = call i32 @backtrace(ptr noundef nonnull %4, i32 noundef 100) #6
   %14 = load ptr, ptr @stderr, align 8
-  %15 = call i32 @fileno(ptr noundef %14) #5
-  call void @backtrace_symbols_fd(ptr noundef nonnull %4, i32 noundef %13, i32 noundef %15) #5
-  call void @abort() #6
+  %15 = call i32 @fileno(ptr noundef %14) #6
+  call void @backtrace_symbols_fd(ptr noundef nonnull %4, i32 noundef %13, i32 noundef %15) #6
+  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %4) #6
+  call void @abort() #7
   unreachable
 }
 
@@ -43,6 +45,9 @@ declare i32 @getpid() local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
@@ -51,21 +56,24 @@ declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #5
 
-attributes #0 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #0 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

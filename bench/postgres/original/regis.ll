@@ -19,193 +19,211 @@ define dso_local zeroext i1 @RS_isRegis(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   store i32 4, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  store ptr %6, ptr %5, align 8
-  br label %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8
+  store ptr %7, ptr %5, align 8
+  br label %8
 
-7:                                                ; preds = %78, %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i8, ptr %8, align 1
-  %10 = icmp ne i8 %9, 0
-  br i1 %10, label %11, label %84
+8:                                                ; preds = %80, %1
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %12, label %86
 
-11:                                               ; preds = %7
-  %12 = load i32, ptr %4, align 4
-  %13 = icmp eq i32 %12, 4
-  br i1 %13, label %14, label %28
+12:                                               ; preds = %8
+  %13 = load i32, ptr %4, align 4
+  %14 = icmp eq i32 %13, 4
+  br i1 %14, label %15, label %29
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %5, align 8
-  %16 = call i32 @t_isalpha(ptr noundef %15)
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %19
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8
+  %17 = call i32 @t_isalpha(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %14
-  br label %27
+19:                                               ; preds = %15
+  br label %28
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp eq i32 %22, 91
-  br i1 %23, label %24, label %25
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = icmp eq i32 %23, 91
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %19
+25:                                               ; preds = %20
   store i32 1, ptr %4, align 4
-  br label %26
-
-25:                                               ; preds = %19
-  store i1 false, ptr %2, align 1
-  br label %87
-
-26:                                               ; preds = %24
   br label %27
 
-27:                                               ; preds = %26, %18
+26:                                               ; preds = %20
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %89
+
+27:                                               ; preds = %25
+  br label %28
+
+28:                                               ; preds = %27, %19
+  br label %80
+
+29:                                               ; preds = %12
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %46
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 94
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
+  store i32 3, ptr %4, align 4
+  br label %45
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %5, align 8
+  %40 = call i32 @t_isalpha(ptr noundef %39)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %38
+  store i32 2, ptr %4, align 4
+  br label %44
+
+43:                                               ; preds = %38
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %89
+
+44:                                               ; preds = %42
+  br label %45
+
+45:                                               ; preds = %44, %37
+  br label %79
+
+46:                                               ; preds = %29
+  %47 = load i32, ptr %4, align 4
+  %48 = icmp eq i32 %47, 2
+  br i1 %48, label %52, label %49
+
+49:                                               ; preds = %46
+  %50 = load i32, ptr %4, align 4
+  %51 = icmp eq i32 %50, 3
+  br i1 %51, label %52, label %66
+
+52:                                               ; preds = %49, %46
+  %53 = load ptr, ptr %5, align 8
+  %54 = call i32 @t_isalpha(ptr noundef %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %52
+  br label %65
+
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %5, align 8
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 93
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %57
+  store i32 4, ptr %4, align 4
+  br label %64
+
+63:                                               ; preds = %57
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %89
+
+64:                                               ; preds = %62
+  br label %65
+
+65:                                               ; preds = %64, %56
   br label %78
 
-28:                                               ; preds = %11
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %45
-
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, 94
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %31
-  store i32 3, ptr %4, align 4
-  br label %44
-
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @t_isalpha(ptr noundef %38)
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %37
-  store i32 2, ptr %4, align 4
-  br label %43
-
-42:                                               ; preds = %37
-  store i1 false, ptr %2, align 1
-  br label %87
-
-43:                                               ; preds = %41
-  br label %44
-
-44:                                               ; preds = %43, %36
-  br label %77
-
-45:                                               ; preds = %28
-  %46 = load i32, ptr %4, align 4
-  %47 = icmp eq i32 %46, 2
-  br i1 %47, label %51, label %48
-
-48:                                               ; preds = %45
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp eq i32 %49, 3
-  br i1 %50, label %51, label %65
-
-51:                                               ; preds = %48, %45
-  %52 = load ptr, ptr %5, align 8
-  %53 = call i32 @t_isalpha(ptr noundef %52)
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %51
-  br label %64
-
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %5, align 8
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = icmp eq i32 %59, 93
-  br i1 %60, label %61, label %62
-
-61:                                               ; preds = %56
-  store i32 4, ptr %4, align 4
-  br label %63
-
-62:                                               ; preds = %56
-  store i1 false, ptr %2, align 1
-  br label %87
-
-63:                                               ; preds = %61
-  br label %64
-
-64:                                               ; preds = %63, %55
-  br label %76
-
-65:                                               ; preds = %48
-  br label %66
-
-66:                                               ; preds = %65
-  br i1 true, label %67, label %69
+66:                                               ; preds = %49
+  br label %67
 
 67:                                               ; preds = %66
-  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %68, label %71, label %74
+  br i1 true, label %68, label %70
 
-69:                                               ; preds = %66
-  %70 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %70, label %71, label %74
+68:                                               ; preds = %67
+  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %69, label %72, label %75
 
-71:                                               ; preds = %69, %67
-  %72 = load i32, ptr %4, align 4
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %72)
+70:                                               ; preds = %67
+  %71 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %71, label %72, label %75
+
+72:                                               ; preds = %70, %68
+  %73 = load i32, ptr %4, align 4
+  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %73)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 66, ptr noundef @__func__.RS_isRegis)
-  br label %74
+  br label %75
 
-74:                                               ; preds = %71, %69, %67
+75:                                               ; preds = %72, %70, %68
   unreachable
 
-75:                                               ; No predecessors!
-  br label %76
-
-76:                                               ; preds = %75, %64
+76:                                               ; No predecessors!
   br label %77
 
-77:                                               ; preds = %76, %44
+77:                                               ; preds = %76
   br label %78
 
-78:                                               ; preds = %77, %27
-  %79 = load ptr, ptr %5, align 8
-  %80 = call i32 @pg_mblen(ptr noundef %79)
+78:                                               ; preds = %77, %65
+  br label %79
+
+79:                                               ; preds = %78, %45
+  br label %80
+
+80:                                               ; preds = %79, %28
   %81 = load ptr, ptr %5, align 8
-  %82 = sext i32 %80 to i64
-  %83 = getelementptr i8, ptr %81, i64 %82
-  store ptr %83, ptr %5, align 8
-  br label %7, !llvm.loop !5
+  %82 = call i32 @pg_mblen(ptr noundef %81)
+  %83 = load ptr, ptr %5, align 8
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
+  store ptr %85, ptr %5, align 8
+  br label %8, !llvm.loop !4
 
-84:                                               ; preds = %7
-  %85 = load i32, ptr %4, align 4
-  %86 = icmp eq i32 %85, 4
-  store i1 %86, ptr %2, align 1
-  br label %87
+86:                                               ; preds = %8
+  %87 = load i32, ptr %4, align 4
+  %88 = icmp eq i32 %87, 4
+  store i1 %88, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %89
 
-87:                                               ; preds = %84, %62, %42, %25
-  %88 = load i1, ptr %2, align 1
-  ret i1 %88
+89:                                               ; preds = %86, %63, %43, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  %90 = load i1, ptr %2, align 1
+  ret i1 %90
 }
 
-declare i32 @t_isalpha(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @t_isalpha(ptr noundef) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @pg_mblen(ptr noundef) #1
+declare i32 @pg_mblen(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
@@ -220,21 +238,25 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %11 = zext i1 %1 to i8
   store i8 %11, ptr %5, align 1
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %12 = load ptr, ptr %6, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #7
+  %13 = call i64 @strlen(ptr noundef %12) #9
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
   store i32 4, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %15 = load ptr, ptr %6, align 8
   store ptr %15, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   store ptr null, ptr %10, align 8
   %16 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 16, i1 false)
-  %17 = load i8, ptr %5, align 1
+  %17 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %18 = trunc i8 %17 to i1
   %19 = select i1 %18, i32 1, i32 0
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.Regis, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.Regis, ptr %20, i32 0, i32 1
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %19, 1
   %24 = and i32 %22, -2
@@ -242,16 +264,16 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   store i32 %25, ptr %21, align 8
   br label %26
 
-26:                                               ; preds = %218, %3
+26:                                               ; preds = %222, %3
   %27 = load ptr, ptr %9, align 8
   %28 = load i8, ptr %27, align 1
   %29 = icmp ne i8 %28, 0
-  br i1 %29, label %30, label %224
+  br i1 %29, label %30, label %228
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %8, align 4
   %32 = icmp eq i32 %31, 4
-  br i1 %32, label %33, label %104
+  br i1 %32, label %33, label %105
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %9, align 8
@@ -275,14 +297,14 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %45 = load i32, ptr %7, align 4
   %46 = call ptr @newRegisNode(ptr noundef null, i32 noundef %45)
   %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.Regis, ptr %47, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.Regis, ptr %47, i32 0, i32 0
   store ptr %46, ptr %48, align 8
   store ptr %46, ptr %10, align 8
   br label %49
 
 49:                                               ; preds = %44, %40
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds %struct.RegisNode, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.RegisNode, ptr %50, i32 0, i32 2
   %52 = getelementptr inbounds [0 x i8], ptr %51, i64 0, i64 0
   %53 = load ptr, ptr %9, align 8
   %54 = load ptr, ptr %9, align 8
@@ -303,7 +325,7 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %67 = and i32 %64, -262141
   %68 = or i32 %67, %66
   store i32 %68, ptr %63, align 8
-  br label %103
+  br label %104
 
 69:                                               ; preds = %33
   %70 = load ptr, ptr %9, align 8
@@ -328,7 +350,7 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %82 = load i32, ptr %7, align 4
   %83 = call ptr @newRegisNode(ptr noundef null, i32 noundef %82)
   %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.Regis, ptr %84, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.Regis, ptr %84, i32 0, i32 0
   store ptr %83, ptr %85, align 8
   store ptr %83, ptr %10, align 8
   br label %86
@@ -340,7 +362,7 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %90 = or i32 %89, 1
   store i32 %90, ptr %87, align 8
   store i32 1, ptr %8, align 4
-  br label %102
+  br label %103
 
 91:                                               ; preds = %69
   br label %92
@@ -349,7 +371,7 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   br i1 true, label %93, label %95
 
 93:                                               ; preds = %92
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %94, label %97, label %100
 
 95:                                               ; preds = %92
@@ -368,293 +390,312 @@ define dso_local void @RS_compile(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 101:                                              ; No predecessors!
   br label %102
 
-102:                                              ; preds = %101, %86
+102:                                              ; preds = %101
   br label %103
 
-103:                                              ; preds = %102, %49
-  br label %218
+103:                                              ; preds = %102, %86
+  br label %104
 
-104:                                              ; preds = %30
-  %105 = load i32, ptr %8, align 4
-  %106 = icmp eq i32 %105, 1
-  br i1 %106, label %107, label %150
+104:                                              ; preds = %103, %49
+  br label %222
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %9, align 8
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = icmp eq i32 %110, 94
-  br i1 %111, label %112, label %117
+105:                                              ; preds = %30
+  %106 = load i32, ptr %8, align 4
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %152
 
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %10, align 8
-  %114 = load i32, ptr %113, align 8
-  %115 = and i32 %114, -4
-  %116 = or i32 %115, 2
-  store i32 %116, ptr %113, align 8
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %9, align 8
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = icmp eq i32 %111, 94
+  br i1 %112, label %113, label %118
+
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %10, align 8
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, -4
+  %117 = or i32 %116, 2
+  store i32 %117, ptr %114, align 8
   store i32 3, ptr %8, align 4
-  br label %149
+  br label %151
 
-117:                                              ; preds = %107
-  %118 = load ptr, ptr %9, align 8
-  %119 = call i32 @t_isalpha(ptr noundef %118)
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %137
+118:                                              ; preds = %108
+  %119 = load ptr, ptr %9, align 8
+  %120 = call i32 @t_isalpha(ptr noundef %119)
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %138
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %10, align 8
-  %123 = getelementptr inbounds %struct.RegisNode, ptr %122, i32 0, i32 2
-  %124 = getelementptr inbounds [0 x i8], ptr %123, i64 0, i64 0
-  %125 = load ptr, ptr %9, align 8
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %10, align 8
+  %124 = getelementptr inbounds nuw %struct.RegisNode, ptr %123, i32 0, i32 2
+  %125 = getelementptr inbounds [0 x i8], ptr %124, i64 0, i64 0
   %126 = load ptr, ptr %9, align 8
-  %127 = call i32 @pg_mblen(ptr noundef %126)
-  %128 = sext i32 %127 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr align 1 %125, i64 %128, i1 false)
-  %129 = load ptr, ptr %9, align 8
-  %130 = call i32 @pg_mblen(ptr noundef %129)
-  %131 = load ptr, ptr %10, align 8
-  %132 = load i32, ptr %131, align 8
-  %133 = and i32 %130, 65535
-  %134 = shl i32 %133, 2
-  %135 = and i32 %132, -262141
-  %136 = or i32 %135, %134
-  store i32 %136, ptr %131, align 8
+  %127 = load ptr, ptr %9, align 8
+  %128 = call i32 @pg_mblen(ptr noundef %127)
+  %129 = sext i32 %128 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %125, ptr align 1 %126, i64 %129, i1 false)
+  %130 = load ptr, ptr %9, align 8
+  %131 = call i32 @pg_mblen(ptr noundef %130)
+  %132 = load ptr, ptr %10, align 8
+  %133 = load i32, ptr %132, align 8
+  %134 = and i32 %131, 65535
+  %135 = shl i32 %134, 2
+  %136 = and i32 %133, -262141
+  %137 = or i32 %136, %135
+  store i32 %137, ptr %132, align 8
   store i32 2, ptr %8, align 4
-  br label %148
+  br label %150
 
-137:                                              ; preds = %117
-  br label %138
-
-138:                                              ; preds = %137
-  br i1 true, label %139, label %141
+138:                                              ; preds = %118
+  br label %139
 
 139:                                              ; preds = %138
-  %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %140, label %143, label %146
+  br i1 true, label %140, label %142
 
-141:                                              ; preds = %138
-  %142 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %142, label %143, label %146
+140:                                              ; preds = %139
+  %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %141, label %144, label %147
 
-143:                                              ; preds = %141, %139
-  %144 = load ptr, ptr %6, align 8
-  %145 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %144)
+142:                                              ; preds = %139
+  %143 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %143, label %144, label %147
+
+144:                                              ; preds = %142, %140
+  %145 = load ptr, ptr %6, align 8
+  %146 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %145)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 135, ptr noundef @__func__.RS_compile)
-  br label %146
+  br label %147
 
-146:                                              ; preds = %143, %141, %139
+147:                                              ; preds = %144, %142, %140
   unreachable
 
-147:                                              ; No predecessors!
-  br label %148
-
-148:                                              ; preds = %147, %121
+148:                                              ; No predecessors!
   br label %149
 
-149:                                              ; preds = %148, %112
-  br label %217
+149:                                              ; preds = %148
+  br label %150
 
-150:                                              ; preds = %104
-  %151 = load i32, ptr %8, align 4
-  %152 = icmp eq i32 %151, 2
-  br i1 %152, label %156, label %153
+150:                                              ; preds = %149, %122
+  br label %151
 
-153:                                              ; preds = %150
-  %154 = load i32, ptr %8, align 4
-  %155 = icmp eq i32 %154, 3
-  br i1 %155, label %156, label %205
+151:                                              ; preds = %150, %113
+  br label %221
 
-156:                                              ; preds = %153, %150
-  %157 = load ptr, ptr %9, align 8
-  %158 = call i32 @t_isalpha(ptr noundef %157)
-  %159 = icmp ne i32 %158, 0
-  br i1 %159, label %160, label %186
+152:                                              ; preds = %105
+  %153 = load i32, ptr %8, align 4
+  %154 = icmp eq i32 %153, 2
+  br i1 %154, label %158, label %155
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %10, align 8
-  %162 = getelementptr inbounds %struct.RegisNode, ptr %161, i32 0, i32 2
-  %163 = getelementptr inbounds [0 x i8], ptr %162, i64 0, i64 0
-  %164 = load ptr, ptr %10, align 8
-  %165 = load i32, ptr %164, align 8
-  %166 = lshr i32 %165, 2
-  %167 = and i32 %166, 65535
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr i8, ptr %163, i64 %168
-  %170 = load ptr, ptr %9, align 8
-  %171 = load ptr, ptr %9, align 8
-  %172 = call i32 @pg_mblen(ptr noundef %171)
-  %173 = sext i32 %172 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %169, ptr align 1 %170, i64 %173, i1 false)
-  %174 = load ptr, ptr %9, align 8
-  %175 = call i32 @pg_mblen(ptr noundef %174)
-  %176 = load ptr, ptr %10, align 8
-  %177 = load i32, ptr %176, align 8
-  %178 = lshr i32 %177, 2
-  %179 = and i32 %178, 65535
-  %180 = add i32 %179, %175
-  %181 = load i32, ptr %176, align 8
-  %182 = and i32 %180, 65535
-  %183 = shl i32 %182, 2
-  %184 = and i32 %181, -262141
-  %185 = or i32 %184, %183
-  store i32 %185, ptr %176, align 8
-  br label %204
+155:                                              ; preds = %152
+  %156 = load i32, ptr %8, align 4
+  %157 = icmp eq i32 %156, 3
+  br i1 %157, label %158, label %208
 
-186:                                              ; preds = %156
-  %187 = load ptr, ptr %9, align 8
-  %188 = load i8, ptr %187, align 1
-  %189 = zext i8 %188 to i32
-  %190 = icmp eq i32 %189, 93
-  br i1 %190, label %191, label %192
+158:                                              ; preds = %155, %152
+  %159 = load ptr, ptr %9, align 8
+  %160 = call i32 @t_isalpha(ptr noundef %159)
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %162, label %188
 
-191:                                              ; preds = %186
+162:                                              ; preds = %158
+  %163 = load ptr, ptr %10, align 8
+  %164 = getelementptr inbounds nuw %struct.RegisNode, ptr %163, i32 0, i32 2
+  %165 = getelementptr inbounds [0 x i8], ptr %164, i64 0, i64 0
+  %166 = load ptr, ptr %10, align 8
+  %167 = load i32, ptr %166, align 8
+  %168 = lshr i32 %167, 2
+  %169 = and i32 %168, 65535
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds i8, ptr %165, i64 %170
+  %172 = load ptr, ptr %9, align 8
+  %173 = load ptr, ptr %9, align 8
+  %174 = call i32 @pg_mblen(ptr noundef %173)
+  %175 = sext i32 %174 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %172, i64 %175, i1 false)
+  %176 = load ptr, ptr %9, align 8
+  %177 = call i32 @pg_mblen(ptr noundef %176)
+  %178 = load ptr, ptr %10, align 8
+  %179 = load i32, ptr %178, align 8
+  %180 = lshr i32 %179, 2
+  %181 = and i32 %180, 65535
+  %182 = add i32 %181, %177
+  %183 = load i32, ptr %178, align 8
+  %184 = and i32 %182, 65535
+  %185 = shl i32 %184, 2
+  %186 = and i32 %183, -262141
+  %187 = or i32 %186, %185
+  store i32 %187, ptr %178, align 8
+  br label %207
+
+188:                                              ; preds = %158
+  %189 = load ptr, ptr %9, align 8
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %192 = icmp eq i32 %191, 93
+  br i1 %192, label %193, label %194
+
+193:                                              ; preds = %188
   store i32 4, ptr %8, align 4
-  br label %203
-
-192:                                              ; preds = %186
-  br label %193
-
-193:                                              ; preds = %192
-  br i1 true, label %194, label %196
-
-194:                                              ; preds = %193
-  %195 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %195, label %198, label %201
-
-196:                                              ; preds = %193
-  %197 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %197, label %198, label %201
-
-198:                                              ; preds = %196, %194
-  %199 = load ptr, ptr %6, align 8
-  %200 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %199)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 147, ptr noundef @__func__.RS_compile)
-  br label %201
-
-201:                                              ; preds = %198, %196, %194
-  unreachable
-
-202:                                              ; No predecessors!
-  br label %203
-
-203:                                              ; preds = %202, %191
-  br label %204
-
-204:                                              ; preds = %203, %160
-  br label %216
-
-205:                                              ; preds = %153
   br label %206
 
-206:                                              ; preds = %205
-  br i1 true, label %207, label %209
+194:                                              ; preds = %188
+  br label %195
 
-207:                                              ; preds = %206
-  %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %208, label %211, label %214
+195:                                              ; preds = %194
+  br i1 true, label %196, label %198
 
-209:                                              ; preds = %206
-  %210 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %210, label %211, label %214
+196:                                              ; preds = %195
+  %197 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %197, label %200, label %203
 
-211:                                              ; preds = %209, %207
-  %212 = load i32, ptr %8, align 4
-  %213 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %212)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 150, ptr noundef @__func__.RS_compile)
-  br label %214
+198:                                              ; preds = %195
+  %199 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %199, label %200, label %203
 
-214:                                              ; preds = %211, %209, %207
+200:                                              ; preds = %198, %196
+  %201 = load ptr, ptr %6, align 8
+  %202 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %201)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 147, ptr noundef @__func__.RS_compile)
+  br label %203
+
+203:                                              ; preds = %200, %198, %196
   unreachable
 
-215:                                              ; No predecessors!
-  br label %216
+204:                                              ; No predecessors!
+  br label %205
 
-216:                                              ; preds = %215, %204
+205:                                              ; preds = %204
+  br label %206
+
+206:                                              ; preds = %205, %193
+  br label %207
+
+207:                                              ; preds = %206, %162
+  br label %220
+
+208:                                              ; preds = %155
+  br label %209
+
+209:                                              ; preds = %208
+  br i1 true, label %210, label %212
+
+210:                                              ; preds = %209
+  %211 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %211, label %214, label %217
+
+212:                                              ; preds = %209
+  %213 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %213, label %214, label %217
+
+214:                                              ; preds = %212, %210
+  %215 = load i32, ptr %8, align 4
+  %216 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %215)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 150, ptr noundef @__func__.RS_compile)
   br label %217
 
-217:                                              ; preds = %216, %149
-  br label %218
-
-218:                                              ; preds = %217, %103
-  %219 = load ptr, ptr %9, align 8
-  %220 = call i32 @pg_mblen(ptr noundef %219)
-  %221 = load ptr, ptr %9, align 8
-  %222 = sext i32 %220 to i64
-  %223 = getelementptr i8, ptr %221, i64 %222
-  store ptr %223, ptr %9, align 8
-  br label %26, !llvm.loop !7
-
-224:                                              ; preds = %26
-  %225 = load i32, ptr %8, align 4
-  %226 = icmp ne i32 %225, 4
-  br i1 %226, label %227, label %238
-
-227:                                              ; preds = %224
-  br label %228
-
-228:                                              ; preds = %227
-  br i1 true, label %229, label %231
-
-229:                                              ; preds = %228
-  %230 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %230, label %233, label %236
-
-231:                                              ; preds = %228
-  %232 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %232, label %233, label %236
-
-233:                                              ; preds = %231, %229
-  %234 = load ptr, ptr %6, align 8
-  %235 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %234)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 155, ptr noundef @__func__.RS_compile)
-  br label %236
-
-236:                                              ; preds = %233, %231, %229
+217:                                              ; preds = %214, %212, %210
   unreachable
 
-237:                                              ; No predecessors!
-  br label %238
+218:                                              ; No predecessors!
+  br label %219
 
-238:                                              ; preds = %237, %224
-  %239 = load ptr, ptr %4, align 8
-  %240 = getelementptr inbounds %struct.Regis, ptr %239, i32 0, i32 0
-  %241 = load ptr, ptr %240, align 8
-  store ptr %241, ptr %10, align 8
+219:                                              ; preds = %218
+  br label %220
+
+220:                                              ; preds = %219, %207
+  br label %221
+
+221:                                              ; preds = %220, %151
+  br label %222
+
+222:                                              ; preds = %221, %104
+  %223 = load ptr, ptr %9, align 8
+  %224 = call i32 @pg_mblen(ptr noundef %223)
+  %225 = load ptr, ptr %9, align 8
+  %226 = sext i32 %224 to i64
+  %227 = getelementptr inbounds i8, ptr %225, i64 %226
+  store ptr %227, ptr %9, align 8
+  br label %26, !llvm.loop !8
+
+228:                                              ; preds = %26
+  %229 = load i32, ptr %8, align 4
+  %230 = icmp ne i32 %229, 4
+  br i1 %230, label %231, label %243
+
+231:                                              ; preds = %228
+  br label %232
+
+232:                                              ; preds = %231
+  br i1 true, label %233, label %235
+
+233:                                              ; preds = %232
+  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %234, label %237, label %240
+
+235:                                              ; preds = %232
+  %236 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %236, label %237, label %240
+
+237:                                              ; preds = %235, %233
+  %238 = load ptr, ptr %6, align 8
+  %239 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, ptr noundef %238)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 155, ptr noundef @__func__.RS_compile)
+  br label %240
+
+240:                                              ; preds = %237, %235, %233
+  unreachable
+
+241:                                              ; No predecessors!
   br label %242
 
-242:                                              ; preds = %245, %238
-  %243 = load ptr, ptr %10, align 8
-  %244 = icmp ne ptr %243, null
-  br i1 %244, label %245, label %260
+242:                                              ; preds = %241
+  br label %243
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %struct.Regis, ptr %246, i32 0, i32 1
-  %248 = load i32, ptr %247, align 8
-  %249 = lshr i32 %248, 1
-  %250 = and i32 %249, 65535
-  %251 = add i32 %250, 1
-  %252 = load i32, ptr %247, align 8
-  %253 = and i32 %251, 65535
-  %254 = shl i32 %253, 1
-  %255 = and i32 %252, -131071
-  %256 = or i32 %255, %254
-  store i32 %256, ptr %247, align 8
-  %257 = load ptr, ptr %10, align 8
-  %258 = getelementptr inbounds %struct.RegisNode, ptr %257, i32 0, i32 1
-  %259 = load ptr, ptr %258, align 8
-  store ptr %259, ptr %10, align 8
-  br label %242, !llvm.loop !8
+243:                                              ; preds = %242, %228
+  %244 = load ptr, ptr %4, align 8
+  %245 = getelementptr inbounds nuw %struct.Regis, ptr %244, i32 0, i32 0
+  %246 = load ptr, ptr %245, align 8
+  store ptr %246, ptr %10, align 8
+  br label %247
 
-260:                                              ; preds = %242
+247:                                              ; preds = %250, %243
+  %248 = load ptr, ptr %10, align 8
+  %249 = icmp ne ptr %248, null
+  br i1 %249, label %250, label %265
+
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %4, align 8
+  %252 = getelementptr inbounds nuw %struct.Regis, ptr %251, i32 0, i32 1
+  %253 = load i32, ptr %252, align 8
+  %254 = lshr i32 %253, 1
+  %255 = and i32 %254, 65535
+  %256 = add i32 %255, 1
+  %257 = load i32, ptr %252, align 8
+  %258 = and i32 %256, 65535
+  %259 = shl i32 %258, 1
+  %260 = and i32 %257, -131071
+  %261 = or i32 %260, %259
+  store i32 %261, ptr %252, align 8
+  %262 = load ptr, ptr %10, align 8
+  %263 = getelementptr inbounds nuw %struct.RegisNode, ptr %262, i32 0, i32 1
+  %264 = load ptr, ptr %263, align 8
+  store ptr %264, ptr %10, align 8
+  br label %247, !llvm.loop !9
+
+265:                                              ; preds = %247
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @newRegisNode(ptr noundef %0, i32 noundef %1) #0 {
@@ -663,6 +704,7 @@ define internal ptr @newRegisNode(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %6 = load i32, ptr %4, align 4
   %7 = sext i32 %6 to i64
   %8 = add i64 16, %7
@@ -676,17 +718,18 @@ define internal ptr @newRegisNode(ptr noundef %0, i32 noundef %1) #0 {
 13:                                               ; preds = %2
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.RegisNode, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.RegisNode, ptr %15, i32 0, i32 1
   store ptr %14, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %13, %2
   %18 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %18
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RS_free(ptr noundef %0) #0 {
@@ -694,10 +737,12 @@ define dso_local void @RS_free(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.Regis, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.Regis, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   br label %8
 
 8:                                                ; preds = %11, %1
@@ -707,23 +752,25 @@ define dso_local void @RS_free(ptr noundef %0) #0 {
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.RegisNode, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.RegisNode, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %15)
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %3, align 8
-  br label %8, !llvm.loop !9
+  br label %8, !llvm.loop !10
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.Regis, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.Regis, ptr %18, i32 0, i32 0
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @RS_execute(ptr noundef %0, ptr noundef %1) #0 {
@@ -733,184 +780,198 @@ define dso_local zeroext i1 @RS_execute(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.Regis, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.Regis, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
   store i32 0, ptr %8, align 4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %17, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp ne i8 %15, 0
-  br i1 %16, label %17, label %25
+14:                                               ; preds = %18, %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %13
-  %18 = load i32, ptr %8, align 4
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %8, align 4
-  %20 = load ptr, ptr %7, align 8
-  %21 = call i32 @pg_mblen(ptr noundef %20)
-  %22 = load ptr, ptr %7, align 8
-  %23 = sext i32 %21 to i64
-  %24 = getelementptr i8, ptr %22, i64 %23
-  store ptr %24, ptr %7, align 8
-  br label %13, !llvm.loop !10
+18:                                               ; preds = %14
+  %19 = load i32, ptr %8, align 4
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = call i32 @pg_mblen(ptr noundef %21)
+  %23 = load ptr, ptr %7, align 8
+  %24 = sext i32 %22 to i64
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  store ptr %25, ptr %7, align 8
+  br label %14, !llvm.loop !11
 
-25:                                               ; preds = %13
-  %26 = load i32, ptr %8, align 4
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.Regis, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 8
-  %30 = lshr i32 %29, 1
-  %31 = and i32 %30, 65535
-  %32 = icmp slt i32 %26, %31
-  br i1 %32, label %33, label %34
+26:                                               ; preds = %14
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.Regis, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %31 = lshr i32 %30, 1
+  %32 = and i32 %31, 65535
+  %33 = icmp slt i32 %27, %32
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %25
+34:                                               ; preds = %26
   store i1 false, ptr %3, align 1
-  br label %107
+  store i32 1, ptr %9, align 4
+  br label %109
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %7, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.Regis, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 1
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %60
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %5, align 8
+  store ptr %36, ptr %7, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.Regis, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 1
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %61
 
-41:                                               ; preds = %34
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.Regis, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = lshr i32 %44, 1
-  %46 = and i32 %45, 65535
-  %47 = load i32, ptr %8, align 4
-  %48 = sub i32 %47, %46
-  store i32 %48, ptr %8, align 4
-  br label %49
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds nuw %struct.Regis, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = lshr i32 %45, 1
+  %47 = and i32 %46, 65535
+  %48 = load i32, ptr %8, align 4
+  %49 = sub i32 %48, %47
+  store i32 %49, ptr %8, align 4
+  br label %50
 
-49:                                               ; preds = %53, %41
-  %50 = load i32, ptr %8, align 4
-  %51 = add i32 %50, -1
-  store i32 %51, ptr %8, align 4
-  %52 = icmp sgt i32 %50, 0
-  br i1 %52, label %53, label %59
+50:                                               ; preds = %54, %42
+  %51 = load i32, ptr %8, align 4
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %8, align 4
+  %53 = icmp sgt i32 %51, 0
+  br i1 %53, label %54, label %60
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %7, align 8
-  %55 = call i32 @pg_mblen(ptr noundef %54)
-  %56 = load ptr, ptr %7, align 8
-  %57 = sext i32 %55 to i64
-  %58 = getelementptr i8, ptr %56, i64 %57
-  store ptr %58, ptr %7, align 8
-  br label %49, !llvm.loop !11
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %7, align 8
+  %56 = call i32 @pg_mblen(ptr noundef %55)
+  %57 = load ptr, ptr %7, align 8
+  %58 = sext i32 %56 to i64
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  store ptr %59, ptr %7, align 8
+  br label %50, !llvm.loop !12
 
-59:                                               ; preds = %49
-  br label %60
-
-60:                                               ; preds = %59, %34
+60:                                               ; preds = %50
   br label %61
 
-61:                                               ; preds = %97, %60
-  %62 = load ptr, ptr %6, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %106
+61:                                               ; preds = %60, %35
+  br label %62
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %6, align 8
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 3
-  switch i32 %67, label %84 [
-    i32 1, label %68
-    i32 2, label %76
+62:                                               ; preds = %99, %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %108
+
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 3
+  switch i32 %68, label %85 [
+    i32 1, label %69
+    i32 2, label %77
   ]
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.RegisNode, ptr %69, i32 0, i32 2
-  %71 = getelementptr inbounds [0 x i8], ptr %70, i64 0, i64 0
-  %72 = load ptr, ptr %7, align 8
-  %73 = call zeroext i1 @mb_strchr(ptr noundef %71, ptr noundef %72)
-  br i1 %73, label %75, label %74
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds nuw %struct.RegisNode, ptr %70, i32 0, i32 2
+  %72 = getelementptr inbounds [0 x i8], ptr %71, i64 0, i64 0
+  %73 = load ptr, ptr %7, align 8
+  %74 = call zeroext i1 @mb_strchr(ptr noundef %72, ptr noundef %73)
+  br i1 %74, label %76, label %75
 
-74:                                               ; preds = %68
+75:                                               ; preds = %69
   store i1 false, ptr %3, align 1
-  br label %107
+  store i32 1, ptr %9, align 4
+  br label %109
 
-75:                                               ; preds = %68
-  br label %97
+76:                                               ; preds = %69
+  br label %99
 
-76:                                               ; preds = %64
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.RegisNode, ptr %77, i32 0, i32 2
-  %79 = getelementptr inbounds [0 x i8], ptr %78, i64 0, i64 0
-  %80 = load ptr, ptr %7, align 8
-  %81 = call zeroext i1 @mb_strchr(ptr noundef %79, ptr noundef %80)
-  br i1 %81, label %82, label %83
+77:                                               ; preds = %65
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds nuw %struct.RegisNode, ptr %78, i32 0, i32 2
+  %80 = getelementptr inbounds [0 x i8], ptr %79, i64 0, i64 0
+  %81 = load ptr, ptr %7, align 8
+  %82 = call zeroext i1 @mb_strchr(ptr noundef %80, ptr noundef %81)
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %76
+83:                                               ; preds = %77
   store i1 false, ptr %3, align 1
-  br label %107
+  store i32 1, ptr %9, align 4
+  br label %109
 
-83:                                               ; preds = %76
-  br label %97
+84:                                               ; preds = %77
+  br label %99
 
-84:                                               ; preds = %64
-  br label %85
-
-85:                                               ; preds = %84
-  br i1 true, label %86, label %88
+85:                                               ; preds = %65
+  br label %86
 
 86:                                               ; preds = %85
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %87, label %90, label %95
+  br i1 true, label %87, label %89
 
-88:                                               ; preds = %85
-  %89 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %89, label %90, label %95
+87:                                               ; preds = %86
+  %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %88, label %91, label %96
 
-90:                                               ; preds = %88, %86
-  %91 = load ptr, ptr %6, align 8
-  %92 = load i32, ptr %91, align 8
-  %93 = and i32 %92, 3
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %93)
+89:                                               ; preds = %86
+  %90 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %90, label %91, label %96
+
+91:                                               ; preds = %89, %87
+  %92 = load ptr, ptr %6, align 8
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 3
+  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %94)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 250, ptr noundef @__func__.RS_execute)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %90, %88, %86
+96:                                               ; preds = %91, %89, %87
   unreachable
 
-96:                                               ; No predecessors!
-  br label %97
+97:                                               ; No predecessors!
+  br label %98
 
-97:                                               ; preds = %96, %83, %75
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct.RegisNode, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  store ptr %100, ptr %6, align 8
-  %101 = load ptr, ptr %7, align 8
-  %102 = call i32 @pg_mblen(ptr noundef %101)
+98:                                               ; preds = %97
+  br label %99
+
+99:                                               ; preds = %98, %84, %76
+  %100 = load ptr, ptr %6, align 8
+  %101 = getelementptr inbounds nuw %struct.RegisNode, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %6, align 8
   %103 = load ptr, ptr %7, align 8
-  %104 = sext i32 %102 to i64
-  %105 = getelementptr i8, ptr %103, i64 %104
-  store ptr %105, ptr %7, align 8
-  br label %61, !llvm.loop !12
+  %104 = call i32 @pg_mblen(ptr noundef %103)
+  %105 = load ptr, ptr %7, align 8
+  %106 = sext i32 %104 to i64
+  %107 = getelementptr inbounds i8, ptr %105, i64 %106
+  store ptr %107, ptr %7, align 8
+  br label %62, !llvm.loop !13
 
-106:                                              ; preds = %61
+108:                                              ; preds = %62
   store i1 true, ptr %3, align 1
-  br label %107
+  store i32 1, ptr %9, align 4
+  br label %109
 
-107:                                              ; preds = %106, %82, %74, %33
-  %108 = load i1, ptr %3, align 1
-  ret i1 %108
+109:                                              ; preds = %108, %83, %75, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %110 = load i1, ptr %3, align 1
+  ret i1 %110
 }
 
 ; Function Attrs: nounwind uwtable
@@ -924,8 +985,13 @@ define internal zeroext i1 @mb_strchr(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
   %10 = load ptr, ptr %3, align 8
   store ptr %10, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
   store i8 0, ptr %9, align 1
   %11 = load ptr, ptr %4, align 8
   %12 = call i32 @pg_mblen(ptr noundef %11)
@@ -940,7 +1006,7 @@ define internal zeroext i1 @mb_strchr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %13
-  %19 = load i8, ptr %9, align 1
+  %19 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %20 = trunc i8 %19 to i1
   %21 = xor i1 %20, true
   br label %22
@@ -975,13 +1041,13 @@ define internal zeroext i1 @mb_strchr(ptr noundef %0, ptr noundef %1) #0 {
   %37 = load ptr, ptr %8, align 8
   %38 = load i32, ptr %7, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr i8, ptr %37, i64 %39
+  %40 = getelementptr inbounds i8, ptr %37, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i32
   %43 = load ptr, ptr %4, align 8
   %44 = load i32, ptr %7, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i8, ptr %43, i64 %45
+  %46 = getelementptr inbounds i8, ptr %43, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32
   %49 = icmp ne i32 %42, %48
@@ -992,7 +1058,7 @@ define internal zeroext i1 @mb_strchr(ptr noundef %0, ptr noundef %1) #0 {
   br label %52
 
 51:                                               ; preds = %36
-  br label %32, !llvm.loop !13
+  br label %32, !llvm.loop !14
 
 52:                                               ; preds = %50, %32
   br label %53
@@ -1001,41 +1067,49 @@ define internal zeroext i1 @mb_strchr(ptr noundef %0, ptr noundef %1) #0 {
   %54 = load i32, ptr %6, align 4
   %55 = load ptr, ptr %8, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr i8, ptr %55, i64 %56
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
   store ptr %57, ptr %8, align 8
-  br label %13, !llvm.loop !14
+  br label %13, !llvm.loop !15
 
 58:                                               ; preds = %22
-  %59 = load i8, ptr %9, align 1
+  %59 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %60 = trunc i8 %59 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i1 %60
 }
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

@@ -24,6 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [34 x i8] c"local buffer hash table corrupted\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"localbuf.c\00", align 1
 @__func__.LocalBufferAlloc = private unnamed_addr constant [17 x i8] c"LocalBufferAlloc\00", align 1
+@num_temp_buffers = external local_unnamed_addr global i32, align 4
+@NLocalPinnedBuffers = internal unnamed_addr global i32 0, align 4
 @.str.2 = private unnamed_addr constant [43 x i8] c"cannot extend relation %s beyond %u blocks\00", align 1
 @__func__.ExtendBufferedRelLocal = private unnamed_addr constant [23 x i8] c"ExtendBufferedRelLocal\00", align 1
 @track_io_timing = external local_unnamed_addr global i8, align 1
@@ -32,8 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MyProcNumber = external local_unnamed_addr global i32, align 4
 @__func__.DropRelationLocalBuffers = private unnamed_addr constant [25 x i8] c"DropRelationLocalBuffers\00", align 1
 @__func__.DropRelationAllLocalBuffers = private unnamed_addr constant [28 x i8] c"DropRelationAllLocalBuffers\00", align 1
-@NLocalPinnedBuffers = internal unnamed_addr global i32 0, align 4
-@.str.4 = private unnamed_addr constant [93 x i8] c"temp_buffers cannot be changed after any temporary tables have been accessed in the session.\00", align 1
+@.str.4 = private unnamed_addr constant [95 x i8] c"\22temp_buffers\22 cannot be changed after any temporary tables have been accessed in the session.\00", align 1
 @GUC_check_errdetail_string = external local_unnamed_addr global ptr, align 8
 @nextFreeLocalBufId = internal unnamed_addr global i32 0, align 4
 @.str.5 = private unnamed_addr constant [32 x i8] c"no empty local buffer available\00", align 1
@@ -45,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @GetLocalBufferStorage.LocalBufferContext = internal unnamed_addr global ptr null, align 8
 @TopMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [19 x i8] c"LocalBufferContext\00", align 1
-@num_temp_buffers = external local_unnamed_addr global i32, align 4
 @ParallelWorkerNumber = external local_unnamed_addr global i32, align 4
 @.str.7 = private unnamed_addr constant [59 x i8] c"cannot access temporary tables during a parallel operation\00", align 1
 @__func__.InitLocalBuffers = private unnamed_addr constant [17 x i8] c"InitLocalBuffers\00", align 1
@@ -57,6 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967297) i64 @PrefetchLocalBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.buftag, align 4
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #14
   %5 = load i32, ptr %0, align 4
   store i32 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -82,7 +83,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchLocalBuffer(ptr noundef %
 
 17:                                               ; preds = %16, %3
   %18 = phi ptr [ %.pre, %16 ], [ %14, %3 ]
-  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #13
+  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #14
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
 
@@ -100,41 +101,46 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchLocalBuffer(ptr noundef %
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #13
+  %30 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #14
   %spec.select = select i1 %30, i64 4294967296, i64 0
   br label %31
 
 31:                                               ; preds = %29, %25, %20
   %.sroa.0.0.insert.insert = phi i64 [ %24, %20 ], [ 0, %25 ], [ %spec.select, %29 ]
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #14
   ret i64 %.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
   %2 = load i32, ptr @num_temp_buffers, align 4
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #14
   %3 = load i32, ptr @ParallelWorkerNumber, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 322) #13
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 598, ptr noundef nonnull @__func__.InitLocalBuffers) #13
+  %7 = tail call i32 @errcode(i32 noundef 322) #14
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 598, ptr noundef nonnull @__func__.InitLocalBuffers) #14
   unreachable
 
 9:                                                ; preds = %0
   %10 = sext i32 %2 to i64
-  %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 52) #15
+  %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 52) #16
   store ptr %11, ptr @LocalBufferDescriptors, align 8
-  %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #15
+  %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #16
   store ptr %12, ptr @LocalBufferBlockPointers, align 8
-  %13 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #15
+  %13 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #16
   store ptr %13, ptr @LocalRefCount, align 8
   %14 = icmp ne ptr %11, null
   %15 = icmp ne ptr %12, null
@@ -144,11 +150,11 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
   br i1 %or.cond3, label %21, label %17
 
 17:                                               ; preds = %9
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 8389) #13
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 607, ptr noundef nonnull @__func__.InitLocalBuffers) #13
+  %19 = tail call i32 @errcode(i32 noundef 8389) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 607, ptr noundef nonnull @__func__.InitLocalBuffers) #14
   unreachable
 
 21:                                               ; preds = %9
@@ -163,44 +169,50 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %24 = getelementptr %struct.BufferDesc, ptr %23, i64 %indvars.iv, i32 1
+  %24 = getelementptr inbounds nuw %struct.BufferDesc, ptr %23, i64 %indvars.iv, i32 1
   %25 = trunc i64 %indvars.iv to i32
   %26 = sub i32 -2, %25
   store i32 %26, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 20, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 24, ptr %28, align 8
-  %29 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #13
+  %29 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #14
   store ptr %29, ptr @LocalBufHash, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %30, label %33
 
 30:                                               ; preds = %._crit_edge
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %31)
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.InitLocalBuffers) #13
+  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.InitLocalBuffers) #14
   unreachable
 
 33:                                               ; preds = %._crit_edge
   store i32 %2, ptr @NLocBuffer, align 4
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #14
   ret void
 }
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @smgrprefetch(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @smgrprefetch(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.buftag, align 4
   %6 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   %7 = load i32, ptr %0, align 4
   store i32 %7, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -225,9 +237,9 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
 
 19:                                               ; preds = %18, %4
   %20 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %20) #13
+  tail call void @ResourceOwnerEnlarge(ptr noundef %20) #14
   %21 = load ptr, ptr @LocalBufHash, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #13
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #14
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %53, label %23
 
@@ -236,7 +248,7 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr @LocalBufferDescriptors, align 8
   %27 = zext i32 %25 to i64
-  %28 = getelementptr %struct.BufferDesc, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw %struct.BufferDesc, ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 20
   %.val.i = load i32, ptr %29, align 4
   %30 = sub i32 -2, %.val.i
@@ -244,7 +256,7 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
   %32 = load volatile i32, ptr %31, align 4
   %33 = load ptr, ptr @LocalRefCount, align 8
   %34 = sext i32 %30 to i64
-  %35 = getelementptr i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds i32, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %PinLocalBuffer.exit
@@ -272,7 +284,7 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %.val12.i = load i32, ptr %29, align 4
   %48 = add i32 %.val12.i, 1
   %49 = sext i32 %48 to i64
-  call void @ResourceOwnerRemember(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @buffer_pin_resowner_desc) #13
+  call void @ResourceOwnerRemember(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %50 = lshr i32 %.0.i, 24
   %51 = trunc nuw i32 %50 to i8
   %52 = and i8 %51, 1
@@ -282,22 +294,22 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %54 = call fastcc i32 @GetLocalVictimBuffer()
   %55 = load ptr, ptr @LocalBufferDescriptors, align 8
   %56 = load ptr, ptr @LocalBufHash, align 8
-  %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #13
-  %58 = load i8, ptr %6, align 1
-  %59 = trunc i8 %58 to i1
+  %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #14
+  %58 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %53
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %61)
-  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__func__.LocalBufferAlloc) #13
+  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.LocalBufferAlloc) #14
   unreachable
 
 63:                                               ; preds = %53
   %64 = xor i32 %54, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr %struct.BufferDesc, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw %struct.BufferDesc, ptr %55, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i32 %64, ptr %67, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
@@ -312,10 +324,12 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %storemerge = phi i8 [ 0, %63 ], [ %52, %PinLocalBuffer.exit ]
   %.0 = phi ptr [ %66, %63 ], [ %28, %PinLocalBuffer.exit ]
   store i8 %storemerge, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #14
   ret ptr %.0
 }
 
-declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -326,7 +340,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   %6 = load volatile i32, ptr %5, align 4
   %7 = load ptr, ptr @LocalRefCount, align 8
   %8 = sext i32 %4 to i64
-  %9 = getelementptr i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds i32, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %19
@@ -355,7 +369,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   %.val12 = load i32, ptr %3, align 4
   %23 = add i32 %.val12, 1
   %24 = sext i32 %23 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @buffer_pin_resowner_desc) #13
+  tail call void @ResourceOwnerRemember(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %25 = and i32 %.0, 16777216
   %26 = icmp ne i32 %25, 0
   ret i1 %26
@@ -365,7 +379,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
 define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #13
+  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #14
   %nextFreeLocalBufId.promoted = load i32, ptr @nextFreeLocalBufId, align 4
   br label %.outer
 
@@ -382,7 +396,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %.not = icmp slt i32 %4, %.0.ph
   %spec.store.select = select i1 %.not, i32 %4, i32 0
   %5 = sext i32 %spec.store.select49 to i64
-  %6 = getelementptr i32, ptr %.ph, i64 %5
+  %6 = getelementptr inbounds i32, ptr %.ph, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %40
@@ -391,7 +405,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   store i32 %spec.store.select, ptr @nextFreeLocalBufId, align 4
   %10 = load ptr, ptr @LocalBufferDescriptors, align 8
   %11 = zext i32 %spec.store.select49 to i64
-  %12 = getelementptr %struct.BufferDesc, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw %struct.BufferDesc, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load volatile i32, ptr %13, align 4
   %15 = and i32 %14, 3932160
@@ -409,7 +423,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %20 = sub i32 -2, %.val.i
   %21 = load volatile i32, ptr %13, align 4
   %22 = sext i32 %20 to i64
-  %23 = getelementptr i32, ptr %.ph, i64 %22
+  %23 = getelementptr inbounds i32, ptr %.ph, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %PinLocalBuffer.exit
@@ -427,12 +441,12 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
   %.val12.i = load i32, ptr %19, align 4
   %31 = add i32 %.val12.i, 1
   %32 = sext i32 %31 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @buffer_pin_resowner_desc) #13
+  tail call void @ResourceOwnerRemember(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   %33 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %34 = load i32, ptr %19, align 4
   %35 = sub i32 -2, %34
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %47, label %84
@@ -444,11 +458,11 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
 
 43:                                               ; preds = %40
   store i32 %spec.store.select, ptr @nextFreeLocalBufId, align 4
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 197) #13
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #13
+  %45 = tail call i32 @errcode(i32 noundef 197) #14
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #14
   unreachable
 
 47:                                               ; preds = %PinLocalBuffer.exit
@@ -468,7 +482,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @TopMemoryContext, align 8
-  %55 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %54, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %55 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %54, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
   store ptr %55, ptr @GetLocalBufferStorage.LocalBufferContext, align 8
   %.pre.i = load i32, ptr @GetLocalBufferStorage.num_bufs_in_block, align 4
   br label %56
@@ -486,7 +500,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
   %66 = shl nuw nsw i32 %65, 13
   %67 = or disjoint i32 %66, 4096
   %68 = zext nneg i32 %67 to i64
-  %69 = tail call ptr @MemoryContextAlloc(ptr noundef %57, i64 noundef %68) #13
+  %69 = tail call ptr @MemoryContextAlloc(ptr noundef %57, i64 noundef %68) #14
   %70 = ptrtoint ptr %69 to i64
   %71 = add i64 %70, 4095
   %72 = and i64 %71, -4096
@@ -506,13 +520,13 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %76 = phi ptr [ %.pre6.i, %._crit_edge.i ], [ %73, %56 ]
   %77 = shl i32 %75, 13
   %78 = sext i32 %77 to i64
-  %79 = getelementptr i8, ptr %76, i64 %78
+  %79 = getelementptr inbounds i8, ptr %76, i64 %78
   %80 = add nsw i32 %75, 1
   store i32 %80, ptr @GetLocalBufferStorage.next_buf_in_block, align 4
   %81 = load i32, ptr @GetLocalBufferStorage.total_bufs_allocated, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr @GetLocalBufferStorage.total_bufs_allocated, align 4
-  %83 = getelementptr ptr, ptr %74, i64 %.pre-phi59
+  %83 = getelementptr inbounds ptr, ptr %74, i64 %.pre-phi59
   store ptr %79, ptr %83, align 8
   br label %84
 
@@ -526,27 +540,27 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %88 = load i32, ptr %19, align 4
   %89 = sub i32 -2, %88
   %90 = sext i32 %89 to i64
-  %91 = getelementptr ptr, ptr %87, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %87, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = load i64, ptr %12, align 4
   %94 = getelementptr i8, ptr %12, i64 8
   %.val.i43 = load i32, ptr %94, align 4
   %95 = load i32, ptr @MyProcNumber, align 4
-  %96 = tail call ptr @smgropen(i64 %93, i32 %.val.i43, i32 noundef %95) #13
+  %96 = tail call ptr @smgropen(i64 %93, i32 %.val.i43, i32 noundef %95) #14
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %98 = load i32, ptr %97, align 4
-  tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #13
-  %99 = load i8, ptr @track_io_timing, align 1
-  %100 = trunc i8 %99 to i1
-  %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #13
+  tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #14
+  %99 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %100 = trunc nuw i8 %99 to i1
+  %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #14
   %102 = getelementptr i8, ptr %12, i64 12
   %.val42 = load i32, ptr %102, align 4
   %103 = load i32, ptr %97, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %92, ptr %1, align 8
-  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %103, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #13
+  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %103, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %101, i32 noundef 1) #13
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %101, i32 noundef 1, i64 noundef 8192) #14
   %104 = and i32 %14, -12320769
   store volatile i32 %104, ptr %13, align 4
   %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
@@ -562,15 +576,15 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr @LocalBufHash, align 8
-  %111 = call ptr @hash_search(ptr noundef %110, ptr noundef %12, i32 noundef 2, ptr noundef null) #13
+  %111 = call ptr @hash_search(ptr noundef %110, ptr noundef nonnull %12, i32 noundef 2, ptr noundef null) #14
   %.not41 = icmp eq ptr %111, null
   br i1 %.not41, label %112, label %115
 
 112:                                              ; preds = %109
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %113)
-  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #13
+  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #14
   unreachable
 
 115:                                              ; preds = %109
@@ -585,7 +599,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   store i32 -1, ptr %119, align 4
   %120 = and i32 %.036, 262143
   store volatile i32 %120, ptr %13, align 4
-  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 2, i32 noundef 0) #13
+  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 1, i64 noundef 0) #14
   br label %121
 
 121:                                              ; preds = %115, %107
@@ -595,14 +609,35 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @LimitAdditionalLocalPins(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+  %2 = load i32, ptr %0, align 4
+  %3 = icmp ult i32 %2, 2
+  br i1 %3, label %9, label %4
+
+4:                                                ; preds = %1
+  %5 = load i32, ptr @num_temp_buffers, align 4
+  %6 = load i32, ptr @NLocalPinnedBuffers, align 4
+  %7 = sub i32 %5, %6
+  %.not = icmp ult i32 %2, %7
+  br i1 %.not, label %9, label %8
+
+8:                                                ; preds = %4
+  store i32 %7, ptr %0, align 4
+  br label %9
+
+9:                                                ; preds = %4, %8, %1
+  ret void
+}
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ExtendBufferedRelLocal(ptr noundef readonly byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
@@ -621,7 +656,7 @@ define dso_local i32 @ExtendBufferedRelLocal(ptr noundef readonly byval(%struct.
   br i1 %14, label %LimitAdditionalLocalPins.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr @NLocBuffer, align 4
+  %16 = load i32, ptr @num_temp_buffers, align 4
   %17 = load i32, ptr @NLocalPinnedBuffers, align 4
   %18 = sub i32 %16, %17
   %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %18)
@@ -636,221 +671,227 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %wide.trip.count = zext i32 %.078 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = tail call fastcc i32 @GetLocalVictimBuffer()
-  %20 = getelementptr i32, ptr %5, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
-  %21 = xor i32 %19, -1
-  %22 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %23 = zext i32 %21 to i64
-  %24 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %25 = getelementptr %struct.BufferDesc, ptr %22, i64 %23, i32 1
-  %26 = load i32, ptr %25, align 4
-  %27 = sub i32 -2, %26
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %24, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %30, i8 0, i64 8192, i1 false)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
-
 ._crit_edge:                                      ; preds = %.lr.ph, %LimitAdditionalLocalPins.exit
   %.pre-phi = phi i64 [ 0, %LimitAdditionalLocalPins.exit ], [ %wide.trip.count, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @smgrnblocks(ptr noundef %32, i32 noundef %1) #13
-  %34 = zext i32 %33 to i64
-  %35 = add nuw nsw i64 %.pre-phi, %34
-  %36 = icmp samesign ugt i64 %35, 4294967293
-  br i1 %36, label %43, label %.preheader
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 @smgrnblocks(ptr noundef %20, i32 noundef %1) #14
+  %22 = zext i32 %21 to i64
+  %23 = add nuw nsw i64 %.pre-phi, %22
+  %24 = icmp samesign ugt i64 %23, 4294967293
+  br i1 %24, label %43, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %.not, label %._crit_edge86.critedge, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %55
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %60
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %31 = tail call fastcc i32 @GetLocalVictimBuffer()
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  store i32 %31, ptr %32, align 4
+  %33 = xor i32 %31, -1
+  %34 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %35 = zext i32 %33 to i64
+  %36 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %37 = getelementptr inbounds nuw %struct.BufferDesc, ptr %34, i64 %35, i32 1
+  %38 = load i32, ptr %37, align 4
+  %39 = sub i32 -2, %38
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %42, i8 0, i64 8192, i1 false)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 43:                                               ; preds = %._crit_edge
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 261) #13
-  %46 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %45 = tail call i32 @errcode(i32 noundef 261) #14
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %32, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %48 = load i32, ptr %20, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %52 = load i32, ptr %51, align 4
-  %53 = tail call ptr @GetRelationPath(i32 noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %1) #13
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %53, i32 noundef -2) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.ExtendBufferedRelLocal) #13
+  %53 = tail call ptr @GetRelationPath(i32 noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %1) #14
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %53, i32 noundef -2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.ExtendBufferedRelLocal) #14
   unreachable
 
-55:                                               ; preds = %.lr.ph81, %116
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %116 ]
-  %56 = getelementptr i32, ptr %5, i64 %indvars.iv90
-  %57 = load i32, ptr %56, align 4
-  %58 = xor i32 %57, -1
-  %59 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %60 = zext i32 %58 to i64
-  %61 = getelementptr %struct.BufferDesc, ptr %59, i64 %60
-  %62 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %62) #13
-  %63 = trunc nuw i64 %indvars.iv90 to i32
-  %64 = add i32 %33, %63
-  %65 = load i32, ptr %32, align 4
-  store i32 %65, ptr %8, align 4
-  %66 = load i32, ptr %37, align 4
-  store i32 %66, ptr %38, align 4
-  %67 = load i32, ptr %39, align 4
-  store i32 %67, ptr %40, align 4
-  store i32 %1, ptr %41, align 4
-  store i32 %64, ptr %42, align 4
-  %68 = load ptr, ptr @LocalBufHash, align 8
-  %69 = call ptr @hash_search(ptr noundef %68, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #13
-  %70 = load i8, ptr %9, align 1
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %111
-
-72:                                               ; preds = %55
-  %73 = getelementptr i8, ptr %61, i64 20
-  %.val = load i32, ptr %73, align 4
-  %74 = add i32 %.val, 1
-  %75 = sub i32 -2, %.val
-  %76 = load ptr, ptr @LocalRefCount, align 8
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr i32, ptr %76, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, -1
-  store i32 %80, ptr %78, align 4
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %UnpinLocalBuffer.exit
-
-82:                                               ; preds = %72
-  %83 = load i32, ptr @NLocalPinnedBuffers, align 4
-  %84 = add i32 %83, -1
-  store i32 %84, ptr @NLocalPinnedBuffers, align 4
-  br label %UnpinLocalBuffer.exit
-
-UnpinLocalBuffer.exit:                            ; preds = %72, %82
-  %85 = load ptr, ptr @CurrentResourceOwner, align 8
-  %86 = sext i32 %74 to i64
-  call void @ResourceOwnerForget(ptr noundef %85, i64 noundef %86, ptr noundef nonnull @buffer_pin_resowner_desc) #13
-  %87 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  %88 = load i32, ptr %87, align 4
-  %89 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %90 = zext i32 %88 to i64
-  %91 = getelementptr %struct.BufferDesc, ptr %89, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 20
-  %.val.i = load i32, ptr %92, align 4
-  %93 = sub i32 -2, %.val.i
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %95 = load volatile i32, ptr %94, align 4
-  %96 = load ptr, ptr @LocalRefCount, align 8
-  %97 = sext i32 %93 to i64
-  %98 = getelementptr i32, ptr %96, i64 %97
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %PinLocalBuffer.exit
-
-101:                                              ; preds = %UnpinLocalBuffer.exit
-  %102 = load i32, ptr @NLocalPinnedBuffers, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr @NLocalPinnedBuffers, align 4
-  br label %PinLocalBuffer.exit
-
-PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.exit, %101
-  %104 = add i32 %99, 1
-  store i32 %104, ptr %98, align 4
-  %105 = load ptr, ptr @CurrentResourceOwner, align 8
-  %.val12.i = load i32, ptr %92, align 4
-  %106 = add i32 %.val12.i, 1
-  %107 = sext i32 %106 to i64
-  call void @ResourceOwnerRemember(ptr noundef %105, i64 noundef %107, ptr noundef nonnull @buffer_pin_resowner_desc) #13
-  %.val70 = load i32, ptr %92, align 4
-  %108 = add i32 %.val70, 1
-  store i32 %108, ptr %56, align 4
-  %109 = load volatile i32, ptr %94, align 4
-  %110 = and i32 %109, -16777217
-  store volatile i32 %110, ptr %94, align 4
-  br label %116
-
-111:                                              ; preds = %55
-  %112 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %113 = load volatile i32, ptr %112, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %61, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  %114 = or i32 %113, 33816576
-  store volatile i32 %114, ptr %112, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  store i32 %58, ptr %115, align 4
-  br label %116
-
-116:                                              ; preds = %PinLocalBuffer.exit, %111
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %.pre-phi
-  br i1 %exitcond94.not, label %._crit_edge82, label %55, !llvm.loop !8
-
-._crit_edge82:                                    ; preds = %116
-  %117 = load i8, ptr @track_io_timing, align 1
-  %118 = trunc i8 %117 to i1
-  %119 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %118) #13
-  call void @smgrzeroextend(ptr noundef nonnull %32, i32 noundef %1, i32 noundef %33, i32 noundef %.078, i1 noundef zeroext false) #13
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %119, i32 noundef %.078) #13
+._crit_edge82:                                    ; preds = %121
+  %55 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %56 = trunc nuw i8 %55 to i1
+  %57 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %56) #14
+  call void @smgrzeroextend(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
+  %58 = shl i32 %.078, 13
+  %59 = zext i32 %58 to i64
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %57, i32 noundef 1, i64 noundef %59) #14
   br label %.lr.ph85
 
-.lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
-  %120 = getelementptr i32, ptr %5, i64 %indvars.iv95
-  %121 = load i32, ptr %120, align 4
-  %122 = xor i32 %121, -1
-  %123 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %124 = zext i32 %122 to i64
-  %125 = getelementptr %struct.BufferDesc, ptr %123, i64 %124, i32 2
-  %126 = load volatile i32, ptr %125, align 4
-  %127 = or i32 %126, 16777216
-  store volatile i32 %127, ptr %125, align 4
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %.pre-phi
-  br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !9
+60:                                               ; preds = %.lr.ph81, %121
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %121 ]
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #14
+  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv90
+  %62 = load i32, ptr %61, align 4
+  %63 = xor i32 %62, -1
+  %64 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %65 = zext i32 %63 to i64
+  %66 = getelementptr inbounds nuw %struct.BufferDesc, ptr %64, i64 %65
+  %67 = load ptr, ptr @CurrentResourceOwner, align 8
+  call void @ResourceOwnerEnlarge(ptr noundef %67) #14
+  %68 = trunc nuw i64 %indvars.iv90 to i32
+  %69 = add i32 %21, %68
+  %70 = load i32, ptr %20, align 4
+  store i32 %70, ptr %8, align 4
+  %71 = load i32, ptr %25, align 4
+  store i32 %71, ptr %26, align 4
+  %72 = load i32, ptr %27, align 4
+  store i32 %72, ptr %28, align 4
+  store i32 %1, ptr %29, align 4
+  store i32 %69, ptr %30, align 4
+  %73 = load ptr, ptr @LocalBufHash, align 8
+  %74 = call ptr @hash_search(ptr noundef %73, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
+  %75 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %77, label %116
+
+77:                                               ; preds = %60
+  %78 = getelementptr i8, ptr %66, i64 20
+  %.val = load i32, ptr %78, align 4
+  %79 = add i32 %.val, 1
+  %80 = sub i32 -2, %.val
+  %81 = load ptr, ptr @LocalRefCount, align 8
+  %82 = sext i32 %80 to i64
+  %83 = getelementptr inbounds i32, ptr %81, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, -1
+  store i32 %85, ptr %83, align 4
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %UnpinLocalBuffer.exit
+
+87:                                               ; preds = %77
+  %88 = load i32, ptr @NLocalPinnedBuffers, align 4
+  %89 = add i32 %88, -1
+  store i32 %89, ptr @NLocalPinnedBuffers, align 4
+  br label %UnpinLocalBuffer.exit
+
+UnpinLocalBuffer.exit:                            ; preds = %77, %87
+  %90 = load ptr, ptr @CurrentResourceOwner, align 8
+  %91 = sext i32 %79 to i64
+  call void @ResourceOwnerForget(ptr noundef %90, i64 noundef %91, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  %92 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  %93 = load i32, ptr %92, align 4
+  %94 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %95 = zext i32 %93 to i64
+  %96 = getelementptr inbounds nuw %struct.BufferDesc, ptr %94, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 20
+  %.val.i = load i32, ptr %97, align 4
+  %98 = sub i32 -2, %.val.i
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %100 = load volatile i32, ptr %99, align 4
+  %101 = load ptr, ptr @LocalRefCount, align 8
+  %102 = sext i32 %98 to i64
+  %103 = getelementptr inbounds i32, ptr %101, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %PinLocalBuffer.exit
+
+106:                                              ; preds = %UnpinLocalBuffer.exit
+  %107 = load i32, ptr @NLocalPinnedBuffers, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr @NLocalPinnedBuffers, align 4
+  br label %PinLocalBuffer.exit
+
+PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.exit, %106
+  %109 = add i32 %104, 1
+  store i32 %109, ptr %103, align 4
+  %110 = load ptr, ptr @CurrentResourceOwner, align 8
+  %.val12.i = load i32, ptr %97, align 4
+  %111 = add i32 %.val12.i, 1
+  %112 = sext i32 %111 to i64
+  call void @ResourceOwnerRemember(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  %.val70 = load i32, ptr %97, align 4
+  %113 = add i32 %.val70, 1
+  store i32 %113, ptr %61, align 4
+  %114 = load volatile i32, ptr %99, align 4
+  %115 = and i32 %114, -16777217
+  store volatile i32 %115, ptr %99, align 4
+  br label %121
+
+116:                                              ; preds = %60
+  %117 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %118 = load volatile i32, ptr %117, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
+  %119 = or i32 %118, 33816576
+  store volatile i32 %119, ptr %117, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  store i32 %63, ptr %120, align 4
+  br label %121
+
+121:                                              ; preds = %116, %PinLocalBuffer.exit
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #14
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %.pre-phi
+  br i1 %exitcond94.not, label %._crit_edge82, label %60, !llvm.loop !9
 
 ._crit_edge86.critedge:                           ; preds = %.preheader
-  %128 = load i8, ptr @track_io_timing, align 1
-  %129 = trunc i8 %128 to i1
-  %130 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %129) #13
-  tail call void @smgrzeroextend(ptr noundef %32, i32 noundef %1, i32 noundef %33, i32 noundef %.078, i1 noundef zeroext false) #13
-  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %130, i32 noundef %.078) #13
+  %122 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %123 = trunc nuw i8 %122 to i1
+  %124 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %123) #14
+  tail call void @smgrzeroextend(ptr noundef %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
+  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %124, i32 noundef 1, i64 noundef 0) #14
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge
   store i32 %.078, ptr %6, align 4
-  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
-  %132 = add i64 %131, %.pre-phi
-  store i64 %132, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
-  ret i32 %33
+  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
+  %126 = add i64 %125, %.pre-phi
+  store i64 %126, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
+  ret i32 %21
+
+.lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
+  %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv95
+  %128 = load i32, ptr %127, align 4
+  %129 = xor i32 %128, -1
+  %130 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %131 = zext i32 %129 to i64
+  %132 = getelementptr inbounds nuw %struct.BufferDesc, ptr %130, i64 %131, i32 2
+  %133 = load volatile i32, ptr %132, align 4
+  %134 = or i32 %133, 16777216
+  store volatile i32 %134, ptr %132, align 4
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %.pre-phi
+  br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !10
 }
 
-declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnpinLocalBuffer(i32 noundef %0) local_unnamed_addr #0 {
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalRefCount, align 8
   %4 = sext i32 %2 to i64
-  %5 = getelementptr i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4
@@ -866,22 +907,22 @@ define dso_local void @UnpinLocalBuffer(i32 noundef %0) local_unnamed_addr #0 {
 UnpinLocalBufferNoOwner.exit:                     ; preds = %1, %9
   %12 = load ptr, ptr @CurrentResourceOwner, align 8
   %13 = sext i32 %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @buffer_pin_resowner_desc) #13
+  tail call void @ResourceOwnerForget(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @buffer_pin_resowner_desc) #14
   ret void
 }
 
-declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @smgrzeroextend(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @smgrzeroextend(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef) local_unnamed_addr #2
+declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #7 {
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalBufferDescriptors, align 8
   %4 = zext i32 %2 to i64
-  %5 = getelementptr %struct.BufferDesc, ptr %3, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.BufferDesc, ptr %3, i64 %4, i32 2
   %6 = load volatile i32, ptr %5, align 4
   %7 = and i32 %6, 8388608
   %.not = icmp eq i32 %7, 0
@@ -916,7 +957,7 @@ define dso_local void @DropRelationLocalBuffers(i64 %0, i32 %1, i32 noundef %2, 
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %50, %BufTagMatchesRelFileLocator.exit.thread ]
   %8 = phi ptr [ %.pre67, %.lr.ph.preheader ], [ %51, %BufTagMatchesRelFileLocator.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %BufTagMatchesRelFileLocator.exit.thread ]
-  %9 = getelementptr %struct.BufferDesc, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.BufferDesc, ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load volatile i32, ptr %10, align 4
   %12 = and i32 %11, 33554432
@@ -954,13 +995,13 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @LocalRefCount, align 8
-  %30 = getelementptr i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %.not40 = icmp eq i32 %31, 0
   br i1 %.not40, label %42, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %33)
   %34 = load i32, ptr %26, align 4
   %35 = load i64, ptr %9, align 4
@@ -970,25 +1011,25 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   %.sroa.06.0.extract.trunc = trunc i64 %35 to i32
   %36 = load i32, ptr @MyProcNumber, align 4
   %.val42 = load i32, ptr %23, align 4
-  %37 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i43, i32 noundef %36, i32 noundef %.val42) #13
+  %37 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i43, i32 noundef %36, i32 noundef %.val42) #14
   %38 = load ptr, ptr @LocalRefCount, align 8
-  %39 = getelementptr i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %34, ptr noundef %37, i32 noundef %40) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #13
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %34, ptr noundef %37, i32 noundef %40) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #14
   unreachable
 
 42:                                               ; preds = %28
   %43 = load ptr, ptr @LocalBufHash, align 8
-  %44 = tail call ptr @hash_search(ptr noundef %43, ptr noundef nonnull %9, i32 noundef 2, ptr noundef null) #13
+  %44 = tail call ptr @hash_search(ptr noundef %43, ptr noundef nonnull %9, i32 noundef 2, ptr noundef null) #14
   %.not41 = icmp eq ptr %44, null
   br i1 %.not41, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #13
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #14
   unreachable
 
 48:                                               ; preds = %42
@@ -1003,13 +1044,13 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   %.pre68 = load i32, ptr @NLocBuffer, align 4
   br label %BufTagMatchesRelFileLocator.exit.thread
 
-BufTagMatchesRelFileLocator.exit.thread:          ; preds = %13, %16, %.lr.ph, %BufTagMatchesRelFileLocator.exit, %22, %25, %48
-  %50 = phi i32 [ %7, %13 ], [ %7, %16 ], [ %7, %.lr.ph ], [ %7, %BufTagMatchesRelFileLocator.exit ], [ %7, %22 ], [ %7, %25 ], [ %.pre68, %48 ]
-  %51 = phi ptr [ %8, %13 ], [ %8, %16 ], [ %8, %.lr.ph ], [ %8, %BufTagMatchesRelFileLocator.exit ], [ %8, %22 ], [ %8, %25 ], [ %.pre, %48 ]
+BufTagMatchesRelFileLocator.exit.thread:          ; preds = %13, %16, %48, %25, %22, %BufTagMatchesRelFileLocator.exit, %.lr.ph
+  %50 = phi i32 [ %7, %13 ], [ %7, %16 ], [ %.pre68, %48 ], [ %7, %25 ], [ %7, %22 ], [ %7, %BufTagMatchesRelFileLocator.exit ], [ %7, %.lr.ph ]
+  %51 = phi ptr [ %8, %13 ], [ %8, %16 ], [ %.pre, %48 ], [ %8, %25 ], [ %8, %22 ], [ %8, %BufTagMatchesRelFileLocator.exit ], [ %8, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = sext i32 %50 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %BufTagMatchesRelFileLocator.exit.thread, %4
   ret void
@@ -1032,7 +1073,7 @@ define dso_local void @DropRelationAllLocalBuffers(i64 %0, i32 %1) local_unnamed
   %5 = phi i32 [ %3, %.lr.ph.preheader ], [ %46, %BufTagMatchesRelFileLocator.exit.thread ]
   %6 = phi ptr [ %.pre53, %.lr.ph.preheader ], [ %47, %BufTagMatchesRelFileLocator.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %BufTagMatchesRelFileLocator.exit.thread ]
-  %7 = getelementptr %struct.BufferDesc, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.BufferDesc, ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load volatile i32, ptr %8, align 4
   %10 = and i32 %9, 33554432
@@ -1058,13 +1099,13 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
 
 20:                                               ; preds = %BufTagMatchesRelFileLocator.exit
   %21 = load ptr, ptr @LocalRefCount, align 8
-  %22 = getelementptr i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %.not35 = icmp eq i32 %23, 0
   br i1 %.not35, label %36, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load i32, ptr %26, align 4
@@ -1076,25 +1117,25 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   %29 = load i32, ptr @MyProcNumber, align 4
   %30 = getelementptr i8, ptr %7, i64 12
   %.val = load i32, ptr %30, align 4
-  %31 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i37, i32 noundef %29, i32 noundef %.val) #13
+  %31 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i37, i32 noundef %29, i32 noundef %.val) #14
   %32 = load ptr, ptr @LocalRefCount, align 8
-  %33 = getelementptr i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %31, i32 noundef %34) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #13
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %31, i32 noundef %34) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #14
   unreachable
 
 36:                                               ; preds = %20
   %37 = load ptr, ptr @LocalBufHash, align 8
-  %38 = tail call ptr @hash_search(ptr noundef %37, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #13
+  %38 = tail call ptr @hash_search(ptr noundef %37, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #14
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #13
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #14
   unreachable
 
 42:                                               ; preds = %36
@@ -1111,24 +1152,24 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   %.pre54 = load i32, ptr @NLocBuffer, align 4
   br label %BufTagMatchesRelFileLocator.exit.thread
 
-BufTagMatchesRelFileLocator.exit.thread:          ; preds = %11, %14, %.lr.ph, %BufTagMatchesRelFileLocator.exit, %42
-  %46 = phi i32 [ %5, %11 ], [ %5, %14 ], [ %5, %.lr.ph ], [ %5, %BufTagMatchesRelFileLocator.exit ], [ %.pre54, %42 ]
-  %47 = phi ptr [ %6, %11 ], [ %6, %14 ], [ %6, %.lr.ph ], [ %6, %BufTagMatchesRelFileLocator.exit ], [ %.pre, %42 ]
+BufTagMatchesRelFileLocator.exit.thread:          ; preds = %11, %14, %42, %BufTagMatchesRelFileLocator.exit, %.lr.ph
+  %46 = phi i32 [ %5, %11 ], [ %5, %14 ], [ %.pre54, %42 ], [ %5, %BufTagMatchesRelFileLocator.exit ], [ %5, %.lr.ph ]
+  %47 = phi ptr [ %6, %11 ], [ %6, %14 ], [ %.pre, %42 ], [ %6, %BufTagMatchesRelFileLocator.exit ], [ %6, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %BufTagMatchesRelFileLocator.exit.thread, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @UnpinLocalBufferNoOwner(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local void @UnpinLocalBufferNoOwner(i32 noundef %0) local_unnamed_addr #8 {
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalRefCount, align 8
   %4 = sext i32 %2 to i64
-  %5 = getelementptr i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4
@@ -1159,10 +1200,10 @@ define dso_local noundef zeroext i1 @check_temp_buffers(ptr noundef readonly cap
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__errno_location() #16
+  %10 = tail call ptr @__errno_location() #17
   %11 = load i32, ptr %10, align 4
-  tail call void @pre_format_elog_string(i32 noundef %11, ptr noundef null) #13
-  %12 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.4) #13
+  tail call void @pre_format_elog_string(i32 noundef %11, ptr noundef null) #14
+  %12 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.4) #14
   store ptr %12, ptr @GUC_check_errdetail_string, align 8
   br label %13
 
@@ -1171,91 +1212,87 @@ define dso_local noundef zeroext i1 @check_temp_buffers(ptr noundef readonly cap
   ret i1 %.0
 }
 
-declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @AtEOXact_LocalBuffers(i1 noundef zeroext %0) local_unnamed_addr #8 {
+define dso_local void @AtEOXact_LocalBuffers(i1 noundef zeroext %0) local_unnamed_addr #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @AtProcExit_LocalBuffers() local_unnamed_addr #8 {
+define dso_local void @AtProcExit_LocalBuffers() local_unnamed_addr #10 {
   ret void
 }
 
-declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #2
+declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #3
 
-declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @pgstat_count_io_op(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @pgstat_count_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

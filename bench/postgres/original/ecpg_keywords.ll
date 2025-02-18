@@ -16,50 +16,62 @@ define dso_local i32 @ScanECPGKeywordLookup(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call i32 @ScanKeywordLookup(ptr noundef %5, ptr noundef @ScanKeywords)
-  store i32 %6, ptr %4, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp sge i32 %7, 0
-  br i1 %8, label %9, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i32 @ScanKeywordLookup(ptr noundef %6, ptr noundef @ScanKeywords)
+  store i32 %7, ptr %4, align 4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp sge i32 %8, 0
+  br i1 %9, label %10, label %16
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr %4, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr [0 x i16], ptr @SQLScanKeywordTokens, i64 0, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = zext i16 %13 to i32
-  store i32 %14, ptr %2, align 4
-  br label %27
+10:                                               ; preds = %1
+  %11 = load i32, ptr %4, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [0 x i16], ptr @SQLScanKeywordTokens, i64 0, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = zext i16 %14 to i32
+  store i32 %15, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %28
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = call i32 @ScanKeywordLookup(ptr noundef %16, ptr noundef @ScanECPGKeywords)
-  store i32 %17, ptr %4, align 4
-  %18 = load i32, ptr %4, align 4
-  %19 = icmp sge i32 %18, 0
-  br i1 %19, label %20, label %26
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = call i32 @ScanKeywordLookup(ptr noundef %17, ptr noundef @ScanECPGKeywords)
+  store i32 %18, ptr %4, align 4
+  %19 = load i32, ptr %4, align 4
+  %20 = icmp sge i32 %19, 0
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %4, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %22
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  store i32 %25, ptr %2, align 4
-  br label %27
+21:                                               ; preds = %16
+  %22 = load i32, ptr %4, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [41 x i16], ptr @ECPGScanKeywordTokens, i64 0, i64 %23
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i32
+  store i32 %26, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %28
 
-26:                                               ; preds = %15
+27:                                               ; preds = %16
   store i32 -1, ptr %2, align 4
-  br label %27
+  store i32 1, ptr %5, align 4
+  br label %28
 
-27:                                               ; preds = %26, %20, %9
-  %28 = load i32, ptr %2, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %21, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
 }
 
-declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ScanECPGKeywords_hash_func(ptr noundef %0, i64 noundef %1) #0 {
@@ -71,9 +83,12 @@ define internal i32 @ScanECPGKeywords_hash_func(ptr noundef %0, i64 noundef %1) 
   %8 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
   store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   store i32 0, ptr %7, align 4
   br label %10
 
@@ -85,8 +100,9 @@ define internal i32 @ScanECPGKeywords_hash_func(ptr noundef %0, i64 noundef %1) 
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr i8, ptr %15, i32 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i32 1
   store ptr %16, ptr %5, align 8
   %17 = load i8, ptr %15, align 1
   %18 = zext i8 %17 to i32
@@ -105,34 +121,39 @@ define internal i32 @ScanECPGKeywords_hash_func(ptr noundef %0, i64 noundef %1) 
   %29 = zext i8 %28 to i32
   %30 = add i32 %27, %29
   store i32 %30, ptr %7, align 4
-  br label %10, !llvm.loop !5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  br label %10, !llvm.loop !4
 
 31:                                               ; preds = %10
   %32 = load i32, ptr %6, align 4
   %33 = urem i32 %32, 83
   %34 = zext i32 %33 to i64
-  %35 = getelementptr [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i32
   %38 = load i32, ptr %7, align 4
   %39 = urem i32 %38, 83
   %40 = zext i32 %39 to i64
-  %41 = getelementptr [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [83 x i8], ptr @ScanECPGKeywords_hash_func.h, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
   %44 = add i32 %37, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret i32 %44
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

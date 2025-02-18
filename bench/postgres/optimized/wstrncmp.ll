@@ -22,13 +22,13 @@ define dso_local i32 @pg_wchar_strncmp(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr i8, ptr %.07, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.07, i64 4
   %11 = icmp eq i32 %5, 0
-  %12 = getelementptr i8, ptr %.08, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %13 = add i64 %.0, -1
   %.not13 = icmp eq i64 %13, 0
   %or.cond = select i1 %11, i1 true, i1 %.not13
-  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !4
 
 .loopexit:                                        ; preds = %9, %3, %7
   %.09 = phi i32 [ %8, %7 ], [ 0, %3 ], [ 0, %9 ]
@@ -55,13 +55,13 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef readonly captures(no
   br label %.loopexit
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr i8, ptr %.07, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.07, i64 4
   %12 = icmp eq i8 %5, 0
-  %13 = getelementptr i8, ptr %.08, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %14 = add i64 %.0, -1
   %.not13 = icmp eq i64 %14, 0
   %or.cond = select i1 %12, i1 true, i1 %.not13
-  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %10, %3, %8
   %.09 = phi i32 [ %9, %8 ], [ 0, %3 ], [ 0, %10 ]
@@ -76,8 +76,8 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @pg_wc
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %3 = load i32, ptr %.0, align 4
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr i8, ptr %.0, i64 4
-  br i1 %.not, label %5, label %2, !llvm.loop !8
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  br i1 %.not, label %5, label %2, !llvm.loop !7
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.0 to i64
@@ -87,16 +87,15 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @pg_wc
   ret i64 %9
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

@@ -34,53 +34,81 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [14 x i8] c"pamservice=%s\00", align 1
 @.str.17 = private unnamed_addr constant [14 x i8] c"ldapserver=%s\00", align 1
 @.str.18 = private unnamed_addr constant [12 x i8] c"ldapport=%d\00", align 1
-@.str.19 = private unnamed_addr constant [13 x i8] c"ldaptls=true\00", align 1
-@.str.20 = private unnamed_addr constant [14 x i8] c"ldapprefix=%s\00", align 1
-@.str.21 = private unnamed_addr constant [14 x i8] c"ldapsuffix=%s\00", align 1
-@.str.22 = private unnamed_addr constant [14 x i8] c"ldapbasedn=%s\00", align 1
-@.str.23 = private unnamed_addr constant [14 x i8] c"ldapbinddn=%s\00", align 1
-@.str.24 = private unnamed_addr constant [18 x i8] c"ldapbindpasswd=%s\00", align 1
-@.str.25 = private unnamed_addr constant [23 x i8] c"ldapsearchattribute=%s\00", align 1
-@.str.26 = private unnamed_addr constant [20 x i8] c"ldapsearchfilter=%s\00", align 1
-@.str.27 = private unnamed_addr constant [13 x i8] c"ldapscope=%d\00", align 1
-@.str.28 = private unnamed_addr constant [17 x i8] c"radiusservers=%s\00", align 1
-@.str.29 = private unnamed_addr constant [17 x i8] c"radiussecrets=%s\00", align 1
-@.str.30 = private unnamed_addr constant [21 x i8] c"radiusidentifiers=%s\00", align 1
-@.str.31 = private unnamed_addr constant [15 x i8] c"radiusports=%s\00", align 1
+@.str.19 = private unnamed_addr constant [14 x i8] c"ldapscheme=%s\00", align 1
+@.str.20 = private unnamed_addr constant [13 x i8] c"ldaptls=true\00", align 1
+@.str.21 = private unnamed_addr constant [14 x i8] c"ldapprefix=%s\00", align 1
+@.str.22 = private unnamed_addr constant [14 x i8] c"ldapsuffix=%s\00", align 1
+@.str.23 = private unnamed_addr constant [14 x i8] c"ldapbasedn=%s\00", align 1
+@.str.24 = private unnamed_addr constant [14 x i8] c"ldapbinddn=%s\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"ldapbindpasswd=%s\00", align 1
+@.str.26 = private unnamed_addr constant [23 x i8] c"ldapsearchattribute=%s\00", align 1
+@.str.27 = private unnamed_addr constant [20 x i8] c"ldapsearchfilter=%s\00", align 1
+@.str.28 = private unnamed_addr constant [13 x i8] c"ldapscope=%d\00", align 1
+@.str.29 = private unnamed_addr constant [17 x i8] c"radiusservers=%s\00", align 1
+@.str.30 = private unnamed_addr constant [17 x i8] c"radiussecrets=%s\00", align 1
+@.str.31 = private unnamed_addr constant [21 x i8] c"radiusidentifiers=%s\00", align 1
+@.str.32 = private unnamed_addr constant [15 x i8] c"radiusports=%s\00", align 1
 @IdentFileName = external global ptr, align 8
-@.str.32 = private unnamed_addr constant [21 x i8] c"ident parser context\00", align 1
+@.str.33 = private unnamed_addr constant [21 x i8] c"ident parser context\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_hba_file_rules(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
+  %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  call void @InitMaterializedSRF(ptr noundef %4, i32 noundef 0)
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.ReturnSetInfo, ptr %8, i32 0, i32 6
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.ReturnSetInfo, ptr %11, i32 0, i32 7
-  %13 = load ptr, ptr %12, align 8
-  call void @fill_hba_view(ptr noundef %10, ptr noundef %13)
-  br label %14
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8
+  call void @InitMaterializedSRF(ptr noundef %6, i32 noundef 0)
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.ReturnSetInfo, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.ReturnSetInfo, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  call void @fill_hba_view(ptr noundef %12, ptr noundef %15)
+  br label %16
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 4
-  store i8 1, ptr %16, align 4
-  br label %17
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 4
+  store i8 1, ptr %18, align 4
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %21
 
-17:                                               ; preds = %14
-  ret i64 0
+19:                                               ; No predecessors!
+  br label %20
+
+20:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  br label %21
+
+21:                                               ; preds = %20, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %22 = load i32, ptr %5, align 4
+  switch i32 %22, label %25 [
+    i32 0, label %23
+    i32 1, label %23
+  ]
+
+23:                                               ; preds = %21, %21
+  %24 = load i64, ptr %2, align 8
+  ret i64 %24
+
+25:                                               ; preds = %21
+  unreachable
 }
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @fill_hba_view(ptr noundef %0, ptr noundef %1) #0 {
@@ -98,8 +126,14 @@ define internal void @fill_hba_view(ptr noundef %0, ptr noundef %1) #0 {
   %14 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   %15 = load ptr, ptr @HbaFileName, align 8
   %16 = call ptr @open_auth_file(ptr noundef %15, i32 noundef 21, i32 noundef 0, ptr noundef null)
   store ptr %16, ptr %5, align 8
@@ -112,149 +146,196 @@ define internal void @fill_hba_view(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
   store i32 1, ptr %11, align 4
-  %21 = load ptr, ptr @CurrentMemoryContext, align 8
-  %22 = call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = call ptr @MemoryContextSwitchTo(ptr noundef %23)
-  store ptr %24, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %26 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  store i32 0, ptr %27, align 8
-  br label %28
+  %22 = load ptr, ptr @CurrentMemoryContext, align 8
+  %23 = call ptr @AllocSetContextCreateInternal(ptr noundef %22, ptr noundef @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
+  store ptr %23, ptr %9, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = call ptr @MemoryContextSwitchTo(ptr noundef %24)
+  store ptr %25, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #5
+  %26 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr i8, ptr %12, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 4, i1 false)
+  br label %30
 
-28:                                               ; preds = %85, %20
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %49
+30:                                               ; preds = %88, %21
+  %31 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %51
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp slt i32 %34, %38
-  br i1 %39, label %40, label %49
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.List, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %36, %40
+  br i1 %41, label %42, label %51
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.List, ptr %42, i32 0, i32 3
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %46 = load i32, ptr %45, align 8
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr %union.ListCell, ptr %44, i64 %47
-  store ptr %48, ptr %7, align 8
-  br label %50
+  %45 = getelementptr inbounds nuw %struct.List, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %union.ListCell, ptr %46, i64 %49
+  store ptr %50, ptr %7, align 8
+  br label %52
 
-49:                                               ; preds = %32, %28
+51:                                               ; preds = %34, %30
   store ptr null, ptr %7, align 8
-  br label %50
+  br label %52
 
-50:                                               ; preds = %49, %40
-  %51 = phi i32 [ 1, %40 ], [ 0, %49 ]
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %89
+52:                                               ; preds = %51, %42
+  %53 = phi i32 [ 1, %42 ], [ 0, %51 ]
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %56, label %55
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %13, align 8
-  store ptr null, ptr %14, align 8
-  %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %56, i32 0, i32 4
+55:                                               ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #5
+  br label %92
+
+56:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %57 = load ptr, ptr %7, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %63
+  store ptr %58, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  store ptr null, ptr %14, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %66
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %13, align 8
-  %62 = call ptr @parse_hba_line(ptr noundef %61, i32 noundef 12)
-  store ptr %62, ptr %14, align 8
-  br label %63
-
-63:                                               ; preds = %60, %53
+63:                                               ; preds = %56
   %64 = load ptr, ptr %13, align 8
-  %65 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %64, i32 0, i32 4
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %71
+  %65 = call ptr @parse_hba_line(ptr noundef %64, i32 noundef 12)
+  store ptr %65, ptr %14, align 8
+  br label %66
 
-68:                                               ; preds = %63
-  %69 = load i32, ptr %8, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %8, align 4
-  br label %71
+66:                                               ; preds = %63, %56
+  %67 = load ptr, ptr %13, align 8
+  %68 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %74
 
-71:                                               ; preds = %68, %63
-  %72 = load ptr, ptr %3, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i32, ptr %8, align 4
-  %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
+71:                                               ; preds = %66
+  %72 = load i32, ptr %8, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %8, align 4
+  br label %74
+
+74:                                               ; preds = %71, %66
+  %75 = load ptr, ptr %3, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = load i32, ptr %8, align 4
   %78 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %78, i32 0, i32 2
-  %80 = load i32, ptr %79, align 8
-  %81 = load ptr, ptr %14, align 8
-  %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %82, i32 0, i32 4
-  %84 = load ptr, ptr %83, align 8
-  call void @fill_hba_line(ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef %77, i32 noundef %80, ptr noundef %81, ptr noundef %84)
-  br label %85
+  %79 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %13, align 8
+  %82 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %81, i32 0, i32 2
+  %83 = load i32, ptr %82, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %85, i32 0, i32 4
+  %87 = load ptr, ptr %86, align 8
+  call void @fill_hba_line(ptr noundef %75, ptr noundef %76, i32 noundef %77, ptr noundef %80, i32 noundef %83, ptr noundef %84, ptr noundef %87)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %88
 
-85:                                               ; preds = %71
-  %86 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %86, align 8
-  br label %28, !llvm.loop !5
+88:                                               ; preds = %74
+  %89 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  br label %30, !llvm.loop !4
 
-89:                                               ; preds = %50
-  %90 = load ptr, ptr %5, align 8
-  call void @free_auth_file(ptr noundef %90, i32 noundef 0)
-  %91 = load ptr, ptr %10, align 8
-  %92 = call ptr @MemoryContextSwitchTo(ptr noundef %91)
-  %93 = load ptr, ptr %9, align 8
-  call void @MemoryContextDelete(ptr noundef %93)
+92:                                               ; preds = %55
+  %93 = load ptr, ptr %5, align 8
+  call void @free_auth_file(ptr noundef %93, i32 noundef 0)
+  %94 = load ptr, ptr %10, align 8
+  %95 = call ptr @MemoryContextSwitchTo(ptr noundef %94)
+  %96 = load ptr, ptr %9, align 8
+  call void @MemoryContextDelete(ptr noundef %96)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_ident_file_mappings(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
+  %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  call void @InitMaterializedSRF(ptr noundef %4, i32 noundef 0)
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.ReturnSetInfo, ptr %8, i32 0, i32 6
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.ReturnSetInfo, ptr %11, i32 0, i32 7
-  %13 = load ptr, ptr %12, align 8
-  call void @fill_ident_view(ptr noundef %10, ptr noundef %13)
-  br label %14
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8
+  call void @InitMaterializedSRF(ptr noundef %6, i32 noundef 0)
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.ReturnSetInfo, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.ReturnSetInfo, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  call void @fill_ident_view(ptr noundef %12, ptr noundef %15)
+  br label %16
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 4
-  store i8 1, ptr %16, align 4
-  br label %17
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 4
+  store i8 1, ptr %18, align 4
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %21
 
-17:                                               ; preds = %14
-  ret i64 0
+19:                                               ; No predecessors!
+  br label %20
+
+20:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  br label %21
+
+21:                                               ; preds = %20, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %22 = load i32, ptr %5, align 4
+  switch i32 %22, label %25 [
+    i32 0, label %23
+    i32 1, label %23
+  ]
+
+23:                                               ; preds = %21, %21
+  %24 = load i64, ptr %2, align 8
+  ret i64 %24
+
+25:                                               ; preds = %21
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -273,8 +354,14 @@ define internal void @fill_ident_view(ptr noundef %0, ptr noundef %1) #0 {
   %14 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   %15 = load ptr, ptr @IdentFileName, align 8
   %16 = call ptr @open_auth_file(ptr noundef %15, i32 noundef 21, i32 noundef 0, ptr noundef null)
   store ptr %16, ptr %5, align 8
@@ -287,141 +374,166 @@ define internal void @fill_ident_view(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
   store i32 1, ptr %11, align 4
-  %21 = load ptr, ptr @CurrentMemoryContext, align 8
-  %22 = call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef @.str.32, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = call ptr @MemoryContextSwitchTo(ptr noundef %23)
-  store ptr %24, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %26 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  store i32 0, ptr %27, align 8
-  br label %28
+  %22 = load ptr, ptr @CurrentMemoryContext, align 8
+  %23 = call ptr @AllocSetContextCreateInternal(ptr noundef %22, ptr noundef @.str.33, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
+  store ptr %23, ptr %9, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = call ptr @MemoryContextSwitchTo(ptr noundef %24)
+  store ptr %25, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #5
+  %26 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr i8, ptr %12, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 4, i1 false)
+  br label %30
 
-28:                                               ; preds = %85, %20
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %49
+30:                                               ; preds = %88, %21
+  %31 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %51
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp slt i32 %34, %38
-  br i1 %39, label %40, label %49
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.List, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %36, %40
+  br i1 %41, label %42, label %51
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.List, ptr %42, i32 0, i32 3
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %46 = load i32, ptr %45, align 8
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr %union.ListCell, ptr %44, i64 %47
-  store ptr %48, ptr %7, align 8
-  br label %50
+  %45 = getelementptr inbounds nuw %struct.List, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %union.ListCell, ptr %46, i64 %49
+  store ptr %50, ptr %7, align 8
+  br label %52
 
-49:                                               ; preds = %32, %28
+51:                                               ; preds = %34, %30
   store ptr null, ptr %7, align 8
-  br label %50
+  br label %52
 
-50:                                               ; preds = %49, %40
-  %51 = phi i32 [ 1, %40 ], [ 0, %49 ]
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %89
+52:                                               ; preds = %51, %42
+  %53 = phi i32 [ 1, %42 ], [ 0, %51 ]
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %56, label %55
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %13, align 8
-  store ptr null, ptr %14, align 8
-  %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %56, i32 0, i32 4
+55:                                               ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #5
+  br label %92
+
+56:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %57 = load ptr, ptr %7, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %63
+  store ptr %58, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  store ptr null, ptr %14, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %66
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %13, align 8
-  %62 = call ptr @parse_ident_line(ptr noundef %61, i32 noundef 12)
-  store ptr %62, ptr %14, align 8
-  br label %63
-
-63:                                               ; preds = %60, %53
+63:                                               ; preds = %56
   %64 = load ptr, ptr %13, align 8
-  %65 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %64, i32 0, i32 4
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %71
+  %65 = call ptr @parse_ident_line(ptr noundef %64, i32 noundef 12)
+  store ptr %65, ptr %14, align 8
+  br label %66
 
-68:                                               ; preds = %63
-  %69 = load i32, ptr %8, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %8, align 4
-  br label %71
+66:                                               ; preds = %63, %56
+  %67 = load ptr, ptr %13, align 8
+  %68 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %74
 
-71:                                               ; preds = %68, %63
-  %72 = load ptr, ptr %3, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i32, ptr %8, align 4
-  %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
+71:                                               ; preds = %66
+  %72 = load i32, ptr %8, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %8, align 4
+  br label %74
+
+74:                                               ; preds = %71, %66
+  %75 = load ptr, ptr %3, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = load i32, ptr %8, align 4
   %78 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %78, i32 0, i32 2
-  %80 = load i32, ptr %79, align 8
-  %81 = load ptr, ptr %14, align 8
-  %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct.TokenizedAuthLine, ptr %82, i32 0, i32 4
-  %84 = load ptr, ptr %83, align 8
-  call void @fill_ident_line(ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef %77, i32 noundef %80, ptr noundef %81, ptr noundef %84)
-  br label %85
+  %79 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %13, align 8
+  %82 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %81, i32 0, i32 2
+  %83 = load i32, ptr %82, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds nuw %struct.TokenizedAuthLine, ptr %85, i32 0, i32 4
+  %87 = load ptr, ptr %86, align 8
+  call void @fill_ident_line(ptr noundef %75, ptr noundef %76, i32 noundef %77, ptr noundef %80, i32 noundef %83, ptr noundef %84, ptr noundef %87)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %88
 
-85:                                               ; preds = %71
-  %86 = getelementptr inbounds %struct.ForEachState, ptr %12, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %86, align 8
-  br label %28, !llvm.loop !7
+88:                                               ; preds = %74
+  %89 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  br label %30, !llvm.loop !6
 
-89:                                               ; preds = %50
-  %90 = load ptr, ptr %5, align 8
-  call void @free_auth_file(ptr noundef %90, i32 noundef 0)
-  %91 = load ptr, ptr %10, align 8
-  %92 = call ptr @MemoryContextSwitchTo(ptr noundef %91)
-  %93 = load ptr, ptr %9, align 8
-  call void @MemoryContextDelete(ptr noundef %93)
+92:                                               ; preds = %55
+  %93 = load ptr, ptr %5, align 8
+  call void @free_auth_file(ptr noundef %93, i32 noundef 0)
+  %94 = load ptr, ptr %10, align 8
+  %95 = call ptr @MemoryContextSwitchTo(ptr noundef %94)
+  %96 = load ptr, ptr %9, align 8
+  call void @MemoryContextDelete(ptr noundef %96)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-declare ptr @open_auth_file(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare ptr @open_auth_file(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @tokenize_auth_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare void @tokenize_auth_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %6
 }
 
-declare ptr @parse_hba_line(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+declare ptr @parse_hba_line(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -455,6 +567,16 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 88, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 11, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 1025, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
   %31 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 16 %31, i8 0, i64 88, i1 false)
   %32 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 0
@@ -469,7 +591,7 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %37 = add i32 %36, 1
   store i32 %37, ptr %19, align 4
   %38 = sext i32 %36 to i64
-  %39 = getelementptr [11 x i8], ptr %16, i64 0, i64 %38
+  %39 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %38
   store i8 1, ptr %39, align 1
   br label %47
 
@@ -480,7 +602,7 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %44 = add i32 %43, 1
   store i32 %44, ptr %19, align 4
   %45 = sext i32 %43 to i64
-  %46 = getelementptr [11 x i64], ptr %15, i64 0, i64 %45
+  %46 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %45
   store i64 %42, ptr %46, align 8
   br label %47
 
@@ -492,7 +614,7 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %52 = add i32 %51, 1
   store i32 %52, ptr %19, align 4
   %53 = sext i32 %51 to i64
-  %54 = getelementptr [11 x i64], ptr %15, i64 0, i64 %53
+  %54 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %53
   store i64 %50, ptr %54, align 8
   %55 = load i32, ptr %12, align 4
   %56 = call i64 @Int32GetDatum(i32 noundef %55)
@@ -500,16 +622,16 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %58 = add i32 %57, 1
   store i32 %58, ptr %19, align 4
   %59 = sext i32 %57 to i64
-  %60 = getelementptr [11 x i64], ptr %15, i64 0, i64 %59
+  %60 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %59
   store i64 %56, ptr %60, align 8
   %61 = load ptr, ptr %13, align 8
   %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %337
+  br i1 %62, label %63, label %341
 
 63:                                               ; preds = %47
   store ptr null, ptr %21, align 8
   %64 = load ptr, ptr %13, align 8
-  %65 = getelementptr inbounds %struct.HbaLine, ptr %64, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.HbaLine, ptr %64, i32 0, i32 3
   %66 = load i32, ptr %65, align 8
   switch i32 %66, label %73 [
     i32 0, label %67
@@ -544,7 +666,7 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr @.str.6, ptr %21, align 8
   br label %73
 
-73:                                               ; preds = %72, %71, %70, %69, %68, %67, %63
+73:                                               ; preds = %63, %72, %71, %70, %69, %68, %67
   %74 = load ptr, ptr %21, align 8
   %75 = icmp ne ptr %74, null
   br i1 %75, label %76, label %84
@@ -557,7 +679,7 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %81 = add i32 %80, 1
   store i32 %81, ptr %19, align 4
   %82 = sext i32 %80 to i64
-  %83 = getelementptr [11 x i64], ptr %15, i64 0, i64 %82
+  %83 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %82
   store i64 %79, ptr %83, align 8
   br label %89
 
@@ -566,452 +688,481 @@ define internal void @fill_hba_line(ptr noundef %0, ptr noundef %1, i32 noundef 
   %86 = add i32 %85, 1
   store i32 %86, ptr %19, align 4
   %87 = sext i32 %85 to i64
-  %88 = getelementptr [11 x i8], ptr %16, i64 0, i64 %87
+  %88 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %87
   store i8 1, ptr %88, align 1
   br label %89
 
 89:                                               ; preds = %84, %76
   %90 = load ptr, ptr %13, align 8
-  %91 = getelementptr inbounds %struct.HbaLine, ptr %90, i32 0, i32 4
+  %91 = getelementptr inbounds nuw %struct.HbaLine, ptr %90, i32 0, i32 4
   %92 = load ptr, ptr %91, align 8
   %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %145
+  br i1 %93, label %94, label %147
 
 94:                                               ; preds = %89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
   store ptr null, ptr %25, align 8
-  %95 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #5
+  %95 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 0
   %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %struct.HbaLine, ptr %96, i32 0, i32 4
+  %97 = getelementptr inbounds nuw %struct.HbaLine, ptr %96, i32 0, i32 4
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %95, align 8
-  %99 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 1
   store i32 0, ptr %99, align 8
-  br label %100
+  %100 = getelementptr i8, ptr %26, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %100, i8 0, i64 4, i1 false)
+  br label %101
 
-100:                                              ; preds = %133, %94
-  %101 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 0
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %121
+101:                                              ; preds = %135, %94
+  %102 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 0
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %122
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 1
-  %106 = load i32, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.List, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp slt i32 %106, %110
-  br i1 %111, label %112, label %121
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 1
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw %struct.List, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp slt i32 %107, %111
+  br i1 %112, label %113, label %122
 
-112:                                              ; preds = %104
-  %113 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 0
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.List, ptr %114, i32 0, i32 3
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 1
-  %118 = load i32, ptr %117, align 8
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr %union.ListCell, ptr %116, i64 %119
-  store ptr %120, ptr %20, align 8
-  br label %122
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 0
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw %struct.List, ptr %115, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 1
+  %119 = load i32, ptr %118, align 8
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %union.ListCell, ptr %117, i64 %120
+  store ptr %121, ptr %20, align 8
+  br label %123
 
-121:                                              ; preds = %104, %100
+122:                                              ; preds = %105, %101
   store ptr null, ptr %20, align 8
-  br label %122
+  br label %123
 
-122:                                              ; preds = %121, %112
-  %123 = phi i32 [ 1, %112 ], [ 0, %121 ]
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %137
+123:                                              ; preds = %122, %113
+  %124 = phi i32 [ 1, %113 ], [ 0, %122 ]
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %127, label %126
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %20, align 8
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %27, align 8
-  %128 = load ptr, ptr %25, align 8
-  %129 = load ptr, ptr %27, align 8
-  %130 = getelementptr inbounds %struct.AuthToken, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @lappend(ptr noundef %128, ptr noundef %131)
-  store ptr %132, ptr %25, align 8
-  br label %133
+126:                                              ; preds = %123
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #5
+  br label %139
 
-133:                                              ; preds = %125
-  %134 = getelementptr inbounds %struct.ForEachState, ptr %26, i32 0, i32 1
-  %135 = load i32, ptr %134, align 8
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %134, align 8
-  br label %100, !llvm.loop !8
+127:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  %128 = load ptr, ptr %20, align 8
+  %129 = load ptr, ptr %128, align 8
+  store ptr %129, ptr %27, align 8
+  %130 = load ptr, ptr %25, align 8
+  %131 = load ptr, ptr %27, align 8
+  %132 = getelementptr inbounds nuw %struct.AuthToken, ptr %131, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = call ptr @lappend(ptr noundef %130, ptr noundef %133)
+  store ptr %134, ptr %25, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  br label %135
 
-137:                                              ; preds = %122
-  %138 = load ptr, ptr %25, align 8
-  %139 = call ptr @strlist_to_textarray(ptr noundef %138)
-  %140 = call i64 @PointerGetDatum(ptr noundef %139)
-  %141 = load i32, ptr %19, align 4
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %19, align 4
-  %143 = sext i32 %141 to i64
-  %144 = getelementptr [11 x i64], ptr %15, i64 0, i64 %143
-  store i64 %140, ptr %144, align 8
-  br label %150
+135:                                              ; preds = %127
+  %136 = getelementptr inbounds nuw %struct.ForEachState, ptr %26, i32 0, i32 1
+  %137 = load i32, ptr %136, align 8
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %136, align 8
+  br label %101, !llvm.loop !7
 
-145:                                              ; preds = %89
-  %146 = load i32, ptr %19, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %19, align 4
-  %148 = sext i32 %146 to i64
-  %149 = getelementptr [11 x i8], ptr %16, i64 0, i64 %148
-  store i8 1, ptr %149, align 1
-  br label %150
+139:                                              ; preds = %126
+  %140 = load ptr, ptr %25, align 8
+  %141 = call ptr @strlist_to_textarray(ptr noundef %140)
+  %142 = call i64 @PointerGetDatum(ptr noundef %141)
+  %143 = load i32, ptr %19, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %19, align 4
+  %145 = sext i32 %143 to i64
+  %146 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %145
+  store i64 %142, ptr %146, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %152
 
-150:                                              ; preds = %145, %137
-  %151 = load ptr, ptr %13, align 8
-  %152 = getelementptr inbounds %struct.HbaLine, ptr %151, i32 0, i32 5
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %206
+147:                                              ; preds = %89
+  %148 = load i32, ptr %19, align 4
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %19, align 4
+  %150 = sext i32 %148 to i64
+  %151 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %150
+  store i8 1, ptr %151, align 1
+  br label %152
 
-155:                                              ; preds = %150
+152:                                              ; preds = %147, %139
+  %153 = load ptr, ptr %13, align 8
+  %154 = getelementptr inbounds nuw %struct.HbaLine, ptr %153, i32 0, i32 5
+  %155 = load ptr, ptr %154, align 8
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %157, label %210
+
+157:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
   store ptr null, ptr %28, align 8
-  %156 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 0
-  %157 = load ptr, ptr %13, align 8
-  %158 = getelementptr inbounds %struct.HbaLine, ptr %157, i32 0, i32 5
-  %159 = load ptr, ptr %158, align 8
-  store ptr %159, ptr %156, align 8
-  %160 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 1
-  store i32 0, ptr %160, align 8
-  br label %161
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #5
+  %158 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 0
+  %159 = load ptr, ptr %13, align 8
+  %160 = getelementptr inbounds nuw %struct.HbaLine, ptr %159, i32 0, i32 5
+  %161 = load ptr, ptr %160, align 8
+  store ptr %161, ptr %158, align 8
+  %162 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 1
+  store i32 0, ptr %162, align 8
+  %163 = getelementptr i8, ptr %29, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %163, i8 0, i64 4, i1 false)
+  br label %164
 
-161:                                              ; preds = %194, %155
-  %162 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %165, label %182
+164:                                              ; preds = %198, %157
+  %165 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %185
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 1
-  %167 = load i32, ptr %166, align 8
-  %168 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 0
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.List, ptr %169, i32 0, i32 1
-  %171 = load i32, ptr %170, align 4
-  %172 = icmp slt i32 %167, %171
-  br i1 %172, label %173, label %182
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 1
+  %170 = load i32, ptr %169, align 8
+  %171 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw %struct.List, ptr %172, i32 0, i32 1
+  %174 = load i32, ptr %173, align 4
+  %175 = icmp slt i32 %170, %174
+  br i1 %175, label %176, label %185
 
-173:                                              ; preds = %165
-  %174 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 0
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.List, ptr %175, i32 0, i32 3
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 1
-  %179 = load i32, ptr %178, align 8
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr %union.ListCell, ptr %177, i64 %180
-  store ptr %181, ptr %20, align 8
-  br label %183
+176:                                              ; preds = %168
+  %177 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 0
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw %struct.List, ptr %178, i32 0, i32 3
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 1
+  %182 = load i32, ptr %181, align 8
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds %union.ListCell, ptr %180, i64 %183
+  store ptr %184, ptr %20, align 8
+  br label %186
 
-182:                                              ; preds = %165, %161
+185:                                              ; preds = %168, %164
   store ptr null, ptr %20, align 8
-  br label %183
+  br label %186
 
-183:                                              ; preds = %182, %173
-  %184 = phi i32 [ 1, %173 ], [ 0, %182 ]
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %198
+186:                                              ; preds = %185, %176
+  %187 = phi i32 [ 1, %176 ], [ 0, %185 ]
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %190, label %189
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %20, align 8
-  %188 = load ptr, ptr %187, align 8
-  store ptr %188, ptr %30, align 8
-  %189 = load ptr, ptr %28, align 8
-  %190 = load ptr, ptr %30, align 8
-  %191 = getelementptr inbounds %struct.AuthToken, ptr %190, i32 0, i32 0
+189:                                              ; preds = %186
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #5
+  br label %202
+
+190:                                              ; preds = %186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  %191 = load ptr, ptr %20, align 8
   %192 = load ptr, ptr %191, align 8
-  %193 = call ptr @lappend(ptr noundef %189, ptr noundef %192)
-  store ptr %193, ptr %28, align 8
-  br label %194
+  store ptr %192, ptr %30, align 8
+  %193 = load ptr, ptr %28, align 8
+  %194 = load ptr, ptr %30, align 8
+  %195 = getelementptr inbounds nuw %struct.AuthToken, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8
+  %197 = call ptr @lappend(ptr noundef %193, ptr noundef %196)
+  store ptr %197, ptr %28, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  br label %198
 
-194:                                              ; preds = %186
-  %195 = getelementptr inbounds %struct.ForEachState, ptr %29, i32 0, i32 1
-  %196 = load i32, ptr %195, align 8
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %195, align 8
-  br label %161, !llvm.loop !9
+198:                                              ; preds = %190
+  %199 = getelementptr inbounds nuw %struct.ForEachState, ptr %29, i32 0, i32 1
+  %200 = load i32, ptr %199, align 8
+  %201 = add i32 %200, 1
+  store i32 %201, ptr %199, align 8
+  br label %164, !llvm.loop !8
 
-198:                                              ; preds = %183
-  %199 = load ptr, ptr %28, align 8
-  %200 = call ptr @strlist_to_textarray(ptr noundef %199)
-  %201 = call i64 @PointerGetDatum(ptr noundef %200)
-  %202 = load i32, ptr %19, align 4
-  %203 = add i32 %202, 1
-  store i32 %203, ptr %19, align 4
-  %204 = sext i32 %202 to i64
-  %205 = getelementptr [11 x i64], ptr %15, i64 0, i64 %204
-  store i64 %201, ptr %205, align 8
-  br label %211
+202:                                              ; preds = %189
+  %203 = load ptr, ptr %28, align 8
+  %204 = call ptr @strlist_to_textarray(ptr noundef %203)
+  %205 = call i64 @PointerGetDatum(ptr noundef %204)
+  %206 = load i32, ptr %19, align 4
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %19, align 4
+  %208 = sext i32 %206 to i64
+  %209 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %208
+  store i64 %205, ptr %209, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  br label %215
 
-206:                                              ; preds = %150
-  %207 = load i32, ptr %19, align 4
-  %208 = add i32 %207, 1
-  store i32 %208, ptr %19, align 4
-  %209 = sext i32 %207 to i64
-  %210 = getelementptr [11 x i8], ptr %16, i64 0, i64 %209
-  store i8 1, ptr %210, align 1
-  br label %211
+210:                                              ; preds = %152
+  %211 = load i32, ptr %19, align 4
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %19, align 4
+  %213 = sext i32 %211 to i64
+  %214 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %213
+  store i8 1, ptr %214, align 1
+  br label %215
 
-211:                                              ; preds = %206, %198
+215:                                              ; preds = %210, %202
   store ptr null, ptr %23, align 8
   store ptr null, ptr %22, align 8
-  %212 = load ptr, ptr %13, align 8
-  %213 = getelementptr inbounds %struct.HbaLine, ptr %212, i32 0, i32 10
-  %214 = load i32, ptr %213, align 4
-  switch i32 %214, label %277 [
-    i32 0, label %215
-    i32 3, label %274
-    i32 1, label %275
-    i32 2, label %276
+  %216 = load ptr, ptr %13, align 8
+  %217 = getelementptr inbounds nuw %struct.HbaLine, ptr %216, i32 0, i32 10
+  %218 = load i32, ptr %217, align 4
+  switch i32 %218, label %281 [
+    i32 0, label %219
+    i32 3, label %278
+    i32 1, label %279
+    i32 2, label %280
   ]
 
-215:                                              ; preds = %211
-  %216 = load ptr, ptr %13, align 8
-  %217 = getelementptr inbounds %struct.HbaLine, ptr %216, i32 0, i32 11
-  %218 = load ptr, ptr %217, align 8
-  %219 = icmp ne ptr %218, null
-  br i1 %219, label %220, label %224
+219:                                              ; preds = %215
+  %220 = load ptr, ptr %13, align 8
+  %221 = getelementptr inbounds nuw %struct.HbaLine, ptr %220, i32 0, i32 11
+  %222 = load ptr, ptr %221, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %228
 
-220:                                              ; preds = %215
-  %221 = load ptr, ptr %13, align 8
-  %222 = getelementptr inbounds %struct.HbaLine, ptr %221, i32 0, i32 11
-  %223 = load ptr, ptr %222, align 8
-  store ptr %223, ptr %22, align 8
-  br label %273
-
-224:                                              ; preds = %215
+224:                                              ; preds = %219
   %225 = load ptr, ptr %13, align 8
-  %226 = getelementptr inbounds %struct.HbaLine, ptr %225, i32 0, i32 7
-  %227 = load i32, ptr %226, align 8
-  %228 = icmp sgt i32 %227, 0
-  br i1 %228, label %229, label %248
+  %226 = getelementptr inbounds nuw %struct.HbaLine, ptr %225, i32 0, i32 11
+  %227 = load ptr, ptr %226, align 8
+  store ptr %227, ptr %22, align 8
+  br label %277
 
-229:                                              ; preds = %224
-  %230 = load ptr, ptr %13, align 8
-  %231 = getelementptr inbounds %struct.HbaLine, ptr %230, i32 0, i32 6
-  %232 = load ptr, ptr %13, align 8
-  %233 = getelementptr inbounds %struct.HbaLine, ptr %232, i32 0, i32 7
-  %234 = load i32, ptr %233, align 8
-  %235 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  %236 = call i32 @pg_getnameinfo_all(ptr noundef %231, i32 noundef %234, ptr noundef %235, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1)
-  %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %245
+228:                                              ; preds = %219
+  %229 = load ptr, ptr %13, align 8
+  %230 = getelementptr inbounds nuw %struct.HbaLine, ptr %229, i32 0, i32 7
+  %231 = load i32, ptr %230, align 8
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %233, label %252
 
-238:                                              ; preds = %229
-  %239 = load ptr, ptr %13, align 8
-  %240 = getelementptr inbounds %struct.HbaLine, ptr %239, i32 0, i32 6
-  %241 = getelementptr inbounds %struct.sockaddr_storage, ptr %240, i32 0, i32 0
-  %242 = load i16, ptr %241, align 8
-  %243 = zext i16 %242 to i32
-  %244 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  call void @clean_ipv6_addr(i32 noundef %243, ptr noundef %244)
-  br label %245
+233:                                              ; preds = %228
+  %234 = load ptr, ptr %13, align 8
+  %235 = getelementptr inbounds nuw %struct.HbaLine, ptr %234, i32 0, i32 6
+  %236 = load ptr, ptr %13, align 8
+  %237 = getelementptr inbounds nuw %struct.HbaLine, ptr %236, i32 0, i32 7
+  %238 = load i32, ptr %237, align 8
+  %239 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  %240 = call i32 @pg_getnameinfo_all(ptr noundef %235, i32 noundef %238, ptr noundef %239, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %242, label %249
 
-245:                                              ; preds = %238, %229
-  %246 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  %247 = call ptr @pstrdup(ptr noundef %246)
-  store ptr %247, ptr %22, align 8
-  br label %248
+242:                                              ; preds = %233
+  %243 = load ptr, ptr %13, align 8
+  %244 = getelementptr inbounds nuw %struct.HbaLine, ptr %243, i32 0, i32 6
+  %245 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %244, i32 0, i32 0
+  %246 = load i16, ptr %245, align 8
+  %247 = zext i16 %246 to i32
+  %248 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  call void @clean_ipv6_addr(i32 noundef %247, ptr noundef %248)
+  br label %249
 
-248:                                              ; preds = %245, %224
-  %249 = load ptr, ptr %13, align 8
-  %250 = getelementptr inbounds %struct.HbaLine, ptr %249, i32 0, i32 9
-  %251 = load i32, ptr %250, align 8
-  %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %253, label %272
+249:                                              ; preds = %242, %233
+  %250 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  %251 = call ptr @pstrdup(ptr noundef %250)
+  store ptr %251, ptr %22, align 8
+  br label %252
 
-253:                                              ; preds = %248
-  %254 = load ptr, ptr %13, align 8
-  %255 = getelementptr inbounds %struct.HbaLine, ptr %254, i32 0, i32 8
-  %256 = load ptr, ptr %13, align 8
-  %257 = getelementptr inbounds %struct.HbaLine, ptr %256, i32 0, i32 9
-  %258 = load i32, ptr %257, align 8
-  %259 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  %260 = call i32 @pg_getnameinfo_all(ptr noundef %255, i32 noundef %258, ptr noundef %259, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1)
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %269
+252:                                              ; preds = %249, %228
+  %253 = load ptr, ptr %13, align 8
+  %254 = getelementptr inbounds nuw %struct.HbaLine, ptr %253, i32 0, i32 9
+  %255 = load i32, ptr %254, align 8
+  %256 = icmp sgt i32 %255, 0
+  br i1 %256, label %257, label %276
 
-262:                                              ; preds = %253
-  %263 = load ptr, ptr %13, align 8
-  %264 = getelementptr inbounds %struct.HbaLine, ptr %263, i32 0, i32 8
-  %265 = getelementptr inbounds %struct.sockaddr_storage, ptr %264, i32 0, i32 0
-  %266 = load i16, ptr %265, align 8
-  %267 = zext i16 %266 to i32
-  %268 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  call void @clean_ipv6_addr(i32 noundef %267, ptr noundef %268)
-  br label %269
+257:                                              ; preds = %252
+  %258 = load ptr, ptr %13, align 8
+  %259 = getelementptr inbounds nuw %struct.HbaLine, ptr %258, i32 0, i32 8
+  %260 = load ptr, ptr %13, align 8
+  %261 = getelementptr inbounds nuw %struct.HbaLine, ptr %260, i32 0, i32 9
+  %262 = load i32, ptr %261, align 8
+  %263 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  %264 = call i32 @pg_getnameinfo_all(ptr noundef %259, i32 noundef %262, ptr noundef %263, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %273
 
-269:                                              ; preds = %262, %253
-  %270 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
-  %271 = call ptr @pstrdup(ptr noundef %270)
-  store ptr %271, ptr %23, align 8
-  br label %272
-
-272:                                              ; preds = %269, %248
+266:                                              ; preds = %257
+  %267 = load ptr, ptr %13, align 8
+  %268 = getelementptr inbounds nuw %struct.HbaLine, ptr %267, i32 0, i32 8
+  %269 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %268, i32 0, i32 0
+  %270 = load i16, ptr %269, align 8
+  %271 = zext i16 %270 to i32
+  %272 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  call void @clean_ipv6_addr(i32 noundef %271, ptr noundef %272)
   br label %273
 
-273:                                              ; preds = %272, %220
+273:                                              ; preds = %266, %257
+  %274 = getelementptr inbounds [1025 x i8], ptr %17, i64 0, i64 0
+  %275 = call ptr @pstrdup(ptr noundef %274)
+  store ptr %275, ptr %23, align 8
+  br label %276
+
+276:                                              ; preds = %273, %252
   br label %277
 
-274:                                              ; preds = %211
+277:                                              ; preds = %276, %224
+  br label %281
+
+278:                                              ; preds = %215
   store ptr @.str.7, ptr %22, align 8
-  br label %277
+  br label %281
 
-275:                                              ; preds = %211
+279:                                              ; preds = %215
   store ptr @.str.8, ptr %22, align 8
-  br label %277
+  br label %281
 
-276:                                              ; preds = %211
+280:                                              ; preds = %215
   store ptr @.str.9, ptr %22, align 8
-  br label %277
+  br label %281
 
-277:                                              ; preds = %276, %275, %274, %273, %211
-  %278 = load ptr, ptr %22, align 8
-  %279 = icmp ne ptr %278, null
-  br i1 %279, label %280, label %288
+281:                                              ; preds = %215, %280, %279, %278, %277
+  %282 = load ptr, ptr %22, align 8
+  %283 = icmp ne ptr %282, null
+  br i1 %283, label %284, label %292
 
-280:                                              ; preds = %277
-  %281 = load ptr, ptr %22, align 8
-  %282 = call ptr @cstring_to_text(ptr noundef %281)
-  %283 = call i64 @PointerGetDatum(ptr noundef %282)
-  %284 = load i32, ptr %19, align 4
-  %285 = add i32 %284, 1
-  store i32 %285, ptr %19, align 4
-  %286 = sext i32 %284 to i64
-  %287 = getelementptr [11 x i64], ptr %15, i64 0, i64 %286
-  store i64 %283, ptr %287, align 8
-  br label %293
+284:                                              ; preds = %281
+  %285 = load ptr, ptr %22, align 8
+  %286 = call ptr @cstring_to_text(ptr noundef %285)
+  %287 = call i64 @PointerGetDatum(ptr noundef %286)
+  %288 = load i32, ptr %19, align 4
+  %289 = add i32 %288, 1
+  store i32 %289, ptr %19, align 4
+  %290 = sext i32 %288 to i64
+  %291 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %290
+  store i64 %287, ptr %291, align 8
+  br label %297
 
-288:                                              ; preds = %277
-  %289 = load i32, ptr %19, align 4
-  %290 = add i32 %289, 1
-  store i32 %290, ptr %19, align 4
-  %291 = sext i32 %289 to i64
-  %292 = getelementptr [11 x i8], ptr %16, i64 0, i64 %291
-  store i8 1, ptr %292, align 1
-  br label %293
+292:                                              ; preds = %281
+  %293 = load i32, ptr %19, align 4
+  %294 = add i32 %293, 1
+  store i32 %294, ptr %19, align 4
+  %295 = sext i32 %293 to i64
+  %296 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %295
+  store i8 1, ptr %296, align 1
+  br label %297
 
-293:                                              ; preds = %288, %280
-  %294 = load ptr, ptr %23, align 8
-  %295 = icmp ne ptr %294, null
-  br i1 %295, label %296, label %304
+297:                                              ; preds = %292, %284
+  %298 = load ptr, ptr %23, align 8
+  %299 = icmp ne ptr %298, null
+  br i1 %299, label %300, label %308
 
-296:                                              ; preds = %293
-  %297 = load ptr, ptr %23, align 8
-  %298 = call ptr @cstring_to_text(ptr noundef %297)
-  %299 = call i64 @PointerGetDatum(ptr noundef %298)
-  %300 = load i32, ptr %19, align 4
-  %301 = add i32 %300, 1
-  store i32 %301, ptr %19, align 4
-  %302 = sext i32 %300 to i64
-  %303 = getelementptr [11 x i64], ptr %15, i64 0, i64 %302
-  store i64 %299, ptr %303, align 8
-  br label %309
+300:                                              ; preds = %297
+  %301 = load ptr, ptr %23, align 8
+  %302 = call ptr @cstring_to_text(ptr noundef %301)
+  %303 = call i64 @PointerGetDatum(ptr noundef %302)
+  %304 = load i32, ptr %19, align 4
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %19, align 4
+  %306 = sext i32 %304 to i64
+  %307 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %306
+  store i64 %303, ptr %307, align 8
+  br label %313
 
-304:                                              ; preds = %293
-  %305 = load i32, ptr %19, align 4
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %19, align 4
-  %307 = sext i32 %305 to i64
-  %308 = getelementptr [11 x i8], ptr %16, i64 0, i64 %307
-  store i8 1, ptr %308, align 1
-  br label %309
+308:                                              ; preds = %297
+  %309 = load i32, ptr %19, align 4
+  %310 = add i32 %309, 1
+  store i32 %310, ptr %19, align 4
+  %311 = sext i32 %309 to i64
+  %312 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %311
+  store i8 1, ptr %312, align 1
+  br label %313
 
-309:                                              ; preds = %304, %296
-  %310 = load ptr, ptr %13, align 8
-  %311 = getelementptr inbounds %struct.HbaLine, ptr %310, i32 0, i32 12
-  %312 = load i32, ptr %311, align 8
-  %313 = call ptr @hba_authname(i32 noundef %312)
-  %314 = call ptr @cstring_to_text(ptr noundef %313)
-  %315 = call i64 @PointerGetDatum(ptr noundef %314)
-  %316 = load i32, ptr %19, align 4
-  %317 = add i32 %316, 1
-  store i32 %317, ptr %19, align 4
-  %318 = sext i32 %316 to i64
-  %319 = getelementptr [11 x i64], ptr %15, i64 0, i64 %318
-  store i64 %315, ptr %319, align 8
-  %320 = load ptr, ptr %13, align 8
-  %321 = call ptr @get_hba_options(ptr noundef %320)
-  store ptr %321, ptr %24, align 8
-  %322 = load ptr, ptr %24, align 8
-  %323 = icmp ne ptr %322, null
-  br i1 %323, label %324, label %331
+313:                                              ; preds = %308, %300
+  %314 = load ptr, ptr %13, align 8
+  %315 = getelementptr inbounds nuw %struct.HbaLine, ptr %314, i32 0, i32 12
+  %316 = load i32, ptr %315, align 8
+  %317 = call ptr @hba_authname(i32 noundef %316)
+  %318 = call ptr @cstring_to_text(ptr noundef %317)
+  %319 = call i64 @PointerGetDatum(ptr noundef %318)
+  %320 = load i32, ptr %19, align 4
+  %321 = add i32 %320, 1
+  store i32 %321, ptr %19, align 4
+  %322 = sext i32 %320 to i64
+  %323 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %322
+  store i64 %319, ptr %323, align 8
+  %324 = load ptr, ptr %13, align 8
+  %325 = call ptr @get_hba_options(ptr noundef %324)
+  store ptr %325, ptr %24, align 8
+  %326 = load ptr, ptr %24, align 8
+  %327 = icmp ne ptr %326, null
+  br i1 %327, label %328, label %335
 
-324:                                              ; preds = %309
-  %325 = load ptr, ptr %24, align 8
-  %326 = call i64 @PointerGetDatum(ptr noundef %325)
-  %327 = load i32, ptr %19, align 4
-  %328 = add i32 %327, 1
-  store i32 %328, ptr %19, align 4
-  %329 = sext i32 %327 to i64
-  %330 = getelementptr [11 x i64], ptr %15, i64 0, i64 %329
-  store i64 %326, ptr %330, align 8
-  br label %336
+328:                                              ; preds = %313
+  %329 = load ptr, ptr %24, align 8
+  %330 = call i64 @PointerGetDatum(ptr noundef %329)
+  %331 = load i32, ptr %19, align 4
+  %332 = add i32 %331, 1
+  store i32 %332, ptr %19, align 4
+  %333 = sext i32 %331 to i64
+  %334 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 %333
+  store i64 %330, ptr %334, align 8
+  br label %340
 
-331:                                              ; preds = %309
-  %332 = load i32, ptr %19, align 4
-  %333 = add i32 %332, 1
-  store i32 %333, ptr %19, align 4
-  %334 = sext i32 %332 to i64
-  %335 = getelementptr [11 x i8], ptr %16, i64 0, i64 %334
-  store i8 1, ptr %335, align 1
-  br label %336
+335:                                              ; preds = %313
+  %336 = load i32, ptr %19, align 4
+  %337 = add i32 %336, 1
+  store i32 %337, ptr %19, align 4
+  %338 = sext i32 %336 to i64
+  %339 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 %338
+  store i8 1, ptr %339, align 1
+  br label %340
 
-336:                                              ; preds = %331, %324
-  br label %339
+340:                                              ; preds = %335, %328
+  br label %343
 
-337:                                              ; preds = %47
-  %338 = getelementptr [11 x i8], ptr %16, i64 0, i64 3
-  call void @llvm.memset.p0.i64(ptr align 1 %338, i8 1, i64 7, i1 false)
-  br label %339
+341:                                              ; preds = %47
+  %342 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 3
+  call void @llvm.memset.p0.i64(ptr align 1 %342, i8 1, i64 7, i1 false)
+  br label %343
 
-339:                                              ; preds = %337, %336
-  %340 = load ptr, ptr %14, align 8
-  %341 = icmp ne ptr %340, null
-  br i1 %341, label %342, label %347
+343:                                              ; preds = %341, %340
+  %344 = load ptr, ptr %14, align 8
+  %345 = icmp ne ptr %344, null
+  br i1 %345, label %346, label %351
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %14, align 8
-  %344 = call ptr @cstring_to_text(ptr noundef %343)
-  %345 = call i64 @PointerGetDatum(ptr noundef %344)
-  %346 = getelementptr [11 x i64], ptr %15, i64 0, i64 10
-  store i64 %345, ptr %346, align 16
-  br label %349
+346:                                              ; preds = %343
+  %347 = load ptr, ptr %14, align 8
+  %348 = call ptr @cstring_to_text(ptr noundef %347)
+  %349 = call i64 @PointerGetDatum(ptr noundef %348)
+  %350 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 10
+  store i64 %349, ptr %350, align 16
+  br label %353
 
-347:                                              ; preds = %339
-  %348 = getelementptr [11 x i8], ptr %16, i64 0, i64 10
-  store i8 1, ptr %348, align 1
-  br label %349
+351:                                              ; preds = %343
+  %352 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 10
+  store i8 1, ptr %352, align 1
+  br label %353
 
-349:                                              ; preds = %347, %342
-  %350 = load ptr, ptr %9, align 8
-  %351 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 0
-  %352 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 0
-  %353 = call ptr @heap_form_tuple(ptr noundef %350, ptr noundef %351, ptr noundef %352)
-  store ptr %353, ptr %18, align 8
-  %354 = load ptr, ptr %8, align 8
-  %355 = load ptr, ptr %18, align 8
-  call void @tuplestore_puttuple(ptr noundef %354, ptr noundef %355)
+353:                                              ; preds = %351, %346
+  %354 = load ptr, ptr %9, align 8
+  %355 = getelementptr inbounds [11 x i64], ptr %15, i64 0, i64 0
+  %356 = getelementptr inbounds [11 x i8], ptr %16, i64 0, i64 0
+  %357 = call ptr @heap_form_tuple(ptr noundef %354, ptr noundef %355, ptr noundef %356)
+  store ptr %357, ptr %18, align 8
+  %358 = load ptr, ptr %8, align 8
+  %359 = load ptr, ptr %18, align 8
+  call void @tuplestore_puttuple(ptr noundef %358, ptr noundef %359)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 1025, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 11, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 88, ptr %15) #5
   ret void
 }
 
-declare void @free_auth_file(ptr noundef, i32 noundef) #1
+declare void @free_auth_file(ptr noundef, i32 noundef) #2
 
-declare void @MemoryContextDelete(ptr noundef) #1
+declare void @MemoryContextDelete(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
-
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -1019,8 +1170,8 @@ define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1028,528 +1179,557 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @cstring_to_text(ptr noundef) #1
+declare ptr @cstring_to_text(ptr noundef) #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) #1
+declare ptr @lappend(ptr noundef, ptr noundef) #2
 
-declare ptr @strlist_to_textarray(ptr noundef) #1
+declare ptr @strlist_to_textarray(ptr noundef) #2
 
-declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @clean_ipv6_addr(i32 noundef, ptr noundef) #1
+declare void @clean_ipv6_addr(i32 noundef, ptr noundef) #2
 
-declare ptr @pstrdup(ptr noundef) #1
+declare ptr @pstrdup(ptr noundef) #2
 
-declare ptr @hba_authname(i32 noundef) #1
+declare ptr @hba_authname(i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_hba_options(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca [14 x i64], align 16
+  %5 = alloca [15 x i64], align 16
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 120, ptr %5) #5
   store i32 0, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.HbaLine, ptr %6, i32 0, i32 12
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 7
-  br i1 %9, label %15, label %10
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.HbaLine, ptr %7, i32 0, i32 12
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 7
+  br i1 %10, label %16, label %11
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.HbaLine, ptr %11, i32 0, i32 12
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 8
-  br i1 %14, label %15, label %44
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.HbaLine, ptr %12, i32 0, i32 12
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp eq i32 %14, 8
+  br i1 %15, label %16, label %45
 
-15:                                               ; preds = %10, %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.HbaLine, ptr %16, i32 0, i32 31
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %27
+16:                                               ; preds = %11, %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.HbaLine, ptr %17, i32 0, i32 31
+  %19 = load i8, ptr %18, align 8, !range !9, !noundef !10
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %15
-  %21 = call ptr @cstring_to_text(ptr noundef @.str.10)
-  %22 = call i64 @PointerGetDatum(ptr noundef %21)
-  %23 = load i32, ptr %4, align 4
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %4, align 4
-  %25 = sext i32 %23 to i64
-  %26 = getelementptr [14 x i64], ptr %5, i64 0, i64 %25
-  store i64 %22, ptr %26, align 8
-  br label %27
+21:                                               ; preds = %16
+  %22 = call ptr @cstring_to_text(ptr noundef @.str.10)
+  %23 = call i64 @PointerGetDatum(ptr noundef %22)
+  %24 = load i32, ptr %4, align 4
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %4, align 4
+  %26 = sext i32 %24 to i64
+  %27 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %26
+  store i64 %23, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %20, %15
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.HbaLine, ptr %28, i32 0, i32 30
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %43
+28:                                               ; preds = %21, %16
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.HbaLine, ptr %29, i32 0, i32 30
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %44
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.HbaLine, ptr %33, i32 0, i32 30
-  %35 = load ptr, ptr %34, align 8
-  %36 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.11, ptr noundef %35)
-  %37 = call ptr @cstring_to_text(ptr noundef %36)
-  %38 = call i64 @PointerGetDatum(ptr noundef %37)
-  %39 = load i32, ptr %4, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %4, align 4
-  %41 = sext i32 %39 to i64
-  %42 = getelementptr [14 x i64], ptr %5, i64 0, i64 %41
-  store i64 %38, ptr %42, align 8
-  br label %43
-
-43:                                               ; preds = %32, %27
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.HbaLine, ptr %34, i32 0, i32 30
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.11, ptr noundef %36)
+  %38 = call ptr @cstring_to_text(ptr noundef %37)
+  %39 = call i64 @PointerGetDatum(ptr noundef %38)
+  %40 = load i32, ptr %4, align 4
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %4, align 4
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %42
+  store i64 %39, ptr %43, align 8
   br label %44
 
-44:                                               ; preds = %43, %10
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.HbaLine, ptr %45, i32 0, i32 13
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %60
+44:                                               ; preds = %33, %28
+  br label %45
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.HbaLine, ptr %50, i32 0, i32 13
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.12, ptr noundef %52)
-  %54 = call ptr @cstring_to_text(ptr noundef %53)
-  %55 = call i64 @PointerGetDatum(ptr noundef %54)
-  %56 = load i32, ptr %4, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %4, align 4
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr [14 x i64], ptr %5, i64 0, i64 %58
-  store i64 %55, ptr %59, align 8
-  br label %60
+45:                                               ; preds = %44, %11
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds nuw %struct.HbaLine, ptr %46, i32 0, i32 13
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %61
 
-60:                                               ; preds = %49, %44
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.HbaLine, ptr %61, i32 0, i32 28
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %78
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.HbaLine, ptr %51, i32 0, i32 13
+  %53 = load ptr, ptr %52, align 8
+  %54 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.12, ptr noundef %53)
+  %55 = call ptr @cstring_to_text(ptr noundef %54)
+  %56 = call i64 @PointerGetDatum(ptr noundef %55)
+  %57 = load i32, ptr %4, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %4, align 4
+  %59 = sext i32 %57 to i64
+  %60 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %59
+  store i64 %56, ptr %60, align 8
+  br label %61
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.HbaLine, ptr %66, i32 0, i32 28
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp eq i32 %68, 1
-  %70 = select i1 %69, ptr @.str.14, ptr @.str.15
-  %71 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.13, ptr noundef %70)
-  %72 = call ptr @cstring_to_text(ptr noundef %71)
-  %73 = call i64 @PointerGetDatum(ptr noundef %72)
-  %74 = load i32, ptr %4, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %4, align 4
-  %76 = sext i32 %74 to i64
-  %77 = getelementptr [14 x i64], ptr %5, i64 0, i64 %76
-  store i64 %73, ptr %77, align 8
-  br label %78
+61:                                               ; preds = %50, %45
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds nuw %struct.HbaLine, ptr %62, i32 0, i32 28
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %79
 
-78:                                               ; preds = %65, %60
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.HbaLine, ptr %79, i32 0, i32 14
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %94
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds nuw %struct.HbaLine, ptr %67, i32 0, i32 28
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 1
+  %71 = select i1 %70, ptr @.str.14, ptr @.str.15
+  %72 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.13, ptr noundef %71)
+  %73 = call ptr @cstring_to_text(ptr noundef %72)
+  %74 = call i64 @PointerGetDatum(ptr noundef %73)
+  %75 = load i32, ptr %4, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %4, align 4
+  %77 = sext i32 %75 to i64
+  %78 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %77
+  store i64 %74, ptr %78, align 8
+  br label %79
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.HbaLine, ptr %84, i32 0, i32 14
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.16, ptr noundef %86)
-  %88 = call ptr @cstring_to_text(ptr noundef %87)
-  %89 = call i64 @PointerGetDatum(ptr noundef %88)
-  %90 = load i32, ptr %4, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %4, align 4
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr [14 x i64], ptr %5, i64 0, i64 %92
-  store i64 %89, ptr %93, align 8
-  br label %94
+79:                                               ; preds = %66, %61
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds nuw %struct.HbaLine, ptr %80, i32 0, i32 14
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %95
 
-94:                                               ; preds = %83, %78
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.HbaLine, ptr %95, i32 0, i32 12
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp eq i32 %97, 11
-  br i1 %98, label %99, label %272
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds nuw %struct.HbaLine, ptr %85, i32 0, i32 14
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.16, ptr noundef %87)
+  %89 = call ptr @cstring_to_text(ptr noundef %88)
+  %90 = call i64 @PointerGetDatum(ptr noundef %89)
+  %91 = load i32, ptr %4, align 4
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %4, align 4
+  %93 = sext i32 %91 to i64
+  %94 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %93
+  store i64 %90, ptr %94, align 8
+  br label %95
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.HbaLine, ptr %100, i32 0, i32 18
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %115
+95:                                               ; preds = %84, %79
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds nuw %struct.HbaLine, ptr %96, i32 0, i32 12
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp eq i32 %98, 11
+  br i1 %99, label %100, label %289
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.HbaLine, ptr %105, i32 0, i32 18
-  %107 = load ptr, ptr %106, align 8
-  %108 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.17, ptr noundef %107)
-  %109 = call ptr @cstring_to_text(ptr noundef %108)
-  %110 = call i64 @PointerGetDatum(ptr noundef %109)
-  %111 = load i32, ptr %4, align 4
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %4, align 4
-  %113 = sext i32 %111 to i64
-  %114 = getelementptr [14 x i64], ptr %5, i64 0, i64 %113
-  store i64 %110, ptr %114, align 8
-  br label %115
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds nuw %struct.HbaLine, ptr %101, i32 0, i32 18
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %116
 
-115:                                              ; preds = %104, %99
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds %struct.HbaLine, ptr %116, i32 0, i32 19
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %131
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds nuw %struct.HbaLine, ptr %106, i32 0, i32 18
+  %108 = load ptr, ptr %107, align 8
+  %109 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.17, ptr noundef %108)
+  %110 = call ptr @cstring_to_text(ptr noundef %109)
+  %111 = call i64 @PointerGetDatum(ptr noundef %110)
+  %112 = load i32, ptr %4, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %4, align 4
+  %114 = sext i32 %112 to i64
+  %115 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %114
+  store i64 %111, ptr %115, align 8
+  br label %116
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %3, align 8
-  %122 = getelementptr inbounds %struct.HbaLine, ptr %121, i32 0, i32 19
-  %123 = load i32, ptr %122, align 8
-  %124 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.18, i32 noundef %123)
-  %125 = call ptr @cstring_to_text(ptr noundef %124)
-  %126 = call i64 @PointerGetDatum(ptr noundef %125)
-  %127 = load i32, ptr %4, align 4
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %4, align 4
-  %129 = sext i32 %127 to i64
-  %130 = getelementptr [14 x i64], ptr %5, i64 0, i64 %129
-  store i64 %126, ptr %130, align 8
-  br label %131
+116:                                              ; preds = %105, %100
+  %117 = load ptr, ptr %3, align 8
+  %118 = getelementptr inbounds nuw %struct.HbaLine, ptr %117, i32 0, i32 19
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %132
 
-131:                                              ; preds = %120, %115
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.HbaLine, ptr %132, i32 0, i32 16
-  %134 = load i8, ptr %133, align 1
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %136, label %143
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds nuw %struct.HbaLine, ptr %122, i32 0, i32 19
+  %124 = load i32, ptr %123, align 8
+  %125 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.18, i32 noundef %124)
+  %126 = call ptr @cstring_to_text(ptr noundef %125)
+  %127 = call i64 @PointerGetDatum(ptr noundef %126)
+  %128 = load i32, ptr %4, align 4
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %4, align 4
+  %130 = sext i32 %128 to i64
+  %131 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %130
+  store i64 %127, ptr %131, align 8
+  br label %132
 
-136:                                              ; preds = %131
-  %137 = call ptr @cstring_to_text(ptr noundef @.str.19)
-  %138 = call i64 @PointerGetDatum(ptr noundef %137)
-  %139 = load i32, ptr %4, align 4
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %4, align 4
-  %141 = sext i32 %139 to i64
-  %142 = getelementptr [14 x i64], ptr %5, i64 0, i64 %141
-  store i64 %138, ptr %142, align 8
-  br label %143
+132:                                              ; preds = %121, %116
+  %133 = load ptr, ptr %3, align 8
+  %134 = getelementptr inbounds nuw %struct.HbaLine, ptr %133, i32 0, i32 17
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %148
 
-143:                                              ; preds = %136, %131
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.HbaLine, ptr %144, i32 0, i32 26
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %159
+137:                                              ; preds = %132
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds nuw %struct.HbaLine, ptr %138, i32 0, i32 17
+  %140 = load ptr, ptr %139, align 8
+  %141 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.19, ptr noundef %140)
+  %142 = call ptr @cstring_to_text(ptr noundef %141)
+  %143 = call i64 @PointerGetDatum(ptr noundef %142)
+  %144 = load i32, ptr %4, align 4
+  %145 = add i32 %144, 1
+  store i32 %145, ptr %4, align 4
+  %146 = sext i32 %144 to i64
+  %147 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %146
+  store i64 %143, ptr %147, align 8
+  br label %148
 
-148:                                              ; preds = %143
+148:                                              ; preds = %137, %132
   %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.HbaLine, ptr %149, i32 0, i32 26
-  %151 = load ptr, ptr %150, align 8
-  %152 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.20, ptr noundef %151)
-  %153 = call ptr @cstring_to_text(ptr noundef %152)
-  %154 = call i64 @PointerGetDatum(ptr noundef %153)
-  %155 = load i32, ptr %4, align 4
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %4, align 4
-  %157 = sext i32 %155 to i64
-  %158 = getelementptr [14 x i64], ptr %5, i64 0, i64 %157
-  store i64 %154, ptr %158, align 8
-  br label %159
+  %150 = getelementptr inbounds nuw %struct.HbaLine, ptr %149, i32 0, i32 16
+  %151 = load i8, ptr %150, align 1, !range !9, !noundef !10
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %160
 
-159:                                              ; preds = %148, %143
-  %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds %struct.HbaLine, ptr %160, i32 0, i32 27
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %164, label %175
+153:                                              ; preds = %148
+  %154 = call ptr @cstring_to_text(ptr noundef @.str.20)
+  %155 = call i64 @PointerGetDatum(ptr noundef %154)
+  %156 = load i32, ptr %4, align 4
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %4, align 4
+  %158 = sext i32 %156 to i64
+  %159 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %158
+  store i64 %155, ptr %159, align 8
+  br label %160
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %3, align 8
-  %166 = getelementptr inbounds %struct.HbaLine, ptr %165, i32 0, i32 27
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.21, ptr noundef %167)
-  %169 = call ptr @cstring_to_text(ptr noundef %168)
-  %170 = call i64 @PointerGetDatum(ptr noundef %169)
-  %171 = load i32, ptr %4, align 4
-  %172 = add i32 %171, 1
-  store i32 %172, ptr %4, align 4
-  %173 = sext i32 %171 to i64
-  %174 = getelementptr [14 x i64], ptr %5, i64 0, i64 %173
-  store i64 %170, ptr %174, align 8
-  br label %175
+160:                                              ; preds = %153, %148
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds nuw %struct.HbaLine, ptr %161, i32 0, i32 26
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %176
 
-175:                                              ; preds = %164, %159
-  %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds %struct.HbaLine, ptr %176, i32 0, i32 24
-  %178 = load ptr, ptr %177, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %191
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds nuw %struct.HbaLine, ptr %166, i32 0, i32 26
+  %168 = load ptr, ptr %167, align 8
+  %169 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.21, ptr noundef %168)
+  %170 = call ptr @cstring_to_text(ptr noundef %169)
+  %171 = call i64 @PointerGetDatum(ptr noundef %170)
+  %172 = load i32, ptr %4, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %4, align 4
+  %174 = sext i32 %172 to i64
+  %175 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %174
+  store i64 %171, ptr %175, align 8
+  br label %176
 
-180:                                              ; preds = %175
-  %181 = load ptr, ptr %3, align 8
-  %182 = getelementptr inbounds %struct.HbaLine, ptr %181, i32 0, i32 24
-  %183 = load ptr, ptr %182, align 8
-  %184 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.22, ptr noundef %183)
-  %185 = call ptr @cstring_to_text(ptr noundef %184)
-  %186 = call i64 @PointerGetDatum(ptr noundef %185)
-  %187 = load i32, ptr %4, align 4
-  %188 = add i32 %187, 1
-  store i32 %188, ptr %4, align 4
-  %189 = sext i32 %187 to i64
-  %190 = getelementptr [14 x i64], ptr %5, i64 0, i64 %189
-  store i64 %186, ptr %190, align 8
-  br label %191
+176:                                              ; preds = %165, %160
+  %177 = load ptr, ptr %3, align 8
+  %178 = getelementptr inbounds nuw %struct.HbaLine, ptr %177, i32 0, i32 27
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %192
 
-191:                                              ; preds = %180, %175
-  %192 = load ptr, ptr %3, align 8
-  %193 = getelementptr inbounds %struct.HbaLine, ptr %192, i32 0, i32 20
-  %194 = load ptr, ptr %193, align 8
-  %195 = icmp ne ptr %194, null
-  br i1 %195, label %196, label %207
+181:                                              ; preds = %176
+  %182 = load ptr, ptr %3, align 8
+  %183 = getelementptr inbounds nuw %struct.HbaLine, ptr %182, i32 0, i32 27
+  %184 = load ptr, ptr %183, align 8
+  %185 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.22, ptr noundef %184)
+  %186 = call ptr @cstring_to_text(ptr noundef %185)
+  %187 = call i64 @PointerGetDatum(ptr noundef %186)
+  %188 = load i32, ptr %4, align 4
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %4, align 4
+  %190 = sext i32 %188 to i64
+  %191 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %190
+  store i64 %187, ptr %191, align 8
+  br label %192
 
-196:                                              ; preds = %191
-  %197 = load ptr, ptr %3, align 8
-  %198 = getelementptr inbounds %struct.HbaLine, ptr %197, i32 0, i32 20
-  %199 = load ptr, ptr %198, align 8
-  %200 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.23, ptr noundef %199)
-  %201 = call ptr @cstring_to_text(ptr noundef %200)
-  %202 = call i64 @PointerGetDatum(ptr noundef %201)
-  %203 = load i32, ptr %4, align 4
-  %204 = add i32 %203, 1
-  store i32 %204, ptr %4, align 4
-  %205 = sext i32 %203 to i64
-  %206 = getelementptr [14 x i64], ptr %5, i64 0, i64 %205
-  store i64 %202, ptr %206, align 8
-  br label %207
+192:                                              ; preds = %181, %176
+  %193 = load ptr, ptr %3, align 8
+  %194 = getelementptr inbounds nuw %struct.HbaLine, ptr %193, i32 0, i32 24
+  %195 = load ptr, ptr %194, align 8
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %197, label %208
 
-207:                                              ; preds = %196, %191
-  %208 = load ptr, ptr %3, align 8
-  %209 = getelementptr inbounds %struct.HbaLine, ptr %208, i32 0, i32 21
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp ne ptr %210, null
-  br i1 %211, label %212, label %223
+197:                                              ; preds = %192
+  %198 = load ptr, ptr %3, align 8
+  %199 = getelementptr inbounds nuw %struct.HbaLine, ptr %198, i32 0, i32 24
+  %200 = load ptr, ptr %199, align 8
+  %201 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.23, ptr noundef %200)
+  %202 = call ptr @cstring_to_text(ptr noundef %201)
+  %203 = call i64 @PointerGetDatum(ptr noundef %202)
+  %204 = load i32, ptr %4, align 4
+  %205 = add i32 %204, 1
+  store i32 %205, ptr %4, align 4
+  %206 = sext i32 %204 to i64
+  %207 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %206
+  store i64 %203, ptr %207, align 8
+  br label %208
 
-212:                                              ; preds = %207
-  %213 = load ptr, ptr %3, align 8
-  %214 = getelementptr inbounds %struct.HbaLine, ptr %213, i32 0, i32 21
-  %215 = load ptr, ptr %214, align 8
-  %216 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.24, ptr noundef %215)
-  %217 = call ptr @cstring_to_text(ptr noundef %216)
-  %218 = call i64 @PointerGetDatum(ptr noundef %217)
-  %219 = load i32, ptr %4, align 4
-  %220 = add i32 %219, 1
-  store i32 %220, ptr %4, align 4
-  %221 = sext i32 %219 to i64
-  %222 = getelementptr [14 x i64], ptr %5, i64 0, i64 %221
-  store i64 %218, ptr %222, align 8
-  br label %223
+208:                                              ; preds = %197, %192
+  %209 = load ptr, ptr %3, align 8
+  %210 = getelementptr inbounds nuw %struct.HbaLine, ptr %209, i32 0, i32 20
+  %211 = load ptr, ptr %210, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %213, label %224
 
-223:                                              ; preds = %212, %207
-  %224 = load ptr, ptr %3, align 8
-  %225 = getelementptr inbounds %struct.HbaLine, ptr %224, i32 0, i32 22
-  %226 = load ptr, ptr %225, align 8
-  %227 = icmp ne ptr %226, null
-  br i1 %227, label %228, label %239
+213:                                              ; preds = %208
+  %214 = load ptr, ptr %3, align 8
+  %215 = getelementptr inbounds nuw %struct.HbaLine, ptr %214, i32 0, i32 20
+  %216 = load ptr, ptr %215, align 8
+  %217 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.24, ptr noundef %216)
+  %218 = call ptr @cstring_to_text(ptr noundef %217)
+  %219 = call i64 @PointerGetDatum(ptr noundef %218)
+  %220 = load i32, ptr %4, align 4
+  %221 = add i32 %220, 1
+  store i32 %221, ptr %4, align 4
+  %222 = sext i32 %220 to i64
+  %223 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %222
+  store i64 %219, ptr %223, align 8
+  br label %224
 
-228:                                              ; preds = %223
-  %229 = load ptr, ptr %3, align 8
-  %230 = getelementptr inbounds %struct.HbaLine, ptr %229, i32 0, i32 22
-  %231 = load ptr, ptr %230, align 8
-  %232 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.25, ptr noundef %231)
-  %233 = call ptr @cstring_to_text(ptr noundef %232)
-  %234 = call i64 @PointerGetDatum(ptr noundef %233)
-  %235 = load i32, ptr %4, align 4
-  %236 = add i32 %235, 1
-  store i32 %236, ptr %4, align 4
-  %237 = sext i32 %235 to i64
-  %238 = getelementptr [14 x i64], ptr %5, i64 0, i64 %237
-  store i64 %234, ptr %238, align 8
-  br label %239
+224:                                              ; preds = %213, %208
+  %225 = load ptr, ptr %3, align 8
+  %226 = getelementptr inbounds nuw %struct.HbaLine, ptr %225, i32 0, i32 21
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp ne ptr %227, null
+  br i1 %228, label %229, label %240
 
-239:                                              ; preds = %228, %223
-  %240 = load ptr, ptr %3, align 8
-  %241 = getelementptr inbounds %struct.HbaLine, ptr %240, i32 0, i32 23
-  %242 = load ptr, ptr %241, align 8
-  %243 = icmp ne ptr %242, null
-  br i1 %243, label %244, label %255
+229:                                              ; preds = %224
+  %230 = load ptr, ptr %3, align 8
+  %231 = getelementptr inbounds nuw %struct.HbaLine, ptr %230, i32 0, i32 21
+  %232 = load ptr, ptr %231, align 8
+  %233 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.25, ptr noundef %232)
+  %234 = call ptr @cstring_to_text(ptr noundef %233)
+  %235 = call i64 @PointerGetDatum(ptr noundef %234)
+  %236 = load i32, ptr %4, align 4
+  %237 = add i32 %236, 1
+  store i32 %237, ptr %4, align 4
+  %238 = sext i32 %236 to i64
+  %239 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %238
+  store i64 %235, ptr %239, align 8
+  br label %240
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %3, align 8
-  %246 = getelementptr inbounds %struct.HbaLine, ptr %245, i32 0, i32 23
-  %247 = load ptr, ptr %246, align 8
-  %248 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.26, ptr noundef %247)
-  %249 = call ptr @cstring_to_text(ptr noundef %248)
-  %250 = call i64 @PointerGetDatum(ptr noundef %249)
-  %251 = load i32, ptr %4, align 4
-  %252 = add i32 %251, 1
-  store i32 %252, ptr %4, align 4
-  %253 = sext i32 %251 to i64
-  %254 = getelementptr [14 x i64], ptr %5, i64 0, i64 %253
-  store i64 %250, ptr %254, align 8
-  br label %255
+240:                                              ; preds = %229, %224
+  %241 = load ptr, ptr %3, align 8
+  %242 = getelementptr inbounds nuw %struct.HbaLine, ptr %241, i32 0, i32 22
+  %243 = load ptr, ptr %242, align 8
+  %244 = icmp ne ptr %243, null
+  br i1 %244, label %245, label %256
 
-255:                                              ; preds = %244, %239
-  %256 = load ptr, ptr %3, align 8
-  %257 = getelementptr inbounds %struct.HbaLine, ptr %256, i32 0, i32 25
-  %258 = load i32, ptr %257, align 8
-  %259 = icmp ne i32 %258, 0
-  br i1 %259, label %260, label %271
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %3, align 8
+  %247 = getelementptr inbounds nuw %struct.HbaLine, ptr %246, i32 0, i32 22
+  %248 = load ptr, ptr %247, align 8
+  %249 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.26, ptr noundef %248)
+  %250 = call ptr @cstring_to_text(ptr noundef %249)
+  %251 = call i64 @PointerGetDatum(ptr noundef %250)
+  %252 = load i32, ptr %4, align 4
+  %253 = add i32 %252, 1
+  store i32 %253, ptr %4, align 4
+  %254 = sext i32 %252 to i64
+  %255 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %254
+  store i64 %251, ptr %255, align 8
+  br label %256
 
-260:                                              ; preds = %255
-  %261 = load ptr, ptr %3, align 8
-  %262 = getelementptr inbounds %struct.HbaLine, ptr %261, i32 0, i32 25
-  %263 = load i32, ptr %262, align 8
-  %264 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.27, i32 noundef %263)
-  %265 = call ptr @cstring_to_text(ptr noundef %264)
-  %266 = call i64 @PointerGetDatum(ptr noundef %265)
-  %267 = load i32, ptr %4, align 4
-  %268 = add i32 %267, 1
-  store i32 %268, ptr %4, align 4
-  %269 = sext i32 %267 to i64
-  %270 = getelementptr [14 x i64], ptr %5, i64 0, i64 %269
-  store i64 %266, ptr %270, align 8
-  br label %271
+256:                                              ; preds = %245, %240
+  %257 = load ptr, ptr %3, align 8
+  %258 = getelementptr inbounds nuw %struct.HbaLine, ptr %257, i32 0, i32 23
+  %259 = load ptr, ptr %258, align 8
+  %260 = icmp ne ptr %259, null
+  br i1 %260, label %261, label %272
 
-271:                                              ; preds = %260, %255
+261:                                              ; preds = %256
+  %262 = load ptr, ptr %3, align 8
+  %263 = getelementptr inbounds nuw %struct.HbaLine, ptr %262, i32 0, i32 23
+  %264 = load ptr, ptr %263, align 8
+  %265 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.27, ptr noundef %264)
+  %266 = call ptr @cstring_to_text(ptr noundef %265)
+  %267 = call i64 @PointerGetDatum(ptr noundef %266)
+  %268 = load i32, ptr %4, align 4
+  %269 = add i32 %268, 1
+  store i32 %269, ptr %4, align 4
+  %270 = sext i32 %268 to i64
+  %271 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %270
+  store i64 %267, ptr %271, align 8
   br label %272
 
-272:                                              ; preds = %271, %94
+272:                                              ; preds = %261, %256
   %273 = load ptr, ptr %3, align 8
-  %274 = getelementptr inbounds %struct.HbaLine, ptr %273, i32 0, i32 12
+  %274 = getelementptr inbounds nuw %struct.HbaLine, ptr %273, i32 0, i32 25
   %275 = load i32, ptr %274, align 8
-  %276 = icmp eq i32 %275, 13
-  br i1 %276, label %277, label %342
+  %276 = icmp ne i32 %275, 0
+  br i1 %276, label %277, label %288
 
 277:                                              ; preds = %272
   %278 = load ptr, ptr %3, align 8
-  %279 = getelementptr inbounds %struct.HbaLine, ptr %278, i32 0, i32 35
-  %280 = load ptr, ptr %279, align 8
-  %281 = icmp ne ptr %280, null
-  br i1 %281, label %282, label %293
+  %279 = getelementptr inbounds nuw %struct.HbaLine, ptr %278, i32 0, i32 25
+  %280 = load i32, ptr %279, align 8
+  %281 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.28, i32 noundef %280)
+  %282 = call ptr @cstring_to_text(ptr noundef %281)
+  %283 = call i64 @PointerGetDatum(ptr noundef %282)
+  %284 = load i32, ptr %4, align 4
+  %285 = add i32 %284, 1
+  store i32 %285, ptr %4, align 4
+  %286 = sext i32 %284 to i64
+  %287 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %286
+  store i64 %283, ptr %287, align 8
+  br label %288
 
-282:                                              ; preds = %277
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct.HbaLine, ptr %283, i32 0, i32 35
-  %285 = load ptr, ptr %284, align 8
-  %286 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.28, ptr noundef %285)
-  %287 = call ptr @cstring_to_text(ptr noundef %286)
-  %288 = call i64 @PointerGetDatum(ptr noundef %287)
-  %289 = load i32, ptr %4, align 4
-  %290 = add i32 %289, 1
-  store i32 %290, ptr %4, align 4
-  %291 = sext i32 %289 to i64
-  %292 = getelementptr [14 x i64], ptr %5, i64 0, i64 %291
-  store i64 %288, ptr %292, align 8
-  br label %293
+288:                                              ; preds = %277, %272
+  br label %289
 
-293:                                              ; preds = %282, %277
-  %294 = load ptr, ptr %3, align 8
-  %295 = getelementptr inbounds %struct.HbaLine, ptr %294, i32 0, i32 37
-  %296 = load ptr, ptr %295, align 8
-  %297 = icmp ne ptr %296, null
-  br i1 %297, label %298, label %309
+289:                                              ; preds = %288, %95
+  %290 = load ptr, ptr %3, align 8
+  %291 = getelementptr inbounds nuw %struct.HbaLine, ptr %290, i32 0, i32 12
+  %292 = load i32, ptr %291, align 8
+  %293 = icmp eq i32 %292, 13
+  br i1 %293, label %294, label %359
 
-298:                                              ; preds = %293
-  %299 = load ptr, ptr %3, align 8
-  %300 = getelementptr inbounds %struct.HbaLine, ptr %299, i32 0, i32 37
-  %301 = load ptr, ptr %300, align 8
-  %302 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.29, ptr noundef %301)
-  %303 = call ptr @cstring_to_text(ptr noundef %302)
-  %304 = call i64 @PointerGetDatum(ptr noundef %303)
-  %305 = load i32, ptr %4, align 4
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %4, align 4
-  %307 = sext i32 %305 to i64
-  %308 = getelementptr [14 x i64], ptr %5, i64 0, i64 %307
-  store i64 %304, ptr %308, align 8
-  br label %309
+294:                                              ; preds = %289
+  %295 = load ptr, ptr %3, align 8
+  %296 = getelementptr inbounds nuw %struct.HbaLine, ptr %295, i32 0, i32 35
+  %297 = load ptr, ptr %296, align 8
+  %298 = icmp ne ptr %297, null
+  br i1 %298, label %299, label %310
 
-309:                                              ; preds = %298, %293
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct.HbaLine, ptr %310, i32 0, i32 39
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp ne ptr %312, null
-  br i1 %313, label %314, label %325
+299:                                              ; preds = %294
+  %300 = load ptr, ptr %3, align 8
+  %301 = getelementptr inbounds nuw %struct.HbaLine, ptr %300, i32 0, i32 35
+  %302 = load ptr, ptr %301, align 8
+  %303 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.29, ptr noundef %302)
+  %304 = call ptr @cstring_to_text(ptr noundef %303)
+  %305 = call i64 @PointerGetDatum(ptr noundef %304)
+  %306 = load i32, ptr %4, align 4
+  %307 = add i32 %306, 1
+  store i32 %307, ptr %4, align 4
+  %308 = sext i32 %306 to i64
+  %309 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %308
+  store i64 %305, ptr %309, align 8
+  br label %310
 
-314:                                              ; preds = %309
-  %315 = load ptr, ptr %3, align 8
-  %316 = getelementptr inbounds %struct.HbaLine, ptr %315, i32 0, i32 39
-  %317 = load ptr, ptr %316, align 8
-  %318 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.30, ptr noundef %317)
-  %319 = call ptr @cstring_to_text(ptr noundef %318)
-  %320 = call i64 @PointerGetDatum(ptr noundef %319)
-  %321 = load i32, ptr %4, align 4
-  %322 = add i32 %321, 1
-  store i32 %322, ptr %4, align 4
-  %323 = sext i32 %321 to i64
-  %324 = getelementptr [14 x i64], ptr %5, i64 0, i64 %323
-  store i64 %320, ptr %324, align 8
-  br label %325
+310:                                              ; preds = %299, %294
+  %311 = load ptr, ptr %3, align 8
+  %312 = getelementptr inbounds nuw %struct.HbaLine, ptr %311, i32 0, i32 37
+  %313 = load ptr, ptr %312, align 8
+  %314 = icmp ne ptr %313, null
+  br i1 %314, label %315, label %326
 
-325:                                              ; preds = %314, %309
-  %326 = load ptr, ptr %3, align 8
-  %327 = getelementptr inbounds %struct.HbaLine, ptr %326, i32 0, i32 41
-  %328 = load ptr, ptr %327, align 8
-  %329 = icmp ne ptr %328, null
-  br i1 %329, label %330, label %341
+315:                                              ; preds = %310
+  %316 = load ptr, ptr %3, align 8
+  %317 = getelementptr inbounds nuw %struct.HbaLine, ptr %316, i32 0, i32 37
+  %318 = load ptr, ptr %317, align 8
+  %319 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.30, ptr noundef %318)
+  %320 = call ptr @cstring_to_text(ptr noundef %319)
+  %321 = call i64 @PointerGetDatum(ptr noundef %320)
+  %322 = load i32, ptr %4, align 4
+  %323 = add i32 %322, 1
+  store i32 %323, ptr %4, align 4
+  %324 = sext i32 %322 to i64
+  %325 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %324
+  store i64 %321, ptr %325, align 8
+  br label %326
 
-330:                                              ; preds = %325
-  %331 = load ptr, ptr %3, align 8
-  %332 = getelementptr inbounds %struct.HbaLine, ptr %331, i32 0, i32 41
-  %333 = load ptr, ptr %332, align 8
-  %334 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.31, ptr noundef %333)
-  %335 = call ptr @cstring_to_text(ptr noundef %334)
-  %336 = call i64 @PointerGetDatum(ptr noundef %335)
-  %337 = load i32, ptr %4, align 4
-  %338 = add i32 %337, 1
-  store i32 %338, ptr %4, align 4
-  %339 = sext i32 %337 to i64
-  %340 = getelementptr [14 x i64], ptr %5, i64 0, i64 %339
-  store i64 %336, ptr %340, align 8
-  br label %341
+326:                                              ; preds = %315, %310
+  %327 = load ptr, ptr %3, align 8
+  %328 = getelementptr inbounds nuw %struct.HbaLine, ptr %327, i32 0, i32 39
+  %329 = load ptr, ptr %328, align 8
+  %330 = icmp ne ptr %329, null
+  br i1 %330, label %331, label %342
 
-341:                                              ; preds = %330, %325
+331:                                              ; preds = %326
+  %332 = load ptr, ptr %3, align 8
+  %333 = getelementptr inbounds nuw %struct.HbaLine, ptr %332, i32 0, i32 39
+  %334 = load ptr, ptr %333, align 8
+  %335 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.31, ptr noundef %334)
+  %336 = call ptr @cstring_to_text(ptr noundef %335)
+  %337 = call i64 @PointerGetDatum(ptr noundef %336)
+  %338 = load i32, ptr %4, align 4
+  %339 = add i32 %338, 1
+  store i32 %339, ptr %4, align 4
+  %340 = sext i32 %338 to i64
+  %341 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %340
+  store i64 %337, ptr %341, align 8
   br label %342
 
-342:                                              ; preds = %341, %272
-  %343 = load i32, ptr %4, align 4
-  %344 = icmp sgt i32 %343, 0
-  br i1 %344, label %345, label %349
+342:                                              ; preds = %331, %326
+  %343 = load ptr, ptr %3, align 8
+  %344 = getelementptr inbounds nuw %struct.HbaLine, ptr %343, i32 0, i32 41
+  %345 = load ptr, ptr %344, align 8
+  %346 = icmp ne ptr %345, null
+  br i1 %346, label %347, label %358
 
-345:                                              ; preds = %342
-  %346 = getelementptr inbounds [14 x i64], ptr %5, i64 0, i64 0
-  %347 = load i32, ptr %4, align 4
-  %348 = call ptr @construct_array_builtin(ptr noundef %346, i32 noundef %347, i32 noundef 25)
-  store ptr %348, ptr %2, align 8
-  br label %350
+347:                                              ; preds = %342
+  %348 = load ptr, ptr %3, align 8
+  %349 = getelementptr inbounds nuw %struct.HbaLine, ptr %348, i32 0, i32 41
+  %350 = load ptr, ptr %349, align 8
+  %351 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.32, ptr noundef %350)
+  %352 = call ptr @cstring_to_text(ptr noundef %351)
+  %353 = call i64 @PointerGetDatum(ptr noundef %352)
+  %354 = load i32, ptr %4, align 4
+  %355 = add i32 %354, 1
+  store i32 %355, ptr %4, align 4
+  %356 = sext i32 %354 to i64
+  %357 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 %356
+  store i64 %353, ptr %357, align 8
+  br label %358
 
-349:                                              ; preds = %342
+358:                                              ; preds = %347, %342
+  br label %359
+
+359:                                              ; preds = %358, %289
+  %360 = load i32, ptr %4, align 4
+  %361 = icmp sgt i32 %360, 0
+  br i1 %361, label %362, label %366
+
+362:                                              ; preds = %359
+  %363 = getelementptr inbounds [15 x i64], ptr %5, i64 0, i64 0
+  %364 = load i32, ptr %4, align 4
+  %365 = call ptr @construct_array_builtin(ptr noundef %363, i32 noundef %364, i32 noundef 25)
+  store ptr %365, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %367
+
+366:                                              ; preds = %359
   store ptr null, ptr %2, align 8
-  br label %350
+  store i32 1, ptr %6, align 4
+  br label %367
 
-350:                                              ; preds = %349, %345
-  %351 = load ptr, ptr %2, align 8
-  ret ptr %351
+367:                                              ; preds = %366, %362
+  call void @llvm.lifetime.end.p0(i64 120, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %368 = load ptr, ptr %2, align 8
+  ret ptr %368
 }
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tuplestore_puttuple(ptr noundef, ptr noundef) #1
+declare void @tuplestore_puttuple(ptr noundef, ptr noundef) #2
 
-declare ptr @psprintf(ptr noundef, ...) #1
+declare ptr @psprintf(ptr noundef, ...) #2
 
-declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @parse_ident_line(ptr noundef, i32 noundef) #1
+declare ptr @parse_ident_line(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -1571,6 +1751,10 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 7, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   %19 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 16 %19, i8 0, i64 56, i1 false)
   %20 = getelementptr inbounds [7 x i8], ptr %16, i64 0, i64 0
@@ -1585,7 +1769,7 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %25 = add i32 %24, 1
   store i32 %25, ptr %18, align 4
   %26 = sext i32 %24 to i64
-  %27 = getelementptr [7 x i8], ptr %16, i64 0, i64 %26
+  %27 = getelementptr inbounds [7 x i8], ptr %16, i64 0, i64 %26
   store i8 1, ptr %27, align 1
   br label %35
 
@@ -1596,7 +1780,7 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %32 = add i32 %31, 1
   store i32 %32, ptr %18, align 4
   %33 = sext i32 %31 to i64
-  %34 = getelementptr [7 x i64], ptr %15, i64 0, i64 %33
+  %34 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %33
   store i64 %30, ptr %34, align 8
   br label %35
 
@@ -1608,7 +1792,7 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %40 = add i32 %39, 1
   store i32 %40, ptr %18, align 4
   %41 = sext i32 %39 to i64
-  %42 = getelementptr [7 x i64], ptr %15, i64 0, i64 %41
+  %42 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %41
   store i64 %38, ptr %42, align 8
   %43 = load i32, ptr %12, align 4
   %44 = call i64 @Int32GetDatum(i32 noundef %43)
@@ -1616,7 +1800,7 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %46 = add i32 %45, 1
   store i32 %46, ptr %18, align 4
   %47 = sext i32 %45 to i64
-  %48 = getelementptr [7 x i64], ptr %15, i64 0, i64 %47
+  %48 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %47
   store i64 %44, ptr %48, align 8
   %49 = load ptr, ptr %13, align 8
   %50 = icmp ne ptr %49, null
@@ -1624,7 +1808,7 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
 
 51:                                               ; preds = %35
   %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds %struct.IdentLine, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.IdentLine, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = call ptr @cstring_to_text(ptr noundef %54)
   %56 = call i64 @PointerGetDatum(ptr noundef %55)
@@ -1632,12 +1816,12 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %58 = add i32 %57, 1
   store i32 %58, ptr %18, align 4
   %59 = sext i32 %57 to i64
-  %60 = getelementptr [7 x i64], ptr %15, i64 0, i64 %59
+  %60 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %59
   store i64 %56, ptr %60, align 8
   %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds %struct.IdentLine, ptr %61, i32 0, i32 2
+  %62 = getelementptr inbounds nuw %struct.IdentLine, ptr %61, i32 0, i32 2
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.AuthToken, ptr %63, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.AuthToken, ptr %63, i32 0, i32 0
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @cstring_to_text(ptr noundef %65)
   %67 = call i64 @PointerGetDatum(ptr noundef %66)
@@ -1645,12 +1829,12 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %69 = add i32 %68, 1
   store i32 %69, ptr %18, align 4
   %70 = sext i32 %68 to i64
-  %71 = getelementptr [7 x i64], ptr %15, i64 0, i64 %70
+  %71 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %70
   store i64 %67, ptr %71, align 8
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct.IdentLine, ptr %72, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct.IdentLine, ptr %72, i32 0, i32 3
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.AuthToken, ptr %74, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.AuthToken, ptr %74, i32 0, i32 0
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr @cstring_to_text(ptr noundef %76)
   %78 = call i64 @PointerGetDatum(ptr noundef %77)
@@ -1658,12 +1842,12 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %80 = add i32 %79, 1
   store i32 %80, ptr %18, align 4
   %81 = sext i32 %79 to i64
-  %82 = getelementptr [7 x i64], ptr %15, i64 0, i64 %81
+  %82 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 %81
   store i64 %78, ptr %82, align 8
   br label %85
 
 83:                                               ; preds = %35
-  %84 = getelementptr [7 x i8], ptr %16, i64 0, i64 3
+  %84 = getelementptr inbounds [7 x i8], ptr %16, i64 0, i64 3
   call void @llvm.memset.p0.i64(ptr align 1 %84, i8 1, i64 3, i1 false)
   br label %85
 
@@ -1676,12 +1860,12 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %89 = load ptr, ptr %14, align 8
   %90 = call ptr @cstring_to_text(ptr noundef %89)
   %91 = call i64 @PointerGetDatum(ptr noundef %90)
-  %92 = getelementptr [7 x i64], ptr %15, i64 0, i64 6
+  %92 = getelementptr inbounds [7 x i64], ptr %15, i64 0, i64 6
   store i64 %91, ptr %92, align 16
   br label %95
 
 93:                                               ; preds = %85
-  %94 = getelementptr [7 x i8], ptr %16, i64 0, i64 6
+  %94 = getelementptr inbounds [7 x i8], ptr %16, i64 0, i64 6
   store i8 1, ptr %94, align 1
   br label %95
 
@@ -1694,22 +1878,30 @@ define internal void @fill_ident_line(ptr noundef %0, ptr noundef %1, i32 nounde
   %100 = load ptr, ptr %8, align 8
   %101 = load ptr, ptr %17, align 8
   call void @tuplestore_puttuple(ptr noundef %100, ptr noundef %101)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 7, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 56, ptr %15) #5
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}

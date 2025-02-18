@@ -17,12 +17,12 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
   br i1 %.not20, label %10, label %5
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr i8, ptr %.113, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.113, i64 1
   %7 = load i8, ptr %.113, align 1
-  %8 = getelementptr i8, ptr %.115, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.115, i64 1
   store i8 %7, ptr %.115, align 1
   %9 = icmp eq i8 %7, 0
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !4
 
 10:                                               ; preds = %.preheader
   store i8 0, ptr %.115, align 1
@@ -34,10 +34,10 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
 
 .thread26:                                        ; preds = %.thread26.preheader, %.thread26
   %.3 = phi ptr [ %11, %.thread26 ], [ %.3.ph, %.thread26.preheader ]
-  %11 = getelementptr i8, ptr %.3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %12 = load i8, ptr %.3, align 1
   %.not21 = icmp eq i8 %12, 0
-  br i1 %.not21, label %.loopexit, label %.thread26, !llvm.loop !7
+  br i1 %.not21, label %.loopexit, label %.thread26, !llvm.loop !6
 
 .loopexit:                                        ; preds = %5, %.thread26
   %.2 = phi ptr [ %11, %.thread26 ], [ %6, %5 ]
@@ -48,15 +48,14 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
   ret i64 %16
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

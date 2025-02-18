@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %3 = load i32, ptr @cachedFetchXid, align 4
   %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
@@ -31,7 +31,7 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
 9:                                                ; preds = %7
   %.off.i = add nsw i32 %0, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   br i1 %switch.i, label %TransactionLogFetch.exit.thread12, label %TransactionLogFetch.exit.thread
 
 10:                                               ; preds = %7
@@ -50,7 +50,7 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
 
 TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
   %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
     i32 1, label %TransactionLogFetch.exit.thread12
     i32 3, label %14
@@ -93,13 +93,16 @@ TransactionIdPrecedes.exit:                       ; preds = %14
 TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogFetch.exit
   br label %TransactionLogFetch.exit.thread12
 
-TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %26, %24, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread, %28
-  %.0 = phi i1 [ %29, %28 ], [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ false, %TransactionIdPrecedes.exit ], [ false, %24 ], [ false, %26 ], [ false, %18 ], [ true, %9 ]
+TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %28, %TransactionIdPrecedes.exit, %26, %24, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread
+  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ %29, %28 ], [ false, %TransactionIdPrecedes.exit ], [ false, %26 ], [ false, %24 ], [ false, %18 ], [ true, %9 ]
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ugt i32 %0, 2
   %4 = icmp ugt i32 %1, 2
   %or.cond = and i1 %3, %4
@@ -119,18 +122,21 @@ define dso_local noundef zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 n
   ret i1 %.0
 }
 
-declare i32 @SubTransGetParent(i32 noundef) local_unnamed_addr #2
+declare i32 @SubTransGetParent(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %3 = load i32, ptr @cachedFetchXid, align 4
   %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
@@ -146,7 +152,7 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
 9:                                                ; preds = %7
   %.off.i = add nsw i32 %0, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   br i1 %switch.i, label %TransactionLogFetch.exit.thread, label %TransactionLogFetch.exit.thread12
 
 10:                                               ; preds = %7
@@ -165,7 +171,7 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
 
 TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
   %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
     i32 2, label %TransactionLogFetch.exit.thread12
     i32 3, label %14
@@ -208,8 +214,8 @@ TransactionIdPrecedes.exit:                       ; preds = %14
 TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogFetch.exit
   br label %TransactionLogFetch.exit.thread12
 
-TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %26, %24, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread, %28
-  %.0 = phi i1 [ %29, %28 ], [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ true, %TransactionIdPrecedes.exit ], [ true, %24 ], [ true, %26 ], [ true, %18 ], [ true, %9 ]
+TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %28, %TransactionIdPrecedes.exit, %26, %24, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread
+  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ %29, %28 ], [ true, %TransactionIdPrecedes.exit ], [ true, %26 ], [ true, %24 ], [ true, %18 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -219,7 +225,7 @@ define dso_local void @TransactionIdCommitTree(i32 noundef %0, i32 noundef %1, p
   ret void
 }
 
-declare void @TransactionIdSetTreeStatus(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @TransactionIdSetTreeStatus(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @TransactionIdAsyncCommitTree(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -234,7 +240,7 @@ define dso_local void @TransactionIdAbortTree(i32 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ugt i32 %0, 2
   %4 = icmp ugt i32 %1, 2
   %or.cond = and i1 %3, %4
@@ -255,7 +261,7 @@ define dso_local noundef zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @TransactionIdFollows(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @TransactionIdFollows(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ugt i32 %0, 2
   %4 = icmp ugt i32 %1, 2
   %or.cond = and i1 %3, %4
@@ -276,7 +282,7 @@ define dso_local noundef zeroext i1 @TransactionIdFollows(i32 noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ugt i32 %0, 2
   %4 = icmp ugt i32 %1, 2
   %or.cond = and i1 %3, %4
@@ -297,7 +303,7 @@ define dso_local noundef zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = add i32 %1, -1
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -309,7 +315,7 @@ define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
   %.09 = phi i32 [ %0, %.lr.ph.preheader ], [ %.1, %16 ]
-  %7 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %.09, 2
   %10 = icmp ugt i32 %8, 2
@@ -332,7 +338,7 @@ TransactionIdPrecedes.exit:                       ; preds = %.lr.ph
   %.1 = phi i32 [ %8, %15 ], [ %.09, %TransactionIdPrecedes.exit ], [ %.09, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %17 = icmp sgt i64 %indvars.iv, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %16, %3
   %.0.lcssa = phi i32 [ %0, %3 ], [ %.1, %16 ]
@@ -342,6 +348,7 @@ TransactionIdPrecedes.exit:                       ; preds = %.lr.ph
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @TransactionIdGetCommitLSN(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %3 = load i32, ptr @cachedFetchXid, align 4
   %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
@@ -361,30 +368,24 @@ define dso_local i64 @TransactionIdGetCommitLSN(i32 noundef %0) local_unnamed_ad
 
 12:                                               ; preds = %7, %9, %5
   %.0 = phi i64 [ %6, %5 ], [ %11, %9 ], [ 0, %7 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret i64 %.0
 }
 
-declare i32 @TransactionIdGetStatus(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @TransactionIdGetStatus(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.validate_compress_specification.1 = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @parse_compress_algorithm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @parse_compress_algorithm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str) #8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.sink.split, label %5
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @parse_compress_algorithm(ptr noundef readon
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @get_compress_algorithm_name(i32 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @get_compress_algorithm_name(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp ult i32 %0, 4
   br i1 %2, label %switch.lookup, label %4
 
@@ -83,10 +83,11 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
+define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store i32 %0, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %7, align 4
@@ -121,7 +122,7 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
 
 17:                                               ; preds = %15, %13, %11, %9, %3
   %18 = icmp eq ptr %1, null
-  br i1 %18, label %.loopexit, label %19
+  br i1 %18, label %.thread125, label %19
 
 19:                                               ; preds = %17
   %20 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 10) #9
@@ -138,7 +139,7 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %21, ptr %27, align 8
-  br label %.loopexit
+  br label %.thread125
 
 28:                                               ; preds = %23, %19
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -147,12 +148,12 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   br label %32
 
 32:                                               ; preds = %135, %28
-  %.073 = phi ptr [ %1, %28 ], [ %136, %135 ]
+  %.074 = phi ptr [ %1, %28 ], [ %136, %135 ]
   br label %33
 
 33:                                               ; preds = %35, %32
-  %.076 = phi ptr [ %.073, %32 ], [ %36, %35 ]
-  %34 = load i8, ptr %.076, align 1
+  %.081 = phi ptr [ %.074, %32 ], [ %36, %35 ]
+  %34 = load i8, ptr %.081, align 1
   switch i8 %34, label %35 [
     i8 0, label %.critedge
     i8 44, label %.critedge
@@ -160,43 +161,43 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   ]
 
 35:                                               ; preds = %33
-  %36 = getelementptr i8, ptr %.076, i64 1
-  br label %33, !llvm.loop !5
+  %36 = getelementptr inbounds nuw i8, ptr %.081, i64 1
+  br label %33, !llvm.loop !3
 
 .critedge:                                        ; preds = %33, %33, %33
-  %37 = ptrtoint ptr %.076 to i64
-  %38 = ptrtoint ptr %.073 to i64
+  %37 = ptrtoint ptr %.081 to i64
+  %38 = ptrtoint ptr %.074 to i64
   %39 = sub i64 %37, %38
-  %.not87 = icmp eq i8 %34, 61
-  br i1 %.not87, label %40, label %50
+  %.not90 = icmp eq i8 %34, 61
+  br i1 %.not90, label %40, label %50
 
 40:                                               ; preds = %.critedge
-  %41 = getelementptr i8, ptr %.076, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.081, i64 1
   br label %42
 
 42:                                               ; preds = %44, %40
-  %.1 = phi ptr [ %41, %40 ], [ %45, %44 ]
-  %43 = load i8, ptr %.1, align 1
+  %.179 = phi ptr [ %41, %40 ], [ %45, %44 ]
+  %43 = load i8, ptr %.179, align 1
   switch i8 %43, label %44 [
     i8 0, label %.critedge2
     i8 44, label %.critedge2
   ]
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %.1, i64 1
-  br label %42, !llvm.loop !7
+  %45 = getelementptr inbounds nuw i8, ptr %.179, i64 1
+  br label %42, !llvm.loop !5
 
 .critedge2:                                       ; preds = %42, %42
-  %46 = ptrtoint ptr %.1 to i64
+  %46 = ptrtoint ptr %.179 to i64
   %47 = ptrtoint ptr %41 to i64
   %48 = sub i64 %46, %47
   %49 = trunc i64 %48 to i32
   br label %50
 
 50:                                               ; preds = %.critedge, %.critedge2
-  %.078 = phi ptr [ %41, %.critedge2 ], [ null, %.critedge ]
-  %.077 = phi ptr [ %.1, %.critedge2 ], [ null, %.critedge ]
-  %.075 = phi i32 [ %49, %.critedge2 ], [ 0, %.critedge ]
+  %.080 = phi ptr [ %41, %.critedge2 ], [ null, %.critedge ]
+  %.078 = phi ptr [ %.179, %.critedge2 ], [ null, %.critedge ]
+  %.076 = phi i32 [ %49, %.critedge2 ], [ 0, %.critedge ]
   %51 = and i64 %39, 4294967295
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %55
@@ -204,7 +205,7 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
 53:                                               ; preds = %50
   %54 = tail call ptr @pstrdup(ptr noundef nonnull @.str.8) #9
   store ptr %54, ptr %8, align 8
-  br label %.loopexit
+  br label %.thread125
 
 55:                                               ; preds = %50
   %56 = shl i64 %39, 32
@@ -212,18 +213,18 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   %57 = ashr exact i64 %sext, 32
   %58 = tail call ptr @palloc(i64 noundef %57) #9
   %59 = ashr exact i64 %56, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %.073, i64 %59, i1 false)
-  %60 = getelementptr i8, ptr %58, i64 %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 1 %.074, i64 %59, i1 false)
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
   store i8 0, ptr %60, align 1
-  br i1 %.not87, label %61, label %.thread
+  br i1 %.not90, label %61, label %.thread
 
 61:                                               ; preds = %55
-  %62 = add i32 %.075, 1
+  %62 = add i32 %.076, 1
   %63 = sext i32 %62 to i64
   %64 = tail call ptr @palloc(i64 noundef %63) #9
-  %65 = sext i32 %.075 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.078, i64 %65, i1 false)
-  %66 = getelementptr i8, ptr %64, i64 %65
+  %65 = sext i32 %.076 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.080, i64 %65, i1 false)
+  %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store i8 0, ptr %66, align 1
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.9) #8
   %68 = icmp eq i32 %67, 0
@@ -232,14 +233,14 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
 .thread:                                          ; preds = %55
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.9) #8
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.thread103, label %.thread107
+  br i1 %70, label %.thread106, label %.thread110
 
-.thread103:                                       ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+.thread106:                                       ; preds = %.thread
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   br label %.sink.split.i
 
 71:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %72 = call i64 @strtol(ptr noundef nonnull %64, ptr noundef nonnull %5, i32 noundef 10) #9
   %73 = load ptr, ptr %5, align 8
   %74 = icmp eq ptr %73, %64
@@ -251,17 +252,17 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   %.not.i = icmp eq i8 %77, 0
   br i1 %.not.i, label %expect_integer_value.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread103, %75, %71
-  %.0102106 = phi ptr [ %64, %75 ], [ %64, %71 ], [ null, %.thread103 ]
-  %.str.18.sink.i = phi ptr [ @.str.18, %75 ], [ @.str.18, %71 ], [ @.str.17, %.thread103 ]
+.sink.split.i:                                    ; preds = %.thread106, %75, %71
+  %.0105109 = phi ptr [ %64, %75 ], [ %64, %71 ], [ null, %.thread106 ]
+  %.str.18.sink.i = phi ptr [ @.str.18, %75 ], [ @.str.18, %71 ], [ @.str.17, %.thread106 ]
   %78 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.18.sink.i, ptr noundef nonnull %58) #9
   store ptr %78, ptr %8, align 8
   br label %expect_integer_value.exit
 
 expect_integer_value.exit:                        ; preds = %75, %.sink.split.i
-  %.0102105 = phi ptr [ %64, %75 ], [ %.0102106, %.sink.split.i ]
+  %.0105108 = phi ptr [ %64, %75 ], [ %.0105109, %.sink.split.i ]
   %.0.i = phi i32 [ %76, %75 ], [ -1, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   store i32 %.0.i, ptr %31, align 8
   br label %123
 
@@ -270,40 +271,40 @@ expect_integer_value.exit:                        ; preds = %75, %.sink.split.i
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %84, label %94
 
-.thread107:                                       ; preds = %.thread
+.thread110:                                       ; preds = %.thread
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(8) @.str.10) #8
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.thread111, label %.thread115
+  br i1 %83, label %.thread114, label %.thread118
 
-.thread111:                                       ; preds = %.thread107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  br label %.sink.split.i94
+.thread114:                                       ; preds = %.thread110
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  br label %.sink.split.i97
 
 84:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %85 = call i64 @strtol(ptr noundef nonnull %64, ptr noundef nonnull %4, i32 noundef 10) #9
   %86 = load ptr, ptr %4, align 8
   %87 = icmp eq ptr %86, %64
-  br i1 %87, label %.sink.split.i94, label %88
+  br i1 %87, label %.sink.split.i97, label %88
 
 88:                                               ; preds = %84
   %89 = trunc i64 %85 to i32
   %90 = load i8, ptr %86, align 1
-  %.not.i93 = icmp eq i8 %90, 0
-  br i1 %.not.i93, label %expect_integer_value.exit97, label %.sink.split.i94
+  %.not.i96 = icmp eq i8 %90, 0
+  br i1 %.not.i96, label %expect_integer_value.exit100, label %.sink.split.i97
 
-.sink.split.i94:                                  ; preds = %.thread111, %88, %84
-  %.0101109114 = phi ptr [ %64, %88 ], [ %64, %84 ], [ null, %.thread111 ]
-  %.str.18.sink.i95 = phi ptr [ @.str.18, %88 ], [ @.str.18, %84 ], [ @.str.17, %.thread111 ]
-  %91 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.18.sink.i95, ptr noundef nonnull %58) #9
+.sink.split.i97:                                  ; preds = %.thread114, %88, %84
+  %.0104112117 = phi ptr [ %64, %88 ], [ %64, %84 ], [ null, %.thread114 ]
+  %.str.18.sink.i98 = phi ptr [ @.str.18, %88 ], [ @.str.18, %84 ], [ @.str.17, %.thread114 ]
+  %91 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.18.sink.i98, ptr noundef nonnull %58) #9
   store ptr %91, ptr %8, align 8
-  br label %expect_integer_value.exit97
+  br label %expect_integer_value.exit100
 
-expect_integer_value.exit97:                      ; preds = %88, %.sink.split.i94
-  %.0101109113 = phi ptr [ %64, %88 ], [ %.0101109114, %.sink.split.i94 ]
-  %.0.i96 = phi i32 [ %89, %88 ], [ -1, %.sink.split.i94 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store i32 %.0.i96, ptr %30, align 4
+expect_integer_value.exit100:                     ; preds = %88, %.sink.split.i97
+  %.0104112116 = phi ptr [ %64, %88 ], [ %.0104112117, %.sink.split.i97 ]
+  %.0.i99 = phi i32 [ %89, %88 ], [ -1, %.sink.split.i97 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  store i32 %.0.i99, ptr %30, align 4
   %92 = load i32, ptr %7, align 4
   %93 = or i32 %92, 1
   store i32 %93, ptr %7, align 4
@@ -314,7 +315,7 @@ expect_integer_value.exit97:                      ; preds = %88, %.sink.split.i9
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %99, label %121
 
-.thread115:                                       ; preds = %.thread107
+.thread118:                                       ; preds = %.thread110
   %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(5) @.str.11) #8
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %expect_boolean_value.exit, label %121
@@ -354,75 +355,82 @@ expect_integer_value.exit97:                      ; preds = %88, %.sink.split.i9
   store ptr %118, ptr %8, align 8
   br label %expect_boolean_value.exit
 
-expect_boolean_value.exit:                        ; preds = %.thread115, %99, %102, %105, %108, %111, %114, %117
-  %.0101110118121 = phi ptr [ %64, %117 ], [ %64, %99 ], [ %64, %102 ], [ %64, %105 ], [ %64, %108 ], [ %64, %111 ], [ %64, %114 ], [ null, %.thread115 ]
-  %.0.i98 = phi i8 [ 0, %117 ], [ 1, %99 ], [ 1, %102 ], [ 1, %105 ], [ 0, %108 ], [ 0, %111 ], [ 0, %114 ], [ 1, %.thread115 ]
-  store i8 %.0.i98, ptr %29, align 8
+expect_boolean_value.exit:                        ; preds = %.thread118, %99, %102, %105, %108, %111, %114, %117
+  %.0104113121124 = phi ptr [ %64, %117 ], [ %64, %99 ], [ %64, %102 ], [ %64, %105 ], [ %64, %108 ], [ %64, %111 ], [ %64, %114 ], [ null, %.thread118 ]
+  %.0.i101 = phi i8 [ 0, %117 ], [ 1, %99 ], [ 1, %102 ], [ 1, %105 ], [ 0, %108 ], [ 0, %111 ], [ 0, %114 ], [ 1, %.thread118 ]
+  store i8 %.0.i101, ptr %29, align 8
   %119 = load i32, ptr %7, align 4
   %120 = or i32 %119, 2
   store i32 %120, ptr %7, align 4
   br label %123
 
-121:                                              ; preds = %.thread115, %94
-  %.0101110117 = phi ptr [ null, %.thread115 ], [ %64, %94 ]
+121:                                              ; preds = %.thread118, %94
+  %.0104113120 = phi ptr [ null, %.thread118 ], [ %64, %94 ]
   %122 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %58) #9
   store ptr %122, ptr %8, align 8
   br label %123
 
-123:                                              ; preds = %expect_integer_value.exit97, %121, %expect_boolean_value.exit, %expect_integer_value.exit
-  %.0100 = phi ptr [ %.0101109113, %expect_integer_value.exit97 ], [ %.0101110117, %121 ], [ %.0101110118121, %expect_boolean_value.exit ], [ %.0102105, %expect_integer_value.exit ]
+123:                                              ; preds = %expect_integer_value.exit100, %121, %expect_boolean_value.exit, %expect_integer_value.exit
+  %.0103 = phi ptr [ %.0104112116, %expect_integer_value.exit100 ], [ %.0104113120, %121 ], [ %.0104113121124, %expect_boolean_value.exit ], [ %.0105108, %expect_integer_value.exit ]
   tail call void @pfree(ptr noundef nonnull %58) #9
-  %.not91 = icmp eq ptr %.0100, null
-  br i1 %.not91, label %125, label %124
+  %.not94 = icmp eq ptr %.0103, null
+  br i1 %.not94, label %125, label %124
 
 124:                                              ; preds = %123
-  tail call void @pfree(ptr noundef nonnull %.0100) #9
+  tail call void @pfree(ptr noundef nonnull %.0103) #9
   br label %125
 
 125:                                              ; preds = %124, %123
   %126 = load ptr, ptr %8, align 8
-  %.not92 = icmp eq ptr %126, null
-  br i1 %.not92, label %127, label %.loopexit
+  %.not95 = icmp eq ptr %126, null
+  br i1 %.not95, label %127, label %.thread125
 
 127:                                              ; preds = %125
-  %128 = icmp eq ptr %.077, null
+  %128 = icmp eq ptr %.078, null
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %127
-  %130 = load i8, ptr %.076, align 1
+  %130 = load i8, ptr %.081, align 1
   %131 = icmp eq i8 %130, 0
-  br i1 %131, label %.loopexit, label %135
+  br i1 %131, label %.thread125, label %135
 
 132:                                              ; preds = %127
-  %133 = load i8, ptr %.077, align 1
+  %133 = load i8, ptr %.078, align 1
   %134 = icmp eq i8 %133, 0
-  br i1 %134, label %.loopexit, label %135
+  br i1 %134, label %.thread125, label %135
 
-135:                                              ; preds = %132, %129
-  %.v = phi ptr [ %.077, %132 ], [ %.076, %129 ]
-  %136 = getelementptr i8, ptr %.v, i64 1
+135:                                              ; preds = %129, %132
+  %.v = phi ptr [ %.078, %132 ], [ %.081, %129 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.v, i64 1
   br label %32
 
-.loopexit:                                        ; preds = %125, %129, %132, %17, %53, %26
+.thread125:                                       ; preds = %125, %129, %132, %53, %17, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   ret void
 }
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #5
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare void @pfree(ptr noundef) local_unnamed_addr #4
+declare void @pfree(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @validate_compress_specification(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @validate_compress_specification(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -536,8 +544,9 @@ get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_compress_options(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
+define void @parse_compress_options(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 10) #9
   %6 = load ptr, ptr %4, align 8
   %7 = load i8, ptr %6, align 1
@@ -576,48 +585,41 @@ define dso_local void @parse_compress_options(ptr noundef %0, ptr noundef writeo
   %25 = add i64 %24, 1
   %26 = tail call ptr @palloc(i64 noundef %25) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %0, i64 %24, i1 false)
-  %27 = getelementptr i8, ptr %26, i64 %24
+  %27 = getelementptr inbounds i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1
   store ptr %26, ptr %1, align 8
-  %28 = getelementptr i8, ptr %17, i64 1
-  %29 = tail call ptr @pstrdup(ptr noundef %28) #9
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %28) #9
   br label %30
 
-30:                                               ; preds = %11, %13, %21, %19
-  %.sink = phi ptr [ null, %11 ], [ %15, %13 ], [ %29, %21 ], [ null, %19 ]
-  store ptr %.sink, ptr %2, align 8
+30:                                               ; preds = %19, %21, %11, %13
+  %storemerge25 = phi ptr [ %15, %13 ], [ null, %11 ], [ %29, %21 ], [ null, %19 ]
+  store ptr %storemerge25, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}

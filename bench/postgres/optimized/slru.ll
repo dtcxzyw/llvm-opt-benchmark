@@ -3,7 +3,8 @@ source_filename = "bench/postgres/original/slru.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CheckpointStatsData = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64 }
+%struct.CheckpointStatsData = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64 }
+%struct.PgStat_CheckpointerStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
 %struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
 %struct.pg_atomic_uint32 = type { i32 }
@@ -14,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @NBuffers = external local_unnamed_addr global i32, align 4
 @IsUnderPostmaster = external local_unnamed_addr global i8, align 1
-@.str = private unnamed_addr constant [30 x i8] c"\22%s\22 must be a multiple of %d\00", align 1
+@.str = private unnamed_addr constant [31 x i8] c"\22%s\22 must be a multiple of %d.\00", align 1
 @GUC_check_errdetail_string = external local_unnamed_addr global ptr, align 8
 @slru_errcause = internal unnamed_addr global i32 0, align 4
 @slru_errno = internal unnamed_addr global i32 0, align 4
@@ -25,6 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [45 x i8] c"SlruScanDirectory invoking callback on %s/%s\00", align 1
 @__func__.SlruScanDirectory = private unnamed_addr constant [18 x i8] c"SlruScanDirectory\00", align 1
 @CheckpointStats = external local_unnamed_addr global %struct.CheckpointStatsData, align 8
+@PendingCheckpointerStats = external local_unnamed_addr global %struct.PgStat_CheckpointerStats, align 8
 @CritSectionCount = external global i32, align 4
 @.str.5 = private unnamed_addr constant [11 x i8] c"%s/%015llX\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"%s/%04X\00", align 1
@@ -79,8 +81,14 @@ define dso_local i64 @SimpleLruShmemSize(i32 noundef %0, i32 noundef %1) local_u
   ret i64 %29
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @SimpleLruAutotuneBuffers(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @SimpleLruAutotuneBuffers(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = srem i32 %1, 16
   %4 = sub nsw i32 %1, %3
   %5 = load i32, ptr @NBuffers, align 4
@@ -93,8 +101,9 @@ define dso_local i32 @SimpleLruAutotuneBuffers(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #2 {
+define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #3 {
   %10 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #15
   %11 = sdiv i32 %2, 16
   %12 = sext i32 %2 to i64
   %13 = shl nsw i64 %12, 3
@@ -125,8 +134,8 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %36 = sext i32 %35 to i64
   %37 = add i64 %34, %36
   %38 = call ptr @ShmemInitStruct(ptr noundef %1, i64 noundef %37, ptr noundef nonnull %10) #15
-  %39 = load i8, ptr @IsUnderPostmaster, align 1
-  %40 = trunc i8 %39 to i1
+  %39 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
+  %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %9
@@ -139,26 +148,26 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %44 = call i32 @pgstat_get_slru_index(ptr noundef %1) #15
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 96
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr i8, ptr %38, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %46, ptr %47, align 8
   %48 = add nsw i64 %13, 104
-  %49 = getelementptr i8, ptr %38, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %49, ptr %50, align 8
   %51 = shl nsw i64 %12, 2
   %52 = add nsw i64 %51, 7
   %53 = and i64 %52, -8
   %54 = add nsw i64 %53, %48
-  %55 = getelementptr i8, ptr %38, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %38, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %55, ptr %56, align 8
   %57 = add nsw i64 %54, %15
-  %58 = getelementptr i8, ptr %38, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %38, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %58, ptr %59, align 8
   %60 = add nsw i64 %57, %13
-  %61 = getelementptr i8, ptr %38, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %61, ptr %62, align 8
   %63 = add i64 %60, %53
@@ -170,14 +179,14 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %67, ptr %68, align 8
   %69 = add i64 %63, %18
-  %70 = getelementptr i8, ptr %38, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %38, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr %70, ptr %71, align 8
   %72 = add i64 %69, %21
   br i1 %22, label %73, label %77
 
 73:                                               ; preds = %41
-  %74 = getelementptr i8, ptr %38, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %38, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %38, i64 72
   store ptr %74, ptr %75, align 8
   %76 = add i64 %72, %25
@@ -191,7 +200,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 .lr.ph.preheader:                                 ; preds = %77
   %79 = add i64 %.096, 31
   %80 = and i64 %79, -32
-  %81 = getelementptr i8, ptr %38, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %38, i64 %80
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
@@ -207,36 +216,36 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09799 = phi ptr [ %81, %.lr.ph.preheader ], [ %93, %.lr.ph ]
   %83 = load ptr, ptr %65, align 8
-  %84 = getelementptr %union.LWLockPadded, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %union.LWLockPadded, ptr %83, i64 %indvars.iv
   call void @LWLockInitialize(ptr noundef %84, i32 noundef %5) #15
   %85 = load ptr, ptr %47, align 8
-  %86 = getelementptr ptr, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv
   store ptr %.09799, ptr %86, align 8
   %87 = load ptr, ptr %50, align 8
-  %88 = getelementptr i32, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
   store i32 0, ptr %88, align 4
   %89 = load ptr, ptr %56, align 8
-  %90 = getelementptr i8, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv
   store i8 0, ptr %90, align 1
   %91 = load ptr, ptr %62, align 8
-  %92 = getelementptr i32, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
   store i32 0, ptr %92, align 4
-  %93 = getelementptr i8, ptr %.09799, i64 8192
+  %93 = getelementptr inbounds nuw i8, ptr %.09799, i64 8192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %indvars.iv104 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next105, %.lr.ph102 ]
   %94 = load ptr, ptr %68, align 8
-  %95 = getelementptr %union.LWLockPadded, ptr %94, i64 %indvars.iv104
+  %95 = getelementptr inbounds nuw %union.LWLockPadded, ptr %94, i64 %indvars.iv104
   call void @LWLockInitialize(ptr noundef %95, i32 noundef %6) #15
   %96 = load ptr, ptr %71, align 8
-  %97 = getelementptr i32, ptr %96, i64 %indvars.iv104
+  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv104
   store i32 0, ptr %97, align 4
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !7
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph102, %77, %.preheader, %9
   %98 = zext i1 %8 to i8
@@ -246,28 +255,28 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %98, ptr %100, align 2
   %101 = trunc i32 %11 to i16
-  %102 = add i16 %101, -1
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %105 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #15
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 %101, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %104 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #15
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @pgstat_get_slru_index(ptr noundef) local_unnamed_addr #3
+declare i32 @pgstat_get_slru_index(ptr noundef) local_unnamed_addr #4
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_slru_buffers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @check_slru_buffers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 0
@@ -285,39 +294,39 @@ define dso_local noundef zeroext i1 @check_slru_buffers(ptr noundef %0, ptr noun
   ret i1 %5
 }
 
-declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #7
 
-declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SimpleLruZeroPage(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @SimpleLruZeroPage(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
-  %8 = getelementptr i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds i64, ptr %6, i64 %7
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds i32, ptr %10, i64 %7
   store i32 2, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i8, ptr %13, i64 %7
+  %14 = getelementptr inbounds i8, ptr %13, i64 %7
   store i8 1, ptr %14, align 1
   %15 = ashr i32 %4, 4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %15 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr i32, ptr %22, i64 %7
+  %23 = getelementptr inbounds i32, ptr %22, i64 %7
   %24 = load i32, ptr %23, align 4
   %.not.i = icmp eq i32 %20, %24
   br i1 %.not.i, label %SlruRecentlyUsed.exit, label %25
@@ -326,14 +335,14 @@ define dso_local i32 @SimpleLruZeroPage(ptr noundef %0, i64 noundef %1) local_un
   %26 = add i32 %20, 1
   store i32 %26, ptr %19, align 4
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr i32, ptr %27, i64 %7
+  %28 = getelementptr inbounds i32, ptr %27, i64 %7
   store i32 %26, ptr %28, align 4
   br label %SlruRecentlyUsed.exit
 
 SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %7
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %7
   %32 = load ptr, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %32, i8 0, i64 8192, i1 false)
   %.val = load ptr, ptr %0, align 8
@@ -345,53 +354,48 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
 36:                                               ; preds = %SlruRecentlyUsed.exit
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = mul i32 %34, %4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr i64, ptr %38, i64 %41
-  %43 = zext nneg i32 %34 to i64
-  %44 = shl nuw nsw i64 %43, 3
-  %45 = ptrtoint ptr %42 to i64
-  %46 = and i64 %45, 7
-  %47 = icmp eq i64 %46, 0
-  %48 = icmp samesign ult i32 %34, 129
-  %or.cond.i = and i1 %48, %47
-  br i1 %or.cond.i, label %49, label %SimpleLruZeroLSNs.exit.sink.split
+  %39 = mul i32 %34, %4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i64, ptr %38, i64 %40
+  %42 = zext nneg i32 %34 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  %44 = ptrtoint ptr %41 to i64
+  %45 = and i64 %44, 7
+  %46 = icmp eq i64 %45, 0
+  %47 = icmp samesign ult i32 %34, 129
+  %or.cond.i = and i1 %47, %46
+  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit.sink.split
 
-49:                                               ; preds = %36
-  %50 = getelementptr i8, ptr %42, i64 %44
-  %51 = icmp ult ptr %42, %50
-  br i1 %51, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit
-
-.lr.ph.preheader.i:                               ; preds = %49
-  %52 = shl nsw i64 %41, 3
-  %53 = add i64 %52, %39
-  %54 = add i64 %53, %44
-  %55 = add i64 %53, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %54, i64 %55)
-  %56 = xor i64 %39, -1
-  %57 = sub i64 %56, %52
-  %58 = add i64 %57, %umax.i
-  %59 = and i64 %58, -8
-  %60 = add i64 %59, 8
+.lr.ph.preheader.i:                               ; preds = %36
+  %48 = ptrtoint ptr %38 to i64
+  %49 = shl nsw i64 %40, 3
+  %50 = add i64 %49, %48
+  %51 = add i64 %50, %43
+  %52 = add i64 %50, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %51, i64 %52)
+  %53 = xor i64 %48, -1
+  %54 = sub i64 %53, %49
+  %55 = add i64 %54, %umax.i
+  %56 = and i64 %55, -8
+  %57 = add i64 %56, 8
   br label %SimpleLruZeroLSNs.exit.sink.split
 
 SimpleLruZeroLSNs.exit.sink.split:                ; preds = %36, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %60, %.lr.ph.preheader.i ], [ %44, %36 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %.sink, i1 false)
+  %.sink = phi i64 [ %57, %.lr.ph.preheader.i ], [ %43, %36 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %.sink, i1 false)
   br label %SimpleLruZeroLSNs.exit
 
-SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruRecentlyUsed.exit, %49
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store volatile i64 %1, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %63 = load i32, ptr %62, align 8
-  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %63) #15
+SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruRecentlyUsed.exit
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store volatile i64 %1, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %60 = load i32, ptr %59, align 8
+  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %60) #15
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -401,258 +405,252 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br label %.backedge
+  br label %12
 
-.backedge:                                        ; preds = %.backedge.backedge, %2
-  %12 = load i16, ptr %4, align 8
-  %13 = zext i16 %12 to i64
-  %14 = and i64 %1, %13
-  %15 = shl nuw nsw i64 %14, 4
-  %16 = load i32, ptr %3, align 8
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge
+12:                                               ; preds = %.backedge, %2
+  %13 = load i16, ptr %4, align 8
+  %14 = zext i16 %13 to i64
+  %15 = srem i64 %1, %14
+  %16 = trunc nsw i64 %15 to i32
+  %17 = shl nsw i32 %16, 4
+  %18 = add nsw i32 %17, 16
+  %19 = load ptr, ptr %5, align 8
+  %20 = sext i32 %17 to i64
+  %21 = sext i32 %18 to i64
+  br label %22
 
-.lr.ph:                                           ; preds = %.backedge
-  %18 = load ptr, ptr %5, align 8
-  %wide.trip.count = zext nneg i32 %16 to i64
-  br label %19
+22:                                               ; preds = %12, %30
+  %indvars.iv = phi i64 [ %20, %12 ], [ %indvars.iv.next, %30 ]
+  %23 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %30, label %25
 
-19:                                               ; preds = %.lr.ph, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %20 = getelementptr i32, ptr %18, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %27, label %22
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, %1
+  br i1 %29, label %.thread.loopexit150, label %30
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr i64, ptr %23, i64 %indvars.iv
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, %1
-  br i1 %26, label %.loopexit.loopexit95, label %27
+30:                                               ; preds = %22, %25
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %.not100 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %.not100, label %22, label %31, !llvm.loop !9
 
-27:                                               ; preds = %19, %22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !8
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %7, align 8
+  %33 = shl nsw i64 %15, 2
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  br label %37
 
-._crit_edge:                                      ; preds = %27, %.backedge
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr i32, ptr %28, i64 %14
-  %30 = load i32, ptr %29, align 4
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 4
-  %32 = shl nuw nsw i64 %14, 4
-  %33 = or disjoint i64 %15, 15
-  br label %34
+37:                                               ; preds = %31, %78
+  %indvars.iv155 = phi i64 [ %20, %31 ], [ %indvars.iv.next156, %78 ]
+  %.077148 = phi i32 [ 0, %31 ], [ %.279.ph, %78 ]
+  %.081147 = phi i32 [ -1, %31 ], [ %.283.ph, %78 ]
+  %.085146 = phi i64 [ 0, %31 ], [ %.186.ph, %78 ]
+  %.088145 = phi i64 [ 0, %31 ], [ %.189.ph, %78 ]
+  %.091144 = phi i32 [ -1, %31 ], [ %.192.ph, %78 ]
+  %.094143 = phi i32 [ 0, %31 ], [ %.296.ph, %78 ]
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv155
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.thread.loopexit, label %42
 
-34:                                               ; preds = %._crit_edge, %75
-  %indvars.iv100 = phi i64 [ %32, %._crit_edge ], [ %indvars.iv.next101, %75 ]
-  %.06793 = phi i32 [ 0, %._crit_edge ], [ %.1, %75 ]
-  %.06892 = phi i32 [ -1, %._crit_edge ], [ %.169, %75 ]
-  %.07091 = phi i64 [ 0, %._crit_edge ], [ %.171, %75 ]
-  %.07290 = phi i64 [ 0, %._crit_edge ], [ %.173, %75 ]
-  %.07489 = phi i32 [ -1, %._crit_edge ], [ %.175, %75 ]
-  %.07688 = phi i32 [ 0, %._crit_edge ], [ %.177, %75 ]
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr i32, ptr %35, i64 %indvars.iv100
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.loopexit.loopexit, label %39
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv155
+  %45 = load i32, ptr %44, align 4
+  %46 = sub i32 %35, %45
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %49
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr i32, ptr %40, i64 %indvars.iv100
-  %42 = load i32, ptr %41, align 4
-  %43 = sub i32 %30, %42
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %46
+48:                                               ; preds = %42
+  store i32 %35, ptr %44, align 4
+  br label %49
 
-45:                                               ; preds = %39
-  store i32 %30, ptr %41, align 4
-  br label %46
+49:                                               ; preds = %48, %42
+  %.070 = phi i32 [ 0, %48 ], [ %46, %42 ]
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv155
+  %52 = load i64, ptr %51, align 8
+  %53 = load volatile i64, ptr %9, align 8
+  %54 = icmp eq i64 %52, %53
+  br i1 %54, label %78, label %55
 
-46:                                               ; preds = %45, %39
-  %.064 = phi i32 [ 0, %45 ], [ %43, %39 ]
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr i64, ptr %47, i64 %indvars.iv100
-  %49 = load i64, ptr %48, align 8
-  %50 = load volatile i64, ptr %9, align 8
-  %51 = icmp eq i64 %49, %50
-  br i1 %51, label %75, label %52
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv155
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %58, 2
+  br i1 %59, label %60, label %69
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr i32, ptr %53, i64 %indvars.iv100
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 2
-  br i1 %56, label %57, label %66
+60:                                               ; preds = %55
+  %61 = icmp sgt i32 %.070, %.081147
+  br i1 %61, label %67, label %62
 
-57:                                               ; preds = %52
-  %58 = icmp sgt i32 %.064, %.06892
-  br i1 %58, label %64, label %59
+62:                                               ; preds = %60
+  %63 = icmp eq i32 %.070, %.081147
+  br i1 %63, label %64, label %78
 
-59:                                               ; preds = %57
-  %60 = icmp eq i32 %.064, %.06892
-  br i1 %60, label %61, label %75
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %10, align 8
+  %66 = tail call zeroext i1 %65(i64 noundef %52, i64 noundef %.085146) #15
+  br i1 %66, label %67, label %78
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %10, align 8
-  %63 = tail call zeroext i1 %62(i64 noundef %49, i64 noundef %.07091) #15
-  br i1 %63, label %64, label %75
+67:                                               ; preds = %64, %60
+  %68 = trunc nsw i64 %indvars.iv155 to i32
+  br label %78
 
-64:                                               ; preds = %61, %57
-  %65 = trunc nuw nsw i64 %indvars.iv100 to i32
-  br label %75
+69:                                               ; preds = %55
+  %70 = icmp sgt i32 %.070, %.091144
+  br i1 %70, label %76, label %71
 
-66:                                               ; preds = %52
-  %67 = icmp sgt i32 %.064, %.07489
-  br i1 %67, label %73, label %68
+71:                                               ; preds = %69
+  %72 = icmp eq i32 %.070, %.091144
+  br i1 %72, label %73, label %78
 
-68:                                               ; preds = %66
-  %69 = icmp eq i32 %.064, %.07489
-  br i1 %69, label %70, label %75
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %10, align 8
+  %75 = tail call zeroext i1 %74(i64 noundef %52, i64 noundef %.088145) #15
+  br i1 %75, label %76, label %78
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %10, align 8
-  %72 = tail call zeroext i1 %71(i64 noundef %49, i64 noundef %.07290) #15
-  br i1 %72, label %73, label %75
+76:                                               ; preds = %73, %69
+  %77 = trunc nsw i64 %indvars.iv155 to i32
+  br label %78
 
-73:                                               ; preds = %70, %66
-  %74 = trunc nuw nsw i64 %indvars.iv100 to i32
-  br label %75
+78:                                               ; preds = %49, %71, %73, %76, %62, %64, %67
+  %.296.ph = phi i32 [ %.094143, %71 ], [ %.094143, %73 ], [ %77, %76 ], [ %.094143, %62 ], [ %.094143, %64 ], [ %.094143, %67 ], [ %.094143, %49 ]
+  %.192.ph = phi i32 [ %.091144, %71 ], [ %.091144, %73 ], [ %.070, %76 ], [ %.091144, %62 ], [ %.091144, %64 ], [ %.091144, %67 ], [ %.091144, %49 ]
+  %.189.ph = phi i64 [ %.088145, %71 ], [ %.088145, %73 ], [ %52, %76 ], [ %.088145, %62 ], [ %.088145, %64 ], [ %.088145, %67 ], [ %.088145, %49 ]
+  %.186.ph = phi i64 [ %.085146, %71 ], [ %.085146, %73 ], [ %.085146, %76 ], [ %.085146, %62 ], [ %.085146, %64 ], [ %52, %67 ], [ %.085146, %49 ]
+  %.283.ph = phi i32 [ %.081147, %71 ], [ %.081147, %73 ], [ %.081147, %76 ], [ %.081147, %62 ], [ %.081147, %64 ], [ %.070, %67 ], [ %.081147, %49 ]
+  %.279.ph = phi i32 [ %.077148, %71 ], [ %.077148, %73 ], [ %.077148, %76 ], [ %.077148, %62 ], [ %.077148, %64 ], [ %68, %67 ], [ %.077148, %49 ]
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
+  %79 = icmp slt i64 %indvars.iv.next156, %21
+  br i1 %79, label %37, label %80, !llvm.loop !10
 
-75:                                               ; preds = %64, %61, %59, %73, %70, %68, %46
-  %.177 = phi i32 [ %.07688, %46 ], [ %.07688, %64 ], [ %.07688, %61 ], [ %.07688, %59 ], [ %74, %73 ], [ %.07688, %70 ], [ %.07688, %68 ]
-  %.175 = phi i32 [ %.07489, %46 ], [ %.07489, %64 ], [ %.07489, %61 ], [ %.07489, %59 ], [ %.064, %73 ], [ %.07489, %70 ], [ %.07489, %68 ]
-  %.173 = phi i64 [ %.07290, %46 ], [ %.07290, %64 ], [ %.07290, %61 ], [ %.07290, %59 ], [ %49, %73 ], [ %.07290, %70 ], [ %.07290, %68 ]
-  %.171 = phi i64 [ %.07091, %46 ], [ %49, %64 ], [ %.07091, %61 ], [ %.07091, %59 ], [ %.07091, %73 ], [ %.07091, %70 ], [ %.07091, %68 ]
-  %.169 = phi i32 [ %.06892, %46 ], [ %.064, %64 ], [ %.06892, %61 ], [ %.06892, %59 ], [ %.06892, %73 ], [ %.06892, %70 ], [ %.06892, %68 ]
-  %.1 = phi i32 [ %.06793, %46 ], [ %65, %64 ], [ %.06793, %61 ], [ %.06793, %59 ], [ %.06793, %73 ], [ %.06793, %70 ], [ %.06793, %68 ]
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv100, %33
-  br i1 %exitcond104.not, label %76, label %34, !llvm.loop !9
+80:                                               ; preds = %78
+  %81 = icmp slt i32 %.283.ph, 0
+  br i1 %81, label %82, label %83
 
-76:                                               ; preds = %75
-  %77 = icmp slt i32 %.169, 0
-  br i1 %77, label %78, label %79
-
-78:                                               ; preds = %76
+82:                                               ; preds = %80
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %.177)
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %78, %85
+  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %.296.ph)
   br label %.backedge
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %11, align 8
-  %81 = sext i32 %.1 to i64
-  %82 = getelementptr i8, ptr %80, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %85, label %.loopexit
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %11, align 8
+  %85 = sext i32 %.279.ph to i64
+  %86 = getelementptr inbounds i8, ptr %84, i64 %85
+  %87 = load i8, ptr %86, align 1, !range !4, !noundef !5
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %.thread
 
-85:                                               ; preds = %79
-  tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %.1, ptr noundef null)
-  br label %.backedge.backedge
+89:                                               ; preds = %83
+  tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %.279.ph, ptr noundef null)
+  br label %.backedge
 
-.loopexit.loopexit:                               ; preds = %34
-  %86 = trunc nuw nsw i64 %indvars.iv100 to i32
-  br label %.loopexit
+.backedge:                                        ; preds = %89, %82
+  br label %12
 
-.loopexit.loopexit95:                             ; preds = %22
-  %87 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit
+.thread.loopexit:                                 ; preds = %37
+  %90 = trunc nsw i64 %indvars.iv155 to i32
+  br label %.thread
 
-.loopexit:                                        ; preds = %79, %.loopexit.loopexit95, %.loopexit.loopexit
-  %.0 = phi i32 [ %86, %.loopexit.loopexit ], [ %87, %.loopexit.loopexit95 ], [ %.1, %79 ]
-  ret i32 %.0
+.thread.loopexit150:                              ; preds = %25
+  %91 = trunc nsw i64 %indvars.iv to i32
+  br label %.thread
+
+.thread:                                          ; preds = %83, %.thread.loopexit150, %.thread.loopexit
+  %.2.ph = phi i32 [ %90, %.thread.loopexit ], [ %91, %.thread.loopexit150 ], [ %.279.ph, %83 ]
+  ret i32 %.2.ph
 }
 
-declare void @pgstat_count_slru_page_zeroed(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_page_zeroed(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [1024 x i8], align 16
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = sext i32 %7 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %.not60 = icmp eq i32 %12, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %7 = getelementptr i8, ptr %0, i64 8
+  %.val55 = load i16, ptr %7, align 8
+  %8 = getelementptr i8, ptr %6, i64 56
+  %.val54.val = load ptr, ptr %8, align 8
+  %9 = zext i16 %.val55 to i64
+  %10 = srem i64 %1, %9
+  %11 = shl nsw i64 %10, 7
+  %12 = getelementptr inbounds i8, ptr %.val54.val, i64 %11
+  %13 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = sext i32 %13 to i64
+  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %.not67 = icmp eq i32 %18, 0
+  br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
-  %14 = phi i32 [ %27, %22 ], [ %12, %.lr.ph ]
-  %15 = phi i64 [ %25, %22 ], [ %10, %.lr.ph ]
-  %16 = phi i32 [ %23, %22 ], [ %7, %.lr.ph ]
-  %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
-  br i1 %20, label %21, label %._crit_edge
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %28
+  %20 = phi i32 [ %33, %28 ], [ %18, %.lr.ph ]
+  %21 = phi i64 [ %31, %28 ], [ %16, %.lr.ph ]
+  %22 = phi i32 [ %29, %28 ], [ %13, %.lr.ph ]
+  %23 = load ptr, ptr %19, align 8
+  %24 = getelementptr inbounds i64, ptr %23, i64 %21
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %25, %1
+  br i1 %26, label %27, label %._crit_edge
 
-21:                                               ; preds = %.lr.ph.split.us
-  %cond = icmp eq i32 %14, 1
-  br i1 %cond, label %22, label %.split.us
+27:                                               ; preds = %.lr.ph.split.us
+  %cond = icmp eq i32 %20, 1
+  br i1 %cond, label %28, label %.split.us
 
-22:                                               ; preds = %21
+28:                                               ; preds = %27
   %.val.us = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val.us, i32 noundef %16)
-  %23 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
-  %24 = load ptr, ptr %8, align 8
-  %25 = sext i32 %23 to i64
-  %26 = getelementptr i32, ptr %24, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %.not.us = icmp eq i32 %27, 0
+  tail call fastcc void @SimpleLruWaitIO(ptr %.val.us, i32 noundef %22)
+  %29 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
+  %30 = load ptr, ptr %14, align 8
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %.not.us = icmp eq i32 %33, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %36
-  %28 = phi i32 [ %41, %36 ], [ %12, %.lr.ph ]
-  %29 = phi i64 [ %39, %36 ], [ %10, %.lr.ph ]
-  %30 = phi i32 [ %37, %36 ], [ %7, %.lr.ph ]
-  %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr i64, ptr %31, i64 %29
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %1
-  br i1 %34, label %35, label %._crit_edge
+.lr.ph.split:                                     ; preds = %.lr.ph, %168
+  %34 = phi i32 [ %173, %168 ], [ %18, %.lr.ph ]
+  %35 = phi i64 [ %171, %168 ], [ %16, %.lr.ph ]
+  %36 = phi i32 [ %169, %168 ], [ %13, %.lr.ph ]
+  %37 = load ptr, ptr %19, align 8
+  %38 = getelementptr inbounds i64, ptr %37, i64 %35
+  %39 = load i64, ptr %38, align 8
+  %40 = icmp eq i64 %39, %1
+  br i1 %40, label %41, label %._crit_edge
 
-35:                                               ; preds = %.lr.ph.split
-  switch i32 %28, label %.split.us [
-    i32 1, label %36
-    i32 3, label %36
+41:                                               ; preds = %.lr.ph.split
+  switch i32 %34, label %.split.us [
+    i32 1, label %168
+    i32 3, label %168
   ]
 
-36:                                               ; preds = %35, %35
-  %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %30)
-  %37 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
-  %38 = load ptr, ptr %8, align 8
-  %39 = sext i32 %37 to i64
-  %40 = getelementptr i32, ptr %38, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
-
-.split.us:                                        ; preds = %35, %21
-  %.us-phi66 = phi i32 [ %16, %21 ], [ %30, %35 ]
-  %.us-phi67 = phi i64 [ %15, %21 ], [ %29, %35 ]
-  %42 = ashr i32 %.us-phi66, 4
+.split.us:                                        ; preds = %41, %27
+  %.us-phi73 = phi i32 [ %22, %27 ], [ %36, %41 ]
+  %.us-phi74 = phi i64 [ %21, %27 ], [ %35, %41 ]
+  %42 = ashr i32 %.us-phi73, 4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %42 to i64
-  %46 = getelementptr i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i32, ptr %49, i64 %.us-phi67
+  %50 = getelementptr inbounds i32, ptr %49, i64 %.us-phi74
   %51 = load i32, ptr %50, align 4
   %.not.i = icmp eq i32 %47, %51
   br i1 %.not.i, label %SlruRecentlyUsed.exit, label %52
@@ -661,7 +659,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
   %53 = add i32 %47, 1
   store i32 %53, ptr %46, align 4
   %54 = load ptr, ptr %48, align 8
-  %55 = getelementptr i32, ptr %54, i64 %.us-phi67
+  %55 = getelementptr inbounds i32, ptr %54, i64 %.us-phi74
   store i32 %53, ptr %55, align 4
   br label %SlruRecentlyUsed.exit
 
@@ -669,243 +667,244 @@ SlruRecentlyUsed.exit:                            ; preds = %.split.us, %52
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %57 = load i32, ptr %56, align 8
   tail call void @pgstat_count_slru_page_hit(i32 noundef %57) #15
-  br label %176
+  br label %174
 
-._crit_edge:                                      ; preds = %36, %.lr.ph.split, %22, %.lr.ph.split.us, %4
-  %.lcssa58 = phi i32 [ %7, %4 ], [ %16, %.lr.ph.split.us ], [ %23, %22 ], [ %30, %.lr.ph.split ], [ %37, %36 ]
-  %.lcssa = phi i64 [ %10, %4 ], [ %15, %.lr.ph.split.us ], [ %25, %22 ], [ %29, %.lr.ph.split ], [ %39, %36 ]
+._crit_edge:                                      ; preds = %168, %.lr.ph.split, %28, %.lr.ph.split.us, %4
+  %.lcssa65 = phi i32 [ %13, %4 ], [ %22, %.lr.ph.split.us ], [ %29, %28 ], [ %36, %.lr.ph.split ], [ %169, %168 ]
+  %.lcssa = phi i64 [ %16, %4 ], [ %21, %.lr.ph.split.us ], [ %31, %28 ], [ %35, %.lr.ph.split ], [ %171, %168 ]
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr i64, ptr %59, i64 %.lcssa
+  %60 = getelementptr inbounds i64, ptr %59, i64 %.lcssa
   store i64 %1, ptr %60, align 8
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr i32, ptr %61, i64 %.lcssa
+  %61 = load ptr, ptr %14, align 8
+  %62 = getelementptr inbounds i32, ptr %61, i64 %.lcssa
   store i32 1, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i8, ptr %64, i64 %.lcssa
+  %65 = getelementptr inbounds i8, ptr %64, i64 %.lcssa
   store i8 0, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr %union.LWLockPadded, ptr %67, i64 %.lcssa
+  %68 = getelementptr inbounds %union.LWLockPadded, ptr %67, i64 %.lcssa
   %69 = tail call zeroext i1 @LWLockAcquire(ptr noundef %68, i32 noundef 0) #15
-  %70 = ashr i32 %.lcssa58, 4
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = sext i32 %70 to i64
-  %74 = getelementptr %union.LWLockPadded, ptr %72, i64 %73
-  tail call void @LWLockRelease(ptr noundef %74) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
-  %75 = load ptr, ptr %0, align 8
-  %76 = sdiv i64 %1, 32
-  %77 = srem i64 %1, 32
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %79 = load i8, ptr %78, align 2
-  %80 = trunc i8 %79 to i1
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %80, label %82, label %84
+  tail call void @LWLockRelease(ptr noundef %12) #15
+  %70 = load ptr, ptr %0, align 8
+  %71 = sdiv i64 %1, 32
+  %72 = srem i64 %1, 32
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %74 = load i8, ptr %73, align 2, !range !4, !noundef !5
+  %75 = trunc nuw i8 %74 to i1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %75, label %77, label %79
 
-82:                                               ; preds = %._crit_edge
-  %83 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %81, i64 noundef %76) #15
+77:                                               ; preds = %._crit_edge
+  %78 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %76, i64 noundef %71) #15
   br label %SlruFileName.exit.i
 
-84:                                               ; preds = %._crit_edge
-  %85 = trunc i64 %76 to i32
-  %86 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %81, i32 noundef %85) #15
+79:                                               ; preds = %._crit_edge
+  %80 = trunc i64 %71 to i32
+  %81 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %76, i32 noundef %80) #15
   br label %SlruFileName.exit.i
 
-SlruFileName.exit.i:                              ; preds = %84, %82
-  %87 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #15
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %105
+SlruFileName.exit.i:                              ; preds = %79, %77
+  %82 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #15
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %100
 
-89:                                               ; preds = %SlruFileName.exit.i
-  %90 = tail call ptr @__errno_location() #16
-  %91 = load i32, ptr %90, align 4
-  %.not34.i = icmp eq i32 %91, 2
-  br i1 %.not34.i, label %92, label %95
+84:                                               ; preds = %SlruFileName.exit.i
+  %85 = tail call ptr @__errno_location() #16
+  %86 = load i32, ptr %85, align 4
+  %.not34.i = icmp eq i32 %86, 2
+  br i1 %.not34.i, label %87, label %90
 
-92:                                               ; preds = %89
-  %93 = load i8, ptr @InRecovery, align 1
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %96, label %95
+87:                                               ; preds = %84
+  %88 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
+  %89 = trunc nuw i8 %88 to i1
+  br i1 %89, label %91, label %90
 
-95:                                               ; preds = %92, %89
+90:                                               ; preds = %87, %84
   store i32 0, ptr @slru_errcause, align 4
-  store i32 %91, ptr @slru_errno, align 4
+  store i32 %86, ptr @slru_errno, align 4
   br label %SlruPhysicalReadPage.exit
 
-96:                                               ; preds = %92
-  %97 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
-  br i1 %97, label %98, label %100
+91:                                               ; preds = %87
+  %92 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  br i1 %92, label %93, label %95
 
-98:                                               ; preds = %96
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 817, ptr noundef nonnull @__func__.SlruPhysicalReadPage) #15
-  br label %100
+93:                                               ; preds = %91
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 834, ptr noundef nonnull @__func__.SlruPhysicalReadPage) #15
+  br label %95
 
-100:                                              ; preds = %98, %96
-  %101 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %.lcssa
-  %104 = load ptr, ptr %103, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %104, i8 0, i64 8192, i1 false)
+95:                                               ; preds = %93, %91
+  %96 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds ptr, ptr %97, i64 %.lcssa
+  %99 = load ptr, ptr %98, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %99, i8 0, i64 8192, i1 false)
   br label %SlruPhysicalReadPage.exit
 
-105:                                              ; preds = %SlruFileName.exit.i
-  %106 = trunc nsw i64 %77 to i32
-  %107 = shl nsw i32 %106, 13
-  %108 = sext i32 %107 to i64
-  %109 = tail call ptr @__errno_location() #16
-  store i32 0, ptr %109, align 4
-  %110 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772207, ptr %110, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr ptr, ptr %112, i64 %.lcssa
-  %114 = load ptr, ptr %113, align 8
-  %115 = call i64 @pread(i32 noundef %87, ptr noundef %114, i64 noundef 8192, i64 noundef %108) #15
-  %.not.i52 = icmp eq i64 %115, 8192
-  %116 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %116, align 4
-  br i1 %.not.i52, label %120, label %117
+100:                                              ; preds = %SlruFileName.exit.i
+  %101 = trunc nsw i64 %72 to i32
+  %102 = shl nsw i32 %101, 13
+  %103 = sext i32 %102 to i64
+  %104 = tail call ptr @__errno_location() #16
+  store i32 0, ptr %104, align 4
+  %105 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772207, ptr %105, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds ptr, ptr %107, i64 %.lcssa
+  %109 = load ptr, ptr %108, align 8
+  %110 = call i64 @pread(i32 noundef %82, ptr noundef %109, i64 noundef 8192, i64 noundef %103) #15
+  %.not.i56 = icmp eq i64 %110, 8192
+  %111 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %111, align 4
+  br i1 %.not.i56, label %115, label %112
 
-117:                                              ; preds = %105
+112:                                              ; preds = %100
   store i32 2, ptr @slru_errcause, align 4
-  %118 = load i32, ptr %109, align 4
-  store i32 %118, ptr @slru_errno, align 4
-  %119 = call i32 @CloseTransientFile(i32 noundef %87) #15
+  %113 = load i32, ptr %104, align 4
+  store i32 %113, ptr @slru_errno, align 4
+  %114 = call i32 @CloseTransientFile(i32 noundef %82) #15
   br label %SlruPhysicalReadPage.exit
 
-120:                                              ; preds = %105
-  %121 = call i32 @CloseTransientFile(i32 noundef %87) #15
-  %.not33.i = icmp eq i32 %121, 0
-  br i1 %.not33.i, label %SlruPhysicalReadPage.exit, label %122
+115:                                              ; preds = %100
+  %116 = call i32 @CloseTransientFile(i32 noundef %82) #15
+  %.not33.i = icmp eq i32 %116, 0
+  br i1 %.not33.i, label %SlruPhysicalReadPage.exit, label %117
 
-122:                                              ; preds = %120
+117:                                              ; preds = %115
   store i32 5, ptr @slru_errcause, align 4
-  %123 = load i32, ptr %109, align 4
-  store i32 %123, ptr @slru_errno, align 4
+  %118 = load i32, ptr %104, align 4
+  store i32 %118, ptr @slru_errno, align 4
   br label %SlruPhysicalReadPage.exit
 
-SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %120, %122
-  %.0.i = phi i1 [ false, %95 ], [ true, %100 ], [ false, %117 ], [ false, %122 ], [ true, %120 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  %.val51 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.val51, i64 80
-  %125 = load i32, ptr %124, align 8
-  %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %127, label %SimpleLruZeroLSNs.exit
+SlruPhysicalReadPage.exit:                        ; preds = %90, %95, %112, %115, %117
+  %.0.i = phi i1 [ false, %90 ], [ true, %95 ], [ false, %112 ], [ false, %117 ], [ true, %115 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
+  %.val53 = load ptr, ptr %0, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %.val53, i64 80
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %122, label %SimpleLruZeroLSNs.exit
 
-127:                                              ; preds = %SlruPhysicalReadPage.exit
-  %128 = getelementptr inbounds nuw i8, ptr %.val51, i64 72
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %131 = mul i32 %125, %.lcssa58
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr i64, ptr %129, i64 %132
-  %134 = zext nneg i32 %125 to i64
-  %135 = shl nuw nsw i64 %134, 3
-  %136 = ptrtoint ptr %133 to i64
-  %137 = and i64 %136, 7
-  %138 = icmp eq i64 %137, 0
-  %139 = icmp samesign ult i32 %125, 129
-  %or.cond.i = and i1 %139, %138
-  br i1 %or.cond.i, label %140, label %SimpleLruZeroLSNs.exit.sink.split
+122:                                              ; preds = %SlruPhysicalReadPage.exit
+  %123 = getelementptr inbounds nuw i8, ptr %.val53, i64 72
+  %124 = load ptr, ptr %123, align 8
+  %125 = mul i32 %120, %.lcssa65
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds i64, ptr %124, i64 %126
+  %128 = zext nneg i32 %120 to i64
+  %129 = shl nuw nsw i64 %128, 3
+  %130 = ptrtoint ptr %127 to i64
+  %131 = and i64 %130, 7
+  %132 = icmp eq i64 %131, 0
+  %133 = icmp samesign ult i32 %120, 129
+  %or.cond.i = and i1 %133, %132
+  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit.sink.split
 
-140:                                              ; preds = %127
-  %141 = getelementptr i8, ptr %133, i64 %135
-  %142 = icmp ult ptr %133, %141
-  br i1 %142, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit
-
-.lr.ph.preheader.i:                               ; preds = %140
-  %143 = shl nsw i64 %132, 3
-  %144 = add i64 %143, %130
-  %145 = add i64 %144, %135
-  %146 = add i64 %144, 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %145, i64 %146)
-  %147 = xor i64 %130, -1
-  %148 = sub i64 %147, %143
-  %149 = add i64 %148, %umax.i
-  %150 = and i64 %149, -8
-  %151 = add i64 %150, 8
+.lr.ph.preheader.i:                               ; preds = %122
+  %134 = ptrtoint ptr %124 to i64
+  %135 = shl nsw i64 %126, 3
+  %136 = add i64 %135, %134
+  %137 = add i64 %136, %129
+  %138 = add i64 %136, 8
+  %umax.i = call i64 @llvm.umax.i64(i64 %137, i64 %138)
+  %139 = xor i64 %134, -1
+  %140 = sub i64 %139, %135
+  %141 = add i64 %140, %umax.i
+  %142 = and i64 %141, -8
+  %143 = add i64 %142, 8
   br label %SimpleLruZeroLSNs.exit.sink.split
 
-SimpleLruZeroLSNs.exit.sink.split:                ; preds = %127, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %151, %.lr.ph.preheader.i ], [ %135, %127 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %133, i8 0, i64 %.sink, i1 false)
+SimpleLruZeroLSNs.exit.sink.split:                ; preds = %122, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %143, %.lr.ph.preheader.i ], [ %129, %122 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %127, i8 0, i64 %.sink, i1 false)
   br label %SimpleLruZeroLSNs.exit
 
-SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruPhysicalReadPage.exit, %140
-  %152 = load ptr, ptr %71, align 8
-  %153 = getelementptr %union.LWLockPadded, ptr %152, i64 %73
-  %154 = call zeroext i1 @LWLockAcquire(ptr noundef %153, i32 noundef 0) #15
-  %155 = select i1 %.0.i, i32 2, i32 0
-  %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr i32, ptr %156, i64 %.lcssa
-  store i32 %155, ptr %157, align 4
-  %158 = load ptr, ptr %66, align 8
-  %159 = getelementptr %union.LWLockPadded, ptr %158, i64 %.lcssa
-  call void @LWLockRelease(ptr noundef %159) #15
-  br i1 %.0.i, label %161, label %160
+SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruPhysicalReadPage.exit
+  %144 = call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #15
+  %145 = select i1 %.0.i, i32 2, i32 0
+  %146 = load ptr, ptr %14, align 8
+  %147 = getelementptr inbounds i32, ptr %146, i64 %.lcssa
+  store i32 %145, ptr %147, align 4
+  %148 = load ptr, ptr %66, align 8
+  %149 = getelementptr inbounds %union.LWLockPadded, ptr %148, i64 %.lcssa
+  call void @LWLockRelease(ptr noundef %149) #15
+  br i1 %.0.i, label %151, label %150
 
-160:                                              ; preds = %SimpleLruZeroLSNs.exit
+150:                                              ; preds = %SimpleLruZeroLSNs.exit
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %3)
-  br label %161
+  br label %151
 
-161:                                              ; preds = %160, %SimpleLruZeroLSNs.exit
-  %162 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr i32, ptr %163, i64 %73
-  %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr i32, ptr %167, i64 %.lcssa
-  %169 = load i32, ptr %168, align 4
-  %.not.i53 = icmp eq i32 %165, %169
-  br i1 %.not.i53, label %SlruRecentlyUsed.exit54, label %170
+151:                                              ; preds = %150, %SimpleLruZeroLSNs.exit
+  %152 = ashr i32 %.lcssa65, 4
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %154 = load ptr, ptr %153, align 8
+  %155 = sext i32 %152 to i64
+  %156 = getelementptr inbounds i32, ptr %154, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i32, ptr %159, i64 %.lcssa
+  %161 = load i32, ptr %160, align 4
+  %.not.i57 = icmp eq i32 %157, %161
+  br i1 %.not.i57, label %SlruRecentlyUsed.exit58, label %162
 
-170:                                              ; preds = %161
-  %171 = add i32 %165, 1
-  store i32 %171, ptr %164, align 4
-  %172 = load ptr, ptr %166, align 8
-  %173 = getelementptr i32, ptr %172, i64 %.lcssa
-  store i32 %171, ptr %173, align 4
-  br label %SlruRecentlyUsed.exit54
+162:                                              ; preds = %151
+  %163 = add i32 %157, 1
+  store i32 %163, ptr %156, align 4
+  %164 = load ptr, ptr %158, align 8
+  %165 = getelementptr inbounds i32, ptr %164, i64 %.lcssa
+  store i32 %163, ptr %165, align 4
+  br label %SlruRecentlyUsed.exit58
 
-SlruRecentlyUsed.exit54:                          ; preds = %161, %170
-  %174 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %175 = load i32, ptr %174, align 8
-  call void @pgstat_count_slru_page_read(i32 noundef %175) #15
-  br label %176
+SlruRecentlyUsed.exit58:                          ; preds = %151, %162
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %167 = load i32, ptr %166, align 8
+  call void @pgstat_count_slru_page_read(i32 noundef %167) #15
+  br label %174
 
-176:                                              ; preds = %SlruRecentlyUsed.exit54, %SlruRecentlyUsed.exit
-  %177 = phi i32 [ %.lcssa58, %SlruRecentlyUsed.exit54 ], [ %.us-phi66, %SlruRecentlyUsed.exit ]
-  ret i32 %177
+168:                                              ; preds = %41, %41
+  %.val = load ptr, ptr %0, align 8
+  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %36)
+  %169 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
+  %170 = load ptr, ptr %14, align 8
+  %171 = sext i32 %169 to i64
+  %172 = getelementptr inbounds i32, ptr %170, i64 %171
+  %173 = load i32, ptr %172, align 4
+  %.not = icmp eq i32 %173, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+
+174:                                              ; preds = %SlruRecentlyUsed.exit, %SlruRecentlyUsed.exit58
+  %175 = phi i32 [ %.us-phi73, %SlruRecentlyUsed.exit ], [ %.lcssa65, %SlruRecentlyUsed.exit58 ]
+  ret i32 %175
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val, i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val, i32 noundef %0) unnamed_addr #3 {
   %2 = ashr i32 %0, 4
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr %union.LWLockPadded, ptr %4, i64 %5
+  %6 = getelementptr inbounds %union.LWLockPadded, ptr %4, i64 %5
   tail call void @LWLockRelease(ptr noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr %union.LWLockPadded, ptr %8, i64 %9
+  %10 = getelementptr inbounds %union.LWLockPadded, ptr %8, i64 %9
   %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #15
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr %union.LWLockPadded, ptr %12, i64 %9
+  %13 = getelementptr inbounds %union.LWLockPadded, ptr %12, i64 %9
   tail call void @LWLockRelease(ptr noundef %13) #15
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr %union.LWLockPadded, ptr %14, i64 %5
+  %15 = getelementptr inbounds %union.LWLockPadded, ptr %14, i64 %5
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #15
   %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr i32, ptr %18, i64 %9
+  %19 = getelementptr inbounds i32, ptr %18, i64 %9
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %38 [
     i32 1, label %21
@@ -914,13 +913,13 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
 
 21:                                               ; preds = %1, %1
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr %union.LWLockPadded, ptr %22, i64 %9
+  %23 = getelementptr inbounds %union.LWLockPadded, ptr %22, i64 %9
   %24 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %23, i32 noundef 1) #15
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr i32, ptr %26, i64 %9
+  %27 = getelementptr inbounds i32, ptr %26, i64 %9
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %31
@@ -933,13 +932,13 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
   store i32 2, ptr %27, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr i8, ptr %33, i64 %9
+  %34 = getelementptr inbounds i8, ptr %33, i64 %9
   store i8 1, ptr %34, align 1
   br label %35
 
 35:                                               ; preds = %31, %30
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr %union.LWLockPadded, ptr %36, i64 %9
+  %37 = getelementptr inbounds %union.LWLockPadded, ptr %36, i64 %9
   tail call void @LWLockRelease(ptr noundef %37) #15
   br label %38
 
@@ -947,22 +946,23 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
   ret void
 }
 
-declare void @pgstat_count_slru_page_hit(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_page_hit(i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SlruReportIOError(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @SlruReportIOError(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca [1024 x i8], align 16
   %5 = sdiv i64 %1, 32
   %6 = srem i64 %1, 32
   %7 = trunc nsw i64 %6 to i32
   %8 = shl nsw i32 %7, 13
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %10 = load i8, ptr %9, align 2
-  %11 = trunc i8 %10 to i1
+  %10 = load i8, ptr %9, align 2, !range !4, !noundef !5
+  %11 = trunc nuw i8 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %11, label %13, label %15
 
@@ -995,7 +995,7 @@ SlruFileName.exit:                                ; preds = %13, %15
   %23 = call i32 @errcode_for_file_access() #15
   %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %25 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1046, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1063, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 26:                                               ; preds = %SlruFileName.exit
@@ -1004,7 +1004,7 @@ SlruFileName.exit:                                ; preds = %13, %15
   %28 = call i32 @errcode_for_file_access() #15
   %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %30 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1053, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1070, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 31:                                               ; preds = %SlruFileName.exit
@@ -1017,13 +1017,13 @@ SlruFileName.exit:                                ; preds = %13, %15
   %34 = call i32 @errcode_for_file_access() #15
   %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %36 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1061, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1078, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 37:                                               ; preds = %31
   %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %39 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1065, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1082, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 40:                                               ; preds = %SlruFileName.exit
@@ -1036,13 +1036,13 @@ SlruFileName.exit:                                ; preds = %13, %15
   %43 = call i32 @errcode_for_file_access() #15
   %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %45 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.13, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1073, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1090, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 46:                                               ; preds = %40
   %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %48 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1078, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 49:                                               ; preds = %SlruFileName.exit
@@ -1054,7 +1054,7 @@ SlruFileName.exit:                                ; preds = %13, %15
   %53 = call i32 @errcode_for_file_access() #15
   %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %55 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1085, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1102, ptr noundef nonnull @__func__.SlruReportIOError) #15
   br label %61
 
 56:                                               ; preds = %SlruFileName.exit
@@ -1063,130 +1063,129 @@ SlruFileName.exit:                                ; preds = %13, %15
   %58 = call i32 @errcode_for_file_access() #15
   %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
   %60 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1092, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1109, ptr noundef nonnull @__func__.SlruReportIOError) #15
   unreachable
 
 default.unreachable:                              ; preds = %SlruFileName.exit
   unreachable
 
-61:                                               ; preds = %52, %49
+61:                                               ; preds = %49, %52
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
   ret void
 }
 
-declare void @pgstat_count_slru_page_read(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_page_read(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i16, ptr %5, align 8
-  %7 = zext i16 %6 to i64
-  %8 = and i64 %1, %7
-  %9 = shl nuw nsw i64 %8, 4
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %union.LWLockPadded, ptr %11, i64 %8
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 1) #15
+  %5 = getelementptr i8, ptr %0, i64 8
+  %.val34 = load i16, ptr %5, align 8
+  %6 = getelementptr i8, ptr %4, i64 56
+  %.val.val = load ptr, ptr %6, align 8
+  %7 = zext i16 %.val34 to i64
+  %8 = srem i64 %1, %7
+  %9 = shl nsw i64 %8, 7
+  %10 = getelementptr inbounds i8, ptr %.val.val, i64 %9
+  %11 = trunc nsw i64 %8 to i32
+  %12 = shl nsw i32 %11, 4
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %17 = shl nuw nsw i64 %8, 4
-  %18 = or disjoint i64 %9, 15
+  %17 = sext i32 %12 to i64
+  %18 = add nsw i32 %12, 16
   br label %19
 
-19:                                               ; preds = %3, %46
-  %indvars.iv = phi i64 [ %17, %3 ], [ %indvars.iv.next, %46 ]
-  %20 = getelementptr i32, ptr %15, i64 %indvars.iv
+19:                                               ; preds = %3, %45
+  %indvars.iv = phi i64 [ %17, %3 ], [ %indvars.iv.next, %45 ]
+  %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %46, label %22
+  br i1 %.not, label %45, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr i64, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = icmp ne i64 %25, %1
-  %.not31 = icmp eq i32 %21, 1
-  %or.cond = or i1 %.not31, %26
-  br i1 %or.cond, label %46, label %27
+  %.not32 = icmp eq i32 %21, 1
+  %or.cond = or i1 %.not32, %26
+  br i1 %or.cond, label %45, label %27
 
 27:                                               ; preds = %22
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
-  %29 = lshr i64 %indvars.iv, 4
+  %28 = trunc nsw i64 %indvars.iv to i32
+  %29 = ashr i32 %28, 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = and i64 %29, 268435455
-  %33 = getelementptr i32, ptr %31, i64 %32
+  %32 = sext i32 %29 to i64
+  %33 = getelementptr inbounds i32, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = and i64 %indvars.iv, 4294967295
-  %38 = getelementptr i32, ptr %36, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %.not.i = icmp eq i32 %34, %39
-  br i1 %.not.i, label %SlruRecentlyUsed.exit, label %40
+  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4
+  %.not.i = icmp eq i32 %34, %38
+  br i1 %.not.i, label %SlruRecentlyUsed.exit, label %39
 
-40:                                               ; preds = %27
-  %41 = add i32 %34, 1
-  store i32 %41, ptr %33, align 4
-  %42 = load ptr, ptr %35, align 8
-  %43 = getelementptr i32, ptr %42, i64 %37
-  store i32 %41, ptr %43, align 4
+39:                                               ; preds = %27
+  %40 = add i32 %34, 1
+  store i32 %40, ptr %33, align 4
+  %41 = load ptr, ptr %35, align 8
+  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv
+  store i32 %40, ptr %42, align 4
   br label %SlruRecentlyUsed.exit
 
-SlruRecentlyUsed.exit:                            ; preds = %27, %40
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %45 = load i32, ptr %44, align 8
-  tail call void @pgstat_count_slru_page_hit(i32 noundef %45) #15
-  br label %54
+SlruRecentlyUsed.exit:                            ; preds = %27, %39
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %44 = load i32, ptr %43, align 8
+  tail call void @pgstat_count_slru_page_hit(i32 noundef %44) #15
+  br label %48
 
-46:                                               ; preds = %19, %22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv, %18
-  br i1 %exitcond.not, label %47, label %19, !llvm.loop !10
+45:                                               ; preds = %19, %22
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %18, %lftr.wideiv
+  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !11
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr %union.LWLockPadded, ptr %48, i64 %8
-  tail call void @LWLockRelease(ptr noundef %49) #15
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr %union.LWLockPadded, ptr %50, i64 %8
-  %52 = tail call zeroext i1 @LWLockAcquire(ptr noundef %51, i32 noundef 0) #15
-  %53 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext true, i32 noundef %2)
-  br label %54
+.critedge:                                        ; preds = %45
+  tail call void @LWLockRelease(ptr noundef %10) #15
+  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 0) #15
+  %47 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext true, i32 noundef %2)
+  br label %48
 
-54:                                               ; preds = %47, %SlruRecentlyUsed.exit
-  %.029 = phi i32 [ %28, %SlruRecentlyUsed.exit ], [ %53, %47 ]
-  ret i32 %.029
+48:                                               ; preds = %SlruRecentlyUsed.exit, %.critedge
+  %.1 = phi i32 [ %47, %.critedge ], [ %28, %SlruRecentlyUsed.exit ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SimpleLruWritePage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @SimpleLruWritePage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   tail call fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #3 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.FileTag, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds i64, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = ashr i32 %1, 4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i32, ptr %14, i64 %9
+  %15 = getelementptr inbounds i32, ptr %14, i64 %9
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 3
   br i1 %17, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %22
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr i64, ptr %18, i64 %9
+  %19 = getelementptr inbounds i64, ptr %18, i64 %9
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, %11
   br i1 %21, label %22, label %.thread
@@ -1195,27 +1194,27 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %1)
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr i32, ptr %23, i64 %9
+  %24 = getelementptr inbounds i32, ptr %23, i64 %9
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 3
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %22, %3
   %.lcssa71 = phi ptr [ %14, %3 ], [ %23, %22 ]
   %.lcssa = phi i32 [ %16, %3 ], [ %25, %22 ]
-  %27 = getelementptr i32, ptr %.lcssa71, i64 %9
+  %27 = getelementptr inbounds i32, ptr %.lcssa71, i64 %9
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %29, i64 %9
-  %31 = load i8, ptr %30, align 1
-  %32 = trunc i8 %31 to i1
+  %30 = getelementptr inbounds i8, ptr %29, i64 %9
+  %31 = load i8, ptr %30, align 1, !range !4, !noundef !5
+  %32 = trunc nuw i8 %31 to i1
   %.not52 = icmp eq i32 %.lcssa, 2
   %or.cond = and i1 %.not52, %32
   br i1 %or.cond, label %33, label %.thread
 
 33:                                               ; preds = %.critedge
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr i64, ptr %34, i64 %9
+  %35 = getelementptr inbounds i64, ptr %34, i64 %9
   %36 = load i64, ptr %35, align 8
   %.not53 = icmp eq i64 %36, %11
   br i1 %.not53, label %37, label %.thread
@@ -1223,25 +1222,24 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
 37:                                               ; preds = %33
   store i32 3, ptr %27, align 4
   %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr i8, ptr %38, i64 %9
+  %39 = getelementptr inbounds i8, ptr %38, i64 %9
   store i8 0, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr %union.LWLockPadded, ptr %41, i64 %9
+  %42 = getelementptr inbounds %union.LWLockPadded, ptr %41, i64 %9
   %43 = tail call zeroext i1 @LWLockAcquire(ptr noundef %42, i32 noundef 0) #15
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %12 to i64
-  %47 = getelementptr %union.LWLockPadded, ptr %45, i64 %46
+  %47 = getelementptr inbounds %union.LWLockPadded, ptr %45, i64 %46
   tail call void @LWLockRelease(ptr noundef %47) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %48 = load ptr, ptr %0, align 8
   %49 = sdiv i64 %11, 32
   %50 = srem i64 %11, 32
   %51 = trunc nsw i64 %50 to i32
   %52 = shl nsw i32 %51, 13
   %53 = sext i32 %52 to i64
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %55 = load i32, ptr %54, align 8
   tail call void @pgstat_count_slru_page_written(i32 noundef %55) #15
@@ -1255,76 +1253,76 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %60 = load i32, ptr %59, align 8
   %61 = mul i32 %60, %1
   %62 = sext i32 %61 to i64
-  %63 = getelementptr i64, ptr %57, i64 %62
+  %63 = getelementptr inbounds i64, ptr %57, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = icmp sgt i32 %60, 1
   br i1 %65, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
-  %.05678.i = phi i32 [ %69, %.lr.ph.i ], [ 1, %58 ]
-  %.057.in77.i = phi i32 [ %.057.i, %.lr.ph.i ], [ %61, %58 ]
-  %.05876.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %64, %58 ]
-  %.057.i = add i32 %.057.in77.i, 1
-  %66 = sext i32 %.057.i to i64
-  %67 = getelementptr i64, ptr %57, i64 %66
-  %68 = load i64, ptr %67, align 8
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.05876.i, i64 %68)
-  %69 = add nuw nsw i32 %.05678.i, 1
-  %exitcond.not.i = icmp eq i32 %69, %60
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
-
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %58
-  %.058.lcssa.i = phi i64 [ %64, %58 ], [ %spec.select.i, %.lr.ph.i ]
-  %70 = icmp eq i64 %.058.lcssa.i, 0
-  br i1 %70, label %76, label %71
+  %.060.lcssa.i = phi i64 [ %64, %58 ], [ %spec.select.i, %.lr.ph.i ]
+  %66 = icmp eq i64 %.060.lcssa.i, 0
+  br i1 %66, label %76, label %71
+
+.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
+  %.05881.i = phi i32 [ %70, %.lr.ph.i ], [ 1, %58 ]
+  %.059.in80.i = phi i32 [ %.059.i, %.lr.ph.i ], [ %61, %58 ]
+  %.06079.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %64, %58 ]
+  %.059.i = add i32 %.059.in80.i, 1
+  %67 = sext i32 %.059.i to i64
+  %68 = getelementptr inbounds i64, ptr %57, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.06079.i, i64 %69)
+  %70 = add nuw nsw i32 %.05881.i, 1
+  %exitcond.not.i = icmp eq i32 %70, %60
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 71:                                               ; preds = %._crit_edge.i
   %72 = load volatile i32, ptr @CritSectionCount, align 4
   %73 = add i32 %72, 1
   store volatile i32 %73, ptr @CritSectionCount, align 4
-  tail call void @XLogFlush(i64 noundef %.058.lcssa.i) #15
+  tail call void @XLogFlush(i64 noundef %.060.lcssa.i) #15
   %74 = load volatile i32, ptr @CritSectionCount, align 4
   %75 = add i32 %74, -1
   store volatile i32 %75, ptr @CritSectionCount, align 4
   br label %76
 
 76:                                               ; preds = %71, %._crit_edge.i, %37
-  %.not68.i = icmp eq ptr %2, null
-  br i1 %.not68.i, label %.thread.i, label %.preheader.i
+  %.not71.i = icmp eq ptr %2, null
+  br i1 %.not71.i, label %.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %76
   %77 = load i32, ptr %2, align 8
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph80.i, label %.thread.i
+  br i1 %78, label %.lr.ph83.i, label %.thread.i
 
-.lr.ph80.i:                                       ; preds = %.preheader.i
+.lr.ph83.i:                                       ; preds = %.preheader.i
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %wide.trip.count.i = zext nneg i32 %77 to i64
   br label %81
 
 80:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond83.not.i, label %.thread.i, label %81, !llvm.loop !13
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond86.not.i, label %.thread.i, label %81, !llvm.loop !14
 
-81:                                               ; preds = %80, %.lr.ph80.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph80.i ], [ %indvars.iv.next.i, %80 ]
-  %82 = getelementptr [16 x i64], ptr %79, i64 0, i64 %indvars.iv.i
+81:                                               ; preds = %80, %.lr.ph83.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph83.i ], [ %indvars.iv.next.i, %80 ]
+  %82 = getelementptr inbounds nuw [16 x i64], ptr %79, i64 0, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8
   %84 = icmp eq i64 %83, %49
   br i1 %84, label %85, label %80
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %87 = getelementptr [16 x i32], ptr %86, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [16 x i32], ptr %86, i64 0, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %.thread.i, label %118
 
 .thread.i:                                        ; preds = %80, %85, %.preheader.i, %76
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %91 = load i8, ptr %90, align 2
-  %92 = trunc i8 %91 to i1
+  %91 = load i8, ptr %90, align 2, !range !4, !noundef !5
+  %92 = trunc nuw i8 %91 to i1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %92, label %94, label %96
 
@@ -1350,7 +1348,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br label %SlruPhysicalWritePage.exit
 
 104:                                              ; preds = %SlruFileName.exit.i
-  br i1 %.not68.i, label %118, label %105
+  br i1 %.not71.i, label %118, label %105
 
 105:                                              ; preds = %104
   %106 = load i32, ptr %2, align 8
@@ -1360,12 +1358,12 @@ SlruFileName.exit.i:                              ; preds = %96, %94
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %110 = sext i32 %106 to i64
-  %111 = getelementptr [16 x i32], ptr %109, i64 0, i64 %110
+  %111 = getelementptr inbounds [16 x i32], ptr %109, i64 0, i64 %110
   store i32 %99, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %113 = load i32, ptr %2, align 8
   %114 = sext i32 %113 to i64
-  %115 = getelementptr [16 x i64], ptr %112, i64 0, i64 %114
+  %115 = getelementptr inbounds [16 x i64], ptr %112, i64 0, i64 %114
   store i64 %49, ptr %115, align 8
   %116 = load i32, ptr %2, align 8
   %117 = add i32 %116, 1
@@ -1373,21 +1371,21 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br label %118
 
 118:                                              ; preds = %108, %105, %104, %85
-  %.061.i = phi i1 [ false, %108 ], [ true, %104 ], [ false, %85 ], [ true, %105 ]
-  %.160.i = phi i32 [ %99, %108 ], [ %99, %104 ], [ %88, %85 ], [ %99, %105 ]
+  %.064.i = phi i1 [ false, %108 ], [ true, %104 ], [ false, %85 ], [ true, %105 ]
+  %.2.i = phi i32 [ %99, %108 ], [ %99, %104 ], [ %88, %85 ], [ %99, %105 ]
   %119 = tail call ptr @__errno_location() #16
   store i32 0, ptr %119, align 4
   %120 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772209, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr ptr, ptr %122, i64 %9
+  %123 = getelementptr inbounds ptr, ptr %122, i64 %9
   %124 = load ptr, ptr %123, align 8
-  %125 = call i64 @pwrite(i32 noundef %.160.i, ptr noundef %124, i64 noundef 8192, i64 noundef %53) #15
-  %.not69.i = icmp eq i64 %125, 8192
+  %125 = call i64 @pwrite(i32 noundef %.2.i, ptr noundef %124, i64 noundef 8192, i64 noundef %53) #15
+  %.not72.i = icmp eq i64 %125, 8192
   %126 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %126, align 4
-  br i1 %.not69.i, label %135, label %127
+  br i1 %.not72.i, label %135, label %127
 
 127:                                              ; preds = %118
   %128 = load i32, ptr %119, align 4
@@ -1402,50 +1400,56 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   %132 = phi i32 [ 28, %130 ], [ %128, %127 ]
   store i32 3, ptr @slru_errcause, align 4
   store i32 %132, ptr @slru_errno, align 4
-  br i1 %.061.i, label %133, label %SlruPhysicalWritePage.exit
+  br i1 %.064.i, label %133, label %SlruPhysicalWritePage.exit
 
 133:                                              ; preds = %131
-  %134 = call i32 @CloseTransientFile(i32 noundef %.160.i) #15
+  %134 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
   br label %SlruPhysicalWritePage.exit
 
 135:                                              ; preds = %118
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %137 = load i32, ptr %136, align 4
-  %.not70.i = icmp eq i32 %137, 5
-  br i1 %.not70.i, label %149, label %138
+  %.not73.i = icmp eq i32 %137, 5
+  br i1 %.not73.i, label %149, label %138
 
 138:                                              ; preds = %135
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   %139 = trunc i32 %137 to i16
   store i16 %139, ptr %5, align 8
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %49, ptr %140, align 8
   %141 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext false) #15
-  br i1 %141, label %149, label %142
+  br i1 %141, label %148, label %142
 
 142:                                              ; preds = %138
   %143 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772208, ptr %143, align 4
-  %144 = call i32 @pg_fsync(i32 noundef %.160.i) #15
-  %.not71.i = icmp eq i32 %144, 0
+  %144 = call i32 @pg_fsync(i32 noundef %.2.i) #15
+  %.not74.i = icmp eq i32 %144, 0
   %145 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %145, align 4
-  br i1 %.not71.i, label %149, label %146
+  br i1 %.not74.i, label %148, label %.critedge.i
 
-146:                                              ; preds = %142
+.critedge.i:                                      ; preds = %142
   store i32 4, ptr @slru_errcause, align 4
-  %147 = load i32, ptr %119, align 4
-  store i32 %147, ptr @slru_errno, align 4
-  %148 = call i32 @CloseTransientFile(i32 noundef %.160.i) #15
+  %146 = load i32, ptr %119, align 4
+  store i32 %146, ptr @slru_errno, align 4
+  %147 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
   br label %SlruPhysicalWritePage.exit
 
-149:                                              ; preds = %142, %138, %135
-  br i1 %.061.i, label %150, label %.thread61
+148:                                              ; preds = %142, %138
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  br label %149
+
+149:                                              ; preds = %148, %135
+  br i1 %.064.i, label %150, label %.thread61
 
 150:                                              ; preds = %149
-  %151 = call i32 @CloseTransientFile(i32 noundef %.160.i) #15
-  %.not73.i = icmp eq i32 %151, 0
-  br i1 %.not73.i, label %.thread61, label %152
+  %151 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
+  %.not76.i = icmp eq i32 %151, 0
+  br i1 %.not76.i, label %.thread61, label %152
 
 152:                                              ; preds = %150
   store i32 5, ptr @slru_errcause, align 4
@@ -1454,23 +1458,21 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br label %SlruPhysicalWritePage.exit
 
 .thread61:                                        ; preds = %149, %150
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
   %154 = load ptr, ptr %44, align 8
-  %155 = getelementptr %union.LWLockPadded, ptr %154, i64 %46
+  %155 = getelementptr inbounds %union.LWLockPadded, ptr %154, i64 %46
   %156 = call zeroext i1 @LWLockAcquire(ptr noundef %155, i32 noundef 0) #15
   %157 = load ptr, ptr %13, align 8
-  %158 = getelementptr i32, ptr %157, i64 %9
+  %158 = getelementptr inbounds i32, ptr %157, i64 %9
   store i32 2, ptr %158, align 4
   %159 = load ptr, ptr %40, align 8
-  %160 = getelementptr %union.LWLockPadded, ptr %159, i64 %9
+  %160 = getelementptr inbounds %union.LWLockPadded, ptr %159, i64 %9
   call void @LWLockRelease(ptr noundef %160) #15
   br label %180
 
-SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %146, %152
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %.not68.i, label %.thread63, label %.preheader
+SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.critedge.i, %152
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  br i1 %.not71.i, label %.thread63, label %.preheader
 
 .preheader:                                       ; preds = %SlruPhysicalWritePage.exit
   %161 = load i32, ptr %2, align 8
@@ -1483,58 +1485,62 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %1
 
 164:                                              ; preds = %.lr.ph74, %164
   %indvars.iv = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next, %164 ]
-  %165 = getelementptr [16 x i32], ptr %163, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [16 x i32], ptr %163, i64 0, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4
   %167 = call i32 @CloseTransientFile(i32 noundef %166) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = load i32, ptr %2, align 8
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
-  br i1 %170, label %164, label %.thread63, !llvm.loop !14
+  br i1 %170, label %164, label %.thread63, !llvm.loop !15
 
 .thread63:                                        ; preds = %164, %.preheader, %SlruPhysicalWritePage.exit
   %171 = load ptr, ptr %44, align 8
-  %172 = getelementptr %union.LWLockPadded, ptr %171, i64 %46
+  %172 = getelementptr inbounds %union.LWLockPadded, ptr %171, i64 %46
   %173 = call zeroext i1 @LWLockAcquire(ptr noundef %172, i32 noundef 0) #15
   %174 = load ptr, ptr %28, align 8
-  %175 = getelementptr i8, ptr %174, i64 %9
+  %175 = getelementptr inbounds i8, ptr %174, i64 %9
   store i8 1, ptr %175, align 1
   %176 = load ptr, ptr %13, align 8
-  %177 = getelementptr i32, ptr %176, i64 %9
+  %177 = getelementptr inbounds i32, ptr %176, i64 %9
   store i32 2, ptr %177, align 4
   %178 = load ptr, ptr %40, align 8
-  %179 = getelementptr %union.LWLockPadded, ptr %178, i64 %9
+  %179 = getelementptr inbounds %union.LWLockPadded, ptr %178, i64 %9
   call void @LWLockRelease(ptr noundef %179) #15
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %11, i32 noundef 0)
   br label %180
 
 180:                                              ; preds = %.thread61, %.thread63
-  br i1 %.not68.i, label %.thread, label %181
+  br i1 %.not71.i, label %.thread, label %181
 
 181:                                              ; preds = %180
-  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 44), align 4
   %183 = add i32 %182, 1
-  store i32 %183, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
+  store i32 %183, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 44), align 4
+  %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 72), align 8
+  %185 = add i64 %184, 1
+  store i64 %185, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 72), align 8
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.critedge, %33, %181, %180
+.thread:                                          ; preds = %.lr.ph, %180, %181, %.critedge, %33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [1024 x i8], align 16
   %4 = sdiv i64 %1, 32
   %5 = srem i64 %1, 32
   %6 = trunc nsw i64 %5 to i32
   %7 = shl nsw i32 %6, 13
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #15
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load i32, ptr %9, align 8
   tail call void @pgstat_count_slru_page_exists(i32 noundef %10) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 2
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %13, label %15, label %17
 
@@ -1597,22 +1603,24 @@ SlruFileName.exit:                                ; preds = %15, %17
 
 42:                                               ; preds = %22, %38, %35
   %.0 = phi i1 [ false, %35 ], [ %41, %38 ], [ false, %22 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
   ret i1 %.0
 }
 
-declare void @pgstat_count_slru_page_exists(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_page_exists(i32 noundef) local_unnamed_addr #4
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #3
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = alloca %struct.SlruWriteAllData, align 8
   %4 = load ptr, ptr %0, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8
   tail call void @pgstat_count_slru_flush(i32 noundef %6) #15
@@ -1626,69 +1634,72 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %13
+  br label %20
 
-13:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.03338 = phi i32 [ 0, %.lr.ph ], [ %.134, %30 ]
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  %15 = ashr i32 %14, 4
-  %.not37 = icmp eq i32 %15, %.03338
-  br i1 %.not37, label %24, label %16
-
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %7, align 8
-  %18 = sext i32 %.03338 to i64
-  %19 = getelementptr %union.LWLockPadded, ptr %17, i64 %18
-  call void @LWLockRelease(ptr noundef %19) #15
-  %20 = load ptr, ptr %7, align 8
-  %21 = sext i32 %15 to i64
-  %22 = getelementptr %union.LWLockPadded, ptr %20, i64 %21
-  %23 = call zeroext i1 @LWLockAcquire(ptr noundef %22, i32 noundef 0) #15
-  br label %24
-
-24:                                               ; preds = %16, %13
-  %.134 = phi i32 [ %15, %16 ], [ %.03338, %13 ]
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr i32, ptr %25, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %30, label %29
-
-29:                                               ; preds = %24
-  call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %14, ptr noundef nonnull %3)
-  br label %30
-
-30:                                               ; preds = %24, %29
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %4, align 8
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %13, label %._crit_edge.loopexit, !llvm.loop !15
-
-._crit_edge.loopexit:                             ; preds = %30
-  %34 = sext i32 %.134 to i64
+._crit_edge.loopexit:                             ; preds = %37
+  %13 = sext i32 %.134 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.033.lcssa = phi i64 [ 0, %2 ], [ %34, %._crit_edge.loopexit ]
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr %union.LWLockPadded, ptr %35, i64 %.033.lcssa
-  call void @LWLockRelease(ptr noundef %36) #15
-  %37 = load i32, ptr %3, align 8
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph44, label %._crit_edge45.thread
+  %.033.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds %union.LWLockPadded, ptr %14, i64 %.033.lcssa
+  call void @LWLockRelease(ptr noundef %15) #15
+  %16 = load i32, ptr %3, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph44, label %._crit_edge45.thread
 
 .lr.ph44:                                         ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br label %41
+
+20:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %.03338 = phi i32 [ 0, %.lr.ph ], [ %.134, %37 ]
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %22 = ashr i32 %21, 4
+  %.not37 = icmp eq i32 %22, %.03338
+  br i1 %.not37, label %31, label %23
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %7, align 8
+  %25 = sext i32 %.03338 to i64
+  %26 = getelementptr inbounds %union.LWLockPadded, ptr %24, i64 %25
+  call void @LWLockRelease(ptr noundef %26) #15
+  %27 = load ptr, ptr %7, align 8
+  %28 = sext i32 %22 to i64
+  %29 = getelementptr inbounds %union.LWLockPadded, ptr %27, i64 %28
+  %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #15
+  br label %31
+
+31:                                               ; preds = %23, %20
+  %.134 = phi i32 [ %22, %23 ], [ %.03338, %20 ]
+  %32 = load ptr, ptr %12, align 8
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %31
+  call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %21, ptr noundef nonnull %3)
+  br label %37
+
+37:                                               ; preds = %31, %36
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %38 = load i32, ptr %4, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %20, label %._crit_edge.loopexit, !llvm.loop !16
+
+._crit_edge45:                                    ; preds = %51
+  br i1 %.132, label %._crit_edge45.thread, label %55
 
 41:                                               ; preds = %.lr.ph44, %51
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %51 ]
   %.02941 = phi i64 [ 0, %.lr.ph44 ], [ %.1, %51 ]
   %.03140 = phi i1 [ true, %.lr.ph44 ], [ %.132, %51 ]
-  %42 = getelementptr [16 x i32], ptr %39, i64 0, i64 %indvars.iv49
+  %42 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %indvars.iv49
   %43 = load i32, ptr %42, align 4
   %44 = call i32 @CloseTransientFile(i32 noundef %43) #15
   %.not36 = icmp eq i32 %44, 0
@@ -1699,7 +1710,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %46 = tail call ptr @__errno_location() #16
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr @slru_errno, align 4
-  %48 = getelementptr [16 x i64], ptr %40, i64 0, i64 %indvars.iv49
+  %48 = getelementptr inbounds nuw [16 x i64], ptr %19, i64 0, i64 %indvars.iv49
   %49 = load i64, ptr %48, align 8
   %50 = shl i64 %49, 5
   br label %51
@@ -1711,10 +1722,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %52 = load i32, ptr %3, align 8
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next50, %53
-  br i1 %54, label %41, label %._crit_edge45, !llvm.loop !16
-
-._crit_edge45:                                    ; preds = %51
-  br i1 %.132, label %._crit_edge45.thread, label %55
+  br i1 %54, label %41, label %._crit_edge45, !llvm.loop !17
 
 55:                                               ; preds = %._crit_edge45
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %.1, i32 noundef 0)
@@ -1732,15 +1740,16 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge45.thread
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
   ret void
 }
 
-declare void @pgstat_count_slru_flush(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_flush(i32 noundef) local_unnamed_addr #4
 
-declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1752,145 +1761,145 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %9 = load ptr, ptr %7, align 8
   %10 = load volatile i64, ptr %8, align 8
   %11 = tail call zeroext i1 %9(i64 noundef %10, i64 noundef %1) #15
-  br i1 %11, label %._crit_edge55, label %.lr.ph54
+  br i1 %11, label %._crit_edge68, label %.lr.ph67
 
-.lr.ph54:                                         ; preds = %2
+.lr.ph67:                                         ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %20
 
-._crit_edge55:                                    ; preds = %59, %2
+._crit_edge68:                                    ; preds = %63, %2
   %16 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
   br i1 %16, label %17, label %74
 
-17:                                               ; preds = %._crit_edge55
+17:                                               ; preds = %._crit_edge68
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1418, ptr noundef nonnull @__func__.SimpleLruTruncate) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.SimpleLruTruncate) #15
   br label %74
 
-20:                                               ; preds = %.lr.ph54, %59
+20:                                               ; preds = %.lr.ph67, %63
   %21 = load ptr, ptr %12, align 8
   %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #15
   %23 = load i32, ptr %4, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %20 ]
-  %.048 = phi i32 [ %.1, %66 ], [ 0, %20 ]
+.lr.ph:                                           ; preds = %20, %59
+  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %20 ]
+  %.061 = phi i32 [ %.2, %59 ], [ 0, %20 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = lshr i32 %25, 4
-  %.not = icmp eq i32 %26, %.048
+  %.not = icmp eq i32 %26, %.061
   br i1 %.not, label %35, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %12, align 8
-  %29 = zext nneg i32 %.048 to i64
-  %30 = getelementptr %union.LWLockPadded, ptr %28, i64 %29
+  %29 = zext nneg i32 %.061 to i64
+  %30 = getelementptr inbounds nuw %union.LWLockPadded, ptr %28, i64 %29
   tail call void @LWLockRelease(ptr noundef %30) #15
   %31 = load ptr, ptr %12, align 8
   %32 = zext nneg i32 %26 to i64
-  %33 = getelementptr %union.LWLockPadded, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw %union.LWLockPadded, ptr %31, i64 %32
   %34 = tail call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0) #15
   br label %35
 
 35:                                               ; preds = %27, %.lr.ph
-  %.1 = phi i32 [ %26, %27 ], [ %.048, %.lr.ph ]
+  %.2 = phi i32 [ %26, %27 ], [ %.061, %.lr.ph ]
   %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr i32, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %66, label %40
+  br i1 %39, label %59, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %7, align 8
   %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr i64, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = tail call zeroext i1 %41(i64 noundef %44, i64 noundef %1) #15
-  br i1 %45, label %46, label %66
+  br i1 %45, label %46, label %59
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr i32, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %15, align 8
-  %53 = getelementptr i8, ptr %52, i64 %indvars.iv
-  %54 = load i8, ptr %53, align 1
-  %55 = trunc i8 %54 to i1
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
+  %54 = load i8, ptr %53, align 1, !range !4, !noundef !5
+  %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %51
   store i32 0, ptr %48, align 4
-  br label %66
+  br label %59
 
 57:                                               ; preds = %51
   tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %25, ptr noundef null)
-  br label %59
+  br label %63
 
 58:                                               ; preds = %46
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %25)
-  br label %59
+  br label %63
 
-59:                                               ; preds = %58, %57
-  %60 = load ptr, ptr %12, align 8
-  %61 = zext nneg i32 %.1 to i64
-  %62 = getelementptr %union.LWLockPadded, ptr %60, i64 %61
-  tail call void @LWLockRelease(ptr noundef %62) #15
-  %63 = load ptr, ptr %7, align 8
-  %64 = load volatile i64, ptr %8, align 8
-  %65 = tail call zeroext i1 %63(i64 noundef %64, i64 noundef %1) #15
-  br i1 %65, label %._crit_edge55, label %20
-
-66:                                               ; preds = %40, %35, %56
+59:                                               ; preds = %56, %35, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %4, align 8
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  %60 = load i32, ptr %4, align 8
+  %61 = sext i32 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
-._crit_edge.loopexit:                             ; preds = %66
-  %70 = zext nneg i32 %.1 to i64
+63:                                               ; preds = %58, %57
+  %64 = load ptr, ptr %12, align 8
+  %65 = zext nneg i32 %.2 to i64
+  %66 = getelementptr inbounds nuw %union.LWLockPadded, ptr %64, i64 %65
+  tail call void @LWLockRelease(ptr noundef %66) #15
+  %67 = load ptr, ptr %7, align 8
+  %68 = load volatile i64, ptr %8, align 8
+  %69 = tail call zeroext i1 %67(i64 noundef %68, i64 noundef %1) #15
+  br i1 %69, label %._crit_edge68, label %20
+
+._crit_edge.loopexit:                             ; preds = %59
+  %70 = zext nneg i32 %.2 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %70, %._crit_edge.loopexit ], [ 0, %20 ]
   %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr %union.LWLockPadded, ptr %71, i64 %.0.lcssa
+  %72 = getelementptr inbounds nuw %union.LWLockPadded, ptr %71, i64 %.0.lcssa
   tail call void @LWLockRelease(ptr noundef %72) #15
   %73 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull %0, ptr noundef nonnull @SlruScanDirCbDeleteCutoff, ptr noundef nonnull %3)
   br label %74
 
-74:                                               ; preds = %17, %._crit_edge55, %._crit_edge
+74:                                               ; preds = %._crit_edge68, %17, %._crit_edge
   ret void
 }
 
-declare void @pgstat_count_slru_truncate(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_truncate(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call ptr @AllocateDir(ptr noundef nonnull %4) #15
   %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
-  %.not20.not = icmp eq ptr %6, null
-  br i1 %.not20.not, label %._crit_edge, label %.lr.ph
+  %.not25.not = icmp eq ptr %6, null
+  br i1 %.not25.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 10
@@ -1900,8 +1909,8 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
   %9 = phi ptr [ %6, %.lr.ph ], [ %27, %26 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
-  %.val = load i8, ptr %7, align 2
-  %12 = trunc i8 %.val to i1
+  %.val = load i8, ptr %7, align 2, !range !4, !noundef !5
+  %12 = trunc nuw i8 %.val to i1
   br i1 %12, label %13, label %SlruCorrectSegmentFilenameLength.exit
 
 13:                                               ; preds = %8
@@ -1926,26 +1935,26 @@ SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
 
 22:                                               ; preds = %18
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1796, ptr noundef nonnull @__func__.SlruScanDirectory) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1813, ptr noundef nonnull @__func__.SlruScanDirectory) #15
   br label %24
 
-24:                                               ; preds = %18, %22
+24:                                               ; preds = %22, %18
   %25 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %20, ptr noundef %2) #15
-  br i1 %25, label %._crit_edge, label %26
+  br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %13, %24, %15
+26:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %24, %13, %15
   %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
   %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %._crit_edge, label %8, !llvm.loop !18
+  br i1 %.not.not, label %.thread, label %8
 
-._crit_edge:                                      ; preds = %26, %24, %3
+.thread:                                          ; preds = %26, %24, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %24 ], [ false, %26 ]
   %28 = tail call i32 @FreeDir(ptr noundef %5) #15
   ret i1 %.not.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @SlruScanDirCbDeleteCutoff(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #2 {
+define internal noundef zeroext i1 @SlruScanDirCbDeleteCutoff(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1968,7 +1977,7 @@ SlruMayDeleteSegment.exit.thread:                 ; preds = %4, %12, %SlruMayDel
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1981,10 +1990,13 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   br i1 %11, label %.split, label %.split47.us
 
 .split:                                           ; preds = %2, %._crit_edge
-  %12 = phi i32 [ %79, %._crit_edge ], [ %10, %2 ]
+  %12 = phi i32 [ %78, %._crit_edge ], [ %10, %2 ]
   %.0 = phi i32 [ %.2, %._crit_edge ], [ 0, %2 ]
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.split47.us.loopexit
+
+._crit_edge:                                      ; preds = %SimpleLruWaitIO.exit
+  br i1 %.137, label %.split, label %.split47.us.loopexit, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.split, %SimpleLruWaitIO.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SimpleLruWaitIO.exit ], [ 0, %.split ]
@@ -1998,155 +2010,153 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr %4, align 8
   %18 = zext nneg i32 %.144 to i64
-  %19 = getelementptr %union.LWLockPadded, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %union.LWLockPadded, ptr %17, i64 %18
   tail call void @LWLockRelease(ptr noundef %19) #15
   %20 = load ptr, ptr %4, align 8
   %21 = zext nneg i32 %15 to i64
-  %22 = getelementptr %union.LWLockPadded, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %20, i64 %21
   %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef %22, i32 noundef 0) #15
   br label %24
 
 24:                                               ; preds = %16, %.lr.ph
   %.2 = phi i32 [ %15, %16 ], [ %.144, %.lr.ph ]
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %SimpleLruWaitIO.exit, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr i64, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = sdiv i64 %32, 32
-  %sext = shl i64 %33, 32
-  %34 = ashr exact i64 %sext, 32
-  %.not41 = icmp eq i64 %34, %1
-  br i1 %.not41, label %35, label %SimpleLruWaitIO.exit
+  %.not41 = icmp eq i64 %33, %1
+  br i1 %.not41, label %34, label %SimpleLruWaitIO.exit
 
-35:                                               ; preds = %29
-  %36 = icmp eq i32 %27, 2
-  br i1 %36, label %37, label %44
+34:                                               ; preds = %29
+  %35 = icmp eq i32 %27, 2
+  br i1 %35, label %36, label %43
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr i8, ptr %38, i64 %indvars.iv
-  %40 = load i8, ptr %39, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %43, label %42
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
+  %39 = load i8, ptr %38, align 1, !range !4, !noundef !5
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %42, label %41
 
-42:                                               ; preds = %37
+41:                                               ; preds = %36
   store i32 0, ptr %26, align 4
   br label %SimpleLruWaitIO.exit
 
-43:                                               ; preds = %37
+42:                                               ; preds = %36
   tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %14, ptr noundef null)
   br label %SimpleLruWaitIO.exit
 
-44:                                               ; preds = %35
+43:                                               ; preds = %34
   %.val = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %46 = load ptr, ptr %45, align 8
-  %47 = zext nneg i32 %15 to i64
-  %48 = getelementptr %union.LWLockPadded, ptr %46, i64 %47
-  tail call void @LWLockRelease(ptr noundef %48) #15
-  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr %union.LWLockPadded, ptr %50, i64 %indvars.iv
-  %52 = tail call zeroext i1 @LWLockAcquire(ptr noundef %51, i32 noundef 1) #15
-  %53 = load ptr, ptr %49, align 8
-  %54 = getelementptr %union.LWLockPadded, ptr %53, i64 %indvars.iv
-  tail call void @LWLockRelease(ptr noundef %54) #15
-  %55 = load ptr, ptr %45, align 8
-  %56 = getelementptr %union.LWLockPadded, ptr %55, i64 %47
-  %57 = tail call zeroext i1 @LWLockAcquire(ptr noundef %56, i32 noundef 0) #15
-  %58 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr i32, ptr %59, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4
-  switch i32 %61, label %SimpleLruWaitIO.exit [
-    i32 1, label %62
-    i32 3, label %62
+  %44 = getelementptr inbounds nuw i8, ptr %.val, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = zext nneg i32 %15 to i64
+  %47 = getelementptr inbounds nuw %union.LWLockPadded, ptr %45, i64 %46
+  tail call void @LWLockRelease(ptr noundef %47) #15
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %union.LWLockPadded, ptr %49, i64 %indvars.iv
+  %51 = tail call zeroext i1 @LWLockAcquire(ptr noundef %50, i32 noundef 1) #15
+  %52 = load ptr, ptr %48, align 8
+  %53 = getelementptr inbounds nuw %union.LWLockPadded, ptr %52, i64 %indvars.iv
+  tail call void @LWLockRelease(ptr noundef %53) #15
+  %54 = load ptr, ptr %44, align 8
+  %55 = getelementptr inbounds nuw %union.LWLockPadded, ptr %54, i64 %46
+  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef %55, i32 noundef 0) #15
+  %57 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4
+  switch i32 %60, label %SimpleLruWaitIO.exit [
+    i32 1, label %61
+    i32 3, label %61
   ]
 
-62:                                               ; preds = %44, %44
-  %63 = load ptr, ptr %49, align 8
-  %64 = getelementptr %union.LWLockPadded, ptr %63, i64 %indvars.iv
-  %65 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %64, i32 noundef 1) #15
-  br i1 %65, label %66, label %SimpleLruWaitIO.exit
+61:                                               ; preds = %43, %43
+  %62 = load ptr, ptr %48, align 8
+  %63 = getelementptr inbounds nuw %union.LWLockPadded, ptr %62, i64 %indvars.iv
+  %64 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %63, i32 noundef 1) #15
+  br i1 %64, label %65, label %SimpleLruWaitIO.exit
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %58, align 8
-  %68 = getelementptr i32, ptr %67, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %72
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %57, align 8
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, 1
+  br i1 %69, label %70, label %71
 
-71:                                               ; preds = %66
-  store i32 0, ptr %68, align 4
-  br label %76
+70:                                               ; preds = %65
+  store i32 0, ptr %67, align 4
+  br label %75
 
-72:                                               ; preds = %66
-  store i32 2, ptr %68, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr i8, ptr %74, i64 %indvars.iv
-  store i8 1, ptr %75, align 1
-  br label %76
+71:                                               ; preds = %65
+  store i32 2, ptr %67, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
+  store i8 1, ptr %74, align 1
+  br label %75
 
-76:                                               ; preds = %72, %71
-  %77 = load ptr, ptr %49, align 8
-  %78 = getelementptr %union.LWLockPadded, ptr %77, i64 %indvars.iv
-  tail call void @LWLockRelease(ptr noundef %78) #15
+75:                                               ; preds = %71, %70
+  %76 = load ptr, ptr %48, align 8
+  %77 = getelementptr inbounds nuw %union.LWLockPadded, ptr %76, i64 %indvars.iv
+  tail call void @LWLockRelease(ptr noundef %77) #15
   br label %SimpleLruWaitIO.exit
 
-SimpleLruWaitIO.exit:                             ; preds = %76, %62, %44, %43, %29, %24, %42
-  %.137 = phi i1 [ %.03643, %24 ], [ %.03643, %29 ], [ %.03643, %42 ], [ true, %43 ], [ true, %44 ], [ true, %62 ], [ true, %76 ]
+SimpleLruWaitIO.exit:                             ; preds = %75, %61, %43, %42, %29, %24, %41
+  %.137 = phi i1 [ %.03643, %41 ], [ %.03643, %24 ], [ %.03643, %29 ], [ true, %42 ], [ true, %43 ], [ true, %61 ], [ true, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %3, align 8
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !19
-
-._crit_edge:                                      ; preds = %SimpleLruWaitIO.exit
-  br i1 %.137, label %.split, label %.split47.us.loopexit, !llvm.loop !20
+  %78 = load i32, ptr %3, align 8
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 .split47.us.loopexit:                             ; preds = %.split, %._crit_edge
   %.1.lcssa50 = phi i32 [ %.2, %._crit_edge ], [ %.0, %.split ]
-  %82 = zext nneg i32 %.1.lcssa50 to i64
+  %81 = zext nneg i32 %.1.lcssa50 to i64
   br label %.split47.us
 
 .split47.us:                                      ; preds = %.split47.us.loopexit, %2
-  %.us-phi = phi i64 [ 0, %2 ], [ %82, %.split47.us.loopexit ]
+  %.us-phi = phi i64 [ 0, %2 ], [ %81, %.split47.us.loopexit ]
   tail call fastcc void @SlruInternalDeleteSegment(ptr noundef nonnull %0, i64 noundef %1)
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr %union.LWLockPadded, ptr %83, i64 %.us-phi
-  tail call void @LWLockRelease(ptr noundef %84) #15
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw %union.LWLockPadded, ptr %82, i64 %.us-phi
+  tail call void @LWLockRelease(ptr noundef %83) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.FileTag, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   %8 = trunc i32 %6 to i16
   store i16 %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %9, align 8
   %10 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %4, i32 noundef 2, i1 noundef zeroext true) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i8, ptr %12, align 2
-  %14 = trunc i8 %13 to i1
+  %13 = load i8, ptr %12, align 2, !range !4, !noundef !5
+  %14 = trunc nuw i8 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %14, label %16, label %18
 
@@ -2165,16 +2175,17 @@ SlruFileName.exit:                                ; preds = %16, %18
 
 22:                                               ; preds = %SlruFileName.exit
   %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @__func__.SlruInternalDeleteSegment) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1518, ptr noundef nonnull @__func__.SlruInternalDeleteSegment) #15
   br label %24
 
-24:                                               ; preds = %SlruFileName.exit, %22
+24:                                               ; preds = %22, %SlruFileName.exit
   %25 = call i32 @unlink(ptr noundef nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @SlruScanDirCbReportPresence(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define dso_local zeroext i1 @SlruScanDirCbReportPresence(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2193,36 +2204,36 @@ SlruMayDeleteSegment.exit:                        ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 {
   %5 = sdiv i64 %2, 32
   tail call fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 noundef %5)
   ret i1 false
 }
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #3
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #4
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #3
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SlruSyncFileTag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local i32 @SlruSyncFileTag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %7 = load i8, ptr %6, align 2
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %6, align 2, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %8, label %10, label %12
 
@@ -2257,92 +2268,86 @@ SlruFileName.exit:                                ; preds = %10, %12
   ret i32 %.0
 }
 
-declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #3
+declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @pgstat_count_slru_page_written(i32 noundef) local_unnamed_addr #3
+declare void @pgstat_count_slru_page_written(i32 noundef) local_unnamed_addr #4
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
-
-declare zeroext i1 @RegisterSyncRequest(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
-
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #3
+declare zeroext i1 @RegisterSyncRequest(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @data_sync_elevel(i32 noundef) local_unnamed_addr #3
+; Function Attrs: nofree
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
+
+declare i32 @errcode_for_file_access() local_unnamed_addr #4
+
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #4
+
+declare i32 @data_sync_elevel(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(none) }
 attributes #17 = { cold nounwind }
 attributes #18 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.partial.disable"}
+!21 = distinct !{!21, !7}

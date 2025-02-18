@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/nodeCtescan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
 %struct.ParamExecData = type { ptr, i64, i8 }
 
@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = or i32 %2, 4
   %5 = tail call noundef ptr @palloc0(i64 noundef 264) #3
-  store i32 399, ptr %5, align 4
+  store i32 414, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -27,7 +27,7 @@ define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i3
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i32, ptr %14, align 8
@@ -35,16 +35,16 @@ define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i3
   %17 = getelementptr i8, ptr %13, i64 16
   %.val = load ptr, ptr %17, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr %union.ListCell, ptr %.val, i64 %18
+  %19 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.ParamExecData, ptr %23, i64 %26, i32 1
+  %27 = getelementptr inbounds %struct.ParamExecData, ptr %23, i64 %26, i32 1
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 240
@@ -216,15 +216,15 @@ define internal ptr @CteScanNext(ptr noundef readonly captures(none) %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @tuplestore_ateof(ptr noundef %10) #3
-  %.not35 = xor i1 %15, true
-  %brmerge = select i1 %6, i1 true, i1 %.not35
+  %.not36 = xor i1 %15, true
+  %brmerge = select i1 %6, i1 true, i1 %.not36
   br i1 %brmerge, label %23, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
-  %19 = load i8, ptr %18, align 8
-  %20 = trunc i8 %19 to i1
+  %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
@@ -232,23 +232,23 @@ define internal ptr @CteScanNext(ptr noundef readonly captures(none) %0) #0 {
   br i1 %22, label %.thread, label %58
 
 23:                                               ; preds = %1
-  br i1 %15, label %.thread38, label %.thread
+  br i1 %15, label %.thread39, label %.thread
 
 .thread:                                          ; preds = %16, %21, %23
   %24 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %10, i1 noundef zeroext %6, i1 noundef zeroext true, ptr noundef %14) #3
   br i1 %24, label %58, label %25
 
 25:                                               ; preds = %.thread
-  br i1 %6, label %.thread38, label %53
+  br i1 %6, label %.thread39, label %53
 
-.thread38:                                        ; preds = %23, %25
+.thread39:                                        ; preds = %23, %25
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 256
-  %28 = load i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
+  %28 = load i8, ptr %27, align 8, !range !4, !noundef !5
+  %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %53, label %30
 
-30:                                               ; preds = %.thread38
+30:                                               ; preds = %.thread39
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
@@ -286,12 +286,12 @@ ExecProcNode.exit:                                ; preds = %30, %35
   tail call void @tuplestore_puttupleslot(ptr noundef %10, ptr noundef nonnull %38) #3
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef %14, ptr noundef nonnull %38) #3
   br label %58
 
-53:                                               ; preds = %.thread38, %25
+53:                                               ; preds = %.thread39, %25
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -299,8 +299,8 @@ ExecProcNode.exit:                                ; preds = %30, %35
   tail call void %57(ptr noundef %14) #3
   br label %58
 
-58:                                               ; preds = %.thread, %21, %53, %47, %44
-  %.0 = phi ptr [ %14, %53 ], [ null, %44 ], [ %14, %47 ], [ null, %21 ], [ %14, %.thread ]
+58:                                               ; preds = %44, %47, %.thread, %21, %53
+  %.0 = phi ptr [ %14, %53 ], [ null, %21 ], [ %14, %.thread ], [ null, %44 ], [ %14, %47 ]
   ret ptr %.0
 }
 
@@ -319,15 +319,16 @@ declare void @tuplestore_puttupleslot(ptr noundef, ptr noundef) local_unnamed_ad
 
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

@@ -16,82 +16,101 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = call i32 @TransactionLogFetch(i32 noundef %6)
-  store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %7 = load i32, ptr %3, align 4
+  %8 = call i32 @TransactionLogFetch(i32 noundef %7)
+  store i32 %8, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4
-  %13 = icmp eq i32 %12, 3
-  br i1 %13, label %14, label %38
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %42
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %3, align 4
-  %16 = load i32, ptr @TransactionXmin, align 4
-  %17 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %15, i32 noundef %16)
-  br i1 %17, label %18, label %19
+12:                                               ; preds = %1
+  %13 = load i32, ptr %4, align 4
+  %14 = icmp eq i32 %13, 3
+  br i1 %14, label %15, label %41
 
-18:                                               ; preds = %14
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %16 = load i32, ptr %3, align 4
+  %17 = load i32, ptr @TransactionXmin, align 4
+  %18 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %16, i32 noundef %17)
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %15
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %40
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %3, align 4
-  %21 = call i32 @SubTransGetParent(i32 noundef %20)
-  store i32 %21, ptr %5, align 4
-  %22 = load i32, ptr %5, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %35, label %24
+20:                                               ; preds = %15
+  %21 = load i32, ptr %3, align 4
+  %22 = call i32 @SubTransGetParent(i32 noundef %21)
+  store i32 %22, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %37, label %25
 
-24:                                               ; preds = %19
-  br label %25
-
-25:                                               ; preds = %24
-  br i1 false, label %26, label %28
+25:                                               ; preds = %20
+  br label %26
 
 26:                                               ; preds = %25
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #3
-  br i1 %27, label %30, label %33
+  br i1 false, label %27, label %29
 
-28:                                               ; preds = %25
-  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %29, label %30, label %33
+27:                                               ; preds = %26
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #5
+  br i1 %28, label %31, label %34
 
-30:                                               ; preds = %28, %26
-  %31 = load i32, ptr %3, align 4
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %31)
+29:                                               ; preds = %26
+  %30 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %29, %27
+  %32 = load i32, ptr %3, align 4
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %32)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 162, ptr noundef @__func__.TransactionIdDidCommit)
-  br label %33
-
-33:                                               ; preds = %30, %28, %26
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %31, %29, %27
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %40
 
-35:                                               ; preds = %19
-  %36 = load i32, ptr %5, align 4
-  %37 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %36)
-  store i1 %37, ptr %2, align 1
-  br label %39
+37:                                               ; preds = %20
+  %38 = load i32, ptr %6, align 4
+  %39 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %38)
+  store i1 %39, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %40
 
-38:                                               ; preds = %11
+40:                                               ; preds = %37, %36, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  br label %42
+
+41:                                               ; preds = %12
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %42
 
-39:                                               ; preds = %38, %35, %34, %18, %10
-  %40 = load i1, ptr %2, align 1
-  ret i1 %40
+42:                                               ; preds = %41, %40, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %43 = load i1, ptr %2, align 1
+  ret i1 %43
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @TransactionLogFetch(i32 noundef %0) #0 {
@@ -99,74 +118,84 @@ define internal i32 @TransactionLogFetch(i32 noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = load i32, ptr @cachedFetchXid, align 4
-  %8 = icmp eq i32 %6, %7
-  br i1 %8, label %9, label %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %7 = load i32, ptr %3, align 4
+  %8 = load i32, ptr @cachedFetchXid, align 4
+  %9 = icmp eq i32 %7, %8
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr @cachedFetchXidStatus, align 4
-  store i32 %10, ptr %2, align 4
-  br label %37
+10:                                               ; preds = %1
+  %11 = load i32, ptr @cachedFetchXidStatus, align 4
+  store i32 %11, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-11:                                               ; preds = %1
-  %12 = load i32, ptr %3, align 4
-  %13 = icmp uge i32 %12, 3
-  br i1 %13, label %23, label %14
+12:                                               ; preds = %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp uge i32 %13, 3
+  br i1 %14, label %24, label %15
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %3, align 4
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %12
+  %16 = load i32, ptr %3, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i32 1, ptr %2, align 4
-  br label %37
+  store i32 1, ptr %6, align 4
+  br label %38
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 2
-  br i1 %20, label %21, label %22
+19:                                               ; preds = %15
+  %20 = load i32, ptr %3, align 4
+  %21 = icmp eq i32 %20, 2
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   store i32 1, ptr %2, align 4
-  br label %37
+  store i32 1, ptr %6, align 4
+  br label %38
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   store i32 2, ptr %2, align 4
-  br label %37
+  store i32 1, ptr %6, align 4
+  br label %38
 
-23:                                               ; preds = %11
-  %24 = load i32, ptr %3, align 4
-  %25 = call i32 @TransactionIdGetStatus(i32 noundef %24, ptr noundef %5)
-  store i32 %25, ptr %4, align 4
-  %26 = load i32, ptr %4, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %12
+  %25 = load i32, ptr %3, align 4
+  %26 = call i32 @TransactionIdGetStatus(i32 noundef %25, ptr noundef %5)
+  store i32 %26, ptr %4, align 4
+  %27 = load i32, ptr %4, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp ne i32 %29, 3
-  br i1 %30, label %31, label %35
+29:                                               ; preds = %24
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp ne i32 %30, 3
+  br i1 %31, label %32, label %36
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %3, align 4
-  store i32 %32, ptr @cachedFetchXid, align 4
-  %33 = load i32, ptr %4, align 4
-  store i32 %33, ptr @cachedFetchXidStatus, align 4
-  %34 = load i64, ptr %5, align 8
-  store i64 %34, ptr @cachedCommitLSN, align 8
-  br label %35
+32:                                               ; preds = %29
+  %33 = load i32, ptr %3, align 4
+  store i32 %33, ptr @cachedFetchXid, align 4
+  %34 = load i32, ptr %4, align 4
+  store i32 %34, ptr @cachedFetchXidStatus, align 4
+  %35 = load i64, ptr %5, align 8
+  store i64 %35, ptr @cachedCommitLSN, align 8
+  br label %36
 
-35:                                               ; preds = %31, %28, %23
-  %36 = load i32, ptr %4, align 4
-  store i32 %36, ptr %2, align 4
-  br label %37
+36:                                               ; preds = %32, %29, %24
+  %37 = load i32, ptr %4, align 4
+  store i32 %37, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-37:                                               ; preds = %35, %22, %21, %17, %9
-  %38 = load i32, ptr %2, align 4
-  ret i32 %38
+38:                                               ; preds = %36, %23, %22, %18, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -175,49 +204,57 @@ define dso_local zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp uge i32 %7, 3
-  br i1 %8, label %9, label %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp uge i32 %8, 3
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %5, align 4
-  %11 = icmp uge i32 %10, 3
-  br i1 %11, label %16, label %12
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4
+  %12 = icmp uge i32 %11, 3
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %9, %2
-  %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp ult i32 %13, %14
-  store i1 %15, ptr %3, align 1
-  br label %22
+13:                                               ; preds = %10, %2
+  %14 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %5, align 4
+  %16 = icmp ult i32 %14, %15
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-16:                                               ; preds = %9
-  %17 = load i32, ptr %4, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = sub i32 %17, %18
-  store i32 %19, ptr %6, align 4
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp slt i32 %20, 0
-  store i1 %21, ptr %3, align 1
-  br label %22
+17:                                               ; preds = %10
+  %18 = load i32, ptr %4, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = sub i32 %18, %19
+  store i32 %20, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp slt i32 %21, 0
+  store i1 %22, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-22:                                               ; preds = %16, %12
-  %23 = load i1, ptr %3, align 1
-  ret i1 %23
+23:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
-declare i32 @SubTransGetParent(i32 noundef) #1
+declare i32 @SubTransGetParent(i32 noundef) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) #0 {
@@ -225,81 +262,97 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
-  %7 = call i32 @TransactionLogFetch(i32 noundef %6)
-  store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp eq i32 %8, 2
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i1 true, ptr %2, align 1
-  br label %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %7 = load i32, ptr %3, align 4
+  %8 = call i32 @TransactionLogFetch(i32 noundef %7)
+  store i32 %8, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4
+  %10 = icmp eq i32 %9, 2
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4
-  %13 = icmp eq i32 %12, 3
-  br i1 %13, label %14, label %38
-
-14:                                               ; preds = %11
-  %15 = load i32, ptr %3, align 4
-  %16 = load i32, ptr @TransactionXmin, align 4
-  %17 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %15, i32 noundef %16)
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %14
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %42
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %3, align 4
-  %21 = call i32 @SubTransGetParent(i32 noundef %20)
-  store i32 %21, ptr %5, align 4
-  %22 = load i32, ptr %5, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %35, label %24
+12:                                               ; preds = %1
+  %13 = load i32, ptr %4, align 4
+  %14 = icmp eq i32 %13, 3
+  br i1 %14, label %15, label %41
 
-24:                                               ; preds = %19
-  br label %25
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %16 = load i32, ptr %3, align 4
+  %17 = load i32, ptr @TransactionXmin, align 4
+  %18 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %16, i32 noundef %17)
+  br i1 %18, label %19, label %20
 
-25:                                               ; preds = %24
-  br i1 false, label %26, label %28
+19:                                               ; preds = %15
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %40
+
+20:                                               ; preds = %15
+  %21 = load i32, ptr %3, align 4
+  %22 = call i32 @SubTransGetParent(i32 noundef %21)
+  store i32 %22, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %37, label %25
+
+25:                                               ; preds = %20
+  br label %26
 
 26:                                               ; preds = %25
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #3
-  br i1 %27, label %30, label %33
+  br i1 false, label %27, label %29
 
-28:                                               ; preds = %25
-  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %29, label %30, label %33
+27:                                               ; preds = %26
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #5
+  br i1 %28, label %31, label %34
 
-30:                                               ; preds = %28, %26
-  %31 = load i32, ptr %3, align 4
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %31)
+29:                                               ; preds = %26
+  %30 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %29, %27
+  %32 = load i32, ptr %3, align 4
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %32)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 217, ptr noundef @__func__.TransactionIdDidAbort)
-  br label %33
-
-33:                                               ; preds = %30, %28, %26
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %31, %29, %27
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
   store i1 true, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %40
 
-35:                                               ; preds = %19
-  %36 = load i32, ptr %5, align 4
-  %37 = call zeroext i1 @TransactionIdDidAbort(i32 noundef %36)
-  store i1 %37, ptr %2, align 1
-  br label %39
+37:                                               ; preds = %20
+  %38 = load i32, ptr %6, align 4
+  %39 = call zeroext i1 @TransactionIdDidAbort(i32 noundef %38)
+  store i1 %39, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %40
 
-38:                                               ; preds = %11
+40:                                               ; preds = %37, %36, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  br label %42
+
+41:                                               ; preds = %12
   store i1 false, ptr %2, align 1
-  br label %39
+  store i32 1, ptr %5, align 4
+  br label %42
 
-39:                                               ; preds = %38, %35, %34, %18, %10
-  %40 = load i1, ptr %2, align 1
-  ret i1 %40
+42:                                               ; preds = %41, %40, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %43 = load i1, ptr %2, align 1
+  ret i1 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -317,7 +370,7 @@ define dso_local void @TransactionIdCommitTree(i32 noundef %0, i32 noundef %1, p
   ret void
 }
 
-declare void @TransactionIdSetTreeStatus(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) #1
+declare void @TransactionIdSetTreeStatus(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @TransactionIdAsyncCommitTree(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -358,37 +411,42 @@ define dso_local zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %0, i32 n
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp uge i32 %7, 3
-  br i1 %8, label %9, label %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp uge i32 %8, 3
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %5, align 4
-  %11 = icmp uge i32 %10, 3
-  br i1 %11, label %16, label %12
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4
+  %12 = icmp uge i32 %11, 3
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %9, %2
-  %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp ule i32 %13, %14
-  store i1 %15, ptr %3, align 1
-  br label %22
+13:                                               ; preds = %10, %2
+  %14 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %5, align 4
+  %16 = icmp ule i32 %14, %15
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-16:                                               ; preds = %9
-  %17 = load i32, ptr %4, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = sub i32 %17, %18
-  store i32 %19, ptr %6, align 4
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp sle i32 %20, 0
-  store i1 %21, ptr %3, align 1
-  br label %22
+17:                                               ; preds = %10
+  %18 = load i32, ptr %4, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = sub i32 %18, %19
+  store i32 %20, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp sle i32 %21, 0
+  store i1 %22, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-22:                                               ; preds = %16, %12
-  %23 = load i1, ptr %3, align 1
-  ret i1 %23
+23:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -397,37 +455,42 @@ define dso_local zeroext i1 @TransactionIdFollows(i32 noundef %0, i32 noundef %1
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp uge i32 %7, 3
-  br i1 %8, label %9, label %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp uge i32 %8, 3
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %5, align 4
-  %11 = icmp uge i32 %10, 3
-  br i1 %11, label %16, label %12
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4
+  %12 = icmp uge i32 %11, 3
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %9, %2
-  %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp ugt i32 %13, %14
-  store i1 %15, ptr %3, align 1
-  br label %22
+13:                                               ; preds = %10, %2
+  %14 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %5, align 4
+  %16 = icmp ugt i32 %14, %15
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-16:                                               ; preds = %9
-  %17 = load i32, ptr %4, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = sub i32 %17, %18
-  store i32 %19, ptr %6, align 4
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp sgt i32 %20, 0
-  store i1 %21, ptr %3, align 1
-  br label %22
+17:                                               ; preds = %10
+  %18 = load i32, ptr %4, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = sub i32 %18, %19
+  store i32 %20, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp sgt i32 %21, 0
+  store i1 %22, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-22:                                               ; preds = %16, %12
-  %23 = load i1, ptr %3, align 1
-  ret i1 %23
+23:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -436,37 +499,42 @@ define dso_local zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 no
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp uge i32 %7, 3
-  br i1 %8, label %9, label %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp uge i32 %8, 3
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %5, align 4
-  %11 = icmp uge i32 %10, 3
-  br i1 %11, label %16, label %12
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4
+  %12 = icmp uge i32 %11, 3
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %9, %2
-  %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = icmp uge i32 %13, %14
-  store i1 %15, ptr %3, align 1
-  br label %22
+13:                                               ; preds = %10, %2
+  %14 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %5, align 4
+  %16 = icmp uge i32 %14, %15
+  store i1 %16, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-16:                                               ; preds = %9
-  %17 = load i32, ptr %4, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = sub i32 %17, %18
-  store i32 %19, ptr %6, align 4
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp sge i32 %20, 0
-  store i1 %21, ptr %3, align 1
-  br label %22
+17:                                               ; preds = %10
+  %18 = load i32, ptr %4, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = sub i32 %18, %19
+  store i32 %20, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp sge i32 %21, 0
+  store i1 %22, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %23
 
-22:                                               ; preds = %16, %12
-  %23 = load i1, ptr %3, align 1
-  ret i1 %23
+23:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %24 = load i1, ptr %3, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -478,6 +546,7 @@ define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr no
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   %8 = load i32, ptr %4, align 4
   store i32 %8, ptr %7, align 4
   br label %9
@@ -494,7 +563,7 @@ define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr no
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %5, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %14, i32 noundef %19)
   br i1 %20, label %21, label %27
@@ -503,16 +572,17 @@ define dso_local i32 @TransactionIdLatest(i32 noundef %0, i32 noundef %1, ptr no
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr %5, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %7, align 4
   br label %27
 
 27:                                               ; preds = %21, %13
-  br label %9, !llvm.loop !5
+  br label %9, !llvm.loop !4
 
 28:                                               ; preds = %9
   %29 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %29
 }
 
@@ -521,51 +591,58 @@ define dso_local i64 @TransactionIdGetCommitLSN(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr @cachedFetchXid, align 4
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %6 = load i32, ptr %3, align 4
+  %7 = load i32, ptr @cachedFetchXid, align 4
+  %8 = icmp eq i32 %6, %7
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %1
-  %9 = load i64, ptr @cachedCommitLSN, align 8
-  store i64 %9, ptr %2, align 8
-  br label %18
+9:                                                ; preds = %1
+  %10 = load i64, ptr @cachedCommitLSN, align 8
+  store i64 %10, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %19
 
-10:                                               ; preds = %1
-  %11 = load i32, ptr %3, align 4
-  %12 = icmp uge i32 %11, 3
-  br i1 %12, label %14, label %13
+11:                                               ; preds = %1
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp uge i32 %12, 3
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   store i64 0, ptr %2, align 8
-  br label %18
+  store i32 1, ptr %5, align 4
+  br label %19
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr %3, align 4
-  %16 = call i32 @TransactionIdGetStatus(i32 noundef %15, ptr noundef %4)
-  %17 = load i64, ptr %4, align 8
-  store i64 %17, ptr %2, align 8
-  br label %18
+15:                                               ; preds = %11
+  %16 = load i32, ptr %3, align 4
+  %17 = call i32 @TransactionIdGetStatus(i32 noundef %16, ptr noundef %4)
+  %18 = load i64, ptr %4, align 8
+  store i64 %18, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %19
 
-18:                                               ; preds = %14, %13, %8
-  %19 = load i64, ptr %2, align 8
-  ret i64 %19
+19:                                               ; preds = %15, %14, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %20 = load i64, ptr %2, align 8
+  ret i64 %20
 }
 
-declare i32 @TransactionIdGetStatus(i32 noundef, ptr noundef) #1
+declare i32 @TransactionIdGetStatus(i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

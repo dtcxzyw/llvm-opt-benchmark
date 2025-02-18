@@ -37,15 +37,18 @@ public:
 
     if (M.empty())
       return PreservedAnalyses::none();
-    std::error_code EC;
-    raw_fd_ostream OS(
+    auto TargetFileName =
         (Prefix / fs::path(FileName).filename().replace_extension(".ll"))
-            .string(),
-        EC);
-    if (EC)
+            .string();
+    Expected<sys::fs::TempFile> Temp =
+        sys::fs::TempFile::create("opt-%%%%%%%.ll");
+    if (!Temp)
       return PreservedAnalyses::none();
-    if (auto L = OS.lock())
+    {
+      raw_fd_ostream OS(Temp->FD, false);
       M.print(OS, /*AAW=*/nullptr);
+    }
+    (void)Temp->keep(TargetFileName);
     return PreservedAnalyses::none();
   }
 };

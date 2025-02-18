@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"--help\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
-@.str.4 = private unnamed_addr constant [25 x i8] c"%s (PostgreSQL) 17devel\0A\00", align 1
+@.str.4 = private unnamed_addr constant [25 x i8] c"%s (PostgreSQL) 18devel\0A\00", align 1
 @.str.5 = private unnamed_addr constant [33 x i8] c"invalid value \22%s\22 for option %s\00", align 1
 @.str.6 = private unnamed_addr constant [27 x i8] c"%s must be in range %d..%d\00", align 1
 @.str.7 = private unnamed_addr constant [6 x i8] c"fsync\00", align 1
@@ -18,9 +18,9 @@ define dso_local void @handle_help_version_opts(i32 noundef %0, ptr noundef read
   br i1 %5, label %6, label %.tail7.thread
 
 6:                                                ; preds = %4
-  %7 = getelementptr i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #5
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %17, label %sub_0
 
@@ -43,23 +43,23 @@ sub_1:                                            ; preds = %sub_0
 
 17:                                               ; preds = %.tail, %6
   %18 = load ptr, ptr %1, align 8
-  %19 = tail call ptr @get_progname(ptr noundef %18) #6
-  tail call void %3(ptr noundef %19) #6
-  tail call void @exit(i32 noundef 0) #7
+  %19 = tail call ptr @get_progname(ptr noundef %18) #7
+  tail call void %3(ptr noundef %19) #7
+  tail call void @exit(i32 noundef 0) #8
   unreachable
 
 .tail.thread:                                     ; preds = %sub_1
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #6
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %31, label %sub_19
 
 .tail.thread.thread:                              ; preds = %sub_0
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #6
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %31, label %.tail7.thread
 
 .thread:                                          ; preds = %.tail
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #6
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %31, label %sub_19
 
@@ -76,8 +76,8 @@ sub_19:                                           ; preds = %.tail.thread, %.thr
   br i1 %30, label %31, label %.tail7.thread
 
 31:                                               ; preds = %.tail.thread.thread, %.thread, %.tail7, %.tail.thread
-  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %2) #6
-  tail call void @exit(i32 noundef 0) #7
+  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %2) #7
+  tail call void @exit(i32 noundef 0) #8
   unreachable
 
 .tail7.thread:                                    ; preds = %.tail.thread.thread, %sub_19, %.tail7, %4
@@ -97,16 +97,17 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = tail call ptr @__errno_location() #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  %7 = tail call ptr @__errno_location() #9
   store i32 0, ptr %7, align 4
-  %8 = call i32 @strtoint(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 10) #6
+  %8 = call i32 @strtoint(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 10) #7
   %.promoted = load ptr, ptr %6, align 8
   %9 = load i8, ptr %.promoted, align 1
   %.not19 = icmp eq i8 %9, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = tail call ptr @__ctype_b_loc() #8
+  %10 = tail call ptr @__ctype_b_loc() #9
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
@@ -114,21 +115,21 @@ define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr nounde
   %13 = phi ptr [ %.promoted, %.lr.ph ], [ %20, %19 ]
   %14 = load ptr, ptr %10, align 8
   %15 = zext i8 %12 to i64
-  %16 = getelementptr i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
   %.not15 = icmp eq i16 %18, 0
   br i1 %.not15, label %.critedge, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr i8, ptr %13, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %20, ptr %6, align 8
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !4
 
 .critedge:                                        ; preds = %11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %1) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %1) #7
   br label %30
 
 ._crit_edge:                                      ; preds = %19, %5
@@ -141,7 +142,7 @@ define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr nounde
   br i1 %or.cond18, label %27, label %28
 
 27:                                               ; preds = %._crit_edge
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #7
   br label %30
 
 28:                                               ; preds = %._crit_edge
@@ -154,32 +155,39 @@ define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr nounde
 
 30:                                               ; preds = %28, %29, %27, %.critedge
   %.0 = phi i1 [ false, %.critedge ], [ false, %27 ], [ true, %29 ], [ true, %28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #4
+declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @parse_sync_method(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.7) #5
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.7) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #5
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #6
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #6
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #7
   br label %10
 
 9:                                                ; preds = %5, %2
@@ -192,22 +200,22 @@ define dso_local noundef zeroext i1 @parse_sync_method(ptr noundef %0, ptr nound
   ret i1 %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

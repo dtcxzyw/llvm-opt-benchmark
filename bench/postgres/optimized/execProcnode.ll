@@ -21,48 +21,48 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   tail call void @check_stack_depth() #6
   %6 = load i32, ptr %0, align 4
   switch i32 %6, label %91 [
-    i32 315, label %7
-    i32 316, label %9
-    i32 317, label %11
-    i32 318, label %13
-    i32 319, label %15
-    i32 320, label %17
-    i32 321, label %19
-    i32 322, label %21
-    i32 323, label %23
-    i32 324, label %25
-    i32 325, label %27
-    i32 326, label %29
-    i32 327, label %31
-    i32 328, label %33
-    i32 329, label %35
-    i32 330, label %37
-    i32 331, label %39
-    i32 332, label %41
-    i32 334, label %43
-    i32 333, label %45
-    i32 335, label %47
-    i32 336, label %49
-    i32 337, label %51
-    i32 338, label %53
-    i32 339, label %55
-    i32 340, label %57
-    i32 342, label %59
-    i32 343, label %61
-    i32 344, label %63
-    i32 346, label %65
-    i32 347, label %67
-    i32 345, label %69
-    i32 348, label %71
-    i32 349, label %73
-    i32 350, label %75
-    i32 351, label %77
-    i32 352, label %79
-    i32 353, label %81
-    i32 354, label %83
-    i32 355, label %85
-    i32 356, label %87
-    i32 357, label %89
+    i32 330, label %7
+    i32 331, label %9
+    i32 332, label %11
+    i32 333, label %13
+    i32 334, label %15
+    i32 335, label %17
+    i32 336, label %19
+    i32 337, label %21
+    i32 338, label %23
+    i32 339, label %25
+    i32 340, label %27
+    i32 341, label %29
+    i32 342, label %31
+    i32 343, label %33
+    i32 344, label %35
+    i32 345, label %37
+    i32 346, label %39
+    i32 347, label %41
+    i32 349, label %43
+    i32 348, label %45
+    i32 350, label %47
+    i32 351, label %49
+    i32 352, label %51
+    i32 353, label %53
+    i32 354, label %55
+    i32 355, label %57
+    i32 357, label %59
+    i32 358, label %61
+    i32 359, label %63
+    i32 361, label %65
+    i32 362, label %67
+    i32 360, label %69
+    i32 363, label %71
+    i32 364, label %73
+    i32 365, label %75
+    i32 366, label %77
+    i32 367, label %79
+    i32 368, label %81
+    i32 369, label %83
+    i32 370, label %85
+    i32 371, label %87
+    i32 372, label %89
   ]
 
 7:                                                ; preds = %5
@@ -260,34 +260,34 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph165, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph165, %.lr.ph, %95
+  %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %112, %.lr.ph165 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.0148, i64 88
+  store ptr %.0149.lcssa, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 228
+  %107 = load i32, ptr %106, align 4
+  %.not155 = icmp eq i32 %107, 0
+  br i1 %.not155, label %122, label %116
+
 .lr.ph165:                                        ; preds = %.lr.ph, %.lr.ph165
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph165 ], [ 0, %.lr.ph ]
-  %.0149159163 = phi ptr [ %109, %.lr.ph165 ], [ null, %.lr.ph ]
-  %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr %union.ListCell, ptr %105, i64 %indvars.iv
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr @ExecInitSubPlan(ptr noundef %107, ptr noundef %.0148) #6
-  %109 = tail call ptr @lappend(ptr noundef %.0149159163, ptr noundef %108) #6
+  %.0149159163 = phi ptr [ %112, %.lr.ph165 ], [ null, %.lr.ph ]
+  %108 = load ptr, ptr %102, align 8
+  %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call ptr @ExecInitSubPlan(ptr noundef %110, ptr noundef %.0148) #6
+  %112 = tail call ptr @lappend(ptr noundef %.0149159163, ptr noundef %111) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %110 = load i32, ptr %101, align 4
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph165, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph165, %.lr.ph, %95
-  %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %109, %.lr.ph165 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.0148, i64 88
-  store ptr %.0149.lcssa, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %115 = load i32, ptr %114, align 4
-  %.not155 = icmp eq i32 %115, 0
-  br i1 %.not155, label %122, label %116
+  %113 = load i32, ptr %101, align 4
+  %114 = sext i32 %113 to i64
+  %115 = icmp slt i64 %indvars.iv.next, %114
+  br i1 %115, label %.lr.ph165, label %._crit_edge
 
 116:                                              ; preds = %._crit_edge
   %117 = getelementptr inbounds nuw i8, ptr %.0148, i64 144
-  %118 = load i8, ptr %117, align 8
-  %119 = trunc i8 %118 to i1
-  %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %115, i1 noundef zeroext %119) #6
+  %118 = load i8, ptr %117, align 8, !range !4, !noundef !5
+  %119 = trunc nuw i8 %118 to i1
+  %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %107, i1 noundef zeroext %119) #6
   %121 = getelementptr inbounds nuw i8, ptr %.0148, i64 40
   store ptr %120, ptr %121, align 8
   br label %122
@@ -431,13 +431,13 @@ define dso_local ptr @MultiExecProcNode(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @check_stack_depth() #6
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3
+  br i1 %.not, label %4, label %3, !prof !6
 
 3:                                                ; preds = %1
   tail call void @ProcessInterrupts() #6
   br label %4
 
-4:                                                ; preds = %1, %3
+4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
@@ -450,10 +450,10 @@ define dso_local ptr @MultiExecProcNode(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %7, %4
   %9 = load i32, ptr %0, align 4
   switch i32 %9, label %18 [
-    i32 418, label %10
-    i32 391, label %12
-    i32 384, label %14
-    i32 385, label %16
+    i32 433, label %10
+    i32 406, label %12
+    i32 399, label %14
+    i32 400, label %16
   ]
 
 10:                                               ; preds = %8
@@ -477,7 +477,7 @@ define dso_local ptr @MultiExecProcNode(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.assume(i1 %19)
   %20 = load i32, ptr %0, align 4
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %20) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.MultiExecProcNode) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 541, ptr noundef nonnull @__func__.MultiExecProcNode) #6
   unreachable
 
 22:                                               ; preds = %16, %14, %12, %10
@@ -517,48 +517,48 @@ define dso_local void @ExecEndNode(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %6, %3
   %8 = load i32, ptr %0, align 4
   switch i32 %8, label %48 [
-    i32 378, label %9
-    i32 379, label %10
-    i32 380, label %11
-    i32 381, label %12
-    i32 382, label %13
-    i32 383, label %14
-    i32 384, label %15
-    i32 385, label %16
-    i32 387, label %17
-    i32 388, label %18
-    i32 416, label %19
-    i32 417, label %20
-    i32 389, label %21
-    i32 390, label %22
-    i32 391, label %23
-    i32 392, label %24
-    i32 393, label %25
-    i32 394, label %26
-    i32 395, label %27
-    i32 396, label %28
-    i32 398, label %29
-    i32 399, label %30
-    i32 402, label %31
-    i32 403, label %32
-    i32 405, label %33
-    i32 406, label %34
-    i32 407, label %35
-    i32 408, label %36
-    i32 410, label %37
-    i32 411, label %38
-    i32 409, label %39
-    i32 412, label %40
-    i32 413, label %41
-    i32 414, label %42
-    i32 415, label %43
-    i32 418, label %44
-    i32 419, label %45
-    i32 420, label %46
-    i32 421, label %47
-    i32 397, label %52
-    i32 400, label %52
-    i32 401, label %52
+    i32 393, label %9
+    i32 394, label %10
+    i32 395, label %11
+    i32 396, label %12
+    i32 397, label %13
+    i32 398, label %14
+    i32 399, label %15
+    i32 400, label %16
+    i32 402, label %17
+    i32 403, label %18
+    i32 431, label %19
+    i32 432, label %20
+    i32 404, label %21
+    i32 405, label %22
+    i32 406, label %23
+    i32 407, label %24
+    i32 408, label %25
+    i32 409, label %26
+    i32 410, label %27
+    i32 411, label %28
+    i32 413, label %29
+    i32 414, label %30
+    i32 417, label %31
+    i32 418, label %32
+    i32 420, label %33
+    i32 421, label %34
+    i32 422, label %35
+    i32 423, label %36
+    i32 425, label %37
+    i32 426, label %38
+    i32 424, label %39
+    i32 427, label %40
+    i32 428, label %41
+    i32 429, label %42
+    i32 430, label %43
+    i32 433, label %44
+    i32 434, label %45
+    i32 435, label %46
+    i32 436, label %47
+    i32 412, label %52
+    i32 415, label %52
+    i32 416, label %52
   ]
 
 9:                                                ; preds = %7
@@ -722,7 +722,7 @@ define dso_local void @ExecEndNode(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.assume(i1 %49)
   %50 = load i32, ptr %0, align 4
   %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %50) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 755, ptr noundef nonnull @__func__.ExecEndNode) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__func__.ExecEndNode) #6
   unreachable
 
 52:                                               ; preds = %7, %7, %7, %1, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
@@ -829,8 +829,8 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i8, ptr %8, align 4
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
@@ -841,12 +841,12 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
   %13 = tail call zeroext i1 @planstate_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @ExecShutdownNode_walker, ptr noundef %1) #6
   %14 = load i32, ptr %0, align 4
   switch i32 %14, label %21 [
-    i32 416, label %15
-    i32 402, label %16
-    i32 403, label %17
-    i32 417, label %18
-    i32 418, label %19
-    i32 407, label %20
+    i32 431, label %15
+    i32 417, label %16
+    i32 418, label %17
+    i32 432, label %18
+    i32 433, label %19
+    i32 422, label %20
   ]
 
 15:                                               ; preds = %12
@@ -880,8 +880,8 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
+  %25 = load i8, ptr %24, align 4, !range !4, !noundef !5
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
@@ -900,14 +900,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr54 = phi ptr [ %1, %2 ], [ %.tr54.be, %tailrecurse.backedge ]
   %3 = load i32, ptr %.tr54, align 4
   switch i32 %3, label %.loopexit [
-    i32 410, label %12
-    i32 411, label %18
-    i32 381, label %.preheader
-    i32 382, label %.preheader55
-    i32 378, label %38
-    i32 395, label %41
-    i32 416, label %tailrecurse.backedge.sink.split.sink.split
-    i32 417, label %tailrecurse.backedge.sink.split.sink.split
+    i32 425, label %12
+    i32 426, label %18
+    i32 396, label %.preheader
+    i32 397, label %.preheader55
+    i32 393, label %38
+    i32 410, label %41
+    i32 431, label %tailrecurse.backedge.sink.split.sink.split
+    i32 432, label %tailrecurse.backedge.sink.split.sink.split
   ]
 
 .preheader55:                                     ; preds = %tailrecurse
@@ -963,26 +963,26 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 24:                                               ; preds = %.lr.ph64, %24
   %indvars.iv72 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next73, %24 ]
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %indvars.iv72
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv72
   %27 = load ptr, ptr %26, align 8
   tail call void @ExecSetTupleBound(i64 noundef %0, ptr noundef %27)
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %28 = load i32, ptr %8, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next73, %29
-  br i1 %30, label %24, label %.loopexit, !llvm.loop !5
+  br i1 %30, label %24, label %.loopexit, !llvm.loop !7
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   tail call void @ExecSetTupleBound(i64 noundef %0, ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %4, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %31, label %.loopexit, !llvm.loop !7
+  br i1 %37, label %31, label %.loopexit, !llvm.loop !9
 
 38:                                               ; preds = %tailrecurse
   %39 = getelementptr inbounds nuw i8, ptr %.tr54, i64 72
@@ -1011,7 +1011,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.tr54.be = phi ptr [ %40, %38 ], [ %47, %tailrecurse.backedge.sink.split ]
   br label %tailrecurse
 
-.loopexit:                                        ; preds = %tailrecurse, %41, %38, %31, %24, %.preheader55, %.preheader, %22, %21, %15, %16
+.loopexit:                                        ; preds = %tailrecurse, %41, %38, %31, %24, %.preheader55, %.preheader, %21, %22, %15, %16
   ret void
 }
 
@@ -1062,22 +1062,24 @@ declare void @ExecShutdownHashJoin(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

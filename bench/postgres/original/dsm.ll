@@ -72,7 +72,10 @@ define dso_local void @dsm_postmaster_startup(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load i32, ptr @dynamic_shared_memory_type, align 4
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %8, label %9
@@ -92,7 +95,7 @@ define dso_local void @dsm_postmaster_startup(ptr noundef %0) #0 {
   br i1 false, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
   br i1 %15, label %18, label %21
 
 16:                                               ; preds = %13
@@ -102,116 +105,131 @@ define dso_local void @dsm_postmaster_startup(ptr noundef %0) #0 {
 18:                                               ; preds = %16, %14
   %19 = load i32, ptr %4, align 4
   %20 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %19)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 199, ptr noundef @__func__.dsm_postmaster_startup)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 198, ptr noundef @__func__.dsm_postmaster_startup)
   br label %21
 
 21:                                               ; preds = %18, %16, %14
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load i32, ptr %4, align 4
-  %24 = call i64 @dsm_control_bytes_needed(i32 noundef %23)
-  store i64 %24, ptr %5, align 8
-  br label %25
+  br label %23
 
-25:                                               ; preds = %36, %30, %22
-  %26 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
-  %27 = shl i32 %26, 1
-  store i32 %27, ptr @dsm_control_handle, align 4
-  %28 = load i32, ptr @dsm_control_handle, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+23:                                               ; preds = %22
+  %24 = load i32, ptr %4, align 4
+  %25 = call i64 @dsm_control_bytes_needed(i32 noundef %24)
+  store i64 %25, ptr %5, align 8
+  br label %26
 
-30:                                               ; preds = %25
-  br label %25
+26:                                               ; preds = %37, %31, %23
+  %27 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
+  %28 = shl i32 %27, 1
+  store i32 %28, ptr @dsm_control_handle, align 4
+  %29 = load i32, ptr @dsm_control_handle, align 4
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr @dsm_control_handle, align 4
-  %33 = load i64, ptr %5, align 8
-  %34 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %32, i64 noundef %33, ptr noundef @dsm_control_impl_private, ptr noundef %3, ptr noundef @dsm_control_mapped_size, i32 noundef 21)
-  br i1 %34, label %35, label %36
+31:                                               ; preds = %26
+  br label %26
 
-35:                                               ; preds = %31
-  br label %37
+32:                                               ; preds = %26
+  %33 = load i32, ptr @dsm_control_handle, align 4
+  %34 = load i64, ptr %5, align 8
+  %35 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %33, i64 noundef %34, ptr noundef @dsm_control_impl_private, ptr noundef %3, ptr noundef @dsm_control_mapped_size, i32 noundef 21)
+  br i1 %35, label %36, label %37
 
-36:                                               ; preds = %31
-  br label %25
+36:                                               ; preds = %32
+  br label %38
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %3, align 8
-  store ptr %38, ptr @dsm_control, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = call i64 @PointerGetDatum(ptr noundef %39)
-  call void @on_shmem_exit(ptr noundef @dsm_postmaster_shutdown, i64 noundef %40)
-  br label %41
+37:                                               ; preds = %32
+  br label %26
 
-41:                                               ; preds = %37
-  br i1 false, label %42, label %44
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %3, align 8
+  store ptr %39, ptr @dsm_control, align 8
+  %40 = load ptr, ptr %2, align 8
+  %41 = call i64 @PointerGetDatum(ptr noundef %40)
+  call void @on_shmem_exit(ptr noundef @dsm_postmaster_shutdown, i64 noundef %41)
+  br label %42
 
-42:                                               ; preds = %41
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
-  br i1 %43, label %46, label %50
+42:                                               ; preds = %38
+  br i1 false, label %43, label %45
 
-44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %45, label %46, label %50
+43:                                               ; preds = %42
+  %44 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %44, label %47, label %51
 
-46:                                               ; preds = %44, %42
-  %47 = load i32, ptr @dsm_control_handle, align 4
-  %48 = load i64, ptr %5, align 8
-  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, i32 noundef %47, i64 noundef %48)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 224, ptr noundef @__func__.dsm_postmaster_startup)
-  br label %50
+45:                                               ; preds = %42
+  %46 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %46, label %47, label %51
 
-50:                                               ; preds = %46, %44, %42
+47:                                               ; preds = %45, %43
+  %48 = load i32, ptr @dsm_control_handle, align 4
+  %49 = load i64, ptr %5, align 8
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, i32 noundef %48, i64 noundef %49)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 223, ptr noundef @__func__.dsm_postmaster_startup)
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load i32, ptr @dsm_control_handle, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.PGShmemHeader, ptr %53, i32 0, i32 4
-  store i32 %52, ptr %54, align 8
-  %55 = load ptr, ptr @dsm_control, align 8
-  %56 = getelementptr inbounds %struct.dsm_control_header, ptr %55, i32 0, i32 0
-  store i32 -1706017486, ptr %56, align 8
+51:                                               ; preds = %47, %45, %43
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load i32, ptr @dsm_control_handle, align 4
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds nuw %struct.PGShmemHeader, ptr %55, i32 0, i32 4
+  store i32 %54, ptr %56, align 8
   %57 = load ptr, ptr @dsm_control, align 8
-  %58 = getelementptr inbounds %struct.dsm_control_header, ptr %57, i32 0, i32 1
-  store i32 0, ptr %58, align 4
-  %59 = load i32, ptr %4, align 4
-  %60 = load ptr, ptr @dsm_control, align 8
-  %61 = getelementptr inbounds %struct.dsm_control_header, ptr %60, i32 0, i32 2
-  store i32 %59, ptr %61, align 8
+  %58 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %57, i32 0, i32 0
+  store i32 -1706017486, ptr %58, align 8
+  %59 = load ptr, ptr @dsm_control, align 8
+  %60 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %59, i32 0, i32 1
+  store i32 0, ptr %60, align 4
+  %61 = load i32, ptr %4, align 4
+  %62 = load ptr, ptr @dsm_control, align 8
+  %63 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %62, i32 0, i32 2
+  store i32 %61, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @dsm_cleanup_for_mmap() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca [1036 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
   %4 = call ptr @AllocateDir(ptr noundef @.str.11)
   store ptr %4, ptr %1, align 8
   br label %5
 
-5:                                                ; preds = %47, %0
+5:                                                ; preds = %49, %0
   %6 = load ptr, ptr %1, align 8
   %7 = call ptr @ReadDir(ptr noundef %6, ptr noundef @.str.11)
   store ptr %7, ptr %2, align 8
   %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %48
+  br i1 %8, label %9, label %50
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.dirent, ptr %10, i32 0, i32 4
+  %11 = getelementptr inbounds nuw %struct.dirent, ptr %10, i32 0, i32 4
   %12 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
-  %13 = call i32 @strncmp(ptr noundef %12, ptr noundef @.str.12, i64 noundef 5) #7
+  %13 = call i32 @strncmp(ptr noundef %12, ptr noundef @.str.12, i64 noundef 5) #10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %47
+  br i1 %14, label %15, label %49
 
 15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 1036, ptr %3) #8
   %16 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.dirent, ptr %17, i32 0, i32 4
+  %18 = getelementptr inbounds nuw %struct.dirent, ptr %17, i32 0, i32 4
   %19 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 0
   %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %16, i64 noundef 1036, ptr noundef @.str.13, ptr noundef %19)
   br label %21
@@ -220,7 +238,7 @@ define internal void @dsm_cleanup_for_mmap() #0 {
   br i1 false, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
   br i1 %23, label %26, label %29
 
 24:                                               ; preds = %21
@@ -230,65 +248,77 @@ define internal void @dsm_cleanup_for_mmap() #0 {
 26:                                               ; preds = %24, %22
   %27 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
   %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.14, ptr noundef %27)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 338, ptr noundef @__func__.dsm_cleanup_for_mmap)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 337, ptr noundef @__func__.dsm_cleanup_for_mmap)
   br label %29
 
 29:                                               ; preds = %26, %24, %22
   br label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
-  %32 = call i32 @unlink(ptr noundef %31) #8
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %46
+  br label %31
 
-34:                                               ; preds = %30
-  br label %35
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
+  %33 = call i32 @unlink(ptr noundef %32) #8
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %48
 
-35:                                               ; preds = %34
-  br i1 true, label %36, label %38
+35:                                               ; preds = %31
+  br label %36
 
 36:                                               ; preds = %35
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %37, label %40, label %44
+  br i1 true, label %37, label %39
 
-38:                                               ; preds = %35
-  %39 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %36
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %38, label %41, label %45
 
-40:                                               ; preds = %38, %36
-  %41 = call i32 @errcode_for_file_access()
-  %42 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %42)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 344, ptr noundef @__func__.dsm_cleanup_for_mmap)
-  br label %44
+39:                                               ; preds = %36
+  %40 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %40, label %41, label %45
 
-44:                                               ; preds = %40, %38, %36
+41:                                               ; preds = %39, %37
+  %42 = call i32 @errcode_for_file_access()
+  %43 = getelementptr inbounds [1036 x i8], ptr %3, i64 0, i64 0
+  %44 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %43)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 343, ptr noundef @__func__.dsm_cleanup_for_mmap)
+  br label %45
+
+45:                                               ; preds = %41, %39, %37
   unreachable
 
-45:                                               ; No predecessors!
-  br label %46
-
-46:                                               ; preds = %45, %30
+46:                                               ; No predecessors!
   br label %47
 
-47:                                               ; preds = %46, %9
-  br label %5, !llvm.loop !5
+47:                                               ; preds = %46
+  br label %48
 
-48:                                               ; preds = %5
-  %49 = load ptr, ptr %1, align 8
-  %50 = call i32 @FreeDir(ptr noundef %49)
+48:                                               ; preds = %47, %31
+  call void @llvm.lifetime.end.p0(i64 1036, ptr %3) #8
+  br label %49
+
+49:                                               ; preds = %48, %9
+  br label %5, !llvm.loop !4
+
+50:                                               ; preds = %5
+  %51 = load ptr, ptr %1, align 8
+  %52 = call i32 @FreeDir(ptr noundef %51)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
   ret void
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @dsm_control_bytes_needed(i32 noundef %0) #0 {
@@ -301,11 +331,11 @@ define internal i64 @dsm_control_bytes_needed(i32 noundef %0) #0 {
   ret i64 %6
 }
 
-declare i32 @pg_prng_uint32(ptr noundef) #2
+declare i32 @pg_prng_uint32(ptr noundef) #3
 
-declare zeroext i1 @dsm_impl_op(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare zeroext i1 @dsm_impl_op(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @on_shmem_exit(ptr noundef, i64 noundef) #2
+declare void @on_shmem_exit(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @dsm_postmaster_shutdown(i32 noundef %0, i64 noundef %1) #0 {
@@ -319,163 +349,214 @@ define internal void @dsm_postmaster_shutdown(i32 noundef %0, i64 noundef %1) #0
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   store i64 0, ptr %10, align 8
-  %13 = load i64, ptr %4, align 8
-  %14 = call ptr @DatumGetPointer(i64 noundef %13)
-  store ptr %14, ptr %11, align 8
-  %15 = load ptr, ptr @dsm_control, align 8
-  %16 = getelementptr inbounds %struct.dsm_control_header, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %5, align 4
-  %18 = load ptr, ptr @dsm_control, align 8
-  %19 = load i64, ptr @dsm_control_mapped_size, align 8
-  %20 = call zeroext i1 @dsm_control_segment_sane(ptr noundef %18, i64 noundef %19)
-  br i1 %20, label %31, label %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %14 = load i64, ptr %4, align 8
+  %15 = call ptr @DatumGetPointer(i64 noundef %14)
+  store ptr %15, ptr %11, align 8
+  %16 = load ptr, ptr @dsm_control, align 8
+  %17 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %5, align 4
+  %19 = load ptr, ptr @dsm_control, align 8
+  %20 = load i64, ptr @dsm_control_mapped_size, align 8
+  %21 = call zeroext i1 @dsm_control_segment_sane(ptr noundef %19, i64 noundef %20)
+  br i1 %21, label %33, label %22
 
-21:                                               ; preds = %2
-  br label %22
-
-22:                                               ; preds = %21
-  br i1 false, label %23, label %25
+22:                                               ; preds = %2
+  br label %23
 
 23:                                               ; preds = %22
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #6
-  br i1 %24, label %27, label %29
+  br i1 false, label %24, label %26
 
-25:                                               ; preds = %22
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %26, label %27, label %29
+24:                                               ; preds = %23
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
+  br i1 %25, label %28, label %30
 
-27:                                               ; preds = %25, %23
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 380, ptr noundef @__func__.dsm_postmaster_shutdown)
-  br label %29
+26:                                               ; preds = %23
+  %27 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %27, %25, %23
+28:                                               ; preds = %26, %24
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 379, ptr noundef @__func__.dsm_postmaster_shutdown)
   br label %30
 
-30:                                               ; preds = %29
-  br label %90
+30:                                               ; preds = %28, %26, %24
+  br label %31
 
-31:                                               ; preds = %2
-  store i32 0, ptr %6, align 4
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %70, %31
-  %33 = load i32, ptr %6, align 4
-  %34 = load i32, ptr %5, align 4
-  %35 = icmp ult i32 %33, %34
-  br i1 %35, label %36, label %73
+32:                                               ; preds = %31
+  store i32 1, ptr %12, align 4
+  br label %97
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr @dsm_control, align 8
-  %38 = getelementptr inbounds %struct.dsm_control_header, ptr %37, i32 0, i32 3
-  %39 = load i32, ptr %6, align 4
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr [0 x %struct.dsm_control_item], ptr %38, i64 0, i64 %40
-  %42 = getelementptr inbounds %struct.dsm_control_item, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %46
+33:                                               ; preds = %2
+  store i32 0, ptr %6, align 4
+  br label %34
 
-45:                                               ; preds = %36
+34:                                               ; preds = %76, %33
+  %35 = load i32, ptr %6, align 4
+  %36 = load i32, ptr %5, align 4
+  %37 = icmp ult i32 %35, %36
+  br i1 %37, label %38, label %79
+
+38:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %39 = load ptr, ptr @dsm_control, align 8
+  %40 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %39, i32 0, i32 3
+  %41 = load i32, ptr %6, align 4
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %40, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %38
+  store i32 6, ptr %12, align 4
+  br label %73
+
+48:                                               ; preds = %38
+  %49 = load ptr, ptr @dsm_control, align 8
+  %50 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %6, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %50, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 8
+  store i32 %55, ptr %13, align 4
+  %56 = load i32, ptr %13, align 4
+  %57 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %56)
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %48
+  store i32 6, ptr %12, align 4
+  br label %73
+
+59:                                               ; preds = %48
+  br label %60
+
+60:                                               ; preds = %59
+  br i1 false, label %61, label %63
+
+61:                                               ; preds = %60
+  %62 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %62, label %65, label %68
+
+63:                                               ; preds = %60
+  %64 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %64, label %65, label %68
+
+65:                                               ; preds = %63, %61
+  %66 = load i32, ptr %13, align 4
+  %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.17, i32 noundef %66)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 398, ptr noundef @__func__.dsm_postmaster_shutdown)
+  br label %68
+
+68:                                               ; preds = %65, %63, %61
+  br label %69
+
+69:                                               ; preds = %68
   br label %70
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr @dsm_control, align 8
-  %48 = getelementptr inbounds %struct.dsm_control_header, ptr %47, i32 0, i32 3
-  %49 = load i32, ptr %6, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr [0 x %struct.dsm_control_item], ptr %48, i64 0, i64 %50
-  %52 = getelementptr inbounds %struct.dsm_control_item, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
-  store i32 %53, ptr %12, align 4
-  %54 = load i32, ptr %12, align 4
-  %55 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %54)
-  br i1 %55, label %56, label %57
+70:                                               ; preds = %69
+  %71 = load i32, ptr %13, align 4
+  %72 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %71, i64 noundef 0, ptr noundef %9, ptr noundef %8, ptr noundef %10, i32 noundef 15)
+  store i32 0, ptr %12, align 4
+  br label %73
 
-56:                                               ; preds = %46
-  br label %70
+73:                                               ; preds = %70, %58, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %74 = load i32, ptr %12, align 4
+  switch i32 %74, label %100 [
+    i32 0, label %75
+    i32 6, label %76
+  ]
 
-57:                                               ; preds = %46
-  br label %58
+75:                                               ; preds = %73
+  br label %76
 
-58:                                               ; preds = %57
-  br i1 false, label %59, label %61
+76:                                               ; preds = %75, %73
+  %77 = load i32, ptr %6, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %6, align 4
+  br label %34, !llvm.loop !6
 
-59:                                               ; preds = %58
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
-  br i1 %60, label %63, label %66
+79:                                               ; preds = %34
+  br label %80
 
-61:                                               ; preds = %58
-  %62 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %62, label %63, label %66
+80:                                               ; preds = %79
+  br i1 false, label %81, label %83
 
-63:                                               ; preds = %61, %59
-  %64 = load i32, ptr %12, align 4
-  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.17, i32 noundef %64)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 399, ptr noundef @__func__.dsm_postmaster_shutdown)
-  br label %66
+81:                                               ; preds = %80
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %82, label %85, label %88
 
-66:                                               ; preds = %63, %61, %59
-  br label %67
+83:                                               ; preds = %80
+  %84 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %84, label %85, label %88
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %12, align 4
-  %69 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %68, i64 noundef 0, ptr noundef %9, ptr noundef %8, ptr noundef %10, i32 noundef 15)
-  br label %70
+85:                                               ; preds = %83, %81
+  %86 = load i32, ptr @dsm_control_handle, align 4
+  %87 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %86)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 408, ptr noundef @__func__.dsm_postmaster_shutdown)
+  br label %88
 
-70:                                               ; preds = %67, %56, %45
-  %71 = load i32, ptr %6, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %6, align 4
-  br label %32, !llvm.loop !7
+88:                                               ; preds = %85, %83, %81
+  br label %89
 
-73:                                               ; preds = %32
-  br label %74
-
-74:                                               ; preds = %73
-  br i1 false, label %75, label %77
-
-75:                                               ; preds = %74
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
-  br i1 %76, label %79, label %82
-
-77:                                               ; preds = %74
-  %78 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %77, %75
-  %80 = load i32, ptr @dsm_control_handle, align 4
-  %81 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %80)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 409, ptr noundef @__func__.dsm_postmaster_shutdown)
-  br label %82
-
-82:                                               ; preds = %79, %77, %75
-  br label %83
-
-83:                                               ; preds = %82
-  %84 = load ptr, ptr @dsm_control, align 8
-  store ptr %84, ptr %7, align 8
-  %85 = load i32, ptr @dsm_control_handle, align 4
-  %86 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %85, i64 noundef 0, ptr noundef @dsm_control_impl_private, ptr noundef %7, ptr noundef @dsm_control_mapped_size, i32 noundef 15)
-  %87 = load ptr, ptr %7, align 8
-  store ptr %87, ptr @dsm_control, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = getelementptr inbounds %struct.PGShmemHeader, ptr %88, i32 0, i32 4
-  store i32 0, ptr %89, align 8
+89:                                               ; preds = %88
   br label %90
 
-90:                                               ; preds = %83, %30
+90:                                               ; preds = %89
+  %91 = load ptr, ptr @dsm_control, align 8
+  store ptr %91, ptr %7, align 8
+  %92 = load i32, ptr @dsm_control_handle, align 4
+  %93 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %92, i64 noundef 0, ptr noundef @dsm_control_impl_private, ptr noundef %7, ptr noundef @dsm_control_mapped_size, i32 noundef 15)
+  %94 = load ptr, ptr %7, align 8
+  store ptr %94, ptr @dsm_control, align 8
+  %95 = load ptr, ptr %11, align 8
+  %96 = getelementptr inbounds nuw %struct.PGShmemHeader, ptr %95, i32 0, i32 4
+  store i32 0, ptr %96, align 8
+  store i32 0, ptr %12, align 4
+  br label %97
+
+97:                                               ; preds = %90, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  %98 = load i32, ptr %12, align 4
+  switch i32 %98, label %100 [
+    i32 0, label %99
+    i32 1, label %99
+  ]
+
+99:                                               ; preds = %97, %97
   ret void
+
+100:                                              ; preds = %97, %73
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -497,144 +578,199 @@ define dso_local void @dsm_cleanup_using_control_segment(i32 noundef %0) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   store i64 0, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   store i64 0, ptr %8, align 8
-  %14 = load i32, ptr %2, align 4
-  %15 = call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %14, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 14)
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %1
-  br label %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %15 = load i32, ptr %2, align 4
+  %16 = call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %15, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 14)
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %1
-  %18 = load ptr, ptr %3, align 8
-  store ptr %18, ptr %11, align 8
-  %19 = load ptr, ptr %11, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = call zeroext i1 @dsm_control_segment_sane(ptr noundef %19, i64 noundef %20)
-  br i1 %21, label %25, label %22
+  store i32 1, ptr %12, align 4
+  br label %91
 
-22:                                               ; preds = %17
-  %23 = load i32, ptr %2, align 4
-  %24 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %23, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 15)
-  br label %85
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8
+  store ptr %19, ptr %11, align 8
+  %20 = load ptr, ptr %11, align 8
+  %21 = load i64, ptr %7, align 8
+  %22 = call zeroext i1 @dsm_control_segment_sane(ptr noundef %20, i64 noundef %21)
+  br i1 %22, label %26, label %23
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.dsm_control_header, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %9, align 4
+23:                                               ; preds = %18
+  %24 = load i32, ptr %2, align 4
+  %25 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %24, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 15)
+  store i32 1, ptr %12, align 4
+  br label %91
+
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %11, align 8
+  %28 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %69, %25
-  %30 = load i32, ptr %10, align 4
-  %31 = load i32, ptr %9, align 4
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %33, label %72
+30:                                               ; preds = %74, %26
+  %31 = load i32, ptr %10, align 4
+  %32 = load i32, ptr %9, align 4
+  %33 = icmp ult i32 %31, %32
+  br i1 %33, label %34, label %77
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.dsm_control_header, ptr %34, i32 0, i32 3
-  %36 = load i32, ptr %10, align 4
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr [0 x %struct.dsm_control_item], ptr %35, i64 0, i64 %37
-  %39 = getelementptr inbounds %struct.dsm_control_item, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4
-  store i32 %40, ptr %13, align 4
-  %41 = load i32, ptr %13, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %44
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %35 = load ptr, ptr %11, align 8
+  %36 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %10, align 4
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %36, i64 0, i64 %38
+  %40 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  store i32 %41, ptr %14, align 4
+  %42 = load i32, ptr %14, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %33
-  br label %69
+44:                                               ; preds = %34
+  store i32 4, ptr %12, align 4
+  br label %71
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %11, align 8
-  %46 = getelementptr inbounds %struct.dsm_control_header, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %10, align 4
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr [0 x %struct.dsm_control_item], ptr %46, i64 0, i64 %48
-  %50 = getelementptr inbounds %struct.dsm_control_item, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  store i32 %51, ptr %12, align 4
-  %52 = load i32, ptr %12, align 4
-  %53 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %52)
-  br i1 %53, label %54, label %55
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %11, align 8
+  %47 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %46, i32 0, i32 3
+  %48 = load i32, ptr %10, align 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %47, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  store i32 %52, ptr %13, align 4
+  %53 = load i32, ptr %13, align 4
+  %54 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %53)
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %44
-  br label %69
+55:                                               ; preds = %45
+  store i32 4, ptr %12, align 4
+  br label %71
 
-55:                                               ; preds = %44
-  br label %56
-
-56:                                               ; preds = %55
-  br i1 false, label %57, label %59
+56:                                               ; preds = %45
+  br label %57
 
 57:                                               ; preds = %56
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
-  br i1 %58, label %61, label %65
+  br i1 false, label %58, label %60
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %60, label %61, label %65
+58:                                               ; preds = %57
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %59, label %62, label %66
 
-61:                                               ; preds = %59, %57
-  %62 = load i32, ptr %12, align 4
+60:                                               ; preds = %57
+  %61 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %61, label %62, label %66
+
+62:                                               ; preds = %60, %58
   %63 = load i32, ptr %13, align 4
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %62, i32 noundef %63)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 295, ptr noundef @__func__.dsm_cleanup_using_control_segment)
-  br label %65
-
-65:                                               ; preds = %61, %59, %57
+  %64 = load i32, ptr %14, align 4
+  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3, i32 noundef %63, i32 noundef %64)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 294, ptr noundef @__func__.dsm_cleanup_using_control_segment)
   br label %66
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr %12, align 4
-  %68 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %67, i64 noundef 0, ptr noundef %6, ptr noundef %4, ptr noundef %8, i32 noundef 15)
-  br label %69
+66:                                               ; preds = %62, %60, %58
+  br label %67
 
-69:                                               ; preds = %66, %54, %43
-  %70 = load i32, ptr %10, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %10, align 4
-  br label %29, !llvm.loop !8
+67:                                               ; preds = %66
+  br label %68
 
-72:                                               ; preds = %29
-  br label %73
+68:                                               ; preds = %67
+  %69 = load i32, ptr %13, align 4
+  %70 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %69, i64 noundef 0, ptr noundef %6, ptr noundef %4, ptr noundef %8, i32 noundef 15)
+  store i32 0, ptr %12, align 4
+  br label %71
 
-73:                                               ; preds = %72
-  br i1 false, label %74, label %76
+71:                                               ; preds = %68, %55, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %72 = load i32, ptr %12, align 4
+  switch i32 %72, label %94 [
+    i32 0, label %73
+    i32 4, label %74
+  ]
 
-74:                                               ; preds = %73
-  %75 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #6
-  br i1 %75, label %78, label %81
+73:                                               ; preds = %71
+  br label %74
 
-76:                                               ; preds = %73
-  %77 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %77, label %78, label %81
+74:                                               ; preds = %73, %71
+  %75 = load i32, ptr %10, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %10, align 4
+  br label %30, !llvm.loop !7
 
-78:                                               ; preds = %76, %74
-  %79 = load i32, ptr %2, align 4
-  %80 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %79)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 305, ptr noundef @__func__.dsm_cleanup_using_control_segment)
-  br label %81
+77:                                               ; preds = %30
+  br label %78
 
-81:                                               ; preds = %78, %76, %74
-  br label %82
+78:                                               ; preds = %77
+  br i1 false, label %79, label %81
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %2, align 4
-  %84 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %83, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 15)
-  br label %85
+79:                                               ; preds = %78
+  %80 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %80, label %83, label %86
 
-85:                                               ; preds = %82, %22, %16
+81:                                               ; preds = %78
+  %82 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %81, %79
+  %84 = load i32, ptr %2, align 4
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4, i32 noundef %84)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 304, ptr noundef @__func__.dsm_cleanup_using_control_segment)
+  br label %86
+
+86:                                               ; preds = %83, %81, %79
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load i32, ptr %2, align 4
+  %90 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %89, i64 noundef 0, ptr noundef %5, ptr noundef %3, ptr noundef %7, i32 noundef 15)
+  store i32 0, ptr %12, align 4
+  br label %91
+
+91:                                               ; preds = %88, %23, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %92 = load i32, ptr %12, align 4
+  switch i32 %92, label %94 [
+    i32 0, label %93
+    i32 1, label %93
+  ]
+
+93:                                               ; preds = %91, %91
   ret void
+
+94:                                               ; preds = %91, %71
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -654,7 +790,7 @@ define internal zeroext i1 @dsm_control_segment_sane(ptr noundef %0, i64 noundef
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.dsm_control_header, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, -1706017486
   br i1 %13, label %14, label %15
@@ -665,7 +801,7 @@ define internal zeroext i1 @dsm_control_segment_sane(ptr noundef %0, i64 noundef
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.dsm_control_header, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %16, i32 0, i32 2
   %18 = load i32, ptr %17, align 8
   %19 = call i64 @dsm_control_bytes_needed(i32 noundef %18)
   %20 = load i64, ptr %5, align 8
@@ -678,10 +814,10 @@ define internal zeroext i1 @dsm_control_segment_sane(ptr noundef %0, i64 noundef
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dsm_control_header, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %24, i32 0, i32 1
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.dsm_control_header, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %27, i32 0, i32 2
   %29 = load i32, ptr %28, align 8
   %30 = icmp ugt i32 %26, %29
   br i1 %30, label %31, label %32
@@ -699,8 +835,8 @@ define internal zeroext i1 @dsm_control_segment_sane(ptr noundef %0, i64 noundef
   ret i1 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @is_main_region_dsm_handle(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @is_main_region_dsm_handle(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -721,68 +857,94 @@ define dso_local i64 @dsm_estimate_size() #0 {
 define dso_local void @dsm_shmem_init() #0 {
   %1 = alloca i64, align 8
   %2 = alloca i8, align 1
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = call i64 @dsm_estimate_size()
-  store i64 %6, ptr %1, align 8
-  %7 = load i64, ptr %1, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %0
-  br label %34
+  %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
+  %7 = call i64 @dsm_estimate_size()
+  store i64 %7, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #8
+  %8 = load i64, ptr %1, align 8
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %0
-  %11 = load i64, ptr %1, align 8
-  %12 = call ptr @ShmemInitStruct(ptr noundef @.str.5, i64 noundef %11, ptr noundef %2)
-  store ptr %12, ptr @dsm_main_space_begin, align 8
-  %13 = load i8, ptr %2, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %34, label %15
+  store i32 1, ptr %3, align 4
+  br label %36
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr @dsm_main_space_begin, align 8
-  store ptr %16, ptr %3, align 8
-  store i64 0, ptr %4, align 8
-  br label %17
+11:                                               ; preds = %0
+  %12 = load i64, ptr %1, align 8
+  %13 = call ptr @ShmemInitStruct(ptr noundef @.str.5, i64 noundef %12, ptr noundef %2)
+  store ptr %13, ptr @dsm_main_space_begin, align 8
+  %14 = load i8, ptr %2, align 1, !range !8, !noundef !9
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %35, label %16
 
-17:                                               ; preds = %21, %15
-  %18 = load i64, ptr %4, align 8
-  %19 = mul i64 %18, 4096
-  %20 = icmp ult i64 %19, 1096
-  br i1 %20, label %21, label %24
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %17 = load ptr, ptr @dsm_main_space_begin, align 8
+  store ptr %17, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 0, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  br label %18
 
-21:                                               ; preds = %17
-  %22 = load i64, ptr %4, align 8
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %4, align 8
-  br label %17, !llvm.loop !9
+18:                                               ; preds = %22, %16
+  %19 = load i64, ptr %5, align 8
+  %20 = mul i64 %19, 4096
+  %21 = icmp ult i64 %20, 1096
+  br i1 %21, label %22, label %25
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %3, align 8
-  %26 = load ptr, ptr @dsm_main_space_begin, align 8
-  call void @FreePageManagerInitialize(ptr noundef %25, ptr noundef %26)
-  %27 = load i64, ptr %1, align 8
-  %28 = udiv i64 %27, 4096
-  %29 = load i64, ptr %4, align 8
-  %30 = sub i64 %28, %29
-  store i64 %30, ptr %5, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = load i64, ptr %4, align 8
+22:                                               ; preds = %18
+  %23 = load i64, ptr %5, align 8
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %5, align 8
+  br label %18, !llvm.loop !10
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr @dsm_main_space_begin, align 8
+  call void @FreePageManagerInitialize(ptr noundef %26, ptr noundef %27)
+  %28 = load i64, ptr %1, align 8
+  %29 = udiv i64 %28, 4096
+  %30 = load i64, ptr %5, align 8
+  %31 = sub i64 %29, %30
+  store i64 %31, ptr %6, align 8
+  %32 = load ptr, ptr %4, align 8
   %33 = load i64, ptr %5, align 8
-  call void @FreePageManagerPut(ptr noundef %31, i64 noundef %32, i64 noundef %33)
-  br label %34
+  %34 = load i64, ptr %6, align 8
+  call void @FreePageManagerPut(ptr noundef %32, i64 noundef %33, i64 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %35
 
-34:                                               ; preds = %24, %10, %9
+35:                                               ; preds = %25, %11
+  store i32 0, ptr %3, align 4
+  br label %36
+
+36:                                               ; preds = %35, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
+  %37 = load i32, ptr %3, align 4
+  switch i32 %37, label %39 [
+    i32 0, label %38
+    i32 1, label %38
+  ]
+
+38:                                               ; preds = %36, %36
   ret void
+
+39:                                               ; preds = %36
+  unreachable
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) #3
 
-declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) #2
+declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) #3
 
-declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) #2
+declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) #0 {
@@ -796,417 +958,438 @@ define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) #0 {
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
   store i64 %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   store i64 0, ptr %10, align 8
-  %13 = load ptr, ptr @dsm_main_space_begin, align 8
-  store ptr %13, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %14 = load ptr, ptr @dsm_main_space_begin, align 8
+  store ptr %14, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
   store i8 0, ptr %12, align 1
-  %14 = load i8, ptr @dsm_init_done, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %17, label %16
+  %15 = load i8, ptr @dsm_init_done, align 1, !range !8, !noundef !9
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %2
+17:                                               ; preds = %2
   call void @dsm_backend_startup()
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %2
-  %18 = call ptr @dsm_create_descriptor()
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %11, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %49
+18:                                               ; preds = %17, %2
+  %19 = call ptr @dsm_create_descriptor()
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %11, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %50
 
-21:                                               ; preds = %17
-  %22 = load i64, ptr %4, align 8
-  %23 = udiv i64 %22, 4096
-  store i64 %23, ptr %9, align 8
-  %24 = load i64, ptr %4, align 8
-  %25 = urem i64 %24, 4096
-  %26 = icmp ugt i64 %25, 0
-  br i1 %26, label %27, label %30
+22:                                               ; preds = %18
+  %23 = load i64, ptr %4, align 8
+  %24 = udiv i64 %23, 4096
+  store i64 %24, ptr %9, align 8
+  %25 = load i64, ptr %4, align 8
+  %26 = urem i64 %25, 4096
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %21
-  %28 = load i64, ptr %9, align 8
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %9, align 8
-  br label %30
+28:                                               ; preds = %22
+  %29 = load i64, ptr %9, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %9, align 8
+  br label %31
 
-30:                                               ; preds = %27, %21
-  %31 = load ptr, ptr @MainLWLockArray, align 8
-  %32 = getelementptr %union.LWLockPadded, ptr %31, i64 34
-  %33 = call zeroext i1 @LWLockAcquire(ptr noundef %32, i32 noundef 0)
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i64, ptr %9, align 8
-  %36 = call zeroext i1 @FreePageManagerGet(ptr noundef %34, i64 noundef %35, ptr noundef %10)
-  br i1 %36, label %37, label %48
+31:                                               ; preds = %28, %22
+  %32 = load ptr, ptr @MainLWLockArray, align 8
+  %33 = getelementptr inbounds %union.LWLockPadded, ptr %32, i64 34
+  %34 = call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %9, align 8
+  %37 = call zeroext i1 @FreePageManagerGet(ptr noundef %35, i64 noundef %36, ptr noundef %10)
+  br i1 %37, label %38, label %49
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr @dsm_main_space_begin, align 8
-  %39 = load i64, ptr %10, align 8
-  %40 = mul i64 %39, 4096
-  %41 = getelementptr i8, ptr %38, i64 %40
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.dsm_segment, ptr %42, i32 0, i32 5
-  store ptr %41, ptr %43, align 8
-  %44 = load i64, ptr %9, align 8
-  %45 = mul i64 %44, 4096
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.dsm_segment, ptr %46, i32 0, i32 6
-  store i64 %45, ptr %47, align 8
+38:                                               ; preds = %31
+  %39 = load ptr, ptr @dsm_main_space_begin, align 8
+  %40 = load i64, ptr %10, align 8
+  %41 = mul i64 %40, 4096
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %41
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds nuw %struct.dsm_segment, ptr %43, i32 0, i32 5
+  store ptr %42, ptr %44, align 8
+  %45 = load i64, ptr %9, align 8
+  %46 = mul i64 %45, 4096
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds nuw %struct.dsm_segment, ptr %47, i32 0, i32 6
+  store i64 %46, ptr %48, align 8
   store i8 1, ptr %12, align 1
-  br label %48
-
-48:                                               ; preds = %37, %30
   br label %49
 
-49:                                               ; preds = %48, %17
-  %50 = load i8, ptr %12, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %87, label %52
+49:                                               ; preds = %38, %31
+  br label %50
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %11, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %58
+50:                                               ; preds = %49, %18
+  %51 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %88, label %53
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr @MainLWLockArray, align 8
-  %57 = getelementptr %union.LWLockPadded, ptr %56, i64 34
-  call void @LWLockRelease(ptr noundef %57)
-  br label %58
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %11, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %59
 
-58:                                               ; preds = %55, %52
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @MainLWLockArray, align 8
+  %58 = getelementptr inbounds %union.LWLockPadded, ptr %57, i64 34
+  call void @LWLockRelease(ptr noundef %58)
   br label %59
 
-59:                                               ; preds = %82, %68, %58
-  %60 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
-  %61 = shl i32 %60, 1
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct.dsm_segment, ptr %62, i32 0, i32 2
-  store i32 %61, ptr %63, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.dsm_segment, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %69
+59:                                               ; preds = %56, %53
+  br label %60
 
-68:                                               ; preds = %59
-  br label %59
+60:                                               ; preds = %83, %69, %59
+  %61 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
+  %62 = shl i32 %61, 1
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.dsm_segment, ptr %63, i32 0, i32 2
+  store i32 %62, ptr %64, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds nuw %struct.dsm_segment, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %70
 
-69:                                               ; preds = %59
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.dsm_segment, ptr %70, i32 0, i32 2
-  %72 = load i32, ptr %71, align 8
-  %73 = load i64, ptr %4, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.dsm_segment, ptr %74, i32 0, i32 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.dsm_segment, ptr %76, i32 0, i32 5
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.dsm_segment, ptr %78, i32 0, i32 6
-  %80 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %72, i64 noundef %73, ptr noundef %75, ptr noundef %77, ptr noundef %79, i32 noundef 21)
-  br i1 %80, label %81, label %82
+69:                                               ; preds = %60
+  br label %60
 
-81:                                               ; preds = %69
-  br label %83
+70:                                               ; preds = %60
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds nuw %struct.dsm_segment, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8
+  %74 = load i64, ptr %4, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw %struct.dsm_segment, ptr %75, i32 0, i32 4
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds nuw %struct.dsm_segment, ptr %77, i32 0, i32 5
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds nuw %struct.dsm_segment, ptr %79, i32 0, i32 6
+  %81 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %73, i64 noundef %74, ptr noundef %76, ptr noundef %78, ptr noundef %80, i32 noundef 21)
+  br i1 %81, label %82, label %83
 
-82:                                               ; preds = %69
-  br label %59
+82:                                               ; preds = %70
+  br label %84
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr @MainLWLockArray, align 8
-  %85 = getelementptr %union.LWLockPadded, ptr %84, i64 34
-  %86 = call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0)
-  br label %87
+83:                                               ; preds = %70
+  br label %60
 
-87:                                               ; preds = %83, %49
-  %88 = load ptr, ptr @dsm_control, align 8
-  %89 = getelementptr inbounds %struct.dsm_control_header, ptr %88, i32 0, i32 1
-  %90 = load i32, ptr %89, align 4
-  store i32 %90, ptr %8, align 4
+84:                                               ; preds = %82
+  %85 = load ptr, ptr @MainLWLockArray, align 8
+  %86 = getelementptr inbounds %union.LWLockPadded, ptr %85, i64 34
+  %87 = call zeroext i1 @LWLockAcquire(ptr noundef %86, i32 noundef 0)
+  br label %88
+
+88:                                               ; preds = %84, %50
+  %89 = load ptr, ptr @dsm_control, align 8
+  %90 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 4
+  store i32 %91, ptr %8, align 4
   store i32 0, ptr %7, align 4
-  br label %91
+  br label %92
 
-91:                                               ; preds = %162, %87
-  %92 = load i32, ptr %7, align 4
-  %93 = load i32, ptr %8, align 4
-  %94 = icmp ult i32 %92, %93
-  br i1 %94, label %95, label %165
+92:                                               ; preds = %163, %88
+  %93 = load i32, ptr %7, align 4
+  %94 = load i32, ptr %8, align 4
+  %95 = icmp ult i32 %93, %94
+  br i1 %95, label %96, label %166
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @dsm_control, align 8
-  %97 = getelementptr inbounds %struct.dsm_control_header, ptr %96, i32 0, i32 3
-  %98 = load i32, ptr %7, align 4
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr [0 x %struct.dsm_control_item], ptr %97, i64 0, i64 %99
-  %101 = getelementptr inbounds %struct.dsm_control_item, ptr %100, i32 0, i32 1
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %161
+96:                                               ; preds = %92
+  %97 = load ptr, ptr @dsm_control, align 8
+  %98 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %97, i32 0, i32 3
+  %99 = load i32, ptr %7, align 4
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %98, i64 0, i64 %100
+  %102 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %101, i32 0, i32 1
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %162
 
-104:                                              ; preds = %95
-  %105 = load i8, ptr %12, align 1
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %126
+105:                                              ; preds = %96
+  %106 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %127
 
-107:                                              ; preds = %104
-  %108 = load i32, ptr %7, align 4
-  %109 = call i32 @make_main_region_dsm_handle(i32 noundef %108)
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct.dsm_segment, ptr %110, i32 0, i32 2
-  store i32 %109, ptr %111, align 8
-  %112 = load i64, ptr %10, align 8
-  %113 = load ptr, ptr @dsm_control, align 8
-  %114 = getelementptr inbounds %struct.dsm_control_header, ptr %113, i32 0, i32 3
-  %115 = load i32, ptr %7, align 4
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr [0 x %struct.dsm_control_item], ptr %114, i64 0, i64 %116
-  %118 = getelementptr inbounds %struct.dsm_control_item, ptr %117, i32 0, i32 2
-  store i64 %112, ptr %118, align 8
-  %119 = load i64, ptr %9, align 8
-  %120 = load ptr, ptr @dsm_control, align 8
-  %121 = getelementptr inbounds %struct.dsm_control_header, ptr %120, i32 0, i32 3
-  %122 = load i32, ptr %7, align 4
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr [0 x %struct.dsm_control_item], ptr %121, i64 0, i64 %123
-  %125 = getelementptr inbounds %struct.dsm_control_item, ptr %124, i32 0, i32 3
-  store i64 %119, ptr %125, align 8
-  br label %127
+108:                                              ; preds = %105
+  %109 = load i32, ptr %7, align 4
+  %110 = call i32 @make_main_region_dsm_handle(i32 noundef %109)
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds nuw %struct.dsm_segment, ptr %111, i32 0, i32 2
+  store i32 %110, ptr %112, align 8
+  %113 = load i64, ptr %10, align 8
+  %114 = load ptr, ptr @dsm_control, align 8
+  %115 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %114, i32 0, i32 3
+  %116 = load i32, ptr %7, align 4
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %115, i64 0, i64 %117
+  %119 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %118, i32 0, i32 2
+  store i64 %113, ptr %119, align 8
+  %120 = load i64, ptr %9, align 8
+  %121 = load ptr, ptr @dsm_control, align 8
+  %122 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %121, i32 0, i32 3
+  %123 = load i32, ptr %7, align 4
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %122, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %125, i32 0, i32 3
+  store i64 %120, ptr %126, align 8
+  br label %128
 
-126:                                              ; preds = %104
-  br label %127
+127:                                              ; preds = %105
+  br label %128
 
-127:                                              ; preds = %126, %107
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct.dsm_segment, ptr %128, i32 0, i32 2
-  %130 = load i32, ptr %129, align 8
-  %131 = load ptr, ptr @dsm_control, align 8
-  %132 = getelementptr inbounds %struct.dsm_control_header, ptr %131, i32 0, i32 3
-  %133 = load i32, ptr %7, align 4
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr [0 x %struct.dsm_control_item], ptr %132, i64 0, i64 %134
-  %136 = getelementptr inbounds %struct.dsm_control_item, ptr %135, i32 0, i32 0
-  store i32 %130, ptr %136, align 8
-  %137 = load ptr, ptr @dsm_control, align 8
-  %138 = getelementptr inbounds %struct.dsm_control_header, ptr %137, i32 0, i32 3
-  %139 = load i32, ptr %7, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr [0 x %struct.dsm_control_item], ptr %138, i64 0, i64 %140
-  %142 = getelementptr inbounds %struct.dsm_control_item, ptr %141, i32 0, i32 1
-  store i32 2, ptr %142, align 4
-  %143 = load ptr, ptr @dsm_control, align 8
-  %144 = getelementptr inbounds %struct.dsm_control_header, ptr %143, i32 0, i32 3
-  %145 = load i32, ptr %7, align 4
-  %146 = zext i32 %145 to i64
-  %147 = getelementptr [0 x %struct.dsm_control_item], ptr %144, i64 0, i64 %146
-  %148 = getelementptr inbounds %struct.dsm_control_item, ptr %147, i32 0, i32 4
-  store ptr null, ptr %148, align 8
-  %149 = load ptr, ptr @dsm_control, align 8
-  %150 = getelementptr inbounds %struct.dsm_control_header, ptr %149, i32 0, i32 3
-  %151 = load i32, ptr %7, align 4
-  %152 = zext i32 %151 to i64
-  %153 = getelementptr [0 x %struct.dsm_control_item], ptr %150, i64 0, i64 %152
-  %154 = getelementptr inbounds %struct.dsm_control_item, ptr %153, i32 0, i32 5
-  store i8 0, ptr %154, align 8
-  %155 = load i32, ptr %7, align 4
-  %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds %struct.dsm_segment, ptr %156, i32 0, i32 3
-  store i32 %155, ptr %157, align 4
-  %158 = load ptr, ptr @MainLWLockArray, align 8
-  %159 = getelementptr %union.LWLockPadded, ptr %158, i64 34
-  call void @LWLockRelease(ptr noundef %159)
-  %160 = load ptr, ptr %6, align 8
-  store ptr %160, ptr %3, align 8
-  br label %283
+128:                                              ; preds = %127, %108
+  %129 = load ptr, ptr %6, align 8
+  %130 = getelementptr inbounds nuw %struct.dsm_segment, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8
+  %132 = load ptr, ptr @dsm_control, align 8
+  %133 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %132, i32 0, i32 3
+  %134 = load i32, ptr %7, align 4
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %133, i64 0, i64 %135
+  %137 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %136, i32 0, i32 0
+  store i32 %131, ptr %137, align 8
+  %138 = load ptr, ptr @dsm_control, align 8
+  %139 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %138, i32 0, i32 3
+  %140 = load i32, ptr %7, align 4
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %139, i64 0, i64 %141
+  %143 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %142, i32 0, i32 1
+  store i32 2, ptr %143, align 4
+  %144 = load ptr, ptr @dsm_control, align 8
+  %145 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %144, i32 0, i32 3
+  %146 = load i32, ptr %7, align 4
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %145, i64 0, i64 %147
+  %149 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %148, i32 0, i32 4
+  store ptr null, ptr %149, align 8
+  %150 = load ptr, ptr @dsm_control, align 8
+  %151 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %150, i32 0, i32 3
+  %152 = load i32, ptr %7, align 4
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %151, i64 0, i64 %153
+  %155 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %154, i32 0, i32 5
+  store i8 0, ptr %155, align 8
+  %156 = load i32, ptr %7, align 4
+  %157 = load ptr, ptr %6, align 8
+  %158 = getelementptr inbounds nuw %struct.dsm_segment, ptr %157, i32 0, i32 3
+  store i32 %156, ptr %158, align 4
+  %159 = load ptr, ptr @MainLWLockArray, align 8
+  %160 = getelementptr inbounds %union.LWLockPadded, ptr %159, i64 34
+  call void @LWLockRelease(ptr noundef %160)
+  %161 = load ptr, ptr %6, align 8
+  store ptr %161, ptr %3, align 8
+  store i32 1, ptr %13, align 4
+  br label %285
 
-161:                                              ; preds = %95
-  br label %162
+162:                                              ; preds = %96
+  br label %163
 
-162:                                              ; preds = %161
-  %163 = load i32, ptr %7, align 4
-  %164 = add i32 %163, 1
-  store i32 %164, ptr %7, align 4
-  br label %91, !llvm.loop !10
+163:                                              ; preds = %162
+  %164 = load i32, ptr %7, align 4
+  %165 = add i32 %164, 1
+  store i32 %165, ptr %7, align 4
+  br label %92, !llvm.loop !11
 
-165:                                              ; preds = %91
-  %166 = load i32, ptr %8, align 4
-  %167 = load ptr, ptr @dsm_control, align 8
-  %168 = getelementptr inbounds %struct.dsm_control_header, ptr %167, i32 0, i32 2
-  %169 = load i32, ptr %168, align 8
-  %170 = icmp uge i32 %166, %169
-  br i1 %170, label %171, label %223
+166:                                              ; preds = %92
+  %167 = load i32, ptr %8, align 4
+  %168 = load ptr, ptr @dsm_control, align 8
+  %169 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %168, i32 0, i32 2
+  %170 = load i32, ptr %169, align 8
+  %171 = icmp uge i32 %167, %170
+  br i1 %171, label %172, label %225
 
-171:                                              ; preds = %165
-  %172 = load i8, ptr %12, align 1
-  %173 = trunc i8 %172 to i1
-  br i1 %173, label %174, label %178
+172:                                              ; preds = %166
+  %173 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %175, label %179
 
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %11, align 8
-  %176 = load i64, ptr %10, align 8
-  %177 = load i64, ptr %9, align 8
-  call void @FreePageManagerPut(ptr noundef %175, i64 noundef %176, i64 noundef %177)
-  br label %178
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %11, align 8
+  %177 = load i64, ptr %10, align 8
+  %178 = load i64, ptr %9, align 8
+  call void @FreePageManagerPut(ptr noundef %176, i64 noundef %177, i64 noundef %178)
+  br label %179
 
-178:                                              ; preds = %174, %171
-  %179 = load ptr, ptr @MainLWLockArray, align 8
-  %180 = getelementptr %union.LWLockPadded, ptr %179, i64 34
-  call void @LWLockRelease(ptr noundef %180)
-  %181 = load i8, ptr %12, align 1
-  %182 = trunc i8 %181 to i1
-  br i1 %182, label %194, label %183
+179:                                              ; preds = %175, %172
+  %180 = load ptr, ptr @MainLWLockArray, align 8
+  %181 = getelementptr inbounds %union.LWLockPadded, ptr %180, i64 34
+  call void @LWLockRelease(ptr noundef %181)
+  %182 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %183 = trunc i8 %182 to i1
+  br i1 %183, label %195, label %184
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct.dsm_segment, ptr %184, i32 0, i32 2
-  %186 = load i32, ptr %185, align 8
-  %187 = load ptr, ptr %6, align 8
-  %188 = getelementptr inbounds %struct.dsm_segment, ptr %187, i32 0, i32 4
-  %189 = load ptr, ptr %6, align 8
-  %190 = getelementptr inbounds %struct.dsm_segment, ptr %189, i32 0, i32 5
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.dsm_segment, ptr %191, i32 0, i32 6
-  %193 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %186, i64 noundef 0, ptr noundef %188, ptr noundef %190, ptr noundef %192, i32 noundef 19)
-  br label %194
+184:                                              ; preds = %179
+  %185 = load ptr, ptr %6, align 8
+  %186 = getelementptr inbounds nuw %struct.dsm_segment, ptr %185, i32 0, i32 2
+  %187 = load i32, ptr %186, align 8
+  %188 = load ptr, ptr %6, align 8
+  %189 = getelementptr inbounds nuw %struct.dsm_segment, ptr %188, i32 0, i32 4
+  %190 = load ptr, ptr %6, align 8
+  %191 = getelementptr inbounds nuw %struct.dsm_segment, ptr %190, i32 0, i32 5
+  %192 = load ptr, ptr %6, align 8
+  %193 = getelementptr inbounds nuw %struct.dsm_segment, ptr %192, i32 0, i32 6
+  %194 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %187, i64 noundef 0, ptr noundef %189, ptr noundef %191, ptr noundef %193, i32 noundef 19)
+  br label %195
 
-194:                                              ; preds = %183, %178
-  %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds %struct.dsm_segment, ptr %195, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = icmp ne ptr %197, null
-  br i1 %198, label %199, label %204
+195:                                              ; preds = %184, %179
+  %196 = load ptr, ptr %6, align 8
+  %197 = getelementptr inbounds nuw %struct.dsm_segment, ptr %196, i32 0, i32 1
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ne ptr %198, null
+  br i1 %199, label %200, label %205
 
-199:                                              ; preds = %194
-  %200 = load ptr, ptr %6, align 8
-  %201 = getelementptr inbounds %struct.dsm_segment, ptr %200, i32 0, i32 1
-  %202 = load ptr, ptr %201, align 8
-  %203 = load ptr, ptr %6, align 8
-  call void @ResourceOwnerForgetDSM(ptr noundef %202, ptr noundef %203)
-  br label %204
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %6, align 8
+  %202 = getelementptr inbounds nuw %struct.dsm_segment, ptr %201, i32 0, i32 1
+  %203 = load ptr, ptr %202, align 8
+  %204 = load ptr, ptr %6, align 8
+  call void @ResourceOwnerForgetDSM(ptr noundef %203, ptr noundef %204)
+  br label %205
 
-204:                                              ; preds = %199, %194
-  %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds %struct.dsm_segment, ptr %205, i32 0, i32 0
-  call void @dlist_delete(ptr noundef %206)
-  %207 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %207)
-  %208 = load i32, ptr %5, align 4
-  %209 = and i32 %208, 1
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %211, label %212
+205:                                              ; preds = %200, %195
+  %206 = load ptr, ptr %6, align 8
+  %207 = getelementptr inbounds nuw %struct.dsm_segment, ptr %206, i32 0, i32 0
+  call void @dlist_delete(ptr noundef %207)
+  %208 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %208)
+  %209 = load i32, ptr %5, align 4
+  %210 = and i32 %209, 1
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %212, label %213
 
-211:                                              ; preds = %204
+212:                                              ; preds = %205
   store ptr null, ptr %3, align 8
-  br label %283
+  store i32 1, ptr %13, align 4
+  br label %285
 
-212:                                              ; preds = %204
-  br label %213
-
-213:                                              ; preds = %212
-  br i1 true, label %214, label %216
+213:                                              ; preds = %205
+  br label %214
 
 214:                                              ; preds = %213
-  %215 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %215, label %218, label %221
+  br i1 true, label %215, label %217
 
-216:                                              ; preds = %213
-  %217 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %217, label %218, label %221
+215:                                              ; preds = %214
+  %216 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %216, label %219, label %222
 
-218:                                              ; preds = %216, %214
-  %219 = call i32 @errcode(i32 noundef 197)
-  %220 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 627, ptr noundef @__func__.dsm_create)
-  br label %221
+217:                                              ; preds = %214
+  %218 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %218, label %219, label %222
 
-221:                                              ; preds = %218, %216, %214
+219:                                              ; preds = %217, %215
+  %220 = call i32 @errcode(i32 noundef 197)
+  %221 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 626, ptr noundef @__func__.dsm_create)
+  br label %222
+
+222:                                              ; preds = %219, %217, %215
   unreachable
 
-222:                                              ; No predecessors!
-  br label %223
+223:                                              ; No predecessors!
+  br label %224
 
-223:                                              ; preds = %222, %165
-  %224 = load i8, ptr %12, align 1
-  %225 = trunc i8 %224 to i1
-  br i1 %225, label %226, label %245
+224:                                              ; preds = %223
+  br label %225
 
-226:                                              ; preds = %223
-  %227 = load i32, ptr %8, align 4
-  %228 = call i32 @make_main_region_dsm_handle(i32 noundef %227)
-  %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr inbounds %struct.dsm_segment, ptr %229, i32 0, i32 2
-  store i32 %228, ptr %230, align 8
-  %231 = load i64, ptr %10, align 8
-  %232 = load ptr, ptr @dsm_control, align 8
-  %233 = getelementptr inbounds %struct.dsm_control_header, ptr %232, i32 0, i32 3
-  %234 = load i32, ptr %7, align 4
-  %235 = zext i32 %234 to i64
-  %236 = getelementptr [0 x %struct.dsm_control_item], ptr %233, i64 0, i64 %235
-  %237 = getelementptr inbounds %struct.dsm_control_item, ptr %236, i32 0, i32 2
-  store i64 %231, ptr %237, align 8
-  %238 = load i64, ptr %9, align 8
-  %239 = load ptr, ptr @dsm_control, align 8
-  %240 = getelementptr inbounds %struct.dsm_control_header, ptr %239, i32 0, i32 3
-  %241 = load i32, ptr %7, align 4
-  %242 = zext i32 %241 to i64
-  %243 = getelementptr [0 x %struct.dsm_control_item], ptr %240, i64 0, i64 %242
-  %244 = getelementptr inbounds %struct.dsm_control_item, ptr %243, i32 0, i32 3
-  store i64 %238, ptr %244, align 8
-  br label %245
+225:                                              ; preds = %224, %166
+  %226 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %227 = trunc i8 %226 to i1
+  br i1 %227, label %228, label %247
 
-245:                                              ; preds = %226, %223
-  %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr inbounds %struct.dsm_segment, ptr %246, i32 0, i32 2
-  %248 = load i32, ptr %247, align 8
-  %249 = load ptr, ptr @dsm_control, align 8
-  %250 = getelementptr inbounds %struct.dsm_control_header, ptr %249, i32 0, i32 3
-  %251 = load i32, ptr %8, align 4
-  %252 = zext i32 %251 to i64
-  %253 = getelementptr [0 x %struct.dsm_control_item], ptr %250, i64 0, i64 %252
-  %254 = getelementptr inbounds %struct.dsm_control_item, ptr %253, i32 0, i32 0
-  store i32 %248, ptr %254, align 8
-  %255 = load ptr, ptr @dsm_control, align 8
-  %256 = getelementptr inbounds %struct.dsm_control_header, ptr %255, i32 0, i32 3
-  %257 = load i32, ptr %8, align 4
-  %258 = zext i32 %257 to i64
-  %259 = getelementptr [0 x %struct.dsm_control_item], ptr %256, i64 0, i64 %258
-  %260 = getelementptr inbounds %struct.dsm_control_item, ptr %259, i32 0, i32 1
-  store i32 2, ptr %260, align 4
-  %261 = load ptr, ptr @dsm_control, align 8
-  %262 = getelementptr inbounds %struct.dsm_control_header, ptr %261, i32 0, i32 3
-  %263 = load i32, ptr %8, align 4
-  %264 = zext i32 %263 to i64
-  %265 = getelementptr [0 x %struct.dsm_control_item], ptr %262, i64 0, i64 %264
-  %266 = getelementptr inbounds %struct.dsm_control_item, ptr %265, i32 0, i32 4
-  store ptr null, ptr %266, align 8
-  %267 = load ptr, ptr @dsm_control, align 8
-  %268 = getelementptr inbounds %struct.dsm_control_header, ptr %267, i32 0, i32 3
-  %269 = load i32, ptr %8, align 4
-  %270 = zext i32 %269 to i64
-  %271 = getelementptr [0 x %struct.dsm_control_item], ptr %268, i64 0, i64 %270
-  %272 = getelementptr inbounds %struct.dsm_control_item, ptr %271, i32 0, i32 5
-  store i8 0, ptr %272, align 8
-  %273 = load i32, ptr %8, align 4
-  %274 = load ptr, ptr %6, align 8
-  %275 = getelementptr inbounds %struct.dsm_segment, ptr %274, i32 0, i32 3
-  store i32 %273, ptr %275, align 4
-  %276 = load ptr, ptr @dsm_control, align 8
-  %277 = getelementptr inbounds %struct.dsm_control_header, ptr %276, i32 0, i32 1
-  %278 = load i32, ptr %277, align 4
-  %279 = add i32 %278, 1
-  store i32 %279, ptr %277, align 4
-  %280 = load ptr, ptr @MainLWLockArray, align 8
-  %281 = getelementptr %union.LWLockPadded, ptr %280, i64 34
-  call void @LWLockRelease(ptr noundef %281)
-  %282 = load ptr, ptr %6, align 8
-  store ptr %282, ptr %3, align 8
-  br label %283
+228:                                              ; preds = %225
+  %229 = load i32, ptr %8, align 4
+  %230 = call i32 @make_main_region_dsm_handle(i32 noundef %229)
+  %231 = load ptr, ptr %6, align 8
+  %232 = getelementptr inbounds nuw %struct.dsm_segment, ptr %231, i32 0, i32 2
+  store i32 %230, ptr %232, align 8
+  %233 = load i64, ptr %10, align 8
+  %234 = load ptr, ptr @dsm_control, align 8
+  %235 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %234, i32 0, i32 3
+  %236 = load i32, ptr %7, align 4
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %235, i64 0, i64 %237
+  %239 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %238, i32 0, i32 2
+  store i64 %233, ptr %239, align 8
+  %240 = load i64, ptr %9, align 8
+  %241 = load ptr, ptr @dsm_control, align 8
+  %242 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %241, i32 0, i32 3
+  %243 = load i32, ptr %7, align 4
+  %244 = zext i32 %243 to i64
+  %245 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %242, i64 0, i64 %244
+  %246 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %245, i32 0, i32 3
+  store i64 %240, ptr %246, align 8
+  br label %247
 
-283:                                              ; preds = %245, %211, %127
-  %284 = load ptr, ptr %3, align 8
-  ret ptr %284
+247:                                              ; preds = %228, %225
+  %248 = load ptr, ptr %6, align 8
+  %249 = getelementptr inbounds nuw %struct.dsm_segment, ptr %248, i32 0, i32 2
+  %250 = load i32, ptr %249, align 8
+  %251 = load ptr, ptr @dsm_control, align 8
+  %252 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %251, i32 0, i32 3
+  %253 = load i32, ptr %8, align 4
+  %254 = zext i32 %253 to i64
+  %255 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %252, i64 0, i64 %254
+  %256 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %255, i32 0, i32 0
+  store i32 %250, ptr %256, align 8
+  %257 = load ptr, ptr @dsm_control, align 8
+  %258 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %257, i32 0, i32 3
+  %259 = load i32, ptr %8, align 4
+  %260 = zext i32 %259 to i64
+  %261 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %258, i64 0, i64 %260
+  %262 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %261, i32 0, i32 1
+  store i32 2, ptr %262, align 4
+  %263 = load ptr, ptr @dsm_control, align 8
+  %264 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %263, i32 0, i32 3
+  %265 = load i32, ptr %8, align 4
+  %266 = zext i32 %265 to i64
+  %267 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %264, i64 0, i64 %266
+  %268 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %267, i32 0, i32 4
+  store ptr null, ptr %268, align 8
+  %269 = load ptr, ptr @dsm_control, align 8
+  %270 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %269, i32 0, i32 3
+  %271 = load i32, ptr %8, align 4
+  %272 = zext i32 %271 to i64
+  %273 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %270, i64 0, i64 %272
+  %274 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %273, i32 0, i32 5
+  store i8 0, ptr %274, align 8
+  %275 = load i32, ptr %8, align 4
+  %276 = load ptr, ptr %6, align 8
+  %277 = getelementptr inbounds nuw %struct.dsm_segment, ptr %276, i32 0, i32 3
+  store i32 %275, ptr %277, align 4
+  %278 = load ptr, ptr @dsm_control, align 8
+  %279 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %278, i32 0, i32 1
+  %280 = load i32, ptr %279, align 4
+  %281 = add i32 %280, 1
+  store i32 %281, ptr %279, align 4
+  %282 = load ptr, ptr @MainLWLockArray, align 8
+  %283 = getelementptr inbounds %union.LWLockPadded, ptr %282, i64 34
+  call void @LWLockRelease(ptr noundef %283)
+  %284 = load ptr, ptr %6, align 8
+  store ptr %284, ptr %3, align 8
+  store i32 1, ptr %13, align 4
+  br label %285
+
+285:                                              ; preds = %247, %212, %128
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %286 = load ptr, ptr %3, align 8
+  ret ptr %286
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1218,6 +1401,7 @@ define internal void @dsm_backend_startup() #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @dsm_create_descriptor() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
   %3 = icmp ne ptr %2, null
   br i1 %3, label %4, label %6
@@ -1232,23 +1416,23 @@ define internal ptr @dsm_create_descriptor() #0 {
   %8 = call ptr @MemoryContextAlloc(ptr noundef %7, i64 noundef 64)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %struct.dsm_segment, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.dsm_segment, ptr %9, i32 0, i32 0
   call void @dlist_push_head(ptr noundef @dsm_segment_list, ptr noundef %10)
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds %struct.dsm_segment, ptr %11, i32 0, i32 3
+  %12 = getelementptr inbounds nuw %struct.dsm_segment, ptr %11, i32 0, i32 3
   store i32 -1, ptr %12, align 4
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds %struct.dsm_segment, ptr %13, i32 0, i32 4
+  %14 = getelementptr inbounds nuw %struct.dsm_segment, ptr %13, i32 0, i32 4
   store ptr null, ptr %14, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds %struct.dsm_segment, ptr %15, i32 0, i32 5
+  %16 = getelementptr inbounds nuw %struct.dsm_segment, ptr %15, i32 0, i32 5
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds %struct.dsm_segment, ptr %17, i32 0, i32 6
+  %18 = getelementptr inbounds nuw %struct.dsm_segment, ptr %17, i32 0, i32 6
   store i64 0, ptr %18, align 8
   %19 = load ptr, ptr @CurrentResourceOwner, align 8
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds %struct.dsm_segment, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.dsm_segment, ptr %20, i32 0, i32 1
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr @CurrentResourceOwner, align 8
   %23 = icmp ne ptr %22, null
@@ -1262,23 +1446,25 @@ define internal ptr @dsm_create_descriptor() #0 {
 
 27:                                               ; preds = %24, %6
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %struct.dsm_segment, ptr %28, i32 0, i32 7
+  %29 = getelementptr inbounds nuw %struct.dsm_segment, ptr %28, i32 0, i32 7
   call void @slist_init(ptr noundef %29)
   %30 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
   ret ptr %30
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) #3
 
-declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) #2
+declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) #3
 
-declare void @LWLockRelease(ptr noundef) #2
+declare void @LWLockRelease(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @make_main_region_dsm_handle(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @make_main_region_dsm_handle(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
   store i32 1, ptr %3, align 4
   %4 = load i32, ptr %2, align 4
   %5 = shl i32 %4, 1
@@ -1287,7 +1473,7 @@ define internal i32 @make_main_region_dsm_handle(i32 noundef %0) #0 {
   store i32 %7, ptr %3, align 4
   %8 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
   %9 = load ptr, ptr @dsm_control, align 8
-  %10 = getelementptr inbounds %struct.dsm_control_header, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %9, i32 0, i32 2
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @pg_leftmost_one_pos32(i32 noundef %11)
   %13 = add i32 %12, 1
@@ -1296,11 +1482,12 @@ define internal i32 @make_main_region_dsm_handle(i32 noundef %0) #0 {
   %16 = or i32 %15, %14
   store i32 %16, ptr %3, align 4
   %17 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @ResourceOwnerForgetDSM(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ResourceOwnerForgetDSM(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1312,34 +1499,34 @@ define internal void @ResourceOwnerForgetDSM(ptr noundef %0, ptr noundef %1) #0 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dlist_delete(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @dlist_delete(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dlist_node, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.dlist_node, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.dlist_node, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.dlist_node, ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct.dlist_node, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.dlist_node, ptr %8, i32 0, i32 1
   store ptr %5, ptr %9, align 8
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.dlist_node, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.dlist_node, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.dlist_node, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.dlist_node, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.dlist_node, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.dlist_node, ptr %15, i32 0, i32 0
   store ptr %12, ptr %16, align 8
   ret void
 }
 
-declare void @pfree(ptr noundef) #2
+declare void @pfree(ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_attach(i32 noundef %0) #0 {
@@ -1353,282 +1540,308 @@ define dso_local ptr @dsm_attach(i32 noundef %0) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %12 = load i8, ptr @dsm_init_done, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %15, label %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %13 = load i8, ptr @dsm_init_done, align 1, !range !8, !noundef !9
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %1
+15:                                               ; preds = %1
   call void @dsm_backend_startup()
-  br label %15
-
-15:                                               ; preds = %14, %1
   br label %16
 
-16:                                               ; preds = %15
+16:                                               ; preds = %15, %1
   br label %17
 
 17:                                               ; preds = %16
-  store i32 1, ptr %8, align 4
   br label %18
 
 18:                                               ; preds = %17
   br label %19
 
 19:                                               ; preds = %18
+  store i32 1, ptr %8, align 4
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21
   store i32 1, ptr %9, align 4
-  %20 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 1
-  store ptr @dsm_segment_list, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.dlist_node, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %31
+  %23 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 1
+  store ptr @dsm_segment_list, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.dlist_node, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.dlist_node, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  br label %34
-
-31:                                               ; preds = %19
-  %32 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 1
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.dlist_node, ptr %31, i32 0, i32 1
   %33 = load ptr, ptr %32, align 8
-  br label %34
-
-34:                                               ; preds = %31, %26
-  %35 = phi ptr [ %30, %26 ], [ %33, %31 ]
-  %36 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 0
-  store ptr %35, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %67, %34
-  %38 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %39, %41
-  br i1 %42, label %43, label %73
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  br label %37
 
-43:                                               ; preds = %37
-  br label %44
+37:                                               ; preds = %34, %29
+  %38 = phi ptr [ %33, %29 ], [ %36, %34 ]
+  %39 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 0
+  store ptr %38, ptr %39, align 8
+  br label %40
 
-44:                                               ; preds = %43
-  br label %45
+40:                                               ; preds = %73, %37
+  %41 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %42, %44
+  br i1 %45, label %46, label %79
 
-45:                                               ; preds = %44
-  store i32 1, ptr %10, align 4
-  br label %46
-
-46:                                               ; preds = %45
+46:                                               ; preds = %40
   br label %47
 
 47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
+  store i32 1, ptr %10, align 4
+  br label %50
+
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51
   store i32 1, ptr %11, align 4
-  %48 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %49, i64 0
-  store ptr %50, ptr %4, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.dsm_segment, ptr %51, i32 0, i32 2
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %3, align 4
-  %55 = icmp eq i32 %53, %54
-  br i1 %55, label %56, label %66
+  %53 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 0
+  store ptr %55, ptr %4, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw %struct.dsm_segment, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8
+  %59 = load i32, ptr %3, align 4
+  %60 = icmp eq i32 %58, %59
+  br i1 %60, label %61, label %72
 
-56:                                               ; preds = %47
-  br label %57
+61:                                               ; preds = %52
+  br label %62
 
-57:                                               ; preds = %56
-  br i1 true, label %58, label %60
+62:                                               ; preds = %61
+  br i1 true, label %63, label %65
 
-58:                                               ; preds = %57
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %59, label %62, label %64
+63:                                               ; preds = %62
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %64, label %67, label %69
 
-60:                                               ; preds = %57
-  %61 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %61, label %62, label %64
+65:                                               ; preds = %62
+  %66 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %66, label %67, label %69
 
-62:                                               ; preds = %60, %58
-  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.7)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 693, ptr noundef @__func__.dsm_attach)
-  br label %64
+67:                                               ; preds = %65, %63
+  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.7)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 692, ptr noundef @__func__.dsm_attach)
+  br label %69
 
-64:                                               ; preds = %62, %60, %58
+69:                                               ; preds = %67, %65, %63
   unreachable
 
-65:                                               ; No predecessors!
-  br label %66
+70:                                               ; No predecessors!
+  br label %71
 
-66:                                               ; preds = %65, %47
-  br label %67
+71:                                               ; preds = %70
+  br label %72
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.dlist_node, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.dlist_iter, ptr %5, i32 0, i32 0
-  store ptr %71, ptr %72, align 8
-  br label %37, !llvm.loop !11
+72:                                               ; preds = %71, %52
+  br label %73
 
-73:                                               ; preds = %37
-  %74 = call ptr @dsm_create_descriptor()
-  store ptr %74, ptr %4, align 8
-  %75 = load i32, ptr %3, align 4
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.dsm_segment, ptr %76, i32 0, i32 2
-  store i32 %75, ptr %77, align 8
-  %78 = load ptr, ptr @MainLWLockArray, align 8
-  %79 = getelementptr %union.LWLockPadded, ptr %78, i64 34
-  %80 = call zeroext i1 @LWLockAcquire(ptr noundef %79, i32 noundef 0)
-  %81 = load ptr, ptr @dsm_control, align 8
-  %82 = getelementptr inbounds %struct.dsm_control_header, ptr %81, i32 0, i32 1
-  %83 = load i32, ptr %82, align 4
-  store i32 %83, ptr %7, align 4
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw %struct.dlist_node, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct.dlist_iter, ptr %5, i32 0, i32 0
+  store ptr %77, ptr %78, align 8
+  br label %40, !llvm.loop !12
+
+79:                                               ; preds = %40
+  %80 = call ptr @dsm_create_descriptor()
+  store ptr %80, ptr %4, align 8
+  %81 = load i32, ptr %3, align 4
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw %struct.dsm_segment, ptr %82, i32 0, i32 2
+  store i32 %81, ptr %83, align 8
+  %84 = load ptr, ptr @MainLWLockArray, align 8
+  %85 = getelementptr inbounds %union.LWLockPadded, ptr %84, i64 34
+  %86 = call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0)
+  %87 = load ptr, ptr @dsm_control, align 8
+  %88 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  store i32 %89, ptr %7, align 4
   store i32 0, ptr %6, align 4
-  br label %84
+  br label %90
 
-84:                                               ; preds = %151, %73
-  %85 = load i32, ptr %6, align 4
-  %86 = load i32, ptr %7, align 4
-  %87 = icmp ult i32 %85, %86
-  br i1 %87, label %88, label %154
-
-88:                                               ; preds = %84
-  %89 = load ptr, ptr @dsm_control, align 8
-  %90 = getelementptr inbounds %struct.dsm_control_header, ptr %89, i32 0, i32 3
+90:                                               ; preds = %157, %79
   %91 = load i32, ptr %6, align 4
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr [0 x %struct.dsm_control_item], ptr %90, i64 0, i64 %92
-  %94 = getelementptr inbounds %struct.dsm_control_item, ptr %93, i32 0, i32 1
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp ule i32 %95, 1
-  br i1 %96, label %97, label %98
+  %92 = load i32, ptr %7, align 4
+  %93 = icmp ult i32 %91, %92
+  br i1 %93, label %94, label %160
 
-97:                                               ; preds = %88
-  br label %151
+94:                                               ; preds = %90
+  %95 = load ptr, ptr @dsm_control, align 8
+  %96 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %95, i32 0, i32 3
+  %97 = load i32, ptr %6, align 4
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %96, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ule i32 %101, 1
+  br i1 %102, label %103, label %104
 
-98:                                               ; preds = %88
-  %99 = load ptr, ptr @dsm_control, align 8
-  %100 = getelementptr inbounds %struct.dsm_control_header, ptr %99, i32 0, i32 3
-  %101 = load i32, ptr %6, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr [0 x %struct.dsm_control_item], ptr %100, i64 0, i64 %102
-  %104 = getelementptr inbounds %struct.dsm_control_item, ptr %103, i32 0, i32 0
-  %105 = load i32, ptr %104, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.dsm_segment, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp ne i32 %105, %108
-  br i1 %109, label %110, label %111
+103:                                              ; preds = %94
+  br label %157
 
-110:                                              ; preds = %98
-  br label %151
+104:                                              ; preds = %94
+  %105 = load ptr, ptr @dsm_control, align 8
+  %106 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %105, i32 0, i32 3
+  %107 = load i32, ptr %6, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %106, i64 0, i64 %108
+  %110 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %109, i32 0, i32 0
+  %111 = load i32, ptr %110, align 8
+  %112 = load ptr, ptr %4, align 8
+  %113 = getelementptr inbounds nuw %struct.dsm_segment, ptr %112, i32 0, i32 2
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp ne i32 %111, %114
+  br i1 %115, label %116, label %117
 
-111:                                              ; preds = %98
-  %112 = load ptr, ptr @dsm_control, align 8
-  %113 = getelementptr inbounds %struct.dsm_control_header, ptr %112, i32 0, i32 3
-  %114 = load i32, ptr %6, align 4
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr [0 x %struct.dsm_control_item], ptr %113, i64 0, i64 %115
-  %117 = getelementptr inbounds %struct.dsm_control_item, ptr %116, i32 0, i32 1
-  %118 = load i32, ptr %117, align 4
-  %119 = add i32 %118, 1
-  store i32 %119, ptr %117, align 4
+116:                                              ; preds = %104
+  br label %157
+
+117:                                              ; preds = %104
+  %118 = load ptr, ptr @dsm_control, align 8
+  %119 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %118, i32 0, i32 3
   %120 = load i32, ptr %6, align 4
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.dsm_segment, ptr %121, i32 0, i32 3
-  store i32 %120, ptr %122, align 4
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.dsm_segment, ptr %123, i32 0, i32 2
-  %125 = load i32, ptr %124, align 8
-  %126 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %125)
-  br i1 %126, label %127, label %150
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %119, i64 0, i64 %121
+  %123 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %122, i32 0, i32 1
+  %124 = load i32, ptr %123, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %123, align 4
+  %126 = load i32, ptr %6, align 4
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct.dsm_segment, ptr %127, i32 0, i32 3
+  store i32 %126, ptr %128, align 4
+  %129 = load ptr, ptr %4, align 8
+  %130 = getelementptr inbounds nuw %struct.dsm_segment, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8
+  %132 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %131)
+  br i1 %132, label %133, label %156
 
-127:                                              ; preds = %111
-  %128 = load ptr, ptr @dsm_main_space_begin, align 8
-  %129 = load ptr, ptr @dsm_control, align 8
-  %130 = getelementptr inbounds %struct.dsm_control_header, ptr %129, i32 0, i32 3
-  %131 = load i32, ptr %6, align 4
-  %132 = zext i32 %131 to i64
-  %133 = getelementptr [0 x %struct.dsm_control_item], ptr %130, i64 0, i64 %132
-  %134 = getelementptr inbounds %struct.dsm_control_item, ptr %133, i32 0, i32 2
-  %135 = load i64, ptr %134, align 8
-  %136 = mul i64 %135, 4096
-  %137 = getelementptr i8, ptr %128, i64 %136
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.dsm_segment, ptr %138, i32 0, i32 5
-  store ptr %137, ptr %139, align 8
-  %140 = load ptr, ptr @dsm_control, align 8
-  %141 = getelementptr inbounds %struct.dsm_control_header, ptr %140, i32 0, i32 3
-  %142 = load i32, ptr %6, align 4
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr [0 x %struct.dsm_control_item], ptr %141, i64 0, i64 %143
-  %145 = getelementptr inbounds %struct.dsm_control_item, ptr %144, i32 0, i32 3
-  %146 = load i64, ptr %145, align 8
-  %147 = mul i64 %146, 4096
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.dsm_segment, ptr %148, i32 0, i32 6
-  store i64 %147, ptr %149, align 8
-  br label %150
+133:                                              ; preds = %117
+  %134 = load ptr, ptr @dsm_main_space_begin, align 8
+  %135 = load ptr, ptr @dsm_control, align 8
+  %136 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %135, i32 0, i32 3
+  %137 = load i32, ptr %6, align 4
+  %138 = zext i32 %137 to i64
+  %139 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %136, i64 0, i64 %138
+  %140 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %139, i32 0, i32 2
+  %141 = load i64, ptr %140, align 8
+  %142 = mul i64 %141, 4096
+  %143 = getelementptr inbounds nuw i8, ptr %134, i64 %142
+  %144 = load ptr, ptr %4, align 8
+  %145 = getelementptr inbounds nuw %struct.dsm_segment, ptr %144, i32 0, i32 5
+  store ptr %143, ptr %145, align 8
+  %146 = load ptr, ptr @dsm_control, align 8
+  %147 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %146, i32 0, i32 3
+  %148 = load i32, ptr %6, align 4
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %147, i64 0, i64 %149
+  %151 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %150, i32 0, i32 3
+  %152 = load i64, ptr %151, align 8
+  %153 = mul i64 %152, 4096
+  %154 = load ptr, ptr %4, align 8
+  %155 = getelementptr inbounds nuw %struct.dsm_segment, ptr %154, i32 0, i32 6
+  store i64 %153, ptr %155, align 8
+  br label %156
 
-150:                                              ; preds = %127, %111
-  br label %154
+156:                                              ; preds = %133, %117
+  br label %160
 
-151:                                              ; preds = %110, %97
-  %152 = load i32, ptr %6, align 4
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %6, align 4
-  br label %84, !llvm.loop !12
+157:                                              ; preds = %116, %103
+  %158 = load i32, ptr %6, align 4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %6, align 4
+  br label %90, !llvm.loop !13
 
-154:                                              ; preds = %150, %84
-  %155 = load ptr, ptr @MainLWLockArray, align 8
-  %156 = getelementptr %union.LWLockPadded, ptr %155, i64 34
-  call void @LWLockRelease(ptr noundef %156)
-  %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %struct.dsm_segment, ptr %157, i32 0, i32 3
-  %159 = load i32, ptr %158, align 4
-  %160 = icmp eq i32 %159, -1
-  br i1 %160, label %161, label %163
+160:                                              ; preds = %156, %90
+  %161 = load ptr, ptr @MainLWLockArray, align 8
+  %162 = getelementptr inbounds %union.LWLockPadded, ptr %161, i64 34
+  call void @LWLockRelease(ptr noundef %162)
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds nuw %struct.dsm_segment, ptr %163, i32 0, i32 3
+  %165 = load i32, ptr %164, align 4
+  %166 = icmp eq i32 %165, -1
+  br i1 %166, label %167, label %169
 
-161:                                              ; preds = %154
-  %162 = load ptr, ptr %4, align 8
-  call void @dsm_detach(ptr noundef %162)
+167:                                              ; preds = %160
+  %168 = load ptr, ptr %4, align 8
+  call void @dsm_detach(ptr noundef %168)
   store ptr null, ptr %2, align 8
-  br label %181
+  store i32 1, ptr %12, align 4
+  br label %187
 
-163:                                              ; preds = %154
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.dsm_segment, ptr %164, i32 0, i32 2
-  %166 = load i32, ptr %165, align 8
-  %167 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %166)
-  br i1 %167, label %179, label %168
+169:                                              ; preds = %160
+  %170 = load ptr, ptr %4, align 8
+  %171 = getelementptr inbounds nuw %struct.dsm_segment, ptr %170, i32 0, i32 2
+  %172 = load i32, ptr %171, align 8
+  %173 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %172)
+  br i1 %173, label %185, label %174
 
-168:                                              ; preds = %163
-  %169 = load ptr, ptr %4, align 8
-  %170 = getelementptr inbounds %struct.dsm_segment, ptr %169, i32 0, i32 2
-  %171 = load i32, ptr %170, align 8
-  %172 = load ptr, ptr %4, align 8
-  %173 = getelementptr inbounds %struct.dsm_segment, ptr %172, i32 0, i32 4
-  %174 = load ptr, ptr %4, align 8
-  %175 = getelementptr inbounds %struct.dsm_segment, ptr %174, i32 0, i32 5
-  %176 = load ptr, ptr %4, align 8
-  %177 = getelementptr inbounds %struct.dsm_segment, ptr %176, i32 0, i32 6
-  %178 = call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %171, i64 noundef 0, ptr noundef %173, ptr noundef %175, ptr noundef %177, i32 noundef 21)
-  br label %179
-
-179:                                              ; preds = %168, %163
+174:                                              ; preds = %169
+  %175 = load ptr, ptr %4, align 8
+  %176 = getelementptr inbounds nuw %struct.dsm_segment, ptr %175, i32 0, i32 2
+  %177 = load i32, ptr %176, align 8
+  %178 = load ptr, ptr %4, align 8
+  %179 = getelementptr inbounds nuw %struct.dsm_segment, ptr %178, i32 0, i32 4
   %180 = load ptr, ptr %4, align 8
-  store ptr %180, ptr %2, align 8
-  br label %181
+  %181 = getelementptr inbounds nuw %struct.dsm_segment, ptr %180, i32 0, i32 5
+  %182 = load ptr, ptr %4, align 8
+  %183 = getelementptr inbounds nuw %struct.dsm_segment, ptr %182, i32 0, i32 6
+  %184 = call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %177, i64 noundef 0, ptr noundef %179, ptr noundef %181, ptr noundef %183, i32 noundef 21)
+  br label %185
 
-181:                                              ; preds = %179, %161
-  %182 = load ptr, ptr %2, align 8
-  ret ptr %182
+185:                                              ; preds = %174, %169
+  %186 = load ptr, ptr %4, align 8
+  store ptr %186, ptr %2, align 8
+  store i32 1, ptr %12, align 4
+  br label %187
+
+187:                                              ; preds = %185, %167
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %188 = load ptr, ptr %2, align 8
+  ret ptr %188
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1648,16 +1861,20 @@ define dso_local void @dsm_detach(ptr noundef %0) #0 {
   store volatile i32 %12, ptr @InterruptHoldoffCount, align 4
   br label %13
 
-13:                                               ; preds = %25, %1
+13:                                               ; preds = %27, %1
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.dsm_segment, ptr %14, i32 0, i32 7
+  %15 = getelementptr inbounds nuw %struct.dsm_segment, ptr %14, i32 0, i32 7
   %16 = call zeroext i1 @slist_is_empty(ptr noundef %15)
   %17 = xor i1 %16, true
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %40
 
 18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.dsm_segment, ptr %19, i32 0, i32 7
+  %20 = getelementptr inbounds nuw %struct.dsm_segment, ptr %19, i32 0, i32 7
   %21 = call ptr @slist_pop_head_node(ptr noundef %20)
   store ptr %21, ptr %3, align 8
   br label %22
@@ -1666,205 +1883,219 @@ define dso_local void @dsm_detach(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %22
-  store i32 1, ptr %7, align 4
   br label %24
 
 24:                                               ; preds = %23
+  store i32 1, ptr %7, align 4
   br label %25
 
 25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
   store i32 1, ptr %8, align 4
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr i8, ptr %26, i64 -16
-  store ptr %27, ptr %4, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %5, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %31, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %6, align 8
-  %34 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %34)
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = load i64, ptr %6, align 8
-  call void %35(ptr noundef %36, i64 noundef %37)
-  br label %13, !llvm.loop !13
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 -16
+  store ptr %29, ptr %4, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %5, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %6, align 8
+  %36 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %36)
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %2, align 8
+  %39 = load i64, ptr %6, align 8
+  call void %37(ptr noundef %38, i64 noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %13, !llvm.loop !14
 
-38:                                               ; preds = %13
-  br label %39
+40:                                               ; preds = %13
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %41 = add i32 %40, -1
-  store volatile i32 %41, ptr @InterruptHoldoffCount, align 4
-  br label %42
+41:                                               ; preds = %40
+  %42 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %43 = add i32 %42, -1
+  store volatile i32 %43, ptr @InterruptHoldoffCount, align 4
+  br label %44
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.dsm_segment, ptr %43, i32 0, i32 5
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %70
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.dsm_segment, ptr %45, i32 0, i32 5
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %72
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.dsm_segment, ptr %48, i32 0, i32 2
-  %50 = load i32, ptr %49, align 8
-  %51 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %50)
-  br i1 %51, label %63, label %52
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.dsm_segment, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %52)
+  br i1 %53, label %65, label %54
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.dsm_segment, ptr %53, i32 0, i32 2
-  %55 = load i32, ptr %54, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.dsm_segment, ptr %56, i32 0, i32 4
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds nuw %struct.dsm_segment, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 8
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.dsm_segment, ptr %58, i32 0, i32 5
+  %59 = getelementptr inbounds nuw %struct.dsm_segment, ptr %58, i32 0, i32 4
   %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.dsm_segment, ptr %60, i32 0, i32 6
-  %62 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %55, i64 noundef 0, ptr noundef %57, ptr noundef %59, ptr noundef %61, i32 noundef 19)
-  br label %63
+  %61 = getelementptr inbounds nuw %struct.dsm_segment, ptr %60, i32 0, i32 5
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds nuw %struct.dsm_segment, ptr %62, i32 0, i32 6
+  %64 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %57, i64 noundef 0, ptr noundef %59, ptr noundef %61, ptr noundef %63, i32 noundef 19)
+  br label %65
 
-63:                                               ; preds = %52, %47
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.dsm_segment, ptr %64, i32 0, i32 4
-  store ptr null, ptr %65, align 8
+65:                                               ; preds = %54, %49
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.dsm_segment, ptr %66, i32 0, i32 5
+  %67 = getelementptr inbounds nuw %struct.dsm_segment, ptr %66, i32 0, i32 4
   store ptr null, ptr %67, align 8
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds %struct.dsm_segment, ptr %68, i32 0, i32 6
-  store i64 0, ptr %69, align 8
-  br label %70
+  %69 = getelementptr inbounds nuw %struct.dsm_segment, ptr %68, i32 0, i32 5
+  store ptr null, ptr %69, align 8
+  %70 = load ptr, ptr %2, align 8
+  %71 = getelementptr inbounds nuw %struct.dsm_segment, ptr %70, i32 0, i32 6
+  store i64 0, ptr %71, align 8
+  br label %72
 
-70:                                               ; preds = %63, %42
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct.dsm_segment, ptr %71, i32 0, i32 3
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp ne i32 %73, -1
-  br i1 %74, label %75, label %147
+72:                                               ; preds = %65, %44
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.dsm_segment, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp ne i32 %75, -1
+  br i1 %76, label %77, label %149
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.dsm_segment, ptr %76, i32 0, i32 3
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %10, align 4
-  %79 = load ptr, ptr @MainLWLockArray, align 8
-  %80 = getelementptr %union.LWLockPadded, ptr %79, i64 34
-  %81 = call zeroext i1 @LWLockAcquire(ptr noundef %80, i32 noundef 0)
-  %82 = load ptr, ptr @dsm_control, align 8
-  %83 = getelementptr inbounds %struct.dsm_control_header, ptr %82, i32 0, i32 3
-  %84 = load i32, ptr %10, align 4
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr [0 x %struct.dsm_control_item], ptr %83, i64 0, i64 %85
-  %87 = getelementptr inbounds %struct.dsm_control_item, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 4
-  %89 = add i32 %88, -1
-  store i32 %89, ptr %87, align 4
-  store i32 %89, ptr %9, align 4
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.dsm_segment, ptr %90, i32 0, i32 3
-  store i32 -1, ptr %91, align 4
-  %92 = load ptr, ptr @MainLWLockArray, align 8
-  %93 = getelementptr %union.LWLockPadded, ptr %92, i64 34
-  call void @LWLockRelease(ptr noundef %93)
-  %94 = load i32, ptr %9, align 4
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %96, label %146
+77:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds nuw %struct.dsm_segment, ptr %78, i32 0, i32 3
+  %80 = load i32, ptr %79, align 4
+  store i32 %80, ptr %10, align 4
+  %81 = load ptr, ptr @MainLWLockArray, align 8
+  %82 = getelementptr inbounds %union.LWLockPadded, ptr %81, i64 34
+  %83 = call zeroext i1 @LWLockAcquire(ptr noundef %82, i32 noundef 0)
+  %84 = load ptr, ptr @dsm_control, align 8
+  %85 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %84, i32 0, i32 3
+  %86 = load i32, ptr %10, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %85, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %89, align 4
+  %91 = add i32 %90, -1
+  store i32 %91, ptr %89, align 4
+  store i32 %91, ptr %9, align 4
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds nuw %struct.dsm_segment, ptr %92, i32 0, i32 3
+  store i32 -1, ptr %93, align 4
+  %94 = load ptr, ptr @MainLWLockArray, align 8
+  %95 = getelementptr inbounds %union.LWLockPadded, ptr %94, i64 34
+  call void @LWLockRelease(ptr noundef %95)
+  %96 = load i32, ptr %9, align 4
+  %97 = icmp eq i32 %96, 1
+  br i1 %97, label %98, label %148
 
-96:                                               ; preds = %75
-  %97 = load ptr, ptr %2, align 8
-  %98 = getelementptr inbounds %struct.dsm_segment, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 8
-  %100 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %99)
-  br i1 %100, label %112, label %101
+98:                                               ; preds = %77
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds nuw %struct.dsm_segment, ptr %99, i32 0, i32 2
+  %101 = load i32, ptr %100, align 8
+  %102 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %101)
+  br i1 %102, label %114, label %103
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds %struct.dsm_segment, ptr %102, i32 0, i32 2
-  %104 = load i32, ptr %103, align 8
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds %struct.dsm_segment, ptr %105, i32 0, i32 4
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds nuw %struct.dsm_segment, ptr %104, i32 0, i32 2
+  %106 = load i32, ptr %105, align 8
   %107 = load ptr, ptr %2, align 8
-  %108 = getelementptr inbounds %struct.dsm_segment, ptr %107, i32 0, i32 5
+  %108 = getelementptr inbounds nuw %struct.dsm_segment, ptr %107, i32 0, i32 4
   %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.dsm_segment, ptr %109, i32 0, i32 6
-  %111 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %104, i64 noundef 0, ptr noundef %106, ptr noundef %108, ptr noundef %110, i32 noundef 19)
-  br i1 %111, label %112, label %145
+  %110 = getelementptr inbounds nuw %struct.dsm_segment, ptr %109, i32 0, i32 5
+  %111 = load ptr, ptr %2, align 8
+  %112 = getelementptr inbounds nuw %struct.dsm_segment, ptr %111, i32 0, i32 6
+  %113 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %106, i64 noundef 0, ptr noundef %108, ptr noundef %110, ptr noundef %112, i32 noundef 19)
+  br i1 %113, label %114, label %147
 
-112:                                              ; preds = %101, %96
-  %113 = load ptr, ptr @MainLWLockArray, align 8
-  %114 = getelementptr %union.LWLockPadded, ptr %113, i64 34
-  %115 = call zeroext i1 @LWLockAcquire(ptr noundef %114, i32 noundef 0)
-  %116 = load ptr, ptr %2, align 8
-  %117 = getelementptr inbounds %struct.dsm_segment, ptr %116, i32 0, i32 2
-  %118 = load i32, ptr %117, align 8
-  %119 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %118)
-  br i1 %119, label %120, label %136
+114:                                              ; preds = %103, %98
+  %115 = load ptr, ptr @MainLWLockArray, align 8
+  %116 = getelementptr inbounds %union.LWLockPadded, ptr %115, i64 34
+  %117 = call zeroext i1 @LWLockAcquire(ptr noundef %116, i32 noundef 0)
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds nuw %struct.dsm_segment, ptr %118, i32 0, i32 2
+  %120 = load i32, ptr %119, align 8
+  %121 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %120)
+  br i1 %121, label %122, label %138
 
-120:                                              ; preds = %112
-  %121 = load ptr, ptr @dsm_main_space_begin, align 8
-  %122 = load ptr, ptr @dsm_control, align 8
-  %123 = getelementptr inbounds %struct.dsm_control_header, ptr %122, i32 0, i32 3
-  %124 = load i32, ptr %10, align 4
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr [0 x %struct.dsm_control_item], ptr %123, i64 0, i64 %125
-  %127 = getelementptr inbounds %struct.dsm_control_item, ptr %126, i32 0, i32 2
-  %128 = load i64, ptr %127, align 8
-  %129 = load ptr, ptr @dsm_control, align 8
-  %130 = getelementptr inbounds %struct.dsm_control_header, ptr %129, i32 0, i32 3
-  %131 = load i32, ptr %10, align 4
-  %132 = zext i32 %131 to i64
-  %133 = getelementptr [0 x %struct.dsm_control_item], ptr %130, i64 0, i64 %132
-  %134 = getelementptr inbounds %struct.dsm_control_item, ptr %133, i32 0, i32 3
-  %135 = load i64, ptr %134, align 8
-  call void @FreePageManagerPut(ptr noundef %121, i64 noundef %128, i64 noundef %135)
-  br label %136
+122:                                              ; preds = %114
+  %123 = load ptr, ptr @dsm_main_space_begin, align 8
+  %124 = load ptr, ptr @dsm_control, align 8
+  %125 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %124, i32 0, i32 3
+  %126 = load i32, ptr %10, align 4
+  %127 = zext i32 %126 to i64
+  %128 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %125, i64 0, i64 %127
+  %129 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %128, i32 0, i32 2
+  %130 = load i64, ptr %129, align 8
+  %131 = load ptr, ptr @dsm_control, align 8
+  %132 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %131, i32 0, i32 3
+  %133 = load i32, ptr %10, align 4
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %132, i64 0, i64 %134
+  %136 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %135, i32 0, i32 3
+  %137 = load i64, ptr %136, align 8
+  call void @FreePageManagerPut(ptr noundef %123, i64 noundef %130, i64 noundef %137)
+  br label %138
 
-136:                                              ; preds = %120, %112
-  %137 = load ptr, ptr @dsm_control, align 8
-  %138 = getelementptr inbounds %struct.dsm_control_header, ptr %137, i32 0, i32 3
-  %139 = load i32, ptr %10, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr [0 x %struct.dsm_control_item], ptr %138, i64 0, i64 %140
-  %142 = getelementptr inbounds %struct.dsm_control_item, ptr %141, i32 0, i32 1
-  store i32 0, ptr %142, align 4
-  %143 = load ptr, ptr @MainLWLockArray, align 8
-  %144 = getelementptr %union.LWLockPadded, ptr %143, i64 34
-  call void @LWLockRelease(ptr noundef %144)
-  br label %145
-
-145:                                              ; preds = %136, %101
-  br label %146
-
-146:                                              ; preds = %145, %75
+138:                                              ; preds = %122, %114
+  %139 = load ptr, ptr @dsm_control, align 8
+  %140 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %139, i32 0, i32 3
+  %141 = load i32, ptr %10, align 4
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %140, i64 0, i64 %142
+  %144 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %143, i32 0, i32 1
+  store i32 0, ptr %144, align 4
+  %145 = load ptr, ptr @MainLWLockArray, align 8
+  %146 = getelementptr inbounds %union.LWLockPadded, ptr %145, i64 34
+  call void @LWLockRelease(ptr noundef %146)
   br label %147
 
-147:                                              ; preds = %146, %70
-  %148 = load ptr, ptr %2, align 8
-  %149 = getelementptr inbounds %struct.dsm_segment, ptr %148, i32 0, i32 1
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp ne ptr %150, null
-  br i1 %151, label %152, label %157
+147:                                              ; preds = %138, %103
+  br label %148
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %2, align 8
-  %154 = getelementptr inbounds %struct.dsm_segment, ptr %153, i32 0, i32 1
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %2, align 8
-  call void @ResourceOwnerForgetDSM(ptr noundef %155, ptr noundef %156)
-  br label %157
+148:                                              ; preds = %147, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %149
 
-157:                                              ; preds = %152, %147
+149:                                              ; preds = %148, %72
+  %150 = load ptr, ptr %2, align 8
+  %151 = getelementptr inbounds nuw %struct.dsm_segment, ptr %150, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %154, label %159
+
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %2, align 8
+  %156 = getelementptr inbounds nuw %struct.dsm_segment, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %2, align 8
-  %159 = getelementptr inbounds %struct.dsm_segment, ptr %158, i32 0, i32 0
-  call void @dlist_delete(ptr noundef %159)
+  call void @ResourceOwnerForgetDSM(ptr noundef %157, ptr noundef %158)
+  br label %159
+
+159:                                              ; preds = %154, %149
   %160 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %160)
+  %161 = getelementptr inbounds nuw %struct.dsm_segment, ptr %160, i32 0, i32 0
+  call void @dlist_delete(ptr noundef %161)
+  %162 = load ptr, ptr %2, align 8
+  call void @pfree(ptr noundef %162)
   ret void
 }
 
@@ -1874,47 +2105,52 @@ define dso_local void @dsm_backend_shutdown() #0 {
   %2 = alloca i32, align 4
   br label %3
 
-3:                                                ; preds = %8, %0
+3:                                                ; preds = %9, %0
   %4 = call zeroext i1 @dlist_is_empty(ptr noundef @dsm_segment_list)
   %5 = xor i1 %4, true
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
   br label %7
 
 7:                                                ; preds = %6
   br label %8
 
 8:                                                ; preds = %7
-  store i32 1, ptr %2, align 4
-  %9 = call ptr @dlist_head_element_off(ptr noundef @dsm_segment_list, i64 noundef 0)
-  store ptr %9, ptr %1, align 8
-  %10 = load ptr, ptr %1, align 8
-  call void @dsm_detach(ptr noundef %10)
-  br label %3, !llvm.loop !14
+  br label %9
 
-11:                                               ; preds = %3
+9:                                                ; preds = %8
+  store i32 1, ptr %2, align 4
+  %10 = call ptr @dlist_head_element_off(ptr noundef @dsm_segment_list, i64 noundef 0)
+  store ptr %10, ptr %1, align 8
+  %11 = load ptr, ptr %1, align 8
+  call void @dsm_detach(ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
+  br label %3, !llvm.loop !15
+
+12:                                               ; preds = %3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @dlist_is_empty(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @dlist_is_empty(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dlist_head, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.dlist_node, ptr %4, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.dlist_head, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.dlist_node, ptr %4, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.dlist_head, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds %struct.dlist_node, ptr %10, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.dlist_head, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.dlist_node, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.dlist_head, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.dlist_head, ptr %13, i32 0, i32 0
   %15 = icmp eq ptr %12, %14
   br label %16
 
@@ -1923,19 +2159,19 @@ define internal zeroext i1 @dlist_is_empty(ptr noundef %0) #0 {
   ret i1 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @dlist_head_element_off(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @dlist_head_element_off(ptr noundef %0, i64 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.dlist_head, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %struct.dlist_node, ptr %6, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.dlist_head, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.dlist_node, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
   %10 = sub i64 0, %9
-  %11 = getelementptr i8, ptr %8, i64 %10
+  %11 = getelementptr inbounds i8, ptr %8, i64 %10
   ret ptr %11
 }
 
@@ -1944,73 +2180,82 @@ define dso_local void @dsm_detach_all() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
   %4 = load ptr, ptr @dsm_control, align 8
   store ptr %4, ptr %1, align 8
   br label %5
 
-5:                                                ; preds = %10, %0
+5:                                                ; preds = %11, %0
   %6 = call zeroext i1 @dlist_is_empty(ptr noundef @dsm_segment_list)
   %7 = xor i1 %6, true
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
   br label %9
 
 9:                                                ; preds = %8
   br label %10
 
 10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
   store i32 1, ptr %3, align 4
-  %11 = call ptr @dlist_head_element_off(ptr noundef @dsm_segment_list, i64 noundef 0)
-  store ptr %11, ptr %2, align 8
-  %12 = load ptr, ptr %2, align 8
-  call void @dsm_detach(ptr noundef %12)
-  br label %5, !llvm.loop !15
+  %12 = call ptr @dlist_head_element_off(ptr noundef @dsm_segment_list, i64 noundef 0)
+  store ptr %12, ptr %2, align 8
+  %13 = load ptr, ptr %2, align 8
+  call void @dsm_detach(ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  br label %5, !llvm.loop !16
 
-13:                                               ; preds = %5
-  %14 = load ptr, ptr %1, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %19
+14:                                               ; preds = %5
+  %15 = load ptr, ptr %1, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr @dsm_control_handle, align 4
-  %18 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %17, i64 noundef 0, ptr noundef @dsm_control_impl_private, ptr noundef %1, ptr noundef @dsm_control_mapped_size, i32 noundef 21)
-  br label %19
+17:                                               ; preds = %14
+  %18 = load i32, ptr @dsm_control_handle, align 4
+  %19 = call zeroext i1 @dsm_impl_op(i32 noundef 2, i32 noundef %18, i64 noundef 0, ptr noundef @dsm_control_impl_private, ptr noundef %1, ptr noundef @dsm_control_mapped_size, i32 noundef 21)
+  br label %20
 
-19:                                               ; preds = %16, %13
+20:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @slist_is_empty(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @slist_is_empty(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.slist_head, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.slist_node, ptr %4, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.slist_head, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.slist_node, ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   ret i1 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @slist_pop_head_node(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @slist_pop_head_node(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.slist_head, ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %struct.slist_node, ptr %5, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.slist_head, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.slist_node, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.slist_node, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.slist_node, ptr %8, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.slist_head, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.slist_node, ptr %12, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.slist_head, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.slist_node, ptr %12, i32 0, i32 0
   store ptr %10, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %14
 }
 
@@ -2019,19 +2264,19 @@ define dso_local void @dsm_pin_mapping(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dsm_segment, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.dsm_segment, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.dsm_segment, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.dsm_segment, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   call void @ResourceOwnerForgetDSM(ptr noundef %10, ptr noundef %11)
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.dsm_segment, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.dsm_segment, ptr %12, i32 0, i32 1
   store ptr null, ptr %13, align 8
   br label %14
 
@@ -2047,20 +2292,20 @@ define dso_local void @dsm_unpin_mapping(ptr noundef %0) #0 {
   call void @ResourceOwnerEnlarge(ptr noundef %3)
   %4 = load ptr, ptr @CurrentResourceOwner, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.dsm_segment, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.dsm_segment, ptr %5, i32 0, i32 1
   store ptr %4, ptr %6, align 8
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.dsm_segment, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.dsm_segment, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   call void @ResourceOwnerRememberDSM(ptr noundef %9, ptr noundef %10)
   ret void
 }
 
-declare void @ResourceOwnerEnlarge(ptr noundef) #2
+declare void @ResourceOwnerEnlarge(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @ResourceOwnerRememberDSM(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ResourceOwnerRememberDSM(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -2077,21 +2322,22 @@ define dso_local void @dsm_pin_segment(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @MainLWLockArray, align 8
-  %5 = getelementptr %union.LWLockPadded, ptr %4, i64 34
+  %5 = getelementptr inbounds %union.LWLockPadded, ptr %4, i64 34
   %6 = call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0)
   %7 = load ptr, ptr @dsm_control, align 8
-  %8 = getelementptr inbounds %struct.dsm_control_header, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %7, i32 0, i32 3
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.dsm_segment, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.dsm_segment, ptr %9, i32 0, i32 3
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr [0 x %struct.dsm_control_item], ptr %8, i64 0, i64 %12
-  %14 = getelementptr inbounds %struct.dsm_control_item, ptr %13, i32 0, i32 5
-  %15 = load i8, ptr %14, align 8
+  %13 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %8, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %13, i32 0, i32 5
+  %15 = load i8, ptr %14, align 8, !range !8, !noundef !9
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %1
   br label %18
@@ -2100,7 +2346,7 @@ define dso_local void @dsm_pin_segment(ptr noundef %0) #0 {
   br i1 true, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %20, label %23, label %25
 
 21:                                               ; preds = %18
@@ -2109,7 +2355,7 @@ define dso_local void @dsm_pin_segment(ptr noundef %0) #0 {
 
 23:                                               ; preds = %21, %19
   %24 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.8)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 968, ptr noundef @__func__.dsm_pin_segment)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 967, ptr noundef @__func__.dsm_pin_segment)
   br label %25
 
 25:                                               ; preds = %23, %21, %19
@@ -2118,61 +2364,65 @@ define dso_local void @dsm_pin_segment(ptr noundef %0) #0 {
 26:                                               ; No predecessors!
   br label %27
 
-27:                                               ; preds = %26, %1
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.dsm_segment, ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 8
-  %31 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %30)
-  br i1 %31, label %39, label %32
+27:                                               ; preds = %26
+  br label %28
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.dsm_segment, ptr %33, i32 0, i32 2
-  %35 = load i32, ptr %34, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.dsm_segment, ptr %36, i32 0, i32 4
-  %38 = load ptr, ptr %37, align 8
-  call void @dsm_impl_pin_segment(i32 noundef %35, ptr noundef %38, ptr noundef %3)
-  br label %39
+28:                                               ; preds = %27, %1
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.dsm_segment, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 8
+  %32 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %31)
+  br i1 %32, label %40, label %33
 
-39:                                               ; preds = %32, %27
-  %40 = load ptr, ptr @dsm_control, align 8
-  %41 = getelementptr inbounds %struct.dsm_control_header, ptr %40, i32 0, i32 3
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.dsm_segment, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr [0 x %struct.dsm_control_item], ptr %41, i64 0, i64 %45
-  %47 = getelementptr inbounds %struct.dsm_control_item, ptr %46, i32 0, i32 5
-  store i8 1, ptr %47, align 8
-  %48 = load ptr, ptr @dsm_control, align 8
-  %49 = getelementptr inbounds %struct.dsm_control_header, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.dsm_segment, ptr %50, i32 0, i32 3
-  %52 = load i32, ptr %51, align 4
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr [0 x %struct.dsm_control_item], ptr %49, i64 0, i64 %53
-  %55 = getelementptr inbounds %struct.dsm_control_item, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %55, align 4
-  %58 = load ptr, ptr %3, align 8
-  %59 = load ptr, ptr @dsm_control, align 8
-  %60 = getelementptr inbounds %struct.dsm_control_header, ptr %59, i32 0, i32 3
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.dsm_segment, ptr %61, i32 0, i32 3
-  %63 = load i32, ptr %62, align 4
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr [0 x %struct.dsm_control_item], ptr %60, i64 0, i64 %64
-  %66 = getelementptr inbounds %struct.dsm_control_item, ptr %65, i32 0, i32 4
-  store ptr %58, ptr %66, align 8
-  %67 = load ptr, ptr @MainLWLockArray, align 8
-  %68 = getelementptr %union.LWLockPadded, ptr %67, i64 34
-  call void @LWLockRelease(ptr noundef %68)
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds nuw %struct.dsm_segment, ptr %34, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw %struct.dsm_segment, ptr %37, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @dsm_impl_pin_segment(i32 noundef %36, ptr noundef %39, ptr noundef %3)
+  br label %40
+
+40:                                               ; preds = %33, %28
+  %41 = load ptr, ptr @dsm_control, align 8
+  %42 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds nuw %struct.dsm_segment, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %42, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %47, i32 0, i32 5
+  store i8 1, ptr %48, align 8
+  %49 = load ptr, ptr @dsm_control, align 8
+  %50 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds nuw %struct.dsm_segment, ptr %51, i32 0, i32 3
+  %53 = load i32, ptr %52, align 4
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %50, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %56, align 4
+  %59 = load ptr, ptr %3, align 8
+  %60 = load ptr, ptr @dsm_control, align 8
+  %61 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds nuw %struct.dsm_segment, ptr %62, i32 0, i32 3
+  %64 = load i32, ptr %63, align 4
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %61, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %66, i32 0, i32 4
+  store ptr %59, ptr %67, align 8
+  %68 = load ptr, ptr @MainLWLockArray, align 8
+  %69 = getelementptr inbounds %union.LWLockPadded, ptr %68, i64 34
+  call void @LWLockRelease(ptr noundef %69)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
-declare void @dsm_impl_pin_segment(i32 noundef, ptr noundef, ptr noundef) #2
+declare void @dsm_impl_pin_segment(i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
@@ -2184,10 +2434,13 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
   store i32 -1, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #8
   store i8 0, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
   %9 = load ptr, ptr @MainLWLockArray, align 8
-  %10 = getelementptr %union.LWLockPadded, ptr %9, i64 34
+  %10 = getelementptr inbounds %union.LWLockPadded, ptr %9, i64 34
   %11 = call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 0)
   store i32 0, ptr %5, align 4
   br label %12
@@ -2195,18 +2448,18 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
 12:                                               ; preds = %41, %1
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr @dsm_control, align 8
-  %15 = getelementptr inbounds %struct.dsm_control_header, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %14, i32 0, i32 1
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %13, %16
   br i1 %17, label %18, label %44
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @dsm_control, align 8
-  %20 = getelementptr inbounds %struct.dsm_control_header, ptr %19, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %19, i32 0, i32 3
   %21 = load i32, ptr %5, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr [0 x %struct.dsm_control_item], ptr %20, i64 0, i64 %22
-  %24 = getelementptr inbounds %struct.dsm_control_item, ptr %23, i32 0, i32 1
+  %23 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %20, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %23, i32 0, i32 1
   %25 = load i32, ptr %24, align 4
   %26 = icmp ule i32 %25, 1
   br i1 %26, label %27, label %28
@@ -2216,11 +2469,11 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr @dsm_control, align 8
-  %30 = getelementptr inbounds %struct.dsm_control_header, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %29, i32 0, i32 3
   %31 = load i32, ptr %5, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [0 x %struct.dsm_control_item], ptr %30, i64 0, i64 %32
-  %34 = getelementptr inbounds %struct.dsm_control_item, ptr %33, i32 0, i32 0
+  %33 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %33, i32 0, i32 0
   %35 = load i32, ptr %34, align 8
   %36 = load i32, ptr %2, align 4
   %37 = icmp eq i32 %35, %36
@@ -2238,12 +2491,12 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
   %42 = load i32, ptr %5, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %5, align 4
-  br label %12, !llvm.loop !16
+  br label %12, !llvm.loop !17
 
 44:                                               ; preds = %38, %12
   %45 = load i32, ptr %3, align 4
   %46 = icmp eq i32 %45, -1
-  br i1 %46, label %47, label %57
+  br i1 %46, label %47, label %58
 
 47:                                               ; preds = %44
   br label %48
@@ -2252,7 +2505,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
   br i1 true, label %49, label %51
 
 49:                                               ; preds = %48
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   br i1 %50, label %53, label %55
 
 51:                                               ; preds = %48
@@ -2261,7 +2514,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
 
 53:                                               ; preds = %51, %49
   %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.9)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1017, ptr noundef @__func__.dsm_unpin_segment)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1016, ptr noundef @__func__.dsm_unpin_segment)
   br label %55
 
 55:                                               ; preds = %53, %51, %49
@@ -2270,151 +2523,166 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) #0 {
 56:                                               ; No predecessors!
   br label %57
 
-57:                                               ; preds = %56, %44
-  %58 = load ptr, ptr @dsm_control, align 8
-  %59 = getelementptr inbounds %struct.dsm_control_header, ptr %58, i32 0, i32 3
-  %60 = load i32, ptr %3, align 4
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr [0 x %struct.dsm_control_item], ptr %59, i64 0, i64 %61
-  %63 = getelementptr inbounds %struct.dsm_control_item, ptr %62, i32 0, i32 5
-  %64 = load i8, ptr %63, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %76, label %66
+57:                                               ; preds = %56
+  br label %58
 
-66:                                               ; preds = %57
-  br label %67
+58:                                               ; preds = %57, %44
+  %59 = load ptr, ptr @dsm_control, align 8
+  %60 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %3, align 4
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %60, i64 0, i64 %62
+  %64 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %63, i32 0, i32 5
+  %65 = load i8, ptr %64, align 8, !range !8, !noundef !9
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %78, label %67
 
-67:                                               ; preds = %66
-  br i1 true, label %68, label %70
+67:                                               ; preds = %58
+  br label %68
 
 68:                                               ; preds = %67
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %69, label %72, label %74
+  br i1 true, label %69, label %71
 
-70:                                               ; preds = %67
-  %71 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %68
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %70, label %73, label %75
 
-72:                                               ; preds = %70, %68
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.10)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1019, ptr noundef @__func__.dsm_unpin_segment)
-  br label %74
+71:                                               ; preds = %68
+  %72 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %72, %70, %68
+73:                                               ; preds = %71, %69
+  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.10)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1018, ptr noundef @__func__.dsm_unpin_segment)
+  br label %75
+
+75:                                               ; preds = %73, %71, %69
   unreachable
 
-75:                                               ; No predecessors!
-  br label %76
+76:                                               ; No predecessors!
+  br label %77
 
-76:                                               ; preds = %75, %57
-  %77 = load i32, ptr %2, align 4
-  %78 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %77)
-  br i1 %78, label %87, label %79
+77:                                               ; preds = %76
+  br label %78
 
-79:                                               ; preds = %76
-  %80 = load i32, ptr %2, align 4
-  %81 = load ptr, ptr @dsm_control, align 8
-  %82 = getelementptr inbounds %struct.dsm_control_header, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %3, align 4
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr [0 x %struct.dsm_control_item], ptr %82, i64 0, i64 %84
-  %86 = getelementptr inbounds %struct.dsm_control_item, ptr %85, i32 0, i32 4
-  call void @dsm_impl_unpin_segment(i32 noundef %80, ptr noundef %86)
-  br label %87
+78:                                               ; preds = %77, %58
+  %79 = load i32, ptr %2, align 4
+  %80 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %79)
+  br i1 %80, label %89, label %81
 
-87:                                               ; preds = %79, %76
-  %88 = load ptr, ptr @dsm_control, align 8
-  %89 = getelementptr inbounds %struct.dsm_control_header, ptr %88, i32 0, i32 3
-  %90 = load i32, ptr %3, align 4
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr [0 x %struct.dsm_control_item], ptr %89, i64 0, i64 %91
-  %93 = getelementptr inbounds %struct.dsm_control_item, ptr %92, i32 0, i32 1
-  %94 = load i32, ptr %93, align 4
-  %95 = add i32 %94, -1
-  store i32 %95, ptr %93, align 4
-  %96 = icmp eq i32 %95, 1
-  br i1 %96, label %97, label %98
+81:                                               ; preds = %78
+  %82 = load i32, ptr %2, align 4
+  %83 = load ptr, ptr @dsm_control, align 8
+  %84 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %3, align 4
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %84, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %87, i32 0, i32 4
+  call void @dsm_impl_unpin_segment(i32 noundef %82, ptr noundef %88)
+  br label %89
 
-97:                                               ; preds = %87
+89:                                               ; preds = %81, %78
+  %90 = load ptr, ptr @dsm_control, align 8
+  %91 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %90, i32 0, i32 3
+  %92 = load i32, ptr %3, align 4
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %91, i64 0, i64 %93
+  %95 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4
+  %97 = add i32 %96, -1
+  store i32 %97, ptr %95, align 4
+  %98 = icmp eq i32 %97, 1
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %89
   store i8 1, ptr %4, align 1
-  br label %98
+  br label %100
 
-98:                                               ; preds = %97, %87
-  %99 = load ptr, ptr @dsm_control, align 8
-  %100 = getelementptr inbounds %struct.dsm_control_header, ptr %99, i32 0, i32 3
-  %101 = load i32, ptr %3, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr [0 x %struct.dsm_control_item], ptr %100, i64 0, i64 %102
-  %104 = getelementptr inbounds %struct.dsm_control_item, ptr %103, i32 0, i32 5
-  store i8 0, ptr %104, align 8
-  %105 = load ptr, ptr @MainLWLockArray, align 8
-  %106 = getelementptr %union.LWLockPadded, ptr %105, i64 34
-  call void @LWLockRelease(ptr noundef %106)
-  %107 = load i8, ptr %4, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %147
+100:                                              ; preds = %99, %89
+  %101 = load ptr, ptr @dsm_control, align 8
+  %102 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %101, i32 0, i32 3
+  %103 = load i32, ptr %3, align 4
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %102, i64 0, i64 %104
+  %106 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %105, i32 0, i32 5
+  store i8 0, ptr %106, align 8
+  %107 = load ptr, ptr @MainLWLockArray, align 8
+  %108 = getelementptr inbounds %union.LWLockPadded, ptr %107, i64 34
+  call void @LWLockRelease(ptr noundef %108)
+  %109 = load i8, ptr %4, align 1, !range !8, !noundef !9
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %149
 
-109:                                              ; preds = %98
+111:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   store i64 0, ptr %8, align 8
-  %110 = load i32, ptr %2, align 4
-  %111 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %110)
-  br i1 %111, label %115, label %112
+  %112 = load i32, ptr %2, align 4
+  %113 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %112)
+  br i1 %113, label %117, label %114
 
-112:                                              ; preds = %109
-  %113 = load i32, ptr %2, align 4
-  %114 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %113, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef 19)
-  br i1 %114, label %115, label %146
+114:                                              ; preds = %111
+  %115 = load i32, ptr %2, align 4
+  %116 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %115, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef 19)
+  br i1 %116, label %117, label %148
 
-115:                                              ; preds = %112, %109
-  %116 = load ptr, ptr @MainLWLockArray, align 8
-  %117 = getelementptr %union.LWLockPadded, ptr %116, i64 34
-  %118 = call zeroext i1 @LWLockAcquire(ptr noundef %117, i32 noundef 0)
-  %119 = load i32, ptr %2, align 4
-  %120 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %119)
-  br i1 %120, label %121, label %137
+117:                                              ; preds = %114, %111
+  %118 = load ptr, ptr @MainLWLockArray, align 8
+  %119 = getelementptr inbounds %union.LWLockPadded, ptr %118, i64 34
+  %120 = call zeroext i1 @LWLockAcquire(ptr noundef %119, i32 noundef 0)
+  %121 = load i32, ptr %2, align 4
+  %122 = call zeroext i1 @is_main_region_dsm_handle(i32 noundef %121)
+  br i1 %122, label %123, label %139
 
-121:                                              ; preds = %115
-  %122 = load ptr, ptr @dsm_main_space_begin, align 8
-  %123 = load ptr, ptr @dsm_control, align 8
-  %124 = getelementptr inbounds %struct.dsm_control_header, ptr %123, i32 0, i32 3
-  %125 = load i32, ptr %3, align 4
-  %126 = zext i32 %125 to i64
-  %127 = getelementptr [0 x %struct.dsm_control_item], ptr %124, i64 0, i64 %126
-  %128 = getelementptr inbounds %struct.dsm_control_item, ptr %127, i32 0, i32 2
-  %129 = load i64, ptr %128, align 8
-  %130 = load ptr, ptr @dsm_control, align 8
-  %131 = getelementptr inbounds %struct.dsm_control_header, ptr %130, i32 0, i32 3
-  %132 = load i32, ptr %3, align 4
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr [0 x %struct.dsm_control_item], ptr %131, i64 0, i64 %133
-  %135 = getelementptr inbounds %struct.dsm_control_item, ptr %134, i32 0, i32 3
-  %136 = load i64, ptr %135, align 8
-  call void @FreePageManagerPut(ptr noundef %122, i64 noundef %129, i64 noundef %136)
-  br label %137
+123:                                              ; preds = %117
+  %124 = load ptr, ptr @dsm_main_space_begin, align 8
+  %125 = load ptr, ptr @dsm_control, align 8
+  %126 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %125, i32 0, i32 3
+  %127 = load i32, ptr %3, align 4
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %126, i64 0, i64 %128
+  %130 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %129, i32 0, i32 2
+  %131 = load i64, ptr %130, align 8
+  %132 = load ptr, ptr @dsm_control, align 8
+  %133 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %132, i32 0, i32 3
+  %134 = load i32, ptr %3, align 4
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %133, i64 0, i64 %135
+  %137 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %136, i32 0, i32 3
+  %138 = load i64, ptr %137, align 8
+  call void @FreePageManagerPut(ptr noundef %124, i64 noundef %131, i64 noundef %138)
+  br label %139
 
-137:                                              ; preds = %121, %115
-  %138 = load ptr, ptr @dsm_control, align 8
-  %139 = getelementptr inbounds %struct.dsm_control_header, ptr %138, i32 0, i32 3
-  %140 = load i32, ptr %3, align 4
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr [0 x %struct.dsm_control_item], ptr %139, i64 0, i64 %141
-  %143 = getelementptr inbounds %struct.dsm_control_item, ptr %142, i32 0, i32 1
-  store i32 0, ptr %143, align 4
-  %144 = load ptr, ptr @MainLWLockArray, align 8
-  %145 = getelementptr %union.LWLockPadded, ptr %144, i64 34
-  call void @LWLockRelease(ptr noundef %145)
-  br label %146
+139:                                              ; preds = %123, %117
+  %140 = load ptr, ptr @dsm_control, align 8
+  %141 = getelementptr inbounds nuw %struct.dsm_control_header, ptr %140, i32 0, i32 3
+  %142 = load i32, ptr %3, align 4
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %141, i64 0, i64 %143
+  %145 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %144, i32 0, i32 1
+  store i32 0, ptr %145, align 4
+  %146 = load ptr, ptr @MainLWLockArray, align 8
+  %147 = getelementptr inbounds %union.LWLockPadded, ptr %146, i64 34
+  call void @LWLockRelease(ptr noundef %147)
+  br label %148
 
-146:                                              ; preds = %137, %112
-  br label %147
+148:                                              ; preds = %139, %114
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %149
 
-147:                                              ; preds = %146, %98
+149:                                              ; preds = %148, %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret void
 }
 
-declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) #2
+declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_find_mapping(i32 noundef %0) #0 {
@@ -2426,106 +2694,125 @@ define dso_local ptr @dsm_find_mapping(i32 noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  br label %10
-
-10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   br label %11
 
-11:                                               ; preds = %10
-  store i32 1, ptr %6, align 4
+11:                                               ; preds = %1
   br label %12
 
 12:                                               ; preds = %11
   br label %13
 
 13:                                               ; preds = %12
+  store i32 1, ptr %6, align 4
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
   store i32 1, ptr %7, align 4
-  %14 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 1
-  store ptr @dsm_segment_list, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.dlist_node, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %25
+  %17 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 1
+  store ptr @dsm_segment_list, ptr %17, align 8
+  %18 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %struct.dlist_node, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.dlist_node, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  br label %28
-
-25:                                               ; preds = %13
-  %26 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 1
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.dlist_node, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  br label %28
-
-28:                                               ; preds = %25, %20
-  %29 = phi ptr [ %24, %20 ], [ %27, %25 ]
-  %30 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 0
-  store ptr %29, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %53, %28
-  %32 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %33, %35
-  br i1 %36, label %37, label %59
+28:                                               ; preds = %16
+  %29 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  br label %31
 
-37:                                               ; preds = %31
-  br label %38
+31:                                               ; preds = %28, %23
+  %32 = phi ptr [ %27, %23 ], [ %30, %28 ]
+  %33 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  br label %34
 
-38:                                               ; preds = %37
-  br label %39
+34:                                               ; preds = %58, %31
+  %35 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %36, %38
+  br i1 %39, label %40, label %64
 
-39:                                               ; preds = %38
-  store i32 1, ptr %8, align 4
-  br label %40
-
-40:                                               ; preds = %39
+40:                                               ; preds = %34
   br label %41
 
 41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  store i32 1, ptr %8, align 4
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
   store i32 1, ptr %9, align 4
-  %42 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr i8, ptr %43, i64 0
-  store ptr %44, ptr %5, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.dsm_segment, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  %48 = load i32, ptr %3, align 4
-  %49 = icmp eq i32 %47, %48
-  br i1 %49, label %50, label %52
+  %47 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  store ptr %49, ptr %5, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.dsm_segment, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %3, align 4
+  %54 = icmp eq i32 %52, %53
+  br i1 %54, label %55, label %57
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %5, align 8
-  store ptr %51, ptr %2, align 8
-  br label %60
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %5, align 8
+  store ptr %56, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %65
 
-52:                                               ; preds = %41
-  br label %53
+57:                                               ; preds = %46
+  br label %58
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.dlist_node, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.dlist_iter, ptr %4, i32 0, i32 0
-  store ptr %57, ptr %58, align 8
-  br label %31, !llvm.loop !17
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw %struct.dlist_node, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct.dlist_iter, ptr %4, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
+  br label %34, !llvm.loop !18
 
-59:                                               ; preds = %31
+64:                                               ; preds = %34
   store ptr null, ptr %2, align 8
-  br label %60
+  store i32 1, ptr %10, align 4
+  br label %65
 
-60:                                               ; preds = %59, %50
-  %61 = load ptr, ptr %2, align 8
-  ret ptr %61
+65:                                               ; preds = %64, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #8
+  %66 = load ptr, ptr %2, align 8
+  ret ptr %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2533,7 +2820,7 @@ define dso_local ptr @dsm_segment_address(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dsm_segment, ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds nuw %struct.dsm_segment, ptr %3, i32 0, i32 5
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -2543,7 +2830,7 @@ define dso_local i64 @dsm_segment_map_length(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dsm_segment, ptr %3, i32 0, i32 6
+  %4 = getelementptr inbounds nuw %struct.dsm_segment, ptr %3, i32 0, i32 6
   %5 = load i64, ptr %4, align 8
   ret i64 %5
 }
@@ -2553,7 +2840,7 @@ define dso_local i32 @dsm_segment_handle(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dsm_segment, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %struct.dsm_segment, ptr %3, i32 0, i32 2
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
@@ -2567,44 +2854,46 @@ define dso_local void @on_dsm_detach(ptr noundef %0, ptr noundef %1, i64 noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   %8 = load ptr, ptr @TopMemoryContext, align 8
   %9 = call ptr @MemoryContextAlloc(ptr noundef %8, i64 noundef 24)
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %11, i32 0, i32 0
   store ptr %10, ptr %12, align 8
   %13 = load i64, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %14, i32 0, i32 1
   store i64 %13, ptr %15, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.dsm_segment, ptr %16, i32 0, i32 7
+  %17 = getelementptr inbounds nuw %struct.dsm_segment, ptr %16, i32 0, i32 7
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %18, i32 0, i32 2
   call void @slist_push_head(ptr noundef %17, ptr noundef %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret void
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @slist_push_head(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @slist_push_head(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.slist_head, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %struct.slist_node, ptr %6, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.slist_head, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.slist_node, ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.slist_node, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.slist_node, ptr %9, i32 0, i32 0
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.slist_head, ptr %12, i32 0, i32 0
-  %14 = getelementptr inbounds %struct.slist_node, ptr %13, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.slist_head, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.slist_node, ptr %13, i32 0, i32 0
   store ptr %11, ptr %14, align 8
   ret void
 }
@@ -2620,155 +2909,187 @@ define dso_local void @cancel_on_dsm_detach(ptr noundef %0, ptr noundef %1, i64 
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  br label %13
-
-13:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #8
   br label %14
 
-14:                                               ; preds = %13
-  store i32 1, ptr %8, align 4
+14:                                               ; preds = %3
   br label %15
 
 15:                                               ; preds = %14
   br label %16
 
 16:                                               ; preds = %15
+  store i32 1, ptr %8, align 4
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
   store i32 1, ptr %9, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.dsm_segment, ptr %17, i32 0, i32 7
-  %19 = getelementptr inbounds %struct.slist_head, ptr %18, i32 0, i32 0
-  %20 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.slist_node, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.dsm_segment, ptr %20, i32 0, i32 7
+  %22 = getelementptr inbounds nuw %struct.slist_head, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.slist_node, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %34
+  %28 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-29:                                               ; preds = %16
-  %30 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.slist_node, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  br label %35
-
-34:                                               ; preds = %16
-  br label %35
-
-35:                                               ; preds = %34, %29
-  %36 = phi ptr [ %33, %29 ], [ null, %34 ]
-  %37 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
-  store ptr %36, ptr %37, align 8
+32:                                               ; preds = %19
+  %33 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.slist_node, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
   br label %38
 
-38:                                               ; preds = %80, %35
-  %39 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %83
+37:                                               ; preds = %19
+  br label %38
 
-42:                                               ; preds = %38
-  br label %43
+38:                                               ; preds = %37, %32
+  %39 = phi ptr [ %36, %32 ], [ null, %37 ]
+  %40 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
+  store ptr %39, ptr %40, align 8
+  br label %41
 
-43:                                               ; preds = %42
-  br label %44
+41:                                               ; preds = %88, %38
+  %42 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %91
 
-44:                                               ; preds = %43
-  store i32 1, ptr %11, align 4
-  br label %45
-
-45:                                               ; preds = %44
+45:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   br label %46
 
 46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
+  store i32 1, ptr %11, align 4
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50
   store i32 1, ptr %12, align 4
-  %47 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %48, i64 -16
-  store ptr %49, ptr %10, align 8
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = icmp eq ptr %52, %53
-  br i1 %54, label %55, label %63
+  %52 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %10, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = icmp eq ptr %57, %58
+  br i1 %59, label %60, label %68
 
-55:                                               ; preds = %46
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.dsm_segment_detach_callback, ptr %56, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr %6, align 8
-  %60 = icmp eq i64 %58, %59
-  br i1 %60, label %61, label %63
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %10, align 8
+  %62 = getelementptr inbounds nuw %struct.dsm_segment_detach_callback, ptr %61, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8
+  %64 = load i64, ptr %6, align 8
+  %65 = icmp eq i64 %63, %64
+  br i1 %65, label %66, label %68
 
-61:                                               ; preds = %55
+66:                                               ; preds = %60
   call void @slist_delete_current(ptr noundef %7)
-  %62 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %62)
-  br label %83
+  %67 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %67)
+  store i32 2, ptr %13, align 4
+  br label %69
 
-63:                                               ; preds = %55, %46
-  br label %64
+68:                                               ; preds = %60, %51
+  store i32 0, ptr %13, align 4
+  br label %69
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
-  store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %79
+69:                                               ; preds = %68, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %70 = load i32, ptr %13, align 4
+  switch i32 %70, label %92 [
+    i32 0, label %71
+    i32 2, label %91
+  ]
 
-74:                                               ; preds = %64
-  %75 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.slist_node, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  br label %80
+71:                                               ; preds = %69
+  br label %72
 
-79:                                               ; preds = %64
-  br label %80
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 2
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 0
+  store ptr %77, ptr %78, align 8
+  %79 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %87
 
-80:                                               ; preds = %79, %74
-  %81 = phi ptr [ %78, %74 ], [ null, %79 ]
-  %82 = getelementptr inbounds %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
-  store ptr %81, ptr %82, align 8
-  br label %38, !llvm.loop !18
+82:                                               ; preds = %72
+  %83 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw %struct.slist_node, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  br label %88
 
-83:                                               ; preds = %61, %38
+87:                                               ; preds = %72
+  br label %88
+
+88:                                               ; preds = %87, %82
+  %89 = phi ptr [ %86, %82 ], [ null, %87 ]
+  %90 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %7, i32 0, i32 1
+  store ptr %89, ptr %90, align 8
+  br label %41, !llvm.loop !19
+
+91:                                               ; preds = %69, %41
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #8
   ret void
+
+92:                                               ; preds = %69
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @slist_delete_current(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @slist_delete_current(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.slist_mutable_iter, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.slist_mutable_iter, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct.slist_node, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.slist_node, ptr %8, i32 0, i32 0
   store ptr %5, ptr %9, align 8
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.slist_mutable_iter, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %10, i32 0, i32 2
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.slist_mutable_iter, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.slist_mutable_iter, ptr %13, i32 0, i32 0
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2785,146 +3106,172 @@ define dso_local void @reset_on_dsm_detach() #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #8
   br label %11
 
 11:                                               ; preds = %0
   br label %12
 
 12:                                               ; preds = %11
-  store i32 1, ptr %2, align 4
   br label %13
 
 13:                                               ; preds = %12
+  store i32 1, ptr %2, align 4
   br label %14
 
 14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
   store i32 1, ptr %3, align 4
-  %15 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 1
-  store ptr @dsm_segment_list, ptr %15, align 8
-  %16 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.dlist_node, ptr %17, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 1
+  store ptr @dsm_segment_list, ptr %17, align 8
+  %18 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %26
+  %20 = getelementptr inbounds nuw %struct.dlist_node, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.dlist_node, ptr %23, i32 0, i32 1
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
-  br label %29
+  %26 = getelementptr inbounds nuw %struct.dlist_node, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  br label %31
 
-26:                                               ; preds = %14
-  %27 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  br label %29
+28:                                               ; preds = %16
+  %29 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  br label %31
 
-29:                                               ; preds = %26, %21
-  %30 = phi ptr [ %25, %21 ], [ %28, %26 ]
-  %31 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 0
-  store ptr %30, ptr %31, align 8
-  br label %32
+31:                                               ; preds = %28, %23
+  %32 = phi ptr [ %27, %23 ], [ %30, %28 ]
+  %33 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  br label %34
 
-32:                                               ; preds = %65, %29
-  %33 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 1
+34:                                               ; preds = %71, %31
+  %35 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %34, %36
-  br i1 %37, label %38, label %71
+  %37 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %36, %38
+  br i1 %39, label %40, label %77
 
-38:                                               ; preds = %32
-  br label %39
-
-39:                                               ; preds = %38
-  br label %40
-
-40:                                               ; preds = %39
-  store i32 1, ptr %5, align 4
+40:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
   br label %41
 
 41:                                               ; preds = %40
   br label %42
 
 42:                                               ; preds = %41
-  store i32 1, ptr %6, align 4
-  %43 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr i8, ptr %44, i64 0
-  store ptr %45, ptr %4, align 8
+  br label %43
+
+43:                                               ; preds = %42
+  store i32 1, ptr %5, align 4
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
   br label %46
 
-46:                                               ; preds = %58, %42
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.dsm_segment, ptr %47, i32 0, i32 7
-  %49 = call zeroext i1 @slist_is_empty(ptr noundef %48)
-  %50 = xor i1 %49, true
-  br i1 %50, label %51, label %62
+46:                                               ; preds = %45
+  store i32 1, ptr %6, align 4
+  %47 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  store ptr %49, ptr %4, align 8
+  br label %50
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.dsm_segment, ptr %52, i32 0, i32 7
-  %54 = call ptr @slist_pop_head_node(ptr noundef %53)
-  store ptr %54, ptr %7, align 8
-  br label %55
+50:                                               ; preds = %64, %46
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.dsm_segment, ptr %51, i32 0, i32 7
+  %53 = call zeroext i1 @slist_is_empty(ptr noundef %52)
+  %54 = xor i1 %53, true
+  br i1 %54, label %55, label %68
 
-55:                                               ; preds = %51
-  br label %56
+55:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw %struct.dsm_segment, ptr %56, i32 0, i32 7
+  %58 = call ptr @slist_pop_head_node(ptr noundef %57)
+  store ptr %58, ptr %7, align 8
+  br label %59
 
-56:                                               ; preds = %55
+59:                                               ; preds = %55
+  br label %60
+
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
   store i32 1, ptr %9, align 4
-  br label %57
+  br label %62
 
-57:                                               ; preds = %56
-  br label %58
+62:                                               ; preds = %61
+  br label %63
 
-58:                                               ; preds = %57
+63:                                               ; preds = %62
+  br label %64
+
+64:                                               ; preds = %63
   store i32 1, ptr %10, align 4
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr i8, ptr %59, i64 -16
-  store ptr %60, ptr %8, align 8
-  %61 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %61)
-  br label %46, !llvm.loop !19
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 -16
+  store ptr %66, ptr %8, align 8
+  %67 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %67)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %50, !llvm.loop !20
 
-62:                                               ; preds = %46
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.dsm_segment, ptr %63, i32 0, i32 3
-  store i32 -1, ptr %64, align 4
-  br label %65
+68:                                               ; preds = %50
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.dsm_segment, ptr %69, i32 0, i32 3
+  store i32 -1, ptr %70, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %71
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.dlist_node, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.dlist_iter, ptr %1, i32 0, i32 0
-  store ptr %69, ptr %70, align 8
-  br label %32, !llvm.loop !20
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw %struct.dlist_node, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw %struct.dlist_iter, ptr %1, i32 0, i32 0
+  store ptr %75, ptr %76, align 8
+  br label %34, !llvm.loop !21
 
-71:                                               ; preds = %32
+77:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #8
   ret void
 }
 
-declare ptr @AllocateDir(ptr noundef) #2
+declare ptr @AllocateDir(ptr noundef) #3
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) #2
+declare ptr @ReadDir(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #4
+declare i32 @unlink(ptr noundef) #6
 
-declare i32 @errcode_for_file_access() #2
+declare i32 @errcode_for_file_access() #3
 
-declare i32 @FreeDir(ptr noundef) #2
+declare i32 @FreeDir(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2932,21 +3279,23 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) #2
+declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @ResOwnerReleaseDSM(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   store i64 %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load i64, ptr %2, align 8
   %5 = call ptr @DatumGetPointer(i64 noundef %4)
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.dsm_segment, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.dsm_segment, ptr %6, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
   call void @dsm_detach(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
@@ -2955,28 +3304,30 @@ define internal ptr @ResOwnerPrintDSM(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   store i64 %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load i64, ptr %2, align 8
   %5 = call ptr @DatumGetPointer(i64 noundef %4)
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = call i32 @dsm_segment_handle(ptr noundef %6)
   %8 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.19, i32 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %8
 }
 
-declare ptr @psprintf(ptr noundef, ...) #2
+declare ptr @psprintf(ptr noundef, ...) #3
 
-declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) #2
+declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @dlist_push_head(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @dlist_push_head(ptr noundef %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.dlist_head, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %struct.dlist_node, ptr %6, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.dlist_head, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.dlist_node, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -2988,61 +3339,61 @@ define internal void @dlist_push_head(ptr noundef %0, ptr noundef %1) #0 {
 
 12:                                               ; preds = %10, %2
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.dlist_head, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds %struct.dlist_node, ptr %14, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.dlist_head, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.dlist_node, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.dlist_node, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.dlist_node, ptr %17, i32 0, i32 1
   store ptr %16, ptr %18, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.dlist_head, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.dlist_head, ptr %19, i32 0, i32 0
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.dlist_node, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.dlist_node, ptr %21, i32 0, i32 0
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dlist_node, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.dlist_node, ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.dlist_node, ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.dlist_node, ptr %26, i32 0, i32 0
   store ptr %23, ptr %27, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.dlist_head, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds %struct.dlist_node, ptr %30, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.dlist_head, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.dlist_node, ptr %30, i32 0, i32 1
   store ptr %28, ptr %31, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @slist_init(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @slist_init(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.slist_head, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.slist_node, ptr %4, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.slist_head, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.slist_node, ptr %4, i32 0, i32 0
   store ptr null, ptr %5, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dlist_init(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @dlist_init(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.dlist_head, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.dlist_head, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.dlist_head, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %struct.dlist_node, ptr %6, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.dlist_head, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.dlist_node, ptr %6, i32 0, i32 0
   store ptr %4, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.dlist_head, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.dlist_node, ptr %9, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.dlist_head, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.dlist_node, ptr %9, i32 0, i32 1
   store ptr %4, ptr %10, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pg_leftmost_one_pos32(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @pg_leftmost_one_pos32(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -3052,38 +3403,41 @@ define internal i32 @pg_leftmost_one_pos32(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { cold }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
+attributes #9 = { cold }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

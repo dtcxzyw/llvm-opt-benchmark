@@ -4,10 +4,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FunctionCallInfoBaseData = type { ptr, ptr, ptr, i32, i8, i16, [0 x %struct.NullableDatum] }
 %struct.NullableDatum = type { i64, i8 }
 %struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
-%struct.GISTPageOpaqueData = type { %struct.PageXLogRecPtr, i32, i16, i16 }
-%struct.PageXLogRecPtr = type { i32, i32 }
 %struct.PageHeaderData = type { %struct.PageXLogRecPtr, i16, i16, i16, i16, i16, i16, i32, [0 x %struct.ItemIdData] }
+%struct.PageXLogRecPtr = type { i32, i32 }
 %struct.ItemIdData = type { i32 }
+%struct.GISTPageOpaqueData = type { %struct.PageXLogRecPtr, i32, i16, i16 }
 %struct.GistEntryVector = type { i32, [0 x %struct.GISTENTRY] }
 %struct.BOX = type { %struct.Point, %struct.Point }
 %struct.Point = type { double, double }
@@ -41,97 +41,123 @@ define dso_local i64 @gist_box_consistent(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i16, align 2
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = call ptr @DatumGetPointer(i64 noundef %12)
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = call ptr @DatumGetBoxP(i64 noundef %18)
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = call zeroext i16 @DatumGetUInt16(i64 noundef %24)
-  store i16 %25, ptr %6, align 2
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 4
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  %31 = call ptr @DatumGetPointer(i64 noundef %30)
-  store ptr %31, ptr %7, align 8
-  %32 = load ptr, ptr %7, align 8
-  store i8 0, ptr %32, align 1
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.GISTENTRY, ptr %33, i32 0, i32 0
-  %35 = load i64, ptr %34, align 8
-  %36 = call ptr @DatumGetBoxP(i64 noundef %35)
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %41, label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = call ptr @DatumGetPointer(i64 noundef %13)
+  store ptr %14, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
+  %17 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
+  %18 = getelementptr inbounds nuw %struct.NullableDatum, ptr %17, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8
+  %20 = call ptr @DatumGetBoxP(i64 noundef %19)
+  store ptr %20, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
+  %24 = getelementptr inbounds nuw %struct.NullableDatum, ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = call zeroext i16 @DatumGetUInt16(i64 noundef %25)
+  store i16 %26, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %28, i64 0, i64 4
+  %30 = getelementptr inbounds nuw %struct.NullableDatum, ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = call ptr @DatumGetPointer(i64 noundef %31)
+  store ptr %32, ptr %7, align 8
+  %33 = load ptr, ptr %7, align 8
+  store i8 0, ptr %33, align 1
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = call ptr @DatumGetBoxP(i64 noundef %36)
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %42, label %39
 
-38:                                               ; preds = %1
-  %39 = load ptr, ptr %5, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %43
+39:                                               ; preds = %1
+  %40 = load ptr, ptr %5, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %38, %1
-  %42 = call i64 @BoolGetDatum(i1 noundef zeroext false)
-  store i64 %42, ptr %2, align 8
-  br label %71
+42:                                               ; preds = %39, %1
+  %43 = call i64 @BoolGetDatum(i1 noundef zeroext false)
+  store i64 %43, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %82
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.GISTENTRY, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @PageGetSpecialPointer(ptr noundef %46)
-  %48 = getelementptr inbounds %struct.GISTPageOpaqueData, ptr %47, i32 0, i32 2
-  %49 = load i16, ptr %48, align 4
-  %50 = zext i16 %49 to i32
-  %51 = and i32 %50, 1
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %62
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %47)
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %53, i32 0, i32 5
+  %55 = load i16, ptr %54, align 4
+  %56 = zext i16 %55 to i32
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %50, i64 %57
+  %59 = getelementptr inbounds nuw %struct.GISTPageOpaqueData, ptr %58, i32 0, i32 2
+  %60 = load i16, ptr %59, align 4
+  %61 = zext i16 %60 to i32
+  %62 = and i32 %61, 1
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %73
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.GISTENTRY, ptr %54, i32 0, i32 0
-  %56 = load i64, ptr %55, align 8
-  %57 = call ptr @DatumGetBoxP(i64 noundef %56)
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i16, ptr %6, align 2
-  %60 = call zeroext i1 @gist_box_leaf_consistent(ptr noundef %57, ptr noundef %58, i16 noundef zeroext %59)
-  %61 = call i64 @BoolGetDatum(i1 noundef zeroext %60)
-  store i64 %61, ptr %2, align 8
-  br label %71
+64:                                               ; preds = %44
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %65, i32 0, i32 0
+  %67 = load i64, ptr %66, align 8
+  %68 = call ptr @DatumGetBoxP(i64 noundef %67)
+  %69 = load ptr, ptr %5, align 8
+  %70 = load i16, ptr %6, align 2
+  %71 = call zeroext i1 @gist_box_leaf_consistent(ptr noundef %68, ptr noundef %69, i16 noundef zeroext %70)
+  %72 = call i64 @BoolGetDatum(i1 noundef zeroext %71)
+  store i64 %72, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %82
 
-62:                                               ; preds = %43
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i32 0, i32 0
-  %65 = load i64, ptr %64, align 8
-  %66 = call ptr @DatumGetBoxP(i64 noundef %65)
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i16, ptr %6, align 2
-  %69 = call zeroext i1 @rtree_internal_consistent(ptr noundef %66, ptr noundef %67, i16 noundef zeroext %68)
-  %70 = call i64 @BoolGetDatum(i1 noundef zeroext %69)
-  store i64 %70, ptr %2, align 8
-  br label %71
+73:                                               ; preds = %44
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %74, i32 0, i32 0
+  %76 = load i64, ptr %75, align 8
+  %77 = call ptr @DatumGetBoxP(i64 noundef %76)
+  %78 = load ptr, ptr %5, align 8
+  %79 = load i16, ptr %6, align 2
+  %80 = call zeroext i1 @rtree_internal_consistent(ptr noundef %77, ptr noundef %78, i16 noundef zeroext %79)
+  %81 = call i64 @BoolGetDatum(i1 noundef zeroext %80)
+  store i64 %81, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %82
 
-71:                                               ; preds = %62, %53, %41
-  %72 = load i64, ptr %2, align 8
-  ret i64 %72
+82:                                               ; preds = %73, %64, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %83 = load i64, ptr %2, align 8
+  ret i64 %83
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -139,8 +165,8 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetBoxP(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetBoxP(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -148,8 +174,8 @@ define internal ptr @DatumGetBoxP(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @DatumGetUInt16(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @DatumGetUInt16(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -157,32 +183,23 @@ define internal zeroext i16 @DatumGetUInt16(i64 noundef %0) #0 {
   ret i16 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #2 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
-  %4 = load i8, ptr %2, align 1
+  %4 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i32 1, i32 0
   %7 = sext i32 %6 to i64
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetSpecialPointer(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PageValidateSpecialPointer(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @PageValidateSpecialPointer(ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.PageHeaderData, ptr %5, i32 0, i32 5
-  %7 = load i16, ptr %6, align 4
-  %8 = zext i16 %7 to i32
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %4, i64 %9
-  ret ptr %10
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -194,6 +211,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i16 %2, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
   %8 = load i16, ptr %6, align 2
   %9 = zext i16 %8 to i32
   switch i32 %9, label %106 [
@@ -220,7 +238,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %16 = call zeroext i1 @DatumGetBool(i64 noundef %15)
   %17 = zext i1 %16 to i8
   store i8 %17, ptr %7, align 1
-  br label %118
+  br label %119
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %4, align 8
@@ -231,7 +249,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %24 = call zeroext i1 @DatumGetBool(i64 noundef %23)
   %25 = zext i1 %24 to i8
   store i8 %25, ptr %7, align 1
-  br label %118
+  br label %119
 
 26:                                               ; preds = %3
   %27 = load ptr, ptr %4, align 8
@@ -242,7 +260,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %32 = call zeroext i1 @DatumGetBool(i64 noundef %31)
   %33 = zext i1 %32 to i8
   store i8 %33, ptr %7, align 1
-  br label %118
+  br label %119
 
 34:                                               ; preds = %3
   %35 = load ptr, ptr %4, align 8
@@ -253,7 +271,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %40 = call zeroext i1 @DatumGetBool(i64 noundef %39)
   %41 = zext i1 %40 to i8
   store i8 %41, ptr %7, align 1
-  br label %118
+  br label %119
 
 42:                                               ; preds = %3
   %43 = load ptr, ptr %4, align 8
@@ -264,7 +282,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %48 = call zeroext i1 @DatumGetBool(i64 noundef %47)
   %49 = zext i1 %48 to i8
   store i8 %49, ptr %7, align 1
-  br label %118
+  br label %119
 
 50:                                               ; preds = %3
   %51 = load ptr, ptr %4, align 8
@@ -275,7 +293,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %56 = call zeroext i1 @DatumGetBool(i64 noundef %55)
   %57 = zext i1 %56 to i8
   store i8 %57, ptr %7, align 1
-  br label %118
+  br label %119
 
 58:                                               ; preds = %3
   %59 = load ptr, ptr %4, align 8
@@ -286,7 +304,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %64 = call zeroext i1 @DatumGetBool(i64 noundef %63)
   %65 = zext i1 %64 to i8
   store i8 %65, ptr %7, align 1
-  br label %118
+  br label %119
 
 66:                                               ; preds = %3
   %67 = load ptr, ptr %4, align 8
@@ -297,7 +315,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %72 = call zeroext i1 @DatumGetBool(i64 noundef %71)
   %73 = zext i1 %72 to i8
   store i8 %73, ptr %7, align 1
-  br label %118
+  br label %119
 
 74:                                               ; preds = %3
   %75 = load ptr, ptr %4, align 8
@@ -308,7 +326,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %80 = call zeroext i1 @DatumGetBool(i64 noundef %79)
   %81 = zext i1 %80 to i8
   store i8 %81, ptr %7, align 1
-  br label %118
+  br label %119
 
 82:                                               ; preds = %3
   %83 = load ptr, ptr %4, align 8
@@ -319,7 +337,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %88 = call zeroext i1 @DatumGetBool(i64 noundef %87)
   %89 = zext i1 %88 to i8
   store i8 %89, ptr %7, align 1
-  br label %118
+  br label %119
 
 90:                                               ; preds = %3
   %91 = load ptr, ptr %4, align 8
@@ -330,7 +348,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %96 = call zeroext i1 @DatumGetBool(i64 noundef %95)
   %97 = zext i1 %96 to i8
   store i8 %97, ptr %7, align 1
-  br label %118
+  br label %119
 
 98:                                               ; preds = %3
   %99 = load ptr, ptr %4, align 8
@@ -341,7 +359,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   %104 = call zeroext i1 @DatumGetBool(i64 noundef %103)
   %105 = zext i1 %104 to i8
   store i8 %105, ptr %7, align 1
-  br label %118
+  br label %119
 
 106:                                              ; preds = %3
   br label %107
@@ -350,7 +368,7 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   br i1 true, label %108, label %110
 
 108:                                              ; preds = %107
-  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   br i1 %109, label %112, label %116
 
 110:                                              ; preds = %107
@@ -368,13 +386,17 @@ define internal zeroext i1 @gist_box_leaf_consistent(ptr noundef %0, ptr noundef
   unreachable
 
 117:                                              ; No predecessors!
-  store i8 0, ptr %7, align 1
   br label %118
 
-118:                                              ; preds = %117, %98, %90, %82, %74, %66, %58, %50, %42, %34, %26, %18, %10
-  %119 = load i8, ptr %7, align 1
-  %120 = trunc i8 %119 to i1
-  ret i1 %120
+118:                                              ; preds = %117
+  store i8 0, ptr %7, align 1
+  br label %119
+
+119:                                              ; preds = %118, %98, %90, %82, %74, %66, %58, %50, %42, %34, %26, %18, %10
+  %120 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %121 = trunc i8 %120 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  ret i1 %121
 }
 
 ; Function Attrs: nounwind uwtable
@@ -386,6 +408,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i16 %2, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
   %8 = load i16, ptr %6, align 2
   %9 = zext i16 %8 to i32
   switch i32 %9, label %106 [
@@ -413,7 +436,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %17 = xor i1 %16, true
   %18 = zext i1 %17 to i8
   store i8 %18, ptr %7, align 1
-  br label %118
+  br label %119
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr %4, align 8
@@ -425,7 +448,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %26 = xor i1 %25, true
   %27 = zext i1 %26 to i8
   store i8 %27, ptr %7, align 1
-  br label %118
+  br label %119
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %4, align 8
@@ -436,7 +459,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %34 = call zeroext i1 @DatumGetBool(i64 noundef %33)
   %35 = zext i1 %34 to i8
   store i8 %35, ptr %7, align 1
-  br label %118
+  br label %119
 
 36:                                               ; preds = %3
   %37 = load ptr, ptr %4, align 8
@@ -448,7 +471,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %43 = xor i1 %42, true
   %44 = zext i1 %43 to i8
   store i8 %44, ptr %7, align 1
-  br label %118
+  br label %119
 
 45:                                               ; preds = %3
   %46 = load ptr, ptr %4, align 8
@@ -460,7 +483,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %52 = xor i1 %51, true
   %53 = zext i1 %52 to i8
   store i8 %53, ptr %7, align 1
-  br label %118
+  br label %119
 
 54:                                               ; preds = %3, %3
   %55 = load ptr, ptr %4, align 8
@@ -471,7 +494,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %60 = call zeroext i1 @DatumGetBool(i64 noundef %59)
   %61 = zext i1 %60 to i8
   store i8 %61, ptr %7, align 1
-  br label %118
+  br label %119
 
 62:                                               ; preds = %3
   %63 = load ptr, ptr %4, align 8
@@ -482,7 +505,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %68 = call zeroext i1 @DatumGetBool(i64 noundef %67)
   %69 = zext i1 %68 to i8
   store i8 %69, ptr %7, align 1
-  br label %118
+  br label %119
 
 70:                                               ; preds = %3
   %71 = load ptr, ptr %4, align 8
@@ -494,7 +517,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %77 = xor i1 %76, true
   %78 = zext i1 %77 to i8
   store i8 %78, ptr %7, align 1
-  br label %118
+  br label %119
 
 79:                                               ; preds = %3
   %80 = load ptr, ptr %4, align 8
@@ -506,7 +529,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %86 = xor i1 %85, true
   %87 = zext i1 %86 to i8
   store i8 %87, ptr %7, align 1
-  br label %118
+  br label %119
 
 88:                                               ; preds = %3
   %89 = load ptr, ptr %4, align 8
@@ -518,7 +541,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %95 = xor i1 %94, true
   %96 = zext i1 %95 to i8
   store i8 %96, ptr %7, align 1
-  br label %118
+  br label %119
 
 97:                                               ; preds = %3
   %98 = load ptr, ptr %4, align 8
@@ -530,7 +553,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   %104 = xor i1 %103, true
   %105 = zext i1 %104 to i8
   store i8 %105, ptr %7, align 1
-  br label %118
+  br label %119
 
 106:                                              ; preds = %3
   br label %107
@@ -539,7 +562,7 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   br i1 true, label %108, label %110
 
 108:                                              ; preds = %107
-  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   br i1 %109, label %112, label %116
 
 110:                                              ; preds = %107
@@ -557,14 +580,21 @@ define internal zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr nounde
   unreachable
 
 117:                                              ; No predecessors!
-  store i8 0, ptr %7, align 1
   br label %118
 
-118:                                              ; preds = %117, %97, %88, %79, %70, %62, %54, %45, %36, %28, %19, %10
-  %119 = load i8, ptr %7, align 1
-  %120 = trunc i8 %119 to i1
-  ret i1 %120
+118:                                              ; preds = %117
+  store i8 0, ptr %7, align 1
+  br label %119
+
+119:                                              ; preds = %118, %97, %88, %79, %70, %62, %54, %45, %36, %28, %19, %10
+  %120 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %121 = trunc i8 %120 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  ret i1 %121
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gist_box_union(ptr noundef %0) #0 {
@@ -576,30 +606,36 @@ define dso_local i64 @gist_box_union(ptr noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
-  %11 = getelementptr [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.NullableDatum, ptr %11, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %11, i32 0, i32 0
   %13 = load i64, ptr %12, align 8
   %14 = call ptr @DatumGetPointer(i64 noundef %13)
   store ptr %14, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
-  %18 = getelementptr inbounds %struct.NullableDatum, ptr %17, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
+  %17 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
+  %18 = getelementptr inbounds nuw %struct.NullableDatum, ptr %17, i32 0, i32 0
   %19 = load i64, ptr %18, align 8
   %20 = call ptr @DatumGetPointer(i64 noundef %19)
   store ptr %20, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.GistEntryVector, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %5, align 4
   %24 = call ptr @palloc(i64 noundef 32)
   store ptr %24, ptr %8, align 8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.GistEntryVector, ptr %25, i32 0, i32 1
-  %27 = getelementptr [0 x %struct.GISTENTRY], ptr %26, i64 0, i64 0
-  %28 = getelementptr inbounds %struct.GISTENTRY, ptr %27, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %25, i32 0, i32 1
+  %27 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %26, i64 0, i64 0
+  %28 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %27, i32 0, i32 0
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @DatumGetBoxP(i64 noundef %29)
   store ptr %30, ptr %7, align 8
@@ -617,11 +653,11 @@ define dso_local i64 @gist_box_union(ptr noundef %0) #0 {
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.GistEntryVector, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %38, i32 0, i32 1
   %40 = load i32, ptr %6, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr [0 x %struct.GISTENTRY], ptr %39, i64 0, i64 %41
-  %43 = getelementptr inbounds %struct.GISTENTRY, ptr %42, i32 0, i32 0
+  %42 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %39, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %42, i32 0, i32 0
   %44 = load i64, ptr %43, align 8
   %45 = call ptr @DatumGetBoxP(i64 noundef %44)
   store ptr %45, ptr %7, align 8
@@ -634,20 +670,26 @@ define dso_local i64 @gist_box_union(ptr noundef %0) #0 {
   %49 = load i32, ptr %6, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %6, align 4
-  br label %33, !llvm.loop !5
+  br label %33, !llvm.loop !6
 
 51:                                               ; preds = %33
   %52 = load ptr, ptr %4, align 8
   store i32 32, ptr %52, align 4
   %53 = load ptr, ptr %8, align 8
   %54 = call i64 @PointerGetDatum(ptr noundef %53)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %54
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @adjustBox(ptr noundef %0, ptr noundef %1) #0 {
@@ -656,93 +698,93 @@ define internal void @adjustBox(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.BOX, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %struct.Point, ptr %6, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.BOX, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.Point, ptr %6, i32 0, i32 0
   %8 = load double, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.BOX, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds %struct.Point, ptr %10, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.BOX, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.Point, ptr %10, i32 0, i32 0
   %12 = load double, ptr %11, align 8
   %13 = call zeroext i1 @float8_lt(double noundef %8, double noundef %12)
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.BOX, ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds %struct.Point, ptr %16, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.BOX, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.Point, ptr %16, i32 0, i32 0
   %18 = load double, ptr %17, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.BOX, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.Point, ptr %20, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.BOX, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.Point, ptr %20, i32 0, i32 0
   store double %18, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %14, %2
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.BOX, ptr %23, i32 0, i32 1
-  %25 = getelementptr inbounds %struct.Point, ptr %24, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.BOX, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.Point, ptr %24, i32 0, i32 0
   %26 = load double, ptr %25, align 8
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.BOX, ptr %27, i32 0, i32 1
-  %29 = getelementptr inbounds %struct.Point, ptr %28, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.BOX, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.Point, ptr %28, i32 0, i32 0
   %30 = load double, ptr %29, align 8
   %31 = call zeroext i1 @float8_gt(double noundef %26, double noundef %30)
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %22
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.BOX, ptr %33, i32 0, i32 1
-  %35 = getelementptr inbounds %struct.Point, ptr %34, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.BOX, ptr %33, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct.Point, ptr %34, i32 0, i32 0
   %36 = load double, ptr %35, align 8
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.BOX, ptr %37, i32 0, i32 1
-  %39 = getelementptr inbounds %struct.Point, ptr %38, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.BOX, ptr %37, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.Point, ptr %38, i32 0, i32 0
   store double %36, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %32, %22
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.BOX, ptr %41, i32 0, i32 0
-  %43 = getelementptr inbounds %struct.Point, ptr %42, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct.BOX, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.Point, ptr %42, i32 0, i32 1
   %44 = load double, ptr %43, align 8
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.BOX, ptr %45, i32 0, i32 0
-  %47 = getelementptr inbounds %struct.Point, ptr %46, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.BOX, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.Point, ptr %46, i32 0, i32 1
   %48 = load double, ptr %47, align 8
   %49 = call zeroext i1 @float8_lt(double noundef %44, double noundef %48)
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.BOX, ptr %51, i32 0, i32 0
-  %53 = getelementptr inbounds %struct.Point, ptr %52, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %struct.BOX, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.Point, ptr %52, i32 0, i32 1
   %54 = load double, ptr %53, align 8
   %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.BOX, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %struct.Point, ptr %56, i32 0, i32 1
+  %56 = getelementptr inbounds nuw %struct.BOX, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.Point, ptr %56, i32 0, i32 1
   store double %54, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %50, %40
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.BOX, ptr %59, i32 0, i32 1
-  %61 = getelementptr inbounds %struct.Point, ptr %60, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct.BOX, ptr %59, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.Point, ptr %60, i32 0, i32 1
   %62 = load double, ptr %61, align 8
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.BOX, ptr %63, i32 0, i32 1
-  %65 = getelementptr inbounds %struct.Point, ptr %64, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.BOX, ptr %63, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.Point, ptr %64, i32 0, i32 1
   %66 = load double, ptr %65, align 8
   %67 = call zeroext i1 @float8_gt(double noundef %62, double noundef %66)
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %58
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.BOX, ptr %69, i32 0, i32 1
-  %71 = getelementptr inbounds %struct.Point, ptr %70, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct.BOX, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.Point, ptr %70, i32 0, i32 1
   %72 = load double, ptr %71, align 8
   %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.BOX, ptr %73, i32 0, i32 1
-  %75 = getelementptr inbounds %struct.Point, ptr %74, i32 0, i32 1
+  %74 = getelementptr inbounds nuw %struct.BOX, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.Point, ptr %74, i32 0, i32 1
   store double %72, ptr %75, align 8
   br label %76
 
@@ -750,8 +792,8 @@ define internal void @adjustBox(ptr noundef %0, ptr noundef %1) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -768,34 +810,39 @@ define dso_local i64 @gist_box_penalty(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetPointer(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetPointer(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call ptr @DatumGetPointer(i64 noundef %24)
   store ptr %25, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.GISTENTRY, ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %26, i32 0, i32 0
   %28 = load i64, ptr %27, align 8
   %29 = call ptr @DatumGetBoxP(i64 noundef %28)
   store ptr %29, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.GISTENTRY, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %30, i32 0, i32 0
   %32 = load i64, ptr %31, align 8
   %33 = call ptr @DatumGetBoxP(i64 noundef %32)
   store ptr %33, ptr %7, align 8
@@ -807,6 +854,11 @@ define dso_local i64 @gist_box_penalty(ptr noundef %0) #0 {
   store float %37, ptr %38, align 4
   %39 = load ptr, ptr %5, align 8
   %40 = call i64 @PointerGetDatum(ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %40
 }
 
@@ -817,6 +869,7 @@ define internal double @box_penalty(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca %struct.BOX, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #10
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
   call void @rt_box_union(ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -824,6 +877,7 @@ define internal double @box_penalty(ptr noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %3, align 8
   %10 = call double @size_box(ptr noundef %9)
   %11 = call double @float8_mi(double noundef %8, double noundef %10)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #10
   ret double %11
 }
 
@@ -849,1045 +903,1114 @@ define dso_local i64 @gist_box_picksplit(ptr noundef %0) #0 {
   %19 = alloca double, align 8
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  %22 = alloca double, align 8
+  %22 = alloca i32, align 4
   %23 = alloca double, align 8
-  %24 = alloca i32, align 4
+  %24 = alloca double, align 8
+  %25 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
-  %27 = getelementptr [0 x %struct.NullableDatum], ptr %26, i64 0, i64 0
-  %28 = getelementptr inbounds %struct.NullableDatum, ptr %27, i32 0, i32 0
-  %29 = load i64, ptr %28, align 8
-  %30 = call ptr @DatumGetPointer(i64 noundef %29)
-  store ptr %30, ptr %4, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %31, i32 0, i32 6
-  %33 = getelementptr [0 x %struct.NullableDatum], ptr %32, i64 0, i64 1
-  %34 = getelementptr inbounds %struct.NullableDatum, ptr %33, i32 0, i32 0
-  %35 = load i64, ptr %34, align 8
-  %36 = call ptr @DatumGetPointer(i64 noundef %35)
-  store ptr %36, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 0
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8
+  %31 = call ptr @DatumGetPointer(i64 noundef %30)
+  store ptr %31, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %32, i32 0, i32 6
+  %34 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %33, i64 0, i64 1
+  %35 = getelementptr inbounds nuw %struct.NullableDatum, ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = call ptr @DatumGetPointer(i64 noundef %36)
+  store ptr %37, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 88, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 88, i1 false)
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.GistEntryVector, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 8
-  %40 = sub i32 %39, 1
-  %41 = trunc i32 %40 to i16
-  store i16 %41, ptr %7, align 2
-  %42 = load i16, ptr %7, align 2
-  %43 = zext i16 %42 to i32
-  %44 = sub i32 %43, 1
-  %45 = add i32 %44, 1
-  %46 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 0
-  store i32 %45, ptr %46, align 8
-  store i32 %45, ptr %17, align 4
-  %47 = load i32, ptr %17, align 4
-  %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, 16
-  %50 = call ptr @palloc(i64 noundef %49)
-  store ptr %50, ptr %14, align 8
-  %51 = load i32, ptr %17, align 4
-  %52 = sext i32 %51 to i64
-  %53 = mul i64 %52, 16
-  %54 = call ptr @palloc(i64 noundef %53)
-  store ptr %54, ptr %15, align 8
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8
+  %41 = sub i32 %40, 1
+  %42 = trunc i32 %41 to i16
+  store i16 %42, ptr %7, align 2
+  %43 = load i16, ptr %7, align 2
+  %44 = zext i16 %43 to i32
+  %45 = sub i32 %44, 1
+  %46 = add i32 %45, 1
+  %47 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 0
+  store i32 %46, ptr %47, align 8
+  store i32 %46, ptr %17, align 4
+  %48 = load i32, ptr %17, align 4
+  %49 = sext i32 %48 to i64
+  %50 = mul i64 %49, 16
+  %51 = call ptr @palloc(i64 noundef %50)
+  store ptr %51, ptr %14, align 8
+  %52 = load i32, ptr %17, align 4
+  %53 = sext i32 %52 to i64
+  %54 = mul i64 %53, 16
+  %55 = call ptr @palloc(i64 noundef %54)
+  store ptr %55, ptr %15, align 8
   store i16 1, ptr %6, align 2
-  br label %55
+  br label %56
 
-55:                                               ; preds = %80, %1
-  %56 = load i16, ptr %6, align 2
-  %57 = zext i16 %56 to i32
-  %58 = load i16, ptr %7, align 2
-  %59 = zext i16 %58 to i32
-  %60 = icmp sle i32 %57, %59
-  br i1 %60, label %61, label %85
+56:                                               ; preds = %81, %1
+  %57 = load i16, ptr %6, align 2
+  %58 = zext i16 %57 to i32
+  %59 = load i16, ptr %7, align 2
+  %60 = zext i16 %59 to i32
+  %61 = icmp sle i32 %58, %60
+  br i1 %61, label %62, label %86
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.GistEntryVector, ptr %62, i32 0, i32 1
-  %64 = load i16, ptr %6, align 2
-  %65 = zext i16 %64 to i64
-  %66 = getelementptr [0 x %struct.GISTENTRY], ptr %63, i64 0, i64 %65
-  %67 = getelementptr inbounds %struct.GISTENTRY, ptr %66, i32 0, i32 0
-  %68 = load i64, ptr %67, align 8
-  %69 = call ptr @DatumGetBoxP(i64 noundef %68)
-  store ptr %69, ptr %9, align 8
-  %70 = load i16, ptr %6, align 2
-  %71 = zext i16 %70 to i32
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %76
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %63, i32 0, i32 1
+  %65 = load i16, ptr %6, align 2
+  %66 = zext i16 %65 to i64
+  %67 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %64, i64 0, i64 %66
+  %68 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %67, i32 0, i32 0
+  %69 = load i64, ptr %68, align 8
+  %70 = call ptr @DatumGetBoxP(i64 noundef %69)
+  store ptr %70, ptr %9, align 8
+  %71 = load i16, ptr %6, align 2
+  %72 = zext i16 %71 to i32
+  %73 = icmp eq i32 %72, 1
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %61
-  %74 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 1
-  %75 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %75, i64 32, i1 false)
-  br label %79
-
-76:                                               ; preds = %61
-  %77 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 1
-  %78 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %77, ptr noundef %78)
-  br label %79
-
-79:                                               ; preds = %76, %73
+74:                                               ; preds = %62
+  %75 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 1
+  %76 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %76, i64 32, i1 false)
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load i16, ptr %6, align 2
-  %82 = zext i16 %81 to i32
-  %83 = add i32 1, %82
-  %84 = trunc i32 %83 to i16
-  store i16 %84, ptr %6, align 2
-  br label %55, !llvm.loop !7
+77:                                               ; preds = %62
+  %78 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 1
+  %79 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %78, ptr noundef %79)
+  br label %80
 
-85:                                               ; preds = %55
-  %86 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 2
-  store i8 1, ptr %86, align 8
+80:                                               ; preds = %77, %74
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load i16, ptr %6, align 2
+  %83 = zext i16 %82 to i32
+  %84 = add i32 1, %83
+  %85 = trunc i32 %84 to i16
+  store i16 %85, ptr %6, align 2
+  br label %56, !llvm.loop !8
+
+86:                                               ; preds = %56
+  %87 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 2
+  store i8 1, ptr %87, align 8
   store i32 0, ptr %12, align 4
-  br label %87
+  br label %88
 
-87:                                               ; preds = %343, %85
-  %88 = load i32, ptr %12, align 4
-  %89 = icmp slt i32 %88, 2
-  br i1 %89, label %90, label %346
+88:                                               ; preds = %346, %86
+  %89 = load i32, ptr %12, align 4
+  %90 = icmp slt i32 %89, 2
+  br i1 %90, label %91, label %349
 
-90:                                               ; preds = %87
+91:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
   store i16 1, ptr %6, align 2
-  br label %91
+  br label %92
 
-91:                                               ; preds = %155, %90
-  %92 = load i16, ptr %6, align 2
-  %93 = zext i16 %92 to i32
-  %94 = load i16, ptr %7, align 2
-  %95 = zext i16 %94 to i32
-  %96 = icmp sle i32 %93, %95
-  br i1 %96, label %97, label %160
+92:                                               ; preds = %156, %91
+  %93 = load i16, ptr %6, align 2
+  %94 = zext i16 %93 to i32
+  %95 = load i16, ptr %7, align 2
+  %96 = zext i16 %95 to i32
+  %97 = icmp sle i32 %94, %96
+  br i1 %97, label %98, label %161
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %struct.GistEntryVector, ptr %98, i32 0, i32 1
-  %100 = load i16, ptr %6, align 2
-  %101 = zext i16 %100 to i64
-  %102 = getelementptr [0 x %struct.GISTENTRY], ptr %99, i64 0, i64 %101
-  %103 = getelementptr inbounds %struct.GISTENTRY, ptr %102, i32 0, i32 0
-  %104 = load i64, ptr %103, align 8
-  %105 = call ptr @DatumGetBoxP(i64 noundef %104)
-  store ptr %105, ptr %9, align 8
-  %106 = load i32, ptr %12, align 4
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %131
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %99, i32 0, i32 1
+  %101 = load i16, ptr %6, align 2
+  %102 = zext i16 %101 to i64
+  %103 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %100, i64 0, i64 %102
+  %104 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %103, i32 0, i32 0
+  %105 = load i64, ptr %104, align 8
+  %106 = call ptr @DatumGetBoxP(i64 noundef %105)
+  store ptr %106, ptr %9, align 8
+  %107 = load i32, ptr %12, align 4
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %132
 
-108:                                              ; preds = %97
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr inbounds %struct.BOX, ptr %109, i32 0, i32 1
-  %111 = getelementptr inbounds %struct.Point, ptr %110, i32 0, i32 0
-  %112 = load double, ptr %111, align 8
-  %113 = load ptr, ptr %14, align 8
-  %114 = load i16, ptr %6, align 2
-  %115 = zext i16 %114 to i32
-  %116 = sub i32 %115, 1
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr %struct.SplitInterval, ptr %113, i64 %117
-  %119 = getelementptr inbounds %struct.SplitInterval, ptr %118, i32 0, i32 0
-  store double %112, ptr %119, align 8
-  %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds %struct.BOX, ptr %120, i32 0, i32 0
-  %122 = getelementptr inbounds %struct.Point, ptr %121, i32 0, i32 0
-  %123 = load double, ptr %122, align 8
-  %124 = load ptr, ptr %14, align 8
-  %125 = load i16, ptr %6, align 2
-  %126 = zext i16 %125 to i32
-  %127 = sub i32 %126, 1
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr %struct.SplitInterval, ptr %124, i64 %128
-  %130 = getelementptr inbounds %struct.SplitInterval, ptr %129, i32 0, i32 1
-  store double %123, ptr %130, align 8
-  br label %154
-
-131:                                              ; preds = %97
-  %132 = load ptr, ptr %9, align 8
-  %133 = getelementptr inbounds %struct.BOX, ptr %132, i32 0, i32 1
-  %134 = getelementptr inbounds %struct.Point, ptr %133, i32 0, i32 1
-  %135 = load double, ptr %134, align 8
-  %136 = load ptr, ptr %14, align 8
-  %137 = load i16, ptr %6, align 2
-  %138 = zext i16 %137 to i32
-  %139 = sub i32 %138, 1
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr %struct.SplitInterval, ptr %136, i64 %140
-  %142 = getelementptr inbounds %struct.SplitInterval, ptr %141, i32 0, i32 0
-  store double %135, ptr %142, align 8
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct.BOX, ptr %143, i32 0, i32 0
-  %145 = getelementptr inbounds %struct.Point, ptr %144, i32 0, i32 1
-  %146 = load double, ptr %145, align 8
-  %147 = load ptr, ptr %14, align 8
-  %148 = load i16, ptr %6, align 2
-  %149 = zext i16 %148 to i32
-  %150 = sub i32 %149, 1
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr %struct.SplitInterval, ptr %147, i64 %151
-  %153 = getelementptr inbounds %struct.SplitInterval, ptr %152, i32 0, i32 1
-  store double %146, ptr %153, align 8
-  br label %154
-
-154:                                              ; preds = %131, %108
+109:                                              ; preds = %98
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr inbounds nuw %struct.BOX, ptr %110, i32 0, i32 1
+  %112 = getelementptr inbounds nuw %struct.Point, ptr %111, i32 0, i32 0
+  %113 = load double, ptr %112, align 8
+  %114 = load ptr, ptr %14, align 8
+  %115 = load i16, ptr %6, align 2
+  %116 = zext i16 %115 to i32
+  %117 = sub i32 %116, 1
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds %struct.SplitInterval, ptr %114, i64 %118
+  %120 = getelementptr inbounds nuw %struct.SplitInterval, ptr %119, i32 0, i32 0
+  store double %113, ptr %120, align 8
+  %121 = load ptr, ptr %9, align 8
+  %122 = getelementptr inbounds nuw %struct.BOX, ptr %121, i32 0, i32 0
+  %123 = getelementptr inbounds nuw %struct.Point, ptr %122, i32 0, i32 0
+  %124 = load double, ptr %123, align 8
+  %125 = load ptr, ptr %14, align 8
+  %126 = load i16, ptr %6, align 2
+  %127 = zext i16 %126 to i32
+  %128 = sub i32 %127, 1
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds %struct.SplitInterval, ptr %125, i64 %129
+  %131 = getelementptr inbounds nuw %struct.SplitInterval, ptr %130, i32 0, i32 1
+  store double %124, ptr %131, align 8
   br label %155
 
-155:                                              ; preds = %154
-  %156 = load i16, ptr %6, align 2
-  %157 = zext i16 %156 to i32
-  %158 = add i32 1, %157
-  %159 = trunc i32 %158 to i16
-  store i16 %159, ptr %6, align 2
-  br label %91, !llvm.loop !8
+132:                                              ; preds = %98
+  %133 = load ptr, ptr %9, align 8
+  %134 = getelementptr inbounds nuw %struct.BOX, ptr %133, i32 0, i32 1
+  %135 = getelementptr inbounds nuw %struct.Point, ptr %134, i32 0, i32 1
+  %136 = load double, ptr %135, align 8
+  %137 = load ptr, ptr %14, align 8
+  %138 = load i16, ptr %6, align 2
+  %139 = zext i16 %138 to i32
+  %140 = sub i32 %139, 1
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds %struct.SplitInterval, ptr %137, i64 %141
+  %143 = getelementptr inbounds nuw %struct.SplitInterval, ptr %142, i32 0, i32 0
+  store double %136, ptr %143, align 8
+  %144 = load ptr, ptr %9, align 8
+  %145 = getelementptr inbounds nuw %struct.BOX, ptr %144, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %struct.Point, ptr %145, i32 0, i32 1
+  %147 = load double, ptr %146, align 8
+  %148 = load ptr, ptr %14, align 8
+  %149 = load i16, ptr %6, align 2
+  %150 = zext i16 %149 to i32
+  %151 = sub i32 %150, 1
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds %struct.SplitInterval, ptr %148, i64 %152
+  %154 = getelementptr inbounds nuw %struct.SplitInterval, ptr %153, i32 0, i32 1
+  store double %147, ptr %154, align 8
+  br label %155
 
-160:                                              ; preds = %91
-  %161 = load ptr, ptr %15, align 8
-  %162 = load ptr, ptr %14, align 8
-  %163 = load i32, ptr %17, align 4
-  %164 = sext i32 %163 to i64
-  %165 = mul i64 16, %164
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %162, i64 %165, i1 false)
-  %166 = load ptr, ptr %14, align 8
-  %167 = load i32, ptr %17, align 4
-  %168 = sext i32 %167 to i64
-  call void @pg_qsort(ptr noundef %166, i64 noundef %168, i64 noundef 16, ptr noundef @interval_cmp_lower)
-  %169 = load ptr, ptr %15, align 8
-  %170 = load i32, ptr %17, align 4
-  %171 = sext i32 %170 to i64
-  call void @pg_qsort(ptr noundef %169, i64 noundef %171, i64 noundef 16, ptr noundef @interval_cmp_upper)
+155:                                              ; preds = %132, %109
+  br label %156
+
+156:                                              ; preds = %155
+  %157 = load i16, ptr %6, align 2
+  %158 = zext i16 %157 to i32
+  %159 = add i32 1, %158
+  %160 = trunc i32 %159 to i16
+  store i16 %160, ptr %6, align 2
+  br label %92, !llvm.loop !9
+
+161:                                              ; preds = %92
+  %162 = load ptr, ptr %15, align 8
+  %163 = load ptr, ptr %14, align 8
+  %164 = load i32, ptr %17, align 4
+  %165 = sext i32 %164 to i64
+  %166 = mul i64 16, %165
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %162, ptr align 8 %163, i64 %166, i1 false)
+  %167 = load ptr, ptr %14, align 8
+  %168 = load i32, ptr %17, align 4
+  %169 = sext i32 %168 to i64
+  call void @pg_qsort(ptr noundef %167, i64 noundef %169, i64 noundef 16, ptr noundef @interval_cmp_lower)
+  %170 = load ptr, ptr %15, align 8
+  %171 = load i32, ptr %17, align 4
+  %172 = sext i32 %171 to i64
+  call void @pg_qsort(ptr noundef %170, i64 noundef %172, i64 noundef 16, ptr noundef @interval_cmp_upper)
   store i32 0, ptr %20, align 4
   store i32 0, ptr %21, align 4
-  %172 = load ptr, ptr %14, align 8
-  %173 = load i32, ptr %20, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr %struct.SplitInterval, ptr %172, i64 %174
-  %176 = getelementptr inbounds %struct.SplitInterval, ptr %175, i32 0, i32 0
-  %177 = load double, ptr %176, align 8
-  store double %177, ptr %19, align 8
-  %178 = load ptr, ptr %15, align 8
-  %179 = load i32, ptr %21, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr %struct.SplitInterval, ptr %178, i64 %180
-  %182 = getelementptr inbounds %struct.SplitInterval, ptr %181, i32 0, i32 0
-  %183 = load double, ptr %182, align 8
-  store double %183, ptr %18, align 8
-  br label %184
-
-184:                                              ; preds = %249, %160
+  %173 = load ptr, ptr %14, align 8
+  %174 = load i32, ptr %20, align 4
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds %struct.SplitInterval, ptr %173, i64 %175
+  %177 = getelementptr inbounds nuw %struct.SplitInterval, ptr %176, i32 0, i32 0
+  %178 = load double, ptr %177, align 8
+  store double %178, ptr %19, align 8
+  %179 = load ptr, ptr %15, align 8
+  %180 = load i32, ptr %21, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %struct.SplitInterval, ptr %179, i64 %181
+  %183 = getelementptr inbounds nuw %struct.SplitInterval, ptr %182, i32 0, i32 0
+  %184 = load double, ptr %183, align 8
+  store double %184, ptr %18, align 8
   br label %185
 
-185:                                              ; preds = %216, %184
-  %186 = load i32, ptr %20, align 4
-  %187 = load i32, ptr %17, align 4
-  %188 = icmp slt i32 %186, %187
-  br i1 %188, label %189, label %198
+185:                                              ; preds = %251, %161
+  br label %186
 
-189:                                              ; preds = %185
-  %190 = load double, ptr %19, align 8
-  %191 = load ptr, ptr %14, align 8
-  %192 = load i32, ptr %20, align 4
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr %struct.SplitInterval, ptr %191, i64 %193
-  %195 = getelementptr inbounds %struct.SplitInterval, ptr %194, i32 0, i32 0
-  %196 = load double, ptr %195, align 8
-  %197 = call zeroext i1 @float8_eq(double noundef %190, double noundef %196)
-  br label %198
+186:                                              ; preds = %185
+  br label %187
 
-198:                                              ; preds = %189, %185
-  %199 = phi i1 [ false, %185 ], [ %197, %189 ]
-  br i1 %199, label %200, label %219
+187:                                              ; preds = %218, %186
+  %188 = load i32, ptr %20, align 4
+  %189 = load i32, ptr %17, align 4
+  %190 = icmp slt i32 %188, %189
+  br i1 %190, label %191, label %200
 
-200:                                              ; preds = %198
-  %201 = load double, ptr %18, align 8
-  %202 = load ptr, ptr %14, align 8
-  %203 = load i32, ptr %20, align 4
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr %struct.SplitInterval, ptr %202, i64 %204
-  %206 = getelementptr inbounds %struct.SplitInterval, ptr %205, i32 0, i32 1
-  %207 = load double, ptr %206, align 8
-  %208 = call zeroext i1 @float8_lt(double noundef %201, double noundef %207)
-  br i1 %208, label %209, label %216
+191:                                              ; preds = %187
+  %192 = load double, ptr %19, align 8
+  %193 = load ptr, ptr %14, align 8
+  %194 = load i32, ptr %20, align 4
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds %struct.SplitInterval, ptr %193, i64 %195
+  %197 = getelementptr inbounds nuw %struct.SplitInterval, ptr %196, i32 0, i32 0
+  %198 = load double, ptr %197, align 8
+  %199 = call zeroext i1 @float8_eq(double noundef %192, double noundef %198)
+  br label %200
 
-209:                                              ; preds = %200
-  %210 = load ptr, ptr %14, align 8
-  %211 = load i32, ptr %20, align 4
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr %struct.SplitInterval, ptr %210, i64 %212
-  %214 = getelementptr inbounds %struct.SplitInterval, ptr %213, i32 0, i32 1
-  %215 = load double, ptr %214, align 8
-  store double %215, ptr %18, align 8
-  br label %216
+200:                                              ; preds = %191, %187
+  %201 = phi i1 [ false, %187 ], [ %199, %191 ]
+  br i1 %201, label %202, label %221
 
-216:                                              ; preds = %209, %200
-  %217 = load i32, ptr %20, align 4
-  %218 = add i32 %217, 1
-  store i32 %218, ptr %20, align 4
-  br label %185, !llvm.loop !9
+202:                                              ; preds = %200
+  %203 = load double, ptr %18, align 8
+  %204 = load ptr, ptr %14, align 8
+  %205 = load i32, ptr %20, align 4
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds %struct.SplitInterval, ptr %204, i64 %206
+  %208 = getelementptr inbounds nuw %struct.SplitInterval, ptr %207, i32 0, i32 1
+  %209 = load double, ptr %208, align 8
+  %210 = call zeroext i1 @float8_lt(double noundef %203, double noundef %209)
+  br i1 %210, label %211, label %218
 
-219:                                              ; preds = %198
-  %220 = load i32, ptr %20, align 4
-  %221 = load i32, ptr %17, align 4
-  %222 = icmp sge i32 %220, %221
-  br i1 %222, label %223, label %224
+211:                                              ; preds = %202
+  %212 = load ptr, ptr %14, align 8
+  %213 = load i32, ptr %20, align 4
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds %struct.SplitInterval, ptr %212, i64 %214
+  %216 = getelementptr inbounds nuw %struct.SplitInterval, ptr %215, i32 0, i32 1
+  %217 = load double, ptr %216, align 8
+  store double %217, ptr %18, align 8
+  br label %218
 
-223:                                              ; preds = %219
-  br label %255
+218:                                              ; preds = %211, %202
+  %219 = load i32, ptr %20, align 4
+  %220 = add i32 %219, 1
+  store i32 %220, ptr %20, align 4
+  br label %187, !llvm.loop !10
 
-224:                                              ; preds = %219
-  %225 = load ptr, ptr %14, align 8
-  %226 = load i32, ptr %20, align 4
-  %227 = sext i32 %226 to i64
-  %228 = getelementptr %struct.SplitInterval, ptr %225, i64 %227
-  %229 = getelementptr inbounds %struct.SplitInterval, ptr %228, i32 0, i32 0
-  %230 = load double, ptr %229, align 8
-  store double %230, ptr %19, align 8
-  br label %231
+221:                                              ; preds = %200
+  %222 = load i32, ptr %20, align 4
+  %223 = load i32, ptr %17, align 4
+  %224 = icmp sge i32 %222, %223
+  br i1 %224, label %225, label %226
 
-231:                                              ; preds = %246, %224
-  %232 = load i32, ptr %21, align 4
-  %233 = load i32, ptr %17, align 4
-  %234 = icmp slt i32 %232, %233
-  br i1 %234, label %235, label %244
+225:                                              ; preds = %221
+  br label %257
 
-235:                                              ; preds = %231
-  %236 = load ptr, ptr %15, align 8
-  %237 = load i32, ptr %21, align 4
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr %struct.SplitInterval, ptr %236, i64 %238
-  %240 = getelementptr inbounds %struct.SplitInterval, ptr %239, i32 0, i32 1
-  %241 = load double, ptr %240, align 8
-  %242 = load double, ptr %18, align 8
-  %243 = call zeroext i1 @float8_le(double noundef %241, double noundef %242)
-  br label %244
+226:                                              ; preds = %221
+  %227 = load ptr, ptr %14, align 8
+  %228 = load i32, ptr %20, align 4
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds %struct.SplitInterval, ptr %227, i64 %229
+  %231 = getelementptr inbounds nuw %struct.SplitInterval, ptr %230, i32 0, i32 0
+  %232 = load double, ptr %231, align 8
+  store double %232, ptr %19, align 8
+  br label %233
 
-244:                                              ; preds = %235, %231
-  %245 = phi i1 [ false, %231 ], [ %243, %235 ]
-  br i1 %245, label %246, label %249
+233:                                              ; preds = %248, %226
+  %234 = load i32, ptr %21, align 4
+  %235 = load i32, ptr %17, align 4
+  %236 = icmp slt i32 %234, %235
+  br i1 %236, label %237, label %246
 
-246:                                              ; preds = %244
-  %247 = load i32, ptr %21, align 4
-  %248 = add i32 %247, 1
-  store i32 %248, ptr %21, align 4
-  br label %231, !llvm.loop !10
+237:                                              ; preds = %233
+  %238 = load ptr, ptr %15, align 8
+  %239 = load i32, ptr %21, align 4
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds %struct.SplitInterval, ptr %238, i64 %240
+  %242 = getelementptr inbounds nuw %struct.SplitInterval, ptr %241, i32 0, i32 1
+  %243 = load double, ptr %242, align 8
+  %244 = load double, ptr %18, align 8
+  %245 = call zeroext i1 @float8_le(double noundef %243, double noundef %244)
+  br label %246
 
-249:                                              ; preds = %244
-  %250 = load i32, ptr %12, align 4
-  %251 = load double, ptr %19, align 8
-  %252 = load i32, ptr %20, align 4
-  %253 = load double, ptr %18, align 8
-  %254 = load i32, ptr %21, align 4
-  call void @g_box_consider_split(ptr noundef %8, i32 noundef %250, double noundef %251, i32 noundef %252, double noundef %253, i32 noundef %254)
-  br label %184
+246:                                              ; preds = %237, %233
+  %247 = phi i1 [ false, %233 ], [ %245, %237 ]
+  br i1 %247, label %248, label %251
 
-255:                                              ; preds = %223
-  %256 = load i32, ptr %17, align 4
-  %257 = sub i32 %256, 1
-  store i32 %257, ptr %20, align 4
+248:                                              ; preds = %246
+  %249 = load i32, ptr %21, align 4
+  %250 = add i32 %249, 1
+  store i32 %250, ptr %21, align 4
+  br label %233, !llvm.loop !11
+
+251:                                              ; preds = %246
+  %252 = load i32, ptr %12, align 4
+  %253 = load double, ptr %19, align 8
+  %254 = load i32, ptr %20, align 4
+  %255 = load double, ptr %18, align 8
+  %256 = load i32, ptr %21, align 4
+  call void @g_box_consider_split(ptr noundef %8, i32 noundef %252, double noundef %253, i32 noundef %254, double noundef %255, i32 noundef %256)
+  br label %185
+
+257:                                              ; preds = %225
   %258 = load i32, ptr %17, align 4
   %259 = sub i32 %258, 1
-  store i32 %259, ptr %21, align 4
-  %260 = load ptr, ptr %14, align 8
-  %261 = load i32, ptr %20, align 4
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr %struct.SplitInterval, ptr %260, i64 %262
-  %264 = getelementptr inbounds %struct.SplitInterval, ptr %263, i32 0, i32 1
-  %265 = load double, ptr %264, align 8
-  store double %265, ptr %19, align 8
-  %266 = load ptr, ptr %15, align 8
-  %267 = load i32, ptr %21, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr %struct.SplitInterval, ptr %266, i64 %268
-  %270 = getelementptr inbounds %struct.SplitInterval, ptr %269, i32 0, i32 1
-  %271 = load double, ptr %270, align 8
-  store double %271, ptr %18, align 8
-  br label %272
+  store i32 %259, ptr %20, align 4
+  %260 = load i32, ptr %17, align 4
+  %261 = sub i32 %260, 1
+  store i32 %261, ptr %21, align 4
+  %262 = load ptr, ptr %14, align 8
+  %263 = load i32, ptr %20, align 4
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds %struct.SplitInterval, ptr %262, i64 %264
+  %266 = getelementptr inbounds nuw %struct.SplitInterval, ptr %265, i32 0, i32 1
+  %267 = load double, ptr %266, align 8
+  store double %267, ptr %19, align 8
+  %268 = load ptr, ptr %15, align 8
+  %269 = load i32, ptr %21, align 4
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds %struct.SplitInterval, ptr %268, i64 %270
+  %272 = getelementptr inbounds nuw %struct.SplitInterval, ptr %271, i32 0, i32 1
+  %273 = load double, ptr %272, align 8
+  store double %273, ptr %18, align 8
+  br label %274
 
-272:                                              ; preds = %334, %255
-  br label %273
+274:                                              ; preds = %337, %257
+  br label %275
 
-273:                                              ; preds = %303, %272
-  %274 = load i32, ptr %21, align 4
-  %275 = icmp sge i32 %274, 0
-  br i1 %275, label %276, label %285
+275:                                              ; preds = %274
+  br label %276
 
-276:                                              ; preds = %273
-  %277 = load double, ptr %18, align 8
-  %278 = load ptr, ptr %15, align 8
-  %279 = load i32, ptr %21, align 4
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr %struct.SplitInterval, ptr %278, i64 %280
-  %282 = getelementptr inbounds %struct.SplitInterval, ptr %281, i32 0, i32 1
-  %283 = load double, ptr %282, align 8
-  %284 = call zeroext i1 @float8_eq(double noundef %277, double noundef %283)
-  br label %285
+276:                                              ; preds = %306, %275
+  %277 = load i32, ptr %21, align 4
+  %278 = icmp sge i32 %277, 0
+  br i1 %278, label %279, label %288
 
-285:                                              ; preds = %276, %273
-  %286 = phi i1 [ false, %273 ], [ %284, %276 ]
-  br i1 %286, label %287, label %306
+279:                                              ; preds = %276
+  %280 = load double, ptr %18, align 8
+  %281 = load ptr, ptr %15, align 8
+  %282 = load i32, ptr %21, align 4
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr inbounds %struct.SplitInterval, ptr %281, i64 %283
+  %285 = getelementptr inbounds nuw %struct.SplitInterval, ptr %284, i32 0, i32 1
+  %286 = load double, ptr %285, align 8
+  %287 = call zeroext i1 @float8_eq(double noundef %280, double noundef %286)
+  br label %288
 
-287:                                              ; preds = %285
-  %288 = load double, ptr %19, align 8
-  %289 = load ptr, ptr %15, align 8
-  %290 = load i32, ptr %21, align 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr %struct.SplitInterval, ptr %289, i64 %291
-  %293 = getelementptr inbounds %struct.SplitInterval, ptr %292, i32 0, i32 0
-  %294 = load double, ptr %293, align 8
-  %295 = call zeroext i1 @float8_gt(double noundef %288, double noundef %294)
-  br i1 %295, label %296, label %303
+288:                                              ; preds = %279, %276
+  %289 = phi i1 [ false, %276 ], [ %287, %279 ]
+  br i1 %289, label %290, label %309
 
-296:                                              ; preds = %287
-  %297 = load ptr, ptr %15, align 8
-  %298 = load i32, ptr %21, align 4
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr %struct.SplitInterval, ptr %297, i64 %299
-  %301 = getelementptr inbounds %struct.SplitInterval, ptr %300, i32 0, i32 0
-  %302 = load double, ptr %301, align 8
-  store double %302, ptr %19, align 8
-  br label %303
+290:                                              ; preds = %288
+  %291 = load double, ptr %19, align 8
+  %292 = load ptr, ptr %15, align 8
+  %293 = load i32, ptr %21, align 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds %struct.SplitInterval, ptr %292, i64 %294
+  %296 = getelementptr inbounds nuw %struct.SplitInterval, ptr %295, i32 0, i32 0
+  %297 = load double, ptr %296, align 8
+  %298 = call zeroext i1 @float8_gt(double noundef %291, double noundef %297)
+  br i1 %298, label %299, label %306
 
-303:                                              ; preds = %296, %287
-  %304 = load i32, ptr %21, align 4
-  %305 = add i32 %304, -1
-  store i32 %305, ptr %21, align 4
-  br label %273, !llvm.loop !11
+299:                                              ; preds = %290
+  %300 = load ptr, ptr %15, align 8
+  %301 = load i32, ptr %21, align 4
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr inbounds %struct.SplitInterval, ptr %300, i64 %302
+  %304 = getelementptr inbounds nuw %struct.SplitInterval, ptr %303, i32 0, i32 0
+  %305 = load double, ptr %304, align 8
+  store double %305, ptr %19, align 8
+  br label %306
 
-306:                                              ; preds = %285
+306:                                              ; preds = %299, %290
   %307 = load i32, ptr %21, align 4
-  %308 = icmp slt i32 %307, 0
-  br i1 %308, label %309, label %310
+  %308 = add i32 %307, -1
+  store i32 %308, ptr %21, align 4
+  br label %276, !llvm.loop !12
 
-309:                                              ; preds = %306
-  br label %342
+309:                                              ; preds = %288
+  %310 = load i32, ptr %21, align 4
+  %311 = icmp slt i32 %310, 0
+  br i1 %311, label %312, label %313
 
-310:                                              ; preds = %306
-  %311 = load ptr, ptr %15, align 8
-  %312 = load i32, ptr %21, align 4
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr %struct.SplitInterval, ptr %311, i64 %313
-  %315 = getelementptr inbounds %struct.SplitInterval, ptr %314, i32 0, i32 1
-  %316 = load double, ptr %315, align 8
-  store double %316, ptr %18, align 8
-  br label %317
+312:                                              ; preds = %309
+  br label %345
 
-317:                                              ; preds = %331, %310
-  %318 = load i32, ptr %20, align 4
-  %319 = icmp sge i32 %318, 0
-  br i1 %319, label %320, label %329
+313:                                              ; preds = %309
+  %314 = load ptr, ptr %15, align 8
+  %315 = load i32, ptr %21, align 4
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds %struct.SplitInterval, ptr %314, i64 %316
+  %318 = getelementptr inbounds nuw %struct.SplitInterval, ptr %317, i32 0, i32 1
+  %319 = load double, ptr %318, align 8
+  store double %319, ptr %18, align 8
+  br label %320
 
-320:                                              ; preds = %317
-  %321 = load ptr, ptr %14, align 8
-  %322 = load i32, ptr %20, align 4
-  %323 = sext i32 %322 to i64
-  %324 = getelementptr %struct.SplitInterval, ptr %321, i64 %323
-  %325 = getelementptr inbounds %struct.SplitInterval, ptr %324, i32 0, i32 0
-  %326 = load double, ptr %325, align 8
-  %327 = load double, ptr %19, align 8
-  %328 = call zeroext i1 @float8_ge(double noundef %326, double noundef %327)
-  br label %329
+320:                                              ; preds = %334, %313
+  %321 = load i32, ptr %20, align 4
+  %322 = icmp sge i32 %321, 0
+  br i1 %322, label %323, label %332
 
-329:                                              ; preds = %320, %317
-  %330 = phi i1 [ false, %317 ], [ %328, %320 ]
-  br i1 %330, label %331, label %334
+323:                                              ; preds = %320
+  %324 = load ptr, ptr %14, align 8
+  %325 = load i32, ptr %20, align 4
+  %326 = sext i32 %325 to i64
+  %327 = getelementptr inbounds %struct.SplitInterval, ptr %324, i64 %326
+  %328 = getelementptr inbounds nuw %struct.SplitInterval, ptr %327, i32 0, i32 0
+  %329 = load double, ptr %328, align 8
+  %330 = load double, ptr %19, align 8
+  %331 = call zeroext i1 @float8_ge(double noundef %329, double noundef %330)
+  br label %332
 
-331:                                              ; preds = %329
-  %332 = load i32, ptr %20, align 4
-  %333 = add i32 %332, -1
-  store i32 %333, ptr %20, align 4
-  br label %317, !llvm.loop !12
+332:                                              ; preds = %323, %320
+  %333 = phi i1 [ false, %320 ], [ %331, %323 ]
+  br i1 %333, label %334, label %337
 
-334:                                              ; preds = %329
-  %335 = load i32, ptr %12, align 4
-  %336 = load double, ptr %19, align 8
-  %337 = load i32, ptr %20, align 4
-  %338 = add i32 %337, 1
-  %339 = load double, ptr %18, align 8
-  %340 = load i32, ptr %21, align 4
+334:                                              ; preds = %332
+  %335 = load i32, ptr %20, align 4
+  %336 = add i32 %335, -1
+  store i32 %336, ptr %20, align 4
+  br label %320, !llvm.loop !13
+
+337:                                              ; preds = %332
+  %338 = load i32, ptr %12, align 4
+  %339 = load double, ptr %19, align 8
+  %340 = load i32, ptr %20, align 4
   %341 = add i32 %340, 1
-  call void @g_box_consider_split(ptr noundef %8, i32 noundef %335, double noundef %336, i32 noundef %338, double noundef %339, i32 noundef %341)
-  br label %272
+  %342 = load double, ptr %18, align 8
+  %343 = load i32, ptr %21, align 4
+  %344 = add i32 %343, 1
+  call void @g_box_consider_split(ptr noundef %8, i32 noundef %338, double noundef %339, i32 noundef %341, double noundef %342, i32 noundef %344)
+  br label %274
 
-342:                                              ; preds = %309
-  br label %343
+345:                                              ; preds = %312
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  br label %346
 
-343:                                              ; preds = %342
-  %344 = load i32, ptr %12, align 4
-  %345 = add i32 %344, 1
-  store i32 %345, ptr %12, align 4
-  br label %87, !llvm.loop !13
+346:                                              ; preds = %345
+  %347 = load i32, ptr %12, align 4
+  %348 = add i32 %347, 1
+  store i32 %348, ptr %12, align 4
+  br label %88, !llvm.loop !14
 
-346:                                              ; preds = %87
-  %347 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 2
-  %348 = load i8, ptr %347, align 8
-  %349 = trunc i8 %348 to i1
-  br i1 %349, label %350, label %355
+349:                                              ; preds = %88
+  %350 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 2
+  %351 = load i8, ptr %350, align 8, !range !4, !noundef !5
+  %352 = trunc i8 %351 to i1
+  br i1 %352, label %353, label %358
 
-350:                                              ; preds = %346
-  %351 = load ptr, ptr %4, align 8
-  %352 = load ptr, ptr %5, align 8
-  call void @fallbackSplit(ptr noundef %351, ptr noundef %352)
-  %353 = load ptr, ptr %5, align 8
-  %354 = call i64 @PointerGetDatum(ptr noundef %353)
-  store i64 %354, ptr %2, align 8
-  br label %722
+353:                                              ; preds = %349
+  %354 = load ptr, ptr %4, align 8
+  %355 = load ptr, ptr %5, align 8
+  call void @fallbackSplit(ptr noundef %354, ptr noundef %355)
+  %356 = load ptr, ptr %5, align 8
+  %357 = call i64 @PointerGetDatum(ptr noundef %356)
+  store i64 %357, ptr %2, align 8
+  store i32 1, ptr %22, align 4
+  br label %731
 
-355:                                              ; preds = %346
-  %356 = load i32, ptr %17, align 4
-  %357 = sext i32 %356 to i64
-  %358 = mul i64 %357, 2
-  %359 = call ptr @palloc(i64 noundef %358)
-  %360 = load ptr, ptr %5, align 8
-  %361 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %360, i32 0, i32 0
-  store ptr %359, ptr %361, align 8
-  %362 = load i32, ptr %17, align 4
-  %363 = sext i32 %362 to i64
-  %364 = mul i64 %363, 2
-  %365 = call ptr @palloc(i64 noundef %364)
-  %366 = load ptr, ptr %5, align 8
-  %367 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %366, i32 0, i32 4
-  store ptr %365, ptr %367, align 8
-  %368 = load ptr, ptr %5, align 8
-  %369 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %368, i32 0, i32 1
-  store i32 0, ptr %369, align 8
-  %370 = load ptr, ptr %5, align 8
-  %371 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %370, i32 0, i32 5
-  store i32 0, ptr %371, align 8
-  %372 = call ptr @palloc0(i64 noundef 32)
-  store ptr %372, ptr %10, align 8
-  %373 = call ptr @palloc0(i64 noundef 32)
-  store ptr %373, ptr %11, align 8
+358:                                              ; preds = %349
+  %359 = load i32, ptr %17, align 4
+  %360 = sext i32 %359 to i64
+  %361 = mul i64 %360, 2
+  %362 = call ptr @palloc(i64 noundef %361)
+  %363 = load ptr, ptr %5, align 8
+  %364 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %363, i32 0, i32 0
+  store ptr %362, ptr %364, align 8
+  %365 = load i32, ptr %17, align 4
+  %366 = sext i32 %365 to i64
+  %367 = mul i64 %366, 2
+  %368 = call ptr @palloc(i64 noundef %367)
+  %369 = load ptr, ptr %5, align 8
+  %370 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %369, i32 0, i32 4
+  store ptr %368, ptr %370, align 8
+  %371 = load ptr, ptr %5, align 8
+  %372 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %371, i32 0, i32 1
+  store i32 0, ptr %372, align 8
+  %373 = load ptr, ptr %5, align 8
+  %374 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %373, i32 0, i32 5
+  store i32 0, ptr %374, align 8
+  %375 = call ptr @palloc0(i64 noundef 32)
+  store ptr %375, ptr %10, align 8
+  %376 = call ptr @palloc0(i64 noundef 32)
+  store ptr %376, ptr %11, align 8
   store i32 0, ptr %13, align 4
-  %374 = load i32, ptr %17, align 4
-  %375 = sext i32 %374 to i64
-  %376 = mul i64 %375, 16
-  %377 = call ptr @palloc(i64 noundef %376)
-  store ptr %377, ptr %16, align 8
+  %377 = load i32, ptr %17, align 4
+  %378 = sext i32 %377 to i64
+  %379 = mul i64 %378, 16
+  %380 = call ptr @palloc(i64 noundef %379)
+  store ptr %380, ptr %16, align 8
   store i16 1, ptr %6, align 2
-  br label %378
+  br label %381
 
-378:                                              ; preds = %483, %355
-  %379 = load i16, ptr %6, align 2
-  %380 = zext i16 %379 to i32
-  %381 = load i16, ptr %7, align 2
-  %382 = zext i16 %381 to i32
-  %383 = icmp sle i32 %380, %382
-  br i1 %383, label %384, label %488
+381:                                              ; preds = %488, %358
+  %382 = load i16, ptr %6, align 2
+  %383 = zext i16 %382 to i32
+  %384 = load i16, ptr %7, align 2
+  %385 = zext i16 %384 to i32
+  %386 = icmp sle i32 %383, %385
+  br i1 %386, label %387, label %493
 
-384:                                              ; preds = %378
-  %385 = load ptr, ptr %4, align 8
-  %386 = getelementptr inbounds %struct.GistEntryVector, ptr %385, i32 0, i32 1
-  %387 = load i16, ptr %6, align 2
-  %388 = zext i16 %387 to i64
-  %389 = getelementptr [0 x %struct.GISTENTRY], ptr %386, i64 0, i64 %388
-  %390 = getelementptr inbounds %struct.GISTENTRY, ptr %389, i32 0, i32 0
-  %391 = load i64, ptr %390, align 8
-  %392 = call ptr @DatumGetBoxP(i64 noundef %391)
-  store ptr %392, ptr %9, align 8
-  %393 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 7
-  %394 = load i32, ptr %393, align 8
-  %395 = icmp eq i32 %394, 0
-  br i1 %395, label %396, label %405
+387:                                              ; preds = %381
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  %388 = load ptr, ptr %4, align 8
+  %389 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %388, i32 0, i32 1
+  %390 = load i16, ptr %6, align 2
+  %391 = zext i16 %390 to i64
+  %392 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %389, i64 0, i64 %391
+  %393 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %392, i32 0, i32 0
+  %394 = load i64, ptr %393, align 8
+  %395 = call ptr @DatumGetBoxP(i64 noundef %394)
+  store ptr %395, ptr %9, align 8
+  %396 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 7
+  %397 = load i32, ptr %396, align 8
+  %398 = icmp eq i32 %397, 0
+  br i1 %398, label %399, label %408
 
-396:                                              ; preds = %384
-  %397 = load ptr, ptr %9, align 8
-  %398 = getelementptr inbounds %struct.BOX, ptr %397, i32 0, i32 1
-  %399 = getelementptr inbounds %struct.Point, ptr %398, i32 0, i32 0
-  %400 = load double, ptr %399, align 8
-  store double %400, ptr %22, align 8
-  %401 = load ptr, ptr %9, align 8
-  %402 = getelementptr inbounds %struct.BOX, ptr %401, i32 0, i32 0
-  %403 = getelementptr inbounds %struct.Point, ptr %402, i32 0, i32 0
-  %404 = load double, ptr %403, align 8
-  store double %404, ptr %23, align 8
-  br label %414
+399:                                              ; preds = %387
+  %400 = load ptr, ptr %9, align 8
+  %401 = getelementptr inbounds nuw %struct.BOX, ptr %400, i32 0, i32 1
+  %402 = getelementptr inbounds nuw %struct.Point, ptr %401, i32 0, i32 0
+  %403 = load double, ptr %402, align 8
+  store double %403, ptr %23, align 8
+  %404 = load ptr, ptr %9, align 8
+  %405 = getelementptr inbounds nuw %struct.BOX, ptr %404, i32 0, i32 0
+  %406 = getelementptr inbounds nuw %struct.Point, ptr %405, i32 0, i32 0
+  %407 = load double, ptr %406, align 8
+  store double %407, ptr %24, align 8
+  br label %417
 
-405:                                              ; preds = %384
-  %406 = load ptr, ptr %9, align 8
-  %407 = getelementptr inbounds %struct.BOX, ptr %406, i32 0, i32 1
-  %408 = getelementptr inbounds %struct.Point, ptr %407, i32 0, i32 1
-  %409 = load double, ptr %408, align 8
-  store double %409, ptr %22, align 8
-  %410 = load ptr, ptr %9, align 8
-  %411 = getelementptr inbounds %struct.BOX, ptr %410, i32 0, i32 0
-  %412 = getelementptr inbounds %struct.Point, ptr %411, i32 0, i32 1
-  %413 = load double, ptr %412, align 8
-  store double %413, ptr %23, align 8
-  br label %414
+408:                                              ; preds = %387
+  %409 = load ptr, ptr %9, align 8
+  %410 = getelementptr inbounds nuw %struct.BOX, ptr %409, i32 0, i32 1
+  %411 = getelementptr inbounds nuw %struct.Point, ptr %410, i32 0, i32 1
+  %412 = load double, ptr %411, align 8
+  store double %412, ptr %23, align 8
+  %413 = load ptr, ptr %9, align 8
+  %414 = getelementptr inbounds nuw %struct.BOX, ptr %413, i32 0, i32 0
+  %415 = getelementptr inbounds nuw %struct.Point, ptr %414, i32 0, i32 1
+  %416 = load double, ptr %415, align 8
+  store double %416, ptr %24, align 8
+  br label %417
 
-414:                                              ; preds = %405, %396
-  %415 = load double, ptr %23, align 8
-  %416 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 3
-  %417 = load double, ptr %416, align 8
-  %418 = call zeroext i1 @float8_le(double noundef %415, double noundef %417)
-  br i1 %418, label %419, label %458
+417:                                              ; preds = %408, %399
+  %418 = load double, ptr %24, align 8
+  %419 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 3
+  %420 = load double, ptr %419, align 8
+  %421 = call zeroext i1 @float8_le(double noundef %418, double noundef %420)
+  br i1 %421, label %422, label %462
 
-419:                                              ; preds = %414
-  %420 = load double, ptr %22, align 8
-  %421 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %8, i32 0, i32 4
-  %422 = load double, ptr %421, align 8
-  %423 = call zeroext i1 @float8_ge(double noundef %420, double noundef %422)
-  br i1 %423, label %424, label %433
+422:                                              ; preds = %417
+  %423 = load double, ptr %23, align 8
+  %424 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %8, i32 0, i32 4
+  %425 = load double, ptr %424, align 8
+  %426 = call zeroext i1 @float8_ge(double noundef %423, double noundef %425)
+  br i1 %426, label %427, label %436
 
-424:                                              ; preds = %419
-  %425 = load i16, ptr %6, align 2
-  %426 = zext i16 %425 to i32
-  %427 = load ptr, ptr %16, align 8
-  %428 = load i32, ptr %13, align 4
-  %429 = add i32 %428, 1
-  store i32 %429, ptr %13, align 4
-  %430 = sext i32 %428 to i64
-  %431 = getelementptr %struct.CommonEntry, ptr %427, i64 %430
-  %432 = getelementptr inbounds %struct.CommonEntry, ptr %431, i32 0, i32 0
-  store i32 %426, ptr %432, align 8
-  br label %457
+427:                                              ; preds = %422
+  %428 = load i16, ptr %6, align 2
+  %429 = zext i16 %428 to i32
+  %430 = load ptr, ptr %16, align 8
+  %431 = load i32, ptr %13, align 4
+  %432 = add i32 %431, 1
+  store i32 %432, ptr %13, align 4
+  %433 = sext i32 %431 to i64
+  %434 = getelementptr inbounds %struct.CommonEntry, ptr %430, i64 %433
+  %435 = getelementptr inbounds nuw %struct.CommonEntry, ptr %434, i32 0, i32 0
+  store i32 %429, ptr %435, align 8
+  br label %461
 
-433:                                              ; preds = %419
-  br label %434
+436:                                              ; preds = %422
+  br label %437
 
-434:                                              ; preds = %433
-  %435 = load ptr, ptr %5, align 8
-  %436 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %435, i32 0, i32 1
-  %437 = load i32, ptr %436, align 8
-  %438 = icmp sgt i32 %437, 0
-  br i1 %438, label %439, label %442
+437:                                              ; preds = %436
+  %438 = load ptr, ptr %5, align 8
+  %439 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %438, i32 0, i32 1
+  %440 = load i32, ptr %439, align 8
+  %441 = icmp sgt i32 %440, 0
+  br i1 %441, label %442, label %445
 
-439:                                              ; preds = %434
-  %440 = load ptr, ptr %10, align 8
-  %441 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %440, ptr noundef %441)
-  br label %445
-
-442:                                              ; preds = %434
+442:                                              ; preds = %437
   %443 = load ptr, ptr %10, align 8
   %444 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %443, ptr align 8 %444, i64 32, i1 false)
-  br label %445
+  call void @adjustBox(ptr noundef %443, ptr noundef %444)
+  br label %448
 
-445:                                              ; preds = %442, %439
-  %446 = load i16, ptr %6, align 2
-  %447 = load ptr, ptr %5, align 8
-  %448 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %447, i32 0, i32 0
-  %449 = load ptr, ptr %448, align 8
+445:                                              ; preds = %437
+  %446 = load ptr, ptr %10, align 8
+  %447 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %446, ptr align 8 %447, i64 32, i1 false)
+  br label %448
+
+448:                                              ; preds = %445, %442
+  %449 = load i16, ptr %6, align 2
   %450 = load ptr, ptr %5, align 8
-  %451 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %450, i32 0, i32 1
-  %452 = load i32, ptr %451, align 8
-  %453 = add i32 %452, 1
-  store i32 %453, ptr %451, align 8
-  %454 = sext i32 %452 to i64
-  %455 = getelementptr i16, ptr %449, i64 %454
-  store i16 %446, ptr %455, align 2
-  br label %456
-
-456:                                              ; preds = %445
-  br label %457
-
-457:                                              ; preds = %456, %424
-  br label %482
-
-458:                                              ; preds = %414
+  %451 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %450, i32 0, i32 0
+  %452 = load ptr, ptr %451, align 8
+  %453 = load ptr, ptr %5, align 8
+  %454 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %453, i32 0, i32 1
+  %455 = load i32, ptr %454, align 8
+  %456 = add i32 %455, 1
+  store i32 %456, ptr %454, align 8
+  %457 = sext i32 %455 to i64
+  %458 = getelementptr inbounds i16, ptr %452, i64 %457
+  store i16 %449, ptr %458, align 2
   br label %459
 
-459:                                              ; preds = %458
-  %460 = load ptr, ptr %5, align 8
-  %461 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %460, i32 0, i32 5
-  %462 = load i32, ptr %461, align 8
-  %463 = icmp sgt i32 %462, 0
-  br i1 %463, label %464, label %467
+459:                                              ; preds = %448
+  br label %460
 
-464:                                              ; preds = %459
-  %465 = load ptr, ptr %11, align 8
-  %466 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %465, ptr noundef %466)
-  br label %470
+460:                                              ; preds = %459
+  br label %461
 
-467:                                              ; preds = %459
-  %468 = load ptr, ptr %11, align 8
-  %469 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %468, ptr align 8 %469, i64 32, i1 false)
-  br label %470
+461:                                              ; preds = %460, %427
+  br label %487
 
-470:                                              ; preds = %467, %464
-  %471 = load i16, ptr %6, align 2
-  %472 = load ptr, ptr %5, align 8
-  %473 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %472, i32 0, i32 4
-  %474 = load ptr, ptr %473, align 8
-  %475 = load ptr, ptr %5, align 8
-  %476 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %475, i32 0, i32 5
-  %477 = load i32, ptr %476, align 8
-  %478 = add i32 %477, 1
-  store i32 %478, ptr %476, align 8
-  %479 = sext i32 %477 to i64
-  %480 = getelementptr i16, ptr %474, i64 %479
-  store i16 %471, ptr %480, align 2
-  br label %481
+462:                                              ; preds = %417
+  br label %463
 
-481:                                              ; preds = %470
-  br label %482
+463:                                              ; preds = %462
+  %464 = load ptr, ptr %5, align 8
+  %465 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %464, i32 0, i32 5
+  %466 = load i32, ptr %465, align 8
+  %467 = icmp sgt i32 %466, 0
+  br i1 %467, label %468, label %471
 
-482:                                              ; preds = %481, %457
-  br label %483
+468:                                              ; preds = %463
+  %469 = load ptr, ptr %11, align 8
+  %470 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %469, ptr noundef %470)
+  br label %474
 
-483:                                              ; preds = %482
-  %484 = load i16, ptr %6, align 2
-  %485 = zext i16 %484 to i32
-  %486 = add i32 1, %485
-  %487 = trunc i32 %486 to i16
-  store i16 %487, ptr %6, align 2
-  br label %378, !llvm.loop !14
+471:                                              ; preds = %463
+  %472 = load ptr, ptr %11, align 8
+  %473 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %472, ptr align 8 %473, i64 32, i1 false)
+  br label %474
 
-488:                                              ; preds = %378
-  %489 = load i32, ptr %13, align 4
-  %490 = icmp sgt i32 %489, 0
-  br i1 %490, label %491, label %711
+474:                                              ; preds = %471, %468
+  %475 = load i16, ptr %6, align 2
+  %476 = load ptr, ptr %5, align 8
+  %477 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %476, i32 0, i32 4
+  %478 = load ptr, ptr %477, align 8
+  %479 = load ptr, ptr %5, align 8
+  %480 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %479, i32 0, i32 5
+  %481 = load i32, ptr %480, align 8
+  %482 = add i32 %481, 1
+  store i32 %482, ptr %480, align 8
+  %483 = sext i32 %481 to i64
+  %484 = getelementptr inbounds i16, ptr %478, i64 %483
+  store i16 %475, ptr %484, align 2
+  br label %485
 
-491:                                              ; preds = %488
-  %492 = load i32, ptr %17, align 4
-  %493 = sitofp i32 %492 to double
-  %494 = fmul double 3.000000e-01, %493
-  %495 = call double @llvm.ceil.f64(double %494)
-  %496 = fptosi double %495 to i32
-  store i32 %496, ptr %24, align 4
+485:                                              ; preds = %474
+  br label %486
+
+486:                                              ; preds = %485
+  br label %487
+
+487:                                              ; preds = %486, %461
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  br label %488
+
+488:                                              ; preds = %487
+  %489 = load i16, ptr %6, align 2
+  %490 = zext i16 %489 to i32
+  %491 = add i32 1, %490
+  %492 = trunc i32 %491 to i16
+  store i16 %492, ptr %6, align 2
+  br label %381, !llvm.loop !15
+
+493:                                              ; preds = %381
+  %494 = load i32, ptr %13, align 4
+  %495 = icmp sgt i32 %494, 0
+  br i1 %495, label %496, label %720
+
+496:                                              ; preds = %493
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #10
+  %497 = load i32, ptr %17, align 4
+  %498 = sitofp i32 %497 to double
+  %499 = fmul double 3.000000e-01, %498
+  %500 = call double @llvm.ceil.f64(double %499)
+  %501 = fptosi double %500 to i32
+  store i32 %501, ptr %25, align 4
   store i16 0, ptr %6, align 2
-  br label %497
+  br label %502
 
-497:                                              ; preds = %529, %491
-  %498 = load i16, ptr %6, align 2
-  %499 = zext i16 %498 to i32
-  %500 = load i32, ptr %13, align 4
-  %501 = icmp slt i32 %499, %500
-  br i1 %501, label %502, label %532
+502:                                              ; preds = %534, %496
+  %503 = load i16, ptr %6, align 2
+  %504 = zext i16 %503 to i32
+  %505 = load i32, ptr %13, align 4
+  %506 = icmp slt i32 %504, %505
+  br i1 %506, label %507, label %537
 
-502:                                              ; preds = %497
-  %503 = load ptr, ptr %4, align 8
-  %504 = getelementptr inbounds %struct.GistEntryVector, ptr %503, i32 0, i32 1
-  %505 = load ptr, ptr %16, align 8
-  %506 = load i16, ptr %6, align 2
-  %507 = zext i16 %506 to i64
-  %508 = getelementptr %struct.CommonEntry, ptr %505, i64 %507
-  %509 = getelementptr inbounds %struct.CommonEntry, ptr %508, i32 0, i32 0
-  %510 = load i32, ptr %509, align 8
-  %511 = sext i32 %510 to i64
-  %512 = getelementptr [0 x %struct.GISTENTRY], ptr %504, i64 0, i64 %511
-  %513 = getelementptr inbounds %struct.GISTENTRY, ptr %512, i32 0, i32 0
-  %514 = load i64, ptr %513, align 8
-  %515 = call ptr @DatumGetBoxP(i64 noundef %514)
-  store ptr %515, ptr %9, align 8
-  %516 = load ptr, ptr %10, align 8
-  %517 = load ptr, ptr %9, align 8
-  %518 = call double @box_penalty(ptr noundef %516, ptr noundef %517)
-  %519 = load ptr, ptr %11, align 8
-  %520 = load ptr, ptr %9, align 8
-  %521 = call double @box_penalty(ptr noundef %519, ptr noundef %520)
-  %522 = call double @float8_mi(double noundef %518, double noundef %521)
-  %523 = call double @llvm.fabs.f64(double %522)
-  %524 = load ptr, ptr %16, align 8
-  %525 = load i16, ptr %6, align 2
-  %526 = zext i16 %525 to i64
-  %527 = getelementptr %struct.CommonEntry, ptr %524, i64 %526
-  %528 = getelementptr inbounds %struct.CommonEntry, ptr %527, i32 0, i32 1
-  store double %523, ptr %528, align 8
-  br label %529
-
-529:                                              ; preds = %502
+507:                                              ; preds = %502
+  %508 = load ptr, ptr %4, align 8
+  %509 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %508, i32 0, i32 1
+  %510 = load ptr, ptr %16, align 8
+  %511 = load i16, ptr %6, align 2
+  %512 = zext i16 %511 to i64
+  %513 = getelementptr inbounds nuw %struct.CommonEntry, ptr %510, i64 %512
+  %514 = getelementptr inbounds nuw %struct.CommonEntry, ptr %513, i32 0, i32 0
+  %515 = load i32, ptr %514, align 8
+  %516 = sext i32 %515 to i64
+  %517 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %509, i64 0, i64 %516
+  %518 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %517, i32 0, i32 0
+  %519 = load i64, ptr %518, align 8
+  %520 = call ptr @DatumGetBoxP(i64 noundef %519)
+  store ptr %520, ptr %9, align 8
+  %521 = load ptr, ptr %10, align 8
+  %522 = load ptr, ptr %9, align 8
+  %523 = call double @box_penalty(ptr noundef %521, ptr noundef %522)
+  %524 = load ptr, ptr %11, align 8
+  %525 = load ptr, ptr %9, align 8
+  %526 = call double @box_penalty(ptr noundef %524, ptr noundef %525)
+  %527 = call double @float8_mi(double noundef %523, double noundef %526)
+  %528 = call double @llvm.fabs.f64(double %527)
+  %529 = load ptr, ptr %16, align 8
   %530 = load i16, ptr %6, align 2
-  %531 = add i16 %530, 1
-  store i16 %531, ptr %6, align 2
-  br label %497, !llvm.loop !15
+  %531 = zext i16 %530 to i64
+  %532 = getelementptr inbounds nuw %struct.CommonEntry, ptr %529, i64 %531
+  %533 = getelementptr inbounds nuw %struct.CommonEntry, ptr %532, i32 0, i32 1
+  store double %528, ptr %533, align 8
+  br label %534
 
-532:                                              ; preds = %497
-  %533 = load ptr, ptr %16, align 8
-  %534 = load i32, ptr %13, align 4
-  %535 = sext i32 %534 to i64
-  call void @pg_qsort(ptr noundef %533, i64 noundef %535, i64 noundef 16, ptr noundef @common_entry_cmp)
-  store i16 0, ptr %6, align 2
-  br label %536
+534:                                              ; preds = %507
+  %535 = load i16, ptr %6, align 2
+  %536 = add i16 %535, 1
+  store i16 %536, ptr %6, align 2
+  br label %502, !llvm.loop !16
 
-536:                                              ; preds = %707, %532
-  %537 = load i16, ptr %6, align 2
-  %538 = zext i16 %537 to i32
+537:                                              ; preds = %502
+  %538 = load ptr, ptr %16, align 8
   %539 = load i32, ptr %13, align 4
-  %540 = icmp slt i32 %538, %539
-  br i1 %540, label %541, label %710
+  %540 = sext i32 %539 to i64
+  call void @pg_qsort(ptr noundef %538, i64 noundef %540, i64 noundef 16, ptr noundef @common_entry_cmp)
+  store i16 0, ptr %6, align 2
+  br label %541
 
-541:                                              ; preds = %536
-  %542 = load ptr, ptr %4, align 8
-  %543 = getelementptr inbounds %struct.GistEntryVector, ptr %542, i32 0, i32 1
-  %544 = load ptr, ptr %16, align 8
-  %545 = load i16, ptr %6, align 2
-  %546 = zext i16 %545 to i64
-  %547 = getelementptr %struct.CommonEntry, ptr %544, i64 %546
-  %548 = getelementptr inbounds %struct.CommonEntry, ptr %547, i32 0, i32 0
-  %549 = load i32, ptr %548, align 8
-  %550 = sext i32 %549 to i64
-  %551 = getelementptr [0 x %struct.GISTENTRY], ptr %543, i64 0, i64 %550
-  %552 = getelementptr inbounds %struct.GISTENTRY, ptr %551, i32 0, i32 0
-  %553 = load i64, ptr %552, align 8
-  %554 = call ptr @DatumGetBoxP(i64 noundef %553)
-  store ptr %554, ptr %9, align 8
-  %555 = load ptr, ptr %5, align 8
-  %556 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %555, i32 0, i32 1
-  %557 = load i32, ptr %556, align 8
-  %558 = load i32, ptr %13, align 4
-  %559 = load i16, ptr %6, align 2
-  %560 = zext i16 %559 to i32
-  %561 = sub i32 %558, %560
-  %562 = add i32 %557, %561
-  %563 = load i32, ptr %24, align 4
-  %564 = icmp sle i32 %562, %563
-  br i1 %564, label %565, label %595
+541:                                              ; preds = %716, %537
+  %542 = load i16, ptr %6, align 2
+  %543 = zext i16 %542 to i32
+  %544 = load i32, ptr %13, align 4
+  %545 = icmp slt i32 %543, %544
+  br i1 %545, label %546, label %719
 
-565:                                              ; preds = %541
-  br label %566
+546:                                              ; preds = %541
+  %547 = load ptr, ptr %4, align 8
+  %548 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %547, i32 0, i32 1
+  %549 = load ptr, ptr %16, align 8
+  %550 = load i16, ptr %6, align 2
+  %551 = zext i16 %550 to i64
+  %552 = getelementptr inbounds nuw %struct.CommonEntry, ptr %549, i64 %551
+  %553 = getelementptr inbounds nuw %struct.CommonEntry, ptr %552, i32 0, i32 0
+  %554 = load i32, ptr %553, align 8
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %548, i64 0, i64 %555
+  %557 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %556, i32 0, i32 0
+  %558 = load i64, ptr %557, align 8
+  %559 = call ptr @DatumGetBoxP(i64 noundef %558)
+  store ptr %559, ptr %9, align 8
+  %560 = load ptr, ptr %5, align 8
+  %561 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %560, i32 0, i32 1
+  %562 = load i32, ptr %561, align 8
+  %563 = load i32, ptr %13, align 4
+  %564 = load i16, ptr %6, align 2
+  %565 = zext i16 %564 to i32
+  %566 = sub i32 %563, %565
+  %567 = add i32 %562, %566
+  %568 = load i32, ptr %25, align 4
+  %569 = icmp sle i32 %567, %568
+  br i1 %569, label %570, label %601
 
-566:                                              ; preds = %565
-  %567 = load ptr, ptr %5, align 8
-  %568 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %567, i32 0, i32 1
-  %569 = load i32, ptr %568, align 8
-  %570 = icmp sgt i32 %569, 0
-  br i1 %570, label %571, label %574
+570:                                              ; preds = %546
+  br label %571
 
-571:                                              ; preds = %566
-  %572 = load ptr, ptr %10, align 8
-  %573 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %572, ptr noundef %573)
-  br label %577
+571:                                              ; preds = %570
+  %572 = load ptr, ptr %5, align 8
+  %573 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %572, i32 0, i32 1
+  %574 = load i32, ptr %573, align 8
+  %575 = icmp sgt i32 %574, 0
+  br i1 %575, label %576, label %579
 
-574:                                              ; preds = %566
-  %575 = load ptr, ptr %10, align 8
-  %576 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %575, ptr align 8 %576, i64 32, i1 false)
-  br label %577
+576:                                              ; preds = %571
+  %577 = load ptr, ptr %10, align 8
+  %578 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %577, ptr noundef %578)
+  br label %582
 
-577:                                              ; preds = %574, %571
-  %578 = load ptr, ptr %16, align 8
-  %579 = load i16, ptr %6, align 2
-  %580 = zext i16 %579 to i64
-  %581 = getelementptr %struct.CommonEntry, ptr %578, i64 %580
-  %582 = getelementptr inbounds %struct.CommonEntry, ptr %581, i32 0, i32 0
-  %583 = load i32, ptr %582, align 8
-  %584 = trunc i32 %583 to i16
-  %585 = load ptr, ptr %5, align 8
-  %586 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %585, i32 0, i32 0
-  %587 = load ptr, ptr %586, align 8
-  %588 = load ptr, ptr %5, align 8
-  %589 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %588, i32 0, i32 1
-  %590 = load i32, ptr %589, align 8
-  %591 = add i32 %590, 1
-  store i32 %591, ptr %589, align 8
-  %592 = sext i32 %590 to i64
-  %593 = getelementptr i16, ptr %587, i64 %592
-  store i16 %584, ptr %593, align 2
-  br label %594
+579:                                              ; preds = %571
+  %580 = load ptr, ptr %10, align 8
+  %581 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %580, ptr align 8 %581, i64 32, i1 false)
+  br label %582
 
-594:                                              ; preds = %577
-  br label %706
+582:                                              ; preds = %579, %576
+  %583 = load ptr, ptr %16, align 8
+  %584 = load i16, ptr %6, align 2
+  %585 = zext i16 %584 to i64
+  %586 = getelementptr inbounds nuw %struct.CommonEntry, ptr %583, i64 %585
+  %587 = getelementptr inbounds nuw %struct.CommonEntry, ptr %586, i32 0, i32 0
+  %588 = load i32, ptr %587, align 8
+  %589 = trunc i32 %588 to i16
+  %590 = load ptr, ptr %5, align 8
+  %591 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %590, i32 0, i32 0
+  %592 = load ptr, ptr %591, align 8
+  %593 = load ptr, ptr %5, align 8
+  %594 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %593, i32 0, i32 1
+  %595 = load i32, ptr %594, align 8
+  %596 = add i32 %595, 1
+  store i32 %596, ptr %594, align 8
+  %597 = sext i32 %595 to i64
+  %598 = getelementptr inbounds i16, ptr %592, i64 %597
+  store i16 %589, ptr %598, align 2
+  br label %599
 
-595:                                              ; preds = %541
-  %596 = load ptr, ptr %5, align 8
-  %597 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %596, i32 0, i32 5
-  %598 = load i32, ptr %597, align 8
-  %599 = load i32, ptr %13, align 4
-  %600 = load i16, ptr %6, align 2
-  %601 = zext i16 %600 to i32
-  %602 = sub i32 %599, %601
-  %603 = add i32 %598, %602
-  %604 = load i32, ptr %24, align 4
-  %605 = icmp sle i32 %603, %604
-  br i1 %605, label %606, label %636
+599:                                              ; preds = %582
+  br label %600
 
-606:                                              ; preds = %595
-  br label %607
+600:                                              ; preds = %599
+  br label %715
 
-607:                                              ; preds = %606
-  %608 = load ptr, ptr %5, align 8
-  %609 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %608, i32 0, i32 5
-  %610 = load i32, ptr %609, align 8
-  %611 = icmp sgt i32 %610, 0
-  br i1 %611, label %612, label %615
+601:                                              ; preds = %546
+  %602 = load ptr, ptr %5, align 8
+  %603 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %602, i32 0, i32 5
+  %604 = load i32, ptr %603, align 8
+  %605 = load i32, ptr %13, align 4
+  %606 = load i16, ptr %6, align 2
+  %607 = zext i16 %606 to i32
+  %608 = sub i32 %605, %607
+  %609 = add i32 %604, %608
+  %610 = load i32, ptr %25, align 4
+  %611 = icmp sle i32 %609, %610
+  br i1 %611, label %612, label %643
 
-612:                                              ; preds = %607
-  %613 = load ptr, ptr %11, align 8
-  %614 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %613, ptr noundef %614)
-  br label %618
+612:                                              ; preds = %601
+  br label %613
 
-615:                                              ; preds = %607
-  %616 = load ptr, ptr %11, align 8
-  %617 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %616, ptr align 8 %617, i64 32, i1 false)
-  br label %618
+613:                                              ; preds = %612
+  %614 = load ptr, ptr %5, align 8
+  %615 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %614, i32 0, i32 5
+  %616 = load i32, ptr %615, align 8
+  %617 = icmp sgt i32 %616, 0
+  br i1 %617, label %618, label %621
 
-618:                                              ; preds = %615, %612
-  %619 = load ptr, ptr %16, align 8
-  %620 = load i16, ptr %6, align 2
-  %621 = zext i16 %620 to i64
-  %622 = getelementptr %struct.CommonEntry, ptr %619, i64 %621
-  %623 = getelementptr inbounds %struct.CommonEntry, ptr %622, i32 0, i32 0
-  %624 = load i32, ptr %623, align 8
-  %625 = trunc i32 %624 to i16
-  %626 = load ptr, ptr %5, align 8
-  %627 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %626, i32 0, i32 4
-  %628 = load ptr, ptr %627, align 8
-  %629 = load ptr, ptr %5, align 8
-  %630 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %629, i32 0, i32 5
-  %631 = load i32, ptr %630, align 8
-  %632 = add i32 %631, 1
-  store i32 %632, ptr %630, align 8
-  %633 = sext i32 %631 to i64
-  %634 = getelementptr i16, ptr %628, i64 %633
-  store i16 %625, ptr %634, align 2
-  br label %635
+618:                                              ; preds = %613
+  %619 = load ptr, ptr %11, align 8
+  %620 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %619, ptr noundef %620)
+  br label %624
 
-635:                                              ; preds = %618
-  br label %705
+621:                                              ; preds = %613
+  %622 = load ptr, ptr %11, align 8
+  %623 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %622, ptr align 8 %623, i64 32, i1 false)
+  br label %624
 
-636:                                              ; preds = %595
-  %637 = load ptr, ptr %10, align 8
-  %638 = load ptr, ptr %9, align 8
-  %639 = call double @box_penalty(ptr noundef %637, ptr noundef %638)
-  %640 = load ptr, ptr %11, align 8
-  %641 = load ptr, ptr %9, align 8
-  %642 = call double @box_penalty(ptr noundef %640, ptr noundef %641)
-  %643 = fcmp olt double %639, %642
-  br i1 %643, label %644, label %674
+624:                                              ; preds = %621, %618
+  %625 = load ptr, ptr %16, align 8
+  %626 = load i16, ptr %6, align 2
+  %627 = zext i16 %626 to i64
+  %628 = getelementptr inbounds nuw %struct.CommonEntry, ptr %625, i64 %627
+  %629 = getelementptr inbounds nuw %struct.CommonEntry, ptr %628, i32 0, i32 0
+  %630 = load i32, ptr %629, align 8
+  %631 = trunc i32 %630 to i16
+  %632 = load ptr, ptr %5, align 8
+  %633 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %632, i32 0, i32 4
+  %634 = load ptr, ptr %633, align 8
+  %635 = load ptr, ptr %5, align 8
+  %636 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %635, i32 0, i32 5
+  %637 = load i32, ptr %636, align 8
+  %638 = add i32 %637, 1
+  store i32 %638, ptr %636, align 8
+  %639 = sext i32 %637 to i64
+  %640 = getelementptr inbounds i16, ptr %634, i64 %639
+  store i16 %631, ptr %640, align 2
+  br label %641
 
-644:                                              ; preds = %636
-  br label %645
+641:                                              ; preds = %624
+  br label %642
 
-645:                                              ; preds = %644
-  %646 = load ptr, ptr %5, align 8
-  %647 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %646, i32 0, i32 1
-  %648 = load i32, ptr %647, align 8
-  %649 = icmp sgt i32 %648, 0
-  br i1 %649, label %650, label %653
+642:                                              ; preds = %641
+  br label %714
 
-650:                                              ; preds = %645
-  %651 = load ptr, ptr %10, align 8
-  %652 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %651, ptr noundef %652)
-  br label %656
+643:                                              ; preds = %601
+  %644 = load ptr, ptr %10, align 8
+  %645 = load ptr, ptr %9, align 8
+  %646 = call double @box_penalty(ptr noundef %644, ptr noundef %645)
+  %647 = load ptr, ptr %11, align 8
+  %648 = load ptr, ptr %9, align 8
+  %649 = call double @box_penalty(ptr noundef %647, ptr noundef %648)
+  %650 = fcmp olt double %646, %649
+  br i1 %650, label %651, label %682
 
-653:                                              ; preds = %645
-  %654 = load ptr, ptr %10, align 8
-  %655 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %654, ptr align 8 %655, i64 32, i1 false)
-  br label %656
+651:                                              ; preds = %643
+  br label %652
 
-656:                                              ; preds = %653, %650
-  %657 = load ptr, ptr %16, align 8
-  %658 = load i16, ptr %6, align 2
-  %659 = zext i16 %658 to i64
-  %660 = getelementptr %struct.CommonEntry, ptr %657, i64 %659
-  %661 = getelementptr inbounds %struct.CommonEntry, ptr %660, i32 0, i32 0
-  %662 = load i32, ptr %661, align 8
-  %663 = trunc i32 %662 to i16
-  %664 = load ptr, ptr %5, align 8
-  %665 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %664, i32 0, i32 0
-  %666 = load ptr, ptr %665, align 8
-  %667 = load ptr, ptr %5, align 8
-  %668 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %667, i32 0, i32 1
+652:                                              ; preds = %651
+  %653 = load ptr, ptr %5, align 8
+  %654 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %653, i32 0, i32 1
+  %655 = load i32, ptr %654, align 8
+  %656 = icmp sgt i32 %655, 0
+  br i1 %656, label %657, label %660
+
+657:                                              ; preds = %652
+  %658 = load ptr, ptr %10, align 8
+  %659 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %658, ptr noundef %659)
+  br label %663
+
+660:                                              ; preds = %652
+  %661 = load ptr, ptr %10, align 8
+  %662 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %661, ptr align 8 %662, i64 32, i1 false)
+  br label %663
+
+663:                                              ; preds = %660, %657
+  %664 = load ptr, ptr %16, align 8
+  %665 = load i16, ptr %6, align 2
+  %666 = zext i16 %665 to i64
+  %667 = getelementptr inbounds nuw %struct.CommonEntry, ptr %664, i64 %666
+  %668 = getelementptr inbounds nuw %struct.CommonEntry, ptr %667, i32 0, i32 0
   %669 = load i32, ptr %668, align 8
-  %670 = add i32 %669, 1
-  store i32 %670, ptr %668, align 8
-  %671 = sext i32 %669 to i64
-  %672 = getelementptr i16, ptr %666, i64 %671
-  store i16 %663, ptr %672, align 2
-  br label %673
+  %670 = trunc i32 %669 to i16
+  %671 = load ptr, ptr %5, align 8
+  %672 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %671, i32 0, i32 0
+  %673 = load ptr, ptr %672, align 8
+  %674 = load ptr, ptr %5, align 8
+  %675 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %674, i32 0, i32 1
+  %676 = load i32, ptr %675, align 8
+  %677 = add i32 %676, 1
+  store i32 %677, ptr %675, align 8
+  %678 = sext i32 %676 to i64
+  %679 = getelementptr inbounds i16, ptr %673, i64 %678
+  store i16 %670, ptr %679, align 2
+  br label %680
 
-673:                                              ; preds = %656
-  br label %704
+680:                                              ; preds = %663
+  br label %681
 
-674:                                              ; preds = %636
-  br label %675
+681:                                              ; preds = %680
+  br label %713
 
-675:                                              ; preds = %674
-  %676 = load ptr, ptr %5, align 8
-  %677 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %676, i32 0, i32 5
-  %678 = load i32, ptr %677, align 8
-  %679 = icmp sgt i32 %678, 0
-  br i1 %679, label %680, label %683
+682:                                              ; preds = %643
+  br label %683
 
-680:                                              ; preds = %675
-  %681 = load ptr, ptr %11, align 8
-  %682 = load ptr, ptr %9, align 8
-  call void @adjustBox(ptr noundef %681, ptr noundef %682)
-  br label %686
+683:                                              ; preds = %682
+  %684 = load ptr, ptr %5, align 8
+  %685 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %684, i32 0, i32 5
+  %686 = load i32, ptr %685, align 8
+  %687 = icmp sgt i32 %686, 0
+  br i1 %687, label %688, label %691
 
-683:                                              ; preds = %675
-  %684 = load ptr, ptr %11, align 8
-  %685 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %684, ptr align 8 %685, i64 32, i1 false)
-  br label %686
+688:                                              ; preds = %683
+  %689 = load ptr, ptr %11, align 8
+  %690 = load ptr, ptr %9, align 8
+  call void @adjustBox(ptr noundef %689, ptr noundef %690)
+  br label %694
 
-686:                                              ; preds = %683, %680
-  %687 = load ptr, ptr %16, align 8
-  %688 = load i16, ptr %6, align 2
-  %689 = zext i16 %688 to i64
-  %690 = getelementptr %struct.CommonEntry, ptr %687, i64 %689
-  %691 = getelementptr inbounds %struct.CommonEntry, ptr %690, i32 0, i32 0
-  %692 = load i32, ptr %691, align 8
-  %693 = trunc i32 %692 to i16
-  %694 = load ptr, ptr %5, align 8
-  %695 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %694, i32 0, i32 4
-  %696 = load ptr, ptr %695, align 8
-  %697 = load ptr, ptr %5, align 8
-  %698 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %697, i32 0, i32 5
-  %699 = load i32, ptr %698, align 8
-  %700 = add i32 %699, 1
-  store i32 %700, ptr %698, align 8
-  %701 = sext i32 %699 to i64
-  %702 = getelementptr i16, ptr %696, i64 %701
-  store i16 %693, ptr %702, align 2
-  br label %703
+691:                                              ; preds = %683
+  %692 = load ptr, ptr %11, align 8
+  %693 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %692, ptr align 8 %693, i64 32, i1 false)
+  br label %694
 
-703:                                              ; preds = %686
-  br label %704
-
-704:                                              ; preds = %703, %673
-  br label %705
-
-705:                                              ; preds = %704, %635
-  br label %706
-
-706:                                              ; preds = %705, %594
-  br label %707
-
-707:                                              ; preds = %706
-  %708 = load i16, ptr %6, align 2
-  %709 = add i16 %708, 1
-  store i16 %709, ptr %6, align 2
-  br label %536, !llvm.loop !16
-
-710:                                              ; preds = %536
+694:                                              ; preds = %691, %688
+  %695 = load ptr, ptr %16, align 8
+  %696 = load i16, ptr %6, align 2
+  %697 = zext i16 %696 to i64
+  %698 = getelementptr inbounds nuw %struct.CommonEntry, ptr %695, i64 %697
+  %699 = getelementptr inbounds nuw %struct.CommonEntry, ptr %698, i32 0, i32 0
+  %700 = load i32, ptr %699, align 8
+  %701 = trunc i32 %700 to i16
+  %702 = load ptr, ptr %5, align 8
+  %703 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %702, i32 0, i32 4
+  %704 = load ptr, ptr %703, align 8
+  %705 = load ptr, ptr %5, align 8
+  %706 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %705, i32 0, i32 5
+  %707 = load i32, ptr %706, align 8
+  %708 = add i32 %707, 1
+  store i32 %708, ptr %706, align 8
+  %709 = sext i32 %707 to i64
+  %710 = getelementptr inbounds i16, ptr %704, i64 %709
+  store i16 %701, ptr %710, align 2
   br label %711
 
-711:                                              ; preds = %710, %488
-  %712 = load ptr, ptr %10, align 8
-  %713 = call i64 @PointerGetDatum(ptr noundef %712)
-  %714 = load ptr, ptr %5, align 8
-  %715 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %714, i32 0, i32 2
-  store i64 %713, ptr %715, align 8
-  %716 = load ptr, ptr %11, align 8
-  %717 = call i64 @PointerGetDatum(ptr noundef %716)
-  %718 = load ptr, ptr %5, align 8
-  %719 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %718, i32 0, i32 6
-  store i64 %717, ptr %719, align 8
-  %720 = load ptr, ptr %5, align 8
-  %721 = call i64 @PointerGetDatum(ptr noundef %720)
-  store i64 %721, ptr %2, align 8
-  br label %722
+711:                                              ; preds = %694
+  br label %712
 
-722:                                              ; preds = %711, %350
-  %723 = load i64, ptr %2, align 8
-  ret i64 %723
+712:                                              ; preds = %711
+  br label %713
+
+713:                                              ; preds = %712, %681
+  br label %714
+
+714:                                              ; preds = %713, %642
+  br label %715
+
+715:                                              ; preds = %714, %600
+  br label %716
+
+716:                                              ; preds = %715
+  %717 = load i16, ptr %6, align 2
+  %718 = add i16 %717, 1
+  store i16 %718, ptr %6, align 2
+  br label %541, !llvm.loop !17
+
+719:                                              ; preds = %541
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #10
+  br label %720
+
+720:                                              ; preds = %719, %493
+  %721 = load ptr, ptr %10, align 8
+  %722 = call i64 @PointerGetDatum(ptr noundef %721)
+  %723 = load ptr, ptr %5, align 8
+  %724 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %723, i32 0, i32 2
+  store i64 %722, ptr %724, align 8
+  %725 = load ptr, ptr %11, align 8
+  %726 = call i64 @PointerGetDatum(ptr noundef %725)
+  %727 = load ptr, ptr %5, align 8
+  %728 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %727, i32 0, i32 6
+  store i64 %726, ptr %728, align 8
+  %729 = load ptr, ptr %5, align 8
+  %730 = call i64 @PointerGetDatum(ptr noundef %729)
+  store i64 %730, ptr %2, align 8
+  store i32 1, ptr %22, align 4
+  br label %731
+
+731:                                              ; preds = %720, %353
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 88, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %732 = load i64, ptr %2, align 8
+  ret i64 %732
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1) #0 {
@@ -1897,17 +2020,21 @@ define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.SplitInterval, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.SplitInterval, ptr %7, i32 0, i32 0
   %9 = load double, ptr %8, align 8
   store double %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.SplitInterval, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.SplitInterval, ptr %10, i32 0, i32 0
   %12 = load double, ptr %11, align 8
   store double %12, ptr %6, align 8
   %13 = load double, ptr %5, align 8
   %14 = load double, ptr %6, align 8
   %15 = call i32 @float8_cmp_internal(double noundef %13, double noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %15
 }
 
@@ -1919,22 +2046,26 @@ define internal i32 @interval_cmp_upper(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.SplitInterval, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.SplitInterval, ptr %7, i32 0, i32 1
   %9 = load double, ptr %8, align 8
   store double %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.SplitInterval, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.SplitInterval, ptr %10, i32 0, i32 1
   %12 = load double, ptr %11, align 8
   store double %12, ptr %6, align 8
   %13 = load double, ptr %5, align 8
   %14 = load double, ptr %6, align 8
   %15 = call i32 @float8_cmp_internal(double noundef %13, double noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @float8_eq(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @float8_eq(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -1971,8 +2102,8 @@ define internal zeroext i1 @float8_eq(double noundef %0, double noundef %1) #0 {
   ret i1 %23
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @float8_lt(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @float8_lt(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -2001,8 +2132,8 @@ define internal zeroext i1 @float8_lt(double noundef %0, double noundef %1) #0 {
   ret i1 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @float8_le(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @float8_le(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -2031,8 +2162,8 @@ define internal zeroext i1 @float8_le(double noundef %0, double noundef %1) #0 {
   ret i1 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) #2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca double, align 8
@@ -2051,9 +2182,14 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   store i32 %3, ptr %10, align 4
   store double %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
   %19 = load i32, ptr %10, align 4
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %20, i32 0, i32 0
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   %24 = sdiv i32 %23, 2
@@ -2068,7 +2204,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 28:                                               ; preds = %6
   %29 = load i32, ptr %12, align 4
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %30, i32 0, i32 0
   %32 = load i32, ptr %31, align 8
   %33 = sdiv i32 %32, 2
   %34 = icmp sle i32 %29, %33
@@ -2081,7 +2217,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 
 37:                                               ; preds = %28
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %38, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %38, i32 0, i32 0
   %40 = load i32, ptr %39, align 8
   %41 = sdiv i32 %40, 2
   store i32 %41, ptr %13, align 4
@@ -2092,7 +2228,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 
 43:                                               ; preds = %42, %26
   %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %44, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %44, i32 0, i32 0
   %46 = load i32, ptr %45, align 8
   %47 = load i32, ptr %13, align 4
   %48 = sub i32 %46, %47
@@ -2114,7 +2250,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   %57 = phi i32 [ %53, %52 ], [ %55, %54 ]
   %58 = sitofp i32 %57 to float
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %59, i32 0, i32 0
+  %60 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %59, i32 0, i32 0
   %61 = load i32, ptr %60, align 8
   %62 = sitofp i32 %61 to float
   %63 = call float @float4_div(float noundef %58, float noundef %62)
@@ -2125,6 +2261,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   br i1 %66, label %67, label %182
 
 67:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #10
   store i8 0, ptr %18, align 1
   %68 = load i32, ptr %8, align 4
   %69 = icmp eq i32 %68, 0
@@ -2132,14 +2269,14 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds %struct.BOX, ptr %72, i32 0, i32 0
-  %74 = getelementptr inbounds %struct.Point, ptr %73, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %71, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.BOX, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds nuw %struct.Point, ptr %73, i32 0, i32 0
   %75 = load double, ptr %74, align 8
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %76, i32 0, i32 1
-  %78 = getelementptr inbounds %struct.BOX, ptr %77, i32 0, i32 1
-  %79 = getelementptr inbounds %struct.Point, ptr %78, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %76, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.BOX, ptr %77, i32 0, i32 1
+  %79 = getelementptr inbounds nuw %struct.Point, ptr %78, i32 0, i32 0
   %80 = load double, ptr %79, align 8
   %81 = call double @float8_mi(double noundef %75, double noundef %80)
   store double %81, ptr %17, align 8
@@ -2147,14 +2284,14 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 
 82:                                               ; preds = %67
   %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %83, i32 0, i32 1
-  %85 = getelementptr inbounds %struct.BOX, ptr %84, i32 0, i32 0
-  %86 = getelementptr inbounds %struct.Point, ptr %85, i32 0, i32 1
+  %84 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %83, i32 0, i32 1
+  %85 = getelementptr inbounds nuw %struct.BOX, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.Point, ptr %85, i32 0, i32 1
   %87 = load double, ptr %86, align 8
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %88, i32 0, i32 1
-  %90 = getelementptr inbounds %struct.BOX, ptr %89, i32 0, i32 1
-  %91 = getelementptr inbounds %struct.Point, ptr %90, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %88, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.BOX, ptr %89, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct.Point, ptr %90, i32 0, i32 1
   %92 = load double, ptr %91, align 8
   %93 = call double @float8_mi(double noundef %87, double noundef %92)
   store double %93, ptr %17, align 8
@@ -2169,8 +2306,8 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   %100 = fptrunc double %99 to float
   store float %100, ptr %16, align 4
   %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %101, i32 0, i32 2
-  %103 = load i8, ptr %102, align 8
+  %102 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %101, i32 0, i32 2
+  %103 = load i8, ptr %102, align 8, !range !4, !noundef !5
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %106
 
@@ -2180,7 +2317,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 
 106:                                              ; preds = %94
   %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %107, i32 0, i32 7
+  %108 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %107, i32 0, i32 7
   %109 = load i32, ptr %108, align 8
   %110 = load i32, ptr %8, align 4
   %111 = icmp eq i32 %109, %110
@@ -2189,7 +2326,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 112:                                              ; preds = %106
   %113 = load float, ptr %16, align 4
   %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %114, i32 0, i32 6
+  %115 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %114, i32 0, i32 6
   %116 = load float, ptr %115, align 4
   %117 = fcmp olt float %113, %116
   br i1 %117, label %130, label %118
@@ -2197,7 +2334,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 118:                                              ; preds = %112
   %119 = load float, ptr %16, align 4
   %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %120, i32 0, i32 6
+  %121 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %120, i32 0, i32 6
   %122 = load float, ptr %121, align 4
   %123 = fcmp oeq float %119, %122
   br i1 %123, label %124, label %131
@@ -2205,7 +2342,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 124:                                              ; preds = %118
   %125 = load float, ptr %15, align 4
   %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %126, i32 0, i32 5
+  %127 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %126, i32 0, i32 5
   %128 = load float, ptr %127, align 8
   %129 = fcmp ogt float %125, %128
   br i1 %129, label %130, label %131
@@ -2221,7 +2358,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   %133 = load float, ptr %16, align 4
   %134 = call float @non_negative(float noundef %133)
   %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %135, i32 0, i32 6
+  %136 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %135, i32 0, i32 6
   %137 = load float, ptr %136, align 4
   %138 = call float @non_negative(float noundef %137)
   %139 = fcmp olt float %134, %138
@@ -2230,7 +2367,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
 140:                                              ; preds = %132
   %141 = load double, ptr %17, align 8
   %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %142, i32 0, i32 8
+  %143 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %142, i32 0, i32 8
   %144 = load double, ptr %143, align 8
   %145 = fcmp ogt double %141, %144
   br i1 %145, label %146, label %155
@@ -2239,7 +2376,7 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   %147 = load float, ptr %16, align 4
   %148 = call float @non_negative(float noundef %147)
   %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %149, i32 0, i32 6
+  %150 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %149, i32 0, i32 6
   %151 = load float, ptr %150, align 4
   %152 = call float @non_negative(float noundef %151)
   %153 = fcmp ole float %148, %152
@@ -2256,49 +2393,55 @@ define internal void @g_box_consider_split(ptr noundef %0, i32 noundef %1, doubl
   br label %157
 
 157:                                              ; preds = %156, %105
-  %158 = load i8, ptr %18, align 1
+  %158 = load i8, ptr %18, align 1, !range !4, !noundef !5
   %159 = trunc i8 %158 to i1
   br i1 %159, label %160, label %181
 
 160:                                              ; preds = %157
   %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %161, i32 0, i32 2
+  %162 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %161, i32 0, i32 2
   store i8 0, ptr %162, align 8
   %163 = load float, ptr %15, align 4
   %164 = load ptr, ptr %7, align 8
-  %165 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %164, i32 0, i32 5
+  %165 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %164, i32 0, i32 5
   store float %163, ptr %165, align 8
   %166 = load double, ptr %17, align 8
   %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %167, i32 0, i32 8
+  %168 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %167, i32 0, i32 8
   store double %166, ptr %168, align 8
   %169 = load float, ptr %16, align 4
   %170 = load ptr, ptr %7, align 8
-  %171 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %170, i32 0, i32 6
+  %171 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %170, i32 0, i32 6
   store float %169, ptr %171, align 4
   %172 = load double, ptr %9, align 8
   %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %173, i32 0, i32 4
+  %174 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %173, i32 0, i32 4
   store double %172, ptr %174, align 8
   %175 = load double, ptr %11, align 8
   %176 = load ptr, ptr %7, align 8
-  %177 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %176, i32 0, i32 3
+  %177 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %176, i32 0, i32 3
   store double %175, ptr %177, align 8
   %178 = load i32, ptr %8, align 4
   %179 = load ptr, ptr %7, align 8
-  %180 = getelementptr inbounds %struct.ConsiderSplitContext, ptr %179, i32 0, i32 7
+  %180 = getelementptr inbounds nuw %struct.ConsiderSplitContext, ptr %179, i32 0, i32 7
   store i32 %178, ptr %180, align 8
   br label %181
 
 181:                                              ; preds = %160, %157
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #10
   br label %182
 
 182:                                              ; preds = %181, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @float8_gt(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @float8_gt(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -2327,8 +2470,8 @@ define internal zeroext i1 @float8_gt(double noundef %0, double noundef %1) #0 {
   ret i1 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @float8_ge(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @float8_ge(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -2369,10 +2512,15 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.GistEntryVector, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %12, align 8
   %14 = sub i32 %13, 1
   %15 = trunc i32 %14 to i16
@@ -2388,19 +2536,19 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
   %23 = sext i32 %22 to i64
   %24 = call ptr @palloc(i64 noundef %23)
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %25, i32 0, i32 0
   store ptr %24, ptr %26, align 8
   %27 = load i32, ptr %9, align 4
   %28 = sext i32 %27 to i64
   %29 = call ptr @palloc(i64 noundef %28)
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %30, i32 0, i32 4
+  %31 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %30, i32 0, i32 4
   store ptr %29, ptr %31, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %32, i32 0, i32 5
+  %33 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %32, i32 0, i32 5
   store i32 0, ptr %33, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %34, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %34, i32 0, i32 1
   store i32 0, ptr %35, align 8
   store i16 1, ptr %5, align 2
   br label %36
@@ -2414,12 +2562,13 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %41, label %42, label %113
 
 42:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.GistEntryVector, ptr %43, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.GistEntryVector, ptr %43, i32 0, i32 1
   %45 = load i16, ptr %5, align 2
   %46 = zext i16 %45 to i64
-  %47 = getelementptr [0 x %struct.GISTENTRY], ptr %44, i64 0, i64 %46
-  %48 = getelementptr inbounds %struct.GISTENTRY, ptr %47, i32 0, i32 0
+  %47 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %44, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call ptr @DatumGetBoxP(i64 noundef %49)
   store ptr %50, ptr %10, align 8
@@ -2436,13 +2585,13 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
 59:                                               ; preds = %42
   %60 = load i16, ptr %5, align 2
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %61, i32 0, i32 0
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %64, i32 0, i32 1
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
-  %68 = getelementptr i16, ptr %63, i64 %67
+  %68 = getelementptr inbounds i16, ptr %63, i64 %67
   store i16 %60, ptr %68, align 2
   %69 = load ptr, ptr %7, align 8
   %70 = icmp eq ptr %69, null
@@ -2464,7 +2613,7 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
 
 78:                                               ; preds = %75, %71
   %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %79, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %79, i32 0, i32 1
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 8
@@ -2473,13 +2622,13 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
 83:                                               ; preds = %42
   %84 = load i16, ptr %5, align 2
   %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %85, i32 0, i32 4
+  %86 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %85, i32 0, i32 4
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %88, i32 0, i32 5
+  %89 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %88, i32 0, i32 5
   %90 = load i32, ptr %89, align 8
   %91 = sext i32 %90 to i64
-  %92 = getelementptr i16, ptr %87, i64 %91
+  %92 = getelementptr inbounds i16, ptr %87, i64 %91
   store i16 %84, ptr %92, align 2
   %93 = load ptr, ptr %8, align 8
   %94 = icmp eq ptr %93, null
@@ -2501,13 +2650,14 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
 
 102:                                              ; preds = %99, %95
   %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %103, i32 0, i32 5
+  %104 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %103, i32 0, i32 5
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 8
   br label %107
 
 107:                                              ; preds = %102, %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
   br label %108
 
 108:                                              ; preds = %107
@@ -2516,34 +2666,40 @@ define internal void @fallbackSplit(ptr noundef %0, ptr noundef %1) #0 {
   %111 = add i32 1, %110
   %112 = trunc i32 %111 to i16
   store i16 %112, ptr %5, align 2
-  br label %36, !llvm.loop !17
+  br label %36, !llvm.loop !18
 
 113:                                              ; preds = %36
   %114 = load ptr, ptr %7, align 8
   %115 = call i64 @BoxPGetDatum(ptr noundef %114)
   %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %116, i32 0, i32 2
+  %117 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %116, i32 0, i32 2
   store i64 %115, ptr %117, align 8
   %118 = load ptr, ptr %8, align 8
   %119 = call i64 @BoxPGetDatum(ptr noundef %118)
   %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct.GIST_SPLITVEC, ptr %120, i32 0, i32 6
+  %121 = getelementptr inbounds nuw %struct.GIST_SPLITVEC, ptr %120, i32 0, i32 6
   store i64 %119, ptr %121, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #4
+declare double @llvm.ceil.f64(double) #6
 
-; Function Attrs: nounwind uwtable
-define internal double @float8_mi(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_mi(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   store double %0, ptr %3, align 8
   store double %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = load double, ptr %3, align 8
   %7 = load double, ptr %4, align 8
   %8 = fsub double %6, %7
@@ -2554,30 +2710,32 @@ define internal double @float8_mi(double noundef %0, double noundef %1) #0 {
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
   %14 = sext i32 %13 to i64
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %23
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %24
 
-16:                                               ; preds = %2
-  %17 = load double, ptr %3, align 8
-  %18 = call i1 @llvm.is.fpclass.f64(double %17, i32 516)
-  br i1 %18, label %23, label %19
+17:                                               ; preds = %2
+  %18 = load double, ptr %3, align 8
+  %19 = call i1 @llvm.is.fpclass.f64(double %18, i32 516)
+  br i1 %19, label %24, label %20
 
-19:                                               ; preds = %16
-  %20 = load double, ptr %4, align 8
-  %21 = call i1 @llvm.is.fpclass.f64(double %20, i32 516)
-  br i1 %21, label %23, label %22
+20:                                               ; preds = %17
+  %21 = load double, ptr %4, align 8
+  %22 = call i1 @llvm.is.fpclass.f64(double %21, i32 516)
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %19
-  call void @float_overflow_error() #8
+23:                                               ; preds = %20
+  call void @float_overflow_error() #12
   unreachable
 
-23:                                               ; preds = %19, %16, %2
-  %24 = load double, ptr %5, align 8
-  ret double %24
+24:                                               ; preds = %20, %17, %2
+  %25 = load double, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret double %25
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @common_entry_cmp(ptr noundef %0, ptr noundef %1) #0 {
@@ -2587,17 +2745,21 @@ define internal i32 @common_entry_cmp(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.CommonEntry, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.CommonEntry, ptr %7, i32 0, i32 1
   %9 = load double, ptr %8, align 8
   store double %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.CommonEntry, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.CommonEntry, ptr %10, i32 0, i32 1
   %12 = load double, ptr %11, align 8
   store double %12, ptr %6, align 8
   %13 = load double, ptr %5, align 8
   %14 = load double, ptr %6, align 8
   %15 = call i32 @float8_cmp_internal(double noundef %13, double noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %15
 }
 
@@ -2608,24 +2770,27 @@ define dso_local i64 @gist_box_same(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
-  %8 = getelementptr [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.NullableDatum, ptr %8, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %6, i32 0, i32 6
+  %8 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i32 0, i32 0
   %10 = load i64, ptr %9, align 8
   %11 = call ptr @DatumGetBoxP(i64 noundef %10)
   store ptr %11, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
-  %14 = getelementptr [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
-  %15 = getelementptr inbounds %struct.NullableDatum, ptr %14, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %13, i64 0, i64 1
+  %15 = getelementptr inbounds nuw %struct.NullableDatum, ptr %14, i32 0, i32 0
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @DatumGetBoxP(i64 noundef %16)
   store ptr %17, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
-  %20 = getelementptr [0 x %struct.NullableDatum], ptr %19, i64 0, i64 2
-  %21 = getelementptr inbounds %struct.NullableDatum, ptr %20, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
+  %20 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %19, i64 0, i64 2
+  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %20, i32 0, i32 0
   %22 = load i64, ptr %21, align 8
   %23 = call ptr @DatumGetPointer(i64 noundef %22)
   store ptr %23, ptr %5, align 8
@@ -2640,48 +2805,48 @@ define dso_local i64 @gist_box_same(ptr noundef %0) #0 {
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.BOX, ptr %30, i32 0, i32 1
-  %32 = getelementptr inbounds %struct.Point, ptr %31, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.BOX, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.Point, ptr %31, i32 0, i32 0
   %33 = load double, ptr %32, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.BOX, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds %struct.Point, ptr %35, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.BOX, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.Point, ptr %35, i32 0, i32 0
   %37 = load double, ptr %36, align 8
   %38 = call zeroext i1 @float8_eq(double noundef %33, double noundef %37)
   br i1 %38, label %39, label %69
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.BOX, ptr %40, i32 0, i32 1
-  %42 = getelementptr inbounds %struct.Point, ptr %41, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.BOX, ptr %40, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct.Point, ptr %41, i32 0, i32 1
   %43 = load double, ptr %42, align 8
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.BOX, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds %struct.Point, ptr %45, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.BOX, ptr %44, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.Point, ptr %45, i32 0, i32 1
   %47 = load double, ptr %46, align 8
   %48 = call zeroext i1 @float8_eq(double noundef %43, double noundef %47)
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %39
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.BOX, ptr %50, i32 0, i32 0
-  %52 = getelementptr inbounds %struct.Point, ptr %51, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.BOX, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.Point, ptr %51, i32 0, i32 0
   %53 = load double, ptr %52, align 8
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.BOX, ptr %54, i32 0, i32 0
-  %56 = getelementptr inbounds %struct.Point, ptr %55, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.BOX, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.Point, ptr %55, i32 0, i32 0
   %57 = load double, ptr %56, align 8
   %58 = call zeroext i1 @float8_eq(double noundef %53, double noundef %57)
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %49
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.BOX, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.Point, ptr %61, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.BOX, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.Point, ptr %61, i32 0, i32 1
   %63 = load double, ptr %62, align 8
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.BOX, ptr %64, i32 0, i32 0
-  %66 = getelementptr inbounds %struct.Point, ptr %65, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.BOX, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.Point, ptr %65, i32 0, i32 1
   %67 = load double, ptr %66, align 8
   %68 = call zeroext i1 @float8_eq(double noundef %63, double noundef %67)
   br label %69
@@ -2713,6 +2878,9 @@ define dso_local i64 @gist_box_same(ptr noundef %0) #0 {
 83:                                               ; preds = %79, %69
   %84 = load ptr, ptr %5, align 8
   %85 = call i64 @PointerGetDatum(ptr noundef %84)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %85
 }
 
@@ -2724,30 +2892,34 @@ define dso_local i64 @gist_poly_compress(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = call ptr @DatumGetPointer(i64 noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.GISTENTRY, ptr %13, i32 0, i32 4
-  %15 = load i8, ptr %14, align 2
+  %14 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i32 0, i32 4
+  %15 = load i8, ptr %14, align 2, !range !4, !noundef !5
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %51
 
 17:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.GISTENTRY, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %18, i32 0, i32 0
   %20 = load i64, ptr %19, align 8
   %21 = call ptr @DatumGetPolygonP(i64 noundef %20)
   store ptr %21, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %22 = call ptr @palloc(i64 noundef 32)
   store ptr %22, ptr %6, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.POLYGON, ptr %24, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %struct.POLYGON, ptr %24, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %25, i64 32, i1 false)
   %26 = call ptr @palloc(i64 noundef 32)
   store ptr %26, ptr %4, align 8
@@ -2757,47 +2929,54 @@ define dso_local i64 @gist_poly_compress(ptr noundef %0) #0 {
   %28 = load ptr, ptr %6, align 8
   %29 = call i64 @PointerGetDatum(ptr noundef %28)
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.GISTENTRY, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %30, i32 0, i32 0
   store i64 %29, ptr %31, align 8
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.GISTENTRY, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %32, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.GISTENTRY, ptr %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %35, i32 0, i32 1
   store ptr %34, ptr %36, align 8
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.GISTENTRY, ptr %37, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %37, i32 0, i32 2
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.GISTENTRY, ptr %40, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %40, i32 0, i32 2
   store ptr %39, ptr %41, align 8
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.GISTENTRY, ptr %42, i32 0, i32 3
+  %43 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %42, i32 0, i32 3
   %44 = load i16, ptr %43, align 8
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.GISTENTRY, ptr %45, i32 0, i32 3
+  %46 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %45, i32 0, i32 3
   store i16 %44, ptr %46, align 8
   %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.GISTENTRY, ptr %47, i32 0, i32 4
+  %48 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %47, i32 0, i32 4
   store i8 0, ptr %48, align 2
   br label %49
 
 49:                                               ; preds = %27
-  br label %52
+  br label %50
 
-50:                                               ; preds = %1
-  %51 = load ptr, ptr %3, align 8
-  store ptr %51, ptr %4, align 8
-  br label %52
+50:                                               ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %53
 
-52:                                               ; preds = %50, %49
-  %53 = load ptr, ptr %4, align 8
-  %54 = call i64 @PointerGetDatum(ptr noundef %53)
-  ret i64 %54
+51:                                               ; preds = %1
+  %52 = load ptr, ptr %3, align 8
+  store ptr %52, ptr %4, align 8
+  br label %53
+
+53:                                               ; preds = %51, %50
+  %54 = load ptr, ptr %4, align 8
+  %55 = call i64 @PointerGetDatum(ptr noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i64 %55
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPolygonP(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPolygonP(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2815,315 +2994,45 @@ define dso_local i64 @gist_poly_consistent(ptr noundef %0) #0 {
   %6 = alloca i16, align 2
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
-  %11 = getelementptr [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.NullableDatum, ptr %11, i32 0, i32 0
-  %13 = load i64, ptr %12, align 8
-  %14 = call ptr @DatumGetPointer(i64 noundef %13)
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
-  %18 = getelementptr inbounds %struct.NullableDatum, ptr %17, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = call ptr @DatumGetPolygonP(i64 noundef %19)
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = call zeroext i16 @DatumGetUInt16(i64 noundef %25)
-  store i16 %26, ptr %6, align 2
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
-  %29 = getelementptr [0 x %struct.NullableDatum], ptr %28, i64 0, i64 4
-  %30 = getelementptr inbounds %struct.NullableDatum, ptr %29, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = call ptr @DatumGetPointer(i64 noundef %31)
-  store ptr %32, ptr %7, align 8
-  %33 = load ptr, ptr %7, align 8
-  store i8 1, ptr %33, align 1
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.GISTENTRY, ptr %34, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = call ptr @DatumGetBoxP(i64 noundef %36)
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %42, label %39
-
-39:                                               ; preds = %1
-  %40 = load ptr, ptr %5, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %44
-
-42:                                               ; preds = %39, %1
-  %43 = call i64 @BoolGetDatum(i1 noundef zeroext false)
-  store i64 %43, ptr %2, align 8
-  br label %70
-
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.GISTENTRY, ptr %45, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = call ptr @DatumGetBoxP(i64 noundef %47)
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.POLYGON, ptr %49, i32 0, i32 2
-  %51 = load i16, ptr %6, align 2
-  %52 = call zeroext i1 @rtree_internal_consistent(ptr noundef %48, ptr noundef %50, i16 noundef zeroext %51)
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %8, align 1
-  br label %54
-
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %5, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %56, i32 0, i32 6
-  %58 = getelementptr [0 x %struct.NullableDatum], ptr %57, i64 0, i64 1
-  %59 = getelementptr inbounds %struct.NullableDatum, ptr %58, i32 0, i32 0
-  %60 = load i64, ptr %59, align 8
-  %61 = call ptr @DatumGetPointer(i64 noundef %60)
-  %62 = icmp ne ptr %55, %61
-  br i1 %62, label %63, label %65
-
-63:                                               ; preds = %54
-  %64 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %64)
-  br label %65
-
-65:                                               ; preds = %63, %54
-  br label %66
-
-66:                                               ; preds = %65
-  %67 = load i8, ptr %8, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = call i64 @BoolGetDatum(i1 noundef zeroext %68)
-  store i64 %69, ptr %2, align 8
-  br label %70
-
-70:                                               ; preds = %66, %42
-  %71 = load i64, ptr %2, align 8
-  ret i64 %71
-}
-
-declare void @pfree(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_circle_compress(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = call ptr @DatumGetPointer(i64 noundef %11)
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.GISTENTRY, ptr %13, i32 0, i32 4
-  %15 = load i8, ptr %14, align 2
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %91
-
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.GISTENTRY, ptr %18, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = call ptr @DatumGetCircleP(i64 noundef %20)
-  store ptr %21, ptr %5, align 8
-  %22 = call ptr @palloc(i64 noundef 32)
-  store ptr %22, ptr %6, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.CIRCLE, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.Point, ptr %24, i32 0, i32 0
-  %26 = load double, ptr %25, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.CIRCLE, ptr %27, i32 0, i32 1
-  %29 = load double, ptr %28, align 8
-  %30 = call double @float8_pl(double noundef %26, double noundef %29)
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.BOX, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.Point, ptr %32, i32 0, i32 0
-  store double %30, ptr %33, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.CIRCLE, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.Point, ptr %35, i32 0, i32 0
-  %37 = load double, ptr %36, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.CIRCLE, ptr %38, i32 0, i32 1
-  %40 = load double, ptr %39, align 8
-  %41 = call double @float8_mi(double noundef %37, double noundef %40)
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.BOX, ptr %42, i32 0, i32 1
-  %44 = getelementptr inbounds %struct.Point, ptr %43, i32 0, i32 0
-  store double %41, ptr %44, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.CIRCLE, ptr %45, i32 0, i32 0
-  %47 = getelementptr inbounds %struct.Point, ptr %46, i32 0, i32 1
-  %48 = load double, ptr %47, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.CIRCLE, ptr %49, i32 0, i32 1
-  %51 = load double, ptr %50, align 8
-  %52 = call double @float8_pl(double noundef %48, double noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.BOX, ptr %53, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.Point, ptr %54, i32 0, i32 1
-  store double %52, ptr %55, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.CIRCLE, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.Point, ptr %57, i32 0, i32 1
-  %59 = load double, ptr %58, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.CIRCLE, ptr %60, i32 0, i32 1
-  %62 = load double, ptr %61, align 8
-  %63 = call double @float8_mi(double noundef %59, double noundef %62)
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.BOX, ptr %64, i32 0, i32 1
-  %66 = getelementptr inbounds %struct.Point, ptr %65, i32 0, i32 1
-  store double %63, ptr %66, align 8
-  %67 = call ptr @palloc(i64 noundef 32)
-  store ptr %67, ptr %4, align 8
-  br label %68
-
-68:                                               ; preds = %17
-  %69 = load ptr, ptr %6, align 8
-  %70 = call i64 @PointerGetDatum(ptr noundef %69)
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.GISTENTRY, ptr %71, i32 0, i32 0
-  store i64 %70, ptr %72, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.GISTENTRY, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.GISTENTRY, ptr %76, i32 0, i32 1
-  store ptr %75, ptr %77, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.GISTENTRY, ptr %78, i32 0, i32 2
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.GISTENTRY, ptr %81, i32 0, i32 2
-  store ptr %80, ptr %82, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.GISTENTRY, ptr %83, i32 0, i32 3
-  %85 = load i16, ptr %84, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.GISTENTRY, ptr %86, i32 0, i32 3
-  store i16 %85, ptr %87, align 8
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.GISTENTRY, ptr %88, i32 0, i32 4
-  store i8 0, ptr %89, align 2
-  br label %90
-
-90:                                               ; preds = %68
-  br label %93
-
-91:                                               ; preds = %1
-  %92 = load ptr, ptr %3, align 8
-  store ptr %92, ptr %4, align 8
-  br label %93
-
-93:                                               ; preds = %91, %90
-  %94 = load ptr, ptr %4, align 8
-  %95 = call i64 @PointerGetDatum(ptr noundef %94)
-  ret i64 %95
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetCircleP(i64 noundef %0) #0 {
-  %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = call ptr @DatumGetPointer(i64 noundef %3)
-  ret ptr %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal double @float8_pl(double noundef %0, double noundef %1) #0 {
-  %3 = alloca double, align 8
-  %4 = alloca double, align 8
-  %5 = alloca double, align 8
-  store double %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  %6 = load double, ptr %3, align 8
-  %7 = load double, ptr %4, align 8
-  %8 = fadd double %6, %7
-  store double %8, ptr %5, align 8
-  %9 = load double, ptr %5, align 8
-  %10 = call i1 @llvm.is.fpclass.f64(double %9, i32 516)
-  %11 = zext i1 %10 to i32
-  %12 = icmp ne i32 %11, 0
-  %13 = zext i1 %12 to i32
-  %14 = sext i32 %13 to i64
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %23
-
-16:                                               ; preds = %2
-  %17 = load double, ptr %3, align 8
-  %18 = call i1 @llvm.is.fpclass.f64(double %17, i32 516)
-  br i1 %18, label %23, label %19
-
-19:                                               ; preds = %16
-  %20 = load double, ptr %4, align 8
-  %21 = call i1 @llvm.is.fpclass.f64(double %20, i32 516)
-  br i1 %21, label %23, label %22
-
-22:                                               ; preds = %19
-  call void @float_overflow_error() #8
-  unreachable
-
-23:                                               ; preds = %19, %16, %2
-  %24 = load double, ptr %5, align 8
-  ret double %24
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i64 @gist_circle_consistent(ptr noundef %0) #0 {
-  %2 = alloca i64, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i16, align 2
-  %7 = alloca ptr, align 8
-  %8 = alloca %struct.BOX, align 8
-  %9 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
-  %12 = getelementptr [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
-  %13 = getelementptr inbounds %struct.NullableDatum, ptr %12, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
+  %12 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
+  %13 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
   %15 = call ptr @DatumGetPointer(i64 noundef %14)
   store ptr %15, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %16, i32 0, i32 6
-  %18 = getelementptr [0 x %struct.NullableDatum], ptr %17, i64 0, i64 1
-  %19 = getelementptr inbounds %struct.NullableDatum, ptr %18, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %16, i32 0, i32 6
+  %18 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %17, i64 0, i64 1
+  %19 = getelementptr inbounds nuw %struct.NullableDatum, ptr %18, i32 0, i32 0
   %20 = load i64, ptr %19, align 8
-  %21 = call ptr @DatumGetCircleP(i64 noundef %20)
+  %21 = call ptr @DatumGetPolygonP(i64 noundef %20)
   store ptr %21, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
-  %24 = getelementptr [0 x %struct.NullableDatum], ptr %23, i64 0, i64 2
-  %25 = getelementptr inbounds %struct.NullableDatum, ptr %24, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %23, i64 0, i64 2
+  %25 = getelementptr inbounds nuw %struct.NullableDatum, ptr %24, i32 0, i32 0
   %26 = load i64, ptr %25, align 8
   %27 = call zeroext i16 @DatumGetUInt16(i64 noundef %26)
   store i16 %27, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
-  %30 = getelementptr [0 x %struct.NullableDatum], ptr %29, i64 0, i64 4
-  %31 = getelementptr inbounds %struct.NullableDatum, ptr %30, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %29, i64 0, i64 4
+  %31 = getelementptr inbounds nuw %struct.NullableDatum, ptr %30, i32 0, i32 0
   %32 = load i64, ptr %31, align 8
   %33 = call ptr @DatumGetPointer(i64 noundef %32)
   store ptr %33, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #10
   %34 = load ptr, ptr %7, align 8
   store i8 1, ptr %34, align 1
   %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.GISTENTRY, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @DatumGetBoxP(i64 noundef %37)
   %39 = icmp eq ptr %38, null
@@ -3137,70 +3046,385 @@ define dso_local i64 @gist_circle_consistent(ptr noundef %0) #0 {
 43:                                               ; preds = %40, %1
   %44 = call i64 @BoolGetDatum(i1 noundef zeroext false)
   store i64 %44, ptr %2, align 8
-  br label %96
+  store i32 1, ptr %9, align 4
+  br label %72
 
 45:                                               ; preds = %40
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.CIRCLE, ptr %46, i32 0, i32 0
-  %48 = getelementptr inbounds %struct.Point, ptr %47, i32 0, i32 0
-  %49 = load double, ptr %48, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  %49 = call ptr @DatumGetBoxP(i64 noundef %48)
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.CIRCLE, ptr %50, i32 0, i32 1
-  %52 = load double, ptr %51, align 8
-  %53 = call double @float8_pl(double noundef %49, double noundef %52)
-  %54 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.Point, ptr %54, i32 0, i32 0
-  store double %53, ptr %55, align 8
+  %51 = getelementptr inbounds nuw %struct.POLYGON, ptr %50, i32 0, i32 2
+  %52 = load i16, ptr %6, align 2
+  %53 = call zeroext i1 @rtree_internal_consistent(ptr noundef %49, ptr noundef %51, i16 noundef zeroext %52)
+  %54 = zext i1 %53 to i8
+  store i8 %54, ptr %8, align 1
+  br label %55
+
+55:                                               ; preds = %45
   %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.CIRCLE, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.Point, ptr %57, i32 0, i32 0
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %57, i32 0, i32 6
+  %59 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %58, i64 0, i64 1
+  %60 = getelementptr inbounds nuw %struct.NullableDatum, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = call ptr @DatumGetPointer(i64 noundef %61)
+  %63 = icmp ne ptr %56, %62
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %64, %55
+  br label %67
+
+67:                                               ; preds = %66
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %70 = trunc i8 %69 to i1
+  %71 = call i64 @BoolGetDatum(i1 noundef zeroext %70)
+  store i64 %71, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %72
+
+72:                                               ; preds = %68, %43
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %73 = load i64, ptr %2, align 8
+  ret i64 %73
+}
+
+declare void @pfree(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @gist_circle_compress(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8
+  %12 = call ptr @DatumGetPointer(i64 noundef %11)
+  store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i32 0, i32 4
+  %15 = load i8, ptr %14, align 2, !range !4, !noundef !5
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %92
+
+17:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %18, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = call ptr @DatumGetCircleP(i64 noundef %20)
+  store ptr %21, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %22 = call ptr @palloc(i64 noundef 32)
+  store ptr %22, ptr %6, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.CIRCLE, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.Point, ptr %24, i32 0, i32 0
+  %26 = load double, ptr %25, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.CIRCLE, ptr %27, i32 0, i32 1
+  %29 = load double, ptr %28, align 8
+  %30 = call double @float8_pl(double noundef %26, double noundef %29)
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds nuw %struct.BOX, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.Point, ptr %32, i32 0, i32 0
+  store double %30, ptr %33, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.CIRCLE, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.Point, ptr %35, i32 0, i32 0
+  %37 = load double, ptr %36, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.CIRCLE, ptr %38, i32 0, i32 1
+  %40 = load double, ptr %39, align 8
+  %41 = call double @float8_mi(double noundef %37, double noundef %40)
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.BOX, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.Point, ptr %43, i32 0, i32 0
+  store double %41, ptr %44, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.CIRCLE, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.Point, ptr %46, i32 0, i32 1
+  %48 = load double, ptr %47, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.CIRCLE, ptr %49, i32 0, i32 1
+  %51 = load double, ptr %50, align 8
+  %52 = call double @float8_pl(double noundef %48, double noundef %51)
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw %struct.BOX, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.Point, ptr %54, i32 0, i32 1
+  store double %52, ptr %55, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds nuw %struct.CIRCLE, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.Point, ptr %57, i32 0, i32 1
   %59 = load double, ptr %58, align 8
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.CIRCLE, ptr %60, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.CIRCLE, ptr %60, i32 0, i32 1
   %62 = load double, ptr %61, align 8
   %63 = call double @float8_mi(double noundef %59, double noundef %62)
-  %64 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 1
-  %65 = getelementptr inbounds %struct.Point, ptr %64, i32 0, i32 0
-  store double %63, ptr %65, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.CIRCLE, ptr %66, i32 0, i32 0
-  %68 = getelementptr inbounds %struct.Point, ptr %67, i32 0, i32 1
-  %69 = load double, ptr %68, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.CIRCLE, ptr %70, i32 0, i32 1
-  %72 = load double, ptr %71, align 8
-  %73 = call double @float8_pl(double noundef %69, double noundef %72)
-  %74 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 0
-  %75 = getelementptr inbounds %struct.Point, ptr %74, i32 0, i32 1
-  store double %73, ptr %75, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.CIRCLE, ptr %76, i32 0, i32 0
-  %78 = getelementptr inbounds %struct.Point, ptr %77, i32 0, i32 1
-  %79 = load double, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.CIRCLE, ptr %80, i32 0, i32 1
-  %82 = load double, ptr %81, align 8
-  %83 = call double @float8_mi(double noundef %79, double noundef %82)
-  %84 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 1
-  %85 = getelementptr inbounds %struct.Point, ptr %84, i32 0, i32 1
-  store double %83, ptr %85, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.GISTENTRY, ptr %86, i32 0, i32 0
-  %88 = load i64, ptr %87, align 8
-  %89 = call ptr @DatumGetBoxP(i64 noundef %88)
-  %90 = load i16, ptr %6, align 2
-  %91 = call zeroext i1 @rtree_internal_consistent(ptr noundef %89, ptr noundef %8, i16 noundef zeroext %90)
-  %92 = zext i1 %91 to i8
-  store i8 %92, ptr %9, align 1
-  %93 = load i8, ptr %9, align 1
-  %94 = trunc i8 %93 to i1
-  %95 = call i64 @BoolGetDatum(i1 noundef zeroext %94)
-  store i64 %95, ptr %2, align 8
-  br label %96
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds nuw %struct.BOX, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.Point, ptr %65, i32 0, i32 1
+  store double %63, ptr %66, align 8
+  %67 = call ptr @palloc(i64 noundef 32)
+  store ptr %67, ptr %4, align 8
+  br label %68
 
-96:                                               ; preds = %45, %43
-  %97 = load i64, ptr %2, align 8
-  ret i64 %97
+68:                                               ; preds = %17
+  %69 = load ptr, ptr %6, align 8
+  %70 = call i64 @PointerGetDatum(ptr noundef %69)
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %71, i32 0, i32 0
+  store i64 %70, ptr %72, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %76, i32 0, i32 1
+  store ptr %75, ptr %77, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %81, i32 0, i32 2
+  store ptr %80, ptr %82, align 8
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %83, i32 0, i32 3
+  %85 = load i16, ptr %84, align 8
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %86, i32 0, i32 3
+  store i16 %85, ptr %87, align 8
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %88, i32 0, i32 4
+  store i8 0, ptr %89, align 2
+  br label %90
+
+90:                                               ; preds = %68
+  br label %91
+
+91:                                               ; preds = %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %94
+
+92:                                               ; preds = %1
+  %93 = load ptr, ptr %3, align 8
+  store ptr %93, ptr %4, align 8
+  br label %94
+
+94:                                               ; preds = %92, %91
+  %95 = load ptr, ptr %4, align 8
+  %96 = call i64 @PointerGetDatum(ptr noundef %95)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i64 %96
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetCircleP(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = call ptr @DatumGetPointer(i64 noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_pl(double noundef %0, double noundef %1) #2 {
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  store double %0, ptr %3, align 8
+  store double %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %6 = load double, ptr %3, align 8
+  %7 = load double, ptr %4, align 8
+  %8 = fadd double %6, %7
+  store double %8, ptr %5, align 8
+  %9 = load double, ptr %5, align 8
+  %10 = call i1 @llvm.is.fpclass.f64(double %9, i32 516)
+  %11 = zext i1 %10 to i32
+  %12 = icmp ne i32 %11, 0
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %24
+
+17:                                               ; preds = %2
+  %18 = load double, ptr %3, align 8
+  %19 = call i1 @llvm.is.fpclass.f64(double %18, i32 516)
+  br i1 %19, label %24, label %20
+
+20:                                               ; preds = %17
+  %21 = load double, ptr %4, align 8
+  %22 = call i1 @llvm.is.fpclass.f64(double %21, i32 516)
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %20
+  call void @float_overflow_error() #12
+  unreachable
+
+24:                                               ; preds = %20, %17, %2
+  %25 = load double, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret double %25
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @gist_circle_consistent(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i16, align 2
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.BOX, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %11, i32 0, i32 6
+  %13 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %12, i64 0, i64 0
+  %14 = getelementptr inbounds nuw %struct.NullableDatum, ptr %13, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  %16 = call ptr @DatumGetPointer(i64 noundef %15)
+  store ptr %16, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %17, i32 0, i32 6
+  %19 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %18, i64 0, i64 1
+  %20 = getelementptr inbounds nuw %struct.NullableDatum, ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = call ptr @DatumGetCircleP(i64 noundef %21)
+  store ptr %22, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 6
+  %25 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %24, i64 0, i64 2
+  %26 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = call zeroext i16 @DatumGetUInt16(i64 noundef %27)
+  store i16 %28, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %29, i32 0, i32 6
+  %31 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %30, i64 0, i64 4
+  %32 = getelementptr inbounds nuw %struct.NullableDatum, ptr %31, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = call ptr @DatumGetPointer(i64 noundef %33)
+  store ptr %34, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  %35 = load ptr, ptr %7, align 8
+  store i8 1, ptr %35, align 1
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %36, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8
+  %39 = call ptr @DatumGetBoxP(i64 noundef %38)
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %44, label %41
+
+41:                                               ; preds = %1
+  %42 = load ptr, ptr %5, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %41, %1
+  %45 = call i64 @BoolGetDatum(i1 noundef zeroext false)
+  store i64 %45, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %97
+
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw %struct.CIRCLE, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.Point, ptr %48, i32 0, i32 0
+  %50 = load double, ptr %49, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.CIRCLE, ptr %51, i32 0, i32 1
+  %53 = load double, ptr %52, align 8
+  %54 = call double @float8_pl(double noundef %50, double noundef %53)
+  %55 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.Point, ptr %55, i32 0, i32 0
+  store double %54, ptr %56, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw %struct.CIRCLE, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.Point, ptr %58, i32 0, i32 0
+  %60 = load double, ptr %59, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.CIRCLE, ptr %61, i32 0, i32 1
+  %63 = load double, ptr %62, align 8
+  %64 = call double @float8_mi(double noundef %60, double noundef %63)
+  %65 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.Point, ptr %65, i32 0, i32 0
+  store double %64, ptr %66, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.CIRCLE, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.Point, ptr %68, i32 0, i32 1
+  %70 = load double, ptr %69, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds nuw %struct.CIRCLE, ptr %71, i32 0, i32 1
+  %73 = load double, ptr %72, align 8
+  %74 = call double @float8_pl(double noundef %70, double noundef %73)
+  %75 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 0
+  %76 = getelementptr inbounds nuw %struct.Point, ptr %75, i32 0, i32 1
+  store double %74, ptr %76, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds nuw %struct.CIRCLE, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.Point, ptr %78, i32 0, i32 1
+  %80 = load double, ptr %79, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw %struct.CIRCLE, ptr %81, i32 0, i32 1
+  %83 = load double, ptr %82, align 8
+  %84 = call double @float8_mi(double noundef %80, double noundef %83)
+  %85 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.Point, ptr %85, i32 0, i32 1
+  store double %84, ptr %86, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %87, i32 0, i32 0
+  %89 = load i64, ptr %88, align 8
+  %90 = call ptr @DatumGetBoxP(i64 noundef %89)
+  %91 = load i16, ptr %6, align 2
+  %92 = call zeroext i1 @rtree_internal_consistent(ptr noundef %90, ptr noundef %8, i16 noundef zeroext %91)
+  %93 = zext i1 %92 to i8
+  store i8 %93, ptr %9, align 1
+  %94 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %95 = trunc i8 %94 to i1
+  %96 = call i64 @BoolGetDatum(i1 noundef zeroext %95)
+  store i64 %96, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %97
+
+97:                                               ; preds = %46, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %98 = load i64, ptr %2, align 8
+  ret i64 %98
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3211,87 +3435,101 @@ define dso_local i64 @gist_point_compress(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = call ptr @DatumGetPointer(i64 noundef %12)
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.GISTENTRY, ptr %14, i32 0, i32 4
-  %16 = load i8, ptr %15, align 2
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = call ptr @DatumGetPointer(i64 noundef %13)
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %15, i32 0, i32 4
+  %17 = load i8, ptr %16, align 2, !range !4, !noundef !5
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %57
 
-18:                                               ; preds = %1
-  %19 = call ptr @palloc(i64 noundef 32)
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.GISTENTRY, ptr %20, i32 0, i32 0
-  %22 = load i64, ptr %21, align 8
-  %23 = call ptr @DatumGetPointP(i64 noundef %22)
-  store ptr %23, ptr %6, align 8
-  %24 = call ptr @palloc(i64 noundef 32)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.BOX, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.BOX, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %29, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %28, i64 16, i1 false)
-  br label %30
+19:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %20 = call ptr @palloc(i64 noundef 32)
+  store ptr %20, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = call ptr @DatumGetPointP(i64 noundef %23)
+  store ptr %24, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %25 = call ptr @palloc(i64 noundef 32)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.BOX, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.BOX, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %30, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %29, i64 16, i1 false)
+  br label %31
 
-30:                                               ; preds = %18
-  %31 = load ptr, ptr %5, align 8
-  %32 = call i64 @BoxPGetDatum(ptr noundef %31)
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.GISTENTRY, ptr %33, i32 0, i32 0
-  store i64 %32, ptr %34, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.GISTENTRY, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.GISTENTRY, ptr %38, i32 0, i32 1
-  store ptr %37, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.GISTENTRY, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct.GISTENTRY, ptr %43, i32 0, i32 2
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.GISTENTRY, ptr %45, i32 0, i32 3
-  %47 = load i16, ptr %46, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct.GISTENTRY, ptr %48, i32 0, i32 3
-  store i16 %47, ptr %49, align 8
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.GISTENTRY, ptr %50, i32 0, i32 4
-  store i8 0, ptr %51, align 2
-  br label %52
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %5, align 8
+  %33 = call i64 @BoxPGetDatum(ptr noundef %32)
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %34, i32 0, i32 0
+  store i64 %33, ptr %35, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %39, i32 0, i32 1
+  store ptr %38, ptr %40, align 8
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %44, i32 0, i32 2
+  store ptr %43, ptr %45, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %46, i32 0, i32 3
+  %48 = load i16, ptr %47, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %49, i32 0, i32 3
+  store i16 %48, ptr %50, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %51, i32 0, i32 4
+  store i8 0, ptr %52, align 2
+  br label %53
 
-52:                                               ; preds = %30
-  %53 = load ptr, ptr %7, align 8
-  %54 = call i64 @PointerGetDatum(ptr noundef %53)
-  store i64 %54, ptr %2, align 8
-  br label %58
+53:                                               ; preds = %31
+  br label %54
 
-55:                                               ; preds = %1
-  %56 = load ptr, ptr %4, align 8
-  %57 = call i64 @PointerGetDatum(ptr noundef %56)
-  store i64 %57, ptr %2, align 8
-  br label %58
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %7, align 8
+  %56 = call i64 @PointerGetDatum(ptr noundef %55)
+  store i64 %56, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %60
 
-58:                                               ; preds = %55, %52
-  %59 = load i64, ptr %2, align 8
-  ret i64 %59
+57:                                               ; preds = %1
+  %58 = load ptr, ptr %4, align 8
+  %59 = call i64 @PointerGetDatum(ptr noundef %58)
+  store i64 %59, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %60
+
+60:                                               ; preds = %57, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %61 = load i64, ptr %2, align 8
+  ret i64 %61
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointP(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointP(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -3299,8 +3537,8 @@ define internal ptr @DatumGetPointP(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BoxPGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BoxPGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3316,35 +3554,39 @@ define dso_local i64 @gist_point_fetch(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = call ptr @DatumGetPointer(i64 noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.GISTENTRY, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @DatumGetBoxP(i64 noundef %15)
   store ptr %16, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %17 = call ptr @palloc(i64 noundef 32)
   store ptr %17, ptr %6, align 8
   %18 = call ptr @palloc(i64 noundef 16)
   store ptr %18, ptr %5, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.BOX, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.Point, ptr %20, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.BOX, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.Point, ptr %20, i32 0, i32 0
   %22 = load double, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.Point, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.Point, ptr %23, i32 0, i32 0
   store double %22, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.BOX, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.Point, ptr %26, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.BOX, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %26, i32 0, i32 1
   %28 = load double, ptr %27, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.Point, ptr %29, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.Point, ptr %29, i32 0, i32 1
   store double %28, ptr %30, align 8
   br label %31
 
@@ -3352,35 +3594,42 @@ define dso_local i64 @gist_point_fetch(ptr noundef %0) #0 {
   %32 = load ptr, ptr %5, align 8
   %33 = call i64 @PointerGetDatum(ptr noundef %32)
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.GISTENTRY, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %34, i32 0, i32 0
   store i64 %33, ptr %35, align 8
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.GISTENTRY, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.GISTENTRY, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %39, i32 0, i32 1
   store ptr %38, ptr %40, align 8
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.GISTENTRY, ptr %41, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %41, i32 0, i32 2
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.GISTENTRY, ptr %44, i32 0, i32 2
+  %45 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %44, i32 0, i32 2
   store ptr %43, ptr %45, align 8
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.GISTENTRY, ptr %46, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %46, i32 0, i32 3
   %48 = load i16, ptr %47, align 8
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.GISTENTRY, ptr %49, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %49, i32 0, i32 3
   store i16 %48, ptr %50, align 8
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.GISTENTRY, ptr %51, i32 0, i32 4
+  %52 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %51, i32 0, i32 4
   store i8 0, ptr %52, align 2
   br label %53
 
 53:                                               ; preds = %31
-  %54 = load ptr, ptr %6, align 8
-  %55 = call i64 @PointerGetDatum(ptr noundef %54)
-  ret i64 %55
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %6, align 8
+  %56 = call i64 @PointerGetDatum(ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i64 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3398,27 +3647,32 @@ define dso_local i64 @gist_point_consistent(ptr noundef %0) #0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 0
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetPointer(i64 noundef %18)
   store ptr %19, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #10
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 2
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call zeroext i16 @DatumGetUInt16(i64 noundef %24)
   store i16 %25, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 4
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 4
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call ptr @DatumGetPointer(i64 noundef %30)
   store ptr %31, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
   %32 = load i16, ptr %4, align 2
   %33 = zext i16 %32 to i32
   %34 = icmp eq i32 %33, 29
@@ -3449,11 +3703,11 @@ define dso_local i64 @gist_point_consistent(ptr noundef %0) #0 {
   store i16 %46, ptr %7, align 2
   %47 = load i16, ptr %7, align 2
   %48 = zext i16 %47 to i32
-  switch i32 %48, label %218 [
+  switch i32 %48, label %248 [
     i32 0, label %49
-    i32 1, label %76
-    i32 2, label %130
-    i32 3, label %174
+    i32 1, label %86
+    i32 2, label %140
+    i32 3, label %194
   ]
 
 49:                                               ; preds = %42
@@ -3462,246 +3716,299 @@ define dso_local i64 @gist_point_consistent(ptr noundef %0) #0 {
   %52 = srem i32 %51, 20
   %53 = trunc i32 %52 to i16
   %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.GISTENTRY, ptr %54, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %54, i32 0, i32 2
   %56 = load ptr, ptr %55, align 8
-  %57 = call ptr @PageGetSpecialPointer(ptr noundef %56)
-  %58 = getelementptr inbounds %struct.GISTPageOpaqueData, ptr %57, i32 0, i32 2
-  %59 = load i16, ptr %58, align 4
-  %60 = zext i16 %59 to i32
-  %61 = and i32 %60, 1
-  %62 = icmp ne i32 %61, 0
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i32 0, i32 0
-  %65 = load i64, ptr %64, align 8
-  %66 = call ptr @DatumGetBoxP(i64 noundef %65)
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %67, i32 0, i32 6
-  %69 = getelementptr [0 x %struct.NullableDatum], ptr %68, i64 0, i64 1
-  %70 = getelementptr inbounds %struct.NullableDatum, ptr %69, i32 0, i32 0
-  %71 = load i64, ptr %70, align 8
-  %72 = call ptr @DatumGetPointP(i64 noundef %71)
-  %73 = call zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %53, i1 noundef zeroext %62, ptr noundef %66, ptr noundef %72)
-  %74 = zext i1 %73 to i8
-  store i8 %74, ptr %6, align 1
-  %75 = load ptr, ptr %5, align 8
-  store i8 0, ptr %75, align 1
-  br label %230
-
-76:                                               ; preds = %42
+  call void @PageValidateSpecialPointer(ptr noundef %56)
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %57, i32 0, i32 2
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %62, i32 0, i32 5
+  %64 = load i16, ptr %63, align 4
+  %65 = zext i16 %64 to i32
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %59, i64 %66
+  %68 = getelementptr inbounds nuw %struct.GISTPageOpaqueData, ptr %67, i32 0, i32 2
+  %69 = load i16, ptr %68, align 4
+  %70 = zext i16 %69 to i32
+  %71 = and i32 %70, 1
+  %72 = icmp ne i32 %71, 0
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %73, i32 0, i32 0
+  %75 = load i64, ptr %74, align 8
+  %76 = call ptr @DatumGetBoxP(i64 noundef %75)
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %77, i32 0, i32 6
-  %79 = getelementptr [0 x %struct.NullableDatum], ptr %78, i64 0, i64 1
-  %80 = getelementptr inbounds %struct.NullableDatum, ptr %79, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %77, i32 0, i32 6
+  %79 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %78, i64 0, i64 1
+  %80 = getelementptr inbounds nuw %struct.NullableDatum, ptr %79, i32 0, i32 0
   %81 = load i64, ptr %80, align 8
-  %82 = call ptr @DatumGetBoxP(i64 noundef %81)
-  store ptr %82, ptr %8, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.GISTENTRY, ptr %83, i32 0, i32 0
-  %85 = load i64, ptr %84, align 8
-  %86 = call ptr @DatumGetBoxP(i64 noundef %85)
-  store ptr %86, ptr %9, align 8
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds %struct.BOX, ptr %87, i32 0, i32 0
-  %89 = getelementptr inbounds %struct.Point, ptr %88, i32 0, i32 0
-  %90 = load double, ptr %89, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.BOX, ptr %91, i32 0, i32 1
-  %93 = getelementptr inbounds %struct.Point, ptr %92, i32 0, i32 0
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp oge double %90, %94
-  br i1 %95, label %96, label %126
+  %82 = call ptr @DatumGetPointP(i64 noundef %81)
+  %83 = call zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %53, i1 noundef zeroext %72, ptr noundef %76, ptr noundef %82)
+  %84 = zext i1 %83 to i8
+  store i8 %84, ptr %6, align 1
+  %85 = load ptr, ptr %5, align 8
+  store i8 0, ptr %85, align 1
+  br label %261
 
-96:                                               ; preds = %76
+86:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %87 = load ptr, ptr %2, align 8
+  %88 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %87, i32 0, i32 6
+  %89 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %88, i64 0, i64 1
+  %90 = getelementptr inbounds nuw %struct.NullableDatum, ptr %89, i32 0, i32 0
+  %91 = load i64, ptr %90, align 8
+  %92 = call ptr @DatumGetBoxP(i64 noundef %91)
+  store ptr %92, ptr %8, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %93, i32 0, i32 0
+  %95 = load i64, ptr %94, align 8
+  %96 = call ptr @DatumGetBoxP(i64 noundef %95)
+  store ptr %96, ptr %9, align 8
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.BOX, ptr %97, i32 0, i32 1
-  %99 = getelementptr inbounds %struct.Point, ptr %98, i32 0, i32 0
+  %98 = getelementptr inbounds nuw %struct.BOX, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.Point, ptr %98, i32 0, i32 0
   %100 = load double, ptr %99, align 8
   %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.BOX, ptr %101, i32 0, i32 0
-  %103 = getelementptr inbounds %struct.Point, ptr %102, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %struct.BOX, ptr %101, i32 0, i32 1
+  %103 = getelementptr inbounds nuw %struct.Point, ptr %102, i32 0, i32 0
   %104 = load double, ptr %103, align 8
-  %105 = fcmp ole double %100, %104
-  br i1 %105, label %106, label %126
+  %105 = fcmp oge double %100, %104
+  br i1 %105, label %106, label %136
 
-106:                                              ; preds = %96
+106:                                              ; preds = %86
   %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.BOX, ptr %107, i32 0, i32 0
-  %109 = getelementptr inbounds %struct.Point, ptr %108, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.BOX, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds nuw %struct.Point, ptr %108, i32 0, i32 0
   %110 = load double, ptr %109, align 8
   %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.BOX, ptr %111, i32 0, i32 1
-  %113 = getelementptr inbounds %struct.Point, ptr %112, i32 0, i32 1
+  %112 = getelementptr inbounds nuw %struct.BOX, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.Point, ptr %112, i32 0, i32 0
   %114 = load double, ptr %113, align 8
-  %115 = fcmp oge double %110, %114
-  br i1 %115, label %116, label %126
+  %115 = fcmp ole double %110, %114
+  br i1 %115, label %116, label %136
 
 116:                                              ; preds = %106
   %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct.BOX, ptr %117, i32 0, i32 1
-  %119 = getelementptr inbounds %struct.Point, ptr %118, i32 0, i32 1
+  %118 = getelementptr inbounds nuw %struct.BOX, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %struct.Point, ptr %118, i32 0, i32 1
   %120 = load double, ptr %119, align 8
   %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.BOX, ptr %121, i32 0, i32 0
-  %123 = getelementptr inbounds %struct.Point, ptr %122, i32 0, i32 1
+  %122 = getelementptr inbounds nuw %struct.BOX, ptr %121, i32 0, i32 1
+  %123 = getelementptr inbounds nuw %struct.Point, ptr %122, i32 0, i32 1
   %124 = load double, ptr %123, align 8
-  %125 = fcmp ole double %120, %124
-  br label %126
+  %125 = fcmp oge double %120, %124
+  br i1 %125, label %126, label %136
 
-126:                                              ; preds = %116, %106, %96, %76
-  %127 = phi i1 [ false, %106 ], [ false, %96 ], [ false, %76 ], [ %125, %116 ]
-  %128 = zext i1 %127 to i8
-  store i8 %128, ptr %6, align 1
-  %129 = load ptr, ptr %5, align 8
-  store i8 0, ptr %129, align 1
-  br label %230
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds nuw %struct.BOX, ptr %127, i32 0, i32 1
+  %129 = getelementptr inbounds nuw %struct.Point, ptr %128, i32 0, i32 1
+  %130 = load double, ptr %129, align 8
+  %131 = load ptr, ptr %8, align 8
+  %132 = getelementptr inbounds nuw %struct.BOX, ptr %131, i32 0, i32 0
+  %133 = getelementptr inbounds nuw %struct.Point, ptr %132, i32 0, i32 1
+  %134 = load double, ptr %133, align 8
+  %135 = fcmp ole double %130, %134
+  br label %136
 
-130:                                              ; preds = %42
-  %131 = load ptr, ptr %2, align 8
-  %132 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %131, i32 0, i32 6
-  %133 = getelementptr [0 x %struct.NullableDatum], ptr %132, i64 0, i64 1
-  %134 = getelementptr inbounds %struct.NullableDatum, ptr %133, i32 0, i32 0
-  %135 = load i64, ptr %134, align 8
-  %136 = call ptr @DatumGetPolygonP(i64 noundef %135)
-  store ptr %136, ptr %10, align 8
-  %137 = load ptr, ptr %3, align 8
-  %138 = call i64 @PointerGetDatum(ptr noundef %137)
-  %139 = load ptr, ptr %10, align 8
-  %140 = call i64 @PolygonPGetDatum(ptr noundef %139)
-  %141 = call i64 @Int16GetDatum(i16 noundef signext 3)
-  %142 = load ptr, ptr %5, align 8
-  %143 = call i64 @PointerGetDatum(ptr noundef %142)
-  %144 = call i64 @DirectFunctionCall5Coll(ptr noundef @gist_poly_consistent, i32 noundef 0, i64 noundef %138, i64 noundef %140, i64 noundef %141, i64 noundef 0, i64 noundef %143)
-  %145 = call zeroext i1 @DatumGetBool(i64 noundef %144)
-  %146 = zext i1 %145 to i8
-  store i8 %146, ptr %6, align 1
+136:                                              ; preds = %126, %116, %106, %86
+  %137 = phi i1 [ false, %116 ], [ false, %106 ], [ false, %86 ], [ %135, %126 ]
+  %138 = zext i1 %137 to i8
+  store i8 %138, ptr %6, align 1
+  %139 = load ptr, ptr %5, align 8
+  store i8 0, ptr %139, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  br label %261
+
+140:                                              ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %141 = load ptr, ptr %2, align 8
+  %142 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %141, i32 0, i32 6
+  %143 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %142, i64 0, i64 1
+  %144 = getelementptr inbounds nuw %struct.NullableDatum, ptr %143, i32 0, i32 0
+  %145 = load i64, ptr %144, align 8
+  %146 = call ptr @DatumGetPolygonP(i64 noundef %145)
+  store ptr %146, ptr %10, align 8
   %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.GISTENTRY, ptr %147, i32 0, i32 2
-  %149 = load ptr, ptr %148, align 8
-  %150 = call ptr @PageGetSpecialPointer(ptr noundef %149)
-  %151 = getelementptr inbounds %struct.GISTPageOpaqueData, ptr %150, i32 0, i32 2
-  %152 = load i16, ptr %151, align 4
-  %153 = zext i16 %152 to i32
-  %154 = and i32 %153, 1
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %173
-
-156:                                              ; preds = %130
-  %157 = load i8, ptr %6, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %173
-
-159:                                              ; preds = %156
+  %148 = call i64 @PointerGetDatum(ptr noundef %147)
+  %149 = load ptr, ptr %10, align 8
+  %150 = call i64 @PolygonPGetDatum(ptr noundef %149)
+  %151 = call i64 @Int16GetDatum(i16 noundef signext 3)
+  %152 = load ptr, ptr %5, align 8
+  %153 = call i64 @PointerGetDatum(ptr noundef %152)
+  %154 = call i64 @DirectFunctionCall5Coll(ptr noundef @gist_poly_consistent, i32 noundef 0, i64 noundef %148, i64 noundef %150, i64 noundef %151, i64 noundef 0, i64 noundef %153)
+  %155 = call zeroext i1 @DatumGetBool(i64 noundef %154)
+  %156 = zext i1 %155 to i8
+  store i8 %156, ptr %6, align 1
+  %157 = load ptr, ptr %3, align 8
+  %158 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %157, i32 0, i32 2
+  %159 = load ptr, ptr %158, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %159)
   %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds %struct.GISTENTRY, ptr %160, i32 0, i32 0
-  %162 = load i64, ptr %161, align 8
-  %163 = call ptr @DatumGetBoxP(i64 noundef %162)
-  store ptr %163, ptr %11, align 8
-  %164 = load ptr, ptr %10, align 8
-  %165 = call i64 @PolygonPGetDatum(ptr noundef %164)
-  %166 = load ptr, ptr %11, align 8
-  %167 = getelementptr inbounds %struct.BOX, ptr %166, i32 0, i32 0
-  %168 = call i64 @PointPGetDatum(ptr noundef %167)
-  %169 = call i64 @DirectFunctionCall2Coll(ptr noundef @poly_contain_pt, i32 noundef 0, i64 noundef %165, i64 noundef %168)
-  %170 = call zeroext i1 @DatumGetBool(i64 noundef %169)
-  %171 = zext i1 %170 to i8
-  store i8 %171, ptr %6, align 1
-  %172 = load ptr, ptr %5, align 8
-  store i8 0, ptr %172, align 1
-  br label %173
+  %161 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %3, align 8
+  %164 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %163, i32 0, i32 2
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %165, i32 0, i32 5
+  %167 = load i16, ptr %166, align 4
+  %168 = zext i16 %167 to i32
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr %162, i64 %169
+  %171 = getelementptr inbounds nuw %struct.GISTPageOpaqueData, ptr %170, i32 0, i32 2
+  %172 = load i16, ptr %171, align 4
+  %173 = zext i16 %172 to i32
+  %174 = and i32 %173, 1
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %193
 
-173:                                              ; preds = %159, %156, %130
-  br label %230
+176:                                              ; preds = %140
+  %177 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %179, label %193
 
-174:                                              ; preds = %42
-  %175 = load ptr, ptr %2, align 8
-  %176 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %175, i32 0, i32 6
-  %177 = getelementptr [0 x %struct.NullableDatum], ptr %176, i64 0, i64 1
-  %178 = getelementptr inbounds %struct.NullableDatum, ptr %177, i32 0, i32 0
-  %179 = load i64, ptr %178, align 8
-  %180 = call ptr @DatumGetCircleP(i64 noundef %179)
-  store ptr %180, ptr %12, align 8
-  %181 = load ptr, ptr %3, align 8
-  %182 = call i64 @PointerGetDatum(ptr noundef %181)
-  %183 = load ptr, ptr %12, align 8
-  %184 = call i64 @CirclePGetDatum(ptr noundef %183)
-  %185 = call i64 @Int16GetDatum(i16 noundef signext 3)
-  %186 = load ptr, ptr %5, align 8
-  %187 = call i64 @PointerGetDatum(ptr noundef %186)
-  %188 = call i64 @DirectFunctionCall5Coll(ptr noundef @gist_circle_consistent, i32 noundef 0, i64 noundef %182, i64 noundef %184, i64 noundef %185, i64 noundef 0, i64 noundef %187)
-  %189 = call zeroext i1 @DatumGetBool(i64 noundef %188)
-  %190 = zext i1 %189 to i8
-  store i8 %190, ptr %6, align 1
-  %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.GISTENTRY, ptr %191, i32 0, i32 2
-  %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @PageGetSpecialPointer(ptr noundef %193)
-  %195 = getelementptr inbounds %struct.GISTPageOpaqueData, ptr %194, i32 0, i32 2
-  %196 = load i16, ptr %195, align 4
-  %197 = zext i16 %196 to i32
-  %198 = and i32 %197, 1
-  %199 = icmp ne i32 %198, 0
-  br i1 %199, label %200, label %217
+179:                                              ; preds = %176
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %180 = load ptr, ptr %3, align 8
+  %181 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %180, i32 0, i32 0
+  %182 = load i64, ptr %181, align 8
+  %183 = call ptr @DatumGetBoxP(i64 noundef %182)
+  store ptr %183, ptr %11, align 8
+  %184 = load ptr, ptr %10, align 8
+  %185 = call i64 @PolygonPGetDatum(ptr noundef %184)
+  %186 = load ptr, ptr %11, align 8
+  %187 = getelementptr inbounds nuw %struct.BOX, ptr %186, i32 0, i32 0
+  %188 = call i64 @PointPGetDatum(ptr noundef %187)
+  %189 = call i64 @DirectFunctionCall2Coll(ptr noundef @poly_contain_pt, i32 noundef 0, i64 noundef %185, i64 noundef %188)
+  %190 = call zeroext i1 @DatumGetBool(i64 noundef %189)
+  %191 = zext i1 %190 to i8
+  store i8 %191, ptr %6, align 1
+  %192 = load ptr, ptr %5, align 8
+  store i8 0, ptr %192, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  br label %193
 
-200:                                              ; preds = %174
-  %201 = load i8, ptr %6, align 1
-  %202 = trunc i8 %201 to i1
-  br i1 %202, label %203, label %217
+193:                                              ; preds = %179, %176, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  br label %261
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %3, align 8
-  %205 = getelementptr inbounds %struct.GISTENTRY, ptr %204, i32 0, i32 0
-  %206 = load i64, ptr %205, align 8
-  %207 = call ptr @DatumGetBoxP(i64 noundef %206)
-  store ptr %207, ptr %13, align 8
-  %208 = load ptr, ptr %12, align 8
-  %209 = call i64 @CirclePGetDatum(ptr noundef %208)
-  %210 = load ptr, ptr %13, align 8
-  %211 = getelementptr inbounds %struct.BOX, ptr %210, i32 0, i32 0
-  %212 = call i64 @PointPGetDatum(ptr noundef %211)
-  %213 = call i64 @DirectFunctionCall2Coll(ptr noundef @circle_contain_pt, i32 noundef 0, i64 noundef %209, i64 noundef %212)
-  %214 = call zeroext i1 @DatumGetBool(i64 noundef %213)
-  %215 = zext i1 %214 to i8
-  store i8 %215, ptr %6, align 1
-  %216 = load ptr, ptr %5, align 8
-  store i8 0, ptr %216, align 1
-  br label %217
+194:                                              ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %195 = load ptr, ptr %2, align 8
+  %196 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %195, i32 0, i32 6
+  %197 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %196, i64 0, i64 1
+  %198 = getelementptr inbounds nuw %struct.NullableDatum, ptr %197, i32 0, i32 0
+  %199 = load i64, ptr %198, align 8
+  %200 = call ptr @DatumGetCircleP(i64 noundef %199)
+  store ptr %200, ptr %12, align 8
+  %201 = load ptr, ptr %3, align 8
+  %202 = call i64 @PointerGetDatum(ptr noundef %201)
+  %203 = load ptr, ptr %12, align 8
+  %204 = call i64 @CirclePGetDatum(ptr noundef %203)
+  %205 = call i64 @Int16GetDatum(i16 noundef signext 3)
+  %206 = load ptr, ptr %5, align 8
+  %207 = call i64 @PointerGetDatum(ptr noundef %206)
+  %208 = call i64 @DirectFunctionCall5Coll(ptr noundef @gist_circle_consistent, i32 noundef 0, i64 noundef %202, i64 noundef %204, i64 noundef %205, i64 noundef 0, i64 noundef %207)
+  %209 = call zeroext i1 @DatumGetBool(i64 noundef %208)
+  %210 = zext i1 %209 to i8
+  store i8 %210, ptr %6, align 1
+  %211 = load ptr, ptr %3, align 8
+  %212 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %211, i32 0, i32 2
+  %213 = load ptr, ptr %212, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %213)
+  %214 = load ptr, ptr %3, align 8
+  %215 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %214, i32 0, i32 2
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr %3, align 8
+  %218 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %217, i32 0, i32 2
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %219, i32 0, i32 5
+  %221 = load i16, ptr %220, align 4
+  %222 = zext i16 %221 to i32
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i8, ptr %216, i64 %223
+  %225 = getelementptr inbounds nuw %struct.GISTPageOpaqueData, ptr %224, i32 0, i32 2
+  %226 = load i16, ptr %225, align 4
+  %227 = zext i16 %226 to i32
+  %228 = and i32 %227, 1
+  %229 = icmp ne i32 %228, 0
+  br i1 %229, label %230, label %247
 
-217:                                              ; preds = %203, %200, %174
-  br label %230
+230:                                              ; preds = %194
+  %231 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %232 = trunc i8 %231 to i1
+  br i1 %232, label %233, label %247
 
-218:                                              ; preds = %42
-  br label %219
+233:                                              ; preds = %230
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %234 = load ptr, ptr %3, align 8
+  %235 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %234, i32 0, i32 0
+  %236 = load i64, ptr %235, align 8
+  %237 = call ptr @DatumGetBoxP(i64 noundef %236)
+  store ptr %237, ptr %13, align 8
+  %238 = load ptr, ptr %12, align 8
+  %239 = call i64 @CirclePGetDatum(ptr noundef %238)
+  %240 = load ptr, ptr %13, align 8
+  %241 = getelementptr inbounds nuw %struct.BOX, ptr %240, i32 0, i32 0
+  %242 = call i64 @PointPGetDatum(ptr noundef %241)
+  %243 = call i64 @DirectFunctionCall2Coll(ptr noundef @circle_contain_pt, i32 noundef 0, i64 noundef %239, i64 noundef %242)
+  %244 = call zeroext i1 @DatumGetBool(i64 noundef %243)
+  %245 = zext i1 %244 to i8
+  store i8 %245, ptr %6, align 1
+  %246 = load ptr, ptr %5, align 8
+  store i8 0, ptr %246, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  br label %247
 
-219:                                              ; preds = %218
-  br i1 true, label %220, label %222
+247:                                              ; preds = %233, %230, %194
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %261
 
-220:                                              ; preds = %219
-  %221 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %221, label %224, label %228
+248:                                              ; preds = %42
+  br label %249
 
-222:                                              ; preds = %219
-  %223 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %223, label %224, label %228
+249:                                              ; preds = %248
+  br i1 true, label %250, label %252
 
-224:                                              ; preds = %222, %220
-  %225 = load i16, ptr %4, align 2
-  %226 = zext i16 %225 to i32
-  %227 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %226)
+250:                                              ; preds = %249
+  %251 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  br i1 %251, label %254, label %258
+
+252:                                              ; preds = %249
+  %253 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %253, label %254, label %258
+
+254:                                              ; preds = %252, %250
+  %255 = load i16, ptr %4, align 2
+  %256 = zext i16 %255 to i32
+  %257 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %256)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1446, ptr noundef @__func__.gist_point_consistent)
-  br label %228
+  br label %258
 
-228:                                              ; preds = %224, %222, %220
+258:                                              ; preds = %254, %252, %250
   unreachable
 
-229:                                              ; No predecessors!
-  store i8 0, ptr %6, align 1
-  br label %230
+259:                                              ; No predecessors!
+  br label %260
 
-230:                                              ; preds = %229, %217, %173, %126, %49
-  %231 = load i8, ptr %6, align 1
-  %232 = trunc i8 %231 to i1
-  %233 = call i64 @BoolGetDatum(i1 noundef zeroext %232)
-  ret i64 %233
+260:                                              ; preds = %259
+  store i8 0, ptr %6, align 1
+  br label %261
+
+261:                                              ; preds = %260, %247, %193, %136, %49
+  %262 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %263 = trunc i8 %262 to i1
+  %264 = call i64 @BoolGetDatum(i1 noundef zeroext %263)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i64 %264
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3716,6 +4023,7 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
   store i8 %10, ptr %6, align 1
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
   store i8 0, ptr %9, align 1
   %11 = load i16, ptr %5, align 2
   %12 = zext i16 %11 to i32
@@ -3729,79 +4037,79 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.BOX, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.Point, ptr %15, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.BOX, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.Point, ptr %15, i32 0, i32 0
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.Point, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.Point, ptr %18, i32 0, i32 0
   %20 = load double, ptr %19, align 8
   %21 = call zeroext i1 @FPlt(double noundef %17, double noundef %20)
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %9, align 1
-  br label %129
+  br label %130
 
 23:                                               ; preds = %4
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.BOX, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.Point, ptr %25, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.BOX, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.Point, ptr %25, i32 0, i32 0
   %27 = load double, ptr %26, align 8
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.Point, ptr %28, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.Point, ptr %28, i32 0, i32 0
   %30 = load double, ptr %29, align 8
   %31 = call zeroext i1 @FPgt(double noundef %27, double noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %9, align 1
-  br label %129
+  br label %130
 
 33:                                               ; preds = %4
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.BOX, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.Point, ptr %35, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct.BOX, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.Point, ptr %35, i32 0, i32 1
   %37 = load double, ptr %36, align 8
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.Point, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.Point, ptr %38, i32 0, i32 1
   %40 = load double, ptr %39, align 8
   %41 = call zeroext i1 @FPgt(double noundef %37, double noundef %40)
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %9, align 1
-  br label %129
+  br label %130
 
 43:                                               ; preds = %4
   %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.BOX, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds %struct.Point, ptr %45, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.BOX, ptr %44, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.Point, ptr %45, i32 0, i32 1
   %47 = load double, ptr %46, align 8
   %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.Point, ptr %48, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.Point, ptr %48, i32 0, i32 1
   %50 = load double, ptr %49, align 8
   %51 = call zeroext i1 @FPlt(double noundef %47, double noundef %50)
   %52 = zext i1 %51 to i8
   store i8 %52, ptr %9, align 1
-  br label %129
+  br label %130
 
 53:                                               ; preds = %4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %77
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds %struct.BOX, ptr %57, i32 0, i32 1
-  %59 = getelementptr inbounds %struct.Point, ptr %58, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.BOX, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct.Point, ptr %58, i32 0, i32 0
   %60 = load double, ptr %59, align 8
   %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.Point, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.Point, ptr %61, i32 0, i32 0
   %63 = load double, ptr %62, align 8
   %64 = call zeroext i1 @FPeq(double noundef %60, double noundef %63)
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct.BOX, ptr %66, i32 0, i32 1
-  %68 = getelementptr inbounds %struct.Point, ptr %67, i32 0, i32 1
+  %67 = getelementptr inbounds nuw %struct.BOX, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.Point, ptr %67, i32 0, i32 1
   %69 = load double, ptr %68, align 8
   %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.Point, ptr %70, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.Point, ptr %70, i32 0, i32 1
   %72 = load double, ptr %71, align 8
   %73 = call zeroext i1 @FPeq(double noundef %69, double noundef %72)
   br label %74
@@ -3814,44 +4122,44 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
 
 77:                                               ; preds = %53
   %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.Point, ptr %78, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.Point, ptr %78, i32 0, i32 0
   %80 = load double, ptr %79, align 8
   %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct.BOX, ptr %81, i32 0, i32 0
-  %83 = getelementptr inbounds %struct.Point, ptr %82, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.BOX, ptr %81, i32 0, i32 0
+  %83 = getelementptr inbounds nuw %struct.Point, ptr %82, i32 0, i32 0
   %84 = load double, ptr %83, align 8
   %85 = call zeroext i1 @FPle(double noundef %80, double noundef %84)
   br i1 %85, label %86, label %113
 
 86:                                               ; preds = %77
   %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.Point, ptr %87, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %struct.Point, ptr %87, i32 0, i32 0
   %89 = load double, ptr %88, align 8
   %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct.BOX, ptr %90, i32 0, i32 1
-  %92 = getelementptr inbounds %struct.Point, ptr %91, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct.BOX, ptr %90, i32 0, i32 1
+  %92 = getelementptr inbounds nuw %struct.Point, ptr %91, i32 0, i32 0
   %93 = load double, ptr %92, align 8
   %94 = call zeroext i1 @FPge(double noundef %89, double noundef %93)
   br i1 %94, label %95, label %113
 
 95:                                               ; preds = %86
   %96 = load ptr, ptr %8, align 8
-  %97 = getelementptr inbounds %struct.Point, ptr %96, i32 0, i32 1
+  %97 = getelementptr inbounds nuw %struct.Point, ptr %96, i32 0, i32 1
   %98 = load double, ptr %97, align 8
   %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %struct.BOX, ptr %99, i32 0, i32 0
-  %101 = getelementptr inbounds %struct.Point, ptr %100, i32 0, i32 1
+  %100 = getelementptr inbounds nuw %struct.BOX, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds nuw %struct.Point, ptr %100, i32 0, i32 1
   %102 = load double, ptr %101, align 8
   %103 = call zeroext i1 @FPle(double noundef %98, double noundef %102)
   br i1 %103, label %104, label %113
 
 104:                                              ; preds = %95
   %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.Point, ptr %105, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.Point, ptr %105, i32 0, i32 1
   %107 = load double, ptr %106, align 8
   %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %struct.BOX, ptr %108, i32 0, i32 1
-  %110 = getelementptr inbounds %struct.Point, ptr %109, i32 0, i32 1
+  %109 = getelementptr inbounds nuw %struct.BOX, ptr %108, i32 0, i32 1
+  %110 = getelementptr inbounds nuw %struct.Point, ptr %109, i32 0, i32 1
   %111 = load double, ptr %110, align 8
   %112 = call zeroext i1 @FPge(double noundef %107, double noundef %111)
   br label %113
@@ -3863,7 +4171,7 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
   br label %116
 
 116:                                              ; preds = %113, %74
-  br label %129
+  br label %130
 
 117:                                              ; preds = %4
   br label %118
@@ -3872,7 +4180,7 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
   br i1 true, label %119, label %121
 
 119:                                              ; preds = %118
-  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   br i1 %120, label %123, label %127
 
 121:                                              ; preds = %118
@@ -3890,17 +4198,21 @@ define internal zeroext i1 @gist_point_consistent_internal(i16 noundef zeroext %
   unreachable
 
 128:                                              ; No predecessors!
-  store i8 0, ptr %9, align 1
   br label %129
 
-129:                                              ; preds = %128, %116, %43, %33, %23, %13
-  %130 = load i8, ptr %9, align 1
-  %131 = trunc i8 %130 to i1
-  ret i1 %131
+129:                                              ; preds = %128
+  store i8 0, ptr %9, align 1
+  br label %130
+
+130:                                              ; preds = %129, %116, %43, %33, %23, %13
+  %131 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %132 = trunc i8 %131 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
+  ret i1 %132
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @DatumGetBool(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -3908,10 +4220,10 @@ define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
   ret i1 %4
 }
 
-declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PolygonPGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PolygonPGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3919,8 +4231,8 @@ define internal i64 @PolygonPGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int16GetDatum(i16 noundef signext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int16GetDatum(i16 noundef signext %0) #2 {
   %2 = alloca i16, align 2
   store i16 %0, ptr %2, align 2
   %3 = load i16, ptr %2, align 2
@@ -3928,12 +4240,12 @@ define internal i64 @Int16GetDatum(i16 noundef signext %0) #0 {
   ret i64 %4
 }
 
-declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #1
+declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #3
 
-declare i64 @poly_contain_pt(ptr noundef) #1
+declare i64 @poly_contain_pt(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointPGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointPGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3941,8 +4253,8 @@ define internal i64 @PointPGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CirclePGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CirclePGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3950,16 +4262,16 @@ define internal i64 @CirclePGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare i64 @circle_contain_pt(ptr noundef) #1
+declare i64 @circle_contain_pt(ptr noundef) #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #7
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gist_point_distance(ptr noundef %0) #0 {
@@ -3969,20 +4281,24 @@ define dso_local i64 @gist_point_distance(ptr noundef %0) #0 {
   %5 = alloca double, align 8
   %6 = alloca i16, align 2
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = call ptr @DatumGetPointer(i64 noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #10
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 2
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 2
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = call zeroext i16 @DatumGetUInt16(i64 noundef %17)
   store i16 %18, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #10
   %19 = load i16, ptr %4, align 2
   %20 = zext i16 %19 to i32
   %21 = sdiv i32 %20, 20
@@ -3990,66 +4306,84 @@ define dso_local i64 @gist_point_distance(ptr noundef %0) #0 {
   store i16 %22, ptr %6, align 2
   %23 = load i16, ptr %6, align 2
   %24 = zext i16 %23 to i32
-  switch i32 %24, label %46 [
+  switch i32 %24, label %56 [
     i32 0, label %25
   ]
 
 25:                                               ; preds = %1
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.GISTENTRY, ptr %26, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %26, i32 0, i32 2
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @PageGetSpecialPointer(ptr noundef %28)
-  %30 = getelementptr inbounds %struct.GISTPageOpaqueData, ptr %29, i32 0, i32 2
-  %31 = load i16, ptr %30, align 4
-  %32 = zext i16 %31 to i32
-  %33 = and i32 %32, 1
-  %34 = icmp ne i32 %33, 0
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.GISTENTRY, ptr %35, i32 0, i32 0
-  %37 = load i64, ptr %36, align 8
-  %38 = call ptr @DatumGetBoxP(i64 noundef %37)
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
-  %43 = load i64, ptr %42, align 8
-  %44 = call ptr @DatumGetPointP(i64 noundef %43)
-  %45 = call double @computeDistance(i1 noundef zeroext %34, ptr noundef %38, ptr noundef %44)
-  store double %45, ptr %5, align 8
-  br label %58
+  call void @PageValidateSpecialPointer(ptr noundef %28)
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %34, i32 0, i32 5
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %31, i64 %38
+  %40 = getelementptr inbounds nuw %struct.GISTPageOpaqueData, ptr %39, i32 0, i32 2
+  %41 = load i16, ptr %40, align 4
+  %42 = zext i16 %41 to i32
+  %43 = and i32 %42, 1
+  %44 = icmp ne i32 %43, 0
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %45, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8
+  %48 = call ptr @DatumGetBoxP(i64 noundef %47)
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %49, i32 0, i32 6
+  %51 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %50, i64 0, i64 1
+  %52 = getelementptr inbounds nuw %struct.NullableDatum, ptr %51, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  %54 = call ptr @DatumGetPointP(i64 noundef %53)
+  %55 = call double @computeDistance(i1 noundef zeroext %44, ptr noundef %48, ptr noundef %54)
+  store double %55, ptr %5, align 8
+  br label %69
 
-46:                                               ; preds = %1
-  br label %47
+56:                                               ; preds = %1
+  br label %57
 
-47:                                               ; preds = %46
-  br i1 true, label %48, label %50
+57:                                               ; preds = %56
+  br i1 true, label %58, label %60
 
-48:                                               ; preds = %47
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %49, label %52, label %56
+58:                                               ; preds = %57
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  br i1 %59, label %62, label %66
 
-50:                                               ; preds = %47
-  %51 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %51, label %52, label %56
+60:                                               ; preds = %57
+  %61 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %61, label %62, label %66
 
-52:                                               ; preds = %50, %48
-  %53 = load i16, ptr %4, align 2
-  %54 = zext i16 %53 to i32
-  %55 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %54)
+62:                                               ; preds = %60, %58
+  %63 = load i16, ptr %4, align 2
+  %64 = zext i16 %63 to i32
+  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %64)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1470, ptr noundef @__func__.gist_point_distance)
-  br label %56
+  br label %66
 
-56:                                               ; preds = %52, %50, %48
+66:                                               ; preds = %62, %60, %58
   unreachable
 
-57:                                               ; No predecessors!
-  store double 0.000000e+00, ptr %5, align 8
-  br label %58
+67:                                               ; No predecessors!
+  br label %68
 
-58:                                               ; preds = %57, %25
-  %59 = load double, ptr %5, align 8
-  %60 = call i64 @Float8GetDatum(double noundef %59)
-  ret i64 %60
+68:                                               ; preds = %67
+  store double 0.000000e+00, ptr %5, align 8
+  br label %69
+
+69:                                               ; preds = %68, %25
+  %70 = load double, ptr %5, align 8
+  %71 = call i64 @Float8GetDatum(double noundef %70)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i64 %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4064,8 +4398,9 @@ define internal double @computeDistance(i1 noundef zeroext %0, ptr noundef %1, p
   store i8 %10, ptr %4, align 1
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   store double 0.000000e+00, ptr %7, align 8
-  %11 = load i8, ptr %4, align 1
+  %11 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %21
 
@@ -4073,128 +4408,128 @@ define internal double @computeDistance(i1 noundef zeroext %0, ptr noundef %1, p
   %14 = load ptr, ptr %6, align 8
   %15 = call i64 @PointPGetDatum(ptr noundef %14)
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.BOX, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.BOX, ptr %16, i32 0, i32 1
   %18 = call i64 @PointPGetDatum(ptr noundef %17)
   %19 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %15, i64 noundef %18)
   %20 = call double @DatumGetFloat8(i64 noundef %19)
   store double %20, ptr %7, align 8
-  br label %256
+  br label %258
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.Point, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.Point, ptr %22, i32 0, i32 0
   %24 = load double, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.BOX, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.Point, ptr %26, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.BOX, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %26, i32 0, i32 0
   %28 = load double, ptr %27, align 8
   %29 = fcmp ole double %24, %28
   br i1 %29, label %30, label %58
 
 30:                                               ; preds = %21
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.Point, ptr %31, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.Point, ptr %31, i32 0, i32 0
   %33 = load double, ptr %32, align 8
   %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.BOX, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds %struct.Point, ptr %35, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.BOX, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.Point, ptr %35, i32 0, i32 0
   %37 = load double, ptr %36, align 8
   %38 = fcmp oge double %33, %37
   br i1 %38, label %39, label %58
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.Point, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.Point, ptr %40, i32 0, i32 1
   %42 = load double, ptr %41, align 8
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.BOX, ptr %43, i32 0, i32 0
-  %45 = getelementptr inbounds %struct.Point, ptr %44, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.BOX, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.Point, ptr %44, i32 0, i32 1
   %46 = load double, ptr %45, align 8
   %47 = fcmp ole double %42, %46
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.Point, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.Point, ptr %49, i32 0, i32 1
   %51 = load double, ptr %50, align 8
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.BOX, ptr %52, i32 0, i32 1
-  %54 = getelementptr inbounds %struct.Point, ptr %53, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.BOX, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %53, i32 0, i32 1
   %55 = load double, ptr %54, align 8
   %56 = fcmp oge double %51, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %48
   store double 0.000000e+00, ptr %7, align 8
-  br label %255
+  br label %257
 
 58:                                               ; preds = %48, %39, %30, %21
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.Point, ptr %59, i32 0, i32 0
+  %60 = getelementptr inbounds nuw %struct.Point, ptr %59, i32 0, i32 0
   %61 = load double, ptr %60, align 8
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.BOX, ptr %62, i32 0, i32 0
-  %64 = getelementptr inbounds %struct.Point, ptr %63, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.BOX, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.Point, ptr %63, i32 0, i32 0
   %65 = load double, ptr %64, align 8
   %66 = fcmp ole double %61, %65
-  br i1 %66, label %67, label %124
+  br i1 %66, label %67, label %125
 
 67:                                               ; preds = %58
   %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.Point, ptr %68, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.Point, ptr %68, i32 0, i32 0
   %70 = load double, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.BOX, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds %struct.Point, ptr %72, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.BOX, ptr %71, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.Point, ptr %72, i32 0, i32 0
   %74 = load double, ptr %73, align 8
   %75 = fcmp oge double %70, %74
-  br i1 %75, label %76, label %124
+  br i1 %75, label %76, label %125
 
 76:                                               ; preds = %67
   %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.Point, ptr %77, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.Point, ptr %77, i32 0, i32 1
   %79 = load double, ptr %78, align 8
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.BOX, ptr %80, i32 0, i32 0
-  %82 = getelementptr inbounds %struct.Point, ptr %81, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.BOX, ptr %80, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.Point, ptr %81, i32 0, i32 1
   %83 = load double, ptr %82, align 8
   %84 = fcmp ogt double %79, %83
   br i1 %84, label %85, label %94
 
 85:                                               ; preds = %76
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.Point, ptr %86, i32 0, i32 1
+  %87 = getelementptr inbounds nuw %struct.Point, ptr %86, i32 0, i32 1
   %88 = load double, ptr %87, align 8
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds %struct.BOX, ptr %89, i32 0, i32 0
-  %91 = getelementptr inbounds %struct.Point, ptr %90, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.BOX, ptr %89, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct.Point, ptr %90, i32 0, i32 1
   %92 = load double, ptr %91, align 8
   %93 = call double @float8_mi(double noundef %88, double noundef %92)
   store double %93, ptr %7, align 8
-  br label %123
+  br label %124
 
 94:                                               ; preds = %76
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.Point, ptr %95, i32 0, i32 1
+  %96 = getelementptr inbounds nuw %struct.Point, ptr %95, i32 0, i32 1
   %97 = load double, ptr %96, align 8
   %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.BOX, ptr %98, i32 0, i32 1
-  %100 = getelementptr inbounds %struct.Point, ptr %99, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.BOX, ptr %98, i32 0, i32 1
+  %100 = getelementptr inbounds nuw %struct.Point, ptr %99, i32 0, i32 1
   %101 = load double, ptr %100, align 8
   %102 = fcmp olt double %97, %101
   br i1 %102, label %103, label %112
 
 103:                                              ; preds = %94
   %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.BOX, ptr %104, i32 0, i32 1
-  %106 = getelementptr inbounds %struct.Point, ptr %105, i32 0, i32 1
+  %105 = getelementptr inbounds nuw %struct.BOX, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.Point, ptr %105, i32 0, i32 1
   %107 = load double, ptr %106, align 8
   %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.Point, ptr %108, i32 0, i32 1
+  %109 = getelementptr inbounds nuw %struct.Point, ptr %108, i32 0, i32 1
   %110 = load double, ptr %109, align 8
   %111 = call double @float8_mi(double noundef %107, double noundef %110)
   store double %111, ptr %7, align 8
-  br label %122
+  br label %123
 
 112:                                              ; preds = %94
   br label %113
@@ -4203,7 +4538,7 @@ define internal double @computeDistance(i1 noundef zeroext %0, ptr noundef %1, p
   br i1 true, label %114, label %116
 
 114:                                              ; preds = %113
-  %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   br i1 %115, label %118, label %120
 
 116:                                              ; preds = %113
@@ -4221,222 +4556,235 @@ define internal double @computeDistance(i1 noundef zeroext %0, ptr noundef %1, p
 121:                                              ; No predecessors!
   br label %122
 
-122:                                              ; preds = %121, %103
+122:                                              ; preds = %121
   br label %123
 
-123:                                              ; preds = %122, %85
-  br label %254
+123:                                              ; preds = %122, %103
+  br label %124
 
-124:                                              ; preds = %67, %58
-  %125 = load ptr, ptr %6, align 8
-  %126 = getelementptr inbounds %struct.Point, ptr %125, i32 0, i32 1
-  %127 = load double, ptr %126, align 8
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.BOX, ptr %128, i32 0, i32 0
-  %130 = getelementptr inbounds %struct.Point, ptr %129, i32 0, i32 1
-  %131 = load double, ptr %130, align 8
-  %132 = fcmp ole double %127, %131
-  br i1 %132, label %133, label %190
-
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds %struct.Point, ptr %134, i32 0, i32 1
-  %136 = load double, ptr %135, align 8
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.BOX, ptr %137, i32 0, i32 1
-  %139 = getelementptr inbounds %struct.Point, ptr %138, i32 0, i32 1
-  %140 = load double, ptr %139, align 8
-  %141 = fcmp oge double %136, %140
-  br i1 %141, label %142, label %190
-
-142:                                              ; preds = %133
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct.Point, ptr %143, i32 0, i32 0
-  %145 = load double, ptr %144, align 8
-  %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds %struct.BOX, ptr %146, i32 0, i32 0
-  %148 = getelementptr inbounds %struct.Point, ptr %147, i32 0, i32 0
-  %149 = load double, ptr %148, align 8
-  %150 = fcmp ogt double %145, %149
-  br i1 %150, label %151, label %160
-
-151:                                              ; preds = %142
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds %struct.Point, ptr %152, i32 0, i32 0
-  %154 = load double, ptr %153, align 8
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct.BOX, ptr %155, i32 0, i32 0
-  %157 = getelementptr inbounds %struct.Point, ptr %156, i32 0, i32 0
-  %158 = load double, ptr %157, align 8
-  %159 = call double @float8_mi(double noundef %154, double noundef %158)
-  store double %159, ptr %7, align 8
-  br label %189
-
-160:                                              ; preds = %142
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds %struct.Point, ptr %161, i32 0, i32 0
-  %163 = load double, ptr %162, align 8
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.BOX, ptr %164, i32 0, i32 1
-  %166 = getelementptr inbounds %struct.Point, ptr %165, i32 0, i32 0
-  %167 = load double, ptr %166, align 8
-  %168 = fcmp olt double %163, %167
-  br i1 %168, label %169, label %178
-
-169:                                              ; preds = %160
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds %struct.BOX, ptr %170, i32 0, i32 1
-  %172 = getelementptr inbounds %struct.Point, ptr %171, i32 0, i32 0
-  %173 = load double, ptr %172, align 8
-  %174 = load ptr, ptr %6, align 8
-  %175 = getelementptr inbounds %struct.Point, ptr %174, i32 0, i32 0
-  %176 = load double, ptr %175, align 8
-  %177 = call double @float8_mi(double noundef %173, double noundef %176)
-  store double %177, ptr %7, align 8
-  br label %188
-
-178:                                              ; preds = %160
-  br label %179
-
-179:                                              ; preds = %178
-  br i1 true, label %180, label %182
-
-180:                                              ; preds = %179
-  %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %181, label %184, label %186
-
-182:                                              ; preds = %179
-  %183 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %183, label %184, label %186
-
-184:                                              ; preds = %182, %180
-  %185 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1256, ptr noundef @__func__.computeDistance)
-  br label %186
-
-186:                                              ; preds = %184, %182, %180
-  unreachable
-
-187:                                              ; No predecessors!
-  br label %188
-
-188:                                              ; preds = %187, %169
-  br label %189
-
-189:                                              ; preds = %188, %151
-  br label %253
-
-190:                                              ; preds = %133, %124
-  %191 = load ptr, ptr %6, align 8
-  %192 = call i64 @PointPGetDatum(ptr noundef %191)
-  %193 = load ptr, ptr %5, align 8
-  %194 = getelementptr inbounds %struct.BOX, ptr %193, i32 0, i32 1
-  %195 = call i64 @PointPGetDatum(ptr noundef %194)
-  %196 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %192, i64 noundef %195)
-  %197 = call double @DatumGetFloat8(i64 noundef %196)
-  store double %197, ptr %7, align 8
-  %198 = load ptr, ptr %6, align 8
-  %199 = call i64 @PointPGetDatum(ptr noundef %198)
-  %200 = load ptr, ptr %5, align 8
-  %201 = getelementptr inbounds %struct.BOX, ptr %200, i32 0, i32 0
-  %202 = call i64 @PointPGetDatum(ptr noundef %201)
-  %203 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %199, i64 noundef %202)
-  %204 = call double @DatumGetFloat8(i64 noundef %203)
-  store double %204, ptr %9, align 8
-  %205 = load double, ptr %7, align 8
-  %206 = load double, ptr %9, align 8
-  %207 = fcmp ogt double %205, %206
-  br i1 %207, label %208, label %210
-
-208:                                              ; preds = %190
-  %209 = load double, ptr %9, align 8
-  store double %209, ptr %7, align 8
-  br label %210
-
-210:                                              ; preds = %208, %190
-  %211 = load ptr, ptr %5, align 8
-  %212 = getelementptr inbounds %struct.BOX, ptr %211, i32 0, i32 1
-  %213 = getelementptr inbounds %struct.Point, ptr %212, i32 0, i32 0
-  %214 = load double, ptr %213, align 8
-  %215 = getelementptr inbounds %struct.Point, ptr %8, i32 0, i32 0
-  store double %214, ptr %215, align 8
-  %216 = load ptr, ptr %5, align 8
-  %217 = getelementptr inbounds %struct.BOX, ptr %216, i32 0, i32 0
-  %218 = getelementptr inbounds %struct.Point, ptr %217, i32 0, i32 1
-  %219 = load double, ptr %218, align 8
-  %220 = getelementptr inbounds %struct.Point, ptr %8, i32 0, i32 1
-  store double %219, ptr %220, align 8
-  %221 = load ptr, ptr %6, align 8
-  %222 = call i64 @PointPGetDatum(ptr noundef %221)
-  %223 = call i64 @PointPGetDatum(ptr noundef %8)
-  %224 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %222, i64 noundef %223)
-  %225 = call double @DatumGetFloat8(i64 noundef %224)
-  store double %225, ptr %9, align 8
-  %226 = load double, ptr %7, align 8
-  %227 = load double, ptr %9, align 8
-  %228 = fcmp ogt double %226, %227
-  br i1 %228, label %229, label %231
-
-229:                                              ; preds = %210
-  %230 = load double, ptr %9, align 8
-  store double %230, ptr %7, align 8
-  br label %231
-
-231:                                              ; preds = %229, %210
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds %struct.BOX, ptr %232, i32 0, i32 0
-  %234 = getelementptr inbounds %struct.Point, ptr %233, i32 0, i32 0
-  %235 = load double, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.Point, ptr %8, i32 0, i32 0
-  store double %235, ptr %236, align 8
-  %237 = load ptr, ptr %5, align 8
-  %238 = getelementptr inbounds %struct.BOX, ptr %237, i32 0, i32 1
-  %239 = getelementptr inbounds %struct.Point, ptr %238, i32 0, i32 1
-  %240 = load double, ptr %239, align 8
-  %241 = getelementptr inbounds %struct.Point, ptr %8, i32 0, i32 1
-  store double %240, ptr %241, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = call i64 @PointPGetDatum(ptr noundef %242)
-  %244 = call i64 @PointPGetDatum(ptr noundef %8)
-  %245 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %243, i64 noundef %244)
-  %246 = call double @DatumGetFloat8(i64 noundef %245)
-  store double %246, ptr %9, align 8
-  %247 = load double, ptr %7, align 8
-  %248 = load double, ptr %9, align 8
-  %249 = fcmp ogt double %247, %248
-  br i1 %249, label %250, label %252
-
-250:                                              ; preds = %231
-  %251 = load double, ptr %9, align 8
-  store double %251, ptr %7, align 8
-  br label %252
-
-252:                                              ; preds = %250, %231
-  br label %253
-
-253:                                              ; preds = %252, %189
-  br label %254
-
-254:                                              ; preds = %253, %123
-  br label %255
-
-255:                                              ; preds = %254, %57
+124:                                              ; preds = %123, %85
   br label %256
 
-256:                                              ; preds = %255, %13
-  %257 = load double, ptr %7, align 8
-  ret double %257
+125:                                              ; preds = %67, %58
+  %126 = load ptr, ptr %6, align 8
+  %127 = getelementptr inbounds nuw %struct.Point, ptr %126, i32 0, i32 1
+  %128 = load double, ptr %127, align 8
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds nuw %struct.BOX, ptr %129, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %struct.Point, ptr %130, i32 0, i32 1
+  %132 = load double, ptr %131, align 8
+  %133 = fcmp ole double %128, %132
+  br i1 %133, label %134, label %192
+
+134:                                              ; preds = %125
+  %135 = load ptr, ptr %6, align 8
+  %136 = getelementptr inbounds nuw %struct.Point, ptr %135, i32 0, i32 1
+  %137 = load double, ptr %136, align 8
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds nuw %struct.BOX, ptr %138, i32 0, i32 1
+  %140 = getelementptr inbounds nuw %struct.Point, ptr %139, i32 0, i32 1
+  %141 = load double, ptr %140, align 8
+  %142 = fcmp oge double %137, %141
+  br i1 %142, label %143, label %192
+
+143:                                              ; preds = %134
+  %144 = load ptr, ptr %6, align 8
+  %145 = getelementptr inbounds nuw %struct.Point, ptr %144, i32 0, i32 0
+  %146 = load double, ptr %145, align 8
+  %147 = load ptr, ptr %5, align 8
+  %148 = getelementptr inbounds nuw %struct.BOX, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds nuw %struct.Point, ptr %148, i32 0, i32 0
+  %150 = load double, ptr %149, align 8
+  %151 = fcmp ogt double %146, %150
+  br i1 %151, label %152, label %161
+
+152:                                              ; preds = %143
+  %153 = load ptr, ptr %6, align 8
+  %154 = getelementptr inbounds nuw %struct.Point, ptr %153, i32 0, i32 0
+  %155 = load double, ptr %154, align 8
+  %156 = load ptr, ptr %5, align 8
+  %157 = getelementptr inbounds nuw %struct.BOX, ptr %156, i32 0, i32 0
+  %158 = getelementptr inbounds nuw %struct.Point, ptr %157, i32 0, i32 0
+  %159 = load double, ptr %158, align 8
+  %160 = call double @float8_mi(double noundef %155, double noundef %159)
+  store double %160, ptr %7, align 8
+  br label %191
+
+161:                                              ; preds = %143
+  %162 = load ptr, ptr %6, align 8
+  %163 = getelementptr inbounds nuw %struct.Point, ptr %162, i32 0, i32 0
+  %164 = load double, ptr %163, align 8
+  %165 = load ptr, ptr %5, align 8
+  %166 = getelementptr inbounds nuw %struct.BOX, ptr %165, i32 0, i32 1
+  %167 = getelementptr inbounds nuw %struct.Point, ptr %166, i32 0, i32 0
+  %168 = load double, ptr %167, align 8
+  %169 = fcmp olt double %164, %168
+  br i1 %169, label %170, label %179
+
+170:                                              ; preds = %161
+  %171 = load ptr, ptr %5, align 8
+  %172 = getelementptr inbounds nuw %struct.BOX, ptr %171, i32 0, i32 1
+  %173 = getelementptr inbounds nuw %struct.Point, ptr %172, i32 0, i32 0
+  %174 = load double, ptr %173, align 8
+  %175 = load ptr, ptr %6, align 8
+  %176 = getelementptr inbounds nuw %struct.Point, ptr %175, i32 0, i32 0
+  %177 = load double, ptr %176, align 8
+  %178 = call double @float8_mi(double noundef %174, double noundef %177)
+  store double %178, ptr %7, align 8
+  br label %190
+
+179:                                              ; preds = %161
+  br label %180
+
+180:                                              ; preds = %179
+  br i1 true, label %181, label %183
+
+181:                                              ; preds = %180
+  %182 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  br i1 %182, label %185, label %187
+
+183:                                              ; preds = %180
+  %184 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %184, label %185, label %187
+
+185:                                              ; preds = %183, %181
+  %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1256, ptr noundef @__func__.computeDistance)
+  br label %187
+
+187:                                              ; preds = %185, %183, %181
+  unreachable
+
+188:                                              ; No predecessors!
+  br label %189
+
+189:                                              ; preds = %188
+  br label %190
+
+190:                                              ; preds = %189, %170
+  br label %191
+
+191:                                              ; preds = %190, %152
+  br label %255
+
+192:                                              ; preds = %134, %125
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %193 = load ptr, ptr %6, align 8
+  %194 = call i64 @PointPGetDatum(ptr noundef %193)
+  %195 = load ptr, ptr %5, align 8
+  %196 = getelementptr inbounds nuw %struct.BOX, ptr %195, i32 0, i32 1
+  %197 = call i64 @PointPGetDatum(ptr noundef %196)
+  %198 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %194, i64 noundef %197)
+  %199 = call double @DatumGetFloat8(i64 noundef %198)
+  store double %199, ptr %7, align 8
+  %200 = load ptr, ptr %6, align 8
+  %201 = call i64 @PointPGetDatum(ptr noundef %200)
+  %202 = load ptr, ptr %5, align 8
+  %203 = getelementptr inbounds nuw %struct.BOX, ptr %202, i32 0, i32 0
+  %204 = call i64 @PointPGetDatum(ptr noundef %203)
+  %205 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %201, i64 noundef %204)
+  %206 = call double @DatumGetFloat8(i64 noundef %205)
+  store double %206, ptr %9, align 8
+  %207 = load double, ptr %7, align 8
+  %208 = load double, ptr %9, align 8
+  %209 = fcmp ogt double %207, %208
+  br i1 %209, label %210, label %212
+
+210:                                              ; preds = %192
+  %211 = load double, ptr %9, align 8
+  store double %211, ptr %7, align 8
+  br label %212
+
+212:                                              ; preds = %210, %192
+  %213 = load ptr, ptr %5, align 8
+  %214 = getelementptr inbounds nuw %struct.BOX, ptr %213, i32 0, i32 1
+  %215 = getelementptr inbounds nuw %struct.Point, ptr %214, i32 0, i32 0
+  %216 = load double, ptr %215, align 8
+  %217 = getelementptr inbounds nuw %struct.Point, ptr %8, i32 0, i32 0
+  store double %216, ptr %217, align 8
+  %218 = load ptr, ptr %5, align 8
+  %219 = getelementptr inbounds nuw %struct.BOX, ptr %218, i32 0, i32 0
+  %220 = getelementptr inbounds nuw %struct.Point, ptr %219, i32 0, i32 1
+  %221 = load double, ptr %220, align 8
+  %222 = getelementptr inbounds nuw %struct.Point, ptr %8, i32 0, i32 1
+  store double %221, ptr %222, align 8
+  %223 = load ptr, ptr %6, align 8
+  %224 = call i64 @PointPGetDatum(ptr noundef %223)
+  %225 = call i64 @PointPGetDatum(ptr noundef %8)
+  %226 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %224, i64 noundef %225)
+  %227 = call double @DatumGetFloat8(i64 noundef %226)
+  store double %227, ptr %9, align 8
+  %228 = load double, ptr %7, align 8
+  %229 = load double, ptr %9, align 8
+  %230 = fcmp ogt double %228, %229
+  br i1 %230, label %231, label %233
+
+231:                                              ; preds = %212
+  %232 = load double, ptr %9, align 8
+  store double %232, ptr %7, align 8
+  br label %233
+
+233:                                              ; preds = %231, %212
+  %234 = load ptr, ptr %5, align 8
+  %235 = getelementptr inbounds nuw %struct.BOX, ptr %234, i32 0, i32 0
+  %236 = getelementptr inbounds nuw %struct.Point, ptr %235, i32 0, i32 0
+  %237 = load double, ptr %236, align 8
+  %238 = getelementptr inbounds nuw %struct.Point, ptr %8, i32 0, i32 0
+  store double %237, ptr %238, align 8
+  %239 = load ptr, ptr %5, align 8
+  %240 = getelementptr inbounds nuw %struct.BOX, ptr %239, i32 0, i32 1
+  %241 = getelementptr inbounds nuw %struct.Point, ptr %240, i32 0, i32 1
+  %242 = load double, ptr %241, align 8
+  %243 = getelementptr inbounds nuw %struct.Point, ptr %8, i32 0, i32 1
+  store double %242, ptr %243, align 8
+  %244 = load ptr, ptr %6, align 8
+  %245 = call i64 @PointPGetDatum(ptr noundef %244)
+  %246 = call i64 @PointPGetDatum(ptr noundef %8)
+  %247 = call i64 @DirectFunctionCall2Coll(ptr noundef @point_distance, i32 noundef 0, i64 noundef %245, i64 noundef %246)
+  %248 = call double @DatumGetFloat8(i64 noundef %247)
+  store double %248, ptr %9, align 8
+  %249 = load double, ptr %7, align 8
+  %250 = load double, ptr %9, align 8
+  %251 = fcmp ogt double %249, %250
+  br i1 %251, label %252, label %254
+
+252:                                              ; preds = %233
+  %253 = load double, ptr %9, align 8
+  store double %253, ptr %7, align 8
+  br label %254
+
+254:                                              ; preds = %252, %233
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #10
+  br label %255
+
+255:                                              ; preds = %254, %191
+  br label %256
+
+256:                                              ; preds = %255, %124
+  br label %257
+
+257:                                              ; preds = %256, %57
+  br label %258
+
+258:                                              ; preds = %257, %13
+  %259 = load double, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret double %259
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Float8GetDatum(double noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Float8GetDatum(double noundef %0) #2 {
   %2 = alloca double, align 8
   %3 = alloca %union.anon.0, align 8
   store double %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load double, ptr %2, align 8
   store double %4, ptr %3, align 8
   %5 = load i64, ptr %3, align 8
   %6 = call i64 @Int64GetDatum(i64 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %6
 }
 
@@ -4448,26 +4796,30 @@ define dso_local i64 @gist_box_distance(ptr noundef %0) #0 {
   %5 = alloca i16, align 2
   %6 = alloca double, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
-  %9 = getelementptr [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds %struct.NullableDatum, ptr %9, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.NullableDatum, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = call ptr @DatumGetPointer(i64 noundef %11)
   store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
-  %15 = getelementptr [0 x %struct.NullableDatum], ptr %14, i64 0, i64 1
-  %16 = getelementptr inbounds %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 1
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
-  %20 = getelementptr [0 x %struct.NullableDatum], ptr %19, i64 0, i64 2
-  %21 = getelementptr inbounds %struct.NullableDatum, ptr %20, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
+  %20 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %19, i64 0, i64 2
+  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %20, i32 0, i32 0
   %22 = load i64, ptr %21, align 8
   %23 = call zeroext i16 @DatumGetUInt16(i64 noundef %22)
   store i16 %23, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %24 = load ptr, ptr %3, align 8
   %25 = load i64, ptr %4, align 8
   %26 = load i16, ptr %5, align 2
@@ -4475,6 +4827,10 @@ define dso_local i64 @gist_box_distance(ptr noundef %0) #0 {
   store double %27, ptr %6, align 8
   %28 = load double, ptr %6, align 8
   %29 = call i64 @Float8GetDatum(double noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %29
 }
 
@@ -4488,6 +4844,8 @@ define internal double @gist_bbox_distance(ptr noundef %0, i64 noundef %1, i16 n
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   store i16 %2, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #10
   %9 = load i16, ptr %6, align 2
   %10 = zext i16 %9 to i32
   %11 = sdiv i32 %10, 20
@@ -4501,14 +4859,14 @@ define internal double @gist_bbox_distance(ptr noundef %0, i64 noundef %1, i16 n
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.GISTENTRY, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetBoxP(i64 noundef %18)
   %20 = load i64, ptr %5, align 8
   %21 = call ptr @DatumGetPointP(i64 noundef %20)
   %22 = call double @computeDistance(i1 noundef zeroext false, ptr noundef %19, ptr noundef %21)
   store double %22, ptr %7, align 8
-  br label %35
+  br label %36
 
 23:                                               ; preds = %3
   br label %24
@@ -4517,7 +4875,7 @@ define internal double @gist_bbox_distance(ptr noundef %0, i64 noundef %1, i16 n
   br i1 true, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   br i1 %26, label %29, label %33
 
 27:                                               ; preds = %24
@@ -4535,12 +4893,17 @@ define internal double @gist_bbox_distance(ptr noundef %0, i64 noundef %1, i16 n
   unreachable
 
 34:                                               ; No predecessors!
-  store double 0.000000e+00, ptr %7, align 8
   br label %35
 
-35:                                               ; preds = %34, %15
-  %36 = load double, ptr %7, align 8
-  ret double %36
+35:                                               ; preds = %34
+  store double 0.000000e+00, ptr %7, align 8
+  br label %36
+
+36:                                               ; preds = %35, %15
+  %37 = load double, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret double %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4552,33 +4915,38 @@ define dso_local i64 @gist_circle_distance(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetPointer(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
-  %21 = getelementptr [0 x %struct.NullableDatum], ptr %20, i64 0, i64 2
-  %22 = getelementptr inbounds %struct.NullableDatum, ptr %21, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %20, i64 0, i64 2
+  %22 = getelementptr inbounds nuw %struct.NullableDatum, ptr %21, i32 0, i32 0
   %23 = load i64, ptr %22, align 8
   %24 = call zeroext i16 @DatumGetUInt16(i64 noundef %23)
   store i16 %24, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
-  %27 = getelementptr [0 x %struct.NullableDatum], ptr %26, i64 0, i64 4
-  %28 = getelementptr inbounds %struct.NullableDatum, ptr %27, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
+  %27 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %26, i64 0, i64 4
+  %28 = getelementptr inbounds nuw %struct.NullableDatum, ptr %27, i32 0, i32 0
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @DatumGetPointer(i64 noundef %29)
   store ptr %30, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %31 = load ptr, ptr %3, align 8
   %32 = load i64, ptr %4, align 8
   %33 = load i16, ptr %5, align 2
@@ -4588,6 +4956,11 @@ define dso_local i64 @gist_circle_distance(ptr noundef %0) #0 {
   store i8 1, ptr %35, align 1
   %36 = load double, ptr %7, align 8
   %37 = call i64 @Float8GetDatum(double noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %37
 }
 
@@ -4600,33 +4973,38 @@ define dso_local i64 @gist_poly_distance(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetPointer(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 1
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
-  %21 = getelementptr [0 x %struct.NullableDatum], ptr %20, i64 0, i64 2
-  %22 = getelementptr inbounds %struct.NullableDatum, ptr %21, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %20, i64 0, i64 2
+  %22 = getelementptr inbounds nuw %struct.NullableDatum, ptr %21, i32 0, i32 0
   %23 = load i64, ptr %22, align 8
   %24 = call zeroext i16 @DatumGetUInt16(i64 noundef %23)
   store i16 %24, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
-  %27 = getelementptr [0 x %struct.NullableDatum], ptr %26, i64 0, i64 4
-  %28 = getelementptr inbounds %struct.NullableDatum, ptr %27, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
+  %27 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %26, i64 0, i64 4
+  %28 = getelementptr inbounds nuw %struct.NullableDatum, ptr %27, i32 0, i32 0
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @DatumGetPointer(i64 noundef %29)
   store ptr %30, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %31 = load ptr, ptr %3, align 8
   %32 = load i64, ptr %4, align 8
   %33 = load i16, ptr %5, align 2
@@ -4636,6 +5014,11 @@ define dso_local i64 @gist_poly_distance(ptr noundef %0) #0 {
   store i8 1, ptr %35, align 1
   %36 = load double, ptr %7, align 8
   %37 = call i64 @Float8GetDatum(double noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %37
 }
 
@@ -4644,45 +5027,47 @@ define dso_local i64 @gist_point_sortsupport(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
-  %6 = getelementptr [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
-  %7 = getelementptr inbounds %struct.NullableDatum, ptr %6, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %4, i32 0, i32 6
+  %6 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.NullableDatum, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = call ptr @DatumGetPointer(i64 noundef %8)
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.SortSupportData, ptr %10, i32 0, i32 7
-  %12 = load i8, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %struct.SortSupportData, ptr %10, i32 0, i32 7
+  %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.SortSupportData, ptr %15, i32 0, i32 6
+  %16 = getelementptr inbounds nuw %struct.SortSupportData, ptr %15, i32 0, i32 6
   store ptr @ssup_datum_unsigned_cmp, ptr %16, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.SortSupportData, ptr %17, i32 0, i32 8
+  %18 = getelementptr inbounds nuw %struct.SortSupportData, ptr %17, i32 0, i32 8
   store ptr @gist_bbox_zorder_abbrev_convert, ptr %18, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.SortSupportData, ptr %19, i32 0, i32 9
+  %20 = getelementptr inbounds nuw %struct.SortSupportData, ptr %19, i32 0, i32 9
   store ptr @gist_bbox_zorder_abbrev_abort, ptr %20, align 8
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.SortSupportData, ptr %21, i32 0, i32 10
+  %22 = getelementptr inbounds nuw %struct.SortSupportData, ptr %21, i32 0, i32 10
   store ptr @gist_bbox_zorder_cmp, ptr %22, align 8
   br label %26
 
 23:                                               ; preds = %1
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.SortSupportData, ptr %24, i32 0, i32 6
+  %25 = getelementptr inbounds nuw %struct.SortSupportData, ptr %24, i32 0, i32 6
   store ptr @gist_bbox_zorder_cmp, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 0
 }
 
-declare i32 @ssup_datum_unsigned_cmp(i64 noundef, i64 noundef, ptr noundef) #1
+declare i32 @ssup_datum_unsigned_cmp(i64 noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @gist_bbox_zorder_abbrev_convert(i64 noundef %0, ptr noundef %1) #0 {
@@ -4692,21 +5077,25 @@ define internal i64 @gist_bbox_zorder_abbrev_convert(i64 noundef %0, ptr noundef
   %6 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load i64, ptr %3, align 8
   %8 = call ptr @DatumGetBoxP(i64 noundef %7)
-  %9 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 1
   store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.Point, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.Point, ptr %10, i32 0, i32 0
   %12 = load double, ptr %11, align 8
   %13 = fptrunc double %12 to float
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.Point, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.Point, ptr %14, i32 0, i32 1
   %16 = load double, ptr %15, align 8
   %17 = fptrunc double %16 to float
   %18 = call i64 @point_zorder_internal(float noundef %13, float noundef %17)
   store i64 %18, ptr %6, align 8
   %19 = load i64, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i64 %19
 }
 
@@ -4729,94 +5118,100 @@ define internal i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 noundef %1, ptr no
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
   store i64 %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = call ptr @DatumGetBoxP(i64 noundef %12)
-  %14 = getelementptr inbounds %struct.BOX, ptr %13, i32 0, i32 1
-  store ptr %14, ptr %8, align 8
-  %15 = load i64, ptr %6, align 8
-  %16 = call ptr @DatumGetBoxP(i64 noundef %15)
-  %17 = getelementptr inbounds %struct.BOX, ptr %16, i32 0, i32 1
-  store ptr %17, ptr %9, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.Point, ptr %18, i32 0, i32 0
-  %20 = load double, ptr %19, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.Point, ptr %21, i32 0, i32 0
-  %23 = load double, ptr %22, align 8
-  %24 = fcmp oeq double %20, %23
-  br i1 %24, label %25, label %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %13 = load i64, ptr %5, align 8
+  %14 = call ptr @DatumGetBoxP(i64 noundef %13)
+  %15 = getelementptr inbounds nuw %struct.BOX, ptr %14, i32 0, i32 1
+  store ptr %15, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %16 = load i64, ptr %6, align 8
+  %17 = call ptr @DatumGetBoxP(i64 noundef %16)
+  %18 = getelementptr inbounds nuw %struct.BOX, ptr %17, i32 0, i32 1
+  store ptr %18, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %struct.Point, ptr %19, i32 0, i32 0
+  %21 = load double, ptr %20, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw %struct.Point, ptr %22, i32 0, i32 0
+  %24 = load double, ptr %23, align 8
+  %25 = fcmp oeq double %21, %24
+  br i1 %25, label %26, label %35
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.Point, ptr %26, i32 0, i32 1
-  %28 = load double, ptr %27, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.Point, ptr %29, i32 0, i32 1
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp oeq double %28, %31
-  br i1 %32, label %33, label %34
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds nuw %struct.Point, ptr %27, i32 0, i32 1
+  %29 = load double, ptr %28, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.Point, ptr %30, i32 0, i32 1
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp oeq double %29, %32
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %25
+34:                                               ; preds = %26
   store i32 0, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %12, align 4
+  br label %64
 
-34:                                               ; preds = %25, %3
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.Point, ptr %35, i32 0, i32 0
-  %37 = load double, ptr %36, align 8
-  %38 = fptrunc double %37 to float
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.Point, ptr %39, i32 0, i32 1
-  %41 = load double, ptr %40, align 8
-  %42 = fptrunc double %41 to float
-  %43 = call i64 @point_zorder_internal(float noundef %38, float noundef %42)
-  store i64 %43, ptr %10, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.Point, ptr %44, i32 0, i32 0
-  %46 = load double, ptr %45, align 8
-  %47 = fptrunc double %46 to float
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct.Point, ptr %48, i32 0, i32 1
-  %50 = load double, ptr %49, align 8
-  %51 = fptrunc double %50 to float
-  %52 = call i64 @point_zorder_internal(float noundef %47, float noundef %51)
-  store i64 %52, ptr %11, align 8
-  %53 = load i64, ptr %10, align 8
-  %54 = load i64, ptr %11, align 8
-  %55 = icmp ugt i64 %53, %54
-  br i1 %55, label %56, label %57
+35:                                               ; preds = %26, %3
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds nuw %struct.Point, ptr %36, i32 0, i32 0
+  %38 = load double, ptr %37, align 8
+  %39 = fptrunc double %38 to float
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct.Point, ptr %40, i32 0, i32 1
+  %42 = load double, ptr %41, align 8
+  %43 = fptrunc double %42 to float
+  %44 = call i64 @point_zorder_internal(float noundef %39, float noundef %43)
+  store i64 %44, ptr %10, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds nuw %struct.Point, ptr %45, i32 0, i32 0
+  %47 = load double, ptr %46, align 8
+  %48 = fptrunc double %47 to float
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.Point, ptr %49, i32 0, i32 1
+  %51 = load double, ptr %50, align 8
+  %52 = fptrunc double %51 to float
+  %53 = call i64 @point_zorder_internal(float noundef %48, float noundef %52)
+  store i64 %53, ptr %11, align 8
+  %54 = load i64, ptr %10, align 8
+  %55 = load i64, ptr %11, align 8
+  %56 = icmp ugt i64 %54, %55
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %34
+57:                                               ; preds = %35
   store i32 1, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %12, align 4
+  br label %64
 
-57:                                               ; preds = %34
-  %58 = load i64, ptr %10, align 8
-  %59 = load i64, ptr %11, align 8
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %61, label %62
+58:                                               ; preds = %35
+  %59 = load i64, ptr %10, align 8
+  %60 = load i64, ptr %11, align 8
+  %61 = icmp ult i64 %59, %60
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   store i32 -1, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %12, align 4
+  br label %64
 
-62:                                               ; preds = %57
+63:                                               ; preds = %58
   store i32 0, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %12, align 4
+  br label %64
 
-63:                                               ; preds = %62, %61, %56, %33
-  %64 = load i32, ptr %4, align 4
-  ret i32 %64
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @PageValidateSpecialPointer(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
+64:                                               ; preds = %63, %62, %57, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %65 = load i32, ptr %4, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4828,56 +5223,56 @@ define internal void @rt_box_union(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.BOX, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %struct.Point, ptr %8, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.BOX, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.Point, ptr %8, i32 0, i32 0
   %10 = load double, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.BOX, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.Point, ptr %12, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.BOX, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.Point, ptr %12, i32 0, i32 0
   %14 = load double, ptr %13, align 8
   %15 = call double @float8_max(double noundef %10, double noundef %14)
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.BOX, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.Point, ptr %17, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.BOX, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.Point, ptr %17, i32 0, i32 0
   store double %15, ptr %18, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.BOX, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.Point, ptr %20, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.BOX, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.Point, ptr %20, i32 0, i32 1
   %22 = load double, ptr %21, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.BOX, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.Point, ptr %24, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.BOX, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.Point, ptr %24, i32 0, i32 1
   %26 = load double, ptr %25, align 8
   %27 = call double @float8_max(double noundef %22, double noundef %26)
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.BOX, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.Point, ptr %29, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.BOX, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.Point, ptr %29, i32 0, i32 1
   store double %27, ptr %30, align 8
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.BOX, ptr %31, i32 0, i32 1
-  %33 = getelementptr inbounds %struct.Point, ptr %32, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.BOX, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.Point, ptr %32, i32 0, i32 0
   %34 = load double, ptr %33, align 8
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.BOX, ptr %35, i32 0, i32 1
-  %37 = getelementptr inbounds %struct.Point, ptr %36, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.BOX, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.Point, ptr %36, i32 0, i32 0
   %38 = load double, ptr %37, align 8
   %39 = call double @float8_min(double noundef %34, double noundef %38)
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.BOX, ptr %40, i32 0, i32 1
-  %42 = getelementptr inbounds %struct.Point, ptr %41, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.BOX, ptr %40, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct.Point, ptr %41, i32 0, i32 0
   store double %39, ptr %42, align 8
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.BOX, ptr %43, i32 0, i32 1
-  %45 = getelementptr inbounds %struct.Point, ptr %44, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.BOX, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.Point, ptr %44, i32 0, i32 1
   %46 = load double, ptr %45, align 8
   %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.BOX, ptr %47, i32 0, i32 1
-  %49 = getelementptr inbounds %struct.Point, ptr %48, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.BOX, ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.Point, ptr %48, i32 0, i32 1
   %50 = load double, ptr %49, align 8
   %51 = call double @float8_min(double noundef %46, double noundef %50)
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.BOX, ptr %52, i32 0, i32 1
-  %54 = getelementptr inbounds %struct.Point, ptr %53, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.BOX, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %53, i32 0, i32 1
   store double %51, ptr %54, align 8
   ret void
 }
@@ -4888,24 +5283,24 @@ define internal double @size_box(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.BOX, ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %struct.Point, ptr %5, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.BOX, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.Point, ptr %5, i32 0, i32 0
   %7 = load double, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.BOX, ptr %8, i32 0, i32 1
-  %10 = getelementptr inbounds %struct.Point, ptr %9, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.BOX, ptr %8, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.Point, ptr %9, i32 0, i32 0
   %11 = load double, ptr %10, align 8
   %12 = call zeroext i1 @float8_le(double noundef %7, double noundef %11)
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.BOX, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.Point, ptr %15, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.BOX, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.Point, ptr %15, i32 0, i32 1
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.BOX, ptr %18, i32 0, i32 1
-  %20 = getelementptr inbounds %struct.Point, ptr %19, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.BOX, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.Point, ptr %19, i32 0, i32 1
   %21 = load double, ptr %20, align 8
   %22 = call zeroext i1 @float8_le(double noundef %17, double noundef %21)
   br i1 %22, label %23, label %24
@@ -4916,16 +5311,16 @@ define internal double @size_box(ptr noundef %0) #0 {
 
 24:                                               ; preds = %13
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.BOX, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.Point, ptr %26, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.BOX, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %26, i32 0, i32 0
   %28 = load double, ptr %27, align 8
   %29 = call i1 @llvm.is.fpclass.f64(double %28, i32 3)
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.BOX, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.Point, ptr %32, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.BOX, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.Point, ptr %32, i32 0, i32 1
   %34 = load double, ptr %33, align 8
   %35 = call i1 @llvm.is.fpclass.f64(double %34, i32 3)
   br i1 %35, label %36, label %38
@@ -4937,21 +5332,21 @@ define internal double @size_box(ptr noundef %0) #0 {
 
 38:                                               ; preds = %30
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.BOX, ptr %39, i32 0, i32 0
-  %41 = getelementptr inbounds %struct.Point, ptr %40, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.BOX, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.Point, ptr %40, i32 0, i32 0
   %42 = load double, ptr %41, align 8
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.BOX, ptr %43, i32 0, i32 1
-  %45 = getelementptr inbounds %struct.Point, ptr %44, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.BOX, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.Point, ptr %44, i32 0, i32 0
   %46 = load double, ptr %45, align 8
   %47 = call double @float8_mi(double noundef %42, double noundef %46)
   %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.BOX, ptr %48, i32 0, i32 0
-  %50 = getelementptr inbounds %struct.Point, ptr %49, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.BOX, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.Point, ptr %49, i32 0, i32 1
   %51 = load double, ptr %50, align 8
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.BOX, ptr %52, i32 0, i32 1
-  %54 = getelementptr inbounds %struct.Point, ptr %53, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.BOX, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %53, i32 0, i32 1
   %55 = load double, ptr %54, align 8
   %56 = call double @float8_mi(double noundef %51, double noundef %55)
   %57 = call double @float8_mul(double noundef %47, double noundef %56)
@@ -4963,8 +5358,8 @@ define internal double @size_box(ptr noundef %0) #0 {
   ret double %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @float8_max(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_max(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -4987,8 +5382,8 @@ define internal double @float8_max(double noundef %0, double noundef %1) #0 {
   ret double %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @float8_min(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_min(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5012,20 +5407,21 @@ define internal double @float8_min(double noundef %0, double noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #4
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #6
 
-; Function Attrs: nounwind uwtable
-define internal double @get_float8_infinity() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @get_float8_infinity() #2 {
   ret double 0x7FF0000000000000
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @float8_mul(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_mul(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   store double %0, ptr %3, align 8
   store double %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = load double, ptr %3, align 8
   %7 = load double, ptr %4, align 8
   %8 = fmul double %6, %7
@@ -5036,216 +5432,232 @@ define internal double @float8_mul(double noundef %0, double noundef %1) #0 {
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
   %14 = sext i32 %13 to i64
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %23
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %24
 
-16:                                               ; preds = %2
-  %17 = load double, ptr %3, align 8
-  %18 = call i1 @llvm.is.fpclass.f64(double %17, i32 516)
-  br i1 %18, label %23, label %19
+17:                                               ; preds = %2
+  %18 = load double, ptr %3, align 8
+  %19 = call i1 @llvm.is.fpclass.f64(double %18, i32 516)
+  br i1 %19, label %24, label %20
 
-19:                                               ; preds = %16
-  %20 = load double, ptr %4, align 8
-  %21 = call i1 @llvm.is.fpclass.f64(double %20, i32 516)
-  br i1 %21, label %23, label %22
+20:                                               ; preds = %17
+  %21 = load double, ptr %4, align 8
+  %22 = call i1 @llvm.is.fpclass.f64(double %21, i32 516)
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %19
-  call void @float_overflow_error() #8
+23:                                               ; preds = %20
+  call void @float_overflow_error() #12
   unreachable
 
-23:                                               ; preds = %19, %16, %2
-  %24 = load double, ptr %5, align 8
-  %25 = fcmp oeq double %24, 0.000000e+00
-  %26 = zext i1 %25 to i32
-  %27 = icmp ne i32 %26, 0
-  %28 = zext i1 %27 to i32
-  %29 = sext i32 %28 to i64
-  %30 = icmp ne i64 %29, 0
-  br i1 %30, label %31, label %38
+24:                                               ; preds = %20, %17, %2
+  %25 = load double, ptr %5, align 8
+  %26 = fcmp oeq double %25, 0.000000e+00
+  %27 = zext i1 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = sext i32 %29 to i64
+  %31 = call i64 @llvm.expect.i64(i64 %30, i64 0)
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %40
 
-31:                                               ; preds = %23
-  %32 = load double, ptr %3, align 8
-  %33 = fcmp une double %32, 0.000000e+00
-  br i1 %33, label %34, label %38
+33:                                               ; preds = %24
+  %34 = load double, ptr %3, align 8
+  %35 = fcmp une double %34, 0.000000e+00
+  br i1 %35, label %36, label %40
 
-34:                                               ; preds = %31
-  %35 = load double, ptr %4, align 8
-  %36 = fcmp une double %35, 0.000000e+00
-  br i1 %36, label %37, label %38
+36:                                               ; preds = %33
+  %37 = load double, ptr %4, align 8
+  %38 = fcmp une double %37, 0.000000e+00
+  br i1 %38, label %39, label %40
 
-37:                                               ; preds = %34
-  call void @float_underflow_error() #8
+39:                                               ; preds = %36
+  call void @float_underflow_error() #12
   unreachable
 
-38:                                               ; preds = %34, %31, %23
-  %39 = load double, ptr %5, align 8
-  ret double %39
+40:                                               ; preds = %36, %33, %24
+  %41 = load double, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret double %41
 }
 
-; Function Attrs: noreturn
-declare void @float_overflow_error() #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #8
 
 ; Function Attrs: noreturn
-declare void @float_underflow_error() #6
+declare void @float_overflow_error() #9
 
-declare i32 @float8_cmp_internal(double noundef, double noundef) #1
+; Function Attrs: noreturn
+declare void @float_underflow_error() #9
 
-; Function Attrs: nounwind uwtable
-define internal float @float4_div(float noundef %0, float noundef %1) #0 {
+declare i32 @float8_cmp_internal(double noundef, double noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal float @float4_div(float noundef %0, float noundef %1) #2 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   store float %0, ptr %3, align 4
   store float %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
   %6 = load float, ptr %4, align 4
   %7 = fcmp oeq float %6, 0.000000e+00
   %8 = zext i1 %7 to i32
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
   %11 = sext i32 %10 to i64
-  %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %17
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %2
-  %14 = load float, ptr %3, align 4
-  %15 = call i1 @llvm.is.fpclass.f32(float %14, i32 3)
-  br i1 %15, label %17, label %16
+14:                                               ; preds = %2
+  %15 = load float, ptr %3, align 4
+  %16 = call i1 @llvm.is.fpclass.f32(float %15, i32 3)
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %13
-  call void @float_zero_divide_error() #8
+17:                                               ; preds = %14
+  call void @float_zero_divide_error() #12
   unreachable
 
-17:                                               ; preds = %13, %2
-  %18 = load float, ptr %3, align 4
-  %19 = load float, ptr %4, align 4
-  %20 = fdiv float %18, %19
-  store float %20, ptr %5, align 4
-  %21 = load float, ptr %5, align 4
-  %22 = call i1 @llvm.is.fpclass.f32(float %21, i32 516)
-  %23 = zext i1 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = sext i32 %25 to i64
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %32
+18:                                               ; preds = %14, %2
+  %19 = load float, ptr %3, align 4
+  %20 = load float, ptr %4, align 4
+  %21 = fdiv float %19, %20
+  store float %21, ptr %5, align 4
+  %22 = load float, ptr %5, align 4
+  %23 = call i1 @llvm.is.fpclass.f32(float %22, i32 516)
+  %24 = zext i1 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = sext i32 %26 to i64
+  %28 = call i64 @llvm.expect.i64(i64 %27, i64 0)
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %17
-  %29 = load float, ptr %3, align 4
-  %30 = call i1 @llvm.is.fpclass.f32(float %29, i32 516)
-  br i1 %30, label %32, label %31
+30:                                               ; preds = %18
+  %31 = load float, ptr %3, align 4
+  %32 = call i1 @llvm.is.fpclass.f32(float %31, i32 516)
+  br i1 %32, label %34, label %33
 
-31:                                               ; preds = %28
-  call void @float_overflow_error() #8
+33:                                               ; preds = %30
+  call void @float_overflow_error() #12
   unreachable
 
-32:                                               ; preds = %28, %17
-  %33 = load float, ptr %5, align 4
-  %34 = fcmp oeq float %33, 0.000000e+00
-  %35 = zext i1 %34 to i32
-  %36 = icmp ne i32 %35, 0
+34:                                               ; preds = %30, %18
+  %35 = load float, ptr %5, align 4
+  %36 = fcmp oeq float %35, 0.000000e+00
   %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %47
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = call i64 @llvm.expect.i64(i64 %40, i64 0)
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %50
 
-40:                                               ; preds = %32
-  %41 = load float, ptr %3, align 4
-  %42 = fcmp une float %41, 0.000000e+00
-  br i1 %42, label %43, label %47
-
-43:                                               ; preds = %40
-  %44 = load float, ptr %4, align 4
-  %45 = call i1 @llvm.is.fpclass.f32(float %44, i32 516)
-  br i1 %45, label %47, label %46
+43:                                               ; preds = %34
+  %44 = load float, ptr %3, align 4
+  %45 = fcmp une float %44, 0.000000e+00
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  call void @float_underflow_error() #8
+  %47 = load float, ptr %4, align 4
+  %48 = call i1 @llvm.is.fpclass.f32(float %47, i32 516)
+  br i1 %48, label %50, label %49
+
+49:                                               ; preds = %46
+  call void @float_underflow_error() #12
   unreachable
 
-47:                                               ; preds = %43, %40, %32
-  %48 = load float, ptr %5, align 4
-  ret float %48
+50:                                               ; preds = %46, %43, %34
+  %51 = load float, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret float %51
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @float8_div(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @float8_div(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   store double %0, ptr %3, align 8
   store double %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = load double, ptr %4, align 8
   %7 = fcmp oeq double %6, 0.000000e+00
   %8 = zext i1 %7 to i32
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
   %11 = sext i32 %10 to i64
-  %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %17
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %2
-  %14 = load double, ptr %3, align 8
-  %15 = call i1 @llvm.is.fpclass.f64(double %14, i32 3)
-  br i1 %15, label %17, label %16
+14:                                               ; preds = %2
+  %15 = load double, ptr %3, align 8
+  %16 = call i1 @llvm.is.fpclass.f64(double %15, i32 3)
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %13
-  call void @float_zero_divide_error() #8
+17:                                               ; preds = %14
+  call void @float_zero_divide_error() #12
   unreachable
 
-17:                                               ; preds = %13, %2
-  %18 = load double, ptr %3, align 8
-  %19 = load double, ptr %4, align 8
-  %20 = fdiv double %18, %19
-  store double %20, ptr %5, align 8
-  %21 = load double, ptr %5, align 8
-  %22 = call i1 @llvm.is.fpclass.f64(double %21, i32 516)
-  %23 = zext i1 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = sext i32 %25 to i64
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %32
+18:                                               ; preds = %14, %2
+  %19 = load double, ptr %3, align 8
+  %20 = load double, ptr %4, align 8
+  %21 = fdiv double %19, %20
+  store double %21, ptr %5, align 8
+  %22 = load double, ptr %5, align 8
+  %23 = call i1 @llvm.is.fpclass.f64(double %22, i32 516)
+  %24 = zext i1 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = sext i32 %26 to i64
+  %28 = call i64 @llvm.expect.i64(i64 %27, i64 0)
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %17
-  %29 = load double, ptr %3, align 8
-  %30 = call i1 @llvm.is.fpclass.f64(double %29, i32 516)
-  br i1 %30, label %32, label %31
+30:                                               ; preds = %18
+  %31 = load double, ptr %3, align 8
+  %32 = call i1 @llvm.is.fpclass.f64(double %31, i32 516)
+  br i1 %32, label %34, label %33
 
-31:                                               ; preds = %28
-  call void @float_overflow_error() #8
+33:                                               ; preds = %30
+  call void @float_overflow_error() #12
   unreachable
 
-32:                                               ; preds = %28, %17
-  %33 = load double, ptr %5, align 8
-  %34 = fcmp oeq double %33, 0.000000e+00
-  %35 = zext i1 %34 to i32
-  %36 = icmp ne i32 %35, 0
+34:                                               ; preds = %30, %18
+  %35 = load double, ptr %5, align 8
+  %36 = fcmp oeq double %35, 0.000000e+00
   %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %47
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = call i64 @llvm.expect.i64(i64 %40, i64 0)
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %50
 
-40:                                               ; preds = %32
-  %41 = load double, ptr %3, align 8
-  %42 = fcmp une double %41, 0.000000e+00
-  br i1 %42, label %43, label %47
-
-43:                                               ; preds = %40
-  %44 = load double, ptr %4, align 8
-  %45 = call i1 @llvm.is.fpclass.f64(double %44, i32 516)
-  br i1 %45, label %47, label %46
+43:                                               ; preds = %34
+  %44 = load double, ptr %3, align 8
+  %45 = fcmp une double %44, 0.000000e+00
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  call void @float_underflow_error() #8
+  %47 = load double, ptr %4, align 8
+  %48 = call i1 @llvm.is.fpclass.f64(double %47, i32 516)
+  br i1 %48, label %50, label %49
+
+49:                                               ; preds = %46
+  call void @float_underflow_error() #12
   unreachable
 
-47:                                               ; preds = %43, %40, %32
-  %48 = load double, ptr %5, align 8
-  ret double %48
+50:                                               ; preds = %46, %43, %34
+  %51 = load double, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret double %51
 }
 
-; Function Attrs: nounwind uwtable
-define internal float @non_negative(float noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal float @non_negative(float noundef %0) #2 {
   %2 = alloca float, align 4
   %3 = alloca float, align 4
   store float %0, ptr %3, align 4
@@ -5268,39 +5680,39 @@ define internal float @non_negative(float noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #4
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @float_zero_divide_error() #6
+declare void @float_zero_divide_error() #9
 
-declare i64 @box_left(ptr noundef) #1
+declare i64 @box_left(ptr noundef) #3
 
-declare i64 @box_overleft(ptr noundef) #1
+declare i64 @box_overleft(ptr noundef) #3
 
-declare i64 @box_overlap(ptr noundef) #1
+declare i64 @box_overlap(ptr noundef) #3
 
-declare i64 @box_overright(ptr noundef) #1
+declare i64 @box_overright(ptr noundef) #3
 
-declare i64 @box_right(ptr noundef) #1
+declare i64 @box_right(ptr noundef) #3
 
-declare i64 @box_same(ptr noundef) #1
+declare i64 @box_same(ptr noundef) #3
 
-declare i64 @box_contain(ptr noundef) #1
+declare i64 @box_contain(ptr noundef) #3
 
-declare i64 @box_contained(ptr noundef) #1
+declare i64 @box_contained(ptr noundef) #3
 
-declare i64 @box_overbelow(ptr noundef) #1
+declare i64 @box_overbelow(ptr noundef) #3
 
-declare i64 @box_below(ptr noundef) #1
+declare i64 @box_below(ptr noundef) #3
 
-declare i64 @box_above(ptr noundef) #1
+declare i64 @box_above(ptr noundef) #3
 
-declare i64 @box_overabove(ptr noundef) #1
+declare i64 @box_overabove(ptr noundef) #3
 
-declare ptr @pg_detoast_datum(ptr noundef) #1
+declare ptr @pg_detoast_datum(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @FPlt(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @FPlt(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5312,8 +5724,8 @@ define internal zeroext i1 @FPlt(double noundef %0, double noundef %1) #0 {
   ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @FPgt(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @FPgt(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5325,8 +5737,8 @@ define internal zeroext i1 @FPgt(double noundef %0, double noundef %1) #0 {
   ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @FPeq(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @FPeq(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5349,8 +5761,8 @@ define internal zeroext i1 @FPeq(double noundef %0, double noundef %1) #0 {
   ret i1 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @FPle(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @FPle(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5362,8 +5774,8 @@ define internal zeroext i1 @FPle(double noundef %0, double noundef %1) #0 {
   ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @FPge(double noundef %0, double noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @FPge(double noundef %0, double noundef %1) #2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8
@@ -5375,30 +5787,32 @@ define internal zeroext i1 @FPge(double noundef %0, double noundef %1) #0 {
   ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @DatumGetFloat8(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @DatumGetFloat8(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   %3 = alloca %union.anon, align 8
   store i64 %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load i64, ptr %2, align 8
   %5 = call i64 @DatumGetInt64(i64 noundef %4)
   store i64 %5, ptr %3, align 8
   %6 = load double, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret double %6
 }
 
-declare i64 @point_distance(ptr noundef) #1
+declare i64 @point_distance(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetInt64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetInt64(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int64GetDatum(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int64GetDatum(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -5413,9 +5827,11 @@ define internal i64 @point_zorder_internal(float noundef %0, float noundef %1) #
   %6 = alloca i32, align 4
   store float %0, ptr %3, align 4
   store float %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
   %7 = load float, ptr %3, align 4
   %8 = call i32 @ieee_float32_to_uint32(float noundef %7)
   store i32 %8, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
   %9 = load float, ptr %4, align 4
   %10 = call i32 @ieee_float32_to_uint32(float noundef %9)
   store i32 %10, ptr %6, align 4
@@ -5425,6 +5841,8 @@ define internal i64 @point_zorder_internal(float noundef %0, float noundef %1) #
   %14 = call i64 @part_bits32_by2(i32 noundef %13)
   %15 = shl i64 %14, 1
   %16 = or i64 %12, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret i64 %16
 }
 
@@ -5443,6 +5861,7 @@ define internal i32 @ieee_float32_to_uint32(float noundef %0) #0 {
   br label %21
 
 8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
   %9 = load float, ptr %3, align 4
   store float %9, ptr %4, align 4
   %10 = load i32, ptr %4, align 4
@@ -5465,6 +5884,7 @@ define internal i32 @ieee_float32_to_uint32(float noundef %0) #0 {
 19:                                               ; preds = %16, %13
   %20 = load i32, ptr %4, align 4
   store i32 %20, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
   br label %21
 
 21:                                               ; preds = %19, %7
@@ -5477,6 +5897,7 @@ define internal i64 @part_bits32_by2(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load i32, ptr %2, align 4
   %5 = zext i32 %4 to i64
   store i64 %5, ptr %3, align 8
@@ -5511,36 +5932,42 @@ define internal i64 @part_bits32_by2(i32 noundef %0) #0 {
   %30 = and i64 %29, 6148914691236517205
   store i64 %30, ptr %3, align 8
   %31 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i64 %31
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold }
-attributes #8 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
+attributes #12 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

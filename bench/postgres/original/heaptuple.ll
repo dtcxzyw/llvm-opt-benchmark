@@ -2,10 +2,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.missing_cache_key = type { i32, i64 }
-%struct.TupleDescData = type { i32, i32, i32, i32, ptr, [0 x %struct.FormData_pg_attribute] }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.TupleConstr = type { ptr, ptr, ptr, i16, i16, i8, i8 }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
+%struct.TupleDescData = type { i32, i32, i32, i32, ptr, [0 x %struct.CompactAttribute] }
+%struct.TupleConstr = type { ptr, ptr, ptr, i16, i16, i8, i8, i8 }
 %struct.AttrMissing = type { i8, i64 }
 %struct.varattrib_1b = type { i8, [0 x i8] }
 %struct.varattrib_1b_e = type { i8, i8, [0 x i8] }
@@ -17,8 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.HeapTupleFields }
 %struct.HeapTupleFields = type { i32, i32, %union.anon.1 }
 %union.anon.1 = type { i32 }
-%struct.DatumTupleFields = type { i32, i32, i32 }
 %struct.MinimalTupleData = type { i32, [6 x i8], i16, i16, i8, [0 x i8] }
+%struct.DatumTupleFields = type { i32, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @missing_cache = internal global ptr null, align 8
@@ -51,262 +50,316 @@ define dso_local i64 @getmissingattr(ptr noundef %0, i32 noundef %1, ptr noundef
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.TupleDescData, ptr %14, i32 0, i32 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %6, align 4
   %17 = sub i32 %16, 1
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %18
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %20, i32 0, i32 14
-  %22 = load i8, ptr %21, align 4
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %174
+  %18 = call ptr @TupleDescCompactAttr(ptr noundef %15, i32 noundef %17)
+  store ptr %18, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 4, !range !4, !noundef !5
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %177
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.TupleDescData, ptr %25, i32 0, i32 4
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.TupleConstr, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = sub i32 %30, 1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.AttrMissing, ptr %29, i64 %32
-  store ptr %33, ptr %9, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.AttrMissing, ptr %34, i32 0, i32 0
-  %36 = load i8, ptr %35, align 8
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %173
+23:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.TupleDescData, ptr %24, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.TupleConstr, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = sub i32 %29, 1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %struct.AttrMissing, ptr %28, i64 %31
+  store ptr %32, ptr %9, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.AttrMissing, ptr %33, i32 0, i32 0
+  %35 = load i8, ptr %34, align 8, !range !4, !noundef !5
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %173
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr %7, align 8
-  store i8 0, ptr %39, align 1
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %40, i32 0, i32 8
-  %42 = load i8, ptr %41, align 2
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %48
+37:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %38 = load ptr, ptr %7, align 8
+  store i8 0, ptr %38, align 1
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %39, i32 0, i32 2
+  %41 = load i8, ptr %40, align 2, !range !4, !noundef !5
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %47
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.AttrMissing, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  store i64 %47, ptr %4, align 8
-  br label %177
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %9, align 8
+  %45 = getelementptr inbounds nuw %struct.AttrMissing, ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  store i64 %46, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %172
 
-48:                                               ; preds = %38
-  %49 = load ptr, ptr @missing_cache, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+47:                                               ; preds = %37
+  %48 = load ptr, ptr @missing_cache, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %48
+50:                                               ; preds = %47
   call void @init_missing_cache()
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %48
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %53, i32 0, i32 3
-  %55 = load i16, ptr %54, align 4
-  %56 = sext i16 %55 to i32
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %58, label %64
+51:                                               ; preds = %50, %47
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %52, i32 0, i32 1
+  %54 = load i16, ptr %53, align 4
+  %55 = sext i16 %54 to i32
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %63
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %59, i32 0, i32 3
-  %61 = load i16, ptr %60, align 4
-  %62 = sext i16 %61 to i32
-  %63 = getelementptr inbounds %struct.missing_cache_key, ptr %10, i32 0, i32 0
-  store i32 %62, ptr %63, align 8
-  br label %145
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %58, i32 0, i32 1
+  %60 = load i16, ptr %59, align 4
+  %61 = sext i16 %60 to i32
+  %62 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %10, i32 0, i32 0
+  store i32 %61, ptr %62, align 8
+  br label %144
 
-64:                                               ; preds = %52
-  %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct.AttrMissing, ptr %65, i32 0, i32 1
-  %67 = load i64, ptr %66, align 8
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds %struct.varattrib_1b, ptr %68, i32 0, i32 0
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %109
+63:                                               ; preds = %51
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw %struct.AttrMissing, ptr %64, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  %67 = inttoptr i64 %66 to ptr
+  %68 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %67, i32 0, i32 0
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %108
 
-73:                                               ; preds = %64
-  %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds %struct.AttrMissing, ptr %74, i32 0, i32 1
-  %76 = load i64, ptr %75, align 8
-  %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds %struct.varattrib_1b_e, ptr %77, i32 0, i32 1
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %83
+72:                                               ; preds = %63
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds nuw %struct.AttrMissing, ptr %73, i32 0, i32 1
+  %75 = load i64, ptr %74, align 8
+  %76 = inttoptr i64 %75 to ptr
+  %77 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %76, i32 0, i32 1
+  %78 = load i8, ptr %77, align 1
+  %79 = zext i8 %78 to i32
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %82
 
-82:                                               ; preds = %73
-  br label %106
+81:                                               ; preds = %72
+  br label %105
 
-83:                                               ; preds = %73
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds %struct.AttrMissing, ptr %84, i32 0, i32 1
-  %86 = load i64, ptr %85, align 8
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds %struct.varattrib_1b_e, ptr %87, i32 0, i32 1
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = and i32 %90, -2
-  %92 = icmp eq i32 %91, 2
-  br i1 %92, label %93, label %94
+82:                                               ; preds = %72
+  %83 = load ptr, ptr %9, align 8
+  %84 = getelementptr inbounds nuw %struct.AttrMissing, ptr %83, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  %86 = inttoptr i64 %85 to ptr
+  %87 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %86, i32 0, i32 1
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = and i32 %89, -2
+  %91 = icmp eq i32 %90, 2
+  br i1 %91, label %92, label %93
 
-93:                                               ; preds = %83
-  br label %104
+92:                                               ; preds = %82
+  br label %103
 
-94:                                               ; preds = %83
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.AttrMissing, ptr %95, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds %struct.varattrib_1b_e, ptr %98, i32 0, i32 1
-  %100 = load i8, ptr %99, align 1
-  %101 = zext i8 %100 to i32
-  %102 = icmp eq i32 %101, 18
-  %103 = select i1 %102, i64 16, i64 0
-  br label %104
+93:                                               ; preds = %82
+  %94 = load ptr, ptr %9, align 8
+  %95 = getelementptr inbounds nuw %struct.AttrMissing, ptr %94, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  %97 = inttoptr i64 %96 to ptr
+  %98 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %97, i32 0, i32 1
+  %99 = load i8, ptr %98, align 1
+  %100 = zext i8 %99 to i32
+  %101 = icmp eq i32 %100, 18
+  %102 = select i1 %101, i64 16, i64 0
+  br label %103
 
-104:                                              ; preds = %94, %93
-  %105 = phi i64 [ 8, %93 ], [ %103, %94 ]
-  br label %106
+103:                                              ; preds = %93, %92
+  %104 = phi i64 [ 8, %92 ], [ %102, %93 ]
+  br label %105
 
-106:                                              ; preds = %104, %82
-  %107 = phi i64 [ 8, %82 ], [ %105, %104 ]
-  %108 = add i64 2, %107
-  br label %141
+105:                                              ; preds = %103, %81
+  %106 = phi i64 [ 8, %81 ], [ %104, %103 ]
+  %107 = add i64 2, %106
+  br label %140
 
-109:                                              ; preds = %64
-  %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds %struct.AttrMissing, ptr %110, i32 0, i32 1
-  %112 = load i64, ptr %111, align 8
-  %113 = inttoptr i64 %112 to ptr
-  %114 = getelementptr inbounds %struct.varattrib_1b, ptr %113, i32 0, i32 0
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = and i32 %116, 1
-  %118 = icmp eq i32 %117, 1
-  br i1 %118, label %119, label %129
+108:                                              ; preds = %63
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds nuw %struct.AttrMissing, ptr %109, i32 0, i32 1
+  %111 = load i64, ptr %110, align 8
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %112, i32 0, i32 0
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = and i32 %115, 1
+  %117 = icmp eq i32 %116, 1
+  br i1 %117, label %118, label %128
 
-119:                                              ; preds = %109
-  %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds %struct.AttrMissing, ptr %120, i32 0, i32 1
-  %122 = load i64, ptr %121, align 8
-  %123 = inttoptr i64 %122 to ptr
-  %124 = getelementptr inbounds %struct.varattrib_1b, ptr %123, i32 0, i32 0
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = ashr i32 %126, 1
-  %128 = and i32 %127, 127
-  br label %138
+118:                                              ; preds = %108
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds nuw %struct.AttrMissing, ptr %119, i32 0, i32 1
+  %121 = load i64, ptr %120, align 8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %122, i32 0, i32 0
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i32
+  %126 = ashr i32 %125, 1
+  %127 = and i32 %126, 127
+  br label %137
 
-129:                                              ; preds = %109
-  %130 = load ptr, ptr %9, align 8
-  %131 = getelementptr inbounds %struct.AttrMissing, ptr %130, i32 0, i32 1
-  %132 = load i64, ptr %131, align 8
-  %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds %struct.anon, ptr %133, i32 0, i32 0
-  %135 = load i32, ptr %134, align 4
-  %136 = lshr i32 %135, 2
-  %137 = and i32 %136, 1073741823
-  br label %138
+128:                                              ; preds = %108
+  %129 = load ptr, ptr %9, align 8
+  %130 = getelementptr inbounds nuw %struct.AttrMissing, ptr %129, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8
+  %132 = inttoptr i64 %131 to ptr
+  %133 = getelementptr inbounds nuw %struct.anon, ptr %132, i32 0, i32 0
+  %134 = load i32, ptr %133, align 4
+  %135 = lshr i32 %134, 2
+  %136 = and i32 %135, 1073741823
+  br label %137
 
-138:                                              ; preds = %129, %119
-  %139 = phi i32 [ %128, %119 ], [ %137, %129 ]
-  %140 = zext i32 %139 to i64
-  br label %141
+137:                                              ; preds = %128, %118
+  %138 = phi i32 [ %127, %118 ], [ %136, %128 ]
+  %139 = zext i32 %138 to i64
+  br label %140
 
-141:                                              ; preds = %138, %106
-  %142 = phi i64 [ %108, %106 ], [ %140, %138 ]
-  %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds %struct.missing_cache_key, ptr %10, i32 0, i32 0
-  store i32 %143, ptr %144, align 8
-  br label %145
+140:                                              ; preds = %137, %105
+  %141 = phi i64 [ %107, %105 ], [ %139, %137 ]
+  %142 = trunc i64 %141 to i32
+  %143 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %10, i32 0, i32 0
+  store i32 %142, ptr %143, align 8
+  br label %144
 
-145:                                              ; preds = %141, %58
-  %146 = load ptr, ptr %9, align 8
-  %147 = getelementptr inbounds %struct.AttrMissing, ptr %146, i32 0, i32 1
-  %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds %struct.missing_cache_key, ptr %10, i32 0, i32 1
-  store i64 %148, ptr %149, align 8
-  %150 = load ptr, ptr @missing_cache, align 8
-  %151 = call ptr @hash_search(ptr noundef %150, ptr noundef %10, i32 noundef 1, ptr noundef %12)
-  store ptr %151, ptr %11, align 8
-  %152 = load i8, ptr %12, align 1
-  %153 = trunc i8 %152 to i1
-  br i1 %153, label %169, label %154
+144:                                              ; preds = %140, %57
+  %145 = load ptr, ptr %9, align 8
+  %146 = getelementptr inbounds nuw %struct.AttrMissing, ptr %145, i32 0, i32 1
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %10, i32 0, i32 1
+  store i64 %147, ptr %148, align 8
+  %149 = load ptr, ptr @missing_cache, align 8
+  %150 = call ptr @hash_search(ptr noundef %149, ptr noundef %10, i32 noundef 1, ptr noundef %12)
+  store ptr %150, ptr %11, align 8
+  %151 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %168, label %153
 
-154:                                              ; preds = %145
-  %155 = load ptr, ptr @TopMemoryContext, align 8
-  %156 = call ptr @MemoryContextSwitchTo(ptr noundef %155)
-  store ptr %156, ptr %13, align 8
-  %157 = load ptr, ptr %9, align 8
-  %158 = getelementptr inbounds %struct.AttrMissing, ptr %157, i32 0, i32 1
-  %159 = load i64, ptr %158, align 8
-  %160 = load ptr, ptr %8, align 8
-  %161 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %160, i32 0, i32 3
-  %162 = load i16, ptr %161, align 4
-  %163 = sext i16 %162 to i32
-  %164 = call i64 @datumCopy(i64 noundef %159, i1 noundef zeroext false, i32 noundef %163)
-  %165 = load ptr, ptr %11, align 8
-  %166 = getelementptr inbounds %struct.missing_cache_key, ptr %165, i32 0, i32 1
-  store i64 %164, ptr %166, align 8
-  %167 = load ptr, ptr %13, align 8
-  %168 = call ptr @MemoryContextSwitchTo(ptr noundef %167)
-  br label %169
+153:                                              ; preds = %144
+  %154 = load ptr, ptr @TopMemoryContext, align 8
+  %155 = call ptr @MemoryContextSwitchTo(ptr noundef %154)
+  store ptr %155, ptr %13, align 8
+  %156 = load ptr, ptr %9, align 8
+  %157 = getelementptr inbounds nuw %struct.AttrMissing, ptr %156, i32 0, i32 1
+  %158 = load i64, ptr %157, align 8
+  %159 = load ptr, ptr %8, align 8
+  %160 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %159, i32 0, i32 1
+  %161 = load i16, ptr %160, align 4
+  %162 = sext i16 %161 to i32
+  %163 = call i64 @datumCopy(i64 noundef %158, i1 noundef zeroext false, i32 noundef %162)
+  %164 = load ptr, ptr %11, align 8
+  %165 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %164, i32 0, i32 1
+  store i64 %163, ptr %165, align 8
+  %166 = load ptr, ptr %13, align 8
+  %167 = call ptr @MemoryContextSwitchTo(ptr noundef %166)
+  br label %168
 
-169:                                              ; preds = %154, %145
-  %170 = load ptr, ptr %11, align 8
-  %171 = getelementptr inbounds %struct.missing_cache_key, ptr %170, i32 0, i32 1
-  %172 = load i64, ptr %171, align 8
-  store i64 %172, ptr %4, align 8
-  br label %177
+168:                                              ; preds = %153, %144
+  %169 = load ptr, ptr %11, align 8
+  %170 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %169, i32 0, i32 1
+  %171 = load i64, ptr %170, align 8
+  store i64 %171, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %172
 
-173:                                              ; preds = %24
+172:                                              ; preds = %168, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #8
   br label %174
 
-174:                                              ; preds = %173, %3
-  %175 = load ptr, ptr %7, align 8
-  store i8 1, ptr %175, align 1
-  %176 = call i64 @PointerGetDatum(ptr noundef null)
-  store i64 %176, ptr %4, align 8
+173:                                              ; preds = %23
+  store i32 0, ptr %14, align 4
+  br label %174
+
+174:                                              ; preds = %173, %172
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  %175 = load i32, ptr %14, align 4
+  switch i32 %175, label %180 [
+    i32 0, label %176
+  ]
+
+176:                                              ; preds = %174
   br label %177
 
-177:                                              ; preds = %174, %169, %44
-  %178 = load i64, ptr %4, align 8
-  ret i64 %178
+177:                                              ; preds = %176, %3
+  %178 = load ptr, ptr %7, align 8
+  store i8 1, ptr %178, align 1
+  %179 = call i64 @PointerGetDatum(ptr noundef null)
+  store i64 %179, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %180
+
+180:                                              ; preds = %177, %174
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %181 = load i64, ptr %4, align 8
+  ret i64 %181
 }
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @TupleDescCompactAttr(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.TupleDescData, ptr %6, i32 0, i32 5
+  %8 = load i32, ptr %4, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %7, i64 0, i64 %9
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %11
+}
+
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %6
 }
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) #1
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -324,430 +377,376 @@ define dso_local i64 @heap_compute_data_size(ptr noundef %0, ptr noundef %1, ptr
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   store i64 0, ptr %7, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.TupleDescData, ptr %12, i32 0, i32 0
-  %14 = load i32, ptr %13, align 8
-  store i32 %14, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.TupleDescData, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8
+  store i32 %15, ptr %9, align 4
   store i32 0, ptr %8, align 4
-  br label %15
+  br label %16
 
-15:                                               ; preds = %298, %3
-  %16 = load i32, ptr %8, align 4
-  %17 = load i32, ptr %9, align 4
-  %18 = icmp slt i32 %16, %17
-  br i1 %18, label %19, label %301
+16:                                               ; preds = %257, %3
+  %17 = load i32, ptr %8, align 4
+  %18 = load i32, ptr %9, align 4
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %20, label %260
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %27
+20:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  %25 = load i8, ptr %24, align 1, !range !4, !noundef !5
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %19
-  br label %298
+27:                                               ; preds = %20
+  store i32 4, ptr %12, align 4
+  br label %254
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr i64, ptr %28, i64 %30
-  %32 = load i64, ptr %31, align 8
-  store i64 %32, ptr %10, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.TupleDescData, ptr %33, i32 0, i32 5
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i64, ptr %29, i64 %31
+  %33 = load i64, ptr %32, align 8
+  store i64 %33, ptr %10, align 8
+  %34 = load ptr, ptr %4, align 8
   %35 = load i32, ptr %8, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %34, i64 0, i64 %36
-  store ptr %37, ptr %11, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %38, i32 0, i32 3
-  %40 = load i16, ptr %39, align 4
-  %41 = sext i16 %40 to i32
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %43, label %80
+  %36 = call ptr @TupleDescCompactAttr(ptr noundef %34, i32 noundef %35)
+  store ptr %36, ptr %11, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %37, i32 0, i32 1
+  %39 = load i16, ptr %38, align 4
+  %40 = sext i16 %39 to i32
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %78
 
-43:                                               ; preds = %27
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %44, i32 0, i32 10
-  %46 = load i8, ptr %45, align 4
-  %47 = sext i8 %46 to i32
-  %48 = icmp ne i32 %47, 112
-  br i1 %48, label %49, label %80
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %43, i32 0, i32 3
+  %45 = load i8, ptr %44, align 1, !range !4, !noundef !5
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %78
 
-49:                                               ; preds = %43
-  %50 = load i64, ptr %10, align 8
-  %51 = call ptr @DatumGetPointer(i64 noundef %50)
-  %52 = getelementptr inbounds %struct.varattrib_1b, ptr %51, i32 0, i32 0
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = and i32 %54, 3
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %80
+47:                                               ; preds = %42
+  %48 = load i64, ptr %10, align 8
+  %49 = call ptr @DatumGetPointer(i64 noundef %48)
+  %50 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %49, i32 0, i32 0
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = and i32 %52, 3
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %78
 
-57:                                               ; preds = %49
-  %58 = load i64, ptr %10, align 8
-  %59 = call ptr @DatumGetPointer(i64 noundef %58)
-  %60 = getelementptr inbounds %struct.anon, ptr %59, i32 0, i32 0
-  %61 = load i32, ptr %60, align 4
-  %62 = lshr i32 %61, 2
-  %63 = and i32 %62, 1073741823
-  %64 = sub i32 %63, 4
-  %65 = zext i32 %64 to i64
-  %66 = add i64 %65, 1
-  %67 = icmp ule i64 %66, 127
-  br i1 %67, label %68, label %80
+55:                                               ; preds = %47
+  %56 = load i64, ptr %10, align 8
+  %57 = call ptr @DatumGetPointer(i64 noundef %56)
+  %58 = getelementptr inbounds nuw %struct.anon, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4
+  %60 = lshr i32 %59, 2
+  %61 = and i32 %60, 1073741823
+  %62 = sub i32 %61, 4
+  %63 = zext i32 %62 to i64
+  %64 = add i64 %63, 1
+  %65 = icmp ule i64 %64, 127
+  br i1 %65, label %66, label %78
 
-68:                                               ; preds = %57
-  %69 = load i64, ptr %10, align 8
-  %70 = call ptr @DatumGetPointer(i64 noundef %69)
-  %71 = getelementptr inbounds %struct.anon, ptr %70, i32 0, i32 0
-  %72 = load i32, ptr %71, align 4
-  %73 = lshr i32 %72, 2
-  %74 = and i32 %73, 1073741823
-  %75 = sub i32 %74, 4
-  %76 = zext i32 %75 to i64
-  %77 = add i64 %76, 1
-  %78 = load i64, ptr %7, align 8
-  %79 = add i64 %78, %77
-  store i64 %79, ptr %7, align 8
-  br label %297
-
-80:                                               ; preds = %57, %49, %43, %27
-  %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %81, i32 0, i32 3
-  %83 = load i16, ptr %82, align 4
-  %84 = sext i16 %83 to i32
-  %85 = icmp eq i32 %84, -1
-  br i1 %85, label %86, label %144
-
-86:                                               ; preds = %80
-  %87 = load i64, ptr %10, align 8
-  %88 = call ptr @DatumGetPointer(i64 noundef %87)
-  %89 = getelementptr inbounds %struct.varattrib_1b, ptr %88, i32 0, i32 0
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %144
-
-93:                                               ; preds = %86
-  %94 = load i64, ptr %10, align 8
-  %95 = call ptr @DatumGetPointer(i64 noundef %94)
-  %96 = getelementptr inbounds %struct.varattrib_1b_e, ptr %95, i32 0, i32 1
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = and i32 %98, -2
-  %100 = icmp eq i32 %99, 2
-  br i1 %100, label %101, label %144
-
-101:                                              ; preds = %93
-  %102 = load ptr, ptr %11, align 8
-  %103 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %102, i32 0, i32 9
-  %104 = load i8, ptr %103, align 1
-  %105 = sext i8 %104 to i32
-  %106 = icmp eq i32 %105, 105
-  br i1 %106, label %107, label %111
-
-107:                                              ; preds = %101
-  %108 = load i64, ptr %7, align 8
-  %109 = add i64 %108, 3
-  %110 = and i64 %109, -4
-  br label %137
-
-111:                                              ; preds = %101
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %112, i32 0, i32 9
-  %114 = load i8, ptr %113, align 1
-  %115 = sext i8 %114 to i32
-  %116 = icmp eq i32 %115, 99
-  br i1 %116, label %117, label %119
-
-117:                                              ; preds = %111
-  %118 = load i64, ptr %7, align 8
-  br label %135
-
-119:                                              ; preds = %111
-  %120 = load ptr, ptr %11, align 8
-  %121 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %120, i32 0, i32 9
-  %122 = load i8, ptr %121, align 1
-  %123 = sext i8 %122 to i32
-  %124 = icmp eq i32 %123, 100
-  br i1 %124, label %125, label %129
-
-125:                                              ; preds = %119
-  %126 = load i64, ptr %7, align 8
-  %127 = add i64 %126, 7
-  %128 = and i64 %127, -8
-  br label %133
-
-129:                                              ; preds = %119
-  %130 = load i64, ptr %7, align 8
-  %131 = add i64 %130, 1
-  %132 = and i64 %131, -2
-  br label %133
-
-133:                                              ; preds = %129, %125
-  %134 = phi i64 [ %128, %125 ], [ %132, %129 ]
-  br label %135
-
-135:                                              ; preds = %133, %117
-  %136 = phi i64 [ %118, %117 ], [ %134, %133 ]
-  br label %137
-
-137:                                              ; preds = %135, %107
-  %138 = phi i64 [ %110, %107 ], [ %136, %135 ]
-  store i64 %138, ptr %7, align 8
-  %139 = load i64, ptr %10, align 8
-  %140 = call ptr @DatumGetEOHP(i64 noundef %139)
-  %141 = call i64 @EOH_get_flat_size(ptr noundef %140)
-  %142 = load i64, ptr %7, align 8
-  %143 = add i64 %142, %141
-  store i64 %143, ptr %7, align 8
-  br label %296
-
-144:                                              ; preds = %93, %86, %80
-  %145 = load ptr, ptr %11, align 8
-  %146 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %145, i32 0, i32 3
-  %147 = load i16, ptr %146, align 4
-  %148 = sext i16 %147 to i32
-  %149 = icmp eq i32 %148, -1
-  br i1 %149, label %150, label %160
-
-150:                                              ; preds = %144
-  %151 = load i64, ptr %10, align 8
-  %152 = call ptr @DatumGetPointer(i64 noundef %151)
-  %153 = getelementptr inbounds %struct.varattrib_1b, ptr %152, i32 0, i32 0
-  %154 = load i8, ptr %153, align 1
-  %155 = zext i8 %154 to i32
-  %156 = and i32 %155, 1
-  %157 = icmp eq i32 %156, 1
-  br i1 %157, label %158, label %160
-
-158:                                              ; preds = %150
-  %159 = load i64, ptr %7, align 8
-  br label %198
-
-160:                                              ; preds = %150, %144
-  %161 = load ptr, ptr %11, align 8
-  %162 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %161, i32 0, i32 9
-  %163 = load i8, ptr %162, align 1
-  %164 = sext i8 %163 to i32
-  %165 = icmp eq i32 %164, 105
-  br i1 %165, label %166, label %170
-
-166:                                              ; preds = %160
-  %167 = load i64, ptr %7, align 8
-  %168 = add i64 %167, 3
-  %169 = and i64 %168, -4
-  br label %196
-
-170:                                              ; preds = %160
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %171, i32 0, i32 9
-  %173 = load i8, ptr %172, align 1
-  %174 = sext i8 %173 to i32
-  %175 = icmp eq i32 %174, 99
-  br i1 %175, label %176, label %178
-
-176:                                              ; preds = %170
-  %177 = load i64, ptr %7, align 8
-  br label %194
-
-178:                                              ; preds = %170
-  %179 = load ptr, ptr %11, align 8
-  %180 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %179, i32 0, i32 9
-  %181 = load i8, ptr %180, align 1
-  %182 = sext i8 %181 to i32
-  %183 = icmp eq i32 %182, 100
-  br i1 %183, label %184, label %188
-
-184:                                              ; preds = %178
-  %185 = load i64, ptr %7, align 8
-  %186 = add i64 %185, 7
-  %187 = and i64 %186, -8
-  br label %192
-
-188:                                              ; preds = %178
-  %189 = load i64, ptr %7, align 8
-  %190 = add i64 %189, 1
-  %191 = and i64 %190, -2
-  br label %192
-
-192:                                              ; preds = %188, %184
-  %193 = phi i64 [ %187, %184 ], [ %191, %188 ]
-  br label %194
-
-194:                                              ; preds = %192, %176
-  %195 = phi i64 [ %177, %176 ], [ %193, %192 ]
-  br label %196
-
-196:                                              ; preds = %194, %166
-  %197 = phi i64 [ %169, %166 ], [ %195, %194 ]
-  br label %198
-
-198:                                              ; preds = %196, %158
-  %199 = phi i64 [ %159, %158 ], [ %197, %196 ]
-  store i64 %199, ptr %7, align 8
-  %200 = load ptr, ptr %11, align 8
-  %201 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %200, i32 0, i32 3
-  %202 = load i16, ptr %201, align 4
-  %203 = sext i16 %202 to i32
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %205, label %212
-
-205:                                              ; preds = %198
-  %206 = load i64, ptr %7, align 8
-  %207 = load ptr, ptr %11, align 8
-  %208 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %207, i32 0, i32 3
-  %209 = load i16, ptr %208, align 4
-  %210 = sext i16 %209 to i64
-  %211 = add i64 %206, %210
-  br label %294
-
-212:                                              ; preds = %198
-  %213 = load ptr, ptr %11, align 8
-  %214 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %213, i32 0, i32 3
-  %215 = load i16, ptr %214, align 4
-  %216 = sext i16 %215 to i32
-  %217 = icmp eq i32 %216, -1
-  br i1 %217, label %218, label %285
-
-218:                                              ; preds = %212
-  %219 = load i64, ptr %7, align 8
-  %220 = load i64, ptr %10, align 8
-  %221 = call ptr @DatumGetPointer(i64 noundef %220)
-  %222 = getelementptr inbounds %struct.varattrib_1b, ptr %221, i32 0, i32 0
-  %223 = load i8, ptr %222, align 1
-  %224 = zext i8 %223 to i32
-  %225 = icmp eq i32 %224, 1
-  br i1 %225, label %226, label %256
-
-226:                                              ; preds = %218
-  %227 = load i64, ptr %10, align 8
-  %228 = call ptr @DatumGetPointer(i64 noundef %227)
-  %229 = getelementptr inbounds %struct.varattrib_1b_e, ptr %228, i32 0, i32 1
-  %230 = load i8, ptr %229, align 1
-  %231 = zext i8 %230 to i32
-  %232 = icmp eq i32 %231, 1
-  br i1 %232, label %233, label %234
-
-233:                                              ; preds = %226
+66:                                               ; preds = %55
+  %67 = load i64, ptr %10, align 8
+  %68 = call ptr @DatumGetPointer(i64 noundef %67)
+  %69 = getelementptr inbounds nuw %struct.anon, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %69, align 4
+  %71 = lshr i32 %70, 2
+  %72 = and i32 %71, 1073741823
+  %73 = sub i32 %72, 4
+  %74 = zext i32 %73 to i64
+  %75 = add i64 %74, 1
+  %76 = load i64, ptr %7, align 8
+  %77 = add i64 %76, %75
+  store i64 %77, ptr %7, align 8
   br label %253
 
-234:                                              ; preds = %226
-  %235 = load i64, ptr %10, align 8
-  %236 = call ptr @DatumGetPointer(i64 noundef %235)
-  %237 = getelementptr inbounds %struct.varattrib_1b_e, ptr %236, i32 0, i32 1
-  %238 = load i8, ptr %237, align 1
-  %239 = zext i8 %238 to i32
-  %240 = and i32 %239, -2
-  %241 = icmp eq i32 %240, 2
-  br i1 %241, label %242, label %243
+78:                                               ; preds = %55, %47, %42, %28
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %79, i32 0, i32 1
+  %81 = load i16, ptr %80, align 4
+  %82 = sext i16 %81 to i32
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %121
 
-242:                                              ; preds = %234
-  br label %251
+84:                                               ; preds = %78
+  %85 = load i64, ptr %10, align 8
+  %86 = call ptr @DatumGetPointer(i64 noundef %85)
+  %87 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %86, i32 0, i32 0
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %121
 
-243:                                              ; preds = %234
-  %244 = load i64, ptr %10, align 8
-  %245 = call ptr @DatumGetPointer(i64 noundef %244)
-  %246 = getelementptr inbounds %struct.varattrib_1b_e, ptr %245, i32 0, i32 1
-  %247 = load i8, ptr %246, align 1
-  %248 = zext i8 %247 to i32
-  %249 = icmp eq i32 %248, 18
-  %250 = select i1 %249, i64 16, i64 0
-  br label %251
+91:                                               ; preds = %84
+  %92 = load i64, ptr %10, align 8
+  %93 = call ptr @DatumGetPointer(i64 noundef %92)
+  %94 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %93, i32 0, i32 1
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %97 = and i32 %96, -2
+  %98 = icmp eq i32 %97, 2
+  br i1 %98, label %99, label %121
 
-251:                                              ; preds = %243, %242
-  %252 = phi i64 [ 8, %242 ], [ %250, %243 ]
+99:                                               ; preds = %91
+  %100 = load i64, ptr %7, align 8
+  %101 = load ptr, ptr %11, align 8
+  %102 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %101, i32 0, i32 8
+  %103 = load i8, ptr %102, align 4
+  %104 = zext i8 %103 to i32
+  %105 = sub i32 %104, 1
+  %106 = sext i32 %105 to i64
+  %107 = add i64 %100, %106
+  %108 = load ptr, ptr %11, align 8
+  %109 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %108, i32 0, i32 8
+  %110 = load i8, ptr %109, align 4
+  %111 = zext i8 %110 to i32
+  %112 = sub i32 %111, 1
+  %113 = sext i32 %112 to i64
+  %114 = xor i64 %113, -1
+  %115 = and i64 %107, %114
+  store i64 %115, ptr %7, align 8
+  %116 = load i64, ptr %10, align 8
+  %117 = call ptr @DatumGetEOHP(i64 noundef %116)
+  %118 = call i64 @EOH_get_flat_size(ptr noundef %117)
+  %119 = load i64, ptr %7, align 8
+  %120 = add i64 %119, %118
+  store i64 %120, ptr %7, align 8
+  br label %252
+
+121:                                              ; preds = %91, %84, %78
+  %122 = load ptr, ptr %11, align 8
+  %123 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %122, i32 0, i32 1
+  %124 = load i16, ptr %123, align 4
+  %125 = sext i16 %124 to i32
+  %126 = icmp eq i32 %125, -1
+  br i1 %126, label %127, label %137
+
+127:                                              ; preds = %121
+  %128 = load i64, ptr %10, align 8
+  %129 = call ptr @DatumGetPointer(i64 noundef %128)
+  %130 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %129, i32 0, i32 0
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = and i32 %132, 1
+  %134 = icmp eq i32 %133, 1
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %127
+  %136 = load i64, ptr %7, align 8
+  br label %154
+
+137:                                              ; preds = %127, %121
+  %138 = load i64, ptr %7, align 8
+  %139 = load ptr, ptr %11, align 8
+  %140 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %139, i32 0, i32 8
+  %141 = load i8, ptr %140, align 4
+  %142 = zext i8 %141 to i32
+  %143 = sub i32 %142, 1
+  %144 = sext i32 %143 to i64
+  %145 = add i64 %138, %144
+  %146 = load ptr, ptr %11, align 8
+  %147 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %146, i32 0, i32 8
+  %148 = load i8, ptr %147, align 4
+  %149 = zext i8 %148 to i32
+  %150 = sub i32 %149, 1
+  %151 = sext i32 %150 to i64
+  %152 = xor i64 %151, -1
+  %153 = and i64 %145, %152
+  br label %154
+
+154:                                              ; preds = %137, %135
+  %155 = phi i64 [ %136, %135 ], [ %153, %137 ]
+  store i64 %155, ptr %7, align 8
+  %156 = load ptr, ptr %11, align 8
+  %157 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %156, i32 0, i32 1
+  %158 = load i16, ptr %157, align 4
+  %159 = sext i16 %158 to i32
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %168
+
+161:                                              ; preds = %154
+  %162 = load i64, ptr %7, align 8
+  %163 = load ptr, ptr %11, align 8
+  %164 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %163, i32 0, i32 1
+  %165 = load i16, ptr %164, align 4
+  %166 = sext i16 %165 to i64
+  %167 = add i64 %162, %166
+  br label %250
+
+168:                                              ; preds = %154
+  %169 = load ptr, ptr %11, align 8
+  %170 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %169, i32 0, i32 1
+  %171 = load i16, ptr %170, align 4
+  %172 = sext i16 %171 to i32
+  %173 = icmp eq i32 %172, -1
+  br i1 %173, label %174, label %241
+
+174:                                              ; preds = %168
+  %175 = load i64, ptr %7, align 8
+  %176 = load i64, ptr %10, align 8
+  %177 = call ptr @DatumGetPointer(i64 noundef %176)
+  %178 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %177, i32 0, i32 0
+  %179 = load i8, ptr %178, align 1
+  %180 = zext i8 %179 to i32
+  %181 = icmp eq i32 %180, 1
+  br i1 %181, label %182, label %212
+
+182:                                              ; preds = %174
+  %183 = load i64, ptr %10, align 8
+  %184 = call ptr @DatumGetPointer(i64 noundef %183)
+  %185 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %184, i32 0, i32 1
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i32
+  %188 = icmp eq i32 %187, 1
+  br i1 %188, label %189, label %190
+
+189:                                              ; preds = %182
+  br label %209
+
+190:                                              ; preds = %182
+  %191 = load i64, ptr %10, align 8
+  %192 = call ptr @DatumGetPointer(i64 noundef %191)
+  %193 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %192, i32 0, i32 1
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = and i32 %195, -2
+  %197 = icmp eq i32 %196, 2
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %190
+  br label %207
+
+199:                                              ; preds = %190
+  %200 = load i64, ptr %10, align 8
+  %201 = call ptr @DatumGetPointer(i64 noundef %200)
+  %202 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %201, i32 0, i32 1
+  %203 = load i8, ptr %202, align 1
+  %204 = zext i8 %203 to i32
+  %205 = icmp eq i32 %204, 18
+  %206 = select i1 %205, i64 16, i64 0
+  br label %207
+
+207:                                              ; preds = %199, %198
+  %208 = phi i64 [ 8, %198 ], [ %206, %199 ]
+  br label %209
+
+209:                                              ; preds = %207, %189
+  %210 = phi i64 [ 8, %189 ], [ %208, %207 ]
+  %211 = add i64 2, %210
+  br label %238
+
+212:                                              ; preds = %174
+  %213 = load i64, ptr %10, align 8
+  %214 = call ptr @DatumGetPointer(i64 noundef %213)
+  %215 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %214, i32 0, i32 0
+  %216 = load i8, ptr %215, align 1
+  %217 = zext i8 %216 to i32
+  %218 = and i32 %217, 1
+  %219 = icmp eq i32 %218, 1
+  br i1 %219, label %220, label %228
+
+220:                                              ; preds = %212
+  %221 = load i64, ptr %10, align 8
+  %222 = call ptr @DatumGetPointer(i64 noundef %221)
+  %223 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %222, i32 0, i32 0
+  %224 = load i8, ptr %223, align 1
+  %225 = zext i8 %224 to i32
+  %226 = ashr i32 %225, 1
+  %227 = and i32 %226, 127
+  br label %235
+
+228:                                              ; preds = %212
+  %229 = load i64, ptr %10, align 8
+  %230 = call ptr @DatumGetPointer(i64 noundef %229)
+  %231 = getelementptr inbounds nuw %struct.anon, ptr %230, i32 0, i32 0
+  %232 = load i32, ptr %231, align 4
+  %233 = lshr i32 %232, 2
+  %234 = and i32 %233, 1073741823
+  br label %235
+
+235:                                              ; preds = %228, %220
+  %236 = phi i32 [ %227, %220 ], [ %234, %228 ]
+  %237 = zext i32 %236 to i64
+  br label %238
+
+238:                                              ; preds = %235, %209
+  %239 = phi i64 [ %211, %209 ], [ %237, %235 ]
+  %240 = add i64 %175, %239
+  br label %248
+
+241:                                              ; preds = %168
+  %242 = load i64, ptr %7, align 8
+  %243 = load i64, ptr %10, align 8
+  %244 = call ptr @DatumGetPointer(i64 noundef %243)
+  %245 = call i64 @strlen(ptr noundef %244) #9
+  %246 = add i64 %245, 1
+  %247 = add i64 %242, %246
+  br label %248
+
+248:                                              ; preds = %241, %238
+  %249 = phi i64 [ %240, %238 ], [ %247, %241 ]
+  br label %250
+
+250:                                              ; preds = %248, %161
+  %251 = phi i64 [ %167, %161 ], [ %249, %248 ]
+  store i64 %251, ptr %7, align 8
+  br label %252
+
+252:                                              ; preds = %250, %99
   br label %253
 
-253:                                              ; preds = %251, %233
-  %254 = phi i64 [ 8, %233 ], [ %252, %251 ]
-  %255 = add i64 2, %254
-  br label %282
+253:                                              ; preds = %252, %66
+  store i32 0, ptr %12, align 4
+  br label %254
 
-256:                                              ; preds = %218
-  %257 = load i64, ptr %10, align 8
-  %258 = call ptr @DatumGetPointer(i64 noundef %257)
-  %259 = getelementptr inbounds %struct.varattrib_1b, ptr %258, i32 0, i32 0
-  %260 = load i8, ptr %259, align 1
-  %261 = zext i8 %260 to i32
-  %262 = and i32 %261, 1
-  %263 = icmp eq i32 %262, 1
-  br i1 %263, label %264, label %272
+254:                                              ; preds = %253, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %255 = load i32, ptr %12, align 4
+  switch i32 %255, label %262 [
+    i32 0, label %256
+    i32 4, label %257
+  ]
 
-264:                                              ; preds = %256
-  %265 = load i64, ptr %10, align 8
-  %266 = call ptr @DatumGetPointer(i64 noundef %265)
-  %267 = getelementptr inbounds %struct.varattrib_1b, ptr %266, i32 0, i32 0
-  %268 = load i8, ptr %267, align 1
-  %269 = zext i8 %268 to i32
-  %270 = ashr i32 %269, 1
-  %271 = and i32 %270, 127
-  br label %279
+256:                                              ; preds = %254
+  br label %257
 
-272:                                              ; preds = %256
-  %273 = load i64, ptr %10, align 8
-  %274 = call ptr @DatumGetPointer(i64 noundef %273)
-  %275 = getelementptr inbounds %struct.anon, ptr %274, i32 0, i32 0
-  %276 = load i32, ptr %275, align 4
-  %277 = lshr i32 %276, 2
-  %278 = and i32 %277, 1073741823
-  br label %279
+257:                                              ; preds = %256, %254
+  %258 = load i32, ptr %8, align 4
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %8, align 4
+  br label %16, !llvm.loop !6
 
-279:                                              ; preds = %272, %264
-  %280 = phi i32 [ %271, %264 ], [ %278, %272 ]
-  %281 = zext i32 %280 to i64
-  br label %282
+260:                                              ; preds = %16
+  %261 = load i64, ptr %7, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret i64 %261
 
-282:                                              ; preds = %279, %253
-  %283 = phi i64 [ %255, %253 ], [ %281, %279 ]
-  %284 = add i64 %219, %283
-  br label %292
-
-285:                                              ; preds = %212
-  %286 = load i64, ptr %7, align 8
-  %287 = load i64, ptr %10, align 8
-  %288 = call ptr @DatumGetPointer(i64 noundef %287)
-  %289 = call i64 @strlen(ptr noundef %288) #6
-  %290 = add i64 %289, 1
-  %291 = add i64 %286, %290
-  br label %292
-
-292:                                              ; preds = %285, %282
-  %293 = phi i64 [ %284, %282 ], [ %291, %285 ]
-  br label %294
-
-294:                                              ; preds = %292, %205
-  %295 = phi i64 [ %211, %205 ], [ %293, %292 ]
-  store i64 %295, ptr %7, align 8
-  br label %296
-
-296:                                              ; preds = %294, %137
-  br label %297
-
-297:                                              ; preds = %296, %68
-  br label %298
-
-298:                                              ; preds = %297, %26
-  %299 = load i32, ptr %8, align 4
-  %300 = add i32 %299, 1
-  store i32 %300, ptr %8, align 4
-  br label %15, !llvm.loop !5
-
-301:                                              ; preds = %15
-  %302 = load i64, ptr %7, align 8
-  ret i64 %302
+262:                                              ; preds = %254
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -755,12 +754,12 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare i64 @EOH_get_flat_size(ptr noundef) #1
+declare i64 @EOH_get_flat_size(ptr noundef) #3
 
-declare ptr @DatumGetEOHP(i64 noundef) #1
+declare ptr @DatumGetEOHP(i64 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_fill_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -783,8 +782,12 @@ define dso_local void @heap_fill_tuple(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.TupleDescData, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.TupleDescData, ptr %20, i32 0, i32 0
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %18, align 4
   %23 = load ptr, ptr %14, align 8
@@ -793,7 +796,7 @@ define dso_local void @heap_fill_tuple(ptr noundef %0, ptr noundef %1, ptr nound
 
 25:                                               ; preds = %7
   %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr i8, ptr %26, i64 -1
+  %27 = getelementptr inbounds i8, ptr %26, i64 -1
   store ptr %27, ptr %15, align 8
   store i32 128, ptr %16, align 4
   br label %29
@@ -813,86 +816,90 @@ define dso_local void @heap_fill_tuple(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 0, ptr %17, align 4
   br label %35
 
-35:                                               ; preds = %79, %29
+35:                                               ; preds = %77, %29
   %36 = load i32, ptr %17, align 4
   %37 = load i32, ptr %18, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %39, label %82
+  br i1 %38, label %39, label %80
 
 39:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.TupleDescData, ptr %40, i32 0, i32 5
-  %42 = load i32, ptr %17, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %41, i64 0, i64 %43
-  store ptr %44, ptr %19, align 8
-  %45 = load ptr, ptr %19, align 8
-  %46 = load ptr, ptr %15, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %49
+  %41 = load i32, ptr %17, align 4
+  %42 = call ptr @TupleDescCompactAttr(ptr noundef %40, i32 noundef %41)
+  store ptr %42, ptr %19, align 8
+  %43 = load ptr, ptr %19, align 8
+  %44 = load ptr, ptr %15, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %47
 
-48:                                               ; preds = %39
-  br label %50
+46:                                               ; preds = %39
+  br label %48
 
-49:                                               ; preds = %39
-  br label %50
+47:                                               ; preds = %39
+  br label %48
 
-50:                                               ; preds = %49, %48
-  %51 = phi ptr [ %15, %48 ], [ null, %49 ]
-  %52 = load ptr, ptr %13, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %61
+48:                                               ; preds = %47, %46
+  %49 = phi ptr [ %15, %46 ], [ null, %47 ]
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %59
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %9, align 8
-  %57 = load i32, ptr %17, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr i64, ptr %56, i64 %58
-  %60 = load i64, ptr %59, align 8
-  br label %63
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %9, align 8
+  %55 = load i32, ptr %17, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i64, ptr %54, i64 %56
+  %58 = load i64, ptr %57, align 8
+  br label %61
 
-61:                                               ; preds = %50
-  %62 = call i64 @PointerGetDatum(ptr noundef null)
-  br label %63
+59:                                               ; preds = %48
+  %60 = call i64 @PointerGetDatum(ptr noundef null)
+  br label %61
 
-63:                                               ; preds = %61, %55
-  %64 = phi i64 [ %60, %55 ], [ %62, %61 ]
-  %65 = load ptr, ptr %10, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %75
+61:                                               ; preds = %59, %53
+  %62 = phi i64 [ %58, %53 ], [ %60, %59 ]
+  %63 = load ptr, ptr %10, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %73
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr %17, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %68, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = zext i1 %73 to i32
-  br label %76
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %10, align 8
+  %67 = load i32, ptr %17, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %66, i64 %68
+  %70 = load i8, ptr %69, align 1, !range !4, !noundef !5
+  %71 = trunc i8 %70 to i1
+  %72 = zext i1 %71 to i32
+  br label %74
 
-75:                                               ; preds = %63
-  br label %76
+73:                                               ; preds = %61
+  br label %74
 
-76:                                               ; preds = %75, %67
-  %77 = phi i32 [ %74, %67 ], [ 1, %75 ]
-  %78 = icmp ne i32 %77, 0
-  call void @fill_val(ptr noundef %45, ptr noundef %51, ptr noundef %16, ptr noundef %11, ptr noundef %52, i64 noundef %64, i1 noundef zeroext %78)
-  br label %79
+74:                                               ; preds = %73, %65
+  %75 = phi i32 [ %72, %65 ], [ 1, %73 ]
+  %76 = icmp ne i32 %75, 0
+  call void @fill_val(ptr noundef %43, ptr noundef %49, ptr noundef %16, ptr noundef %11, ptr noundef %50, i64 noundef %62, i1 noundef zeroext %76)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  br label %77
 
-79:                                               ; preds = %76
-  %80 = load i32, ptr %17, align 4
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %17, align 4
-  br label %35, !llvm.loop !7
+77:                                               ; preds = %74
+  %78 = load i32, ptr %17, align 4
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %17, align 4
+  br label %35, !llvm.loop !8
 
-82:                                               ; preds = %35
+80:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fill_val(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %6) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fill_val(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %6) #2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -902,613 +909,465 @@ define internal void @fill_val(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %14 = alloca i8, align 1
   %15 = alloca i64, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
+  %17 = alloca i32, align 4
   %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
   store ptr %0, ptr %8, align 8
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
   store ptr %3, ptr %11, align 8
   store ptr %4, ptr %12, align 8
   store i64 %5, ptr %13, align 8
-  %19 = zext i1 %6 to i8
-  store i8 %19, ptr %14, align 1
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %16, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %57
+  %20 = zext i1 %6 to i8
+  store i8 %20, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %16, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %58
 
-24:                                               ; preds = %7
-  %25 = load ptr, ptr %10, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp ne i32 %26, 128
-  br i1 %27, label %28, label %32
+25:                                               ; preds = %7
+  %26 = load ptr, ptr %10, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp ne i32 %27, 128
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = shl i32 %30, 1
-  store i32 %31, ptr %29, align 4
-  br label %39
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %30, align 4
+  %32 = shl i32 %31, 1
+  store i32 %32, ptr %30, align 4
+  br label %40
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr i8, ptr %34, i64 1
-  store ptr %35, ptr %33, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %36, align 8
-  store i8 0, ptr %37, align 1
-  %38 = load ptr, ptr %10, align 8
-  store i32 1, ptr %38, align 4
-  br label %39
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  store ptr %36, ptr %34, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %37, align 8
+  store i8 0, ptr %38, align 1
+  %39 = load ptr, ptr %10, align 8
+  store i32 1, ptr %39, align 4
+  br label %40
 
-39:                                               ; preds = %32, %28
-  %40 = load i8, ptr %14, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %48
+40:                                               ; preds = %33, %29
+  %41 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %12, align 8
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = or i32 %45, 1
-  %47 = trunc i32 %46 to i16
-  store i16 %47, ptr %43, align 2
-  br label %432
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i16, ptr %44, align 2
+  %46 = zext i16 %45 to i32
+  %47 = or i32 %46, 1
+  %48 = trunc i32 %47 to i16
+  store i16 %48, ptr %44, align 2
+  store i32 1, ptr %17, align 4
+  br label %336
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr %10, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = load ptr, ptr %9, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = or i32 %54, %50
-  %56 = trunc i32 %55 to i8
-  store i8 %56, ptr %52, align 1
-  br label %57
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %50, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = or i32 %55, %51
+  %57 = trunc i32 %56 to i8
+  store i8 %57, ptr %53, align 1
+  br label %58
 
-57:                                               ; preds = %48, %7
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %58, i32 0, i32 8
-  %60 = load i8, ptr %59, align 2
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %115
+58:                                               ; preds = %49, %7
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %59, i32 0, i32 2
+  %61 = load i8, ptr %60, align 2, !range !4, !noundef !5
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %92
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %63, i32 0, i32 9
-  %65 = load i8, ptr %64, align 1
-  %66 = sext i8 %65 to i32
-  %67 = icmp eq i32 %66, 105
-  br i1 %67, label %68, label %73
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %16, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %66, i32 0, i32 8
+  %68 = load i8, ptr %67, align 4
+  %69 = zext i8 %68 to i32
+  %70 = sub i32 %69, 1
+  %71 = sext i32 %70 to i64
+  %72 = add i64 %65, %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %73, i32 0, i32 8
+  %75 = load i8, ptr %74, align 4
+  %76 = zext i8 %75 to i32
+  %77 = sub i32 %76, 1
+  %78 = sext i32 %77 to i64
+  %79 = xor i64 %78, -1
+  %80 = and i64 %72, %79
+  %81 = inttoptr i64 %80 to ptr
+  store ptr %81, ptr %16, align 8
+  %82 = load ptr, ptr %16, align 8
+  %83 = load i64, ptr %13, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %84, i32 0, i32 1
+  %86 = load i16, ptr %85, align 4
+  %87 = sext i16 %86 to i32
+  call void @store_att_byval(ptr noundef %82, i64 noundef %83, i32 noundef %87)
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %88, i32 0, i32 1
+  %90 = load i16, ptr %89, align 4
+  %91 = sext i16 %90 to i64
+  store i64 %91, ptr %15, align 8
+  br label %330
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %16, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = add i64 %70, 3
-  %72 = and i64 %71, -4
-  br label %102
+92:                                               ; preds = %58
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %93, i32 0, i32 1
+  %95 = load i16, ptr %94, align 4
+  %96 = sext i16 %95 to i32
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %98, label %281
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %74, i32 0, i32 9
-  %76 = load i8, ptr %75, align 1
-  %77 = sext i8 %76 to i32
-  %78 = icmp eq i32 %77, 99
-  br i1 %78, label %79, label %82
+98:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %99 = load i64, ptr %13, align 8
+  %100 = call ptr @DatumGetPointer(i64 noundef %99)
+  store ptr %100, ptr %18, align 8
+  %101 = load ptr, ptr %12, align 8
+  %102 = load i16, ptr %101, align 2
+  %103 = zext i16 %102 to i32
+  %104 = or i32 %103, 2
+  %105 = trunc i32 %104 to i16
+  store i16 %105, ptr %101, align 2
+  %106 = load ptr, ptr %18, align 8
+  %107 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %106, i32 0, i32 0
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i32
+  %110 = icmp eq i32 %109, 1
+  br i1 %110, label %111, label %186
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %16, align 8
-  %81 = ptrtoint ptr %80 to i64
-  br label %100
+111:                                              ; preds = %98
+  %112 = load ptr, ptr %18, align 8
+  %113 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %112, i32 0, i32 0
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = icmp eq i32 %115, 1
+  br i1 %116, label %117, label %150
 
-82:                                               ; preds = %73
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %83, i32 0, i32 9
-  %85 = load i8, ptr %84, align 1
-  %86 = sext i8 %85 to i32
-  %87 = icmp eq i32 %86, 100
-  br i1 %87, label %88, label %93
+117:                                              ; preds = %111
+  %118 = load ptr, ptr %18, align 8
+  %119 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %118, i32 0, i32 1
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = and i32 %121, -2
+  %123 = icmp eq i32 %122, 2
+  br i1 %123, label %124, label %150
 
-88:                                               ; preds = %82
-  %89 = load ptr, ptr %16, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %91 = add i64 %90, 7
-  %92 = and i64 %91, -8
-  br label %98
-
-93:                                               ; preds = %82
-  %94 = load ptr, ptr %16, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = add i64 %95, 1
-  %97 = and i64 %96, -2
-  br label %98
-
-98:                                               ; preds = %93, %88
-  %99 = phi i64 [ %92, %88 ], [ %97, %93 ]
-  br label %100
-
-100:                                              ; preds = %98, %79
-  %101 = phi i64 [ %81, %79 ], [ %99, %98 ]
-  br label %102
-
-102:                                              ; preds = %100, %68
-  %103 = phi i64 [ %72, %68 ], [ %101, %100 ]
-  %104 = inttoptr i64 %103 to ptr
-  store ptr %104, ptr %16, align 8
-  %105 = load ptr, ptr %16, align 8
-  %106 = load i64, ptr %13, align 8
-  %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %107, i32 0, i32 3
-  %109 = load i16, ptr %108, align 4
-  %110 = sext i16 %109 to i32
-  call void @store_att_byval(ptr noundef %105, i64 noundef %106, i32 noundef %110)
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %111, i32 0, i32 3
-  %113 = load i16, ptr %112, align 4
-  %114 = sext i16 %113 to i64
-  store i64 %114, ptr %15, align 8
-  br label %426
-
-115:                                              ; preds = %57
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %116, i32 0, i32 3
-  %118 = load i16, ptr %117, align 4
-  %119 = sext i16 %118 to i32
-  %120 = icmp eq i32 %119, -1
-  br i1 %120, label %121, label %353
-
-121:                                              ; preds = %115
-  %122 = load i64, ptr %13, align 8
-  %123 = call ptr @DatumGetPointer(i64 noundef %122)
-  store ptr %123, ptr %17, align 8
-  %124 = load ptr, ptr %12, align 8
-  %125 = load i16, ptr %124, align 2
-  %126 = zext i16 %125 to i32
-  %127 = or i32 %126, 2
-  %128 = trunc i32 %127 to i16
-  store i16 %128, ptr %124, align 2
-  %129 = load ptr, ptr %17, align 8
-  %130 = getelementptr inbounds %struct.varattrib_1b, ptr %129, i32 0, i32 0
-  %131 = load i8, ptr %130, align 1
+124:                                              ; preds = %117
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %125 = load i64, ptr %13, align 8
+  %126 = call ptr @DatumGetEOHP(i64 noundef %125)
+  store ptr %126, ptr %19, align 8
+  %127 = load ptr, ptr %16, align 8
+  %128 = ptrtoint ptr %127 to i64
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %129, i32 0, i32 8
+  %131 = load i8, ptr %130, align 4
   %132 = zext i8 %131 to i32
-  %133 = icmp eq i32 %132, 1
-  br i1 %133, label %134, label %233
-
-134:                                              ; preds = %121
-  %135 = load ptr, ptr %17, align 8
-  %136 = getelementptr inbounds %struct.varattrib_1b, ptr %135, i32 0, i32 0
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = icmp eq i32 %138, 1
-  br i1 %139, label %140, label %197
-
-140:                                              ; preds = %134
-  %141 = load ptr, ptr %17, align 8
-  %142 = getelementptr inbounds %struct.varattrib_1b_e, ptr %141, i32 0, i32 1
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = and i32 %144, -2
-  %146 = icmp eq i32 %145, 2
-  br i1 %146, label %147, label %197
-
-147:                                              ; preds = %140
-  %148 = load i64, ptr %13, align 8
-  %149 = call ptr @DatumGetEOHP(i64 noundef %148)
-  store ptr %149, ptr %18, align 8
-  %150 = load ptr, ptr %8, align 8
-  %151 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %150, i32 0, i32 9
-  %152 = load i8, ptr %151, align 1
-  %153 = sext i8 %152 to i32
-  %154 = icmp eq i32 %153, 105
-  br i1 %154, label %155, label %160
-
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %16, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %158 = add i64 %157, 3
-  %159 = and i64 %158, -4
-  br label %189
-
-160:                                              ; preds = %147
-  %161 = load ptr, ptr %8, align 8
-  %162 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %161, i32 0, i32 9
-  %163 = load i8, ptr %162, align 1
-  %164 = sext i8 %163 to i32
-  %165 = icmp eq i32 %164, 99
-  br i1 %165, label %166, label %169
-
-166:                                              ; preds = %160
-  %167 = load ptr, ptr %16, align 8
-  %168 = ptrtoint ptr %167 to i64
-  br label %187
-
-169:                                              ; preds = %160
-  %170 = load ptr, ptr %8, align 8
-  %171 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %170, i32 0, i32 9
-  %172 = load i8, ptr %171, align 1
-  %173 = sext i8 %172 to i32
-  %174 = icmp eq i32 %173, 100
-  br i1 %174, label %175, label %180
-
-175:                                              ; preds = %169
-  %176 = load ptr, ptr %16, align 8
-  %177 = ptrtoint ptr %176 to i64
-  %178 = add i64 %177, 7
-  %179 = and i64 %178, -8
+  %133 = sub i32 %132, 1
+  %134 = sext i32 %133 to i64
+  %135 = add i64 %128, %134
+  %136 = load ptr, ptr %8, align 8
+  %137 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %136, i32 0, i32 8
+  %138 = load i8, ptr %137, align 4
+  %139 = zext i8 %138 to i32
+  %140 = sub i32 %139, 1
+  %141 = sext i32 %140 to i64
+  %142 = xor i64 %141, -1
+  %143 = and i64 %135, %142
+  %144 = inttoptr i64 %143 to ptr
+  store ptr %144, ptr %16, align 8
+  %145 = load ptr, ptr %19, align 8
+  %146 = call i64 @EOH_get_flat_size(ptr noundef %145)
+  store i64 %146, ptr %15, align 8
+  %147 = load ptr, ptr %19, align 8
+  %148 = load ptr, ptr %16, align 8
+  %149 = load i64, ptr %15, align 8
+  call void @EOH_flatten_into(ptr noundef %147, ptr noundef %148, i64 noundef %149)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
   br label %185
 
-180:                                              ; preds = %169
-  %181 = load ptr, ptr %16, align 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = add i64 %182, 1
-  %184 = and i64 %183, -2
+150:                                              ; preds = %117, %111
+  %151 = load ptr, ptr %12, align 8
+  %152 = load i16, ptr %151, align 2
+  %153 = zext i16 %152 to i32
+  %154 = or i32 %153, 4
+  %155 = trunc i32 %154 to i16
+  store i16 %155, ptr %151, align 2
+  %156 = load ptr, ptr %18, align 8
+  %157 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %156, i32 0, i32 1
+  %158 = load i8, ptr %157, align 1
+  %159 = zext i8 %158 to i32
+  %160 = icmp eq i32 %159, 1
+  br i1 %160, label %161, label %162
+
+161:                                              ; preds = %150
+  br label %179
+
+162:                                              ; preds = %150
+  %163 = load ptr, ptr %18, align 8
+  %164 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %163, i32 0, i32 1
+  %165 = load i8, ptr %164, align 1
+  %166 = zext i8 %165 to i32
+  %167 = and i32 %166, -2
+  %168 = icmp eq i32 %167, 2
+  br i1 %168, label %169, label %170
+
+169:                                              ; preds = %162
+  br label %177
+
+170:                                              ; preds = %162
+  %171 = load ptr, ptr %18, align 8
+  %172 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %171, i32 0, i32 1
+  %173 = load i8, ptr %172, align 1
+  %174 = zext i8 %173 to i32
+  %175 = icmp eq i32 %174, 18
+  %176 = select i1 %175, i64 16, i64 0
+  br label %177
+
+177:                                              ; preds = %170, %169
+  %178 = phi i64 [ 8, %169 ], [ %176, %170 ]
+  br label %179
+
+179:                                              ; preds = %177, %161
+  %180 = phi i64 [ 8, %161 ], [ %178, %177 ]
+  %181 = add i64 2, %180
+  store i64 %181, ptr %15, align 8
+  %182 = load ptr, ptr %16, align 8
+  %183 = load ptr, ptr %18, align 8
+  %184 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %183, i64 %184, i1 false)
   br label %185
 
-185:                                              ; preds = %180, %175
-  %186 = phi i64 [ %179, %175 ], [ %184, %180 ]
-  br label %187
+185:                                              ; preds = %179, %124
+  br label %280
 
-187:                                              ; preds = %185, %166
-  %188 = phi i64 [ %168, %166 ], [ %186, %185 ]
-  br label %189
+186:                                              ; preds = %98
+  %187 = load ptr, ptr %18, align 8
+  %188 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %187, i32 0, i32 0
+  %189 = load i8, ptr %188, align 1
+  %190 = zext i8 %189 to i32
+  %191 = and i32 %190, 1
+  %192 = icmp eq i32 %191, 1
+  br i1 %192, label %193, label %204
 
-189:                                              ; preds = %187, %155
-  %190 = phi i64 [ %159, %155 ], [ %188, %187 ]
-  %191 = inttoptr i64 %190 to ptr
-  store ptr %191, ptr %16, align 8
-  %192 = load ptr, ptr %18, align 8
-  %193 = call i64 @EOH_get_flat_size(ptr noundef %192)
-  store i64 %193, ptr %15, align 8
+193:                                              ; preds = %186
   %194 = load ptr, ptr %18, align 8
-  %195 = load ptr, ptr %16, align 8
-  %196 = load i64, ptr %15, align 8
-  call void @EOH_flatten_into(ptr noundef %194, ptr noundef %195, i64 noundef %196)
-  br label %232
+  %195 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %194, i32 0, i32 0
+  %196 = load i8, ptr %195, align 1
+  %197 = zext i8 %196 to i32
+  %198 = ashr i32 %197, 1
+  %199 = and i32 %198, 127
+  %200 = sext i32 %199 to i64
+  store i64 %200, ptr %15, align 8
+  %201 = load ptr, ptr %16, align 8
+  %202 = load ptr, ptr %18, align 8
+  %203 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %201, ptr align 1 %202, i64 %203, i1 false)
+  br label %279
 
-197:                                              ; preds = %140, %134
-  %198 = load ptr, ptr %12, align 8
-  %199 = load i16, ptr %198, align 2
-  %200 = zext i16 %199 to i32
-  %201 = or i32 %200, 4
-  %202 = trunc i32 %201 to i16
-  store i16 %202, ptr %198, align 2
-  %203 = load ptr, ptr %17, align 8
-  %204 = getelementptr inbounds %struct.varattrib_1b_e, ptr %203, i32 0, i32 1
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i32
-  %207 = icmp eq i32 %206, 1
-  br i1 %207, label %208, label %209
+204:                                              ; preds = %186
+  %205 = load ptr, ptr %8, align 8
+  %206 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %205, i32 0, i32 3
+  %207 = load i8, ptr %206, align 1, !range !4, !noundef !5
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %209, label %250
 
-208:                                              ; preds = %197
-  br label %226
-
-209:                                              ; preds = %197
-  %210 = load ptr, ptr %17, align 8
-  %211 = getelementptr inbounds %struct.varattrib_1b_e, ptr %210, i32 0, i32 1
+209:                                              ; preds = %204
+  %210 = load ptr, ptr %18, align 8
+  %211 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %210, i32 0, i32 0
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i32
-  %214 = and i32 %213, -2
-  %215 = icmp eq i32 %214, 2
-  br i1 %215, label %216, label %217
+  %214 = and i32 %213, 3
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %250
 
 216:                                              ; preds = %209
-  br label %224
+  %217 = load ptr, ptr %18, align 8
+  %218 = getelementptr inbounds nuw %struct.anon, ptr %217, i32 0, i32 0
+  %219 = load i32, ptr %218, align 4
+  %220 = lshr i32 %219, 2
+  %221 = and i32 %220, 1073741823
+  %222 = sub i32 %221, 4
+  %223 = zext i32 %222 to i64
+  %224 = add i64 %223, 1
+  %225 = icmp ule i64 %224, 127
+  br i1 %225, label %226, label %250
 
-217:                                              ; preds = %209
-  %218 = load ptr, ptr %17, align 8
-  %219 = getelementptr inbounds %struct.varattrib_1b_e, ptr %218, i32 0, i32 1
-  %220 = load i8, ptr %219, align 1
-  %221 = zext i8 %220 to i32
-  %222 = icmp eq i32 %221, 18
-  %223 = select i1 %222, i64 16, i64 0
-  br label %224
-
-224:                                              ; preds = %217, %216
-  %225 = phi i64 [ 8, %216 ], [ %223, %217 ]
-  br label %226
-
-226:                                              ; preds = %224, %208
-  %227 = phi i64 [ 8, %208 ], [ %225, %224 ]
-  %228 = add i64 2, %227
-  store i64 %228, ptr %15, align 8
-  %229 = load ptr, ptr %16, align 8
-  %230 = load ptr, ptr %17, align 8
-  %231 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr align 1 %230, i64 %231, i1 false)
-  br label %232
-
-232:                                              ; preds = %226, %189
-  br label %352
-
-233:                                              ; preds = %121
-  %234 = load ptr, ptr %17, align 8
-  %235 = getelementptr inbounds %struct.varattrib_1b, ptr %234, i32 0, i32 0
-  %236 = load i8, ptr %235, align 1
+226:                                              ; preds = %216
+  %227 = load ptr, ptr %18, align 8
+  %228 = getelementptr inbounds nuw %struct.anon, ptr %227, i32 0, i32 0
+  %229 = load i32, ptr %228, align 4
+  %230 = lshr i32 %229, 2
+  %231 = and i32 %230, 1073741823
+  %232 = sub i32 %231, 4
+  %233 = zext i32 %232 to i64
+  %234 = add i64 %233, 1
+  store i64 %234, ptr %15, align 8
+  %235 = load i64, ptr %15, align 8
+  %236 = trunc i64 %235 to i8
   %237 = zext i8 %236 to i32
-  %238 = and i32 %237, 1
-  %239 = icmp eq i32 %238, 1
-  br i1 %239, label %240, label %251
+  %238 = shl i32 %237, 1
+  %239 = or i32 %238, 1
+  %240 = trunc i32 %239 to i8
+  %241 = load ptr, ptr %16, align 8
+  %242 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %241, i32 0, i32 0
+  store i8 %240, ptr %242, align 1
+  %243 = load ptr, ptr %16, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 1
+  %245 = load ptr, ptr %18, align 8
+  %246 = getelementptr inbounds nuw %struct.anon, ptr %245, i32 0, i32 1
+  %247 = getelementptr inbounds [0 x i8], ptr %246, i64 0, i64 0
+  %248 = load i64, ptr %15, align 8
+  %249 = sub i64 %248, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr align 4 %247, i64 %249, i1 false)
+  br label %278
 
-240:                                              ; preds = %233
-  %241 = load ptr, ptr %17, align 8
-  %242 = getelementptr inbounds %struct.varattrib_1b, ptr %241, i32 0, i32 0
-  %243 = load i8, ptr %242, align 1
-  %244 = zext i8 %243 to i32
-  %245 = ashr i32 %244, 1
-  %246 = and i32 %245, 127
-  %247 = sext i32 %246 to i64
-  store i64 %247, ptr %15, align 8
-  %248 = load ptr, ptr %16, align 8
-  %249 = load ptr, ptr %17, align 8
-  %250 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %248, ptr align 1 %249, i64 %250, i1 false)
-  br label %351
+250:                                              ; preds = %216, %209, %204
+  %251 = load ptr, ptr %16, align 8
+  %252 = ptrtoint ptr %251 to i64
+  %253 = load ptr, ptr %8, align 8
+  %254 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %253, i32 0, i32 8
+  %255 = load i8, ptr %254, align 4
+  %256 = zext i8 %255 to i32
+  %257 = sub i32 %256, 1
+  %258 = sext i32 %257 to i64
+  %259 = add i64 %252, %258
+  %260 = load ptr, ptr %8, align 8
+  %261 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %260, i32 0, i32 8
+  %262 = load i8, ptr %261, align 4
+  %263 = zext i8 %262 to i32
+  %264 = sub i32 %263, 1
+  %265 = sext i32 %264 to i64
+  %266 = xor i64 %265, -1
+  %267 = and i64 %259, %266
+  %268 = inttoptr i64 %267 to ptr
+  store ptr %268, ptr %16, align 8
+  %269 = load ptr, ptr %18, align 8
+  %270 = getelementptr inbounds nuw %struct.anon, ptr %269, i32 0, i32 0
+  %271 = load i32, ptr %270, align 4
+  %272 = lshr i32 %271, 2
+  %273 = and i32 %272, 1073741823
+  %274 = zext i32 %273 to i64
+  store i64 %274, ptr %15, align 8
+  %275 = load ptr, ptr %16, align 8
+  %276 = load ptr, ptr %18, align 8
+  %277 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr align 1 %276, i64 %277, i1 false)
+  br label %278
 
-251:                                              ; preds = %233
-  %252 = load ptr, ptr %8, align 8
-  %253 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %252, i32 0, i32 10
-  %254 = load i8, ptr %253, align 4
-  %255 = sext i8 %254 to i32
-  %256 = icmp ne i32 %255, 112
-  br i1 %256, label %257, label %298
+278:                                              ; preds = %250, %226
+  br label %279
 
-257:                                              ; preds = %251
-  %258 = load ptr, ptr %17, align 8
-  %259 = getelementptr inbounds %struct.varattrib_1b, ptr %258, i32 0, i32 0
-  %260 = load i8, ptr %259, align 1
-  %261 = zext i8 %260 to i32
-  %262 = and i32 %261, 3
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %298
+279:                                              ; preds = %278, %193
+  br label %280
 
-264:                                              ; preds = %257
-  %265 = load ptr, ptr %17, align 8
-  %266 = getelementptr inbounds %struct.anon, ptr %265, i32 0, i32 0
-  %267 = load i32, ptr %266, align 4
-  %268 = lshr i32 %267, 2
-  %269 = and i32 %268, 1073741823
-  %270 = sub i32 %269, 4
-  %271 = zext i32 %270 to i64
-  %272 = add i64 %271, 1
-  %273 = icmp ule i64 %272, 127
-  br i1 %273, label %274, label %298
+280:                                              ; preds = %279, %185
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  br label %329
 
-274:                                              ; preds = %264
-  %275 = load ptr, ptr %17, align 8
-  %276 = getelementptr inbounds %struct.anon, ptr %275, i32 0, i32 0
-  %277 = load i32, ptr %276, align 4
-  %278 = lshr i32 %277, 2
-  %279 = and i32 %278, 1073741823
-  %280 = sub i32 %279, 4
-  %281 = zext i32 %280 to i64
-  %282 = add i64 %281, 1
-  store i64 %282, ptr %15, align 8
-  %283 = load i64, ptr %15, align 8
-  %284 = trunc i64 %283 to i8
-  %285 = zext i8 %284 to i32
-  %286 = shl i32 %285, 1
-  %287 = or i32 %286, 1
-  %288 = trunc i32 %287 to i8
-  %289 = load ptr, ptr %16, align 8
-  %290 = getelementptr inbounds %struct.varattrib_1b, ptr %289, i32 0, i32 0
-  store i8 %288, ptr %290, align 1
-  %291 = load ptr, ptr %16, align 8
-  %292 = getelementptr i8, ptr %291, i64 1
-  %293 = load ptr, ptr %17, align 8
-  %294 = getelementptr inbounds %struct.anon, ptr %293, i32 0, i32 1
-  %295 = getelementptr inbounds [0 x i8], ptr %294, i64 0, i64 0
-  %296 = load i64, ptr %15, align 8
-  %297 = sub i64 %296, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %292, ptr align 4 %295, i64 %297, i1 false)
-  br label %350
+281:                                              ; preds = %92
+  %282 = load ptr, ptr %8, align 8
+  %283 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %282, i32 0, i32 1
+  %284 = load i16, ptr %283, align 4
+  %285 = sext i16 %284 to i32
+  %286 = icmp eq i32 %285, -2
+  br i1 %286, label %287, label %301
 
-298:                                              ; preds = %264, %257, %251
-  %299 = load ptr, ptr %8, align 8
-  %300 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %299, i32 0, i32 9
-  %301 = load i8, ptr %300, align 1
-  %302 = sext i8 %301 to i32
-  %303 = icmp eq i32 %302, 105
-  br i1 %303, label %304, label %309
+287:                                              ; preds = %281
+  %288 = load ptr, ptr %12, align 8
+  %289 = load i16, ptr %288, align 2
+  %290 = zext i16 %289 to i32
+  %291 = or i32 %290, 2
+  %292 = trunc i32 %291 to i16
+  store i16 %292, ptr %288, align 2
+  %293 = load i64, ptr %13, align 8
+  %294 = call ptr @DatumGetCString(i64 noundef %293)
+  %295 = call i64 @strlen(ptr noundef %294) #9
+  %296 = add i64 %295, 1
+  store i64 %296, ptr %15, align 8
+  %297 = load ptr, ptr %16, align 8
+  %298 = load i64, ptr %13, align 8
+  %299 = call ptr @DatumGetPointer(i64 noundef %298)
+  %300 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %297, ptr align 1 %299, i64 %300, i1 false)
+  br label %328
 
-304:                                              ; preds = %298
-  %305 = load ptr, ptr %16, align 8
-  %306 = ptrtoint ptr %305 to i64
-  %307 = add i64 %306, 3
-  %308 = and i64 %307, -4
-  br label %338
+301:                                              ; preds = %281
+  %302 = load ptr, ptr %16, align 8
+  %303 = ptrtoint ptr %302 to i64
+  %304 = load ptr, ptr %8, align 8
+  %305 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %304, i32 0, i32 8
+  %306 = load i8, ptr %305, align 4
+  %307 = zext i8 %306 to i32
+  %308 = sub i32 %307, 1
+  %309 = sext i32 %308 to i64
+  %310 = add i64 %303, %309
+  %311 = load ptr, ptr %8, align 8
+  %312 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %311, i32 0, i32 8
+  %313 = load i8, ptr %312, align 4
+  %314 = zext i8 %313 to i32
+  %315 = sub i32 %314, 1
+  %316 = sext i32 %315 to i64
+  %317 = xor i64 %316, -1
+  %318 = and i64 %310, %317
+  %319 = inttoptr i64 %318 to ptr
+  store ptr %319, ptr %16, align 8
+  %320 = load ptr, ptr %8, align 8
+  %321 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %320, i32 0, i32 1
+  %322 = load i16, ptr %321, align 4
+  %323 = sext i16 %322 to i64
+  store i64 %323, ptr %15, align 8
+  %324 = load ptr, ptr %16, align 8
+  %325 = load i64, ptr %13, align 8
+  %326 = call ptr @DatumGetPointer(i64 noundef %325)
+  %327 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %324, ptr align 1 %326, i64 %327, i1 false)
+  br label %328
 
-309:                                              ; preds = %298
-  %310 = load ptr, ptr %8, align 8
-  %311 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %310, i32 0, i32 9
-  %312 = load i8, ptr %311, align 1
-  %313 = sext i8 %312 to i32
-  %314 = icmp eq i32 %313, 99
-  br i1 %314, label %315, label %318
+328:                                              ; preds = %301, %287
+  br label %329
 
-315:                                              ; preds = %309
-  %316 = load ptr, ptr %16, align 8
-  %317 = ptrtoint ptr %316 to i64
+329:                                              ; preds = %328, %280
+  br label %330
+
+330:                                              ; preds = %329, %63
+  %331 = load i64, ptr %15, align 8
+  %332 = load ptr, ptr %16, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 %331
+  store ptr %333, ptr %16, align 8
+  %334 = load ptr, ptr %16, align 8
+  %335 = load ptr, ptr %11, align 8
+  store ptr %334, ptr %335, align 8
+  store i32 0, ptr %17, align 4
   br label %336
 
-318:                                              ; preds = %309
-  %319 = load ptr, ptr %8, align 8
-  %320 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %319, i32 0, i32 9
-  %321 = load i8, ptr %320, align 1
-  %322 = sext i8 %321 to i32
-  %323 = icmp eq i32 %322, 100
-  br i1 %323, label %324, label %329
+336:                                              ; preds = %330, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  %337 = load i32, ptr %17, align 4
+  switch i32 %337, label %339 [
+    i32 0, label %338
+    i32 1, label %338
+  ]
 
-324:                                              ; preds = %318
-  %325 = load ptr, ptr %16, align 8
-  %326 = ptrtoint ptr %325 to i64
-  %327 = add i64 %326, 7
-  %328 = and i64 %327, -8
-  br label %334
-
-329:                                              ; preds = %318
-  %330 = load ptr, ptr %16, align 8
-  %331 = ptrtoint ptr %330 to i64
-  %332 = add i64 %331, 1
-  %333 = and i64 %332, -2
-  br label %334
-
-334:                                              ; preds = %329, %324
-  %335 = phi i64 [ %328, %324 ], [ %333, %329 ]
-  br label %336
-
-336:                                              ; preds = %334, %315
-  %337 = phi i64 [ %317, %315 ], [ %335, %334 ]
-  br label %338
-
-338:                                              ; preds = %336, %304
-  %339 = phi i64 [ %308, %304 ], [ %337, %336 ]
-  %340 = inttoptr i64 %339 to ptr
-  store ptr %340, ptr %16, align 8
-  %341 = load ptr, ptr %17, align 8
-  %342 = getelementptr inbounds %struct.anon, ptr %341, i32 0, i32 0
-  %343 = load i32, ptr %342, align 4
-  %344 = lshr i32 %343, 2
-  %345 = and i32 %344, 1073741823
-  %346 = zext i32 %345 to i64
-  store i64 %346, ptr %15, align 8
-  %347 = load ptr, ptr %16, align 8
-  %348 = load ptr, ptr %17, align 8
-  %349 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %347, ptr align 1 %348, i64 %349, i1 false)
-  br label %350
-
-350:                                              ; preds = %338, %274
-  br label %351
-
-351:                                              ; preds = %350, %240
-  br label %352
-
-352:                                              ; preds = %351, %232
-  br label %425
-
-353:                                              ; preds = %115
-  %354 = load ptr, ptr %8, align 8
-  %355 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %354, i32 0, i32 3
-  %356 = load i16, ptr %355, align 4
-  %357 = sext i16 %356 to i32
-  %358 = icmp eq i32 %357, -2
-  br i1 %358, label %359, label %373
-
-359:                                              ; preds = %353
-  %360 = load ptr, ptr %12, align 8
-  %361 = load i16, ptr %360, align 2
-  %362 = zext i16 %361 to i32
-  %363 = or i32 %362, 2
-  %364 = trunc i32 %363 to i16
-  store i16 %364, ptr %360, align 2
-  %365 = load i64, ptr %13, align 8
-  %366 = call ptr @DatumGetCString(i64 noundef %365)
-  %367 = call i64 @strlen(ptr noundef %366) #6
-  %368 = add i64 %367, 1
-  store i64 %368, ptr %15, align 8
-  %369 = load ptr, ptr %16, align 8
-  %370 = load i64, ptr %13, align 8
-  %371 = call ptr @DatumGetPointer(i64 noundef %370)
-  %372 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %369, ptr align 1 %371, i64 %372, i1 false)
-  br label %424
-
-373:                                              ; preds = %353
-  %374 = load ptr, ptr %8, align 8
-  %375 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %374, i32 0, i32 9
-  %376 = load i8, ptr %375, align 1
-  %377 = sext i8 %376 to i32
-  %378 = icmp eq i32 %377, 105
-  br i1 %378, label %379, label %384
-
-379:                                              ; preds = %373
-  %380 = load ptr, ptr %16, align 8
-  %381 = ptrtoint ptr %380 to i64
-  %382 = add i64 %381, 3
-  %383 = and i64 %382, -4
-  br label %413
-
-384:                                              ; preds = %373
-  %385 = load ptr, ptr %8, align 8
-  %386 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %385, i32 0, i32 9
-  %387 = load i8, ptr %386, align 1
-  %388 = sext i8 %387 to i32
-  %389 = icmp eq i32 %388, 99
-  br i1 %389, label %390, label %393
-
-390:                                              ; preds = %384
-  %391 = load ptr, ptr %16, align 8
-  %392 = ptrtoint ptr %391 to i64
-  br label %411
-
-393:                                              ; preds = %384
-  %394 = load ptr, ptr %8, align 8
-  %395 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %394, i32 0, i32 9
-  %396 = load i8, ptr %395, align 1
-  %397 = sext i8 %396 to i32
-  %398 = icmp eq i32 %397, 100
-  br i1 %398, label %399, label %404
-
-399:                                              ; preds = %393
-  %400 = load ptr, ptr %16, align 8
-  %401 = ptrtoint ptr %400 to i64
-  %402 = add i64 %401, 7
-  %403 = and i64 %402, -8
-  br label %409
-
-404:                                              ; preds = %393
-  %405 = load ptr, ptr %16, align 8
-  %406 = ptrtoint ptr %405 to i64
-  %407 = add i64 %406, 1
-  %408 = and i64 %407, -2
-  br label %409
-
-409:                                              ; preds = %404, %399
-  %410 = phi i64 [ %403, %399 ], [ %408, %404 ]
-  br label %411
-
-411:                                              ; preds = %409, %390
-  %412 = phi i64 [ %392, %390 ], [ %410, %409 ]
-  br label %413
-
-413:                                              ; preds = %411, %379
-  %414 = phi i64 [ %383, %379 ], [ %412, %411 ]
-  %415 = inttoptr i64 %414 to ptr
-  store ptr %415, ptr %16, align 8
-  %416 = load ptr, ptr %8, align 8
-  %417 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %416, i32 0, i32 3
-  %418 = load i16, ptr %417, align 4
-  %419 = sext i16 %418 to i64
-  store i64 %419, ptr %15, align 8
-  %420 = load ptr, ptr %16, align 8
-  %421 = load i64, ptr %13, align 8
-  %422 = call ptr @DatumGetPointer(i64 noundef %421)
-  %423 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %420, ptr align 1 %422, i64 %423, i1 false)
-  br label %424
-
-424:                                              ; preds = %413, %359
-  br label %425
-
-425:                                              ; preds = %424, %352
-  br label %426
-
-426:                                              ; preds = %425, %102
-  %427 = load i64, ptr %15, align 8
-  %428 = load ptr, ptr %16, align 8
-  %429 = getelementptr i8, ptr %428, i64 %427
-  store ptr %429, ptr %16, align 8
-  %430 = load ptr, ptr %16, align 8
-  %431 = load ptr, ptr %11, align 8
-  store ptr %430, ptr %431, align 8
-  br label %432
-
-432:                                              ; preds = %426, %42
+338:                                              ; preds = %336, %336
   ret void
+
+339:                                              ; preds = %336
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1522,123 +1381,125 @@ define dso_local zeroext i1 @heap_attisnull(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %2, ptr %7, align 8
   %8 = load i32, ptr %6, align 4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.HeapTupleData, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %9, i32 0, i32 3
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %11, i32 0, i32 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 2047
   %16 = icmp sgt i32 %8, %15
-  br i1 %16, label %17, label %32
+  br i1 %16, label %17, label %30
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %7, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %31
+  br i1 %19, label %20, label %29
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.TupleDescData, ptr %21, i32 0, i32 5
-  %23 = load i32, ptr %6, align 4
-  %24 = sub i32 %23, 1
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %25
-  %27 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %26, i32 0, i32 14
-  %28 = load i8, ptr %27, align 4
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %31
+  %22 = load i32, ptr %6, align 4
+  %23 = sub i32 %22, 1
+  %24 = call ptr @TupleDescCompactAttr(ptr noundef %21, i32 noundef %23)
+  %25 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %24, i32 0, i32 4
+  %26 = load i8, ptr %25, align 4, !range !4, !noundef !5
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %29
 
-30:                                               ; preds = %20
+28:                                               ; preds = %20
   store i1 false, ptr %4, align 1
-  br label %69
+  br label %61
 
-31:                                               ; preds = %20, %17
+29:                                               ; preds = %20, %17
   store i1 true, ptr %4, align 1
-  br label %69
+  br label %61
 
-32:                                               ; preds = %3
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %54
+30:                                               ; preds = %3
+  %31 = load i32, ptr %6, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %33, label %46
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.HeapTupleData, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %38, i32 0, i32 3
-  %40 = load i16, ptr %39, align 4
-  %41 = zext i16 %40 to i32
-  %42 = and i32 %41, 1
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %45, label %44
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %5, align 8
+  %35 = call zeroext i1 @HeapTupleNoNulls(ptr noundef %34)
+  br i1 %35, label %36, label %37
 
-44:                                               ; preds = %35
+36:                                               ; preds = %33
   store i1 false, ptr %4, align 1
-  br label %69
+  br label %61
 
-45:                                               ; preds = %35
-  %46 = load i32, ptr %6, align 4
-  %47 = sub i32 %46, 1
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.HeapTupleData, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %50, i32 0, i32 5
-  %52 = getelementptr inbounds [0 x i8], ptr %51, i64 0, i64 0
-  %53 = call zeroext i1 @att_isnull(i32 noundef %47, ptr noundef %52)
-  store i1 %53, ptr %4, align 1
-  br label %69
+37:                                               ; preds = %33
+  %38 = load i32, ptr %6, align 4
+  %39 = sub i32 %38, 1
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %42, i32 0, i32 5
+  %44 = getelementptr inbounds [0 x i8], ptr %43, i64 0, i64 0
+  %45 = call zeroext i1 @att_isnull(i32 noundef %39, ptr noundef %44)
+  store i1 %45, ptr %4, align 1
+  br label %61
 
-54:                                               ; preds = %32
-  %55 = load i32, ptr %6, align 4
-  switch i32 %55, label %57 [
-    i32 -6, label %56
-    i32 -1, label %56
-    i32 -2, label %56
-    i32 -3, label %56
-    i32 -4, label %56
-    i32 -5, label %56
+46:                                               ; preds = %30
+  %47 = load i32, ptr %6, align 4
+  switch i32 %47, label %49 [
+    i32 -6, label %48
+    i32 -1, label %48
+    i32 -2, label %48
+    i32 -3, label %48
+    i32 -4, label %48
+    i32 -5, label %48
   ]
 
-56:                                               ; preds = %54, %54, %54, %54, %54, %54
-  br label %68
+48:                                               ; preds = %46, %46, %46, %46, %46, %46
+  br label %60
 
-57:                                               ; preds = %54
+49:                                               ; preds = %46
+  br label %50
+
+50:                                               ; preds = %49
+  br i1 true, label %51, label %53
+
+51:                                               ; preds = %50
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %52, label %55, label %58
+
+53:                                               ; preds = %50
+  %54 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %54, label %55, label %58
+
+55:                                               ; preds = %53, %51
+  %56 = load i32, ptr %6, align 4
+  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %56)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 491, ptr noundef @__func__.heap_attisnull)
   br label %58
 
-58:                                               ; preds = %57
-  br i1 true, label %59, label %61
-
-59:                                               ; preds = %58
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %60, label %63, label %66
-
-61:                                               ; preds = %58
-  %62 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %62, label %63, label %66
-
-63:                                               ; preds = %61, %59
-  %64 = load i32, ptr %6, align 4
-  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %64)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 490, ptr noundef @__func__.heap_attisnull)
-  br label %66
-
-66:                                               ; preds = %63, %61, %59
+58:                                               ; preds = %55, %53, %51
   unreachable
 
-67:                                               ; No predecessors!
-  br label %68
+59:                                               ; No predecessors!
+  br label %60
 
-68:                                               ; preds = %67, %56
+60:                                               ; preds = %59, %48
   store i1 false, ptr %4, align 1
-  br label %69
+  br label %61
 
-69:                                               ; preds = %68, %45, %44, %31, %30
-  %70 = load i1, ptr %4, align 1
-  ret i1 %70
+61:                                               ; preds = %60, %37, %36, %29, %28
+  %62 = load i1, ptr %4, align 1
+  ret i1 %62
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @att_isnull(i32 noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @HeapTupleNoNulls(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call zeroext i1 @HeapTupleHasNulls(ptr noundef %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @att_isnull(i32 noundef %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
@@ -1647,7 +1508,7 @@ define internal zeroext i1 @att_isnull(i32 noundef %0, ptr noundef %1) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = ashr i32 %6, 3
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i8, ptr %5, i64 %8
+  %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = load i32, ptr %3, align 4
@@ -1660,13 +1521,13 @@ define internal zeroext i1 @att_isnull(i32 noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nocachegetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -1686,904 +1547,771 @@ define dso_local i64 @nocachegetattr(ptr noundef %0, i32 noundef %1, ptr noundef
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
-  %21 = alloca i8, align 1
-  %22 = alloca i32, align 4
-  %23 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca ptr, align 8
+  %22 = alloca i8, align 1
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.HeapTupleData, ptr %24, i32 0, i32 3
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %27, i32 0, i32 5
-  %29 = getelementptr inbounds [0 x i8], ptr %28, i64 0, i64 0
-  store ptr %29, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %28, i32 0, i32 5
+  %30 = getelementptr inbounds [0 x i8], ptr %29, i64 0, i64 0
+  store ptr %30, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
   store i8 0, ptr %11, align 1
-  %30 = load i32, ptr %6, align 4
-  %31 = add i32 %30, -1
-  store i32 %31, ptr %6, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.HeapTupleData, ptr %32, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %34, i32 0, i32 3
-  %36 = load i16, ptr %35, align 4
-  %37 = zext i16 %36 to i32
-  %38 = and i32 %37, 1
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %31 = load i32, ptr %6, align 4
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %6, align 4
+  %33 = load ptr, ptr %5, align 8
+  %34 = call zeroext i1 @HeapTupleNoNulls(ptr noundef %33)
+  br i1 %34, label %73, label %35
 
-40:                                               ; preds = %3
-  %41 = load i32, ptr %6, align 4
-  %42 = ashr i32 %41, 3
-  store i32 %42, ptr %13, align 4
-  %43 = load i32, ptr %6, align 4
-  %44 = and i32 %43, 7
-  store i32 %44, ptr %14, align 4
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i32, ptr %13, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr i8, ptr %45, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = xor i32 %50, -1
-  %52 = load i32, ptr %14, align 4
-  %53 = shl i32 1, %52
-  %54 = sub i32 %53, 1
-  %55 = and i32 %51, %54
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %58
+35:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %36 = load i32, ptr %6, align 4
+  %37 = ashr i32 %36, 3
+  store i32 %37, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %38 = load i32, ptr %6, align 4
+  %39 = and i32 %38, 7
+  store i32 %39, ptr %14, align 4
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %13, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = xor i32 %45, -1
+  %47 = load i32, ptr %14, align 4
+  %48 = shl i32 1, %47
+  %49 = sub i32 %48, 1
+  %50 = and i32 %46, %49
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %53
 
-57:                                               ; preds = %40
+52:                                               ; preds = %35
   store i8 1, ptr %11, align 1
-  br label %77
+  br label %72
 
-58:                                               ; preds = %40
+53:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
   store i32 0, ptr %15, align 4
-  br label %59
+  br label %54
 
-59:                                               ; preds = %73, %58
+54:                                               ; preds = %68, %53
+  %55 = load i32, ptr %15, align 4
+  %56 = load i32, ptr %13, align 4
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %58, label %71
+
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %10, align 8
   %60 = load i32, ptr %15, align 4
-  %61 = load i32, ptr %13, align 4
-  %62 = icmp slt i32 %60, %61
-  br i1 %62, label %63, label %76
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %59, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = icmp ne i32 %64, 255
+  br i1 %65, label %66, label %67
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %10, align 8
-  %65 = load i32, ptr %15, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr i8, ptr %64, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = icmp ne i32 %69, 255
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %63
+66:                                               ; preds = %58
   store i8 1, ptr %11, align 1
-  br label %76
+  br label %71
 
-72:                                               ; preds = %63
+67:                                               ; preds = %58
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i32, ptr %15, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %15, align 4
+  br label %54, !llvm.loop !9
+
+71:                                               ; preds = %66, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  br label %72
+
+72:                                               ; preds = %71, %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
   br label %73
 
-73:                                               ; preds = %72
-  %74 = load i32, ptr %15, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %15, align 4
-  br label %59, !llvm.loop !8
+73:                                               ; preds = %72, %3
+  %74 = load ptr, ptr %8, align 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %75, i32 0, i32 4
+  %77 = load i8, ptr %76, align 2
+  %78 = zext i8 %77 to i32
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %74, i64 %79
+  store ptr %80, ptr %9, align 8
+  %81 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %133, label %83
 
-76:                                               ; preds = %71, %59
-  br label %77
+83:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %6, align 4
+  %86 = call ptr @TupleDescCompactAttr(ptr noundef %84, i32 noundef %85)
+  store ptr %86, ptr %16, align 8
+  %87 = load ptr, ptr %16, align 8
+  %88 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp sge i32 %89, 0
+  br i1 %90, label %91, label %107
 
-77:                                               ; preds = %76, %57
-  br label %78
+91:                                               ; preds = %83
+  %92 = load ptr, ptr %9, align 8
+  %93 = load ptr, ptr %16, align 8
+  %94 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %93, i32 0, i32 0
+  %95 = load i32, ptr %94, align 4
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr %92, i64 %96
+  %98 = load ptr, ptr %16, align 8
+  %99 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %98, i32 0, i32 2
+  %100 = load i8, ptr %99, align 2, !range !4, !noundef !5
+  %101 = trunc i8 %100 to i1
+  %102 = load ptr, ptr %16, align 8
+  %103 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %102, i32 0, i32 1
+  %104 = load i16, ptr %103, align 4
+  %105 = sext i16 %104 to i32
+  %106 = call i64 @fetch_att(ptr noundef %97, i1 noundef zeroext %101, i32 noundef %105)
+  store i64 %106, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %130
 
-78:                                               ; preds = %77, %3
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %80, i32 0, i32 4
-  %82 = load i8, ptr %81, align 2
-  %83 = zext i8 %82 to i32
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr i8, ptr %79, i64 %84
-  store ptr %85, ptr %9, align 8
-  %86 = load i8, ptr %11, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %145, label %88
+107:                                              ; preds = %83
+  %108 = load ptr, ptr %5, align 8
+  %109 = call zeroext i1 @HeapTupleHasVarWidth(ptr noundef %108)
+  br i1 %109, label %110, label %129
 
-88:                                               ; preds = %78
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.TupleDescData, ptr %89, i32 0, i32 5
-  %91 = load i32, ptr %6, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %90, i64 0, i64 %92
-  store ptr %93, ptr %16, align 8
-  %94 = load ptr, ptr %16, align 8
-  %95 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %94, i32 0, i32 5
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp sge i32 %96, 0
-  br i1 %97, label %98, label %114
+110:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  store i32 0, ptr %18, align 4
+  br label %111
 
-98:                                               ; preds = %88
-  %99 = load ptr, ptr %9, align 8
-  %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %100, i32 0, i32 5
-  %102 = load i32, ptr %101, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr i8, ptr %99, i64 %103
-  %105 = load ptr, ptr %16, align 8
-  %106 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %105, i32 0, i32 8
-  %107 = load i8, ptr %106, align 2
-  %108 = trunc i8 %107 to i1
-  %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %109, i32 0, i32 3
-  %111 = load i16, ptr %110, align 4
-  %112 = sext i16 %111 to i32
-  %113 = call i64 @fetch_att(ptr noundef %104, i1 noundef zeroext %108, i32 noundef %112)
-  store i64 %113, ptr %4, align 8
-  br label %628
+111:                                              ; preds = %125, %110
+  %112 = load i32, ptr %18, align 4
+  %113 = load i32, ptr %6, align 4
+  %114 = icmp sle i32 %112, %113
+  br i1 %114, label %115, label %128
 
-114:                                              ; preds = %88
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.HeapTupleData, ptr %115, i32 0, i32 3
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %117, i32 0, i32 3
-  %119 = load i16, ptr %118, align 4
-  %120 = zext i16 %119 to i32
-  %121 = and i32 %120, 2
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %144
+115:                                              ; preds = %111
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %18, align 4
+  %118 = call ptr @TupleDescCompactAttr(ptr noundef %116, i32 noundef %117)
+  %119 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %118, i32 0, i32 1
+  %120 = load i16, ptr %119, align 4
+  %121 = sext i16 %120 to i32
+  %122 = icmp sle i32 %121, 0
+  br i1 %122, label %123, label %124
 
-123:                                              ; preds = %114
-  store i32 0, ptr %17, align 4
-  br label %124
-
-124:                                              ; preds = %140, %123
-  %125 = load i32, ptr %17, align 4
-  %126 = load i32, ptr %6, align 4
-  %127 = icmp sle i32 %125, %126
-  br i1 %127, label %128, label %143
-
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.TupleDescData, ptr %129, i32 0, i32 5
-  %131 = load i32, ptr %17, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %130, i64 0, i64 %132
-  %134 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %133, i32 0, i32 3
-  %135 = load i16, ptr %134, align 8
-  %136 = sext i16 %135 to i32
-  %137 = icmp sle i32 %136, 0
-  br i1 %137, label %138, label %139
-
-138:                                              ; preds = %128
+123:                                              ; preds = %115
   store i8 1, ptr %11, align 1
+  br label %128
+
+124:                                              ; preds = %115
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = load i32, ptr %18, align 4
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %18, align 4
+  br label %111, !llvm.loop !10
+
+128:                                              ; preds = %123, %111
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  br label %129
+
+129:                                              ; preds = %128, %107
+  store i32 0, ptr %17, align 4
+  br label %130
+
+130:                                              ; preds = %129, %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  %131 = load i32, ptr %17, align 4
+  switch i32 %131, label %503 [
+    i32 0, label %132
+  ]
+
+132:                                              ; preds = %130
+  br label %133
+
+133:                                              ; preds = %132, %73
+  %134 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %228, label %136
+
+136:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %137 = load ptr, ptr %7, align 8
+  %138 = getelementptr inbounds nuw %struct.TupleDescData, ptr %137, i32 0, i32 0
+  %139 = load i32, ptr %138, align 8
+  store i32 %139, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  store i32 1, ptr %20, align 4
+  %140 = load ptr, ptr %7, align 8
+  %141 = call ptr @TupleDescCompactAttr(ptr noundef %140, i32 noundef 0)
+  %142 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %141, i32 0, i32 0
+  store i32 0, ptr %142, align 4
   br label %143
 
-139:                                              ; preds = %128
-  br label %140
+143:                                              ; preds = %156, %136
+  %144 = load i32, ptr %20, align 4
+  %145 = load i32, ptr %19, align 4
+  %146 = icmp slt i32 %144, %145
+  br i1 %146, label %147, label %154
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %17, align 4
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %17, align 4
-  br label %124, !llvm.loop !9
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %7, align 8
+  %149 = load i32, ptr %20, align 4
+  %150 = call ptr @TupleDescCompactAttr(ptr noundef %148, i32 noundef %149)
+  %151 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %150, i32 0, i32 0
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp sgt i32 %152, 0
+  br label %154
 
-143:                                              ; preds = %138, %124
-  br label %144
+154:                                              ; preds = %147, %143
+  %155 = phi i1 [ false, %143 ], [ %153, %147 ]
+  br i1 %155, label %156, label %159
 
-144:                                              ; preds = %143, %114
-  br label %145
+156:                                              ; preds = %154
+  %157 = load i32, ptr %20, align 4
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %20, align 4
+  br label %143, !llvm.loop !11
 
-145:                                              ; preds = %144, %78
-  %146 = load i8, ptr %11, align 1
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %272, label %148
+159:                                              ; preds = %154
+  %160 = load ptr, ptr %7, align 8
+  %161 = load i32, ptr %20, align 4
+  %162 = sub i32 %161, 1
+  %163 = call ptr @TupleDescCompactAttr(ptr noundef %160, i32 noundef %162)
+  %164 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %163, i32 0, i32 0
+  %165 = load i32, ptr %164, align 4
+  %166 = load ptr, ptr %7, align 8
+  %167 = load i32, ptr %20, align 4
+  %168 = sub i32 %167, 1
+  %169 = call ptr @TupleDescCompactAttr(ptr noundef %166, i32 noundef %168)
+  %170 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %169, i32 0, i32 1
+  %171 = load i16, ptr %170, align 4
+  %172 = sext i16 %171 to i32
+  %173 = add i32 %165, %172
+  store i32 %173, ptr %12, align 4
+  br label %174
 
-148:                                              ; preds = %145
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.TupleDescData, ptr %149, i32 0, i32 0
-  %151 = load i32, ptr %150, align 8
-  store i32 %151, ptr %18, align 4
-  store i32 1, ptr %19, align 4
-  %152 = load ptr, ptr %7, align 8
-  %153 = getelementptr inbounds %struct.TupleDescData, ptr %152, i32 0, i32 5
-  %154 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %153, i64 0, i64 0
-  %155 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %154, i32 0, i32 5
-  store i32 0, ptr %155, align 4
-  br label %156
+174:                                              ; preds = %219, %159
+  %175 = load i32, ptr %20, align 4
+  %176 = load i32, ptr %19, align 4
+  %177 = icmp slt i32 %175, %176
+  br i1 %177, label %178, label %222
 
-156:                                              ; preds = %171, %148
-  %157 = load i32, ptr %19, align 4
-  %158 = load i32, ptr %18, align 4
-  %159 = icmp slt i32 %157, %158
-  br i1 %159, label %160, label %169
+178:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %179 = load ptr, ptr %7, align 8
+  %180 = load i32, ptr %20, align 4
+  %181 = call ptr @TupleDescCompactAttr(ptr noundef %179, i32 noundef %180)
+  store ptr %181, ptr %21, align 8
+  %182 = load ptr, ptr %21, align 8
+  %183 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %182, i32 0, i32 1
+  %184 = load i16, ptr %183, align 4
+  %185 = sext i16 %184 to i32
+  %186 = icmp sle i32 %185, 0
+  br i1 %186, label %187, label %188
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.TupleDescData, ptr %161, i32 0, i32 5
-  %163 = load i32, ptr %19, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %162, i64 0, i64 %164
-  %166 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %165, i32 0, i32 5
-  %167 = load i32, ptr %166, align 4
-  %168 = icmp sgt i32 %167, 0
-  br label %169
+187:                                              ; preds = %178
+  store i32 10, ptr %17, align 4
+  br label %216
 
-169:                                              ; preds = %160, %156
-  %170 = phi i1 [ false, %156 ], [ %168, %160 ]
-  br i1 %170, label %171, label %174
+188:                                              ; preds = %178
+  %189 = load i32, ptr %12, align 4
+  %190 = sext i32 %189 to i64
+  %191 = load ptr, ptr %21, align 8
+  %192 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %191, i32 0, i32 8
+  %193 = load i8, ptr %192, align 4
+  %194 = zext i8 %193 to i32
+  %195 = sub i32 %194, 1
+  %196 = sext i32 %195 to i64
+  %197 = add i64 %190, %196
+  %198 = load ptr, ptr %21, align 8
+  %199 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %198, i32 0, i32 8
+  %200 = load i8, ptr %199, align 4
+  %201 = zext i8 %200 to i32
+  %202 = sub i32 %201, 1
+  %203 = sext i32 %202 to i64
+  %204 = xor i64 %203, -1
+  %205 = and i64 %197, %204
+  %206 = trunc i64 %205 to i32
+  store i32 %206, ptr %12, align 4
+  %207 = load i32, ptr %12, align 4
+  %208 = load ptr, ptr %21, align 8
+  %209 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %208, i32 0, i32 0
+  store i32 %207, ptr %209, align 4
+  %210 = load ptr, ptr %21, align 8
+  %211 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %210, i32 0, i32 1
+  %212 = load i16, ptr %211, align 4
+  %213 = sext i16 %212 to i32
+  %214 = load i32, ptr %12, align 4
+  %215 = add i32 %214, %213
+  store i32 %215, ptr %12, align 4
+  store i32 0, ptr %17, align 4
+  br label %216
 
-171:                                              ; preds = %169
-  %172 = load i32, ptr %19, align 4
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %19, align 4
-  br label %156, !llvm.loop !10
+216:                                              ; preds = %188, %187
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  %217 = load i32, ptr %17, align 4
+  switch i32 %217, label %505 [
+    i32 0, label %218
+    i32 10, label %222
+  ]
 
-174:                                              ; preds = %169
-  %175 = load ptr, ptr %7, align 8
-  %176 = getelementptr inbounds %struct.TupleDescData, ptr %175, i32 0, i32 5
-  %177 = load i32, ptr %19, align 4
-  %178 = sub i32 %177, 1
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %176, i64 0, i64 %179
-  %181 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %180, i32 0, i32 5
-  %182 = load i32, ptr %181, align 4
-  %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds %struct.TupleDescData, ptr %183, i32 0, i32 5
-  %185 = load i32, ptr %19, align 4
-  %186 = sub i32 %185, 1
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %184, i64 0, i64 %187
-  %189 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %188, i32 0, i32 3
-  %190 = load i16, ptr %189, align 8
-  %191 = sext i16 %190 to i32
-  %192 = add i32 %182, %191
-  store i32 %192, ptr %12, align 4
-  br label %193
+218:                                              ; preds = %216
+  br label %219
 
-193:                                              ; preds = %261, %174
-  %194 = load i32, ptr %19, align 4
-  %195 = load i32, ptr %18, align 4
-  %196 = icmp slt i32 %194, %195
-  br i1 %196, label %197, label %264
+219:                                              ; preds = %218
+  %220 = load i32, ptr %20, align 4
+  %221 = add i32 %220, 1
+  store i32 %221, ptr %20, align 4
+  br label %174, !llvm.loop !12
 
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds %struct.TupleDescData, ptr %198, i32 0, i32 5
-  %200 = load i32, ptr %19, align 4
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %199, i64 0, i64 %201
-  store ptr %202, ptr %20, align 8
-  %203 = load ptr, ptr %20, align 8
-  %204 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %203, i32 0, i32 3
-  %205 = load i16, ptr %204, align 4
-  %206 = sext i16 %205 to i32
-  %207 = icmp sle i32 %206, 0
-  br i1 %207, label %208, label %209
+222:                                              ; preds = %216, %174
+  %223 = load ptr, ptr %7, align 8
+  %224 = load i32, ptr %6, align 4
+  %225 = call ptr @TupleDescCompactAttr(ptr noundef %223, i32 noundef %224)
+  %226 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %225, i32 0, i32 0
+  %227 = load i32, ptr %226, align 4
+  store i32 %227, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  br label %485
 
-208:                                              ; preds = %197
-  br label %264
+228:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #8
+  store i8 1, ptr %22, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #8
+  store i32 0, ptr %12, align 4
+  store i32 0, ptr %23, align 4
+  br label %229
 
-209:                                              ; preds = %197
-  %210 = load ptr, ptr %20, align 8
-  %211 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %210, i32 0, i32 9
-  %212 = load i8, ptr %211, align 1
-  %213 = sext i8 %212 to i32
-  %214 = icmp eq i32 %213, 105
-  br i1 %214, label %215, label %220
-
-215:                                              ; preds = %209
-  %216 = load i32, ptr %12, align 4
-  %217 = sext i32 %216 to i64
-  %218 = add i64 %217, 3
-  %219 = and i64 %218, -4
-  br label %249
-
-220:                                              ; preds = %209
-  %221 = load ptr, ptr %20, align 8
-  %222 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %221, i32 0, i32 9
-  %223 = load i8, ptr %222, align 1
-  %224 = sext i8 %223 to i32
-  %225 = icmp eq i32 %224, 99
-  br i1 %225, label %226, label %229
-
-226:                                              ; preds = %220
-  %227 = load i32, ptr %12, align 4
-  %228 = sext i32 %227 to i64
-  br label %247
-
-229:                                              ; preds = %220
-  %230 = load ptr, ptr %20, align 8
-  %231 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %230, i32 0, i32 9
-  %232 = load i8, ptr %231, align 1
-  %233 = sext i8 %232 to i32
-  %234 = icmp eq i32 %233, 100
+229:                                              ; preds = %481, %228
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %230 = load ptr, ptr %7, align 8
+  %231 = load i32, ptr %23, align 4
+  %232 = call ptr @TupleDescCompactAttr(ptr noundef %230, i32 noundef %231)
+  store ptr %232, ptr %24, align 8
+  %233 = load ptr, ptr %5, align 8
+  %234 = call zeroext i1 @HeapTupleHasNulls(ptr noundef %233)
   br i1 %234, label %235, label %240
 
 235:                                              ; preds = %229
-  %236 = load i32, ptr %12, align 4
-  %237 = sext i32 %236 to i64
-  %238 = add i64 %237, 7
-  %239 = and i64 %238, -8
-  br label %245
+  %236 = load i32, ptr %23, align 4
+  %237 = load ptr, ptr %10, align 8
+  %238 = call zeroext i1 @att_isnull(i32 noundef %236, ptr noundef %237)
+  br i1 %238, label %239, label %240
 
-240:                                              ; preds = %229
-  %241 = load i32, ptr %12, align 4
-  %242 = sext i32 %241 to i64
-  %243 = add i64 %242, 1
-  %244 = and i64 %243, -2
-  br label %245
+239:                                              ; preds = %235
+  store i8 0, ptr %22, align 1
+  store i32 15, ptr %17, align 4
+  br label %478
 
-245:                                              ; preds = %240, %235
-  %246 = phi i64 [ %239, %235 ], [ %244, %240 ]
-  br label %247
+240:                                              ; preds = %235, %229
+  %241 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %243, label %252
 
-247:                                              ; preds = %245, %226
-  %248 = phi i64 [ %228, %226 ], [ %246, %245 ]
-  br label %249
+243:                                              ; preds = %240
+  %244 = load ptr, ptr %24, align 8
+  %245 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %244, i32 0, i32 0
+  %246 = load i32, ptr %245, align 4
+  %247 = icmp sge i32 %246, 0
+  br i1 %247, label %248, label %252
 
-249:                                              ; preds = %247, %215
-  %250 = phi i64 [ %219, %215 ], [ %248, %247 ]
-  %251 = trunc i64 %250 to i32
+248:                                              ; preds = %243
+  %249 = load ptr, ptr %24, align 8
+  %250 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %249, i32 0, i32 0
+  %251 = load i32, ptr %250, align 4
   store i32 %251, ptr %12, align 4
-  %252 = load i32, ptr %12, align 4
-  %253 = load ptr, ptr %20, align 8
-  %254 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %253, i32 0, i32 5
-  store i32 %252, ptr %254, align 4
-  %255 = load ptr, ptr %20, align 8
-  %256 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %255, i32 0, i32 3
-  %257 = load i16, ptr %256, align 4
-  %258 = sext i16 %257 to i32
-  %259 = load i32, ptr %12, align 4
-  %260 = add i32 %259, %258
-  store i32 %260, ptr %12, align 4
-  br label %261
+  br label %346
 
-261:                                              ; preds = %249
-  %262 = load i32, ptr %19, align 4
-  %263 = add i32 %262, 1
-  store i32 %263, ptr %19, align 4
-  br label %193, !llvm.loop !11
+252:                                              ; preds = %243, %240
+  %253 = load ptr, ptr %24, align 8
+  %254 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %253, i32 0, i32 1
+  %255 = load i16, ptr %254, align 4
+  %256 = sext i16 %255 to i32
+  %257 = icmp eq i32 %256, -1
+  br i1 %257, label %258, label %319
 
-264:                                              ; preds = %208, %193
-  %265 = load ptr, ptr %7, align 8
-  %266 = getelementptr inbounds %struct.TupleDescData, ptr %265, i32 0, i32 5
-  %267 = load i32, ptr %6, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %266, i64 0, i64 %268
-  %270 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %269, i32 0, i32 5
-  %271 = load i32, ptr %270, align 4
-  store i32 %271, ptr %12, align 4
-  br label %606
+258:                                              ; preds = %252
+  %259 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %260 = trunc i8 %259 to i1
+  br i1 %260, label %261, label %286
 
-272:                                              ; preds = %145
-  store i8 1, ptr %21, align 1
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %22, align 4
-  br label %273
+261:                                              ; preds = %258
+  %262 = load i32, ptr %12, align 4
+  %263 = sext i32 %262 to i64
+  %264 = load i32, ptr %12, align 4
+  %265 = sext i32 %264 to i64
+  %266 = load ptr, ptr %24, align 8
+  %267 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %266, i32 0, i32 8
+  %268 = load i8, ptr %267, align 4
+  %269 = zext i8 %268 to i32
+  %270 = sub i32 %269, 1
+  %271 = sext i32 %270 to i64
+  %272 = add i64 %265, %271
+  %273 = load ptr, ptr %24, align 8
+  %274 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %273, i32 0, i32 8
+  %275 = load i8, ptr %274, align 4
+  %276 = zext i8 %275 to i32
+  %277 = sub i32 %276, 1
+  %278 = sext i32 %277 to i64
+  %279 = xor i64 %278, -1
+  %280 = and i64 %272, %279
+  %281 = icmp eq i64 %263, %280
+  br i1 %281, label %282, label %286
 
-273:                                              ; preds = %602, %272
-  %274 = load ptr, ptr %7, align 8
-  %275 = getelementptr inbounds %struct.TupleDescData, ptr %274, i32 0, i32 5
-  %276 = load i32, ptr %22, align 4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %275, i64 0, i64 %277
-  store ptr %278, ptr %23, align 8
-  %279 = load ptr, ptr %5, align 8
-  %280 = getelementptr inbounds %struct.HeapTupleData, ptr %279, i32 0, i32 3
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %281, i32 0, i32 3
-  %283 = load i16, ptr %282, align 4
-  %284 = zext i16 %283 to i32
-  %285 = and i32 %284, 1
-  %286 = icmp ne i32 %285, 0
-  br i1 %286, label %287, label %292
+282:                                              ; preds = %261
+  %283 = load i32, ptr %12, align 4
+  %284 = load ptr, ptr %24, align 8
+  %285 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %284, i32 0, i32 0
+  store i32 %283, ptr %285, align 4
+  br label %318
 
-287:                                              ; preds = %273
-  %288 = load i32, ptr %22, align 4
-  %289 = load ptr, ptr %10, align 8
-  %290 = call zeroext i1 @att_isnull(i32 noundef %288, ptr noundef %289)
-  br i1 %290, label %291, label %292
+286:                                              ; preds = %261, %258
+  %287 = load ptr, ptr %9, align 8
+  %288 = load i32, ptr %12, align 4
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds i8, ptr %287, i64 %289
+  %291 = load i8, ptr %290, align 1
+  %292 = zext i8 %291 to i32
+  %293 = icmp ne i32 %292, 0
+  br i1 %293, label %294, label %297
 
-291:                                              ; preds = %287
-  store i8 0, ptr %21, align 1
-  br label %602
+294:                                              ; preds = %286
+  %295 = load i32, ptr %12, align 4
+  %296 = sext i32 %295 to i64
+  br label %315
 
-292:                                              ; preds = %287, %273
-  %293 = load i8, ptr %21, align 1
-  %294 = trunc i8 %293 to i1
-  br i1 %294, label %295, label %304
+297:                                              ; preds = %286
+  %298 = load i32, ptr %12, align 4
+  %299 = sext i32 %298 to i64
+  %300 = load ptr, ptr %24, align 8
+  %301 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %300, i32 0, i32 8
+  %302 = load i8, ptr %301, align 4
+  %303 = zext i8 %302 to i32
+  %304 = sub i32 %303, 1
+  %305 = sext i32 %304 to i64
+  %306 = add i64 %299, %305
+  %307 = load ptr, ptr %24, align 8
+  %308 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %307, i32 0, i32 8
+  %309 = load i8, ptr %308, align 4
+  %310 = zext i8 %309 to i32
+  %311 = sub i32 %310, 1
+  %312 = sext i32 %311 to i64
+  %313 = xor i64 %312, -1
+  %314 = and i64 %306, %313
+  br label %315
 
-295:                                              ; preds = %292
-  %296 = load ptr, ptr %23, align 8
-  %297 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %296, i32 0, i32 5
-  %298 = load i32, ptr %297, align 4
-  %299 = icmp sge i32 %298, 0
-  br i1 %299, label %300, label %304
+315:                                              ; preds = %297, %294
+  %316 = phi i64 [ %296, %294 ], [ %314, %297 ]
+  %317 = trunc i64 %316 to i32
+  store i32 %317, ptr %12, align 4
+  store i8 0, ptr %22, align 1
+  br label %318
 
-300:                                              ; preds = %295
-  %301 = load ptr, ptr %23, align 8
-  %302 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %301, i32 0, i32 5
-  %303 = load i32, ptr %302, align 4
-  store i32 %303, ptr %12, align 4
-  br label %470
+318:                                              ; preds = %315, %282
+  br label %345
 
-304:                                              ; preds = %295, %292
-  %305 = load ptr, ptr %23, align 8
-  %306 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %305, i32 0, i32 3
-  %307 = load i16, ptr %306, align 4
-  %308 = sext i16 %307 to i32
-  %309 = icmp eq i32 %308, -1
-  br i1 %309, label %310, label %419
-
-310:                                              ; preds = %304
-  %311 = load i8, ptr %21, align 1
-  %312 = trunc i8 %311 to i1
-  br i1 %312, label %313, label %362
-
-313:                                              ; preds = %310
-  %314 = load i32, ptr %12, align 4
-  %315 = sext i32 %314 to i64
-  %316 = load ptr, ptr %23, align 8
-  %317 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %316, i32 0, i32 9
-  %318 = load i8, ptr %317, align 1
-  %319 = sext i8 %318 to i32
-  %320 = icmp eq i32 %319, 105
-  br i1 %320, label %321, label %326
-
-321:                                              ; preds = %313
-  %322 = load i32, ptr %12, align 4
-  %323 = sext i32 %322 to i64
-  %324 = add i64 %323, 3
-  %325 = and i64 %324, -4
-  br label %355
-
-326:                                              ; preds = %313
-  %327 = load ptr, ptr %23, align 8
-  %328 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %327, i32 0, i32 9
-  %329 = load i8, ptr %328, align 1
-  %330 = sext i8 %329 to i32
-  %331 = icmp eq i32 %330, 99
-  br i1 %331, label %332, label %335
-
-332:                                              ; preds = %326
-  %333 = load i32, ptr %12, align 4
+319:                                              ; preds = %252
+  %320 = load i32, ptr %12, align 4
+  %321 = sext i32 %320 to i64
+  %322 = load ptr, ptr %24, align 8
+  %323 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %322, i32 0, i32 8
+  %324 = load i8, ptr %323, align 4
+  %325 = zext i8 %324 to i32
+  %326 = sub i32 %325, 1
+  %327 = sext i32 %326 to i64
+  %328 = add i64 %321, %327
+  %329 = load ptr, ptr %24, align 8
+  %330 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %329, i32 0, i32 8
+  %331 = load i8, ptr %330, align 4
+  %332 = zext i8 %331 to i32
+  %333 = sub i32 %332, 1
   %334 = sext i32 %333 to i64
-  br label %353
+  %335 = xor i64 %334, -1
+  %336 = and i64 %328, %335
+  %337 = trunc i64 %336 to i32
+  store i32 %337, ptr %12, align 4
+  %338 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %339 = trunc i8 %338 to i1
+  br i1 %339, label %340, label %344
 
-335:                                              ; preds = %326
-  %336 = load ptr, ptr %23, align 8
-  %337 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %336, i32 0, i32 9
-  %338 = load i8, ptr %337, align 1
-  %339 = sext i8 %338 to i32
-  %340 = icmp eq i32 %339, 100
-  br i1 %340, label %341, label %346
+340:                                              ; preds = %319
+  %341 = load i32, ptr %12, align 4
+  %342 = load ptr, ptr %24, align 8
+  %343 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %342, i32 0, i32 0
+  store i32 %341, ptr %343, align 4
+  br label %344
 
-341:                                              ; preds = %335
-  %342 = load i32, ptr %12, align 4
-  %343 = sext i32 %342 to i64
-  %344 = add i64 %343, 7
-  %345 = and i64 %344, -8
-  br label %351
+344:                                              ; preds = %340, %319
+  br label %345
 
-346:                                              ; preds = %335
-  %347 = load i32, ptr %12, align 4
-  %348 = sext i32 %347 to i64
-  %349 = add i64 %348, 1
-  %350 = and i64 %349, -2
-  br label %351
+345:                                              ; preds = %344, %318
+  br label %346
 
-351:                                              ; preds = %346, %341
-  %352 = phi i64 [ %345, %341 ], [ %350, %346 ]
-  br label %353
+346:                                              ; preds = %345, %248
+  %347 = load i32, ptr %23, align 4
+  %348 = load i32, ptr %6, align 4
+  %349 = icmp eq i32 %347, %348
+  br i1 %349, label %350, label %351
 
-353:                                              ; preds = %351, %332
-  %354 = phi i64 [ %334, %332 ], [ %352, %351 ]
-  br label %355
+350:                                              ; preds = %346
+  store i32 13, ptr %17, align 4
+  br label %478
 
-355:                                              ; preds = %353, %321
-  %356 = phi i64 [ %325, %321 ], [ %354, %353 ]
-  %357 = icmp eq i64 %315, %356
-  br i1 %357, label %358, label %362
+351:                                              ; preds = %346
+  %352 = load ptr, ptr %24, align 8
+  %353 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %352, i32 0, i32 1
+  %354 = load i16, ptr %353, align 4
+  %355 = sext i16 %354 to i32
+  %356 = icmp sgt i32 %355, 0
+  br i1 %356, label %357, label %365
 
-358:                                              ; preds = %355
-  %359 = load i32, ptr %12, align 4
-  %360 = load ptr, ptr %23, align 8
-  %361 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %360, i32 0, i32 5
-  store i32 %359, ptr %361, align 4
-  br label %418
+357:                                              ; preds = %351
+  %358 = load i32, ptr %12, align 4
+  %359 = load ptr, ptr %24, align 8
+  %360 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %359, i32 0, i32 1
+  %361 = load i16, ptr %360, align 4
+  %362 = sext i16 %361 to i32
+  %363 = add i32 %358, %362
+  %364 = sext i32 %363 to i64
+  br label %465
 
-362:                                              ; preds = %355, %310
-  %363 = load ptr, ptr %9, align 8
-  %364 = load i32, ptr %12, align 4
-  %365 = sext i32 %364 to i64
-  %366 = getelementptr i8, ptr %363, i64 %365
-  %367 = load i8, ptr %366, align 1
-  %368 = zext i8 %367 to i32
-  %369 = icmp ne i32 %368, 0
-  br i1 %369, label %370, label %373
+365:                                              ; preds = %351
+  %366 = load ptr, ptr %24, align 8
+  %367 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %366, i32 0, i32 1
+  %368 = load i16, ptr %367, align 4
+  %369 = sext i16 %368 to i32
+  %370 = icmp eq i32 %369, -1
+  br i1 %370, label %371, label %453
 
-370:                                              ; preds = %362
-  %371 = load i32, ptr %12, align 4
-  %372 = sext i32 %371 to i64
+371:                                              ; preds = %365
+  %372 = load i32, ptr %12, align 4
+  %373 = sext i32 %372 to i64
+  %374 = load ptr, ptr %9, align 8
+  %375 = load i32, ptr %12, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr inbounds i8, ptr %374, i64 %376
+  %378 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %377, i32 0, i32 0
+  %379 = load i8, ptr %378, align 1
+  %380 = zext i8 %379 to i32
+  %381 = icmp eq i32 %380, 1
+  br i1 %381, label %382, label %418
+
+382:                                              ; preds = %371
+  %383 = load ptr, ptr %9, align 8
+  %384 = load i32, ptr %12, align 4
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds i8, ptr %383, i64 %385
+  %387 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %386, i32 0, i32 1
+  %388 = load i8, ptr %387, align 1
+  %389 = zext i8 %388 to i32
+  %390 = icmp eq i32 %389, 1
+  br i1 %390, label %391, label %392
+
+391:                                              ; preds = %382
   br label %415
 
-373:                                              ; preds = %362
-  %374 = load ptr, ptr %23, align 8
-  %375 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %374, i32 0, i32 9
-  %376 = load i8, ptr %375, align 1
-  %377 = sext i8 %376 to i32
-  %378 = icmp eq i32 %377, 105
-  br i1 %378, label %379, label %384
+392:                                              ; preds = %382
+  %393 = load ptr, ptr %9, align 8
+  %394 = load i32, ptr %12, align 4
+  %395 = sext i32 %394 to i64
+  %396 = getelementptr inbounds i8, ptr %393, i64 %395
+  %397 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %396, i32 0, i32 1
+  %398 = load i8, ptr %397, align 1
+  %399 = zext i8 %398 to i32
+  %400 = and i32 %399, -2
+  %401 = icmp eq i32 %400, 2
+  br i1 %401, label %402, label %403
 
-379:                                              ; preds = %373
-  %380 = load i32, ptr %12, align 4
-  %381 = sext i32 %380 to i64
-  %382 = add i64 %381, 3
-  %383 = and i64 %382, -4
+402:                                              ; preds = %392
   br label %413
 
-384:                                              ; preds = %373
-  %385 = load ptr, ptr %23, align 8
-  %386 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %385, i32 0, i32 9
-  %387 = load i8, ptr %386, align 1
-  %388 = sext i8 %387 to i32
-  %389 = icmp eq i32 %388, 99
-  br i1 %389, label %390, label %393
-
-390:                                              ; preds = %384
-  %391 = load i32, ptr %12, align 4
-  %392 = sext i32 %391 to i64
-  br label %411
-
-393:                                              ; preds = %384
-  %394 = load ptr, ptr %23, align 8
-  %395 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %394, i32 0, i32 9
-  %396 = load i8, ptr %395, align 1
-  %397 = sext i8 %396 to i32
-  %398 = icmp eq i32 %397, 100
-  br i1 %398, label %399, label %404
-
-399:                                              ; preds = %393
-  %400 = load i32, ptr %12, align 4
-  %401 = sext i32 %400 to i64
-  %402 = add i64 %401, 7
-  %403 = and i64 %402, -8
-  br label %409
-
-404:                                              ; preds = %393
+403:                                              ; preds = %392
+  %404 = load ptr, ptr %9, align 8
   %405 = load i32, ptr %12, align 4
   %406 = sext i32 %405 to i64
-  %407 = add i64 %406, 1
-  %408 = and i64 %407, -2
-  br label %409
-
-409:                                              ; preds = %404, %399
-  %410 = phi i64 [ %403, %399 ], [ %408, %404 ]
-  br label %411
-
-411:                                              ; preds = %409, %390
-  %412 = phi i64 [ %392, %390 ], [ %410, %409 ]
+  %407 = getelementptr inbounds i8, ptr %404, i64 %406
+  %408 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %407, i32 0, i32 1
+  %409 = load i8, ptr %408, align 1
+  %410 = zext i8 %409 to i32
+  %411 = icmp eq i32 %410, 18
+  %412 = select i1 %411, i64 16, i64 0
   br label %413
 
-413:                                              ; preds = %411, %379
-  %414 = phi i64 [ %383, %379 ], [ %412, %411 ]
+413:                                              ; preds = %403, %402
+  %414 = phi i64 [ 8, %402 ], [ %412, %403 ]
   br label %415
 
-415:                                              ; preds = %413, %370
-  %416 = phi i64 [ %372, %370 ], [ %414, %413 ]
-  %417 = trunc i64 %416 to i32
-  store i32 %417, ptr %12, align 4
-  store i8 0, ptr %21, align 1
-  br label %418
+415:                                              ; preds = %413, %391
+  %416 = phi i64 [ 8, %391 ], [ %414, %413 ]
+  %417 = add i64 2, %416
+  br label %450
 
-418:                                              ; preds = %415, %358
-  br label %469
+418:                                              ; preds = %371
+  %419 = load ptr, ptr %9, align 8
+  %420 = load i32, ptr %12, align 4
+  %421 = sext i32 %420 to i64
+  %422 = getelementptr inbounds i8, ptr %419, i64 %421
+  %423 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %422, i32 0, i32 0
+  %424 = load i8, ptr %423, align 1
+  %425 = zext i8 %424 to i32
+  %426 = and i32 %425, 1
+  %427 = icmp eq i32 %426, 1
+  br i1 %427, label %428, label %438
 
-419:                                              ; preds = %304
-  %420 = load ptr, ptr %23, align 8
-  %421 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %420, i32 0, i32 9
-  %422 = load i8, ptr %421, align 1
-  %423 = sext i8 %422 to i32
-  %424 = icmp eq i32 %423, 105
-  br i1 %424, label %425, label %430
+428:                                              ; preds = %418
+  %429 = load ptr, ptr %9, align 8
+  %430 = load i32, ptr %12, align 4
+  %431 = sext i32 %430 to i64
+  %432 = getelementptr inbounds i8, ptr %429, i64 %431
+  %433 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %432, i32 0, i32 0
+  %434 = load i8, ptr %433, align 1
+  %435 = zext i8 %434 to i32
+  %436 = ashr i32 %435, 1
+  %437 = and i32 %436, 127
+  br label %447
 
-425:                                              ; preds = %419
-  %426 = load i32, ptr %12, align 4
-  %427 = sext i32 %426 to i64
-  %428 = add i64 %427, 3
-  %429 = and i64 %428, -4
-  br label %459
+438:                                              ; preds = %418
+  %439 = load ptr, ptr %9, align 8
+  %440 = load i32, ptr %12, align 4
+  %441 = sext i32 %440 to i64
+  %442 = getelementptr inbounds i8, ptr %439, i64 %441
+  %443 = getelementptr inbounds nuw %struct.anon, ptr %442, i32 0, i32 0
+  %444 = load i32, ptr %443, align 4
+  %445 = lshr i32 %444, 2
+  %446 = and i32 %445, 1073741823
+  br label %447
 
-430:                                              ; preds = %419
-  %431 = load ptr, ptr %23, align 8
-  %432 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %431, i32 0, i32 9
-  %433 = load i8, ptr %432, align 1
-  %434 = sext i8 %433 to i32
-  %435 = icmp eq i32 %434, 99
-  br i1 %435, label %436, label %439
+447:                                              ; preds = %438, %428
+  %448 = phi i32 [ %437, %428 ], [ %446, %438 ]
+  %449 = zext i32 %448 to i64
+  br label %450
 
-436:                                              ; preds = %430
-  %437 = load i32, ptr %12, align 4
-  %438 = sext i32 %437 to i64
-  br label %457
+450:                                              ; preds = %447, %415
+  %451 = phi i64 [ %417, %415 ], [ %449, %447 ]
+  %452 = add i64 %373, %451
+  br label %463
 
-439:                                              ; preds = %430
-  %440 = load ptr, ptr %23, align 8
-  %441 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %440, i32 0, i32 9
-  %442 = load i8, ptr %441, align 1
-  %443 = sext i8 %442 to i32
-  %444 = icmp eq i32 %443, 100
-  br i1 %444, label %445, label %450
+453:                                              ; preds = %365
+  %454 = load i32, ptr %12, align 4
+  %455 = sext i32 %454 to i64
+  %456 = load ptr, ptr %9, align 8
+  %457 = load i32, ptr %12, align 4
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr inbounds i8, ptr %456, i64 %458
+  %460 = call i64 @strlen(ptr noundef %459) #9
+  %461 = add i64 %460, 1
+  %462 = add i64 %455, %461
+  br label %463
 
-445:                                              ; preds = %439
-  %446 = load i32, ptr %12, align 4
-  %447 = sext i32 %446 to i64
-  %448 = add i64 %447, 7
-  %449 = and i64 %448, -8
-  br label %455
+463:                                              ; preds = %453, %450
+  %464 = phi i64 [ %452, %450 ], [ %462, %453 ]
+  br label %465
 
-450:                                              ; preds = %439
-  %451 = load i32, ptr %12, align 4
-  %452 = sext i32 %451 to i64
-  %453 = add i64 %452, 1
-  %454 = and i64 %453, -2
-  br label %455
+465:                                              ; preds = %463, %357
+  %466 = phi i64 [ %364, %357 ], [ %464, %463 ]
+  %467 = trunc i64 %466 to i32
+  store i32 %467, ptr %12, align 4
+  %468 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %469 = trunc i8 %468 to i1
+  br i1 %469, label %470, label %477
 
-455:                                              ; preds = %450, %445
-  %456 = phi i64 [ %449, %445 ], [ %454, %450 ]
-  br label %457
+470:                                              ; preds = %465
+  %471 = load ptr, ptr %24, align 8
+  %472 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %471, i32 0, i32 1
+  %473 = load i16, ptr %472, align 4
+  %474 = sext i16 %473 to i32
+  %475 = icmp sle i32 %474, 0
+  br i1 %475, label %476, label %477
 
-457:                                              ; preds = %455, %436
-  %458 = phi i64 [ %438, %436 ], [ %456, %455 ]
-  br label %459
+476:                                              ; preds = %470
+  store i8 0, ptr %22, align 1
+  br label %477
 
-459:                                              ; preds = %457, %425
-  %460 = phi i64 [ %429, %425 ], [ %458, %457 ]
-  %461 = trunc i64 %460 to i32
-  store i32 %461, ptr %12, align 4
-  %462 = load i8, ptr %21, align 1
-  %463 = trunc i8 %462 to i1
-  br i1 %463, label %464, label %468
+477:                                              ; preds = %476, %470, %465
+  store i32 0, ptr %17, align 4
+  br label %478
 
-464:                                              ; preds = %459
-  %465 = load i32, ptr %12, align 4
-  %466 = load ptr, ptr %23, align 8
-  %467 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %466, i32 0, i32 5
-  store i32 %465, ptr %467, align 4
-  br label %468
+478:                                              ; preds = %477, %350, %239
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  %479 = load i32, ptr %17, align 4
+  switch i32 %479, label %505 [
+    i32 0, label %480
+    i32 15, label %481
+    i32 13, label %484
+  ]
 
-468:                                              ; preds = %464, %459
-  br label %469
+480:                                              ; preds = %478
+  br label %481
 
-469:                                              ; preds = %468, %418
-  br label %470
+481:                                              ; preds = %480, %478
+  %482 = load i32, ptr %23, align 4
+  %483 = add i32 %482, 1
+  store i32 %483, ptr %23, align 4
+  br label %229
 
-470:                                              ; preds = %469, %300
-  %471 = load i32, ptr %22, align 4
-  %472 = load i32, ptr %6, align 4
-  %473 = icmp eq i32 %471, %472
-  br i1 %473, label %474, label %475
+484:                                              ; preds = %478
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #8
+  br label %485
 
-474:                                              ; preds = %470
-  br label %605
-
-475:                                              ; preds = %470
-  %476 = load ptr, ptr %23, align 8
-  %477 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %476, i32 0, i32 3
-  %478 = load i16, ptr %477, align 4
-  %479 = sext i16 %478 to i32
-  %480 = icmp sgt i32 %479, 0
-  br i1 %480, label %481, label %489
-
-481:                                              ; preds = %475
-  %482 = load i32, ptr %12, align 4
-  %483 = load ptr, ptr %23, align 8
-  %484 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %483, i32 0, i32 3
-  %485 = load i16, ptr %484, align 4
-  %486 = sext i16 %485 to i32
-  %487 = add i32 %482, %486
+485:                                              ; preds = %484, %222
+  %486 = load ptr, ptr %9, align 8
+  %487 = load i32, ptr %12, align 4
   %488 = sext i32 %487 to i64
-  br label %589
+  %489 = getelementptr inbounds i8, ptr %486, i64 %488
+  %490 = load ptr, ptr %7, align 8
+  %491 = load i32, ptr %6, align 4
+  %492 = call ptr @TupleDescCompactAttr(ptr noundef %490, i32 noundef %491)
+  %493 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %492, i32 0, i32 2
+  %494 = load i8, ptr %493, align 2, !range !4, !noundef !5
+  %495 = trunc i8 %494 to i1
+  %496 = load ptr, ptr %7, align 8
+  %497 = load i32, ptr %6, align 4
+  %498 = call ptr @TupleDescCompactAttr(ptr noundef %496, i32 noundef %497)
+  %499 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %498, i32 0, i32 1
+  %500 = load i16, ptr %499, align 4
+  %501 = sext i16 %500 to i32
+  %502 = call i64 @fetch_att(ptr noundef %489, i1 noundef zeroext %495, i32 noundef %501)
+  store i64 %502, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %503
 
-489:                                              ; preds = %475
-  %490 = load ptr, ptr %23, align 8
-  %491 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %490, i32 0, i32 3
-  %492 = load i16, ptr %491, align 4
-  %493 = sext i16 %492 to i32
-  %494 = icmp eq i32 %493, -1
-  br i1 %494, label %495, label %577
+503:                                              ; preds = %485, %130
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %504 = load i64, ptr %4, align 8
+  ret i64 %504
 
-495:                                              ; preds = %489
-  %496 = load i32, ptr %12, align 4
-  %497 = sext i32 %496 to i64
-  %498 = load ptr, ptr %9, align 8
-  %499 = load i32, ptr %12, align 4
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr i8, ptr %498, i64 %500
-  %502 = getelementptr inbounds %struct.varattrib_1b, ptr %501, i32 0, i32 0
-  %503 = load i8, ptr %502, align 1
-  %504 = zext i8 %503 to i32
-  %505 = icmp eq i32 %504, 1
-  br i1 %505, label %506, label %542
-
-506:                                              ; preds = %495
-  %507 = load ptr, ptr %9, align 8
-  %508 = load i32, ptr %12, align 4
-  %509 = sext i32 %508 to i64
-  %510 = getelementptr i8, ptr %507, i64 %509
-  %511 = getelementptr inbounds %struct.varattrib_1b_e, ptr %510, i32 0, i32 1
-  %512 = load i8, ptr %511, align 1
-  %513 = zext i8 %512 to i32
-  %514 = icmp eq i32 %513, 1
-  br i1 %514, label %515, label %516
-
-515:                                              ; preds = %506
-  br label %539
-
-516:                                              ; preds = %506
-  %517 = load ptr, ptr %9, align 8
-  %518 = load i32, ptr %12, align 4
-  %519 = sext i32 %518 to i64
-  %520 = getelementptr i8, ptr %517, i64 %519
-  %521 = getelementptr inbounds %struct.varattrib_1b_e, ptr %520, i32 0, i32 1
-  %522 = load i8, ptr %521, align 1
-  %523 = zext i8 %522 to i32
-  %524 = and i32 %523, -2
-  %525 = icmp eq i32 %524, 2
-  br i1 %525, label %526, label %527
-
-526:                                              ; preds = %516
-  br label %537
-
-527:                                              ; preds = %516
-  %528 = load ptr, ptr %9, align 8
-  %529 = load i32, ptr %12, align 4
-  %530 = sext i32 %529 to i64
-  %531 = getelementptr i8, ptr %528, i64 %530
-  %532 = getelementptr inbounds %struct.varattrib_1b_e, ptr %531, i32 0, i32 1
-  %533 = load i8, ptr %532, align 1
-  %534 = zext i8 %533 to i32
-  %535 = icmp eq i32 %534, 18
-  %536 = select i1 %535, i64 16, i64 0
-  br label %537
-
-537:                                              ; preds = %527, %526
-  %538 = phi i64 [ 8, %526 ], [ %536, %527 ]
-  br label %539
-
-539:                                              ; preds = %537, %515
-  %540 = phi i64 [ 8, %515 ], [ %538, %537 ]
-  %541 = add i64 2, %540
-  br label %574
-
-542:                                              ; preds = %495
-  %543 = load ptr, ptr %9, align 8
-  %544 = load i32, ptr %12, align 4
-  %545 = sext i32 %544 to i64
-  %546 = getelementptr i8, ptr %543, i64 %545
-  %547 = getelementptr inbounds %struct.varattrib_1b, ptr %546, i32 0, i32 0
-  %548 = load i8, ptr %547, align 1
-  %549 = zext i8 %548 to i32
-  %550 = and i32 %549, 1
-  %551 = icmp eq i32 %550, 1
-  br i1 %551, label %552, label %562
-
-552:                                              ; preds = %542
-  %553 = load ptr, ptr %9, align 8
-  %554 = load i32, ptr %12, align 4
-  %555 = sext i32 %554 to i64
-  %556 = getelementptr i8, ptr %553, i64 %555
-  %557 = getelementptr inbounds %struct.varattrib_1b, ptr %556, i32 0, i32 0
-  %558 = load i8, ptr %557, align 1
-  %559 = zext i8 %558 to i32
-  %560 = ashr i32 %559, 1
-  %561 = and i32 %560, 127
-  br label %571
-
-562:                                              ; preds = %542
-  %563 = load ptr, ptr %9, align 8
-  %564 = load i32, ptr %12, align 4
-  %565 = sext i32 %564 to i64
-  %566 = getelementptr i8, ptr %563, i64 %565
-  %567 = getelementptr inbounds %struct.anon, ptr %566, i32 0, i32 0
-  %568 = load i32, ptr %567, align 4
-  %569 = lshr i32 %568, 2
-  %570 = and i32 %569, 1073741823
-  br label %571
-
-571:                                              ; preds = %562, %552
-  %572 = phi i32 [ %561, %552 ], [ %570, %562 ]
-  %573 = zext i32 %572 to i64
-  br label %574
-
-574:                                              ; preds = %571, %539
-  %575 = phi i64 [ %541, %539 ], [ %573, %571 ]
-  %576 = add i64 %497, %575
-  br label %587
-
-577:                                              ; preds = %489
-  %578 = load i32, ptr %12, align 4
-  %579 = sext i32 %578 to i64
-  %580 = load ptr, ptr %9, align 8
-  %581 = load i32, ptr %12, align 4
-  %582 = sext i32 %581 to i64
-  %583 = getelementptr i8, ptr %580, i64 %582
-  %584 = call i64 @strlen(ptr noundef %583) #6
-  %585 = add i64 %584, 1
-  %586 = add i64 %579, %585
-  br label %587
-
-587:                                              ; preds = %577, %574
-  %588 = phi i64 [ %576, %574 ], [ %586, %577 ]
-  br label %589
-
-589:                                              ; preds = %587, %481
-  %590 = phi i64 [ %488, %481 ], [ %588, %587 ]
-  %591 = trunc i64 %590 to i32
-  store i32 %591, ptr %12, align 4
-  %592 = load i8, ptr %21, align 1
-  %593 = trunc i8 %592 to i1
-  br i1 %593, label %594, label %601
-
-594:                                              ; preds = %589
-  %595 = load ptr, ptr %23, align 8
-  %596 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %595, i32 0, i32 3
-  %597 = load i16, ptr %596, align 4
-  %598 = sext i16 %597 to i32
-  %599 = icmp sle i32 %598, 0
-  br i1 %599, label %600, label %601
-
-600:                                              ; preds = %594
-  store i8 0, ptr %21, align 1
-  br label %601
-
-601:                                              ; preds = %600, %594, %589
-  br label %602
-
-602:                                              ; preds = %601, %291
-  %603 = load i32, ptr %22, align 4
-  %604 = add i32 %603, 1
-  store i32 %604, ptr %22, align 4
-  br label %273
-
-605:                                              ; preds = %474
-  br label %606
-
-606:                                              ; preds = %605, %264
-  %607 = load ptr, ptr %9, align 8
-  %608 = load i32, ptr %12, align 4
-  %609 = sext i32 %608 to i64
-  %610 = getelementptr i8, ptr %607, i64 %609
-  %611 = load ptr, ptr %7, align 8
-  %612 = getelementptr inbounds %struct.TupleDescData, ptr %611, i32 0, i32 5
-  %613 = load i32, ptr %6, align 4
-  %614 = sext i32 %613 to i64
-  %615 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %612, i64 0, i64 %614
-  %616 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %615, i32 0, i32 8
-  %617 = load i8, ptr %616, align 2
-  %618 = trunc i8 %617 to i1
-  %619 = load ptr, ptr %7, align 8
-  %620 = getelementptr inbounds %struct.TupleDescData, ptr %619, i32 0, i32 5
-  %621 = load i32, ptr %6, align 4
-  %622 = sext i32 %621 to i64
-  %623 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %620, i64 0, i64 %622
-  %624 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %623, i32 0, i32 3
-  %625 = load i16, ptr %624, align 8
-  %626 = sext i16 %625 to i32
-  %627 = call i64 @fetch_att(ptr noundef %610, i1 noundef zeroext %618, i32 noundef %626)
-  store i64 %627, ptr %4, align 8
-  br label %628
-
-628:                                              ; preds = %606, %98
-  %629 = load i64, ptr %4, align 8
-  ret i64 %629
+505:                                              ; preds = %478, %216
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #2 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -2592,7 +2320,7 @@ define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 nounde
   %8 = zext i1 %1 to i8
   store i8 %8, ptr %6, align 1
   store i32 %2, ptr %7, align 4
-  %9 = load i8, ptr %6, align 1
+  %9 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %39
 
@@ -2639,7 +2367,7 @@ define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 nounde
   br i1 true, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %31, label %34, label %37
 
 32:                                               ; preds = %29
@@ -2649,7 +2377,7 @@ define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 nounde
 34:                                               ; preds = %32, %30
   %35 = load i32, ptr %7, align 4
   %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i32 noundef %35)
-  call void @errfinish(ptr noundef @.str.6, i32 noundef 69, ptr noundef @__func__.fetch_att)
+  call void @errfinish(ptr noundef @.str.6, i32 noundef 70, ptr noundef @__func__.fetch_att)
   br label %37
 
 37:                                               ; preds = %34, %32, %30
@@ -2670,6 +2398,36 @@ define internal i64 @fetch_att(ptr noundef %0, i1 noundef zeroext %1, i32 nounde
   ret i64 %43
 }
 
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @HeapTupleHasVarWidth(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %5, i32 0, i32 3
+  %7 = load i16, ptr %6, align 4
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 2
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @HeapTupleHasNulls(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %5, i32 0, i32 3
+  %7 = load i16, ptr %6, align 4
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 1
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
+}
+
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
@@ -2681,100 +2439,99 @@ define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nounde
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %10 = load ptr, ptr %8, align 8
   store i8 0, ptr %10, align 1
   %11 = load i32, ptr %6, align 4
-  switch i32 %11, label %45 [
+  switch i32 %11, label %39 [
     i32 -1, label %12
     i32 -2, label %16
-    i32 -4, label %24
-    i32 -3, label %32
-    i32 -5, label %32
-    i32 -6, label %40
+    i32 -4, label %22
+    i32 -3, label %28
+    i32 -5, label %28
+    i32 -6, label %34
   ]
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.HeapTupleData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %13, i32 0, i32 1
   %15 = call i64 @PointerGetDatum(ptr noundef %14)
   store i64 %15, ptr %9, align 8
-  br label %56
+  br label %51
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.HeapTupleData, ptr %17, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %17, i32 0, i32 3
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.HeapTupleFields, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 4
-  %23 = call i64 @TransactionIdGetDatum(i32 noundef %22)
-  store i64 %23, ptr %9, align 8
-  br label %56
+  %20 = call i32 @HeapTupleHeaderGetRawXmin(ptr noundef %19)
+  %21 = call i64 @TransactionIdGetDatum(i32 noundef %20)
+  store i64 %21, ptr %9, align 8
+  br label %51
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.HeapTupleData, ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %27, i32 0, i32 0
-  %29 = getelementptr inbounds %struct.HeapTupleFields, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4
-  %31 = call i64 @TransactionIdGetDatum(i32 noundef %30)
-  store i64 %31, ptr %9, align 8
-  br label %56
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 @HeapTupleHeaderGetRawXmax(ptr noundef %25)
+  %27 = call i64 @TransactionIdGetDatum(i32 noundef %26)
+  store i64 %27, ptr %9, align 8
+  br label %51
 
-32:                                               ; preds = %4, %4
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.HeapTupleData, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %35, i32 0, i32 0
-  %37 = getelementptr inbounds %struct.HeapTupleFields, ptr %36, i32 0, i32 2
-  %38 = load i32, ptr %37, align 4
-  %39 = call i64 @CommandIdGetDatum(i32 noundef %38)
-  store i64 %39, ptr %9, align 8
-  br label %56
+28:                                               ; preds = %4, %4
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = call i32 @HeapTupleHeaderGetRawCommandId(ptr noundef %31)
+  %33 = call i64 @CommandIdGetDatum(i32 noundef %32)
+  store i64 %33, ptr %9, align 8
+  br label %51
 
-40:                                               ; preds = %4
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.HeapTupleData, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 4
-  %44 = call i64 @ObjectIdGetDatum(i32 noundef %43)
-  store i64 %44, ptr %9, align 8
-  br label %56
+34:                                               ; preds = %4
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 4
+  %38 = call i64 @ObjectIdGetDatum(i32 noundef %37)
+  store i64 %38, ptr %9, align 8
+  br label %51
 
-45:                                               ; preds = %4
-  br label %46
+39:                                               ; preds = %4
+  br label %40
 
-46:                                               ; preds = %45
-  br i1 true, label %47, label %49
+40:                                               ; preds = %39
+  br i1 true, label %41, label %43
 
-47:                                               ; preds = %46
-  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %48, label %51, label %54
+41:                                               ; preds = %40
+  %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %42, label %45, label %48
 
-49:                                               ; preds = %46
-  %50 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %50, label %51, label %54
+43:                                               ; preds = %40
+  %44 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %44, label %45, label %48
 
-51:                                               ; preds = %49, %47
-  %52 = load i32, ptr %6, align 4
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %52)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 760, ptr noundef @__func__.heap_getsysattr)
-  br label %54
+45:                                               ; preds = %43, %41
+  %46 = load i32, ptr %6, align 4
+  %47 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %46)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 761, ptr noundef @__func__.heap_getsysattr)
+  br label %48
 
-54:                                               ; preds = %51, %49, %47
+48:                                               ; preds = %45, %43, %41
   unreachable
 
-55:                                               ; No predecessors!
+49:                                               ; No predecessors!
+  br label %50
+
+50:                                               ; preds = %49
   store i64 0, ptr %9, align 8
-  br label %56
+  br label %51
 
-56:                                               ; preds = %55, %40, %32, %24, %16, %12
-  %57 = load i64, ptr %9, align 8
-  ret i64 %57
+51:                                               ; preds = %50, %34, %28, %22, %16, %12
+  %52 = load i64, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret i64 %52
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @TransactionIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @TransactionIdGetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2782,8 +2539,30 @@ define internal i64 @TransactionIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CommandIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @HeapTupleHeaderGetRawXmin(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.HeapTupleFields, ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 4
+  ret i32 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @HeapTupleHeaderGetRawXmax(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.HeapTupleFields, ptr %4, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  ret i32 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CommandIdGetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2791,8 +2570,19 @@ define internal i64 @CommandIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @HeapTupleHeaderGetRawCommandId(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.HeapTupleFields, ptr %4, i32 0, i32 2
+  %6 = load i32, ptr %5, align 4
+  ret i32 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ObjectIdGetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2805,76 +2595,81 @@ define dso_local ptr @heap_copytuple(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = load ptr, ptr %3, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.HeapTupleData, ptr %8, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %7, %1
+13:                                               ; preds = %8, %1
   store ptr null, ptr %2, align 8
-  br label %49
+  store i32 1, ptr %5, align 4
+  br label %50
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.HeapTupleData, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8
-  %17 = zext i32 %16 to i64
-  %18 = add i64 24, %17
-  %19 = call ptr @palloc(i64 noundef %18)
-  store ptr %19, ptr %4, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.HeapTupleData, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.HeapTupleData, ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.HeapTupleData, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.HeapTupleData, ptr %27, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %28, i64 6, i1 false)
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.HeapTupleData, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.HeapTupleData, ptr %32, i32 0, i32 2
-  store i32 %31, ptr %33, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr i8, ptr %34, i64 24
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.HeapTupleData, ptr %36, i32 0, i32 3
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.HeapTupleData, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.HeapTupleData, ptr %41, i32 0, i32 3
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.HeapTupleData, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  %47 = zext i32 %46 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %43, i64 %47, i1 false)
-  %48 = load ptr, ptr %4, align 8
-  store ptr %48, ptr %2, align 8
-  br label %49
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %17 to i64
+  %19 = add i64 24, %18
+  %20 = call ptr @palloc(i64 noundef %19)
+  store ptr %20, ptr %4, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %28, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %29, i64 6, i1 false)
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %33, i32 0, i32 2
+  store i32 %32, ptr %34, align 4
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %37, i32 0, i32 3
+  store ptr %36, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8
+  %48 = zext i32 %47 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %44, i64 %48, i1 false)
+  %49 = load ptr, ptr %4, align 8
+  store ptr %49, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %50
 
-49:                                               ; preds = %13, %12
-  %50 = load ptr, ptr %2, align 8
-  ret ptr %50
+50:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %51 = load ptr, ptr %2, align 8
+  ret ptr %51
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_copytuple_with_tuple(ptr noundef %0, ptr noundef %1) #0 {
@@ -2888,54 +2683,54 @@ define dso_local void @heap_copytuple_with_tuple(ptr noundef %0, ptr noundef %1)
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.HeapTupleData, ptr %8, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7, %2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.HeapTupleData, ptr %13, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %13, i32 0, i32 3
   store ptr null, ptr %14, align 8
   br label %47
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.HeapTupleData, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.HeapTupleData, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %19, i32 0, i32 0
   store i32 %18, ptr %20, align 8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.HeapTupleData, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.HeapTupleData, ptr %23, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %23, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %24, i64 6, i1 false)
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.HeapTupleData, ptr %25, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %25, i32 0, i32 2
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.HeapTupleData, ptr %28, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %28, i32 0, i32 2
   store i32 %27, ptr %29, align 4
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.HeapTupleData, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %30, i32 0, i32 0
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = call ptr @palloc(i64 noundef %33)
   %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.HeapTupleData, ptr %35, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %35, i32 0, i32 3
   store ptr %34, ptr %36, align 8
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.HeapTupleData, ptr %37, i32 0, i32 3
+  %38 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %37, i32 0, i32 3
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.HeapTupleData, ptr %40, i32 0, i32 3
+  %41 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %40, i32 0, i32 3
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.HeapTupleData, ptr %43, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %43, i32 0, i32 0
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %42, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %39, ptr align 4 %42, i64 %46, i1 false)
   br label %47
 
 47:                                               ; preds = %15, %12
@@ -2949,10 +2744,12 @@ define dso_local ptr @minimal_expand_tuple(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
   call void @expand_tuple(ptr noundef null, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %8 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret ptr %8
 }
 
@@ -2986,806 +2783,788 @@ define internal void @expand_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.HeapTupleData, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %31, i32 0, i32 3
-  %33 = load i16, ptr %32, align 4
-  %34 = zext i16 %33 to i32
-  %35 = and i32 %34, 1
-  %36 = icmp ne i32 %35, 0
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr %12, align 1
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.HeapTupleData, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %14, align 8
-  %41 = load ptr, ptr %14, align 8
-  %42 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %41, i32 0, i32 2
-  %43 = load i16, ptr %42, align 2
-  %44 = zext i16 %43 to i32
-  %45 = and i32 %44, 2047
-  store i32 %45, ptr %15, align 4
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.TupleDescData, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr %47, align 8
-  store i32 %48, ptr %16, align 4
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.HeapTupleData, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %52, i32 0, i32 4
-  %54 = load i8, ptr %53, align 2
-  %55 = zext i8 %54 to i32
-  %56 = sub i32 %51, %55
-  %57 = zext i32 %56 to i64
-  store i64 %57, ptr %19, align 8
+  %30 = call zeroext i1 @HeapTupleHasNulls(ptr noundef %29)
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %32, i32 0, i32 3
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %35 = load ptr, ptr %14, align 8
+  %36 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %35, i32 0, i32 2
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = and i32 %38, 2047
+  store i32 %39, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct.TupleDescData, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8
+  store i32 %42, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %46, i32 0, i32 4
+  %48 = load i8, ptr %47, align 2
+  %49 = zext i8 %48 to i32
+  %50 = sub i32 %45, %49
+  %51 = zext i32 %50 to i64
+  store i64 %51, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
   store ptr null, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
   store i32 0, ptr %24, align 4
-  %58 = load i8, ptr %12, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #8
+  %52 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %57
 
-60:                                               ; preds = %4
-  %61 = load i32, ptr %15, align 4
-  %62 = add i32 %61, 7
-  %63 = sdiv i32 %62, 8
-  br label %65
+54:                                               ; preds = %4
+  %55 = load i32, ptr %15, align 4
+  %56 = call i32 @BITMAPLEN(i32 noundef %55)
+  br label %58
 
-64:                                               ; preds = %4
-  br label %65
+57:                                               ; preds = %4
+  br label %58
 
-65:                                               ; preds = %64, %60
-  %66 = phi i32 [ %63, %60 ], [ 0, %64 ]
-  store i32 %66, ptr %17, align 4
-  %67 = load i64, ptr %19, align 8
-  store i64 %67, ptr %20, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.TupleDescData, ptr %68, i32 0, i32 4
+58:                                               ; preds = %57, %54
+  %59 = phi i32 [ %56, %54 ], [ 0, %57 ]
+  store i32 %59, ptr %17, align 4
+  %60 = load i64, ptr %19, align 8
+  store i64 %60, ptr %20, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.TupleDescData, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %296
+
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.TupleDescData, ptr %66, i32 0, i32 4
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %struct.TupleConstr, ptr %68, i32 0, i32 2
   %70 = load ptr, ptr %69, align 8
   %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %326
+  br i1 %71, label %72, label %296
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.TupleDescData, ptr %73, i32 0, i32 4
+  %74 = getelementptr inbounds nuw %struct.TupleDescData, ptr %73, i32 0, i32 4
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.TupleConstr, ptr %75, i32 0, i32 2
+  %76 = getelementptr inbounds nuw %struct.TupleConstr, ptr %75, i32 0, i32 2
   %77 = load ptr, ptr %76, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %326
+  store ptr %77, ptr %9, align 8
+  %78 = load i32, ptr %15, align 4
+  store i32 %78, ptr %11, align 4
+  br label %79
 
-79:                                               ; preds = %72
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.TupleDescData, ptr %80, i32 0, i32 4
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.TupleConstr, ptr %82, i32 0, i32 2
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %9, align 8
-  %85 = load i32, ptr %15, align 4
-  store i32 %85, ptr %11, align 4
-  br label %86
+79:                                               ; preds = %94, %72
+  %80 = load i32, ptr %11, align 4
+  %81 = load i32, ptr %16, align 4
+  %82 = icmp slt i32 %80, %81
+  br i1 %82, label %83, label %97
 
-86:                                               ; preds = %101, %79
-  %87 = load i32, ptr %11, align 4
-  %88 = load i32, ptr %16, align 4
-  %89 = icmp slt i32 %87, %88
-  br i1 %89, label %90, label %104
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %9, align 8
+  %85 = load i32, ptr %11, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds %struct.AttrMissing, ptr %84, i64 %86
+  %88 = getelementptr inbounds nuw %struct.AttrMissing, ptr %87, i32 0, i32 0
+  %89 = load i8, ptr %88, align 8, !range !4, !noundef !5
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %9, align 8
-  %92 = load i32, ptr %11, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr %struct.AttrMissing, ptr %91, i64 %93
-  %95 = getelementptr inbounds %struct.AttrMissing, ptr %94, i32 0, i32 0
-  %96 = load i8, ptr %95, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %98, label %99
+91:                                               ; preds = %83
+  br label %97
 
-98:                                               ; preds = %90
-  br label %104
-
-99:                                               ; preds = %90
+92:                                               ; preds = %83
   store i8 1, ptr %12, align 1
-  br label %100
+  br label %93
 
-100:                                              ; preds = %99
-  br label %101
+93:                                               ; preds = %92
+  br label %94
 
-101:                                              ; preds = %100
-  %102 = load i32, ptr %11, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %11, align 4
-  br label %86, !llvm.loop !12
+94:                                               ; preds = %93
+  %95 = load i32, ptr %11, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %11, align 4
+  br label %79, !llvm.loop !13
 
-104:                                              ; preds = %98, %86
-  %105 = load i32, ptr %11, align 4
-  store i32 %105, ptr %10, align 4
-  br label %106
+97:                                               ; preds = %91, %79
+  %98 = load i32, ptr %11, align 4
+  store i32 %98, ptr %10, align 4
+  br label %99
 
-106:                                              ; preds = %322, %104
-  %107 = load i32, ptr %10, align 4
-  %108 = load i32, ptr %16, align 4
-  %109 = icmp slt i32 %107, %108
-  br i1 %109, label %110, label %325
+99:                                               ; preds = %292, %97
+  %100 = load i32, ptr %10, align 4
+  %101 = load i32, ptr %16, align 4
+  %102 = icmp slt i32 %100, %101
+  br i1 %102, label %103, label %295
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %9, align 8
-  %112 = load i32, ptr %10, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr %struct.AttrMissing, ptr %111, i64 %113
-  %115 = getelementptr inbounds %struct.AttrMissing, ptr %114, i32 0, i32 0
-  %116 = load i8, ptr %115, align 8
-  %117 = trunc i8 %116 to i1
-  br i1 %117, label %118, label %320
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %9, align 8
+  %105 = load i32, ptr %10, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds %struct.AttrMissing, ptr %104, i64 %106
+  %108 = getelementptr inbounds nuw %struct.AttrMissing, ptr %107, i32 0, i32 0
+  %109 = load i8, ptr %108, align 8, !range !4, !noundef !5
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %290
 
-118:                                              ; preds = %110
-  %119 = load ptr, ptr %8, align 8
-  %120 = getelementptr inbounds %struct.TupleDescData, ptr %119, i32 0, i32 5
-  %121 = load i32, ptr %10, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %120, i64 0, i64 %122
-  store ptr %123, ptr %27, align 8
-  %124 = load ptr, ptr %27, align 8
-  %125 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %124, i32 0, i32 3
-  %126 = load i16, ptr %125, align 4
-  %127 = sext i16 %126 to i32
-  %128 = icmp eq i32 %127, -1
-  br i1 %128, label %129, label %144
+111:                                              ; preds = %103
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #8
+  %112 = load ptr, ptr %8, align 8
+  %113 = load i32, ptr %10, align 4
+  %114 = call ptr @TupleDescCompactAttr(ptr noundef %112, i32 noundef %113)
+  store ptr %114, ptr %27, align 8
+  %115 = load ptr, ptr %27, align 8
+  %116 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %115, i32 0, i32 1
+  %117 = load i16, ptr %116, align 4
+  %118 = sext i16 %117 to i32
+  %119 = icmp eq i32 %118, -1
+  br i1 %119, label %120, label %135
 
-129:                                              ; preds = %118
-  %130 = load ptr, ptr %9, align 8
-  %131 = load i32, ptr %10, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr %struct.AttrMissing, ptr %130, i64 %132
-  %134 = getelementptr inbounds %struct.AttrMissing, ptr %133, i32 0, i32 1
-  %135 = load i64, ptr %134, align 8
-  %136 = call ptr @DatumGetPointer(i64 noundef %135)
-  %137 = getelementptr inbounds %struct.varattrib_1b, ptr %136, i32 0, i32 0
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = and i32 %139, 1
-  %141 = icmp eq i32 %140, 1
-  br i1 %141, label %142, label %144
+120:                                              ; preds = %111
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i32, ptr %10, align 4
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds %struct.AttrMissing, ptr %121, i64 %123
+  %125 = getelementptr inbounds nuw %struct.AttrMissing, ptr %124, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8
+  %127 = call ptr @DatumGetPointer(i64 noundef %126)
+  %128 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %127, i32 0, i32 0
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = and i32 %130, 1
+  %132 = icmp eq i32 %131, 1
+  br i1 %132, label %133, label %135
 
-142:                                              ; preds = %129
-  %143 = load i64, ptr %20, align 8
-  br label %182
+133:                                              ; preds = %120
+  %134 = load i64, ptr %20, align 8
+  br label %152
 
-144:                                              ; preds = %129, %118
-  %145 = load ptr, ptr %27, align 8
-  %146 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %145, i32 0, i32 9
-  %147 = load i8, ptr %146, align 1
-  %148 = sext i8 %147 to i32
-  %149 = icmp eq i32 %148, 105
-  br i1 %149, label %150, label %154
+135:                                              ; preds = %120, %111
+  %136 = load i64, ptr %20, align 8
+  %137 = load ptr, ptr %27, align 8
+  %138 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %137, i32 0, i32 8
+  %139 = load i8, ptr %138, align 4
+  %140 = zext i8 %139 to i32
+  %141 = sub i32 %140, 1
+  %142 = sext i32 %141 to i64
+  %143 = add i64 %136, %142
+  %144 = load ptr, ptr %27, align 8
+  %145 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %144, i32 0, i32 8
+  %146 = load i8, ptr %145, align 4
+  %147 = zext i8 %146 to i32
+  %148 = sub i32 %147, 1
+  %149 = sext i32 %148 to i64
+  %150 = xor i64 %149, -1
+  %151 = and i64 %143, %150
+  br label %152
 
-150:                                              ; preds = %144
-  %151 = load i64, ptr %20, align 8
-  %152 = add i64 %151, 3
-  %153 = and i64 %152, -4
-  br label %180
+152:                                              ; preds = %135, %133
+  %153 = phi i64 [ %134, %133 ], [ %151, %135 ]
+  store i64 %153, ptr %20, align 8
+  %154 = load ptr, ptr %27, align 8
+  %155 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %154, i32 0, i32 1
+  %156 = load i16, ptr %155, align 4
+  %157 = sext i16 %156 to i32
+  %158 = icmp sgt i32 %157, 0
+  br i1 %158, label %159, label %166
 
-154:                                              ; preds = %144
-  %155 = load ptr, ptr %27, align 8
-  %156 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %155, i32 0, i32 9
-  %157 = load i8, ptr %156, align 1
-  %158 = sext i8 %157 to i32
-  %159 = icmp eq i32 %158, 99
-  br i1 %159, label %160, label %162
+159:                                              ; preds = %152
+  %160 = load i64, ptr %20, align 8
+  %161 = load ptr, ptr %27, align 8
+  %162 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %161, i32 0, i32 1
+  %163 = load i16, ptr %162, align 4
+  %164 = sext i16 %163 to i64
+  %165 = add i64 %160, %164
+  br label %288
 
-160:                                              ; preds = %154
-  %161 = load i64, ptr %20, align 8
-  br label %178
+166:                                              ; preds = %152
+  %167 = load ptr, ptr %27, align 8
+  %168 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %167, i32 0, i32 1
+  %169 = load i16, ptr %168, align 4
+  %170 = sext i16 %169 to i32
+  %171 = icmp eq i32 %170, -1
+  br i1 %171, label %172, label %274
 
-162:                                              ; preds = %154
-  %163 = load ptr, ptr %27, align 8
-  %164 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %163, i32 0, i32 9
-  %165 = load i8, ptr %164, align 1
-  %166 = sext i8 %165 to i32
-  %167 = icmp eq i32 %166, 100
-  br i1 %167, label %168, label %172
-
-168:                                              ; preds = %162
-  %169 = load i64, ptr %20, align 8
-  %170 = add i64 %169, 7
-  %171 = and i64 %170, -8
-  br label %176
-
-172:                                              ; preds = %162
+172:                                              ; preds = %166
   %173 = load i64, ptr %20, align 8
-  %174 = add i64 %173, 1
-  %175 = and i64 %174, -2
-  br label %176
+  %174 = load ptr, ptr %9, align 8
+  %175 = load i32, ptr %10, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds %struct.AttrMissing, ptr %174, i64 %176
+  %178 = getelementptr inbounds nuw %struct.AttrMissing, ptr %177, i32 0, i32 1
+  %179 = load i64, ptr %178, align 8
+  %180 = inttoptr i64 %179 to ptr
+  %181 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %180, i32 0, i32 0
+  %182 = load i8, ptr %181, align 1
+  %183 = zext i8 %182 to i32
+  %184 = icmp eq i32 %183, 1
+  br i1 %184, label %185, label %230
 
-176:                                              ; preds = %172, %168
-  %177 = phi i64 [ %171, %168 ], [ %175, %172 ]
-  br label %178
+185:                                              ; preds = %172
+  %186 = load ptr, ptr %9, align 8
+  %187 = load i32, ptr %10, align 4
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds %struct.AttrMissing, ptr %186, i64 %188
+  %190 = getelementptr inbounds nuw %struct.AttrMissing, ptr %189, i32 0, i32 1
+  %191 = load i64, ptr %190, align 8
+  %192 = inttoptr i64 %191 to ptr
+  %193 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %192, i32 0, i32 1
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = icmp eq i32 %195, 1
+  br i1 %196, label %197, label %198
 
-178:                                              ; preds = %176, %160
-  %179 = phi i64 [ %161, %160 ], [ %177, %176 ]
-  br label %180
+197:                                              ; preds = %185
+  br label %227
 
-180:                                              ; preds = %178, %150
-  %181 = phi i64 [ %153, %150 ], [ %179, %178 ]
-  br label %182
+198:                                              ; preds = %185
+  %199 = load ptr, ptr %9, align 8
+  %200 = load i32, ptr %10, align 4
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds %struct.AttrMissing, ptr %199, i64 %201
+  %203 = getelementptr inbounds nuw %struct.AttrMissing, ptr %202, i32 0, i32 1
+  %204 = load i64, ptr %203, align 8
+  %205 = inttoptr i64 %204 to ptr
+  %206 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %205, i32 0, i32 1
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = and i32 %208, -2
+  %210 = icmp eq i32 %209, 2
+  br i1 %210, label %211, label %212
 
-182:                                              ; preds = %180, %142
-  %183 = phi i64 [ %143, %142 ], [ %181, %180 ]
-  store i64 %183, ptr %20, align 8
-  %184 = load ptr, ptr %27, align 8
-  %185 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %184, i32 0, i32 3
-  %186 = load i16, ptr %185, align 4
-  %187 = sext i16 %186 to i32
-  %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %189, label %196
+211:                                              ; preds = %198
+  br label %225
 
-189:                                              ; preds = %182
-  %190 = load i64, ptr %20, align 8
-  %191 = load ptr, ptr %27, align 8
-  %192 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %191, i32 0, i32 3
-  %193 = load i16, ptr %192, align 4
-  %194 = sext i16 %193 to i64
-  %195 = add i64 %190, %194
-  br label %318
+212:                                              ; preds = %198
+  %213 = load ptr, ptr %9, align 8
+  %214 = load i32, ptr %10, align 4
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds %struct.AttrMissing, ptr %213, i64 %215
+  %217 = getelementptr inbounds nuw %struct.AttrMissing, ptr %216, i32 0, i32 1
+  %218 = load i64, ptr %217, align 8
+  %219 = inttoptr i64 %218 to ptr
+  %220 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %219, i32 0, i32 1
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i32
+  %223 = icmp eq i32 %222, 18
+  %224 = select i1 %223, i64 16, i64 0
+  br label %225
 
-196:                                              ; preds = %182
-  %197 = load ptr, ptr %27, align 8
-  %198 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %197, i32 0, i32 3
-  %199 = load i16, ptr %198, align 4
-  %200 = sext i16 %199 to i32
-  %201 = icmp eq i32 %200, -1
-  br i1 %201, label %202, label %304
+225:                                              ; preds = %212, %211
+  %226 = phi i64 [ 8, %211 ], [ %224, %212 ]
+  br label %227
 
-202:                                              ; preds = %196
-  %203 = load i64, ptr %20, align 8
-  %204 = load ptr, ptr %9, align 8
-  %205 = load i32, ptr %10, align 4
-  %206 = sext i32 %205 to i64
-  %207 = getelementptr %struct.AttrMissing, ptr %204, i64 %206
-  %208 = getelementptr inbounds %struct.AttrMissing, ptr %207, i32 0, i32 1
-  %209 = load i64, ptr %208, align 8
-  %210 = inttoptr i64 %209 to ptr
-  %211 = getelementptr inbounds %struct.varattrib_1b, ptr %210, i32 0, i32 0
-  %212 = load i8, ptr %211, align 1
-  %213 = zext i8 %212 to i32
-  %214 = icmp eq i32 %213, 1
-  br i1 %214, label %215, label %260
+227:                                              ; preds = %225, %197
+  %228 = phi i64 [ 8, %197 ], [ %226, %225 ]
+  %229 = add i64 2, %228
+  br label %271
 
-215:                                              ; preds = %202
-  %216 = load ptr, ptr %9, align 8
-  %217 = load i32, ptr %10, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr %struct.AttrMissing, ptr %216, i64 %218
-  %220 = getelementptr inbounds %struct.AttrMissing, ptr %219, i32 0, i32 1
-  %221 = load i64, ptr %220, align 8
-  %222 = inttoptr i64 %221 to ptr
-  %223 = getelementptr inbounds %struct.varattrib_1b_e, ptr %222, i32 0, i32 1
-  %224 = load i8, ptr %223, align 1
-  %225 = zext i8 %224 to i32
-  %226 = icmp eq i32 %225, 1
-  br i1 %226, label %227, label %228
+230:                                              ; preds = %172
+  %231 = load ptr, ptr %9, align 8
+  %232 = load i32, ptr %10, align 4
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds %struct.AttrMissing, ptr %231, i64 %233
+  %235 = getelementptr inbounds nuw %struct.AttrMissing, ptr %234, i32 0, i32 1
+  %236 = load i64, ptr %235, align 8
+  %237 = inttoptr i64 %236 to ptr
+  %238 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %237, i32 0, i32 0
+  %239 = load i8, ptr %238, align 1
+  %240 = zext i8 %239 to i32
+  %241 = and i32 %240, 1
+  %242 = icmp eq i32 %241, 1
+  br i1 %242, label %243, label %256
 
-227:                                              ; preds = %215
-  br label %257
+243:                                              ; preds = %230
+  %244 = load ptr, ptr %9, align 8
+  %245 = load i32, ptr %10, align 4
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds %struct.AttrMissing, ptr %244, i64 %246
+  %248 = getelementptr inbounds nuw %struct.AttrMissing, ptr %247, i32 0, i32 1
+  %249 = load i64, ptr %248, align 8
+  %250 = inttoptr i64 %249 to ptr
+  %251 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %250, i32 0, i32 0
+  %252 = load i8, ptr %251, align 1
+  %253 = zext i8 %252 to i32
+  %254 = ashr i32 %253, 1
+  %255 = and i32 %254, 127
+  br label %268
 
-228:                                              ; preds = %215
-  %229 = load ptr, ptr %9, align 8
-  %230 = load i32, ptr %10, align 4
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr %struct.AttrMissing, ptr %229, i64 %231
-  %233 = getelementptr inbounds %struct.AttrMissing, ptr %232, i32 0, i32 1
-  %234 = load i64, ptr %233, align 8
-  %235 = inttoptr i64 %234 to ptr
-  %236 = getelementptr inbounds %struct.varattrib_1b_e, ptr %235, i32 0, i32 1
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i32
-  %239 = and i32 %238, -2
-  %240 = icmp eq i32 %239, 2
-  br i1 %240, label %241, label %242
+256:                                              ; preds = %230
+  %257 = load ptr, ptr %9, align 8
+  %258 = load i32, ptr %10, align 4
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds %struct.AttrMissing, ptr %257, i64 %259
+  %261 = getelementptr inbounds nuw %struct.AttrMissing, ptr %260, i32 0, i32 1
+  %262 = load i64, ptr %261, align 8
+  %263 = inttoptr i64 %262 to ptr
+  %264 = getelementptr inbounds nuw %struct.anon, ptr %263, i32 0, i32 0
+  %265 = load i32, ptr %264, align 4
+  %266 = lshr i32 %265, 2
+  %267 = and i32 %266, 1073741823
+  br label %268
 
-241:                                              ; preds = %228
-  br label %255
+268:                                              ; preds = %256, %243
+  %269 = phi i32 [ %255, %243 ], [ %267, %256 ]
+  %270 = zext i32 %269 to i64
+  br label %271
 
-242:                                              ; preds = %228
-  %243 = load ptr, ptr %9, align 8
-  %244 = load i32, ptr %10, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr %struct.AttrMissing, ptr %243, i64 %245
-  %247 = getelementptr inbounds %struct.AttrMissing, ptr %246, i32 0, i32 1
-  %248 = load i64, ptr %247, align 8
-  %249 = inttoptr i64 %248 to ptr
-  %250 = getelementptr inbounds %struct.varattrib_1b_e, ptr %249, i32 0, i32 1
-  %251 = load i8, ptr %250, align 1
-  %252 = zext i8 %251 to i32
-  %253 = icmp eq i32 %252, 18
-  %254 = select i1 %253, i64 16, i64 0
-  br label %255
+271:                                              ; preds = %268, %227
+  %272 = phi i64 [ %229, %227 ], [ %270, %268 ]
+  %273 = add i64 %173, %272
+  br label %286
 
-255:                                              ; preds = %242, %241
-  %256 = phi i64 [ 8, %241 ], [ %254, %242 ]
-  br label %257
+274:                                              ; preds = %166
+  %275 = load i64, ptr %20, align 8
+  %276 = load ptr, ptr %9, align 8
+  %277 = load i32, ptr %10, align 4
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds %struct.AttrMissing, ptr %276, i64 %278
+  %280 = getelementptr inbounds nuw %struct.AttrMissing, ptr %279, i32 0, i32 1
+  %281 = load i64, ptr %280, align 8
+  %282 = inttoptr i64 %281 to ptr
+  %283 = call i64 @strlen(ptr noundef %282) #9
+  %284 = add i64 %283, 1
+  %285 = add i64 %275, %284
+  br label %286
 
-257:                                              ; preds = %255, %227
-  %258 = phi i64 [ 8, %227 ], [ %256, %255 ]
-  %259 = add i64 2, %258
-  br label %301
+286:                                              ; preds = %274, %271
+  %287 = phi i64 [ %273, %271 ], [ %285, %274 ]
+  br label %288
 
-260:                                              ; preds = %202
-  %261 = load ptr, ptr %9, align 8
-  %262 = load i32, ptr %10, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr %struct.AttrMissing, ptr %261, i64 %263
-  %265 = getelementptr inbounds %struct.AttrMissing, ptr %264, i32 0, i32 1
-  %266 = load i64, ptr %265, align 8
-  %267 = inttoptr i64 %266 to ptr
-  %268 = getelementptr inbounds %struct.varattrib_1b, ptr %267, i32 0, i32 0
-  %269 = load i8, ptr %268, align 1
-  %270 = zext i8 %269 to i32
-  %271 = and i32 %270, 1
-  %272 = icmp eq i32 %271, 1
-  br i1 %272, label %273, label %286
+288:                                              ; preds = %286, %159
+  %289 = phi i64 [ %165, %159 ], [ %287, %286 ]
+  store i64 %289, ptr %20, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #8
+  br label %291
 
-273:                                              ; preds = %260
-  %274 = load ptr, ptr %9, align 8
-  %275 = load i32, ptr %10, align 4
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr %struct.AttrMissing, ptr %274, i64 %276
-  %278 = getelementptr inbounds %struct.AttrMissing, ptr %277, i32 0, i32 1
-  %279 = load i64, ptr %278, align 8
-  %280 = inttoptr i64 %279 to ptr
-  %281 = getelementptr inbounds %struct.varattrib_1b, ptr %280, i32 0, i32 0
-  %282 = load i8, ptr %281, align 1
-  %283 = zext i8 %282 to i32
-  %284 = ashr i32 %283, 1
-  %285 = and i32 %284, 127
-  br label %298
-
-286:                                              ; preds = %260
-  %287 = load ptr, ptr %9, align 8
-  %288 = load i32, ptr %10, align 4
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr %struct.AttrMissing, ptr %287, i64 %289
-  %291 = getelementptr inbounds %struct.AttrMissing, ptr %290, i32 0, i32 1
-  %292 = load i64, ptr %291, align 8
-  %293 = inttoptr i64 %292 to ptr
-  %294 = getelementptr inbounds %struct.anon, ptr %293, i32 0, i32 0
-  %295 = load i32, ptr %294, align 4
-  %296 = lshr i32 %295, 2
-  %297 = and i32 %296, 1073741823
-  br label %298
-
-298:                                              ; preds = %286, %273
-  %299 = phi i32 [ %285, %273 ], [ %297, %286 ]
-  %300 = zext i32 %299 to i64
-  br label %301
-
-301:                                              ; preds = %298, %257
-  %302 = phi i64 [ %259, %257 ], [ %300, %298 ]
-  %303 = add i64 %203, %302
-  br label %316
-
-304:                                              ; preds = %196
-  %305 = load i64, ptr %20, align 8
-  %306 = load ptr, ptr %9, align 8
-  %307 = load i32, ptr %10, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr %struct.AttrMissing, ptr %306, i64 %308
-  %310 = getelementptr inbounds %struct.AttrMissing, ptr %309, i32 0, i32 1
-  %311 = load i64, ptr %310, align 8
-  %312 = inttoptr i64 %311 to ptr
-  %313 = call i64 @strlen(ptr noundef %312) #6
-  %314 = add i64 %313, 1
-  %315 = add i64 %305, %314
-  br label %316
-
-316:                                              ; preds = %304, %301
-  %317 = phi i64 [ %303, %301 ], [ %315, %304 ]
-  br label %318
-
-318:                                              ; preds = %316, %189
-  %319 = phi i64 [ %195, %189 ], [ %317, %316 ]
-  store i64 %319, ptr %20, align 8
-  br label %321
-
-320:                                              ; preds = %110
+290:                                              ; preds = %103
   store i8 1, ptr %12, align 1
-  br label %321
+  br label %291
 
-321:                                              ; preds = %320, %318
-  br label %322
+291:                                              ; preds = %290, %288
+  br label %292
 
-322:                                              ; preds = %321
-  %323 = load i32, ptr %10, align 4
-  %324 = add i32 %323, 1
-  store i32 %324, ptr %10, align 4
-  br label %106, !llvm.loop !13
+292:                                              ; preds = %291
+  %293 = load i32, ptr %10, align 4
+  %294 = add i32 %293, 1
+  store i32 %294, ptr %10, align 4
+  br label %99, !llvm.loop !14
 
-325:                                              ; preds = %106
-  br label %327
+295:                                              ; preds = %99
+  br label %297
 
-326:                                              ; preds = %72, %65
+296:                                              ; preds = %65, %58
   store i8 1, ptr %12, align 1
-  br label %327
+  br label %297
 
-327:                                              ; preds = %326, %325
+297:                                              ; preds = %296, %295
   store i64 0, ptr %21, align 8
-  %328 = load i8, ptr %12, align 1
-  %329 = trunc i8 %328 to i1
-  br i1 %329, label %330, label %338
+  %298 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %300, label %307
 
-330:                                              ; preds = %327
-  %331 = load i32, ptr %16, align 4
-  %332 = add i32 %331, 7
-  %333 = sdiv i32 %332, 8
-  store i32 %333, ptr %18, align 4
-  %334 = load i32, ptr %18, align 4
-  %335 = sext i32 %334 to i64
-  %336 = load i64, ptr %21, align 8
-  %337 = add i64 %336, %335
-  store i64 %337, ptr %21, align 8
-  br label %339
+300:                                              ; preds = %297
+  %301 = load i32, ptr %16, align 4
+  %302 = call i32 @BITMAPLEN(i32 noundef %301)
+  store i32 %302, ptr %18, align 4
+  %303 = load i32, ptr %18, align 4
+  %304 = sext i32 %303 to i64
+  %305 = load i64, ptr %21, align 8
+  %306 = add i64 %305, %304
+  store i64 %306, ptr %21, align 8
+  br label %308
 
-338:                                              ; preds = %327
+307:                                              ; preds = %297
   store i32 0, ptr %18, align 4
-  br label %339
+  br label %308
 
-339:                                              ; preds = %338, %330
-  %340 = load ptr, ptr %5, align 8
-  %341 = icmp ne ptr %340, null
-  br i1 %341, label %342, label %434
+308:                                              ; preds = %307, %300
+  %309 = load ptr, ptr %5, align 8
+  %310 = icmp ne ptr %309, null
+  br i1 %310, label %311, label %397
 
-342:                                              ; preds = %339
-  %343 = load i64, ptr %21, align 8
-  %344 = add i64 %343, 23
-  store i64 %344, ptr %21, align 8
-  %345 = load i64, ptr %21, align 8
-  %346 = add i64 %345, 7
-  %347 = and i64 %346, -8
-  store i64 %347, ptr %21, align 8
-  %348 = trunc i64 %347 to i32
-  store i32 %348, ptr %22, align 4
-  %349 = load i64, ptr %20, align 8
-  %350 = load i64, ptr %21, align 8
-  %351 = add i64 %350, %349
-  store i64 %351, ptr %21, align 8
-  %352 = load i64, ptr %21, align 8
-  %353 = add i64 24, %352
-  %354 = call ptr @palloc0(i64 noundef %353)
-  %355 = load ptr, ptr %5, align 8
-  store ptr %354, ptr %355, align 8
-  %356 = load ptr, ptr %5, align 8
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr i8, ptr %357, i64 24
-  store ptr %358, ptr %13, align 8
-  %359 = load ptr, ptr %5, align 8
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds %struct.HeapTupleData, ptr %360, i32 0, i32 3
-  store ptr %358, ptr %361, align 8
-  %362 = load i64, ptr %21, align 8
-  %363 = trunc i64 %362 to i32
-  %364 = load ptr, ptr %5, align 8
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds %struct.HeapTupleData, ptr %365, i32 0, i32 0
-  store i32 %363, ptr %366, align 8
-  %367 = load ptr, ptr %7, align 8
-  %368 = getelementptr inbounds %struct.HeapTupleData, ptr %367, i32 0, i32 2
-  %369 = load i32, ptr %368, align 4
-  %370 = load ptr, ptr %5, align 8
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds %struct.HeapTupleData, ptr %371, i32 0, i32 2
-  store i32 %369, ptr %372, align 4
-  %373 = load ptr, ptr %5, align 8
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds %struct.HeapTupleData, ptr %374, i32 0, i32 1
-  %376 = load ptr, ptr %7, align 8
-  %377 = getelementptr inbounds %struct.HeapTupleData, ptr %376, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %375, ptr align 4 %377, i64 6, i1 false)
-  %378 = load ptr, ptr %14, align 8
-  %379 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %378, i32 0, i32 3
-  %380 = load i16, ptr %379, align 4
-  %381 = load ptr, ptr %13, align 8
-  %382 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %381, i32 0, i32 3
-  store i16 %380, ptr %382, align 4
-  %383 = load i32, ptr %22, align 4
-  %384 = trunc i32 %383 to i8
-  %385 = load ptr, ptr %13, align 8
-  %386 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %385, i32 0, i32 4
-  store i8 %384, ptr %386, align 2
-  %387 = load ptr, ptr %13, align 8
-  %388 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %387, i32 0, i32 2
-  %389 = load i16, ptr %388, align 2
-  %390 = zext i16 %389 to i32
-  %391 = and i32 %390, -2048
-  %392 = load i32, ptr %16, align 4
-  %393 = or i32 %391, %392
-  %394 = trunc i32 %393 to i16
+311:                                              ; preds = %308
+  %312 = load i64, ptr %21, align 8
+  %313 = add i64 %312, 23
+  store i64 %313, ptr %21, align 8
+  %314 = load i64, ptr %21, align 8
+  %315 = add i64 %314, 7
+  %316 = and i64 %315, -8
+  store i64 %316, ptr %21, align 8
+  %317 = trunc i64 %316 to i32
+  store i32 %317, ptr %22, align 4
+  %318 = load i64, ptr %20, align 8
+  %319 = load i64, ptr %21, align 8
+  %320 = add i64 %319, %318
+  store i64 %320, ptr %21, align 8
+  %321 = load i64, ptr %21, align 8
+  %322 = add i64 24, %321
+  %323 = call ptr @palloc0(i64 noundef %322)
+  %324 = load ptr, ptr %5, align 8
+  store ptr %323, ptr %324, align 8
+  %325 = load ptr, ptr %5, align 8
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
+  store ptr %327, ptr %13, align 8
+  %328 = load ptr, ptr %5, align 8
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %329, i32 0, i32 3
+  store ptr %327, ptr %330, align 8
+  %331 = load i64, ptr %21, align 8
+  %332 = trunc i64 %331 to i32
+  %333 = load ptr, ptr %5, align 8
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %334, i32 0, i32 0
+  store i32 %332, ptr %335, align 8
+  %336 = load ptr, ptr %7, align 8
+  %337 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %336, i32 0, i32 2
+  %338 = load i32, ptr %337, align 4
+  %339 = load ptr, ptr %5, align 8
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %340, i32 0, i32 2
+  store i32 %338, ptr %341, align 4
+  %342 = load ptr, ptr %5, align 8
+  %343 = load ptr, ptr %342, align 8
+  %344 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %343, i32 0, i32 1
+  %345 = load ptr, ptr %7, align 8
+  %346 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %345, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %344, ptr align 4 %346, i64 6, i1 false)
+  %347 = load ptr, ptr %14, align 8
+  %348 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %347, i32 0, i32 3
+  %349 = load i16, ptr %348, align 4
+  %350 = load ptr, ptr %13, align 8
+  %351 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %350, i32 0, i32 3
+  store i16 %349, ptr %351, align 4
+  %352 = load i32, ptr %22, align 4
+  %353 = trunc i32 %352 to i8
+  %354 = load ptr, ptr %13, align 8
+  %355 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %354, i32 0, i32 4
+  store i8 %353, ptr %355, align 2
+  %356 = load ptr, ptr %13, align 8
+  %357 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %356, i32 0, i32 2
+  %358 = load i16, ptr %357, align 2
+  %359 = zext i16 %358 to i32
+  %360 = and i32 %359, -2048
+  %361 = load i32, ptr %16, align 4
+  %362 = or i32 %360, %361
+  %363 = trunc i32 %362 to i16
+  %364 = load ptr, ptr %13, align 8
+  %365 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %364, i32 0, i32 2
+  store i16 %363, ptr %365, align 2
+  %366 = load ptr, ptr %13, align 8
+  %367 = load i64, ptr %21, align 8
+  %368 = trunc i64 %367 to i32
+  call void @HeapTupleHeaderSetDatumLength(ptr noundef %366, i32 noundef %368)
+  %369 = load ptr, ptr %13, align 8
+  %370 = load ptr, ptr %8, align 8
+  %371 = getelementptr inbounds nuw %struct.TupleDescData, ptr %370, i32 0, i32 1
+  %372 = load i32, ptr %371, align 4
+  call void @HeapTupleHeaderSetTypeId(ptr noundef %369, i32 noundef %372)
+  %373 = load ptr, ptr %13, align 8
+  %374 = load ptr, ptr %8, align 8
+  %375 = getelementptr inbounds nuw %struct.TupleDescData, ptr %374, i32 0, i32 2
+  %376 = load i32, ptr %375, align 8
+  call void @HeapTupleHeaderSetTypMod(ptr noundef %373, i32 noundef %376)
+  %377 = load ptr, ptr %13, align 8
+  %378 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %377, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %378)
+  %379 = load i32, ptr %18, align 4
+  %380 = icmp sgt i32 %379, 0
+  br i1 %380, label %381, label %387
+
+381:                                              ; preds = %311
+  %382 = load ptr, ptr %5, align 8
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %383, i32 0, i32 3
+  %385 = load ptr, ptr %384, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 23
+  store ptr %386, ptr %23, align 8
+  br label %387
+
+387:                                              ; preds = %381, %311
+  %388 = load ptr, ptr %5, align 8
+  %389 = load ptr, ptr %388, align 8
+  %390 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %389, i32 0, i32 3
+  %391 = load ptr, ptr %390, align 8
+  %392 = load i32, ptr %22, align 4
+  %393 = sext i32 %392 to i64
+  %394 = getelementptr inbounds i8, ptr %391, i64 %393
+  store ptr %394, ptr %25, align 8
   %395 = load ptr, ptr %13, align 8
-  %396 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %395, i32 0, i32 2
-  store i16 %394, ptr %396, align 2
-  %397 = load i64, ptr %21, align 8
-  %398 = trunc i64 %397 to i32
-  %399 = shl i32 %398, 2
-  %400 = load ptr, ptr %13, align 8
-  %401 = getelementptr inbounds %struct.anon, ptr %400, i32 0, i32 0
-  store i32 %399, ptr %401, align 4
-  %402 = load ptr, ptr %8, align 8
-  %403 = getelementptr inbounds %struct.TupleDescData, ptr %402, i32 0, i32 1
-  %404 = load i32, ptr %403, align 4
-  %405 = load ptr, ptr %13, align 8
-  %406 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %405, i32 0, i32 0
-  %407 = getelementptr inbounds %struct.DatumTupleFields, ptr %406, i32 0, i32 2
-  store i32 %404, ptr %407, align 4
-  %408 = load ptr, ptr %8, align 8
-  %409 = getelementptr inbounds %struct.TupleDescData, ptr %408, i32 0, i32 2
-  %410 = load i32, ptr %409, align 8
-  %411 = load ptr, ptr %13, align 8
-  %412 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %411, i32 0, i32 0
-  %413 = getelementptr inbounds %struct.DatumTupleFields, ptr %412, i32 0, i32 1
-  store i32 %410, ptr %413, align 4
-  %414 = load ptr, ptr %13, align 8
-  %415 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %414, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %415)
-  %416 = load i32, ptr %18, align 4
-  %417 = icmp sgt i32 %416, 0
-  br i1 %417, label %418, label %424
+  %396 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %395, i32 0, i32 3
+  store ptr %396, ptr %26, align 8
+  br label %455
 
-418:                                              ; preds = %342
-  %419 = load ptr, ptr %5, align 8
+397:                                              ; preds = %308
+  %398 = load i64, ptr %21, align 8
+  %399 = add i64 %398, 15
+  store i64 %399, ptr %21, align 8
+  %400 = load i64, ptr %21, align 8
+  %401 = add i64 %400, 7
+  %402 = and i64 %401, -8
+  store i64 %402, ptr %21, align 8
+  %403 = trunc i64 %402 to i32
+  store i32 %403, ptr %22, align 4
+  %404 = load i64, ptr %20, align 8
+  %405 = load i64, ptr %21, align 8
+  %406 = add i64 %405, %404
+  store i64 %406, ptr %21, align 8
+  %407 = load i64, ptr %21, align 8
+  %408 = call ptr @palloc0(i64 noundef %407)
+  %409 = load ptr, ptr %6, align 8
+  store ptr %408, ptr %409, align 8
+  %410 = load i64, ptr %21, align 8
+  %411 = trunc i64 %410 to i32
+  %412 = load ptr, ptr %6, align 8
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %413, i32 0, i32 0
+  store i32 %411, ptr %414, align 4
+  %415 = load i32, ptr %22, align 4
+  %416 = sext i32 %415 to i64
+  %417 = add i64 %416, 8
+  %418 = trunc i64 %417 to i8
+  %419 = load ptr, ptr %6, align 8
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds %struct.HeapTupleData, ptr %420, i32 0, i32 3
-  %422 = load ptr, ptr %421, align 8
-  %423 = getelementptr i8, ptr %422, i64 23
-  store ptr %423, ptr %23, align 8
-  br label %424
-
-424:                                              ; preds = %418, %342
-  %425 = load ptr, ptr %5, align 8
+  %421 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %420, i32 0, i32 4
+  store i8 %418, ptr %421, align 2
+  %422 = load ptr, ptr %14, align 8
+  %423 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %422, i32 0, i32 3
+  %424 = load i16, ptr %423, align 4
+  %425 = load ptr, ptr %6, align 8
   %426 = load ptr, ptr %425, align 8
-  %427 = getelementptr inbounds %struct.HeapTupleData, ptr %426, i32 0, i32 3
-  %428 = load ptr, ptr %427, align 8
-  %429 = load i32, ptr %22, align 4
-  %430 = sext i32 %429 to i64
-  %431 = getelementptr i8, ptr %428, i64 %430
-  store ptr %431, ptr %25, align 8
-  %432 = load ptr, ptr %13, align 8
-  %433 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %432, i32 0, i32 3
-  store ptr %433, ptr %26, align 8
-  br label %492
+  %427 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %426, i32 0, i32 3
+  store i16 %424, ptr %427, align 4
+  %428 = load ptr, ptr %6, align 8
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %429, i32 0, i32 2
+  %431 = load i16, ptr %430, align 2
+  %432 = zext i16 %431 to i32
+  %433 = and i32 %432, -2048
+  %434 = load i32, ptr %16, align 4
+  %435 = or i32 %433, %434
+  %436 = trunc i32 %435 to i16
+  %437 = load ptr, ptr %6, align 8
+  %438 = load ptr, ptr %437, align 8
+  %439 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %438, i32 0, i32 2
+  store i16 %436, ptr %439, align 2
+  %440 = load i32, ptr %18, align 4
+  %441 = icmp sgt i32 %440, 0
+  br i1 %441, label %442, label %446
 
-434:                                              ; preds = %339
-  %435 = load i64, ptr %21, align 8
-  %436 = add i64 %435, 15
-  store i64 %436, ptr %21, align 8
-  %437 = load i64, ptr %21, align 8
-  %438 = add i64 %437, 7
-  %439 = and i64 %438, -8
-  store i64 %439, ptr %21, align 8
-  %440 = trunc i64 %439 to i32
-  store i32 %440, ptr %22, align 4
-  %441 = load i64, ptr %20, align 8
-  %442 = load i64, ptr %21, align 8
-  %443 = add i64 %442, %441
-  store i64 %443, ptr %21, align 8
-  %444 = load i64, ptr %21, align 8
-  %445 = call ptr @palloc0(i64 noundef %444)
-  %446 = load ptr, ptr %6, align 8
-  store ptr %445, ptr %446, align 8
-  %447 = load i64, ptr %21, align 8
-  %448 = trunc i64 %447 to i32
-  %449 = load ptr, ptr %6, align 8
-  %450 = load ptr, ptr %449, align 8
-  %451 = getelementptr inbounds %struct.MinimalTupleData, ptr %450, i32 0, i32 0
-  store i32 %448, ptr %451, align 4
-  %452 = load i32, ptr %22, align 4
-  %453 = sext i32 %452 to i64
-  %454 = add i64 %453, 8
-  %455 = trunc i64 %454 to i8
-  %456 = load ptr, ptr %6, align 8
-  %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds %struct.MinimalTupleData, ptr %457, i32 0, i32 4
-  store i8 %455, ptr %458, align 2
-  %459 = load ptr, ptr %14, align 8
-  %460 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %459, i32 0, i32 3
-  %461 = load i16, ptr %460, align 4
-  %462 = load ptr, ptr %6, align 8
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds %struct.MinimalTupleData, ptr %463, i32 0, i32 3
-  store i16 %461, ptr %464, align 4
-  %465 = load ptr, ptr %6, align 8
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds %struct.MinimalTupleData, ptr %466, i32 0, i32 2
-  %468 = load i16, ptr %467, align 2
-  %469 = zext i16 %468 to i32
-  %470 = and i32 %469, -2048
-  %471 = load i32, ptr %16, align 4
-  %472 = or i32 %470, %471
-  %473 = trunc i32 %472 to i16
-  %474 = load ptr, ptr %6, align 8
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds %struct.MinimalTupleData, ptr %475, i32 0, i32 2
-  store i16 %473, ptr %476, align 2
-  %477 = load i32, ptr %18, align 4
-  %478 = icmp sgt i32 %477, 0
-  br i1 %478, label %479, label %483
+442:                                              ; preds = %397
+  %443 = load ptr, ptr %6, align 8
+  %444 = load ptr, ptr %443, align 8
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 15
+  store ptr %445, ptr %23, align 8
+  br label %446
 
-479:                                              ; preds = %434
-  %480 = load ptr, ptr %6, align 8
-  %481 = load ptr, ptr %480, align 8
-  %482 = getelementptr i8, ptr %481, i64 15
+446:                                              ; preds = %442, %397
+  %447 = load ptr, ptr %6, align 8
+  %448 = load ptr, ptr %447, align 8
+  %449 = load i32, ptr %22, align 4
+  %450 = sext i32 %449 to i64
+  %451 = getelementptr inbounds i8, ptr %448, i64 %450
+  store ptr %451, ptr %25, align 8
+  %452 = load ptr, ptr %6, align 8
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %453, i32 0, i32 3
+  store ptr %454, ptr %26, align 8
+  br label %455
+
+455:                                              ; preds = %446, %387
+  %456 = load i32, ptr %18, align 4
+  %457 = icmp sgt i32 %456, 0
+  br i1 %457, label %458, label %500
+
+458:                                              ; preds = %455
+  %459 = load i32, ptr %17, align 4
+  %460 = icmp sgt i32 %459, 0
+  br i1 %460, label %461, label %472
+
+461:                                              ; preds = %458
+  %462 = load ptr, ptr %23, align 8
+  %463 = load ptr, ptr %14, align 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 23
+  %465 = load i32, ptr %17, align 4
+  %466 = sext i32 %465 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %462, ptr align 1 %464, i64 %466, i1 false)
+  %467 = load i32, ptr %17, align 4
+  %468 = sub i32 %467, 1
+  %469 = load ptr, ptr %23, align 8
+  %470 = sext i32 %468 to i64
+  %471 = getelementptr inbounds i8, ptr %469, i64 %470
+  store ptr %471, ptr %23, align 8
+  br label %495
+
+472:                                              ; preds = %458
+  %473 = load i32, ptr %15, align 4
+  %474 = call i32 @BITMAPLEN(i32 noundef %473)
+  store i32 %474, ptr %17, align 4
+  %475 = load ptr, ptr %23, align 8
+  %476 = load i32, ptr %17, align 4
+  %477 = sext i32 %476 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %475, i8 -1, i64 %477, i1 false)
+  %478 = load i32, ptr %17, align 4
+  %479 = sub i32 %478, 1
+  %480 = load ptr, ptr %23, align 8
+  %481 = sext i32 %479 to i64
+  %482 = getelementptr inbounds i8, ptr %480, i64 %481
   store ptr %482, ptr %23, align 8
-  br label %483
+  %483 = load i32, ptr %15, align 4
+  %484 = and i32 %483, 7
+  %485 = icmp ne i32 %484, 0
+  br i1 %485, label %486, label %494
 
-483:                                              ; preds = %479, %434
-  %484 = load ptr, ptr %6, align 8
-  %485 = load ptr, ptr %484, align 8
-  %486 = load i32, ptr %22, align 4
-  %487 = sext i32 %486 to i64
-  %488 = getelementptr i8, ptr %485, i64 %487
-  store ptr %488, ptr %25, align 8
-  %489 = load ptr, ptr %6, align 8
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds %struct.MinimalTupleData, ptr %490, i32 0, i32 3
-  store ptr %491, ptr %26, align 8
-  br label %492
+486:                                              ; preds = %472
+  %487 = load i32, ptr %15, align 4
+  %488 = and i32 %487, 7
+  %489 = shl i32 255, %488
+  store i32 %489, ptr %24, align 4
+  %490 = load i32, ptr %24, align 4
+  %491 = xor i32 %490, -1
+  %492 = trunc i32 %491 to i8
+  %493 = load ptr, ptr %23, align 8
+  store i8 %492, ptr %493, align 1
+  br label %494
 
-492:                                              ; preds = %483, %424
-  %493 = load i32, ptr %18, align 4
-  %494 = icmp sgt i32 %493, 0
-  br i1 %494, label %495, label %538
+494:                                              ; preds = %486, %472
+  br label %495
 
-495:                                              ; preds = %492
-  %496 = load i32, ptr %17, align 4
-  %497 = icmp sgt i32 %496, 0
-  br i1 %497, label %498, label %509
+495:                                              ; preds = %494, %461
+  %496 = load i32, ptr %15, align 4
+  %497 = sub i32 %496, 1
+  %498 = and i32 %497, 7
+  %499 = shl i32 1, %498
+  store i32 %499, ptr %24, align 4
+  br label %500
 
-498:                                              ; preds = %495
-  %499 = load ptr, ptr %23, align 8
-  %500 = load ptr, ptr %14, align 8
-  %501 = getelementptr i8, ptr %500, i64 23
-  %502 = load i32, ptr %17, align 4
-  %503 = sext i32 %502 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %499, ptr align 1 %501, i64 %503, i1 false)
-  %504 = load i32, ptr %17, align 4
-  %505 = sub i32 %504, 1
-  %506 = load ptr, ptr %23, align 8
-  %507 = sext i32 %505 to i64
-  %508 = getelementptr i8, ptr %506, i64 %507
-  store ptr %508, ptr %23, align 8
-  br label %533
+500:                                              ; preds = %495, %455
+  %501 = load ptr, ptr %25, align 8
+  %502 = load ptr, ptr %7, align 8
+  %503 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %502, i32 0, i32 3
+  %504 = load ptr, ptr %503, align 8
+  %505 = load ptr, ptr %14, align 8
+  %506 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %505, i32 0, i32 4
+  %507 = load i8, ptr %506, align 2
+  %508 = zext i8 %507 to i32
+  %509 = sext i32 %508 to i64
+  %510 = getelementptr inbounds i8, ptr %504, i64 %509
+  %511 = load i64, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %501, ptr align 1 %510, i64 %511, i1 false)
+  %512 = load i64, ptr %19, align 8
+  %513 = load ptr, ptr %25, align 8
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 %512
+  store ptr %514, ptr %25, align 8
+  %515 = load i32, ptr %15, align 4
+  store i32 %515, ptr %10, align 4
+  br label %516
 
-509:                                              ; preds = %495
-  %510 = load i32, ptr %15, align 4
-  %511 = add i32 %510, 7
-  %512 = sdiv i32 %511, 8
-  store i32 %512, ptr %17, align 4
-  %513 = load ptr, ptr %23, align 8
-  %514 = load i32, ptr %17, align 4
-  %515 = sext i32 %514 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %513, i8 -1, i64 %515, i1 false)
-  %516 = load i32, ptr %17, align 4
-  %517 = sub i32 %516, 1
-  %518 = load ptr, ptr %23, align 8
-  %519 = sext i32 %517 to i64
-  %520 = getelementptr i8, ptr %518, i64 %519
-  store ptr %520, ptr %23, align 8
-  %521 = load i32, ptr %15, align 4
-  %522 = and i32 %521, 7
-  %523 = icmp ne i32 %522, 0
-  br i1 %523, label %524, label %532
+516:                                              ; preds = %553, %500
+  %517 = load i32, ptr %10, align 4
+  %518 = load i32, ptr %16, align 4
+  %519 = icmp slt i32 %517, %518
+  br i1 %519, label %520, label %556
 
-524:                                              ; preds = %509
-  %525 = load i32, ptr %15, align 4
-  %526 = and i32 %525, 7
-  %527 = shl i32 255, %526
-  store i32 %527, ptr %24, align 4
-  %528 = load i32, ptr %24, align 4
-  %529 = xor i32 %528, -1
-  %530 = trunc i32 %529 to i8
-  %531 = load ptr, ptr %23, align 8
-  store i8 %530, ptr %531, align 1
-  br label %532
+520:                                              ; preds = %516
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #8
+  %521 = load ptr, ptr %8, align 8
+  %522 = load i32, ptr %10, align 4
+  %523 = call ptr @TupleDescCompactAttr(ptr noundef %521, i32 noundef %522)
+  store ptr %523, ptr %28, align 8
+  %524 = load ptr, ptr %9, align 8
+  %525 = icmp ne ptr %524, null
+  br i1 %525, label %526, label %549
 
-532:                                              ; preds = %524, %509
-  br label %533
+526:                                              ; preds = %520
+  %527 = load ptr, ptr %9, align 8
+  %528 = load i32, ptr %10, align 4
+  %529 = sext i32 %528 to i64
+  %530 = getelementptr inbounds %struct.AttrMissing, ptr %527, i64 %529
+  %531 = getelementptr inbounds nuw %struct.AttrMissing, ptr %530, i32 0, i32 0
+  %532 = load i8, ptr %531, align 8, !range !4, !noundef !5
+  %533 = trunc i8 %532 to i1
+  br i1 %533, label %534, label %549
 
-533:                                              ; preds = %532, %498
-  %534 = load i32, ptr %15, align 4
-  %535 = sub i32 %534, 1
-  %536 = and i32 %535, 7
-  %537 = shl i32 1, %536
-  store i32 %537, ptr %24, align 4
-  br label %538
+534:                                              ; preds = %526
+  %535 = load ptr, ptr %28, align 8
+  %536 = load ptr, ptr %23, align 8
+  %537 = icmp ne ptr %536, null
+  br i1 %537, label %538, label %539
 
-538:                                              ; preds = %533, %492
-  %539 = load ptr, ptr %25, align 8
-  %540 = load ptr, ptr %7, align 8
-  %541 = getelementptr inbounds %struct.HeapTupleData, ptr %540, i32 0, i32 3
-  %542 = load ptr, ptr %541, align 8
-  %543 = load ptr, ptr %14, align 8
-  %544 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %543, i32 0, i32 4
-  %545 = load i8, ptr %544, align 2
-  %546 = zext i8 %545 to i32
-  %547 = sext i32 %546 to i64
-  %548 = getelementptr i8, ptr %542, i64 %547
-  %549 = load i64, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %539, ptr align 1 %548, i64 %549, i1 false)
-  %550 = load i64, ptr %19, align 8
-  %551 = load ptr, ptr %25, align 8
-  %552 = getelementptr i8, ptr %551, i64 %550
-  store ptr %552, ptr %25, align 8
-  %553 = load i32, ptr %15, align 4
-  store i32 %553, ptr %10, align 4
-  br label %554
+538:                                              ; preds = %534
+  br label %540
 
-554:                                              ; preds = %593, %538
-  %555 = load i32, ptr %10, align 4
-  %556 = load i32, ptr %16, align 4
-  %557 = icmp slt i32 %555, %556
-  br i1 %557, label %558, label %596
+539:                                              ; preds = %534
+  br label %540
 
-558:                                              ; preds = %554
-  %559 = load ptr, ptr %8, align 8
-  %560 = getelementptr inbounds %struct.TupleDescData, ptr %559, i32 0, i32 5
-  %561 = load i32, ptr %10, align 4
-  %562 = sext i32 %561 to i64
-  %563 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %560, i64 0, i64 %562
-  store ptr %563, ptr %28, align 8
-  %564 = load ptr, ptr %9, align 8
-  %565 = icmp ne ptr %564, null
-  br i1 %565, label %566, label %589
+540:                                              ; preds = %539, %538
+  %541 = phi ptr [ %23, %538 ], [ null, %539 ]
+  %542 = load ptr, ptr %26, align 8
+  %543 = load ptr, ptr %9, align 8
+  %544 = load i32, ptr %10, align 4
+  %545 = sext i32 %544 to i64
+  %546 = getelementptr inbounds %struct.AttrMissing, ptr %543, i64 %545
+  %547 = getelementptr inbounds nuw %struct.AttrMissing, ptr %546, i32 0, i32 1
+  %548 = load i64, ptr %547, align 8
+  call void @fill_val(ptr noundef %535, ptr noundef %541, ptr noundef %24, ptr noundef %25, ptr noundef %542, i64 noundef %548, i1 noundef zeroext false)
+  br label %552
 
-566:                                              ; preds = %558
-  %567 = load ptr, ptr %9, align 8
-  %568 = load i32, ptr %10, align 4
-  %569 = sext i32 %568 to i64
-  %570 = getelementptr %struct.AttrMissing, ptr %567, i64 %569
-  %571 = getelementptr inbounds %struct.AttrMissing, ptr %570, i32 0, i32 0
-  %572 = load i8, ptr %571, align 8
-  %573 = trunc i8 %572 to i1
-  br i1 %573, label %574, label %589
+549:                                              ; preds = %526, %520
+  %550 = load ptr, ptr %28, align 8
+  %551 = load ptr, ptr %26, align 8
+  call void @fill_val(ptr noundef %550, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %551, i64 noundef 0, i1 noundef zeroext true)
+  br label %552
 
-574:                                              ; preds = %566
-  %575 = load ptr, ptr %28, align 8
-  %576 = load ptr, ptr %23, align 8
-  %577 = icmp ne ptr %576, null
-  br i1 %577, label %578, label %579
+552:                                              ; preds = %549, %540
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #8
+  br label %553
 
-578:                                              ; preds = %574
-  br label %580
+553:                                              ; preds = %552
+  %554 = load i32, ptr %10, align 4
+  %555 = add i32 %554, 1
+  store i32 %555, ptr %10, align 4
+  br label %516, !llvm.loop !15
 
-579:                                              ; preds = %574
-  br label %580
-
-580:                                              ; preds = %579, %578
-  %581 = phi ptr [ %23, %578 ], [ null, %579 ]
-  %582 = load ptr, ptr %26, align 8
-  %583 = load ptr, ptr %9, align 8
-  %584 = load i32, ptr %10, align 4
-  %585 = sext i32 %584 to i64
-  %586 = getelementptr %struct.AttrMissing, ptr %583, i64 %585
-  %587 = getelementptr inbounds %struct.AttrMissing, ptr %586, i32 0, i32 1
-  %588 = load i64, ptr %587, align 8
-  call void @fill_val(ptr noundef %575, ptr noundef %581, ptr noundef %24, ptr noundef %25, ptr noundef %582, i64 noundef %588, i1 noundef zeroext false)
-  br label %592
-
-589:                                              ; preds = %566, %558
-  %590 = load ptr, ptr %28, align 8
-  %591 = load ptr, ptr %26, align 8
-  call void @fill_val(ptr noundef %590, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %591, i64 noundef 0, i1 noundef zeroext true)
-  br label %592
-
-592:                                              ; preds = %589, %580
-  br label %593
-
-593:                                              ; preds = %592
-  %594 = load i32, ptr %10, align 4
-  %595 = add i32 %594, 1
-  store i32 %595, ptr %10, align 4
-  br label %554, !llvm.loop !14
-
-596:                                              ; preds = %554
+556:                                              ; preds = %516
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret void
 }
 
@@ -3796,10 +3575,12 @@ define dso_local ptr @heap_expand_tuple(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
   call void @expand_tuple(ptr noundef %5, ptr noundef null, ptr noundef %6, ptr noundef %7)
   %8 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret ptr %8
 }
 
@@ -3809,78 +3590,128 @@ define dso_local i64 @heap_copy_tuple_as_datum(ptr noundef %0, ptr noundef %1) #
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.HeapTupleData, ptr %7, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %9, i32 0, i32 3
-  %11 = load i16, ptr %10, align 4
-  %12 = zext i16 %11 to i32
-  %13 = and i32 %12, 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call zeroext i1 @HeapTupleHasExternal(ptr noundef %8)
+  br i1 %9, label %10, label %19
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.HeapTupleData, ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.HeapTupleData, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = call i64 @toast_flatten_tuple_to_datum(ptr noundef %18, i32 noundef %21, ptr noundef %22)
-  store i64 %23, ptr %3, align 8
-  br label %58
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call i64 @toast_flatten_tuple_to_datum(ptr noundef %13, i32 noundef %16, ptr noundef %17)
+  store i64 %18, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %47
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.HeapTupleData, ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 8
-  %28 = zext i32 %27 to i64
-  %29 = call ptr @palloc(i64 noundef %28)
-  store ptr %29, ptr %6, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.HeapTupleData, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = call ptr @palloc(i64 noundef %23)
+  store ptr %24, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8
+  %32 = zext i32 %31 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %28, i64 %32, i1 false)
+  %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.HeapTupleData, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %34, i32 0, i32 0
   %36 = load i32, ptr %35, align 8
-  %37 = zext i32 %36 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %33, i64 %37, i1 false)
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.HeapTupleData, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  %41 = shl i32 %40, 2
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.anon, ptr %42, i32 0, i32 0
-  store i32 %41, ptr %43, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.TupleDescData, ptr %44, i32 0, i32 1
-  %46 = load i32, ptr %45, align 4
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %47, i32 0, i32 0
-  %49 = getelementptr inbounds %struct.DatumTupleFields, ptr %48, i32 0, i32 2
-  store i32 %46, ptr %49, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.TupleDescData, ptr %50, i32 0, i32 2
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %53, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.DatumTupleFields, ptr %54, i32 0, i32 1
-  store i32 %52, ptr %55, align 4
-  %56 = load ptr, ptr %6, align 8
-  %57 = call i64 @PointerGetDatum(ptr noundef %56)
-  store i64 %57, ptr %3, align 8
-  br label %58
+  call void @HeapTupleHeaderSetDatumLength(ptr noundef %33, i32 noundef %36)
+  %37 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.TupleDescData, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4
+  call void @HeapTupleHeaderSetTypeId(ptr noundef %37, i32 noundef %40)
+  %41 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.TupleDescData, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8
+  call void @HeapTupleHeaderSetTypMod(ptr noundef %41, i32 noundef %44)
+  %45 = load ptr, ptr %6, align 8
+  %46 = call i64 @PointerGetDatum(ptr noundef %45)
+  store i64 %46, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %47
 
-58:                                               ; preds = %24, %15
-  %59 = load i64, ptr %3, align 8
-  ret i64 %59
+47:                                               ; preds = %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %48 = load i64, ptr %3, align 8
+  ret i64 %48
 }
 
-declare i64 @toast_flatten_tuple_to_datum(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @HeapTupleHasExternal(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %5, i32 0, i32 3
+  %7 = load i16, ptr %6, align 4
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 4
+  %10 = icmp ne i32 %9, 0
+  ret i1 %10
+}
+
+declare i64 @toast_flatten_tuple_to_datum(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @HeapTupleHeaderSetDatumLength(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = shl i32 %5, 2
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i32 0, i32 0
+  store i32 %6, ptr %8, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @HeapTupleHeaderSetTypeId(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.DatumTupleFields, ptr %7, i32 0, i32 2
+  store i32 %5, ptr %8, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @HeapTupleHeaderSetTypMod(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.DatumTupleFields, ptr %7, i32 0, i32 1
+  store i32 %5, ptr %8, align 4
+  ret void
+}
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @heap_form_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -3898,14 +3729,22 @@ define dso_local ptr @heap_form_tuple(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
   store i8 0, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.TupleDescData, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.TupleDescData, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
   %18 = load i32, ptr %13, align 4
   %19 = icmp sgt i32 %18, 1664
-  br i1 %19, label %20, label %32
+  br i1 %19, label %20, label %33
 
 20:                                               ; preds = %3
   br label %21
@@ -3914,7 +3753,7 @@ define dso_local ptr @heap_form_tuple(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 true, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %23, label %26, label %30
 
 24:                                               ; preds = %21
@@ -3934,55 +3773,57 @@ define dso_local ptr @heap_form_tuple(ptr noundef %0, ptr noundef %1, ptr nounde
 31:                                               ; No predecessors!
   br label %32
 
-32:                                               ; preds = %31, %3
-  store i32 0, ptr %14, align 4
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %46, %32
-  %34 = load i32, ptr %14, align 4
-  %35 = load i32, ptr %13, align 4
-  %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %49
+33:                                               ; preds = %32, %3
+  store i32 0, ptr %14, align 4
+  br label %34
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %6, align 8
-  %39 = load i32, ptr %14, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr i8, ptr %38, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %45
+34:                                               ; preds = %47, %33
+  %35 = load i32, ptr %14, align 4
+  %36 = load i32, ptr %13, align 4
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %38, label %50
 
-44:                                               ; preds = %37
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %14, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+  %43 = load i8, ptr %42, align 1, !range !4, !noundef !5
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %38
   store i8 1, ptr %12, align 1
-  br label %49
+  br label %50
 
-45:                                               ; preds = %37
-  br label %46
+46:                                               ; preds = %38
+  br label %47
 
-46:                                               ; preds = %45
-  %47 = load i32, ptr %14, align 4
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %14, align 4
-  br label %33, !llvm.loop !15
+47:                                               ; preds = %46
+  %48 = load i32, ptr %14, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %14, align 4
+  br label %34, !llvm.loop !16
 
-49:                                               ; preds = %44, %33
+50:                                               ; preds = %45, %34
   store i64 23, ptr %9, align 8
-  %50 = load i8, ptr %12, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %59
+  %51 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %13, align 4
-  %54 = add i32 %53, 7
-  %55 = sdiv i32 %54, 8
+53:                                               ; preds = %50
+  %54 = load i32, ptr %13, align 4
+  %55 = call i32 @BITMAPLEN(i32 noundef %54)
   %56 = sext i32 %55 to i64
   %57 = load i64, ptr %9, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %9, align 8
   br label %59
 
-59:                                               ; preds = %52, %49
+59:                                               ; preds = %53, %50
   %60 = load i64, ptr %9, align 8
   %61 = add i64 %60, 7
   %62 = and i64 %61, -8
@@ -4003,106 +3844,118 @@ define dso_local ptr @heap_form_tuple(ptr noundef %0, ptr noundef %1, ptr nounde
   %73 = call ptr @palloc0(i64 noundef %72)
   store ptr %73, ptr %7, align 8
   %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %75, ptr %8, align 8
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.HeapTupleData, ptr %76, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %76, i32 0, i32 3
   store ptr %75, ptr %77, align 8
   %78 = load i64, ptr %9, align 8
   %79 = trunc i64 %78 to i32
   %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.HeapTupleData, ptr %80, i32 0, i32 0
+  %81 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %80, i32 0, i32 0
   store i32 %79, ptr %81, align 8
   %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct.HeapTupleData, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %82, i32 0, i32 1
   call void @ItemPointerSetInvalid(ptr noundef %83)
   %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.HeapTupleData, ptr %84, i32 0, i32 2
+  %85 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %84, i32 0, i32 2
   store i32 0, ptr %85, align 4
-  %86 = load i64, ptr %9, align 8
-  %87 = trunc i64 %86 to i32
-  %88 = shl i32 %87, 2
+  %86 = load ptr, ptr %8, align 8
+  %87 = load i64, ptr %9, align 8
+  %88 = trunc i64 %87 to i32
+  call void @HeapTupleHeaderSetDatumLength(ptr noundef %86, i32 noundef %88)
   %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct.anon, ptr %89, i32 0, i32 0
-  store i32 %88, ptr %90, align 4
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.TupleDescData, ptr %91, i32 0, i32 1
-  %93 = load i32, ptr %92, align 4
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %94, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.DatumTupleFields, ptr %95, i32 0, i32 2
-  store i32 %93, ptr %96, align 4
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.TupleDescData, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 8
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %100, i32 0, i32 0
-  %102 = getelementptr inbounds %struct.DatumTupleFields, ptr %101, i32 0, i32 1
-  store i32 %99, ptr %102, align 4
-  %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %103, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %104)
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %105, i32 0, i32 2
-  %107 = load i16, ptr %106, align 2
-  %108 = zext i16 %107 to i32
-  %109 = and i32 %108, -2048
-  %110 = load i32, ptr %13, align 4
-  %111 = or i32 %109, %110
-  %112 = trunc i32 %111 to i16
-  %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %113, i32 0, i32 2
-  store i16 %112, ptr %114, align 2
-  %115 = load i32, ptr %11, align 4
-  %116 = trunc i32 %115 to i8
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %117, i32 0, i32 4
-  store i8 %116, ptr %118, align 2
-  %119 = load ptr, ptr %4, align 8
-  %120 = load ptr, ptr %5, align 8
-  %121 = load ptr, ptr %6, align 8
-  %122 = load ptr, ptr %8, align 8
-  %123 = load i32, ptr %11, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr i8, ptr %122, i64 %124
-  %126 = load i64, ptr %10, align 8
-  %127 = load ptr, ptr %8, align 8
-  %128 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %127, i32 0, i32 3
-  %129 = load i8, ptr %12, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %131, label %135
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.TupleDescData, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 4
+  call void @HeapTupleHeaderSetTypeId(ptr noundef %89, i32 noundef %92)
+  %93 = load ptr, ptr %8, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds nuw %struct.TupleDescData, ptr %94, i32 0, i32 2
+  %96 = load i32, ptr %95, align 8
+  call void @HeapTupleHeaderSetTypMod(ptr noundef %93, i32 noundef %96)
+  %97 = load ptr, ptr %8, align 8
+  %98 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %97, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %98)
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %99, i32 0, i32 2
+  %101 = load i16, ptr %100, align 2
+  %102 = zext i16 %101 to i32
+  %103 = and i32 %102, -2048
+  %104 = load i32, ptr %13, align 4
+  %105 = or i32 %103, %104
+  %106 = trunc i32 %105 to i16
+  %107 = load ptr, ptr %8, align 8
+  %108 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %107, i32 0, i32 2
+  store i16 %106, ptr %108, align 2
+  %109 = load i32, ptr %11, align 4
+  %110 = trunc i32 %109 to i8
+  %111 = load ptr, ptr %8, align 8
+  %112 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %111, i32 0, i32 4
+  store i8 %110, ptr %112, align 2
+  %113 = load ptr, ptr %4, align 8
+  %114 = load ptr, ptr %5, align 8
+  %115 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %8, align 8
+  %117 = load i32, ptr %11, align 4
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %116, i64 %118
+  %120 = load i64, ptr %10, align 8
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %121, i32 0, i32 3
+  %123 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %129
 
-131:                                              ; preds = %59
-  %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %132, i32 0, i32 5
-  %134 = getelementptr inbounds [0 x i8], ptr %133, i64 0, i64 0
-  br label %136
+125:                                              ; preds = %59
+  %126 = load ptr, ptr %8, align 8
+  %127 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %126, i32 0, i32 5
+  %128 = getelementptr inbounds [0 x i8], ptr %127, i64 0, i64 0
+  br label %130
 
-135:                                              ; preds = %59
-  br label %136
+129:                                              ; preds = %59
+  br label %130
 
-136:                                              ; preds = %135, %131
-  %137 = phi ptr [ %134, %131 ], [ null, %135 ]
-  call void @heap_fill_tuple(ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %125, i64 noundef %126, ptr noundef %128, ptr noundef %137)
-  %138 = load ptr, ptr %7, align 8
-  ret ptr %138
+130:                                              ; preds = %129, %125
+  %131 = phi ptr [ %128, %125 ], [ null, %129 ]
+  call void @heap_fill_tuple(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %119, i64 noundef %120, ptr noundef %122, ptr noundef %131)
+  %132 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %132
 }
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare ptr @palloc0(i64 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @BITMAPLEN(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  %4 = add i32 %3, 7
+  %5 = sdiv i32 %4, 8
+  ret i32 %5
+}
 
-; Function Attrs: nounwind uwtable
-define internal void @ItemPointerSetInvalid(ptr noundef %0) #0 {
+declare ptr @palloc0(i64 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ItemPointerSetInvalid(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.ItemPointerData, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %3, i32 0, i32 0
   call void @BlockIdSet(ptr noundef %4, i32 noundef -1)
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.ItemPointerData, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %5, i32 0, i32 1
   store i16 0, ptr %6, align 2
   ret void
 }
@@ -4124,10 +3977,15 @@ define dso_local ptr @heap_modify_tuple(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.TupleDescData, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.TupleDescData, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
   %19 = load i32, ptr %11, align 4
   %20 = sext i32 %19 to i64
   %21 = mul i64 %20, 8
@@ -4156,8 +4014,8 @@ define dso_local ptr @heap_modify_tuple(ptr noundef %0, ptr noundef %1, ptr noun
   %36 = load ptr, ptr %10, align 8
   %37 = load i32, ptr %12, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr i8, ptr %36, i64 %38
-  %40 = load i8, ptr %39, align 1
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
+  %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %63
 
@@ -4165,23 +4023,23 @@ define dso_local ptr @heap_modify_tuple(ptr noundef %0, ptr noundef %1, ptr noun
   %43 = load ptr, ptr %8, align 8
   %44 = load i32, ptr %12, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds i64, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = load ptr, ptr %13, align 8
   %49 = load i32, ptr %12, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i64, ptr %48, i64 %50
+  %51 = getelementptr inbounds i64, ptr %48, i64 %50
   store i64 %47, ptr %51, align 8
   %52 = load ptr, ptr %9, align 8
   %53 = load i32, ptr %12, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i8, ptr %52, i64 %54
-  %56 = load i8, ptr %55, align 1
+  %55 = getelementptr inbounds i8, ptr %52, i64 %54
+  %56 = load i8, ptr %55, align 1, !range !4, !noundef !5
   %57 = trunc i8 %56 to i1
   %58 = load ptr, ptr %14, align 8
   %59 = load i32, ptr %12, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %58, i64 %60
+  %61 = getelementptr inbounds i8, ptr %58, i64 %60
   %62 = zext i1 %57 to i8
   store i8 %62, ptr %61, align 1
   br label %63
@@ -4193,7 +4051,7 @@ define dso_local ptr @heap_modify_tuple(ptr noundef %0, ptr noundef %1, ptr noun
   %65 = load i32, ptr %12, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %12, align 4
-  br label %31, !llvm.loop !16
+  br label %31, !llvm.loop !17
 
 67:                                               ; preds = %31
   %68 = load ptr, ptr %7, align 8
@@ -4206,26 +4064,31 @@ define dso_local ptr @heap_modify_tuple(ptr noundef %0, ptr noundef %1, ptr noun
   %73 = load ptr, ptr %14, align 8
   call void @pfree(ptr noundef %73)
   %74 = load ptr, ptr %15, align 8
-  %75 = getelementptr inbounds %struct.HeapTupleData, ptr %74, i32 0, i32 3
+  %75 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %74, i32 0, i32 3
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %76, i32 0, i32 1
+  %77 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %76, i32 0, i32 1
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.HeapTupleData, ptr %78, i32 0, i32 3
+  %79 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %78, i32 0, i32 3
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %80, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %80, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr align 4 %81, i64 6, i1 false)
   %82 = load ptr, ptr %15, align 8
-  %83 = getelementptr inbounds %struct.HeapTupleData, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %82, i32 0, i32 1
   %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct.HeapTupleData, ptr %84, i32 0, i32 1
+  %85 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %84, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %83, ptr align 4 %85, i64 6, i1 false)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.HeapTupleData, ptr %86, i32 0, i32 2
+  %87 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %86, i32 0, i32 2
   %88 = load i32, ptr %87, align 4
   %89 = load ptr, ptr %15, align 8
-  %90 = getelementptr inbounds %struct.HeapTupleData, ptr %89, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %89, i32 0, i32 2
   store i32 %88, ptr %90, align 4
   %91 = load ptr, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
   ret ptr %91
 }
 
@@ -4245,607 +4108,509 @@ define dso_local void @heap_deform_tuple(ptr noundef %0, ptr noundef %1, ptr nou
   %16 = alloca ptr, align 8
   %17 = alloca i8, align 1
   %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.HeapTupleData, ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.HeapTupleData, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %24, i32 0, i32 3
-  %26 = load i16, ptr %25, align 4
-  %27 = zext i16 %26 to i32
-  %28 = and i32 %27, 1
-  %29 = icmp ne i32 %28, 0
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr %10, align 1
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.TupleDescData, ptr %31, i32 0, i32 0
-  %33 = load i32, ptr %32, align 8
-  store i32 %33, ptr %11, align 4
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %34, i32 0, i32 5
-  %36 = getelementptr inbounds [0 x i8], ptr %35, i64 0, i64 0
-  store ptr %36, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  %23 = load ptr, ptr %5, align 8
+  %24 = call zeroext i1 @HeapTupleHasNulls(ptr noundef %23)
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.TupleDescData, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %29, i32 0, i32 5
+  %31 = getelementptr inbounds [0 x i8], ptr %30, i64 0, i64 0
+  store ptr %31, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #8
   store i8 0, ptr %17, align 1
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %37, i32 0, i32 2
-  %39 = load i16, ptr %38, align 2
-  %40 = zext i16 %39 to i32
-  %41 = and i32 %40, 2047
-  store i32 %41, ptr %12, align 4
-  %42 = load i32, ptr %12, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %32, i32 0, i32 2
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i32
+  %36 = and i32 %35, 2047
+  store i32 %36, ptr %12, align 4
+  %37 = load i32, ptr %12, align 4
+  %38 = load i32, ptr %11, align 4
+  %39 = icmp slt i32 %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %4
+  %41 = load i32, ptr %12, align 4
+  br label %44
+
+42:                                               ; preds = %4
   %43 = load i32, ptr %11, align 4
-  %44 = icmp slt i32 %42, %43
-  br i1 %44, label %45, label %47
+  br label %44
 
-45:                                               ; preds = %4
-  %46 = load i32, ptr %12, align 4
-  br label %49
-
-47:                                               ; preds = %4
-  %48 = load i32, ptr %11, align 4
-  br label %49
-
-49:                                               ; preds = %47, %45
-  %50 = phi i32 [ %46, %45 ], [ %48, %47 ]
-  store i32 %50, ptr %12, align 4
-  %51 = load ptr, ptr %9, align 8
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %52, i32 0, i32 4
-  %54 = load i8, ptr %53, align 2
-  %55 = zext i8 %54 to i32
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr i8, ptr %51, i64 %56
-  store ptr %57, ptr %14, align 8
+44:                                               ; preds = %42, %40
+  %45 = phi i32 [ %41, %40 ], [ %43, %42 ]
+  store i32 %45, ptr %12, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %47, i32 0, i32 4
+  %49 = load i8, ptr %48, align 2
+  %50 = zext i8 %49 to i32
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %46, i64 %51
+  store ptr %52, ptr %14, align 8
   store i32 0, ptr %15, align 4
   store i32 0, ptr %13, align 4
-  br label %58
+  br label %53
 
-58:                                               ; preds = %406, %49
+53:                                               ; preds = %330, %44
+  %54 = load i32, ptr %13, align 4
+  %55 = load i32, ptr %12, align 4
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %57, label %333
+
+57:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %58 = load ptr, ptr %6, align 8
   %59 = load i32, ptr %13, align 4
-  %60 = load i32, ptr %12, align 4
-  %61 = icmp slt i32 %59, %60
-  br i1 %61, label %62, label %409
+  %60 = call ptr @TupleDescCompactAttr(ptr noundef %58, i32 noundef %59)
+  store ptr %60, ptr %18, align 8
+  %61 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %76
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.TupleDescData, ptr %63, i32 0, i32 5
-  %65 = load i32, ptr %13, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %64, i64 0, i64 %66
-  store ptr %67, ptr %18, align 8
-  %68 = load i8, ptr %10, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %83
+63:                                               ; preds = %57
+  %64 = load i32, ptr %13, align 4
+  %65 = load ptr, ptr %16, align 8
+  %66 = call zeroext i1 @att_isnull(i32 noundef %64, ptr noundef %65)
+  br i1 %66, label %67, label %76
 
-70:                                               ; preds = %62
-  %71 = load i32, ptr %13, align 4
-  %72 = load ptr, ptr %16, align 8
-  %73 = call zeroext i1 @att_isnull(i32 noundef %71, ptr noundef %72)
-  br i1 %73, label %74, label %83
-
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i32, ptr %13, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i64, ptr %75, i64 %77
-  store i64 0, ptr %78, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = load i32, ptr %13, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr i8, ptr %79, i64 %81
-  store i8 1, ptr %82, align 1
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %13, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i64, ptr %68, i64 %70
+  store i64 0, ptr %71, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = load i32, ptr %13, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  store i8 1, ptr %75, align 1
   store i8 1, ptr %17, align 1
-  br label %406
+  store i32 4, ptr %19, align 4
+  br label %327
 
-83:                                               ; preds = %70, %62
-  %84 = load ptr, ptr %8, align 8
-  %85 = load i32, ptr %13, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr i8, ptr %84, i64 %86
-  store i8 0, ptr %87, align 1
-  %88 = load i8, ptr %17, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %99, label %90
+76:                                               ; preds = %63, %57
+  %77 = load ptr, ptr %8, align 8
+  %78 = load i32, ptr %13, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  store i8 0, ptr %80, align 1
+  %81 = load i8, ptr %17, align 1, !range !4, !noundef !5
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %92, label %83
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr %18, align 8
-  %92 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %91, i32 0, i32 5
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp sge i32 %93, 0
-  br i1 %94, label %95, label %99
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %18, align 8
+  %85 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp sge i32 %86, 0
+  br i1 %87, label %88, label %92
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %18, align 8
-  %97 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %96, i32 0, i32 5
-  %98 = load i32, ptr %97, align 4
-  store i32 %98, ptr %15, align 4
-  br label %265
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %18, align 8
+  %90 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %89, i32 0, i32 0
+  %91 = load i32, ptr %90, align 4
+  store i32 %91, ptr %15, align 4
+  br label %186
 
-99:                                               ; preds = %90, %83
-  %100 = load ptr, ptr %18, align 8
-  %101 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %100, i32 0, i32 3
-  %102 = load i16, ptr %101, align 4
-  %103 = sext i16 %102 to i32
-  %104 = icmp eq i32 %103, -1
-  br i1 %104, label %105, label %214
+92:                                               ; preds = %83, %76
+  %93 = load ptr, ptr %18, align 8
+  %94 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %93, i32 0, i32 1
+  %95 = load i16, ptr %94, align 4
+  %96 = sext i16 %95 to i32
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %98, label %159
 
-105:                                              ; preds = %99
-  %106 = load i8, ptr %17, align 1
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %157, label %108
+98:                                               ; preds = %92
+  %99 = load i8, ptr %17, align 1, !range !4, !noundef !5
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %126, label %101
 
-108:                                              ; preds = %105
-  %109 = load i32, ptr %15, align 4
-  %110 = zext i32 %109 to i64
-  %111 = load ptr, ptr %18, align 8
-  %112 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %111, i32 0, i32 9
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = icmp eq i32 %114, 105
-  br i1 %115, label %116, label %121
+101:                                              ; preds = %98
+  %102 = load i32, ptr %15, align 4
+  %103 = zext i32 %102 to i64
+  %104 = load i32, ptr %15, align 4
+  %105 = zext i32 %104 to i64
+  %106 = load ptr, ptr %18, align 8
+  %107 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %106, i32 0, i32 8
+  %108 = load i8, ptr %107, align 4
+  %109 = zext i8 %108 to i32
+  %110 = sub i32 %109, 1
+  %111 = sext i32 %110 to i64
+  %112 = add i64 %105, %111
+  %113 = load ptr, ptr %18, align 8
+  %114 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %113, i32 0, i32 8
+  %115 = load i8, ptr %114, align 4
+  %116 = zext i8 %115 to i32
+  %117 = sub i32 %116, 1
+  %118 = sext i32 %117 to i64
+  %119 = xor i64 %118, -1
+  %120 = and i64 %112, %119
+  %121 = icmp eq i64 %103, %120
+  br i1 %121, label %122, label %126
 
-116:                                              ; preds = %108
-  %117 = load i32, ptr %15, align 4
-  %118 = zext i32 %117 to i64
-  %119 = add i64 %118, 3
-  %120 = and i64 %119, -4
-  br label %150
+122:                                              ; preds = %101
+  %123 = load i32, ptr %15, align 4
+  %124 = load ptr, ptr %18, align 8
+  %125 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %124, i32 0, i32 0
+  store i32 %123, ptr %125, align 4
+  br label %158
 
-121:                                              ; preds = %108
-  %122 = load ptr, ptr %18, align 8
-  %123 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %122, i32 0, i32 9
-  %124 = load i8, ptr %123, align 1
-  %125 = sext i8 %124 to i32
-  %126 = icmp eq i32 %125, 99
-  br i1 %126, label %127, label %130
-
-127:                                              ; preds = %121
+126:                                              ; preds = %101, %98
+  %127 = load ptr, ptr %14, align 8
   %128 = load i32, ptr %15, align 4
   %129 = zext i32 %128 to i64
-  br label %148
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %129
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %137
 
-130:                                              ; preds = %121
-  %131 = load ptr, ptr %18, align 8
-  %132 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %131, i32 0, i32 9
-  %133 = load i8, ptr %132, align 1
-  %134 = sext i8 %133 to i32
-  %135 = icmp eq i32 %134, 100
-  br i1 %135, label %136, label %141
+134:                                              ; preds = %126
+  %135 = load i32, ptr %15, align 4
+  %136 = zext i32 %135 to i64
+  br label %155
 
-136:                                              ; preds = %130
-  %137 = load i32, ptr %15, align 4
-  %138 = zext i32 %137 to i64
-  %139 = add i64 %138, 7
-  %140 = and i64 %139, -8
-  br label %146
+137:                                              ; preds = %126
+  %138 = load i32, ptr %15, align 4
+  %139 = zext i32 %138 to i64
+  %140 = load ptr, ptr %18, align 8
+  %141 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %140, i32 0, i32 8
+  %142 = load i8, ptr %141, align 4
+  %143 = zext i8 %142 to i32
+  %144 = sub i32 %143, 1
+  %145 = sext i32 %144 to i64
+  %146 = add i64 %139, %145
+  %147 = load ptr, ptr %18, align 8
+  %148 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %147, i32 0, i32 8
+  %149 = load i8, ptr %148, align 4
+  %150 = zext i8 %149 to i32
+  %151 = sub i32 %150, 1
+  %152 = sext i32 %151 to i64
+  %153 = xor i64 %152, -1
+  %154 = and i64 %146, %153
+  br label %155
 
-141:                                              ; preds = %130
-  %142 = load i32, ptr %15, align 4
-  %143 = zext i32 %142 to i64
-  %144 = add i64 %143, 1
-  %145 = and i64 %144, -2
-  br label %146
-
-146:                                              ; preds = %141, %136
-  %147 = phi i64 [ %140, %136 ], [ %145, %141 ]
-  br label %148
-
-148:                                              ; preds = %146, %127
-  %149 = phi i64 [ %129, %127 ], [ %147, %146 ]
-  br label %150
-
-150:                                              ; preds = %148, %116
-  %151 = phi i64 [ %120, %116 ], [ %149, %148 ]
-  %152 = icmp eq i64 %110, %151
-  br i1 %152, label %153, label %157
-
-153:                                              ; preds = %150
-  %154 = load i32, ptr %15, align 4
-  %155 = load ptr, ptr %18, align 8
-  %156 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %155, i32 0, i32 5
-  store i32 %154, ptr %156, align 4
-  br label %213
-
-157:                                              ; preds = %150, %105
-  %158 = load ptr, ptr %14, align 8
-  %159 = load i32, ptr %15, align 4
-  %160 = zext i32 %159 to i64
-  %161 = getelementptr i8, ptr %158, i64 %160
-  %162 = load i8, ptr %161, align 1
-  %163 = zext i8 %162 to i32
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %165, label %168
-
-165:                                              ; preds = %157
-  %166 = load i32, ptr %15, align 4
-  %167 = zext i32 %166 to i64
-  br label %210
-
-168:                                              ; preds = %157
-  %169 = load ptr, ptr %18, align 8
-  %170 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %169, i32 0, i32 9
-  %171 = load i8, ptr %170, align 1
-  %172 = sext i8 %171 to i32
-  %173 = icmp eq i32 %172, 105
-  br i1 %173, label %174, label %179
-
-174:                                              ; preds = %168
-  %175 = load i32, ptr %15, align 4
-  %176 = zext i32 %175 to i64
-  %177 = add i64 %176, 3
-  %178 = and i64 %177, -4
-  br label %208
-
-179:                                              ; preds = %168
-  %180 = load ptr, ptr %18, align 8
-  %181 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %180, i32 0, i32 9
-  %182 = load i8, ptr %181, align 1
-  %183 = sext i8 %182 to i32
-  %184 = icmp eq i32 %183, 99
-  br i1 %184, label %185, label %188
-
-185:                                              ; preds = %179
-  %186 = load i32, ptr %15, align 4
-  %187 = zext i32 %186 to i64
-  br label %206
-
-188:                                              ; preds = %179
-  %189 = load ptr, ptr %18, align 8
-  %190 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %189, i32 0, i32 9
-  %191 = load i8, ptr %190, align 1
-  %192 = sext i8 %191 to i32
-  %193 = icmp eq i32 %192, 100
-  br i1 %193, label %194, label %199
-
-194:                                              ; preds = %188
-  %195 = load i32, ptr %15, align 4
-  %196 = zext i32 %195 to i64
-  %197 = add i64 %196, 7
-  %198 = and i64 %197, -8
-  br label %204
-
-199:                                              ; preds = %188
-  %200 = load i32, ptr %15, align 4
-  %201 = zext i32 %200 to i64
-  %202 = add i64 %201, 1
-  %203 = and i64 %202, -2
-  br label %204
-
-204:                                              ; preds = %199, %194
-  %205 = phi i64 [ %198, %194 ], [ %203, %199 ]
-  br label %206
-
-206:                                              ; preds = %204, %185
-  %207 = phi i64 [ %187, %185 ], [ %205, %204 ]
-  br label %208
-
-208:                                              ; preds = %206, %174
-  %209 = phi i64 [ %178, %174 ], [ %207, %206 ]
-  br label %210
-
-210:                                              ; preds = %208, %165
-  %211 = phi i64 [ %167, %165 ], [ %209, %208 ]
-  %212 = trunc i64 %211 to i32
-  store i32 %212, ptr %15, align 4
+155:                                              ; preds = %137, %134
+  %156 = phi i64 [ %136, %134 ], [ %154, %137 ]
+  %157 = trunc i64 %156 to i32
+  store i32 %157, ptr %15, align 4
   store i8 1, ptr %17, align 1
-  br label %213
+  br label %158
 
-213:                                              ; preds = %210, %153
-  br label %264
+158:                                              ; preds = %155, %122
+  br label %185
 
-214:                                              ; preds = %99
-  %215 = load ptr, ptr %18, align 8
-  %216 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %215, i32 0, i32 9
-  %217 = load i8, ptr %216, align 1
-  %218 = sext i8 %217 to i32
-  %219 = icmp eq i32 %218, 105
-  br i1 %219, label %220, label %225
+159:                                              ; preds = %92
+  %160 = load i32, ptr %15, align 4
+  %161 = zext i32 %160 to i64
+  %162 = load ptr, ptr %18, align 8
+  %163 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %162, i32 0, i32 8
+  %164 = load i8, ptr %163, align 4
+  %165 = zext i8 %164 to i32
+  %166 = sub i32 %165, 1
+  %167 = sext i32 %166 to i64
+  %168 = add i64 %161, %167
+  %169 = load ptr, ptr %18, align 8
+  %170 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %169, i32 0, i32 8
+  %171 = load i8, ptr %170, align 4
+  %172 = zext i8 %171 to i32
+  %173 = sub i32 %172, 1
+  %174 = sext i32 %173 to i64
+  %175 = xor i64 %174, -1
+  %176 = and i64 %168, %175
+  %177 = trunc i64 %176 to i32
+  store i32 %177, ptr %15, align 4
+  %178 = load i8, ptr %17, align 1, !range !4, !noundef !5
+  %179 = trunc i8 %178 to i1
+  br i1 %179, label %184, label %180
 
-220:                                              ; preds = %214
-  %221 = load i32, ptr %15, align 4
-  %222 = zext i32 %221 to i64
-  %223 = add i64 %222, 3
-  %224 = and i64 %223, -4
-  br label %254
+180:                                              ; preds = %159
+  %181 = load i32, ptr %15, align 4
+  %182 = load ptr, ptr %18, align 8
+  %183 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %182, i32 0, i32 0
+  store i32 %181, ptr %183, align 4
+  br label %184
 
-225:                                              ; preds = %214
-  %226 = load ptr, ptr %18, align 8
-  %227 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %226, i32 0, i32 9
-  %228 = load i8, ptr %227, align 1
-  %229 = sext i8 %228 to i32
-  %230 = icmp eq i32 %229, 99
-  br i1 %230, label %231, label %234
+184:                                              ; preds = %180, %159
+  br label %185
 
-231:                                              ; preds = %225
-  %232 = load i32, ptr %15, align 4
-  %233 = zext i32 %232 to i64
-  br label %252
+185:                                              ; preds = %184, %158
+  br label %186
 
-234:                                              ; preds = %225
-  %235 = load ptr, ptr %18, align 8
-  %236 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %235, i32 0, i32 9
-  %237 = load i8, ptr %236, align 1
-  %238 = sext i8 %237 to i32
-  %239 = icmp eq i32 %238, 100
-  br i1 %239, label %240, label %245
+186:                                              ; preds = %185, %88
+  %187 = load ptr, ptr %14, align 8
+  %188 = load i32, ptr %15, align 4
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %189
+  %191 = load ptr, ptr %18, align 8
+  %192 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %191, i32 0, i32 2
+  %193 = load i8, ptr %192, align 2, !range !4, !noundef !5
+  %194 = trunc i8 %193 to i1
+  %195 = load ptr, ptr %18, align 8
+  %196 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %195, i32 0, i32 1
+  %197 = load i16, ptr %196, align 4
+  %198 = sext i16 %197 to i32
+  %199 = call i64 @fetch_att(ptr noundef %190, i1 noundef zeroext %194, i32 noundef %198)
+  %200 = load ptr, ptr %7, align 8
+  %201 = load i32, ptr %13, align 4
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i64, ptr %200, i64 %202
+  store i64 %199, ptr %203, align 8
+  %204 = load ptr, ptr %18, align 8
+  %205 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %204, i32 0, i32 1
+  %206 = load i16, ptr %205, align 4
+  %207 = sext i16 %206 to i32
+  %208 = icmp sgt i32 %207, 0
+  br i1 %208, label %209, label %217
 
-240:                                              ; preds = %234
-  %241 = load i32, ptr %15, align 4
-  %242 = zext i32 %241 to i64
-  %243 = add i64 %242, 7
-  %244 = and i64 %243, -8
-  br label %250
+209:                                              ; preds = %186
+  %210 = load i32, ptr %15, align 4
+  %211 = load ptr, ptr %18, align 8
+  %212 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %211, i32 0, i32 1
+  %213 = load i16, ptr %212, align 4
+  %214 = sext i16 %213 to i32
+  %215 = add i32 %210, %214
+  %216 = zext i32 %215 to i64
+  br label %317
 
-245:                                              ; preds = %234
+217:                                              ; preds = %186
+  %218 = load ptr, ptr %18, align 8
+  %219 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %218, i32 0, i32 1
+  %220 = load i16, ptr %219, align 4
+  %221 = sext i16 %220 to i32
+  %222 = icmp eq i32 %221, -1
+  br i1 %222, label %223, label %305
+
+223:                                              ; preds = %217
+  %224 = load i32, ptr %15, align 4
+  %225 = zext i32 %224 to i64
+  %226 = load ptr, ptr %14, align 8
+  %227 = load i32, ptr %15, align 4
+  %228 = zext i32 %227 to i64
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %228
+  %230 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %229, i32 0, i32 0
+  %231 = load i8, ptr %230, align 1
+  %232 = zext i8 %231 to i32
+  %233 = icmp eq i32 %232, 1
+  br i1 %233, label %234, label %270
+
+234:                                              ; preds = %223
+  %235 = load ptr, ptr %14, align 8
+  %236 = load i32, ptr %15, align 4
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 %237
+  %239 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %238, i32 0, i32 1
+  %240 = load i8, ptr %239, align 1
+  %241 = zext i8 %240 to i32
+  %242 = icmp eq i32 %241, 1
+  br i1 %242, label %243, label %244
+
+243:                                              ; preds = %234
+  br label %267
+
+244:                                              ; preds = %234
+  %245 = load ptr, ptr %14, align 8
   %246 = load i32, ptr %15, align 4
   %247 = zext i32 %246 to i64
-  %248 = add i64 %247, 1
-  %249 = and i64 %248, -2
-  br label %250
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 %247
+  %249 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %248, i32 0, i32 1
+  %250 = load i8, ptr %249, align 1
+  %251 = zext i8 %250 to i32
+  %252 = and i32 %251, -2
+  %253 = icmp eq i32 %252, 2
+  br i1 %253, label %254, label %255
 
-250:                                              ; preds = %245, %240
-  %251 = phi i64 [ %244, %240 ], [ %249, %245 ]
-  br label %252
-
-252:                                              ; preds = %250, %231
-  %253 = phi i64 [ %233, %231 ], [ %251, %250 ]
-  br label %254
-
-254:                                              ; preds = %252, %220
-  %255 = phi i64 [ %224, %220 ], [ %253, %252 ]
-  %256 = trunc i64 %255 to i32
-  store i32 %256, ptr %15, align 4
-  %257 = load i8, ptr %17, align 1
-  %258 = trunc i8 %257 to i1
-  br i1 %258, label %263, label %259
-
-259:                                              ; preds = %254
-  %260 = load i32, ptr %15, align 4
-  %261 = load ptr, ptr %18, align 8
-  %262 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %261, i32 0, i32 5
-  store i32 %260, ptr %262, align 4
-  br label %263
-
-263:                                              ; preds = %259, %254
-  br label %264
-
-264:                                              ; preds = %263, %213
+254:                                              ; preds = %244
   br label %265
 
-265:                                              ; preds = %264, %95
-  %266 = load ptr, ptr %14, align 8
-  %267 = load i32, ptr %15, align 4
-  %268 = zext i32 %267 to i64
-  %269 = getelementptr i8, ptr %266, i64 %268
-  %270 = load ptr, ptr %18, align 8
-  %271 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %270, i32 0, i32 8
-  %272 = load i8, ptr %271, align 2
-  %273 = trunc i8 %272 to i1
-  %274 = load ptr, ptr %18, align 8
-  %275 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %274, i32 0, i32 3
-  %276 = load i16, ptr %275, align 4
-  %277 = sext i16 %276 to i32
-  %278 = call i64 @fetch_att(ptr noundef %269, i1 noundef zeroext %273, i32 noundef %277)
-  %279 = load ptr, ptr %7, align 8
-  %280 = load i32, ptr %13, align 4
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr i64, ptr %279, i64 %281
-  store i64 %278, ptr %282, align 8
-  %283 = load ptr, ptr %18, align 8
-  %284 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %283, i32 0, i32 3
-  %285 = load i16, ptr %284, align 4
-  %286 = sext i16 %285 to i32
-  %287 = icmp sgt i32 %286, 0
-  br i1 %287, label %288, label %296
+255:                                              ; preds = %244
+  %256 = load ptr, ptr %14, align 8
+  %257 = load i32, ptr %15, align 4
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %258
+  %260 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %259, i32 0, i32 1
+  %261 = load i8, ptr %260, align 1
+  %262 = zext i8 %261 to i32
+  %263 = icmp eq i32 %262, 18
+  %264 = select i1 %263, i64 16, i64 0
+  br label %265
 
-288:                                              ; preds = %265
-  %289 = load i32, ptr %15, align 4
-  %290 = load ptr, ptr %18, align 8
-  %291 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %290, i32 0, i32 3
-  %292 = load i16, ptr %291, align 4
-  %293 = sext i16 %292 to i32
-  %294 = add i32 %289, %293
-  %295 = zext i32 %294 to i64
-  br label %396
+265:                                              ; preds = %255, %254
+  %266 = phi i64 [ 8, %254 ], [ %264, %255 ]
+  br label %267
 
-296:                                              ; preds = %265
-  %297 = load ptr, ptr %18, align 8
-  %298 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %297, i32 0, i32 3
-  %299 = load i16, ptr %298, align 4
-  %300 = sext i16 %299 to i32
-  %301 = icmp eq i32 %300, -1
-  br i1 %301, label %302, label %384
+267:                                              ; preds = %265, %243
+  %268 = phi i64 [ 8, %243 ], [ %266, %265 ]
+  %269 = add i64 2, %268
+  br label %302
 
-302:                                              ; preds = %296
-  %303 = load i32, ptr %15, align 4
-  %304 = zext i32 %303 to i64
-  %305 = load ptr, ptr %14, align 8
+270:                                              ; preds = %223
+  %271 = load ptr, ptr %14, align 8
+  %272 = load i32, ptr %15, align 4
+  %273 = zext i32 %272 to i64
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 %273
+  %275 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %274, i32 0, i32 0
+  %276 = load i8, ptr %275, align 1
+  %277 = zext i8 %276 to i32
+  %278 = and i32 %277, 1
+  %279 = icmp eq i32 %278, 1
+  br i1 %279, label %280, label %290
+
+280:                                              ; preds = %270
+  %281 = load ptr, ptr %14, align 8
+  %282 = load i32, ptr %15, align 4
+  %283 = zext i32 %282 to i64
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 %283
+  %285 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %284, i32 0, i32 0
+  %286 = load i8, ptr %285, align 1
+  %287 = zext i8 %286 to i32
+  %288 = ashr i32 %287, 1
+  %289 = and i32 %288, 127
+  br label %299
+
+290:                                              ; preds = %270
+  %291 = load ptr, ptr %14, align 8
+  %292 = load i32, ptr %15, align 4
+  %293 = zext i32 %292 to i64
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 %293
+  %295 = getelementptr inbounds nuw %struct.anon, ptr %294, i32 0, i32 0
+  %296 = load i32, ptr %295, align 4
+  %297 = lshr i32 %296, 2
+  %298 = and i32 %297, 1073741823
+  br label %299
+
+299:                                              ; preds = %290, %280
+  %300 = phi i32 [ %289, %280 ], [ %298, %290 ]
+  %301 = zext i32 %300 to i64
+  br label %302
+
+302:                                              ; preds = %299, %267
+  %303 = phi i64 [ %269, %267 ], [ %301, %299 ]
+  %304 = add i64 %225, %303
+  br label %315
+
+305:                                              ; preds = %217
   %306 = load i32, ptr %15, align 4
   %307 = zext i32 %306 to i64
-  %308 = getelementptr i8, ptr %305, i64 %307
-  %309 = getelementptr inbounds %struct.varattrib_1b, ptr %308, i32 0, i32 0
-  %310 = load i8, ptr %309, align 1
-  %311 = zext i8 %310 to i32
-  %312 = icmp eq i32 %311, 1
-  br i1 %312, label %313, label %349
+  %308 = load ptr, ptr %14, align 8
+  %309 = load i32, ptr %15, align 4
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %310
+  %312 = call i64 @strlen(ptr noundef %311) #9
+  %313 = add i64 %312, 1
+  %314 = add i64 %307, %313
+  br label %315
 
-313:                                              ; preds = %302
-  %314 = load ptr, ptr %14, align 8
-  %315 = load i32, ptr %15, align 4
-  %316 = zext i32 %315 to i64
-  %317 = getelementptr i8, ptr %314, i64 %316
-  %318 = getelementptr inbounds %struct.varattrib_1b_e, ptr %317, i32 0, i32 1
-  %319 = load i8, ptr %318, align 1
-  %320 = zext i8 %319 to i32
-  %321 = icmp eq i32 %320, 1
-  br i1 %321, label %322, label %323
+315:                                              ; preds = %305, %302
+  %316 = phi i64 [ %304, %302 ], [ %314, %305 ]
+  br label %317
 
-322:                                              ; preds = %313
-  br label %346
+317:                                              ; preds = %315, %209
+  %318 = phi i64 [ %216, %209 ], [ %316, %315 ]
+  %319 = trunc i64 %318 to i32
+  store i32 %319, ptr %15, align 4
+  %320 = load ptr, ptr %18, align 8
+  %321 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %320, i32 0, i32 1
+  %322 = load i16, ptr %321, align 4
+  %323 = sext i16 %322 to i32
+  %324 = icmp sle i32 %323, 0
+  br i1 %324, label %325, label %326
 
-323:                                              ; preds = %313
-  %324 = load ptr, ptr %14, align 8
-  %325 = load i32, ptr %15, align 4
-  %326 = zext i32 %325 to i64
-  %327 = getelementptr i8, ptr %324, i64 %326
-  %328 = getelementptr inbounds %struct.varattrib_1b_e, ptr %327, i32 0, i32 1
-  %329 = load i8, ptr %328, align 1
-  %330 = zext i8 %329 to i32
-  %331 = and i32 %330, -2
-  %332 = icmp eq i32 %331, 2
-  br i1 %332, label %333, label %334
-
-333:                                              ; preds = %323
-  br label %344
-
-334:                                              ; preds = %323
-  %335 = load ptr, ptr %14, align 8
-  %336 = load i32, ptr %15, align 4
-  %337 = zext i32 %336 to i64
-  %338 = getelementptr i8, ptr %335, i64 %337
-  %339 = getelementptr inbounds %struct.varattrib_1b_e, ptr %338, i32 0, i32 1
-  %340 = load i8, ptr %339, align 1
-  %341 = zext i8 %340 to i32
-  %342 = icmp eq i32 %341, 18
-  %343 = select i1 %342, i64 16, i64 0
-  br label %344
-
-344:                                              ; preds = %334, %333
-  %345 = phi i64 [ 8, %333 ], [ %343, %334 ]
-  br label %346
-
-346:                                              ; preds = %344, %322
-  %347 = phi i64 [ 8, %322 ], [ %345, %344 ]
-  %348 = add i64 2, %347
-  br label %381
-
-349:                                              ; preds = %302
-  %350 = load ptr, ptr %14, align 8
-  %351 = load i32, ptr %15, align 4
-  %352 = zext i32 %351 to i64
-  %353 = getelementptr i8, ptr %350, i64 %352
-  %354 = getelementptr inbounds %struct.varattrib_1b, ptr %353, i32 0, i32 0
-  %355 = load i8, ptr %354, align 1
-  %356 = zext i8 %355 to i32
-  %357 = and i32 %356, 1
-  %358 = icmp eq i32 %357, 1
-  br i1 %358, label %359, label %369
-
-359:                                              ; preds = %349
-  %360 = load ptr, ptr %14, align 8
-  %361 = load i32, ptr %15, align 4
-  %362 = zext i32 %361 to i64
-  %363 = getelementptr i8, ptr %360, i64 %362
-  %364 = getelementptr inbounds %struct.varattrib_1b, ptr %363, i32 0, i32 0
-  %365 = load i8, ptr %364, align 1
-  %366 = zext i8 %365 to i32
-  %367 = ashr i32 %366, 1
-  %368 = and i32 %367, 127
-  br label %378
-
-369:                                              ; preds = %349
-  %370 = load ptr, ptr %14, align 8
-  %371 = load i32, ptr %15, align 4
-  %372 = zext i32 %371 to i64
-  %373 = getelementptr i8, ptr %370, i64 %372
-  %374 = getelementptr inbounds %struct.anon, ptr %373, i32 0, i32 0
-  %375 = load i32, ptr %374, align 4
-  %376 = lshr i32 %375, 2
-  %377 = and i32 %376, 1073741823
-  br label %378
-
-378:                                              ; preds = %369, %359
-  %379 = phi i32 [ %368, %359 ], [ %377, %369 ]
-  %380 = zext i32 %379 to i64
-  br label %381
-
-381:                                              ; preds = %378, %346
-  %382 = phi i64 [ %348, %346 ], [ %380, %378 ]
-  %383 = add i64 %304, %382
-  br label %394
-
-384:                                              ; preds = %296
-  %385 = load i32, ptr %15, align 4
-  %386 = zext i32 %385 to i64
-  %387 = load ptr, ptr %14, align 8
-  %388 = load i32, ptr %15, align 4
-  %389 = zext i32 %388 to i64
-  %390 = getelementptr i8, ptr %387, i64 %389
-  %391 = call i64 @strlen(ptr noundef %390) #6
-  %392 = add i64 %391, 1
-  %393 = add i64 %386, %392
-  br label %394
-
-394:                                              ; preds = %384, %381
-  %395 = phi i64 [ %383, %381 ], [ %393, %384 ]
-  br label %396
-
-396:                                              ; preds = %394, %288
-  %397 = phi i64 [ %295, %288 ], [ %395, %394 ]
-  %398 = trunc i64 %397 to i32
-  store i32 %398, ptr %15, align 4
-  %399 = load ptr, ptr %18, align 8
-  %400 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %399, i32 0, i32 3
-  %401 = load i16, ptr %400, align 4
-  %402 = sext i16 %401 to i32
-  %403 = icmp sle i32 %402, 0
-  br i1 %403, label %404, label %405
-
-404:                                              ; preds = %396
+325:                                              ; preds = %317
   store i8 1, ptr %17, align 1
-  br label %405
+  br label %326
 
-405:                                              ; preds = %404, %396
-  br label %406
+326:                                              ; preds = %325, %317
+  store i32 0, ptr %19, align 4
+  br label %327
 
-406:                                              ; preds = %405, %74
-  %407 = load i32, ptr %13, align 4
-  %408 = add i32 %407, 1
-  store i32 %408, ptr %13, align 4
-  br label %58, !llvm.loop !17
+327:                                              ; preds = %326, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  %328 = load i32, ptr %19, align 4
+  switch i32 %328, label %355 [
+    i32 0, label %329
+    i32 4, label %330
+  ]
 
-409:                                              ; preds = %58
-  br label %410
+329:                                              ; preds = %327
+  br label %330
 
-410:                                              ; preds = %427, %409
-  %411 = load i32, ptr %13, align 4
-  %412 = load i32, ptr %11, align 4
-  %413 = icmp slt i32 %411, %412
-  br i1 %413, label %414, label %430
+330:                                              ; preds = %329, %327
+  %331 = load i32, ptr %13, align 4
+  %332 = add i32 %331, 1
+  store i32 %332, ptr %13, align 4
+  br label %53, !llvm.loop !18
 
-414:                                              ; preds = %410
-  %415 = load ptr, ptr %6, align 8
-  %416 = load i32, ptr %13, align 4
-  %417 = add i32 %416, 1
-  %418 = load ptr, ptr %8, align 8
-  %419 = load i32, ptr %13, align 4
-  %420 = sext i32 %419 to i64
-  %421 = getelementptr i8, ptr %418, i64 %420
-  %422 = call i64 @getmissingattr(ptr noundef %415, i32 noundef %417, ptr noundef %421)
-  %423 = load ptr, ptr %7, align 8
-  %424 = load i32, ptr %13, align 4
-  %425 = sext i32 %424 to i64
-  %426 = getelementptr i64, ptr %423, i64 %425
-  store i64 %422, ptr %426, align 8
-  br label %427
+333:                                              ; preds = %53
+  br label %334
 
-427:                                              ; preds = %414
-  %428 = load i32, ptr %13, align 4
-  %429 = add i32 %428, 1
-  store i32 %429, ptr %13, align 4
-  br label %410, !llvm.loop !18
+334:                                              ; preds = %351, %333
+  %335 = load i32, ptr %13, align 4
+  %336 = load i32, ptr %11, align 4
+  %337 = icmp slt i32 %335, %336
+  br i1 %337, label %338, label %354
 
-430:                                              ; preds = %410
+338:                                              ; preds = %334
+  %339 = load ptr, ptr %6, align 8
+  %340 = load i32, ptr %13, align 4
+  %341 = add i32 %340, 1
+  %342 = load ptr, ptr %8, align 8
+  %343 = load i32, ptr %13, align 4
+  %344 = sext i32 %343 to i64
+  %345 = getelementptr inbounds i8, ptr %342, i64 %344
+  %346 = call i64 @getmissingattr(ptr noundef %339, i32 noundef %341, ptr noundef %345)
+  %347 = load ptr, ptr %7, align 8
+  %348 = load i32, ptr %13, align 4
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds i64, ptr %347, i64 %349
+  store i64 %346, ptr %350, align 8
+  br label %351
+
+351:                                              ; preds = %338
+  %352 = load i32, ptr %13, align 4
+  %353 = add i32 %352, 1
+  store i32 %353, ptr %13, align 4
+  br label %334, !llvm.loop !19
+
+354:                                              ; preds = %334
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret void
+
+355:                                              ; preds = %327
+  unreachable
 }
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -4867,10 +4632,15 @@ define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.TupleDescData, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.TupleDescData, ptr %19, i32 0, i32 0
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
   %22 = load i32, ptr %13, align 4
   %23 = sext i32 %22 to i64
   %24 = mul i64 %23, 8
@@ -4889,17 +4659,18 @@ define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %17, align 4
   br label %34
 
-34:                                               ; preds = %84, %6
+34:                                               ; preds = %85, %6
   %35 = load i32, ptr %17, align 4
   %36 = load i32, ptr %9, align 4
   %37 = icmp slt i32 %35, %36
-  br i1 %37, label %38, label %87
+  br i1 %37, label %38, label %88
 
 38:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
   %39 = load ptr, ptr %10, align 8
   %40 = load i32, ptr %17, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds i32, ptr %39, i64 %41
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %18, align 4
   %44 = load i32, ptr %18, align 4
@@ -4910,7 +4681,7 @@ define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, 
   %47 = load i32, ptr %18, align 4
   %48 = load i32, ptr %13, align 4
   %49 = icmp sgt i32 %47, %48
-  br i1 %49, label %50, label %61
+  br i1 %49, label %50, label %62
 
 50:                                               ; preds = %46, %38
   br label %51
@@ -4919,7 +4690,7 @@ define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, 
   br i1 true, label %52, label %54
 
 52:                                               ; preds = %51
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %53, label %56, label %59
 
 54:                                               ; preds = %51
@@ -4938,71 +4709,80 @@ define dso_local ptr @heap_modify_tuple_by_cols(ptr noundef %0, ptr noundef %1, 
 60:                                               ; No predecessors!
   br label %61
 
-61:                                               ; preds = %60, %46
-  %62 = load ptr, ptr %11, align 8
-  %63 = load i32, ptr %17, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i64, ptr %62, i64 %64
-  %66 = load i64, ptr %65, align 8
-  %67 = load ptr, ptr %14, align 8
-  %68 = load i32, ptr %18, align 4
-  %69 = sub i32 %68, 1
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr i64, ptr %67, i64 %70
-  store i64 %66, ptr %71, align 8
-  %72 = load ptr, ptr %12, align 8
-  %73 = load i32, ptr %17, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr i8, ptr %72, i64 %74
-  %76 = load i8, ptr %75, align 1
-  %77 = trunc i8 %76 to i1
-  %78 = load ptr, ptr %15, align 8
-  %79 = load i32, ptr %18, align 4
-  %80 = sub i32 %79, 1
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr i8, ptr %78, i64 %81
-  %83 = zext i1 %77 to i8
-  store i8 %83, ptr %82, align 1
-  br label %84
+61:                                               ; preds = %60
+  br label %62
 
-84:                                               ; preds = %61
-  %85 = load i32, ptr %17, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %17, align 4
-  br label %34, !llvm.loop !19
+62:                                               ; preds = %61, %46
+  %63 = load ptr, ptr %11, align 8
+  %64 = load i32, ptr %17, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i64, ptr %63, i64 %65
+  %67 = load i64, ptr %66, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = load i32, ptr %18, align 4
+  %70 = sub i32 %69, 1
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i64, ptr %68, i64 %71
+  store i64 %67, ptr %72, align 8
+  %73 = load ptr, ptr %12, align 8
+  %74 = load i32, ptr %17, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %73, i64 %75
+  %77 = load i8, ptr %76, align 1, !range !4, !noundef !5
+  %78 = trunc i8 %77 to i1
+  %79 = load ptr, ptr %15, align 8
+  %80 = load i32, ptr %18, align 4
+  %81 = sub i32 %80, 1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %79, i64 %82
+  %84 = zext i1 %78 to i8
+  store i8 %84, ptr %83, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  br label %85
 
-87:                                               ; preds = %34
-  %88 = load ptr, ptr %8, align 8
-  %89 = load ptr, ptr %14, align 8
-  %90 = load ptr, ptr %15, align 8
-  %91 = call ptr @heap_form_tuple(ptr noundef %88, ptr noundef %89, ptr noundef %90)
-  store ptr %91, ptr %16, align 8
-  %92 = load ptr, ptr %14, align 8
-  call void @pfree(ptr noundef %92)
-  %93 = load ptr, ptr %15, align 8
+85:                                               ; preds = %62
+  %86 = load i32, ptr %17, align 4
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %17, align 4
+  br label %34, !llvm.loop !20
+
+88:                                               ; preds = %34
+  %89 = load ptr, ptr %8, align 8
+  %90 = load ptr, ptr %14, align 8
+  %91 = load ptr, ptr %15, align 8
+  %92 = call ptr @heap_form_tuple(ptr noundef %89, ptr noundef %90, ptr noundef %91)
+  store ptr %92, ptr %16, align 8
+  %93 = load ptr, ptr %14, align 8
   call void @pfree(ptr noundef %93)
-  %94 = load ptr, ptr %16, align 8
-  %95 = getelementptr inbounds %struct.HeapTupleData, ptr %94, i32 0, i32 3
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct.HeapTupleData, ptr %98, i32 0, i32 3
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %100, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %97, ptr align 4 %101, i64 6, i1 false)
-  %102 = load ptr, ptr %16, align 8
-  %103 = getelementptr inbounds %struct.HeapTupleData, ptr %102, i32 0, i32 1
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct.HeapTupleData, ptr %104, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %103, ptr align 4 %105, i64 6, i1 false)
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct.HeapTupleData, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 4
-  %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %struct.HeapTupleData, ptr %109, i32 0, i32 2
-  store i32 %108, ptr %110, align 4
-  %111 = load ptr, ptr %16, align 8
-  ret ptr %111
+  %94 = load ptr, ptr %15, align 8
+  call void @pfree(ptr noundef %94)
+  %95 = load ptr, ptr %16, align 8
+  %96 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %95, i32 0, i32 3
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %99, i32 0, i32 3
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %101, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr align 4 %102, i64 6, i1 false)
+  %103 = load ptr, ptr %16, align 8
+  %104 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %105, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %104, ptr align 4 %106, i64 6, i1 false)
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %107, i32 0, i32 2
+  %109 = load i32, ptr %108, align 4
+  %110 = load ptr, ptr %16, align 8
+  %111 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %110, i32 0, i32 2
+  store i32 %109, ptr %111, align 4
+  %112 = load ptr, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  ret ptr %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5029,14 +4809,21 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
   store i8 0, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.TupleDescData, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.TupleDescData, ptr %14, i32 0, i32 0
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
   %17 = load i32, ptr %12, align 4
   %18 = icmp sgt i32 %17, 1664
-  br i1 %18, label %19, label %31
+  br i1 %18, label %19, label %32
 
 19:                                               ; preds = %3
   br label %20
@@ -5045,7 +4832,7 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   br i1 true, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %22, label %25, label %29
 
 23:                                               ; preds = %20
@@ -5065,55 +4852,57 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
 30:                                               ; No predecessors!
   br label %31
 
-31:                                               ; preds = %30, %3
-  store i32 0, ptr %13, align 4
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %45, %31
-  %33 = load i32, ptr %13, align 4
-  %34 = load i32, ptr %12, align 4
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %36, label %48
+32:                                               ; preds = %31, %3
+  store i32 0, ptr %13, align 4
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr %13, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = load i8, ptr %40, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %44
+33:                                               ; preds = %46, %32
+  %34 = load i32, ptr %13, align 4
+  %35 = load i32, ptr %12, align 4
+  %36 = icmp slt i32 %34, %35
+  br i1 %36, label %37, label %49
 
-43:                                               ; preds = %36
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr %13, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %38, i64 %40
+  %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %37
   store i8 1, ptr %11, align 1
-  br label %48
+  br label %49
 
-44:                                               ; preds = %36
-  br label %45
+45:                                               ; preds = %37
+  br label %46
 
-45:                                               ; preds = %44
-  %46 = load i32, ptr %13, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %13, align 4
-  br label %32, !llvm.loop !20
+46:                                               ; preds = %45
+  %47 = load i32, ptr %13, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %13, align 4
+  br label %33, !llvm.loop !21
 
-48:                                               ; preds = %43, %32
+49:                                               ; preds = %44, %33
   store i64 15, ptr %8, align 8
-  %49 = load i8, ptr %11, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %58
+  %50 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %12, align 4
-  %53 = add i32 %52, 7
-  %54 = sdiv i32 %53, 8
+52:                                               ; preds = %49
+  %53 = load i32, ptr %12, align 4
+  %54 = call i32 @BITMAPLEN(i32 noundef %53)
   %55 = sext i32 %54 to i64
   %56 = load i64, ptr %8, align 8
   %57 = add i64 %56, %55
   store i64 %57, ptr %8, align 8
   br label %58
 
-58:                                               ; preds = %51, %48
+58:                                               ; preds = %52, %49
   %59 = load i64, ptr %8, align 8
   %60 = add i64 %59, 7
   %61 = and i64 %60, -8
@@ -5135,10 +4924,10 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   %72 = load i64, ptr %8, align 8
   %73 = trunc i64 %72 to i32
   %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct.MinimalTupleData, ptr %74, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %74, i32 0, i32 0
   store i32 %73, ptr %75, align 4
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.MinimalTupleData, ptr %76, i32 0, i32 2
+  %77 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %76, i32 0, i32 2
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
   %80 = and i32 %79, -2048
@@ -5146,14 +4935,14 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   %82 = or i32 %80, %81
   %83 = trunc i32 %82 to i16
   %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.MinimalTupleData, ptr %84, i32 0, i32 2
+  %85 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %84, i32 0, i32 2
   store i16 %83, ptr %85, align 2
   %86 = load i32, ptr %10, align 4
   %87 = sext i32 %86 to i64
   %88 = add i64 %87, 8
   %89 = trunc i64 %88 to i8
   %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct.MinimalTupleData, ptr %90, i32 0, i32 4
+  %91 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %90, i32 0, i32 4
   store i8 %89, ptr %91, align 2
   %92 = load ptr, ptr %4, align 8
   %93 = load ptr, ptr %5, align 8
@@ -5161,17 +4950,17 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   %95 = load ptr, ptr %7, align 8
   %96 = load i32, ptr %10, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i8, ptr %95, i64 %97
+  %98 = getelementptr inbounds i8, ptr %95, i64 %97
   %99 = load i64, ptr %9, align 8
   %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct.MinimalTupleData, ptr %100, i32 0, i32 3
-  %102 = load i8, ptr %11, align 1
+  %101 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %100, i32 0, i32 3
+  %102 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %58
   %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct.MinimalTupleData, ptr %105, i32 0, i32 5
+  %106 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %105, i32 0, i32 5
   %107 = getelementptr inbounds [0 x i8], ptr %106, i64 0, i64 0
   br label %109
 
@@ -5182,6 +4971,13 @@ define dso_local ptr @heap_form_minimal_tuple(ptr noundef %0, ptr noundef %1, pt
   %110 = phi ptr [ %107, %104 ], [ null, %108 ]
   call void @heap_fill_tuple(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %98, i64 noundef %99, ptr noundef %101, ptr noundef %110)
   %111 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret ptr %111
 }
 
@@ -5199,8 +4995,9 @@ define dso_local ptr @heap_copy_minimal_tuple(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.MinimalTupleData, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %4, i32 0, i32 0
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = call ptr @palloc(i64 noundef %7)
@@ -5208,11 +5005,12 @@ define dso_local ptr @heap_copy_minimal_tuple(ptr noundef %0) #0 {
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.MinimalTupleData, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %10, i64 %14, i1 false)
   %15 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %15
 }
 
@@ -5222,8 +5020,10 @@ define dso_local ptr @heap_tuple_from_minimal_tuple(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.MinimalTupleData, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = add i64 %8, 8
@@ -5236,39 +5036,41 @@ define dso_local ptr @heap_tuple_from_minimal_tuple(ptr noundef %0) #0 {
   store ptr %14, ptr %3, align 8
   %15 = load i32, ptr %4, align 4
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.HeapTupleData, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %16, i32 0, i32 0
   store i32 %15, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.HeapTupleData, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %18, i32 0, i32 1
   call void @ItemPointerSetInvalid(ptr noundef %19)
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.HeapTupleData, ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %20, i32 0, i32 2
   store i32 0, ptr %21, align 4
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.HeapTupleData, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %24, i32 0, i32 3
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.HeapTupleData, ptr %26, i32 0, i32 3
+  %27 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %26, i32 0, i32 3
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %2, align 8
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.MinimalTupleData, ptr %31, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %31, i32 0, i32 0
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 4 %30, i64 %34, i1 false)
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.HeapTupleData, ptr %35, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %35, i32 0, i32 3
   %37 = load ptr, ptr %36, align 8
   call void @llvm.memset.p0.i64(ptr align 4 %37, i8 0, i64 18, i1 false)
   %38 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %38
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @minimal_tuple_from_heap_tuple(ptr noundef %0) #0 {
@@ -5276,8 +5078,10 @@ define dso_local ptr @minimal_tuple_from_heap_tuple(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.HeapTupleData, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = sub i64 %8, 8
@@ -5289,17 +5093,19 @@ define dso_local ptr @minimal_tuple_from_heap_tuple(ptr noundef %0) #0 {
   store ptr %13, ptr %3, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.HeapTupleData, ptr %15, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %15, i32 0, i32 3
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %4, align 4
   %20 = zext i32 %19 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 1 %18, i64 %20, i1 false)
   %21 = load i32, ptr %4, align 4
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.MinimalTupleData, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.MinimalTupleData, ptr %22, i32 0, i32 0
   store i32 %21, ptr %23, align 4
   %24 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %24
 }
 
@@ -5308,7 +5114,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.varattrib_1b, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %3, i32 0, i32 0
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp eq i32 %6, 1
@@ -5316,7 +5122,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.varattrib_1b_e, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %9, i32 0, i32 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %12, 1
@@ -5327,7 +5133,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.varattrib_1b_e, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %16, i32 0, i32 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = and i32 %19, -2
@@ -5339,7 +5145,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.varattrib_1b_e, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %24, i32 0, i32 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = icmp eq i32 %27, 18
@@ -5357,7 +5163,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 35:                                               ; preds = %1
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.varattrib_1b, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %36, i32 0, i32 0
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = and i32 %39, 1
@@ -5366,7 +5172,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.varattrib_1b, ptr %43, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %43, i32 0, i32 0
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = ashr i32 %46, 1
@@ -5375,7 +5181,7 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 
 49:                                               ; preds = %35
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.anon, ptr %50, i32 0, i32 0
   %52 = load i32, ptr %51, align 4
   %53 = lshr i32 %52, 2
   %54 = and i32 %53, 1073741823
@@ -5394,19 +5200,21 @@ define dso_local i64 @varsize_any(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @init_missing_cache() #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  %2 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 96, ptr %1) #8
+  %2 = getelementptr inbounds nuw %struct.HASHCTL, ptr %1, i32 0, i32 4
   store i64 16, ptr %2, align 8
-  %3 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 5
+  %3 = getelementptr inbounds nuw %struct.HASHCTL, ptr %1, i32 0, i32 5
   store i64 16, ptr %3, align 8
   %4 = load ptr, ptr @TopMemoryContext, align 8
-  %5 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 10
+  %5 = getelementptr inbounds nuw %struct.HASHCTL, ptr %1, i32 0, i32 10
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 6
+  %6 = getelementptr inbounds nuw %struct.HASHCTL, ptr %1, i32 0, i32 6
   store ptr @missing_hash, ptr %6, align 8
-  %7 = getelementptr inbounds %struct.HASHCTL, ptr %1, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %struct.HASHCTL, ptr %1, i32 0, i32 7
   store ptr @missing_match, ptr %7, align 8
   %8 = call ptr @hash_create(ptr noundef @.str.4, i64 noundef 32, ptr noundef %1, i32 noundef 1224)
   store ptr %8, ptr @missing_cache, align 8
+  call void @llvm.lifetime.end.p0(i64 96, ptr %1) #8
   ret void
 }
 
@@ -5417,16 +5225,18 @@ define internal i32 @missing_hash(ptr noundef %0, i64 noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.missing_cache_key, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %7, i32 0, i32 1
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.missing_cache_key, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %12, align 8
   %14 = call i32 @hash_bytes(ptr noundef %10, i32 noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i32 %14
 }
 
@@ -5438,65 +5248,72 @@ define internal i32 @missing_match(ptr noundef %0, ptr noundef %1, i64 noundef %
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds %struct.missing_cache_key, ptr %12, i32 0, i32 0
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds %struct.missing_cache_key, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp ne i32 %14, %17
-  br i1 %18, label %19, label %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %9, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %15, %18
+  br i1 %19, label %20, label %29
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.missing_cache_key, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds %struct.missing_cache_key, ptr %23, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp sgt i32 %22, %25
-  %27 = select i1 %26, i32 1, i32 -1
-  store i32 %27, ptr %4, align 4
-  br label %42
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp sgt i32 %23, %26
+  %28 = select i1 %27, i32 1, i32 -1
+  store i32 %28, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %43
 
-28:                                               ; preds = %3
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.missing_cache_key, ptr %29, i32 0, i32 1
-  %31 = load i64, ptr %30, align 8
-  %32 = call ptr @DatumGetPointer(i64 noundef %31)
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.missing_cache_key, ptr %33, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = call ptr @DatumGetPointer(i64 noundef %35)
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.missing_cache_key, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 8
-  %40 = sext i32 %39 to i64
-  %41 = call i32 @memcmp(ptr noundef %32, ptr noundef %36, i64 noundef %40) #6
-  store i32 %41, ptr %4, align 4
-  br label %42
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %33 = call ptr @DatumGetPointer(i64 noundef %32)
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %34, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8
+  %37 = call ptr @DatumGetPointer(i64 noundef %36)
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.missing_cache_key, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = call i32 @memcmp(ptr noundef %33, ptr noundef %37, i64 noundef %41) #9
+  store i32 %42, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %43
 
-42:                                               ; preds = %28, %19
-  %43 = load i32, ptr %4, align 4
-  ret i32 %43
+43:                                               ; preds = %29, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %44 = load i32, ptr %4, align 4
+  ret i32 %44
 }
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #1
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @hash_bytes(ptr noundef, i32 noundef) #1
+declare i32 @hash_bytes(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal void @store_att_byval(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @store_att_byval(ptr noundef %0, i64 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -5545,7 +5362,7 @@ define internal void @store_att_byval(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 true, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %26, label %29, label %32
 
 27:                                               ; preds = %24
@@ -5555,7 +5372,7 @@ define internal void @store_att_byval(ptr noundef %0, i64 noundef %1, i32 nounde
 29:                                               ; preds = %27, %25
   %30 = load i32, ptr %6, align 4
   %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i32 noundef %30)
-  call void @errfinish(ptr noundef @.str.6, i32 noundef 202, ptr noundef @__func__.store_att_byval)
+  call void @errfinish(ptr noundef @.str.6, i32 noundef 230, ptr noundef @__func__.store_att_byval)
   br label %32
 
 32:                                               ; preds = %29, %27, %25
@@ -5568,10 +5385,10 @@ define internal void @store_att_byval(ptr noundef %0, i64 noundef %1, i32 nounde
   ret void
 }
 
-declare void @EOH_flatten_into(ptr noundef, ptr noundef, i64 noundef) #1
+declare void @EOH_flatten_into(ptr noundef, ptr noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetCString(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetCString(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -5579,8 +5396,8 @@ define internal ptr @DatumGetCString(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal signext i8 @DatumGetChar(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal signext i8 @DatumGetChar(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -5588,8 +5405,8 @@ define internal signext i8 @DatumGetChar(i64 noundef %0) #0 {
   ret i8 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal signext i16 @DatumGetInt16(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal signext i16 @DatumGetInt16(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -5597,8 +5414,8 @@ define internal signext i16 @DatumGetInt16(i64 noundef %0) #0 {
   ret i16 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -5606,8 +5423,8 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CharGetDatum(i8 noundef signext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CharGetDatum(i8 noundef signext %0) #2 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
@@ -5615,8 +5432,8 @@ define internal i64 @CharGetDatum(i8 noundef signext %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int16GetDatum(i16 noundef signext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int16GetDatum(i16 noundef signext %0) #2 {
   %2 = alloca i16, align 2
   store i16 %0, ptr %2, align 2
   %3 = load i16, ptr %2, align 2
@@ -5624,8 +5441,8 @@ define internal i64 @Int16GetDatum(i16 noundef signext %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -5633,8 +5450,8 @@ define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -5643,46 +5460,50 @@ define internal void @BlockIdSet(ptr noundef %0, i32 noundef %1) #0 {
   %6 = lshr i32 %5, 16
   %7 = trunc i32 %6 to i16
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.BlockIdData, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.BlockIdData, ptr %8, i32 0, i32 0
   store i16 %7, ptr %9, align 2
   %10 = load i32, ptr %4, align 4
   %11 = and i32 %10, 65535
   %12 = trunc i32 %11 to i16
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.BlockIdData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.BlockIdData, ptr %13, i32 0, i32 1
   store i16 %12, ptr %14, align 2
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

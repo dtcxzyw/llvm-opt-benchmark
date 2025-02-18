@@ -11,6 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inputdir = external global ptr, align 8
 @.str.2 = private unnamed_addr constant [18 x i8] c"%s/results/%s.out\00", align 1
 @.str.3 = private unnamed_addr constant [19 x i8] c"%s/expected/%s.out\00", align 1
+@expecteddir = external global ptr, align 8
 @launcher = external global ptr, align 8
 @.str.4 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
 @.str.5 = private unnamed_addr constant [50 x i8] c"\22%s%spsql\22 -X -a -q -d \22%s\22 %s < \22%s\22 > \22%s\22 2>&1\00", align 1
@@ -65,6 +66,12 @@ define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
   %15 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr @outputdir, align 8
   %17 = load ptr, ptr %5, align 8
@@ -86,7 +93,7 @@ define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = load ptr, ptr %5, align 8
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %27, i64 noundef 1024, ptr noundef @.str.2, ptr noundef %28, ptr noundef %29)
   %31 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %32 = load ptr, ptr @outputdir, align 8
+  %32 = load ptr, ptr @expecteddir, align 8
   %33 = load ptr, ptr %5, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %31, i64 noundef 1024, ptr noundef @.str.3, ptr noundef %32, ptr noundef %33)
   %35 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
@@ -135,7 +142,7 @@ define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef
   %60 = icmp ne ptr %59, null
   %61 = select i1 %60, ptr @.str.7, ptr @.str.6
   %62 = load ptr, ptr @dblist, align 8
-  %63 = getelementptr inbounds %struct._stringlist, ptr %62, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct._stringlist, ptr %62, i32 0, i32 0
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
   %66 = getelementptr inbounds [1024 x i8], ptr %11, i64 0, i64 0
@@ -144,10 +151,10 @@ define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef
   %68 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.9, ptr noundef %67)
   store ptr %68, ptr %14, align 8
   %69 = load ptr, ptr %14, align 8
-  %70 = call i32 @setenv(ptr noundef @.str.10, ptr noundef %69, i32 noundef 1) #4
+  %70 = call i32 @setenv(ptr noundef @.str.10, ptr noundef %69, i32 noundef 1) #5
   %71 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %71) #4
-  %72 = getelementptr inbounds %struct.StringInfoData, ptr %13, i32 0, i32 0
+  call void @free(ptr noundef %71) #5
+  %72 = getelementptr inbounds nuw %struct.StringInfoData, ptr %13, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @spawn_process(ptr noundef %73)
   store i32 %74, ptr %9, align 4
@@ -159,19 +166,28 @@ define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef
   %78 = load ptr, ptr @stderr, align 8
   %79 = load ptr, ptr %5, align 8
   %80 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %78, ptr noundef @.str.11, ptr noundef %79)
-  call void @exit(i32 noundef 2) #5
+  call void @exit(i32 noundef 2) #6
   unreachable
 
 81:                                               ; preds = %57
-  %82 = call i32 @unsetenv(ptr noundef @.str.10) #4
-  %83 = getelementptr inbounds %struct.StringInfoData, ptr %13, i32 0, i32 0
+  %82 = call i32 @unsetenv(ptr noundef @.str.10) #5
+  %83 = getelementptr inbounds nuw %struct.StringInfoData, ptr %13, i32 0, i32 0
   %84 = load ptr, ptr %83, align 8
   call void @pfree(ptr noundef %84)
   %85 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %85
 }
 
 declare void @add_stringlist_item(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
@@ -184,33 +200,36 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) #1
 declare ptr @psprintf(ptr noundef, ...) #1
 
 ; Function Attrs: nounwind
-declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 declare i32 @spawn_process(ptr noundef) #1
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #3
+declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @unsetenv(ptr noundef) #2
+declare i32 @unsetenv(ptr noundef) #3
 
 declare void @pfree(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

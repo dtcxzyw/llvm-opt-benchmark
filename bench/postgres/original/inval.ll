@@ -12,13 +12,20 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SharedInvalSmgrMsg = type { i8, i8, i16, %struct.RelFileLocator }
 %struct.SharedInvalRelmapMsg = type { i8, i32 }
 %struct.SharedInvalSnapshotMsg = type { i8, i32, i32 }
-%struct.TransInvalidationInfo = type { ptr, i32, %struct.InvalidationMsgsGroup, %struct.InvalidationMsgsGroup, i8 }
+%struct.TransInvalidationInfo = type { %struct.InvalidationInfo, %struct.InvalidationMsgsGroup, ptr, i32 }
+%struct.InvalidationInfo = type { %struct.InvalidationMsgsGroup, i8 }
 %struct.InvalidationMsgsGroup = type { [2 x i32], [2 x i32] }
 %union.SharedInvalidationMessage = type { %struct.SharedInvalSmgrMsg }
 %struct.xl_xact_invals = type { i32, [0 x %union.SharedInvalidationMessage] }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
+%struct.FormData_pg_class = type { i32, %struct.nameData, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i8, i8, i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32 }
+%struct.nameData = type { [64 x i8] }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.FormData_pg_index = type { i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.int2vector }
+%struct.int2vector = type { i32, i32, i32, i32, i32, i32, [0 x i16] }
+%struct.FormData_pg_constraint = type { i32, %struct.nameData, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i8, i8, i8, i8, i16, i8, i8 }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
@@ -26,12 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.HeapTupleFields }
 %struct.HeapTupleFields = type { i32, i32, %union.anon.0 }
 %union.anon.0 = type { i32 }
-%struct.FormData_pg_class = type { i32, %struct.nameData, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i8, i8, i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.FormData_pg_index = type { i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.int2vector }
-%struct.int2vector = type { i32, i32, i32, i32, i32, i32, [0 x i16] }
-%struct.FormData_pg_constraint = type { i32, %struct.nameData, i32, i8, i8, i8, i8, i32, i32, i32, i32, i32, i8, i8, i8, i8, i16, i8, i8 }
 
 @debug_discard_caches = dso_local global i32 0, align 4
 @syscache_callback_count = internal global i32 0, align 4
@@ -45,6 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @transInvalInfo = internal global ptr null, align 8
 @CurTransactionContext = external global ptr, align 8
 @InvalMessageArrays = internal global [2 x %struct.InvalMessageArray] zeroinitializer, align 16
+@inplaceInvalInfo = internal global ptr null, align 8
 @.str.2 = private unnamed_addr constant [36 x i8] c"replaying commit with %d messages%s\00", align 1
 @.str.3 = private unnamed_addr constant [32 x i8] c" and relcache file invalidation\00", align 1
 @.str.4 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -52,18 +54,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [45 x i8] c"removing relcache init files for database %u\00", align 1
 @DatabasePath = external global ptr, align 8
 @wal_level = external global i32, align 4
-@Mode = external global i32, align 4
-@.str.6 = private unnamed_addr constant [36 x i8] c"cache lookup failed for relation %u\00", align 1
+@.str.7 = private unnamed_addr constant [36 x i8] c"cache lookup failed for relation %u\00", align 1
 @__func__.CacheInvalidateRelcacheByRelid = private unnamed_addr constant [31 x i8] c"CacheInvalidateRelcacheByRelid\00", align 1
-@.str.7 = private unnamed_addr constant [21 x i8] c"invalid cache ID: %d\00", align 1
+@.str.8 = private unnamed_addr constant [21 x i8] c"invalid cache ID: %d\00", align 1
 @__func__.CacheRegisterSyscacheCallback = private unnamed_addr constant [30 x i8] c"CacheRegisterSyscacheCallback\00", align 1
-@.str.8 = private unnamed_addr constant [36 x i8] c"out of syscache_callback_list slots\00", align 1
-@syscache_callback_links = internal global [83 x i16] zeroinitializer, align 16
-@.str.9 = private unnamed_addr constant [36 x i8] c"out of relcache_callback_list slots\00", align 1
+@.str.9 = private unnamed_addr constant [36 x i8] c"out of syscache_callback_list slots\00", align 1
+@syscache_callback_links = internal global [85 x i16] zeroinitializer, align 16
+@.str.10 = private unnamed_addr constant [36 x i8] c"out of relcache_callback_list slots\00", align 1
 @__func__.CacheRegisterRelcacheCallback = private unnamed_addr constant [30 x i8] c"CacheRegisterRelcacheCallback\00", align 1
 @__func__.CallSyscacheCallbacks = private unnamed_addr constant [22 x i8] c"CallSyscacheCallbacks\00", align 1
+@Mode = external global i32, align 4
 @TopTransactionContext = external global ptr, align 8
-@.str.10 = private unnamed_addr constant [72 x i8] c"cannot start a subtransaction when there are unprocessed inval messages\00", align 1
+@.str.11 = private unnamed_addr constant [72 x i8] c"cannot start a subtransaction when there are unprocessed inval messages\00", align 1
 @__func__.PrepareInvalidationState = private unnamed_addr constant [25 x i8] c"PrepareInvalidationState\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -74,83 +76,97 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) #0 
   %5 = alloca ptr, align 8
   %6 = zext i1 %0 to i8
   store i8 %6, ptr %2, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   call void @InvalidateCatalogSnapshot()
-  call void @ResetCatalogCaches()
-  %7 = load i8, ptr %2, align 1
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc i8 %7 to i1
-  call void @RelationCacheInvalidate(i1 noundef zeroext %8)
+  call void @ResetCatalogCachesExt(i1 noundef zeroext %8)
+  %9 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %10 = trunc i8 %9 to i1
+  call void @RelationCacheInvalidate(i1 noundef zeroext %10)
   store i32 0, ptr %3, align 4
-  br label %9
+  br label %11
 
-9:                                                ; preds = %27, %1
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr @syscache_callback_count, align 4
-  %12 = icmp slt i32 %10, %11
-  br i1 %12, label %13, label %30
+11:                                               ; preds = %29, %1
+  %12 = load i32, ptr %3, align 4
+  %13 = load i32, ptr @syscache_callback_count, align 4
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %32
 
-13:                                               ; preds = %9
-  %14 = load i32, ptr %3, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %15
-  store ptr %16, ptr %4, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %23, i32 0, i32 0
-  %25 = load i16, ptr %24, align 8
-  %26 = sext i16 %25 to i32
-  call void %19(i64 noundef %22, i32 noundef %26, i32 noundef 0)
-  br label %27
+15:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %16 = load i32, ptr %3, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %17
+  store ptr %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %22, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %25, i32 0, i32 0
+  %27 = load i16, ptr %26, align 8
+  %28 = sext i16 %27 to i32
+  call void %21(i64 noundef %24, i32 noundef %28, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %29
 
-27:                                               ; preds = %13
-  %28 = load i32, ptr %3, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %3, align 4
-  br label %9, !llvm.loop !5
+29:                                               ; preds = %15
+  %30 = load i32, ptr %3, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %3, align 4
+  br label %11, !llvm.loop !6
 
-30:                                               ; preds = %9
+32:                                               ; preds = %11
   store i32 0, ptr %3, align 4
-  br label %31
+  br label %33
 
-31:                                               ; preds = %45, %30
-  %32 = load i32, ptr %3, align 4
-  %33 = load i32, ptr @relcache_callback_count, align 4
-  %34 = icmp slt i32 %32, %33
-  br i1 %34, label %35, label %48
+33:                                               ; preds = %47, %32
+  %34 = load i32, ptr %3, align 4
+  %35 = load i32, ptr @relcache_callback_count, align 4
+  %36 = icmp slt i32 %34, %35
+  br i1 %36, label %37, label %50
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %3, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %37
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %42, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  call void %41(i64 noundef %44, i32 noundef 0)
-  br label %45
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %38 = load i32, ptr %3, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %39
+  store ptr %40, ptr %5, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  call void %43(i64 noundef %46, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %47
 
-45:                                               ; preds = %35
-  %46 = load i32, ptr %3, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %3, align 4
-  br label %31, !llvm.loop !7
+47:                                               ; preds = %37
+  %48 = load i32, ptr %3, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %3, align 4
+  br label %33, !llvm.loop !8
 
-48:                                               ; preds = %31
+50:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
-declare void @InvalidateCatalogSnapshot() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ResetCatalogCaches() #1
+declare void @InvalidateCatalogSnapshot() #2
 
-declare void @RelationCacheInvalidate(i1 noundef zeroext) #1
+declare void @ResetCatalogCachesExt(i1 noundef zeroext) #2
+
+declare void @RelationCacheInvalidate(i1 noundef zeroext) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
@@ -167,7 +183,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr @MyDatabaseId, align 4
   %15 = icmp eq i32 %13, %14
@@ -175,7 +191,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %17, i32 0, i32 1
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %36
@@ -183,19 +199,19 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 21:                                               ; preds = %16, %10
   call void @InvalidateCatalogSnapshot()
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %22, i32 0, i32 0
   %24 = load i8, ptr %23, align 4
   %25 = sext i8 %24 to i32
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %26, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %26, i32 0, i32 2
   %28 = load i32, ptr %27, align 4
   call void @SysCacheInvalidate(i32 noundef %25, i32 noundef %28)
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %29, i32 0, i32 0
   %31 = load i8, ptr %30, align 4
   %32 = sext i8 %31 to i32
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %33, i32 0, i32 2
   %35 = load i32, ptr %34, align 4
   call void @CallSyscacheCallbacks(i32 noundef %32, i32 noundef %35)
   br label %36
@@ -212,7 +228,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %43, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %43, i32 0, i32 1
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr @MyDatabaseId, align 4
   %47 = icmp eq i32 %45, %46
@@ -220,7 +236,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %49, i32 0, i32 1
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %57
@@ -228,7 +244,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 53:                                               ; preds = %48, %42
   call void @InvalidateCatalogSnapshot()
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %54, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %54, i32 0, i32 2
   %56 = load i32, ptr %55, align 4
   call void @CatalogCacheFlushCatalog(i32 noundef %56)
   br label %57
@@ -245,7 +261,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %64, i32 0, i32 1
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr @MyDatabaseId, align 4
   %68 = icmp eq i32 %66, %67
@@ -253,14 +269,15 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %70, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %70, i32 0, i32 1
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %106
 
 74:                                               ; preds = %69, %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %75, i32 0, i32 2
+  %76 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %75, i32 0, i32 2
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %80
@@ -271,7 +288,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %81, i32 0, i32 2
+  %82 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %81, i32 0, i32 2
   %83 = load i32, ptr %82, align 4
   call void @RelationCacheInvalidateEntry(i32 noundef %83)
   br label %84
@@ -287,29 +304,32 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
   br i1 %88, label %89, label %105
 
 89:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %90 = load i32, ptr %3, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %91
+  %92 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %91
   store ptr %92, ptr %4, align 8
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %93, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %93, i32 0, i32 0
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %96, i32 0, i32 1
+  %97 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %96, i32 0, i32 1
   %98 = load i64, ptr %97, align 8
   %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %99, i32 0, i32 2
+  %100 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %99, i32 0, i32 2
   %101 = load i32, ptr %100, align 4
   call void %95(i64 noundef %98, i32 noundef %101)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
   br label %102
 
 102:                                              ; preds = %89
   %103 = load i32, ptr %3, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %3, align 4
-  br label %85, !llvm.loop !8
+  br label %85, !llvm.loop !9
 
 105:                                              ; preds = %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   br label %106
 
 106:                                              ; preds = %105, %69
@@ -323,27 +343,29 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
   br i1 %111, label %112, label %131
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %5, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #7
+  %113 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %5, i32 0, i32 0
   %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %114, i32 0, i32 3
+  %115 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %114, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %113, ptr align 4 %115, i64 12, i1 false)
   %116 = load ptr, ptr %2, align 8
-  %117 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %116, i32 0, i32 1
+  %117 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %116, i32 0, i32 1
   %118 = load i8, ptr %117, align 1
   %119 = sext i8 %118 to i32
   %120 = shl i32 %119, 16
   %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %121, i32 0, i32 2
+  %122 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %121, i32 0, i32 2
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
   %125 = or i32 %120, %124
-  %126 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %5, i32 0, i32 1
+  %126 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %5, i32 0, i32 1
   store i32 %125, ptr %126, align 4
-  %127 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %127 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
   %128 = load i64, ptr %127, align 4
-  %129 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %129 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   %130 = load i64, ptr %129, align 4
   call void @smgrreleaserellocator(i64 %128, i64 %130)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #7
   br label %186
 
 131:                                              ; preds = %107
@@ -355,7 +377,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds %struct.SharedInvalRelmapMsg, ptr %137, i32 0, i32 1
+  %138 = getelementptr inbounds nuw %struct.SharedInvalRelmapMsg, ptr %137, i32 0, i32 1
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %142
@@ -366,7 +388,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 142:                                              ; preds = %136
   %143 = load ptr, ptr %2, align 8
-  %144 = getelementptr inbounds %struct.SharedInvalRelmapMsg, ptr %143, i32 0, i32 1
+  %144 = getelementptr inbounds nuw %struct.SharedInvalRelmapMsg, ptr %143, i32 0, i32 1
   %145 = load i32, ptr %144, align 4
   %146 = load i32, ptr @MyDatabaseId, align 4
   %147 = icmp eq i32 %145, %146
@@ -391,7 +413,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 156:                                              ; preds = %151
   %157 = load ptr, ptr %2, align 8
-  %158 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %157, i32 0, i32 1
+  %158 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %157, i32 0, i32 1
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %162
@@ -402,7 +424,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
 
 162:                                              ; preds = %156
   %163 = load ptr, ptr %2, align 8
-  %164 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %163, i32 0, i32 1
+  %164 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %163, i32 0, i32 1
   %165 = load i32, ptr %164, align 4
   %166 = load i32, ptr @MyDatabaseId, align 4
   %167 = icmp eq i32 %165, %166
@@ -425,7 +447,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
   br i1 true, label %173, label %175
 
 173:                                              ; preds = %172
-  %174 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
+  %174 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
   br i1 %174, label %177, label %182
 
 175:                                              ; preds = %172
@@ -437,7 +459,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
   %179 = load i8, ptr %178, align 4
   %180 = sext i8 %179 to i32
   %181 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %180)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 778, ptr noundef @__func__.LocalExecuteInvalidationMessage)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 835, ptr noundef @__func__.LocalExecuteInvalidationMessage)
   br label %182
 
 182:                                              ; preds = %177, %175, %173
@@ -465,7 +487,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @SysCacheInvalidate(i32 noundef, i32 noundef) #1
+declare void @SysCacheInvalidate(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) #0 {
@@ -475,14 +497,15 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) #0 
   %6 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %7 = load i32, ptr %3, align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
   %10 = load i32, ptr %3, align 4
-  %11 = icmp sge i32 %10, 83
-  br i1 %11, label %12, label %23
+  %11 = icmp sge i32 %10, 85
+  br i1 %11, label %12, label %24
 
 12:                                               ; preds = %9, %2
   br label %13
@@ -491,7 +514,7 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) #0 
   br i1 true, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %15, label %18, label %21
 
 16:                                               ; preds = %13
@@ -500,8 +523,8 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) #0 
 
 18:                                               ; preds = %16, %14
   %19 = load i32, ptr %3, align 4
-  %20 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.7, i32 noundef %19)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1583, ptr noundef @__func__.CallSyscacheCallbacks)
+  %20 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.8, i32 noundef %19)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1773, ptr noundef @__func__.CallSyscacheCallbacks)
   br label %21
 
 21:                                               ; preds = %18, %16, %14
@@ -510,66 +533,72 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) #0 
 22:                                               ; No predecessors!
   br label %23
 
-23:                                               ; preds = %22, %9
-  %24 = load i32, ptr %3, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr [83 x i16], ptr @syscache_callback_links, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2
-  %28 = sext i16 %27 to i32
-  %29 = sub i32 %28, 1
-  store i32 %29, ptr %5, align 4
-  br label %30
+23:                                               ; preds = %22
+  br label %24
 
-30:                                               ; preds = %33, %23
-  %31 = load i32, ptr %5, align 4
-  %32 = icmp sge i32 %31, 0
-  br i1 %32, label %33, label %50
+24:                                               ; preds = %23, %9
+  %25 = load i32, ptr %3, align 4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [85 x i16], ptr @syscache_callback_links, i64 0, i64 %26
+  %28 = load i16, ptr %27, align 2
+  %29 = sext i16 %28 to i32
+  %30 = sub i32 %29, 1
+  store i32 %30, ptr %5, align 4
+  br label %31
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %5, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %35
-  store ptr %36, ptr %6, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %40, i32 0, i32 3
-  %42 = load i64, ptr %41, align 8
-  %43 = load i32, ptr %3, align 4
-  %44 = load i32, ptr %4, align 4
-  call void %39(i64 noundef %42, i32 noundef %43, i32 noundef %44)
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %45, i32 0, i32 1
-  %47 = load i16, ptr %46, align 2
-  %48 = sext i16 %47 to i32
-  %49 = sub i32 %48, 1
-  store i32 %49, ptr %5, align 4
-  br label %30, !llvm.loop !9
+31:                                               ; preds = %34, %24
+  %32 = load i32, ptr %5, align 4
+  %33 = icmp sge i32 %32, 0
+  br i1 %33, label %34, label %51
 
-50:                                               ; preds = %30
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %35 = load i32, ptr %5, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %36
+  store ptr %37, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %41, i32 0, i32 3
+  %43 = load i64, ptr %42, align 8
+  %44 = load i32, ptr %3, align 4
+  %45 = load i32, ptr %4, align 4
+  call void %40(i64 noundef %43, i32 noundef %44, i32 noundef %45)
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %46, i32 0, i32 1
+  %48 = load i16, ptr %47, align 2
+  %49 = sext i16 %48 to i32
+  %50 = sub i32 %49, 1
+  store i32 %50, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %31, !llvm.loop !10
+
+51:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
-declare void @CatalogCacheFlushCatalog(i32 noundef) #1
+declare void @CatalogCacheFlushCatalog(i32 noundef) #2
 
-declare void @RelationCacheInvalidateEntry(i32 noundef) #1
+declare void @RelationCacheInvalidateEntry(i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @smgrreleaserellocator(i64, i64) #1
+declare void @smgrreleaserellocator(i64, i64) #2
 
-declare void @RelationMapInvalidate(i1 noundef zeroext) #1
+declare void @RelationMapInvalidate(i1 noundef zeroext) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InvalidateSystemCaches() #0 {
@@ -583,7 +612,7 @@ define dso_local void @AcceptInvalidationMessages() #0 {
   ret void
 }
 
-declare void @ReceiveSharedInvalidMessages(ptr noundef, ptr noundef) #1
+declare void @ReceiveSharedInvalidMessages(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PostPrepare_Inval() #0 {
@@ -596,62 +625,66 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
+  store ptr null, ptr @inplaceInvalInfo, align 8
   %4 = load ptr, ptr @transInvalInfo, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  br label %33
+  br label %36
 
 7:                                                ; preds = %1
-  %8 = load i8, ptr %2, align 1
+  %8 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %29
+  br i1 %9, label %10, label %32
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @transInvalInfo, align 8
-  %12 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %11, i32 0, i32 4
-  %13 = load i8, ptr %12, align 4
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %16
+  %12 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %12, i32 0, i32 1
+  %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %10
+16:                                               ; preds = %10
   call void @RelationCacheInitFilePreInvalidate()
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %10
-  %17 = load ptr, ptr @transInvalInfo, align 8
-  %18 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %17, i32 0, i32 3
-  %19 = load ptr, ptr @transInvalInfo, align 8
-  %20 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %19, i32 0, i32 2
-  call void @AppendInvalidationMessages(ptr noundef %18, ptr noundef %20)
-  %21 = load ptr, ptr @transInvalInfo, align 8
-  %22 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %21, i32 0, i32 3
-  call void @ProcessInvalidationMessagesMulti(ptr noundef %22, ptr noundef @SendSharedInvalidMessages)
+17:                                               ; preds = %16, %10
+  %18 = load ptr, ptr @transInvalInfo, align 8
+  %19 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr @transInvalInfo, align 8
+  %21 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %21, i32 0, i32 0
+  call void @AppendInvalidationMessages(ptr noundef %19, ptr noundef %22)
   %23 = load ptr, ptr @transInvalInfo, align 8
-  %24 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %23, i32 0, i32 4
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %28
+  %24 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %23, i32 0, i32 1
+  call void @ProcessInvalidationMessagesMulti(ptr noundef %24, ptr noundef @SendSharedInvalidMessages)
+  %25 = load ptr, ptr @transInvalInfo, align 8
+  %26 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %26, i32 0, i32 1
+  %28 = load i8, ptr %27, align 8, !range !4, !noundef !5
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %31
 
-27:                                               ; preds = %16
+30:                                               ; preds = %17
   call void @RelationCacheInitFilePostInvalidate()
-  br label %28
+  br label %31
 
-28:                                               ; preds = %27, %16
-  br label %32
+31:                                               ; preds = %30, %17
+  br label %35
 
-29:                                               ; preds = %7
-  %30 = load ptr, ptr @transInvalInfo, align 8
-  %31 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %30, i32 0, i32 3
-  call void @ProcessInvalidationMessages(ptr noundef %31, ptr noundef @LocalExecuteInvalidationMessage)
-  br label %32
+32:                                               ; preds = %7
+  %33 = load ptr, ptr @transInvalInfo, align 8
+  %34 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %33, i32 0, i32 1
+  call void @ProcessInvalidationMessages(ptr noundef %34, ptr noundef @LocalExecuteInvalidationMessage)
+  br label %35
 
-32:                                               ; preds = %29, %28
+35:                                               ; preds = %32, %31
   store ptr null, ptr @transInvalInfo, align 8
-  br label %33
+  br label %36
 
-33:                                               ; preds = %32, %6
+36:                                               ; preds = %35, %6
   ret void
 }
 
@@ -664,296 +697,538 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef %0, ptr n
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %17 = load ptr, ptr @transInvalInfo, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %18 = load ptr, ptr @transInvalInfo, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  store i8 0, ptr %20, align 1
-  %21 = load ptr, ptr %4, align 8
-  store ptr null, ptr %21, align 8
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8
+  store i8 0, ptr %21, align 1
+  %22 = load ptr, ptr %4, align 8
+  store ptr null, ptr %22, align 8
   store i32 0, ptr %3, align 4
-  br label %229
+  store i32 1, ptr %9, align 4
+  br label %243
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr @transInvalInfo, align 8
-  %24 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %23, i32 0, i32 4
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
-  %27 = load ptr, ptr %5, align 8
-  %28 = zext i1 %26 to i8
-  store i8 %28, ptr %27, align 1
-  %29 = load ptr, ptr @transInvalInfo, align 8
-  %30 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %29, i32 0, i32 3
-  %31 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %30, i32 0, i32 1
-  %32 = getelementptr [2 x i32], ptr %31, i64 0, i64 0
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr @transInvalInfo, align 8
-  %35 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %34, i32 0, i32 3
-  %36 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %35, i32 0, i32 0
-  %37 = getelementptr [2 x i32], ptr %36, i64 0, i64 0
-  %38 = load i32, ptr %37, align 4
-  %39 = sub i32 %33, %38
-  %40 = load ptr, ptr @transInvalInfo, align 8
-  %41 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %41, i32 0, i32 1
-  %43 = getelementptr [2 x i32], ptr %42, i64 0, i64 1
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr @transInvalInfo, align 8
-  %46 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %46, i32 0, i32 0
-  %48 = getelementptr [2 x i32], ptr %47, i64 0, i64 1
-  %49 = load i32, ptr %48, align 4
-  %50 = sub i32 %44, %49
-  %51 = add i32 %39, %50
-  %52 = load ptr, ptr @transInvalInfo, align 8
-  %53 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %52, i32 0, i32 2
-  %54 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %53, i32 0, i32 1
-  %55 = getelementptr [2 x i32], ptr %54, i64 0, i64 0
-  %56 = load i32, ptr %55, align 4
-  %57 = load ptr, ptr @transInvalInfo, align 8
-  %58 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %57, i32 0, i32 2
-  %59 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %58, i32 0, i32 0
-  %60 = getelementptr [2 x i32], ptr %59, i64 0, i64 0
-  %61 = load i32, ptr %60, align 4
-  %62 = sub i32 %56, %61
-  %63 = load ptr, ptr @transInvalInfo, align 8
-  %64 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %63, i32 0, i32 2
-  %65 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %64, i32 0, i32 1
-  %66 = getelementptr [2 x i32], ptr %65, i64 0, i64 1
-  %67 = load i32, ptr %66, align 4
-  %68 = load ptr, ptr @transInvalInfo, align 8
-  %69 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %68, i32 0, i32 2
-  %70 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %69, i32 0, i32 0
-  %71 = getelementptr [2 x i32], ptr %70, i64 0, i64 1
+23:                                               ; preds = %2
+  %24 = load ptr, ptr @transInvalInfo, align 8
+  %25 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %25, i32 0, i32 1
+  %27 = load i8, ptr %26, align 8, !range !4, !noundef !5
+  %28 = trunc i8 %27 to i1
+  %29 = load ptr, ptr %5, align 8
+  %30 = zext i1 %28 to i8
+  store i8 %30, ptr %29, align 1
+  %31 = load ptr, ptr @transInvalInfo, align 8
+  %32 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 0
+  %35 = load i32, ptr %34, align 4
+  %36 = load ptr, ptr @transInvalInfo, align 8
+  %37 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %36, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds [2 x i32], ptr %38, i64 0, i64 0
+  %40 = load i32, ptr %39, align 4
+  %41 = sub i32 %35, %40
+  %42 = load ptr, ptr @transInvalInfo, align 8
+  %43 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds [2 x i32], ptr %44, i64 0, i64 1
+  %46 = load i32, ptr %45, align 4
+  %47 = load ptr, ptr @transInvalInfo, align 8
+  %48 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds [2 x i32], ptr %49, i64 0, i64 1
+  %51 = load i32, ptr %50, align 4
+  %52 = sub i32 %46, %51
+  %53 = add i32 %41, %52
+  %54 = load ptr, ptr @transInvalInfo, align 8
+  %55 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds [2 x i32], ptr %57, i64 0, i64 0
+  %59 = load i32, ptr %58, align 8
+  %60 = load ptr, ptr @transInvalInfo, align 8
+  %61 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds [2 x i32], ptr %63, i64 0, i64 0
+  %65 = load i32, ptr %64, align 8
+  %66 = sub i32 %59, %65
+  %67 = load ptr, ptr @transInvalInfo, align 8
+  %68 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds [2 x i32], ptr %70, i64 0, i64 1
   %72 = load i32, ptr %71, align 4
-  %73 = sub i32 %67, %72
-  %74 = add i32 %62, %73
-  %75 = add i32 %51, %74
-  store i32 %75, ptr %7, align 4
-  %76 = load ptr, ptr @CurTransactionContext, align 8
-  %77 = load i32, ptr %7, align 4
-  %78 = sext i32 %77 to i64
-  %79 = mul i64 %78, 16
-  %80 = call ptr @MemoryContextAlloc(ptr noundef %76, i64 noundef %79)
-  store ptr %80, ptr %6, align 8
-  %81 = load ptr, ptr %4, align 8
-  store ptr %80, ptr %81, align 8
+  %73 = load ptr, ptr @transInvalInfo, align 8
+  %74 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %74, i32 0, i32 0
+  %76 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %75, i32 0, i32 0
+  %77 = getelementptr inbounds [2 x i32], ptr %76, i64 0, i64 1
+  %78 = load i32, ptr %77, align 4
+  %79 = sub i32 %72, %78
+  %80 = add i32 %66, %79
+  %81 = add i32 %53, %80
+  store i32 %81, ptr %7, align 4
+  %82 = load ptr, ptr @CurTransactionContext, align 8
+  %83 = load i32, ptr %7, align 4
+  %84 = sext i32 %83 to i64
+  %85 = mul i64 %84, 16
+  %86 = call ptr @MemoryContextAlloc(ptr noundef %82, i64 noundef %85)
+  store ptr %86, ptr %6, align 8
+  %87 = load ptr, ptr %4, align 8
+  store ptr %86, ptr %87, align 8
   store i32 0, ptr %8, align 4
-  br label %82
+  br label %88
 
-82:                                               ; preds = %22
-  %83 = load ptr, ptr @transInvalInfo, align 8
-  %84 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %83, i32 0, i32 3
-  %85 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %84, i32 0, i32 1
-  %86 = getelementptr [2 x i32], ptr %85, i64 0, i64 0
-  %87 = load i32, ptr %86, align 4
-  %88 = load ptr, ptr @transInvalInfo, align 8
-  %89 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %88, i32 0, i32 3
-  %90 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %89, i32 0, i32 0
-  %91 = getelementptr [2 x i32], ptr %90, i64 0, i64 0
-  %92 = load i32, ptr %91, align 4
-  %93 = sub i32 %87, %92
-  store i32 %93, ptr %9, align 4
-  %94 = load i32, ptr %9, align 4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %96, label %116
+88:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %89 = load ptr, ptr @transInvalInfo, align 8
+  %90 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %89, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %90, i32 0, i32 1
+  %92 = getelementptr inbounds [2 x i32], ptr %91, i64 0, i64 0
+  %93 = load i32, ptr %92, align 4
+  %94 = load ptr, ptr @transInvalInfo, align 8
+  %95 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %94, i32 0, i32 1
+  %96 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds [2 x i32], ptr %96, i64 0, i64 0
+  %98 = load i32, ptr %97, align 4
+  %99 = sub i32 %93, %98
+  store i32 %99, ptr %10, align 4
+  %100 = load i32, ptr %10, align 4
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %102, label %122
 
-96:                                               ; preds = %82
-  %97 = load ptr, ptr @InvalMessageArrays, align 16
-  %98 = load ptr, ptr @transInvalInfo, align 8
-  %99 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %98, i32 0, i32 3
-  %100 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %99, i32 0, i32 0
-  %101 = getelementptr [2 x i32], ptr %100, i64 0, i64 0
-  %102 = load i32, ptr %101, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr %union.SharedInvalidationMessage, ptr %97, i64 %103
-  store ptr %104, ptr %10, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %8, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr %union.SharedInvalidationMessage, ptr %105, i64 %107
-  %109 = load ptr, ptr %10, align 8
-  %110 = load i32, ptr %9, align 4
-  %111 = sext i32 %110 to i64
-  %112 = mul i64 %111, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %108, ptr align 4 %109, i64 %112, i1 false)
-  %113 = load i32, ptr %9, align 4
-  %114 = load i32, ptr %8, align 4
-  %115 = add i32 %114, %113
-  store i32 %115, ptr %8, align 4
-  br label %116
+102:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %103 = load ptr, ptr @InvalMessageArrays, align 16
+  %104 = load ptr, ptr @transInvalInfo, align 8
+  %105 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %105, i32 0, i32 0
+  %107 = getelementptr inbounds [2 x i32], ptr %106, i64 0, i64 0
+  %108 = load i32, ptr %107, align 4
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %103, i64 %109
+  store ptr %110, ptr %11, align 8
+  %111 = load ptr, ptr %6, align 8
+  %112 = load i32, ptr %8, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %111, i64 %113
+  %115 = load ptr, ptr %11, align 8
+  %116 = load i32, ptr %10, align 4
+  %117 = sext i32 %116 to i64
+  %118 = mul i64 %117, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %114, ptr align 4 %115, i64 %118, i1 false)
+  %119 = load i32, ptr %10, align 4
+  %120 = load i32, ptr %8, align 4
+  %121 = add i32 %120, %119
+  store i32 %121, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %122
 
-116:                                              ; preds = %96, %82
-  br label %117
+122:                                              ; preds = %102, %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  br label %123
 
-117:                                              ; preds = %116
-  br label %118
+123:                                              ; preds = %122
+  br label %124
 
-118:                                              ; preds = %117
-  %119 = load ptr, ptr @transInvalInfo, align 8
-  %120 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %119, i32 0, i32 2
-  %121 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %120, i32 0, i32 1
-  %122 = getelementptr [2 x i32], ptr %121, i64 0, i64 0
-  %123 = load i32, ptr %122, align 4
-  %124 = load ptr, ptr @transInvalInfo, align 8
-  %125 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %124, i32 0, i32 2
-  %126 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %125, i32 0, i32 0
-  %127 = getelementptr [2 x i32], ptr %126, i64 0, i64 0
-  %128 = load i32, ptr %127, align 4
-  %129 = sub i32 %123, %128
-  store i32 %129, ptr %11, align 4
-  %130 = load i32, ptr %11, align 4
-  %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %132, label %152
+124:                                              ; preds = %123
+  br label %125
 
-132:                                              ; preds = %118
-  %133 = load ptr, ptr @InvalMessageArrays, align 16
-  %134 = load ptr, ptr @transInvalInfo, align 8
-  %135 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %134, i32 0, i32 2
-  %136 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %135, i32 0, i32 0
-  %137 = getelementptr [2 x i32], ptr %136, i64 0, i64 0
-  %138 = load i32, ptr %137, align 4
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr %union.SharedInvalidationMessage, ptr %133, i64 %139
-  store ptr %140, ptr %12, align 8
-  %141 = load ptr, ptr %6, align 8
-  %142 = load i32, ptr %8, align 4
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr %union.SharedInvalidationMessage, ptr %141, i64 %143
-  %145 = load ptr, ptr %12, align 8
-  %146 = load i32, ptr %11, align 4
-  %147 = sext i32 %146 to i64
-  %148 = mul i64 %147, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %144, ptr align 4 %145, i64 %148, i1 false)
-  %149 = load i32, ptr %11, align 4
-  %150 = load i32, ptr %8, align 4
-  %151 = add i32 %150, %149
-  store i32 %151, ptr %8, align 4
-  br label %152
+125:                                              ; preds = %124
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %126 = load ptr, ptr @transInvalInfo, align 8
+  %127 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %126, i32 0, i32 0
+  %128 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %127, i32 0, i32 0
+  %129 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %128, i32 0, i32 1
+  %130 = getelementptr inbounds [2 x i32], ptr %129, i64 0, i64 0
+  %131 = load i32, ptr %130, align 8
+  %132 = load ptr, ptr @transInvalInfo, align 8
+  %133 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %132, i32 0, i32 0
+  %134 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %134, i32 0, i32 0
+  %136 = getelementptr inbounds [2 x i32], ptr %135, i64 0, i64 0
+  %137 = load i32, ptr %136, align 8
+  %138 = sub i32 %131, %137
+  store i32 %138, ptr %12, align 4
+  %139 = load i32, ptr %12, align 4
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %141, label %162
 
-152:                                              ; preds = %132, %118
-  br label %153
+141:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %142 = load ptr, ptr @InvalMessageArrays, align 16
+  %143 = load ptr, ptr @transInvalInfo, align 8
+  %144 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %143, i32 0, i32 0
+  %145 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %144, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %145, i32 0, i32 0
+  %147 = getelementptr inbounds [2 x i32], ptr %146, i64 0, i64 0
+  %148 = load i32, ptr %147, align 8
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %142, i64 %149
+  store ptr %150, ptr %13, align 8
+  %151 = load ptr, ptr %6, align 8
+  %152 = load i32, ptr %8, align 4
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %151, i64 %153
+  %155 = load ptr, ptr %13, align 8
+  %156 = load i32, ptr %12, align 4
+  %157 = sext i32 %156 to i64
+  %158 = mul i64 %157, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %154, ptr align 4 %155, i64 %158, i1 false)
+  %159 = load i32, ptr %12, align 4
+  %160 = load i32, ptr %8, align 4
+  %161 = add i32 %160, %159
+  store i32 %161, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %162
 
-153:                                              ; preds = %152
-  br label %154
+162:                                              ; preds = %141, %125
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  br label %163
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr @transInvalInfo, align 8
-  %156 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %155, i32 0, i32 3
-  %157 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %156, i32 0, i32 1
-  %158 = getelementptr [2 x i32], ptr %157, i64 0, i64 1
-  %159 = load i32, ptr %158, align 4
-  %160 = load ptr, ptr @transInvalInfo, align 8
-  %161 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %160, i32 0, i32 3
-  %162 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %161, i32 0, i32 0
-  %163 = getelementptr [2 x i32], ptr %162, i64 0, i64 1
-  %164 = load i32, ptr %163, align 4
-  %165 = sub i32 %159, %164
-  store i32 %165, ptr %13, align 4
-  %166 = load i32, ptr %13, align 4
-  %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %189
+163:                                              ; preds = %162
+  br label %164
 
-168:                                              ; preds = %154
-  %169 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %170 = load ptr, ptr %169, align 16
+164:                                              ; preds = %163
+  br label %165
+
+165:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %166 = load ptr, ptr @transInvalInfo, align 8
+  %167 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %166, i32 0, i32 1
+  %168 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %167, i32 0, i32 1
+  %169 = getelementptr inbounds [2 x i32], ptr %168, i64 0, i64 1
+  %170 = load i32, ptr %169, align 4
   %171 = load ptr, ptr @transInvalInfo, align 8
-  %172 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %171, i32 0, i32 3
-  %173 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %172, i32 0, i32 0
-  %174 = getelementptr [2 x i32], ptr %173, i64 0, i64 1
+  %172 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %171, i32 0, i32 1
+  %173 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %172, i32 0, i32 0
+  %174 = getelementptr inbounds [2 x i32], ptr %173, i64 0, i64 1
   %175 = load i32, ptr %174, align 4
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr %union.SharedInvalidationMessage, ptr %170, i64 %176
-  store ptr %177, ptr %14, align 8
-  %178 = load ptr, ptr %6, align 8
-  %179 = load i32, ptr %8, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr %union.SharedInvalidationMessage, ptr %178, i64 %180
-  %182 = load ptr, ptr %14, align 8
-  %183 = load i32, ptr %13, align 4
-  %184 = sext i32 %183 to i64
-  %185 = mul i64 %184, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %181, ptr align 4 %182, i64 %185, i1 false)
-  %186 = load i32, ptr %13, align 4
-  %187 = load i32, ptr %8, align 4
-  %188 = add i32 %187, %186
-  store i32 %188, ptr %8, align 4
-  br label %189
+  %176 = sub i32 %170, %175
+  store i32 %176, ptr %14, align 4
+  %177 = load i32, ptr %14, align 4
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %179, label %199
 
-189:                                              ; preds = %168, %154
-  br label %190
+179:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %180 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %181 = load ptr, ptr @transInvalInfo, align 8
+  %182 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %181, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %182, i32 0, i32 0
+  %184 = getelementptr inbounds [2 x i32], ptr %183, i64 0, i64 1
+  %185 = load i32, ptr %184, align 4
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %180, i64 %186
+  store ptr %187, ptr %15, align 8
+  %188 = load ptr, ptr %6, align 8
+  %189 = load i32, ptr %8, align 4
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %188, i64 %190
+  %192 = load ptr, ptr %15, align 8
+  %193 = load i32, ptr %14, align 4
+  %194 = sext i32 %193 to i64
+  %195 = mul i64 %194, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %191, ptr align 4 %192, i64 %195, i1 false)
+  %196 = load i32, ptr %14, align 4
+  %197 = load i32, ptr %8, align 4
+  %198 = add i32 %197, %196
+  store i32 %198, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %199
 
-190:                                              ; preds = %189
-  br label %191
+199:                                              ; preds = %179, %165
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  br label %200
 
-191:                                              ; preds = %190
-  %192 = load ptr, ptr @transInvalInfo, align 8
-  %193 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %192, i32 0, i32 2
-  %194 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %193, i32 0, i32 1
-  %195 = getelementptr [2 x i32], ptr %194, i64 0, i64 1
-  %196 = load i32, ptr %195, align 4
-  %197 = load ptr, ptr @transInvalInfo, align 8
-  %198 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %197, i32 0, i32 2
-  %199 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %198, i32 0, i32 0
-  %200 = getelementptr [2 x i32], ptr %199, i64 0, i64 1
-  %201 = load i32, ptr %200, align 4
-  %202 = sub i32 %196, %201
-  store i32 %202, ptr %15, align 4
-  %203 = load i32, ptr %15, align 4
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %205, label %226
+200:                                              ; preds = %199
+  br label %201
 
-205:                                              ; preds = %191
-  %206 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %207 = load ptr, ptr %206, align 16
-  %208 = load ptr, ptr @transInvalInfo, align 8
-  %209 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %208, i32 0, i32 2
-  %210 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %209, i32 0, i32 0
-  %211 = getelementptr [2 x i32], ptr %210, i64 0, i64 1
-  %212 = load i32, ptr %211, align 4
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr %union.SharedInvalidationMessage, ptr %207, i64 %213
-  store ptr %214, ptr %16, align 8
-  %215 = load ptr, ptr %6, align 8
-  %216 = load i32, ptr %8, align 4
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr %union.SharedInvalidationMessage, ptr %215, i64 %217
-  %219 = load ptr, ptr %16, align 8
-  %220 = load i32, ptr %15, align 4
-  %221 = sext i32 %220 to i64
-  %222 = mul i64 %221, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %218, ptr align 4 %219, i64 %222, i1 false)
-  %223 = load i32, ptr %15, align 4
-  %224 = load i32, ptr %8, align 4
-  %225 = add i32 %224, %223
-  store i32 %225, ptr %8, align 4
-  br label %226
+201:                                              ; preds = %200
+  br label %202
 
-226:                                              ; preds = %205, %191
-  br label %227
+202:                                              ; preds = %201
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %203 = load ptr, ptr @transInvalInfo, align 8
+  %204 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %203, i32 0, i32 0
+  %205 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %204, i32 0, i32 0
+  %206 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %205, i32 0, i32 1
+  %207 = getelementptr inbounds [2 x i32], ptr %206, i64 0, i64 1
+  %208 = load i32, ptr %207, align 4
+  %209 = load ptr, ptr @transInvalInfo, align 8
+  %210 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %209, i32 0, i32 0
+  %211 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %211, i32 0, i32 0
+  %213 = getelementptr inbounds [2 x i32], ptr %212, i64 0, i64 1
+  %214 = load i32, ptr %213, align 4
+  %215 = sub i32 %208, %214
+  store i32 %215, ptr %16, align 4
+  %216 = load i32, ptr %16, align 4
+  %217 = icmp sgt i32 %216, 0
+  br i1 %217, label %218, label %239
 
-227:                                              ; preds = %226
-  %228 = load i32, ptr %8, align 4
-  store i32 %228, ptr %3, align 4
-  br label %229
+218:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %219 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %220 = load ptr, ptr @transInvalInfo, align 8
+  %221 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %220, i32 0, i32 0
+  %222 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %221, i32 0, i32 0
+  %223 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %222, i32 0, i32 0
+  %224 = getelementptr inbounds [2 x i32], ptr %223, i64 0, i64 1
+  %225 = load i32, ptr %224, align 4
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %219, i64 %226
+  store ptr %227, ptr %17, align 8
+  %228 = load ptr, ptr %6, align 8
+  %229 = load i32, ptr %8, align 4
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %228, i64 %230
+  %232 = load ptr, ptr %17, align 8
+  %233 = load i32, ptr %16, align 4
+  %234 = sext i32 %233 to i64
+  %235 = mul i64 %234, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %231, ptr align 4 %232, i64 %235, i1 false)
+  %236 = load i32, ptr %16, align 4
+  %237 = load i32, ptr %8, align 4
+  %238 = add i32 %237, %236
+  store i32 %238, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %239
 
-229:                                              ; preds = %227, %19
-  %230 = load i32, ptr %3, align 4
-  ret i32 %230
+239:                                              ; preds = %218, %202
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  br label %240
+
+240:                                              ; preds = %239
+  br label %241
+
+241:                                              ; preds = %240
+  %242 = load i32, ptr %8, align 4
+  store i32 %242, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %243
+
+243:                                              ; preds = %241, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %244 = load i32, ptr %3, align 4
+  ret i32 %244
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) #1
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @inplaceGetInvalidationMessages(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %14 = load ptr, ptr @inplaceInvalInfo, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8
+  store i8 0, ptr %17, align 1
+  %18 = load ptr, ptr %4, align 8
+  store ptr null, ptr %18, align 8
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %129
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr @inplaceInvalInfo, align 8
+  %21 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %20, i32 0, i32 1
+  %22 = load i8, ptr %21, align 4, !range !4, !noundef !5
+  %23 = trunc i8 %22 to i1
+  %24 = load ptr, ptr %5, align 8
+  %25 = zext i1 %23 to i8
+  store i8 %25, ptr %24, align 1
+  %26 = load ptr, ptr @inplaceInvalInfo, align 8
+  %27 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 0
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr @inplaceInvalInfo, align 8
+  %32 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 0
+  %35 = load i32, ptr %34, align 4
+  %36 = sub i32 %30, %35
+  %37 = load ptr, ptr @inplaceInvalInfo, align 8
+  %38 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %38, i32 0, i32 1
+  %40 = getelementptr inbounds [2 x i32], ptr %39, i64 0, i64 1
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr @inplaceInvalInfo, align 8
+  %43 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds [2 x i32], ptr %44, i64 0, i64 1
+  %46 = load i32, ptr %45, align 4
+  %47 = sub i32 %41, %46
+  %48 = add i32 %36, %47
+  store i32 %48, ptr %7, align 4
+  %49 = load i32, ptr %7, align 4
+  %50 = sext i32 %49 to i64
+  %51 = mul i64 %50, 16
+  %52 = call ptr @palloc(i64 noundef %51)
+  store ptr %52, ptr %6, align 8
+  %53 = load ptr, ptr %4, align 8
+  store ptr %52, ptr %53, align 8
+  store i32 0, ptr %8, align 4
+  br label %54
+
+54:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %55 = load ptr, ptr @inplaceInvalInfo, align 8
+  %56 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds [2 x i32], ptr %57, i64 0, i64 0
+  %59 = load i32, ptr %58, align 4
+  %60 = load ptr, ptr @inplaceInvalInfo, align 8
+  %61 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds [2 x i32], ptr %62, i64 0, i64 0
+  %64 = load i32, ptr %63, align 4
+  %65 = sub i32 %59, %64
+  store i32 %65, ptr %10, align 4
+  %66 = load i32, ptr %10, align 4
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %68, label %88
+
+68:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %69 = load ptr, ptr @InvalMessageArrays, align 16
+  %70 = load ptr, ptr @inplaceInvalInfo, align 8
+  %71 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %70, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds [2 x i32], ptr %72, i64 0, i64 0
+  %74 = load i32, ptr %73, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %69, i64 %75
+  store ptr %76, ptr %11, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %77, i64 %79
+  %81 = load ptr, ptr %11, align 8
+  %82 = load i32, ptr %10, align 4
+  %83 = sext i32 %82 to i64
+  %84 = mul i64 %83, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %80, ptr align 4 %81, i64 %84, i1 false)
+  %85 = load i32, ptr %10, align 4
+  %86 = load i32, ptr %8, align 4
+  %87 = add i32 %86, %85
+  store i32 %87, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %88
+
+88:                                               ; preds = %68, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  br label %89
+
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %92 = load ptr, ptr @inplaceInvalInfo, align 8
+  %93 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %92, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %93, i32 0, i32 1
+  %95 = getelementptr inbounds [2 x i32], ptr %94, i64 0, i64 1
+  %96 = load i32, ptr %95, align 4
+  %97 = load ptr, ptr @inplaceInvalInfo, align 8
+  %98 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %98, i32 0, i32 0
+  %100 = getelementptr inbounds [2 x i32], ptr %99, i64 0, i64 1
+  %101 = load i32, ptr %100, align 4
+  %102 = sub i32 %96, %101
+  store i32 %102, ptr %12, align 4
+  %103 = load i32, ptr %12, align 4
+  %104 = icmp sgt i32 %103, 0
+  br i1 %104, label %105, label %125
+
+105:                                              ; preds = %91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %106 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %107 = load ptr, ptr @inplaceInvalInfo, align 8
+  %108 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %108, i32 0, i32 0
+  %110 = getelementptr inbounds [2 x i32], ptr %109, i64 0, i64 1
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %106, i64 %112
+  store ptr %113, ptr %13, align 8
+  %114 = load ptr, ptr %6, align 8
+  %115 = load i32, ptr %8, align 4
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %114, i64 %116
+  %118 = load ptr, ptr %13, align 8
+  %119 = load i32, ptr %12, align 4
+  %120 = sext i32 %119 to i64
+  %121 = mul i64 %120, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 4 %118, i64 %121, i1 false)
+  %122 = load i32, ptr %12, align 4
+  %123 = load i32, ptr %8, align 4
+  %124 = add i32 %123, %122
+  store i32 %124, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %125
+
+125:                                              ; preds = %105, %91
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  br label %126
+
+126:                                              ; preds = %125
+  br label %127
+
+127:                                              ; preds = %126
+  %128 = load i32, ptr %8, align 4
+  store i32 %128, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %129
+
+129:                                              ; preds = %127, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %130 = load i32, ptr %3, align 4
+  ret i32 %130
+}
+
+declare ptr @palloc(i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) #0 {
@@ -982,7 +1257,7 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   br i1 false, label %17, label %19
 
 17:                                               ; preds = %16
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 11, ptr noundef null) #5
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 11, ptr noundef null) #8
   br i1 %18, label %21, label %27
 
 19:                                               ; preds = %16
@@ -991,18 +1266,18 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
 
 21:                                               ; preds = %19, %17
   %22 = load i32, ptr %7, align 4
-  %23 = load i8, ptr %8, align 1
+  %23 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %24 = trunc i8 %23 to i1
   %25 = select i1 %24, ptr @.str.3, ptr @.str.4
   %26 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2, i32 noundef %22, ptr noundef %25)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 970, ptr noundef @__func__.ProcessCommittedInvalidationMessages)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1071, ptr noundef @__func__.ProcessCommittedInvalidationMessages)
   br label %27
 
 27:                                               ; preds = %21, %19, %17
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load i8, ptr %8, align 1
+  %29 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %54
 
@@ -1013,7 +1288,7 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   br i1 false, label %33, label %35
 
 33:                                               ; preds = %32
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 11, ptr noundef null) #5
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 11, ptr noundef null) #8
   br i1 %34, label %37, label %40
 
 35:                                               ; preds = %32
@@ -1023,7 +1298,7 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
 37:                                               ; preds = %35, %33
   %38 = load i32, ptr %9, align 4
   %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i32 noundef %38)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 974, ptr noundef @__func__.ProcessCommittedInvalidationMessages)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1075, ptr noundef @__func__.ProcessCommittedInvalidationMessages)
   br label %40
 
 40:                                               ; preds = %37, %35, %33
@@ -1060,7 +1335,7 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   %55 = load ptr, ptr %6, align 8
   %56 = load i32, ptr %7, align 4
   call void @SendSharedInvalidMessages(ptr noundef %55, i32 noundef %56)
-  %57 = load i8, ptr %8, align 1
+  %57 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %60
 
@@ -1068,19 +1343,19 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   call void @RelationCacheInitFilePostInvalidate()
   br label %60
 
-60:                                               ; preds = %59, %54, %14
+60:                                               ; preds = %14, %59, %54
   ret void
 }
 
-declare ptr @GetDatabasePath(i32 noundef, i32 noundef) #1
+declare ptr @GetDatabasePath(i32 noundef, i32 noundef) #2
 
-declare void @RelationCacheInitFilePreInvalidate() #1
+declare void @RelationCacheInitFilePreInvalidate() #2
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
-declare void @SendSharedInvalidMessages(ptr noundef, i32 noundef) #1
+declare void @SendSharedInvalidMessages(ptr noundef, i32 noundef) #2
 
-declare void @RelationCacheInitFilePostInvalidate() #1
+declare void @RelationCacheInitFilePostInvalidate() #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @AppendInvalidationMessages(ptr noundef %0, ptr noundef %1) #0 {
@@ -1110,13 +1385,14 @@ define internal void @ProcessInvalidationMessagesMulti(ptr noundef %0, ptr nound
   br label %9
 
 9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %10, i32 0, i32 1
-  %12 = getelementptr [2 x i32], ptr %11, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %10, i32 0, i32 1
+  %12 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
   %13 = load i32, ptr %12, align 4
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %14, i32 0, i32 0
-  %16 = getelementptr [2 x i32], ptr %15, i64 0, i64 0
+  %15 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [2 x i32], ptr %15, i64 0, i64 0
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %13, %17
   store i32 %18, ptr %5, align 4
@@ -1125,61 +1401,67 @@ define internal void @ProcessInvalidationMessagesMulti(ptr noundef %0, ptr nound
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %22 = load ptr, ptr @InvalMessageArrays, align 16
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %23, i32 0, i32 0
-  %25 = getelementptr [2 x i32], ptr %24, i64 0, i64 0
+  %24 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [2 x i32], ptr %24, i64 0, i64 0
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %union.SharedInvalidationMessage, ptr %22, i64 %27
+  %28 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %22, i64 %27
   store ptr %28, ptr %6, align 8
   %29 = load ptr, ptr %4, align 8
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %5, align 4
   call void %29(ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
   br label %32
 
 32:                                               ; preds = %21, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   br label %33
 
 33:                                               ; preds = %32
   br label %34
 
 34:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %35, i32 0, i32 1
-  %37 = getelementptr [2 x i32], ptr %36, i64 0, i64 1
+  %36 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds [2 x i32], ptr %36, i64 0, i64 1
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %39, i32 0, i32 0
-  %41 = getelementptr [2 x i32], ptr %40, i64 0, i64 1
+  %40 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds [2 x i32], ptr %40, i64 0, i64 1
   %42 = load i32, ptr %41, align 4
   %43 = sub i32 %38, %42
   store i32 %43, ptr %7, align 4
   %44 = load i32, ptr %7, align 4
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %58
+  br i1 %45, label %46, label %57
 
 46:                                               ; preds = %34
-  %47 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %48 = load ptr, ptr %47, align 16
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %49, i32 0, i32 0
-  %51 = getelementptr [2 x i32], ptr %50, i64 0, i64 1
-  %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %union.SharedInvalidationMessage, ptr %48, i64 %53
-  store ptr %54, ptr %8, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load i32, ptr %7, align 4
-  call void %55(ptr noundef %56, i32 noundef %57)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %47 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds [2 x i32], ptr %49, i64 0, i64 1
+  %51 = load i32, ptr %50, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %47, i64 %52
+  store ptr %53, ptr %8, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %8, align 8
+  %56 = load i32, ptr %7, align 4
+  call void %54(ptr noundef %55, i32 noundef %56)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %57
+
+57:                                               ; preds = %46, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   br label %58
 
-58:                                               ; preds = %46, %34
-  br label %59
-
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   ret void
 }
 
@@ -1198,14 +1480,16 @@ define internal void @ProcessInvalidationMessages(ptr noundef %0, ptr noundef %1
   br label %11
 
 11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %12, i32 0, i32 0
-  %14 = getelementptr [2 x i32], ptr %13, i64 0, i64 0
+  %13 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds [2 x i32], ptr %13, i64 0, i64 0
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %16, i32 0, i32 1
-  %18 = getelementptr [2 x i32], ptr %17, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 0
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %6, align 4
   br label %20
@@ -1217,69 +1501,136 @@ define internal void @ProcessInvalidationMessages(ptr noundef %0, ptr noundef %1
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %25 = load ptr, ptr @InvalMessageArrays, align 16
   %26 = load i32, ptr %5, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %union.SharedInvalidationMessage, ptr %25, i64 %27
+  %28 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %25, i64 %27
   store ptr %28, ptr %7, align 8
   %29 = load ptr, ptr %4, align 8
   %30 = load ptr, ptr %7, align 8
   call void %29(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   br label %31
 
 31:                                               ; preds = %24
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %5, align 4
-  br label %20, !llvm.loop !10
+  br label %20, !llvm.loop !11
 
 34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   br label %35
 
 35:                                               ; preds = %34
   br label %36
 
 36:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %37, i32 0, i32 0
-  %39 = getelementptr [2 x i32], ptr %38, i64 0, i64 1
+  %38 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds [2 x i32], ptr %38, i64 0, i64 1
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %41, i32 0, i32 1
-  %43 = getelementptr [2 x i32], ptr %42, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 1
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %9, align 4
   br label %45
 
-45:                                               ; preds = %57, %36
+45:                                               ; preds = %56, %36
   %46 = load i32, ptr %8, align 4
   %47 = load i32, ptr %9, align 4
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %60
+  br i1 %48, label %49, label %59
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %51 = load ptr, ptr %50, align 16
-  %52 = load i32, ptr %8, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %union.SharedInvalidationMessage, ptr %51, i64 %53
-  store ptr %54, ptr %10, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = load ptr, ptr %10, align 8
-  call void %55(ptr noundef %56)
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %50 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %51 = load i32, ptr %8, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %50, i64 %52
+  store ptr %53, ptr %10, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %10, align 8
+  call void %54(ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %56
 
-57:                                               ; preds = %49
-  %58 = load i32, ptr %8, align 4
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %8, align 4
-  br label %45, !llvm.loop !11
+56:                                               ; preds = %49
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %8, align 4
+  br label %45, !llvm.loop !12
 
-60:                                               ; preds = %45
-  br label %61
+59:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  br label %60
 
-61:                                               ; preds = %60
+60:                                               ; preds = %59
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @PreInplace_Inval() #0 {
+  %1 = load ptr, ptr @inplaceInvalInfo, align 8
+  %2 = icmp ne ptr %1, null
+  br i1 %2, label %3, label %9
+
+3:                                                ; preds = %0
+  %4 = load ptr, ptr @inplaceInvalInfo, align 8
+  %5 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %4, i32 0, i32 1
+  %6 = load i8, ptr %5, align 4, !range !4, !noundef !5
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %3
+  call void @RelationCacheInitFilePreInvalidate()
+  br label %9
+
+9:                                                ; preds = %8, %3, %0
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @AtInplace_Inval() #0 {
+  %1 = load ptr, ptr @inplaceInvalInfo, align 8
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %3, label %4
+
+3:                                                ; preds = %0
+  br label %13
+
+4:                                                ; preds = %0
+  %5 = load ptr, ptr @inplaceInvalInfo, align 8
+  %6 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %5, i32 0, i32 0
+  call void @ProcessInvalidationMessagesMulti(ptr noundef %6, ptr noundef @SendSharedInvalidMessages)
+  %7 = load ptr, ptr @inplaceInvalInfo, align 8
+  %8 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %7, i32 0, i32 1
+  %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %4
+  call void @RelationCacheInitFilePostInvalidate()
+  br label %12
+
+12:                                               ; preds = %11, %4
+  store ptr null, ptr @inplaceInvalInfo, align 8
+  br label %13
+
+13:                                               ; preds = %12, %3
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @ForgetInplace_Inval() #0 {
+  store ptr null, ptr @inplaceInvalInfo, align 8
   ret void
 }
 
@@ -1288,170 +1639,219 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = zext i1 %0 to i8
-  store i8 %5, ptr %2, align 1
-  %6 = load ptr, ptr @transInvalInfo, align 8
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
+  %5 = alloca i32, align 4
+  %6 = zext i1 %0 to i8
+  store i8 %6, ptr %2, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  br label %112
+  br label %11
 
 10:                                               ; preds = %1
-  %11 = call i32 @GetCurrentTransactionNestLevel()
-  store i32 %11, ptr %3, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = load i32, ptr %3, align 4
-  %16 = icmp ne i32 %14, %15
-  br i1 %16, label %17, label %18
+  store ptr null, ptr @inplaceInvalInfo, align 8
+  br label %11
 
-17:                                               ; preds = %10
-  br label %112
+11:                                               ; preds = %10, %9
+  %12 = load ptr, ptr @transInvalInfo, align 8
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-18:                                               ; preds = %10
-  %19 = load i8, ptr %2, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %105
+15:                                               ; preds = %11
+  store i32 1, ptr %5, align 4
+  br label %128
 
-21:                                               ; preds = %18
+16:                                               ; preds = %11
+  %17 = call i32 @GetCurrentTransactionNestLevel()
+  store i32 %17, ptr %3, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8
+  %21 = load i32, ptr %3, align 4
+  %22 = icmp ne i32 %20, %21
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %16
+  store i32 1, ptr %5, align 4
+  br label %128
+
+24:                                               ; preds = %16
+  %25 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %120
+
+27:                                               ; preds = %24
   call void @CommandEndInvalidationMessages()
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %35, label %26
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %41, label %32
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = load i32, ptr %3, align 4
-  %33 = sub i32 %32, 1
-  %34 = icmp slt i32 %31, %33
-  br i1 %34, label %35, label %40
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %36, align 8
+  %38 = load i32, ptr %3, align 4
+  %39 = sub i32 %38, 1
+  %40 = icmp slt i32 %37, %39
+  br i1 %40, label %41, label %46
 
-35:                                               ; preds = %26, %21
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = add i32 %38, -1
-  store i32 %39, ptr %37, align 8
-  br label %112
+41:                                               ; preds = %32, %27
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, -1
+  store i32 %45, ptr %43, align 8
+  store i32 1, ptr %5, align 4
+  br label %128
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %45, i32 0, i32 3
-  call void @AppendInvalidationMessages(ptr noundef %44, ptr noundef %46)
-  br label %47
+46:                                               ; preds = %32
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %51, i32 0, i32 1
+  call void @AppendInvalidationMessages(ptr noundef %50, ptr noundef %52)
+  br label %53
 
-47:                                               ; preds = %40
-  br label %48
+53:                                               ; preds = %46
+  br label %54
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %51, i32 0, i32 3
-  %53 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %52, i32 0, i32 1
-  %54 = getelementptr [2 x i32], ptr %53, i64 0, i64 0
-  %55 = load i32, ptr %54, align 4
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %58, i32 0, i32 2
-  %60 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %59, i32 0, i32 1
-  %61 = getelementptr [2 x i32], ptr %60, i64 0, i64 0
-  store i32 %55, ptr %61, align 4
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds [2 x i32], ptr %59, i64 0, i64 0
+  %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %62, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %62, i32 0, i32 2
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %64, i32 0, i32 2
-  %66 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %65, i32 0, i32 0
-  %67 = getelementptr [2 x i32], ptr %66, i64 0, i64 0
-  store i32 %55, ptr %67, align 4
-  br label %68
+  %65 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds [2 x i32], ptr %67, i64 0, i64 0
+  store i32 %61, ptr %68, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds [2 x i32], ptr %74, i64 0, i64 0
+  store i32 %61, ptr %75, align 8
+  br label %76
 
-68:                                               ; preds = %48
-  br label %69
+76:                                               ; preds = %54
+  br label %77
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %72, i32 0, i32 3
-  %74 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %73, i32 0, i32 1
-  %75 = getelementptr [2 x i32], ptr %74, i64 0, i64 1
-  %76 = load i32, ptr %75, align 4
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %79, i32 0, i32 2
-  %81 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %80, i32 0, i32 1
-  %82 = getelementptr [2 x i32], ptr %81, i64 0, i64 1
-  store i32 %76, ptr %82, align 4
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %85, i32 0, i32 2
-  %87 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %86, i32 0, i32 0
-  %88 = getelementptr [2 x i32], ptr %87, i64 0, i64 1
-  store i32 %76, ptr %88, align 4
-  br label %89
+77:                                               ; preds = %76
+  br label %78
 
-89:                                               ; preds = %69
-  br label %90
-
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %91, i32 0, i32 4
-  %93 = load i8, ptr %92, align 4
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %100
-
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %98, i32 0, i32 4
-  store i8 1, ptr %99, align 4
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %81, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %82, i32 0, i32 1
+  %84 = getelementptr inbounds [2 x i32], ptr %83, i64 0, i64 1
+  %85 = load i32, ptr %84, align 4
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %89, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %90, i32 0, i32 1
+  %92 = getelementptr inbounds [2 x i32], ptr %91, i64 0, i64 1
+  store i32 %85, ptr %92, align 4
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %96, i32 0, i32 0
+  %98 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds [2 x i32], ptr %98, i64 0, i64 1
+  store i32 %85, ptr %99, align 4
   br label %100
 
-100:                                              ; preds = %95, %90
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr @transInvalInfo, align 8
+100:                                              ; preds = %78
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101
+  br label %103
+
+103:                                              ; preds = %102
   %104 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %104)
-  br label %112
+  %105 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %104, i32 0, i32 0
+  %106 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %105, i32 0, i32 1
+  %107 = load i8, ptr %106, align 8, !range !4, !noundef !5
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %115
 
-105:                                              ; preds = %18
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %106, i32 0, i32 3
-  call void @ProcessInvalidationMessages(ptr noundef %107, ptr noundef @LocalExecuteInvalidationMessage)
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr @transInvalInfo, align 8
-  %111 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %111)
-  br label %112
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %4, align 8
+  %111 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %110, i32 0, i32 2
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %112, i32 0, i32 0
+  %114 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %113, i32 0, i32 1
+  store i8 1, ptr %114, align 8
+  br label %115
 
-112:                                              ; preds = %105, %100, %35, %17, %9
+115:                                              ; preds = %109, %103
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %116, i32 0, i32 2
+  %118 = load ptr, ptr %117, align 8
+  store ptr %118, ptr @transInvalInfo, align 8
+  %119 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %119)
+  br label %127
+
+120:                                              ; preds = %24
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %121, i32 0, i32 1
+  call void @ProcessInvalidationMessages(ptr noundef %122, ptr noundef @LocalExecuteInvalidationMessage)
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %123, i32 0, i32 2
+  %125 = load ptr, ptr %124, align 8
+  store ptr %125, ptr @transInvalInfo, align 8
+  %126 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %126)
+  br label %127
+
+127:                                              ; preds = %120, %115
+  store i32 0, ptr %5, align 4
+  br label %128
+
+128:                                              ; preds = %127, %41, %23, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  %129 = load i32, ptr %5, align 4
+  switch i32 %129, label %131 [
+    i32 0, label %130
+    i32 1, label %130
+  ]
+
+130:                                              ; preds = %128, %128
   ret void
+
+131:                                              ; preds = %128
+  unreachable
 }
 
-declare i32 @GetCurrentTransactionNestLevel() #1
+declare i32 @GetCurrentTransactionNestLevel() #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CommandEndInvalidationMessages() #0 {
@@ -1460,29 +1860,31 @@ define dso_local void @CommandEndInvalidationMessages() #0 {
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %0
-  br label %15
+  br label %17
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @transInvalInfo, align 8
-  %6 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %5, i32 0, i32 2
-  call void @ProcessInvalidationMessages(ptr noundef %6, ptr noundef @LocalExecuteInvalidationMessage)
-  %7 = load i32, ptr @wal_level, align 4
-  %8 = icmp sge i32 %7, 2
-  br i1 %8, label %9, label %10
+  %6 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %6, i32 0, i32 0
+  call void @ProcessInvalidationMessages(ptr noundef %7, ptr noundef @LocalExecuteInvalidationMessage)
+  %8 = load i32, ptr @wal_level, align 4
+  %9 = icmp sge i32 %8, 2
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %4
+10:                                               ; preds = %4
   call void @LogLogicalInvalidations()
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %4
-  %11 = load ptr, ptr @transInvalInfo, align 8
-  %12 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr @transInvalInfo, align 8
-  %14 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %13, i32 0, i32 2
-  call void @AppendInvalidationMessages(ptr noundef %12, ptr noundef %14)
-  br label %15
+11:                                               ; preds = %10, %4
+  %12 = load ptr, ptr @transInvalInfo, align 8
+  %13 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr @transInvalInfo, align 8
+  %15 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %15, i32 0, i32 0
+  call void @AppendInvalidationMessages(ptr noundef %13, ptr noundef %16)
+  br label %17
 
-15:                                               ; preds = %10, %3
+17:                                               ; preds = %11, %3
   ret void
 }
 
@@ -1492,133 +1894,169 @@ define dso_local void @LogLogicalInvalidations() #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = load ptr, ptr @transInvalInfo, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %0
-  br label %94
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %9 = load ptr, ptr @transInvalInfo, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %0
-  %12 = load ptr, ptr @transInvalInfo, align 8
-  %13 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %12, i32 0, i32 2
-  store ptr %13, ptr %2, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %14, i32 0, i32 1
-  %16 = getelementptr [2 x i32], ptr %15, i64 0, i64 0
-  %17 = load i32, ptr %16, align 4
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %18, i32 0, i32 0
-  %20 = getelementptr [2 x i32], ptr %19, i64 0, i64 0
-  %21 = load i32, ptr %20, align 4
-  %22 = sub i32 %17, %21
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %23, i32 0, i32 1
-  %25 = getelementptr [2 x i32], ptr %24, i64 0, i64 1
-  %26 = load i32, ptr %25, align 4
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %27, i32 0, i32 0
-  %29 = getelementptr [2 x i32], ptr %28, i64 0, i64 1
-  %30 = load i32, ptr %29, align 4
-  %31 = sub i32 %26, %30
-  %32 = add i32 %22, %31
-  store i32 %32, ptr %3, align 4
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %94
+  store i32 1, ptr %4, align 4
+  br label %98
 
-35:                                               ; preds = %11
+12:                                               ; preds = %0
+  %13 = load ptr, ptr @transInvalInfo, align 8
+  %14 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %14, i32 0, i32 0
+  store ptr %15, ptr %2, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 0
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [2 x i32], ptr %21, i64 0, i64 0
+  %23 = load i32, ptr %22, align 4
+  %24 = sub i32 %19, %23
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %25, i32 0, i32 1
+  %27 = getelementptr inbounds [2 x i32], ptr %26, i64 0, i64 1
+  %28 = load i32, ptr %27, align 4
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [2 x i32], ptr %30, i64 0, i64 1
+  %32 = load i32, ptr %31, align 4
+  %33 = sub i32 %28, %32
+  %34 = add i32 %24, %33
+  store i32 %34, ptr %3, align 4
+  %35 = load i32, ptr %3, align 4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %97
+
+37:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 4, i1 false)
-  %36 = load i32, ptr %3, align 4
-  %37 = getelementptr inbounds %struct.xl_xact_invals, ptr %1, i32 0, i32 0
-  store i32 %36, ptr %37, align 4
+  %38 = load i32, ptr %3, align 4
+  %39 = getelementptr inbounds nuw %struct.xl_xact_invals, ptr %1, i32 0, i32 0
+  store i32 %38, ptr %39, align 4
   call void @XLogBeginInsert()
   call void @XLogRegisterData(ptr noundef %1, i32 noundef 4)
-  br label %38
+  br label %40
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %39, i32 0, i32 1
-  %41 = getelementptr [2 x i32], ptr %40, i64 0, i64 0
-  %42 = load i32, ptr %41, align 4
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %43, i32 0, i32 0
-  %45 = getelementptr [2 x i32], ptr %44, i64 0, i64 0
-  %46 = load i32, ptr %45, align 4
-  %47 = sub i32 %42, %46
-  store i32 %47, ptr %4, align 4
-  %48 = load i32, ptr %4, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %63
+40:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 0
+  %44 = load i32, ptr %43, align 4
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds [2 x i32], ptr %46, i64 0, i64 0
+  %48 = load i32, ptr %47, align 4
+  %49 = sub i32 %44, %48
+  store i32 %49, ptr %5, align 4
+  %50 = load i32, ptr %5, align 4
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %52, label %65
 
-50:                                               ; preds = %38
-  %51 = load ptr, ptr @InvalMessageArrays, align 16
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %52, i32 0, i32 0
-  %54 = getelementptr [2 x i32], ptr %53, i64 0, i64 0
-  %55 = load i32, ptr %54, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr %union.SharedInvalidationMessage, ptr %51, i64 %56
-  store ptr %57, ptr %5, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i32, ptr %4, align 4
-  %60 = sext i32 %59 to i64
-  %61 = mul i64 %60, 16
-  %62 = trunc i64 %61 to i32
-  call void @XLogRegisterData(ptr noundef %58, i32 noundef %62)
-  br label %63
-
-63:                                               ; preds = %50, %38
-  br label %64
-
-64:                                               ; preds = %63
+52:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %53 = load ptr, ptr @InvalMessageArrays, align 16
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds [2 x i32], ptr %55, i64 0, i64 0
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %53, i64 %58
+  store ptr %59, ptr %6, align 8
+  %60 = load ptr, ptr %6, align 8
+  %61 = load i32, ptr %5, align 4
+  %62 = sext i32 %61 to i64
+  %63 = mul i64 %62, 16
+  %64 = trunc i64 %63 to i32
+  call void @XLogRegisterData(ptr noundef %60, i32 noundef %64)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %66, i32 0, i32 1
-  %68 = getelementptr [2 x i32], ptr %67, i64 0, i64 1
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %70, i32 0, i32 0
-  %72 = getelementptr [2 x i32], ptr %71, i64 0, i64 1
-  %73 = load i32, ptr %72, align 4
-  %74 = sub i32 %69, %73
-  store i32 %74, ptr %6, align 4
-  %75 = load i32, ptr %6, align 4
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %91
+65:                                               ; preds = %52, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  br label %66
 
-77:                                               ; preds = %65
-  %78 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %79 = load ptr, ptr %78, align 16
-  %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %80, i32 0, i32 0
-  %82 = getelementptr [2 x i32], ptr %81, i64 0, i64 1
-  %83 = load i32, ptr %82, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr %union.SharedInvalidationMessage, ptr %79, i64 %84
-  store ptr %85, ptr %7, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %6, align 4
-  %88 = sext i32 %87 to i64
-  %89 = mul i64 %88, 16
-  %90 = trunc i64 %89 to i32
-  call void @XLogRegisterData(ptr noundef %86, i32 noundef %90)
-  br label %91
+66:                                               ; preds = %65
+  br label %67
 
-91:                                               ; preds = %77, %65
-  br label %92
+67:                                               ; preds = %66
+  br label %68
 
-92:                                               ; preds = %91
-  %93 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96)
+68:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds [2 x i32], ptr %70, i64 0, i64 1
+  %72 = load i32, ptr %71, align 4
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds [2 x i32], ptr %74, i64 0, i64 1
+  %76 = load i32, ptr %75, align 4
+  %77 = sub i32 %72, %76
+  store i32 %77, ptr %7, align 4
+  %78 = load i32, ptr %7, align 4
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %80, label %93
+
+80:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %81 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  %82 = load ptr, ptr %2, align 8
+  %83 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds [2 x i32], ptr %83, i64 0, i64 1
+  %85 = load i32, ptr %84, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %81, i64 %86
+  store ptr %87, ptr %8, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %7, align 4
+  %90 = sext i32 %89 to i64
+  %91 = mul i64 %90, 16
+  %92 = trunc i64 %91 to i32
+  call void @XLogRegisterData(ptr noundef %88, i32 noundef %92)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %93
+
+93:                                               ; preds = %80, %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   br label %94
 
-94:                                               ; preds = %92, %11, %10
+94:                                               ; preds = %93
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96)
+  br label %97
+
+97:                                               ; preds = %95, %12
+  store i32 0, ptr %4, align 4
+  br label %98
+
+98:                                               ; preds = %97, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #7
+  %99 = load i32, ptr %4, align 4
+  switch i32 %99, label %101 [
+    i32 0, label %100
+    i32 1, label %100
+  ]
+
+100:                                              ; preds = %98, %98
   ret void
+
+101:                                              ; preds = %98
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1626,511 +2064,610 @@ define dso_local void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %1, 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %14 = load i32, ptr @Mode, align 4
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %3
-  br label %148
-
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %4, align 8
-  %19 = call zeroext i1 @IsCatalogRelation(ptr noundef %18)
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %17
-  br label %148
-
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %4, align 8
-  %23 = call zeroext i1 @IsToastRelation(ptr noundef %22)
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %21
-  br label %148
-
-25:                                               ; preds = %21
-  call void @PrepareInvalidationState()
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.RelationData, ptr %26, i32 0, i32 15
-  %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %7, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %29)
-  br i1 %30, label %31, label %41
-
-31:                                               ; preds = %25
-  %32 = load i32, ptr %7, align 4
-  %33 = call zeroext i1 @IsSharedRelation(i32 noundef %32)
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %31
-  br label %37
-
-35:                                               ; preds = %31
-  %36 = load i32, ptr @MyDatabaseId, align 4
-  br label %37
-
-37:                                               ; preds = %35, %34
-  %38 = phi i32 [ 0, %34 ], [ %36, %35 ]
-  store i32 %38, ptr %8, align 4
-  %39 = load i32, ptr %8, align 4
-  %40 = load i32, ptr %7, align 4
-  call void @RegisterSnapshotInvalidation(i32 noundef %39, i32 noundef %40)
-  br label %45
-
-41:                                               ; preds = %25
-  %42 = load ptr, ptr %4, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %6, align 8
-  call void @PrepareToInvalidateCacheTuple(ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef @RegisterCatcacheInvalidation)
-  br label %45
-
-45:                                               ; preds = %41, %37
-  %46 = load i32, ptr %7, align 4
-  %47 = icmp eq i32 %46, 1259
-  br i1 %47, label %48, label %71
-
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.HeapTupleData, ptr %49, i32 0, i32 3
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.HeapTupleData, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %54, i32 0, i32 4
-  %56 = load i8, ptr %55, align 2
-  %57 = zext i8 %56 to i32
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %51, i64 %58
-  store ptr %59, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds %struct.FormData_pg_class, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 4
-  store i32 %62, ptr %9, align 4
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.FormData_pg_class, ptr %63, i32 0, i32 14
-  %65 = load i8, ptr %64, align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %48
-  store i32 0, ptr %8, align 4
-  br label %70
-
-68:                                               ; preds = %48
-  %69 = load i32, ptr @MyDatabaseId, align 4
-  store i32 %69, ptr %8, align 4
-  br label %70
-
-70:                                               ; preds = %68, %67
-  br label %145
-
-71:                                               ; preds = %45
-  %72 = load i32, ptr %7, align 4
-  %73 = icmp eq i32 %72, 1249
-  br i1 %73, label %74, label %90
-
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.HeapTupleData, ptr %75, i32 0, i32 3
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct.HeapTupleData, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %80, i32 0, i32 4
-  %82 = load i8, ptr %81, align 2
-  %83 = zext i8 %82 to i32
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr i8, ptr %77, i64 %84
-  store ptr %85, ptr %11, align 8
-  %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %86, i32 0, i32 0
-  %88 = load i32, ptr %87, align 4
-  store i32 %88, ptr %9, align 4
-  %89 = load i32, ptr @MyDatabaseId, align 4
-  store i32 %89, ptr %8, align 4
-  br label %144
-
-90:                                               ; preds = %71
-  %91 = load i32, ptr %7, align 4
-  %92 = icmp eq i32 %91, 2610
-  br i1 %92, label %93, label %109
-
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct.HeapTupleData, ptr %94, i32 0, i32 3
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.HeapTupleData, ptr %97, i32 0, i32 3
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %99, i32 0, i32 4
-  %101 = load i8, ptr %100, align 2
-  %102 = zext i8 %101 to i32
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr i8, ptr %96, i64 %103
-  store ptr %104, ptr %12, align 8
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct.FormData_pg_index, ptr %105, i32 0, i32 0
-  %107 = load i32, ptr %106, align 4
-  store i32 %107, ptr %9, align 4
-  %108 = load i32, ptr @MyDatabaseId, align 4
-  store i32 %108, ptr %8, align 4
-  br label %143
-
-109:                                              ; preds = %90
-  %110 = load i32, ptr %7, align 4
-  %111 = icmp eq i32 %110, 2606
-  br i1 %111, label %112, label %141
-
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct.HeapTupleData, ptr %113, i32 0, i32 3
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct.HeapTupleData, ptr %116, i32 0, i32 3
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %118, i32 0, i32 4
-  %120 = load i8, ptr %119, align 2
-  %121 = zext i8 %120 to i32
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr i8, ptr %115, i64 %122
-  store ptr %123, ptr %13, align 8
-  %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %124, i32 0, i32 3
-  %126 = load i8, ptr %125, align 4
-  %127 = sext i8 %126 to i32
-  %128 = icmp eq i32 %127, 102
-  br i1 %128, label %129, label %139
-
-129:                                              ; preds = %112
-  %130 = load ptr, ptr %13, align 8
-  %131 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %130, i32 0, i32 7
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %139
-
-134:                                              ; preds = %129
-  %135 = load ptr, ptr %13, align 8
-  %136 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %135, i32 0, i32 7
-  %137 = load i32, ptr %136, align 4
-  store i32 %137, ptr %9, align 4
-  %138 = load i32, ptr @MyDatabaseId, align 4
-  store i32 %138, ptr %8, align 4
-  br label %140
-
-139:                                              ; preds = %129, %112
-  br label %148
-
-140:                                              ; preds = %134
-  br label %142
-
-141:                                              ; preds = %109
-  br label %148
-
-142:                                              ; preds = %140
-  br label %143
-
-143:                                              ; preds = %142, %93
-  br label %144
-
-144:                                              ; preds = %143, %74
-  br label %145
-
-145:                                              ; preds = %144, %70
-  %146 = load i32, ptr %8, align 4
-  %147 = load i32, ptr %9, align 4
-  call void @RegisterRelcacheInvalidation(i32 noundef %146, i32 noundef %147)
-  br label %148
-
-148:                                              ; preds = %145, %141, %139, %24, %20, %16
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @CacheInvalidateHeapTupleCommon(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef @PrepareInvalidationState)
   ret void
 }
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) #1
-
-declare zeroext i1 @IsToastRelation(ptr noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal void @PrepareInvalidationState() #0 {
-  %1 = alloca ptr, align 8
-  %2 = load ptr, ptr @transInvalInfo, align 8
-  %3 = icmp ne ptr %2, null
-  br i1 %3, label %4, label %11
+define internal void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %18 = load i32, ptr @Mode, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr @transInvalInfo, align 8
-  %6 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 8
-  %8 = call i32 @GetCurrentTransactionNestLevel()
-  %9 = icmp eq i32 %7, %8
-  br i1 %9, label %10, label %11
+20:                                               ; preds = %4
+  store i32 1, ptr %13, align 4
+  br label %124
 
-10:                                               ; preds = %4
-  br label %128
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %5, align 8
+  %23 = call zeroext i1 @IsCatalogRelation(ptr noundef %22)
+  br i1 %23, label %25, label %24
 
-11:                                               ; preds = %4, %0
-  %12 = load ptr, ptr @TopTransactionContext, align 8
-  %13 = call ptr @MemoryContextAllocZero(ptr noundef %12, i64 noundef 48)
-  store ptr %13, ptr %1, align 8
-  %14 = load ptr, ptr @transInvalInfo, align 8
-  %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %15, i32 0, i32 0
-  store ptr %14, ptr %16, align 8
-  %17 = call i32 @GetCurrentTransactionNestLevel()
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %18, i32 0, i32 1
-  store i32 %17, ptr %19, align 8
-  %20 = load ptr, ptr @transInvalInfo, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %122
+24:                                               ; preds = %21
+  store i32 1, ptr %13, align 4
+  br label %124
 
-22:                                               ; preds = %11
-  %23 = load ptr, ptr @transInvalInfo, align 8
-  %24 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %23, i32 0, i32 2
-  %25 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %24, i32 0, i32 1
-  %26 = getelementptr [2 x i32], ptr %25, i64 0, i64 0
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr @transInvalInfo, align 8
-  %29 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %29, i32 0, i32 0
-  %31 = getelementptr [2 x i32], ptr %30, i64 0, i64 0
-  %32 = load i32, ptr %31, align 4
-  %33 = sub i32 %27, %32
-  %34 = load ptr, ptr @transInvalInfo, align 8
-  %35 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %35, i32 0, i32 1
-  %37 = getelementptr [2 x i32], ptr %36, i64 0, i64 1
-  %38 = load i32, ptr %37, align 4
-  %39 = load ptr, ptr @transInvalInfo, align 8
-  %40 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %39, i32 0, i32 2
-  %41 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %40, i32 0, i32 0
-  %42 = getelementptr [2 x i32], ptr %41, i64 0, i64 1
-  %43 = load i32, ptr %42, align 4
-  %44 = sub i32 %38, %43
-  %45 = add i32 %33, %44
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %57
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8
+  %27 = call zeroext i1 @IsToastRelation(ptr noundef %26)
+  br i1 %27, label %28, label %29
 
-47:                                               ; preds = %22
-  br label %48
+28:                                               ; preds = %25
+  store i32 1, ptr %13, align 4
+  br label %124
 
-48:                                               ; preds = %47
-  br i1 true, label %49, label %51
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %8, align 8
+  %31 = call ptr %30()
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.RelationData, ptr %32, i32 0, i32 15
+  %34 = load i32, ptr %33, align 8
+  store i32 %34, ptr %10, align 4
+  %35 = load i32, ptr %10, align 4
+  %36 = call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %35)
+  br i1 %36, label %37, label %48
 
-49:                                               ; preds = %48
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %50, label %53, label %55
+37:                                               ; preds = %29
+  %38 = load i32, ptr %10, align 4
+  %39 = call zeroext i1 @IsSharedRelation(i32 noundef %38)
+  br i1 %39, label %40, label %41
 
-51:                                               ; preds = %48
-  %52 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %52, label %53, label %55
+40:                                               ; preds = %37
+  br label %43
 
-53:                                               ; preds = %51, %49
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.10)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 642, ptr noundef @__func__.PrepareInvalidationState)
-  br label %55
+41:                                               ; preds = %37
+  %42 = load i32, ptr @MyDatabaseId, align 4
+  br label %43
 
-55:                                               ; preds = %53, %51, %49
-  unreachable
+43:                                               ; preds = %41, %40
+  %44 = phi i32 [ 0, %40 ], [ %42, %41 ]
+  store i32 %44, ptr %11, align 4
+  %45 = load ptr, ptr %9, align 8
+  %46 = load i32, ptr %11, align 4
+  %47 = load i32, ptr %10, align 4
+  call void @RegisterSnapshotInvalidation(ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  br label %53
 
-56:                                               ; No predecessors!
-  br label %57
+48:                                               ; preds = %29
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %6, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %9, align 8
+  call void @PrepareToInvalidateCacheTuple(ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef @RegisterCatcacheInvalidation, ptr noundef %52)
+  br label %53
 
-57:                                               ; preds = %56, %22
-  br label %58
+53:                                               ; preds = %48, %43
+  %54 = load i32, ptr %10, align 4
+  %55 = icmp eq i32 %54, 1259
+  br i1 %55, label %56, label %70
 
-58:                                               ; preds = %57
-  br label %59
+56:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %57 = load ptr, ptr %6, align 8
+  %58 = call ptr @GETSTRUCT(ptr noundef %57)
+  store ptr %58, ptr %14, align 8
+  %59 = load ptr, ptr %14, align 8
+  %60 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %59, i32 0, i32 0
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr %12, align 4
+  %62 = load ptr, ptr %14, align 8
+  %63 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %62, i32 0, i32 14
+  %64 = load i8, ptr %63, align 1, !range !4, !noundef !5
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %67
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr @transInvalInfo, align 8
-  %61 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %60, i32 0, i32 2
-  %62 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %61, i32 0, i32 1
-  %63 = getelementptr [2 x i32], ptr %62, i64 0, i64 0
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %65, i32 0, i32 3
-  %67 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %66, i32 0, i32 1
-  %68 = getelementptr [2 x i32], ptr %67, i64 0, i64 0
-  store i32 %64, ptr %68, align 4
-  %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %69, i32 0, i32 3
-  %71 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %70, i32 0, i32 0
-  %72 = getelementptr [2 x i32], ptr %71, i64 0, i64 0
-  store i32 %64, ptr %72, align 4
-  br label %73
+66:                                               ; preds = %56
+  store i32 0, ptr %11, align 4
+  br label %69
 
-73:                                               ; preds = %59
-  br label %74
+67:                                               ; preds = %56
+  %68 = load i32, ptr @MyDatabaseId, align 4
+  store i32 %68, ptr %11, align 4
+  br label %69
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr @transInvalInfo, align 8
-  %76 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %75, i32 0, i32 2
-  %77 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %76, i32 0, i32 1
-  %78 = getelementptr [2 x i32], ptr %77, i64 0, i64 1
-  %79 = load i32, ptr %78, align 4
-  %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %80, i32 0, i32 3
-  %82 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %81, i32 0, i32 1
-  %83 = getelementptr [2 x i32], ptr %82, i64 0, i64 1
-  store i32 %79, ptr %83, align 4
-  %84 = load ptr, ptr %1, align 8
-  %85 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %84, i32 0, i32 3
-  %86 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %85, i32 0, i32 0
-  %87 = getelementptr [2 x i32], ptr %86, i64 0, i64 1
-  store i32 %79, ptr %87, align 4
-  br label %88
-
-88:                                               ; preds = %74
-  br label %89
-
-89:                                               ; preds = %88
-  br label %90
-
-90:                                               ; preds = %89
-  br label %91
-
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %1, align 8
-  %93 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %92, i32 0, i32 3
-  %94 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %93, i32 0, i32 1
-  %95 = getelementptr [2 x i32], ptr %94, i64 0, i64 0
-  %96 = load i32, ptr %95, align 4
-  %97 = load ptr, ptr %1, align 8
-  %98 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %97, i32 0, i32 2
-  %99 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %98, i32 0, i32 1
-  %100 = getelementptr [2 x i32], ptr %99, i64 0, i64 0
-  store i32 %96, ptr %100, align 4
-  %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %101, i32 0, i32 2
-  %103 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %102, i32 0, i32 0
-  %104 = getelementptr [2 x i32], ptr %103, i64 0, i64 0
-  store i32 %96, ptr %104, align 4
-  br label %105
-
-105:                                              ; preds = %91
-  br label %106
-
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %1, align 8
-  %108 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %107, i32 0, i32 3
-  %109 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %108, i32 0, i32 1
-  %110 = getelementptr [2 x i32], ptr %109, i64 0, i64 1
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %1, align 8
-  %113 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %112, i32 0, i32 2
-  %114 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %113, i32 0, i32 1
-  %115 = getelementptr [2 x i32], ptr %114, i64 0, i64 1
-  store i32 %111, ptr %115, align 4
-  %116 = load ptr, ptr %1, align 8
-  %117 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %116, i32 0, i32 2
-  %118 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %117, i32 0, i32 0
-  %119 = getelementptr [2 x i32], ptr %118, i64 0, i64 1
-  store i32 %111, ptr %119, align 4
+69:                                               ; preds = %67, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
   br label %120
 
-120:                                              ; preds = %106
+70:                                               ; preds = %53
+  %71 = load i32, ptr %10, align 4
+  %72 = icmp eq i32 %71, 1249
+  br i1 %72, label %73, label %80
+
+73:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %74 = load ptr, ptr %6, align 8
+  %75 = call ptr @GETSTRUCT(ptr noundef %74)
+  store ptr %75, ptr %15, align 8
+  %76 = load ptr, ptr %15, align 8
+  %77 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4
+  store i32 %78, ptr %12, align 4
+  %79 = load i32, ptr @MyDatabaseId, align 4
+  store i32 %79, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %119
+
+80:                                               ; preds = %70
+  %81 = load i32, ptr %10, align 4
+  %82 = icmp eq i32 %81, 2610
+  br i1 %82, label %83, label %90
+
+83:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %84 = load ptr, ptr %6, align 8
+  %85 = call ptr @GETSTRUCT(ptr noundef %84)
+  store ptr %85, ptr %16, align 8
+  %86 = load ptr, ptr %16, align 8
+  %87 = getelementptr inbounds nuw %struct.FormData_pg_index, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 4
+  store i32 %88, ptr %12, align 4
+  %89 = load i32, ptr @MyDatabaseId, align 4
+  store i32 %89, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %118
+
+90:                                               ; preds = %80
+  %91 = load i32, ptr %10, align 4
+  %92 = icmp eq i32 %91, 2606
+  br i1 %92, label %93, label %116
+
+93:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %94 = load ptr, ptr %6, align 8
+  %95 = call ptr @GETSTRUCT(ptr noundef %94)
+  store ptr %95, ptr %17, align 8
+  %96 = load ptr, ptr %17, align 8
+  %97 = getelementptr inbounds nuw %struct.FormData_pg_constraint, ptr %96, i32 0, i32 3
+  %98 = load i8, ptr %97, align 4
+  %99 = sext i8 %98 to i32
+  %100 = icmp eq i32 %99, 102
+  br i1 %100, label %101, label %111
+
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %17, align 8
+  %103 = getelementptr inbounds nuw %struct.FormData_pg_constraint, ptr %102, i32 0, i32 8
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %111
+
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %17, align 8
+  %108 = getelementptr inbounds nuw %struct.FormData_pg_constraint, ptr %107, i32 0, i32 8
+  %109 = load i32, ptr %108, align 4
+  store i32 %109, ptr %12, align 4
+  %110 = load i32, ptr @MyDatabaseId, align 4
+  store i32 %110, ptr %11, align 4
+  br label %112
+
+111:                                              ; preds = %101, %93
+  store i32 1, ptr %13, align 4
+  br label %113
+
+112:                                              ; preds = %106
+  store i32 0, ptr %13, align 4
+  br label %113
+
+113:                                              ; preds = %112, %111
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  %114 = load i32, ptr %13, align 4
+  switch i32 %114, label %124 [
+    i32 0, label %115
+  ]
+
+115:                                              ; preds = %113
+  br label %117
+
+116:                                              ; preds = %90
+  store i32 1, ptr %13, align 4
+  br label %124
+
+117:                                              ; preds = %115
+  br label %118
+
+118:                                              ; preds = %117, %83
+  br label %119
+
+119:                                              ; preds = %118, %73
+  br label %120
+
+120:                                              ; preds = %119, %69
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i32, ptr %11, align 4
+  %123 = load i32, ptr %12, align 4
+  call void @RegisterRelcacheInvalidation(ptr noundef %121, i32 noundef %122, i32 noundef %123)
+  store i32 0, ptr %13, align 4
+  br label %124
+
+124:                                              ; preds = %120, %116, %113, %28, %24, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  %125 = load i32, ptr %13, align 4
+  switch i32 %125, label %127 [
+    i32 0, label %126
+    i32 1, label %126
+  ]
+
+126:                                              ; preds = %124, %124
+  ret void
+
+127:                                              ; preds = %124
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @PrepareInvalidationState() #0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @transInvalInfo, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %14
+
+6:                                                ; preds = %0
+  %7 = load ptr, ptr @transInvalInfo, align 8
+  %8 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %7, i32 0, i32 3
+  %9 = load i32, ptr %8, align 8
+  %10 = call i32 @GetCurrentTransactionNestLevel()
+  %11 = icmp eq i32 %9, %10
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %6
+  %13 = load ptr, ptr @transInvalInfo, align 8
+  store ptr %13, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %146
+
+14:                                               ; preds = %6, %0
+  %15 = load ptr, ptr @TopTransactionContext, align 8
+  %16 = call ptr @MemoryContextAllocZero(ptr noundef %15, i64 noundef 56)
+  store ptr %16, ptr %2, align 8
+  %17 = load ptr, ptr @transInvalInfo, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %18, i32 0, i32 2
+  store ptr %17, ptr %19, align 8
+  %20 = call i32 @GetCurrentTransactionNestLevel()
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %21, i32 0, i32 3
+  store i32 %20, ptr %22, align 8
+  %23 = load ptr, ptr @transInvalInfo, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %142
+
+25:                                               ; preds = %14
+  %26 = load ptr, ptr @transInvalInfo, align 8
+  %27 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds [2 x i32], ptr %29, i64 0, i64 0
+  %31 = load i32, ptr %30, align 8
+  %32 = load ptr, ptr @transInvalInfo, align 8
+  %33 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds [2 x i32], ptr %35, i64 0, i64 0
+  %37 = load i32, ptr %36, align 8
+  %38 = sub i32 %31, %37
+  %39 = load ptr, ptr @transInvalInfo, align 8
+  %40 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %40, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 1
+  %44 = load i32, ptr %43, align 4
+  %45 = load ptr, ptr @transInvalInfo, align 8
+  %46 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds [2 x i32], ptr %48, i64 0, i64 1
+  %50 = load i32, ptr %49, align 4
+  %51 = sub i32 %44, %50
+  %52 = add i32 %38, %51
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %65
+
+54:                                               ; preds = %25
+  br label %55
+
+55:                                               ; preds = %54
+  br i1 true, label %56, label %58
+
+56:                                               ; preds = %55
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %57, label %60, label %62
+
+58:                                               ; preds = %55
+  %59 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %58, %56
+  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.11)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 664, ptr noundef @__func__.PrepareInvalidationState)
+  br label %62
+
+62:                                               ; preds = %60, %58, %56
+  unreachable
+
+63:                                               ; No predecessors!
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64, %25
+  br label %66
+
+66:                                               ; preds = %65
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr @transInvalInfo, align 8
+  %69 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds [2 x i32], ptr %71, i64 0, i64 0
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %74, i32 0, i32 1
+  %76 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %75, i32 0, i32 1
+  %77 = getelementptr inbounds [2 x i32], ptr %76, i64 0, i64 0
+  store i32 %73, ptr %77, align 4
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %78, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %79, i32 0, i32 0
+  %81 = getelementptr inbounds [2 x i32], ptr %80, i64 0, i64 0
+  store i32 %73, ptr %81, align 4
+  br label %82
+
+82:                                               ; preds = %67
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr @transInvalInfo, align 8
+  %86 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %85, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %86, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %87, i32 0, i32 1
+  %89 = getelementptr inbounds [2 x i32], ptr %88, i64 0, i64 1
+  %90 = load i32, ptr %89, align 4
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %91, i32 0, i32 1
+  %93 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %92, i32 0, i32 1
+  %94 = getelementptr inbounds [2 x i32], ptr %93, i64 0, i64 1
+  store i32 %90, ptr %94, align 4
+  %95 = load ptr, ptr %2, align 8
+  %96 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %95, i32 0, i32 1
+  %97 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %96, i32 0, i32 0
+  %98 = getelementptr inbounds [2 x i32], ptr %97, i64 0, i64 1
+  store i32 %90, ptr %98, align 4
+  br label %99
+
+99:                                               ; preds = %84
+  br label %100
+
+100:                                              ; preds = %99
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %2, align 8
+  %106 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %105, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %106, i32 0, i32 1
+  %108 = getelementptr inbounds [2 x i32], ptr %107, i64 0, i64 0
+  %109 = load i32, ptr %108, align 4
+  %110 = load ptr, ptr %2, align 8
+  %111 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %110, i32 0, i32 0
+  %112 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %112, i32 0, i32 1
+  %114 = getelementptr inbounds [2 x i32], ptr %113, i64 0, i64 0
+  store i32 %109, ptr %114, align 8
+  %115 = load ptr, ptr %2, align 8
+  %116 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %115, i32 0, i32 0
+  %117 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds [2 x i32], ptr %118, i64 0, i64 0
+  store i32 %109, ptr %119, align 8
+  br label %120
+
+120:                                              ; preds = %104
   br label %121
 
 121:                                              ; preds = %120
-  br label %126
+  br label %122
 
-122:                                              ; preds = %11
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %123, i32 0, i32 1
+  %125 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %124, i32 0, i32 1
+  %126 = getelementptr inbounds [2 x i32], ptr %125, i64 0, i64 1
+  %127 = load i32, ptr %126, align 4
+  %128 = load ptr, ptr %2, align 8
+  %129 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %128, i32 0, i32 0
+  %130 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %129, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %130, i32 0, i32 1
+  %132 = getelementptr inbounds [2 x i32], ptr %131, i64 0, i64 1
+  store i32 %127, ptr %132, align 4
+  %133 = load ptr, ptr %2, align 8
+  %134 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %134, i32 0, i32 0
+  %136 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %135, i32 0, i32 0
+  %137 = getelementptr inbounds [2 x i32], ptr %136, i64 0, i64 1
+  store i32 %127, ptr %137, align 4
+  br label %138
+
+138:                                              ; preds = %122
+  br label %139
+
+139:                                              ; preds = %138
+  br label %140
+
+140:                                              ; preds = %139
+  br label %141
+
+141:                                              ; preds = %140
+  br label %143
+
+142:                                              ; preds = %14
   store ptr null, ptr @InvalMessageArrays, align 16
-  %123 = getelementptr inbounds %struct.InvalMessageArray, ptr @InvalMessageArrays, i32 0, i32 1
-  store i32 0, ptr %123, align 8
-  %124 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  store ptr null, ptr %124, align 16
-  %125 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1, i32 1
-  store i32 0, ptr %125, align 8
-  br label %126
+  store i32 0, ptr getelementptr inbounds nuw (%struct.InvalMessageArray, ptr @InvalMessageArrays, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  store i32 0, ptr getelementptr inbounds nuw (%struct.InvalMessageArray, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), i32 0, i32 1), align 8
+  br label %143
 
-126:                                              ; preds = %122, %121
-  %127 = load ptr, ptr %1, align 8
-  store ptr %127, ptr @transInvalInfo, align 8
-  br label %128
+143:                                              ; preds = %142, %141
+  %144 = load ptr, ptr %2, align 8
+  store ptr %144, ptr @transInvalInfo, align 8
+  %145 = load ptr, ptr %2, align 8
+  store ptr %145, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %146
 
-128:                                              ; preds = %126, %10
-  ret void
+146:                                              ; preds = %143, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  %147 = load ptr, ptr %1, align 8
+  ret ptr %147
 }
 
-declare zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef) #1
-
-declare zeroext i1 @IsSharedRelation(i32 noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal void @RegisterSnapshotInvalidation(i32 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr @transInvalInfo, align 8
-  %6 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr %4, align 4
-  call void @AddSnapshotInvalidationMessage(ptr noundef %6, i32 noundef %7, i32 noundef %8)
-  ret void
-}
-
-declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr @transInvalInfo, align 8
-  %8 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %4, align 4
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  call void @AddCatcacheInvalidationMessage(ptr noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+define dso_local void @CacheInvalidateHeapTupleInplace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @CacheInvalidateHeapTupleCommon(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef @PrepareInplaceInvalidationState)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RegisterRelcacheInvalidation(i32 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr @transInvalInfo, align 8
-  %6 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr %4, align 4
-  call void @AddRelcacheInvalidationMessage(ptr noundef %6, i32 noundef %7, i32 noundef %8)
-  %9 = call i32 @GetCurrentCommandId(i1 noundef zeroext true)
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %15, label %12
+define internal ptr @PrepareInplaceInvalidationState() #0 {
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %2 = call ptr @palloc0(i64 noundef 20)
+  store ptr %2, ptr %1, align 8
+  %3 = load ptr, ptr @transInvalInfo, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %43
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = call zeroext i1 @RelationIdIsInInitFile(i32 noundef %13)
-  br i1 %14, label %15, label %18
+5:                                                ; preds = %0
+  br label %6
 
-15:                                               ; preds = %12, %2
-  %16 = load ptr, ptr @transInvalInfo, align 8
-  %17 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %16, i32 0, i32 4
-  store i8 1, ptr %17, align 4
-  br label %18
+6:                                                ; preds = %5
+  br label %7
 
-18:                                               ; preds = %15, %12
-  ret void
+7:                                                ; preds = %6
+  %8 = load ptr, ptr @transInvalInfo, align 8
+  %9 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %10, i32 0, i32 1
+  %12 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  store i32 %13, ptr %17, align 4
+  %18 = load ptr, ptr %1, align 8
+  %19 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [2 x i32], ptr %20, i64 0, i64 0
+  store i32 %13, ptr %21, align 4
+  br label %22
+
+22:                                               ; preds = %7
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr @transInvalInfo, align 8
+  %26 = getelementptr inbounds nuw %struct.TransInvalidationInfo, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 1
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 1
+  store i32 %30, ptr %34, align 4
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds [2 x i32], ptr %37, i64 0, i64 1
+  store i32 %30, ptr %38, align 4
+  br label %39
+
+39:                                               ; preds = %24
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %44
+
+43:                                               ; preds = %0
+  store ptr null, ptr @InvalMessageArrays, align 16
+  store i32 0, ptr getelementptr inbounds nuw (%struct.InvalMessageArray, ptr @InvalMessageArrays, i32 0, i32 1), align 8
+  store ptr null, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
+  store i32 0, ptr getelementptr inbounds nuw (%struct.InvalMessageArray, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), i32 0, i32 1), align 8
+  br label %44
+
+44:                                               ; preds = %43, %42
+  %45 = load ptr, ptr %1, align 8
+  store ptr %45, ptr @inplaceInvalInfo, align 8
+  %46 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2138,7 +2675,7 @@ define dso_local void @CacheInvalidateCatalog(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  call void @PrepareInvalidationState()
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   %4 = load i32, ptr %2, align 4
   %5 = call zeroext i1 @IsSharedRelation(i32 noundef %4)
   br i1 %5, label %6, label %7
@@ -2153,23 +2690,29 @@ define dso_local void @CacheInvalidateCatalog(i32 noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %7, %6
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr %2, align 4
-  call void @RegisterCatalogInvalidation(i32 noundef %10, i32 noundef %11)
+  %10 = call ptr @PrepareInvalidationState()
+  %11 = load i32, ptr %3, align 4
+  %12 = load i32, ptr %2, align 4
+  call void @RegisterCatalogInvalidation(ptr noundef %10, i32 noundef %11, i32 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
+declare zeroext i1 @IsSharedRelation(i32 noundef) #2
+
 ; Function Attrs: nounwind uwtable
-define internal void @RegisterCatalogInvalidation(i32 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr @transInvalInfo, align 8
-  %6 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr %4, align 4
-  call void @AddCatalogInvalidationMessage(ptr noundef %6, i32 noundef %7, i32 noundef %8)
+define internal void @RegisterCatalogInvalidation(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %6, align 4
+  call void @AddCatalogInvalidationMessage(ptr noundef %8, i32 noundef %9, i32 noundef %10)
   ret void
 }
 
@@ -2179,16 +2722,17 @@ define dso_local void @CacheInvalidateRelcache(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  call void @PrepareInvalidationState()
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.RelationData, ptr %5, i32 0, i32 15
+  %6 = getelementptr inbounds nuw %struct.RelationData, ptr %5, i32 0, i32 15
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %4, align 4
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.RelationData, ptr %8, i32 0, i32 13
+  %9 = getelementptr inbounds nuw %struct.RelationData, ptr %8, i32 0, i32 13
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.FormData_pg_class, ptr %10, i32 0, i32 14
-  %12 = load i8, ptr %11, align 1
+  %11 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %10, i32 0, i32 14
+  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -2202,16 +2746,52 @@ define dso_local void @CacheInvalidateRelcache(ptr noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %15, %14
-  %18 = load i32, ptr %3, align 4
-  %19 = load i32, ptr %4, align 4
-  call void @RegisterRelcacheInvalidation(i32 noundef %18, i32 noundef %19)
+  %18 = call ptr @PrepareInvalidationState()
+  %19 = load i32, ptr %3, align 4
+  %20 = load i32, ptr %4, align 4
+  call void @RegisterRelcacheInvalidation(ptr noundef %18, i32 noundef %19, i32 noundef %20)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @RegisterRelcacheInvalidation(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %6, align 4
+  call void @AddRelcacheInvalidationMessage(ptr noundef %8, i32 noundef %9, i32 noundef %10)
+  %11 = call i32 @GetCurrentCommandId(i1 noundef zeroext true)
+  %12 = load i32, ptr %6, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %17, label %14
+
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4
+  %16 = call zeroext i1 @RelationIdIsInInitFile(i32 noundef %15)
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %14, %3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %18, i32 0, i32 1
+  store i8 1, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %17, %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelcacheAll() #0 {
-  call void @PrepareInvalidationState()
-  call void @RegisterRelcacheInvalidation(i32 noundef 0, i32 noundef 0)
+  %1 = call ptr @PrepareInvalidationState()
+  call void @RegisterRelcacheInvalidation(ptr noundef %1, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
@@ -2222,43 +2802,58 @@ define dso_local void @CacheInvalidateRelcacheByTuple(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.HeapTupleData, ptr %6, i32 0, i32 3
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.HeapTupleData, ptr %9, i32 0, i32 3
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %11, i32 0, i32 4
-  %13 = load i8, ptr %12, align 2
-  %14 = zext i8 %13 to i32
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr i8, ptr %8, i64 %15
-  store ptr %16, ptr %3, align 8
-  call void @PrepareInvalidationState()
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.FormData_pg_class, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %5, align 4
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.FormData_pg_class, ptr %20, i32 0, i32 14
-  %22 = load i8, ptr %21, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %25
+  %7 = call ptr @GETSTRUCT(ptr noundef %6)
+  store ptr %7, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %5, align 4
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %11, i32 0, i32 14
+  %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %16
 
-24:                                               ; preds = %1
+15:                                               ; preds = %1
   store i32 0, ptr %4, align 4
-  br label %27
+  br label %18
 
-25:                                               ; preds = %1
-  %26 = load i32, ptr @MyDatabaseId, align 4
-  store i32 %26, ptr %4, align 4
-  br label %27
+16:                                               ; preds = %1
+  %17 = load i32, ptr @MyDatabaseId, align 4
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-27:                                               ; preds = %25, %24
-  %28 = load i32, ptr %4, align 4
-  %29 = load i32, ptr %5, align 4
-  call void @RegisterRelcacheInvalidation(i32 noundef %28, i32 noundef %29)
+18:                                               ; preds = %16, %15
+  %19 = call ptr @PrepareInvalidationState()
+  %20 = load i32, ptr %4, align 4
+  %21 = load i32, ptr %5, align 4
+  call void @RegisterRelcacheInvalidation(ptr noundef %19, i32 noundef %20, i32 noundef %21)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @GETSTRUCT(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.HeapTupleData, ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw %struct.HeapTupleHeaderData, ptr %8, i32 0, i32 4
+  %10 = load i8, ptr %9, align 2
+  %11 = zext i8 %10 to i32
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2266,14 +2861,14 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
-  call void @PrepareInvalidationState()
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = load i32, ptr %2, align 4
   %5 = call i64 @ObjectIdGetDatum(i32 noundef %4)
-  %6 = call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5)
+  %6 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5)
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = icmp ne ptr %7, null
-  br i1 %8, label %20, label %9
+  br i1 %8, label %21, label %9
 
 9:                                                ; preds = %1
   br label %10
@@ -2282,7 +2877,7 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) #0 {
   br i1 true, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   br i1 %12, label %15, label %18
 
 13:                                               ; preds = %10
@@ -2291,8 +2886,8 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) #0 {
 
 15:                                               ; preds = %13, %11
   %16 = load i32, ptr %2, align 4
-  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %16)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1428, ptr noundef @__func__.CacheInvalidateRelcacheByRelid)
+  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.7, i32 noundef %16)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1618, ptr noundef @__func__.CacheInvalidateRelcacheByRelid)
   br label %18
 
 18:                                               ; preds = %15, %13, %11
@@ -2301,18 +2896,22 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) #0 {
 19:                                               ; No predecessors!
   br label %20
 
-20:                                               ; preds = %19, %1
-  %21 = load ptr, ptr %3, align 8
-  call void @CacheInvalidateRelcacheByTuple(ptr noundef %21)
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20, %1
   %22 = load ptr, ptr %3, align 8
-  call void @ReleaseSysCache(ptr noundef %22)
+  call void @CacheInvalidateRelcacheByTuple(ptr noundef %22)
+  %23 = load ptr, ptr %3, align 8
+  call void @ReleaseSysCache(ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) #1
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ObjectIdGetDatum(i32 noundef %0) #5 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2320,32 +2919,33 @@ define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-declare void @ReleaseSysCache(ptr noundef) #1
+declare void @ReleaseSysCache(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) #0 {
   %3 = alloca %struct.RelFileLocatorBackend, align 4
   %4 = alloca %union.SharedInvalidationMessage, align 4
-  %5 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
   store i64 %0, ptr %5, align 4
-  %6 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
   store i64 %1, ptr %6, align 4
-  %7 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #7
+  %7 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 0
   store i8 -3, ptr %7, align 4
-  %8 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 1
   %9 = load i32, ptr %8, align 4
   %10 = ashr i32 %9, 16
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 1
   store i8 %11, ptr %12, align 1
-  %13 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 1
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 65535
   %16 = trunc i32 %15 to i16
-  %17 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 2
   store i16 %16, ptr %17, align 2
-  %18 = getelementptr inbounds %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 3
-  %19 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.SharedInvalSmgrMsg, ptr %4, i32 0, i32 3
+  %19 = getelementptr inbounds nuw %struct.RelFileLocatorBackend, ptr %3, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %19, i64 12, i1 false)
   br label %20
 
@@ -2353,7 +2953,11 @@ define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) #0 {
   br label %21
 
 21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21
   call void @SendSharedInvalidMessages(ptr noundef %4, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #7
   ret void
 }
 
@@ -2362,10 +2966,11 @@ define dso_local void @CacheInvalidateRelmap(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca %union.SharedInvalidationMessage, align 4
   store i32 %0, ptr %2, align 4
-  %4 = getelementptr inbounds %struct.SharedInvalRelmapMsg, ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #7
+  %4 = getelementptr inbounds nuw %struct.SharedInvalRelmapMsg, ptr %3, i32 0, i32 0
   store i8 -4, ptr %4, align 4
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds %struct.SharedInvalRelmapMsg, ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.SharedInvalRelmapMsg, ptr %3, i32 0, i32 1
   store i32 %5, ptr %6, align 4
   br label %7
 
@@ -2373,7 +2978,11 @@ define dso_local void @CacheInvalidateRelmap(i32 noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
   call void @SendSharedInvalidMessages(ptr noundef %3, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #7
   ret void
 }
 
@@ -2392,7 +3001,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %4, align 4
-  %12 = icmp sge i32 %11, 83
+  %12 = icmp sge i32 %11, 85
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %10, %3
@@ -2402,7 +3011,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   br i1 true, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
   br i1 %16, label %19, label %22
 
 17:                                               ; preds = %14
@@ -2411,8 +3020,8 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 
 19:                                               ; preds = %17, %15
   %20 = load i32, ptr %4, align 4
-  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.7, i32 noundef %20)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1522, ptr noundef @__func__.CacheRegisterSyscacheCallback)
+  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.8, i32 noundef %20)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1712, ptr noundef @__func__.CacheRegisterSyscacheCallback)
   br label %22
 
 22:                                               ; preds = %19, %17, %15
@@ -2433,7 +3042,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   br i1 true, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
+  %30 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
   br i1 %30, label %33, label %35
 
 31:                                               ; preds = %28
@@ -2441,8 +3050,8 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31, %29
-  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.8)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1524, ptr noundef @__func__.CacheRegisterSyscacheCallback)
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.9)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1714, ptr noundef @__func__.CacheRegisterSyscacheCallback)
   br label %35
 
 35:                                               ; preds = %33, %31, %29
@@ -2454,7 +3063,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 37:                                               ; preds = %36, %24
   %38 = load i32, ptr %4, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [83 x i16], ptr @syscache_callback_links, i64 0, i64 %39
+  %40 = getelementptr inbounds [85 x i16], ptr @syscache_callback_links, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = sext i16 %41 to i32
   %43 = icmp eq i32 %42, 0
@@ -2466,14 +3075,15 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %47 = trunc i32 %46 to i16
   %48 = load i32, ptr %4, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr [83 x i16], ptr @syscache_callback_links, i64 0, i64 %49
+  %50 = getelementptr inbounds [85 x i16], ptr @syscache_callback_links, i64 0, i64 %49
   store i16 %47, ptr %50, align 2
   br label %82
 
 51:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   %52 = load i32, ptr %4, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr [83 x i16], ptr @syscache_callback_links, i64 0, i64 %53
+  %54 = getelementptr inbounds [85 x i16], ptr @syscache_callback_links, i64 0, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = sext i16 %55 to i32
   %57 = sub i32 %56, 1
@@ -2483,8 +3093,8 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 58:                                               ; preds = %66, %51
   %59 = load i32, ptr %7, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %60
-  %62 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %61, i32 0, i32 1
+  %61 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %61, i32 0, i32 1
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   %65 = icmp sgt i32 %64, 0
@@ -2493,13 +3103,13 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 66:                                               ; preds = %58
   %67 = load i32, ptr %7, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %68
-  %70 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %69, i32 0, i32 1
+  %69 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %68
+  %70 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %69, i32 0, i32 1
   %71 = load i16, ptr %70, align 2
   %72 = sext i16 %71 to i32
   %73 = sub i32 %72, 1
   store i32 %73, ptr %7, align 4
-  br label %58, !llvm.loop !12
+  br label %58, !llvm.loop !13
 
 74:                                               ; preds = %58
   %75 = load i32, ptr @syscache_callback_count, align 4
@@ -2507,9 +3117,10 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %77 = trunc i32 %76 to i16
   %78 = load i32, ptr %7, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %79
-  %81 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %80, i32 0, i32 1
+  %80 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %80, i32 0, i32 1
   store i16 %77, ptr %81, align 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   br label %82
 
 82:                                               ; preds = %74, %44
@@ -2517,25 +3128,25 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %84 = trunc i32 %83 to i16
   %85 = load i32, ptr @syscache_callback_count, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %86
-  %88 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %87, i32 0, i32 0
+  %87 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %87, i32 0, i32 0
   store i16 %84, ptr %88, align 8
   %89 = load i32, ptr @syscache_callback_count, align 4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %90
-  %92 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %91, i32 0, i32 1
+  %91 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %91, i32 0, i32 1
   store i16 0, ptr %92, align 2
   %93 = load ptr, ptr %5, align 8
   %94 = load i32, ptr @syscache_callback_count, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %95
-  %97 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %96, i32 0, i32 2
+  %96 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %95
+  %97 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %96, i32 0, i32 2
   store ptr %93, ptr %97, align 8
   %98 = load i64, ptr %6, align 8
   %99 = load i32, ptr @syscache_callback_count, align 4
   %100 = sext i32 %99 to i64
-  %101 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %100
-  %102 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr %101, i32 0, i32 3
+  %101 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %100
+  %102 = getelementptr inbounds nuw %struct.SYSCACHECALLBACK, ptr %101, i32 0, i32 3
   store i64 %98, ptr %102, align 8
   %103 = load i32, ptr @syscache_callback_count, align 4
   %104 = add i32 %103, 1
@@ -2560,7 +3171,7 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   br i1 true, label %9, label %11
 
 9:                                                ; preds = %8
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
   br i1 %10, label %13, label %15
 
 11:                                               ; preds = %8
@@ -2568,8 +3179,8 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11, %9
-  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.9)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1563, ptr noundef @__func__.CacheRegisterRelcacheCallback)
+  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.10)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1753, ptr noundef @__func__.CacheRegisterRelcacheCallback)
   br label %15
 
 15:                                               ; preds = %13, %11, %9
@@ -2582,14 +3193,14 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   %18 = load ptr, ptr %3, align 8
   %19 = load i32, ptr @relcache_callback_count, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %20
-  %22 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %21, i32 0, i32 0
+  %21 = getelementptr inbounds [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %21, i32 0, i32 0
   store ptr %18, ptr %22, align 16
   %23 = load i64, ptr %4, align 8
   %24 = load i32, ptr @relcache_callback_count, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %25
-  %27 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr %26, i32 0, i32 1
+  %26 = getelementptr inbounds [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw %struct.RELCACHECALLBACK, ptr %26, i32 0, i32 1
   store i64 %23, ptr %27, align 8
   %28 = load i32, ptr @relcache_callback_count, align 4
   %29 = add i32 %28, 1
@@ -2598,13 +3209,13 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @XLogBeginInsert() #1
+declare void @XLogBeginInsert() #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) #1
+declare void @XLogRegisterData(ptr noundef, i32 noundef) #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #1
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @AppendInvalidationMessageSubGroup(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -2615,37 +3226,37 @@ define internal void @AppendInvalidationMessageSubGroup(ptr noundef %0, ptr noun
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %6, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [2 x i32], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %6, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [2 x i32], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 %16
   store i32 %12, ptr %17, align 4
   br label %18
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %19, i32 0, i32 1
   %21 = load i32, ptr %6, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [2 x i32], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds [2 x i32], ptr %20, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %25, i32 0, i32 1
   %27 = load i32, ptr %6, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [2 x i32], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds [2 x i32], ptr %26, i64 0, i64 %28
   store i32 %24, ptr %29, align 4
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %30, i32 0, i32 0
   %32 = load i32, ptr %6, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [2 x i32], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds [2 x i32], ptr %31, i64 0, i64 %33
   store i32 %24, ptr %34, align 4
   br label %35
 
@@ -2653,7 +3264,53 @@ define internal void @AppendInvalidationMessageSubGroup(ptr noundef %0, ptr noun
   ret void
 }
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) #1
+declare zeroext i1 @IsCatalogRelation(ptr noundef) #2
+
+declare zeroext i1 @IsToastRelation(ptr noundef) #2
+
+declare zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @RegisterSnapshotInvalidation(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %6, align 4
+  call void @AddSnapshotInvalidationMessage(ptr noundef %8, i32 noundef %9, i32 noundef %10)
+  ret void
+}
+
+declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store i32 %0, ptr %5, align 4
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %10 = load ptr, ptr %8, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds nuw %struct.InvalidationInfo, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %5, align 4
+  %14 = load i32, ptr %6, align 4
+  %15 = load i32, ptr %7, align 4
+  call void @AddCatcacheInvalidationMessage(ptr noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret void
+}
 
 ; Function Attrs: nounwind uwtable
 define internal void @AddSnapshotInvalidationMessage(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -2664,88 +3321,134 @@ define internal void @AddSnapshotInvalidationMessage(ptr noundef %0, i32 noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  br label %11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #7
+  br label %12
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %12, i32 0, i32 0
-  %14 = getelementptr [2 x i32], ptr %13, i64 0, i64 1
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %16, i32 0, i32 1
-  %18 = getelementptr [2 x i32], ptr %17, i64 0, i64 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %9, align 4
-  br label %20
+12:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %17, i32 0, i32 1
+  %19 = getelementptr inbounds [2 x i32], ptr %18, i64 0, i64 1
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %9, align 4
+  br label %21
 
-20:                                               ; preds = %43, %11
-  %21 = load i32, ptr %8, align 4
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp slt i32 %21, %22
-  br i1 %23, label %24, label %46
+21:                                               ; preds = %46, %12
+  %22 = load i32, ptr %8, align 4
+  %23 = load i32, ptr %9, align 4
+  %24 = icmp slt i32 %22, %23
+  br i1 %24, label %25, label %49
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %26 = load ptr, ptr %25, align 16
+25:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %26 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
   %27 = load i32, ptr %8, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %union.SharedInvalidationMessage, ptr %26, i64 %28
+  %29 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %26, i64 %28
   store ptr %29, ptr %10, align 8
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %30, i32 0, i32 0
   %32 = load i8, ptr %31, align 4
   %33 = sext i8 %32 to i32
   %34 = icmp eq i32 %33, -5
   br i1 %34, label %35, label %42
 
-35:                                               ; preds = %24
+35:                                               ; preds = %25
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %36, i32 0, i32 2
+  %37 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %36, i32 0, i32 2
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %6, align 4
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %35
-  br label %56
-
-42:                                               ; preds = %35, %24
+  store i32 1, ptr %11, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr %8, align 4
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %8, align 4
-  br label %20, !llvm.loop !13
+42:                                               ; preds = %35, %25
+  store i32 0, ptr %11, align 4
+  br label %43
 
-46:                                               ; preds = %20
-  br label %47
+43:                                               ; preds = %42, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %44 = load i32, ptr %11, align 4
+  switch i32 %44, label %50 [
+    i32 0, label %45
+  ]
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 0
-  store i8 -5, ptr %48, align 4
-  %49 = load i32, ptr %5, align 4
-  %50 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 1
-  store i32 %49, ptr %50, align 4
-  %51 = load i32, ptr %6, align 4
-  %52 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 2
-  store i32 %51, ptr %52, align 4
+45:                                               ; preds = %43
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load i32, ptr %8, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %8, align 4
+  br label %21, !llvm.loop !14
+
+49:                                               ; preds = %21
+  store i32 0, ptr %11, align 4
+  br label %50
+
+50:                                               ; preds = %49, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %51 = load i32, ptr %11, align 4
+  switch i32 %51, label %64 [
+    i32 0, label %52
+  ]
+
+52:                                               ; preds = %50
   br label %53
 
-53:                                               ; preds = %47
+53:                                               ; preds = %52
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %4, align 8
-  call void @AddInvalidationMessage(ptr noundef %55, i32 noundef 1, ptr noundef %7)
-  br label %56
+  %55 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 0
+  store i8 -5, ptr %55, align 4
+  %56 = load i32, ptr %5, align 4
+  %57 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 1
+  store i32 %56, ptr %57, align 4
+  %58 = load i32, ptr %6, align 4
+  %59 = getelementptr inbounds nuw %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 2
+  store i32 %58, ptr %59, align 4
+  br label %60
 
-56:                                               ; preds = %54, %41
+60:                                               ; preds = %54
+  br label %61
+
+61:                                               ; preds = %60
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %4, align 8
+  call void @AddInvalidationMessage(ptr noundef %63, i32 noundef 1, ptr noundef %7)
+  store i32 0, ptr %11, align 4
+  br label %64
+
+64:                                               ; preds = %62, %50
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #7
+  %65 = load i32, ptr %11, align 4
+  switch i32 %65, label %67 [
+    i32 0, label %66
+    i32 1, label %66
+  ]
+
+66:                                               ; preds = %64, %64
   ret void
+
+67:                                               ; preds = %64
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2760,32 +3463,35 @@ define internal void @AddInvalidationMessage(ptr noundef %0, i32 noundef %1, ptr
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %11 = load i32, ptr %5, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 %12
+  %13 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 %12
   store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %14, i32 0, i32 1
   %16 = load i32, ptr %5, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr [2 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds [2 x i32], ptr %15, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %8, align 4
   %20 = load i32, ptr %8, align 4
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.InvalMessageArray, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %21, i32 0, i32 1
   %23 = load i32, ptr %22, align 8
   %24 = icmp sge i32 %20, %23
   br i1 %24, label %25, label %59
 
 25:                                               ; preds = %3
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.InvalMessageArray, ptr %26, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %26, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %41
 
 30:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
   store i32 32, ptr %9, align 4
   %31 = load ptr, ptr @TopTransactionContext, align 8
   %32 = load i32, ptr %9, align 4
@@ -2793,34 +3499,37 @@ define internal void @AddInvalidationMessage(ptr noundef %0, i32 noundef %1, ptr
   %34 = mul i64 %33, 16
   %35 = call ptr @MemoryContextAlloc(ptr noundef %31, i64 noundef %34)
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.InvalMessageArray, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %36, i32 0, i32 0
   store ptr %35, ptr %37, align 8
   %38 = load i32, ptr %9, align 4
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.InvalMessageArray, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %39, i32 0, i32 1
   store i32 %38, ptr %40, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   br label %58
 
 41:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct.InvalMessageArray, ptr %42, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %42, i32 0, i32 1
   %44 = load i32, ptr %43, align 8
   %45 = mul i32 2, %44
   store i32 %45, ptr %10, align 4
   %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.InvalMessageArray, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %46, i32 0, i32 0
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %10, align 4
   %50 = sext i32 %49 to i64
   %51 = mul i64 %50, 16
   %52 = call ptr @repalloc(ptr noundef %48, i64 noundef %51)
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.InvalMessageArray, ptr %53, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %53, i32 0, i32 0
   store ptr %52, ptr %54, align 8
   %55 = load i32, ptr %10, align 4
   %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct.InvalMessageArray, ptr %56, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %56, i32 0, i32 1
   store i32 %55, ptr %57, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
   br label %58
 
 58:                                               ; preds = %41, %30
@@ -2828,25 +3537,27 @@ define internal void @AddInvalidationMessage(ptr noundef %0, i32 noundef %1, ptr
 
 59:                                               ; preds = %58, %3
   %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.InvalMessageArray, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.InvalMessageArray, ptr %60, i32 0, i32 0
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %8, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr %union.SharedInvalidationMessage, ptr %62, i64 %64
+  %65 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %62, i64 %64
   %66 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 4 %66, i64 16, i1 false)
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %67, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %67, i32 0, i32 1
   %69 = load i32, ptr %5, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr [2 x i32], ptr %68, i64 0, i64 %70
+  %71 = getelementptr inbounds [2 x i32], ptr %68, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) #1
+declare ptr @repalloc(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @AddCatcacheInvalidationMessage(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -2859,15 +3570,16 @@ define internal void @AddCatcacheInvalidationMessage(ptr noundef %0, i32 noundef
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #7
   %10 = load i32, ptr %6, align 4
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 0
   store i8 %11, ptr %12, align 4
   %13 = load i32, ptr %8, align 4
-  %14 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 1
   store i32 %13, ptr %14, align 4
   %15 = load i32, ptr %7, align 4
-  %16 = getelementptr inbounds %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.SharedInvalCatcacheMsg, ptr %9, i32 0, i32 2
   store i32 %15, ptr %16, align 4
   br label %17
 
@@ -2875,8 +3587,49 @@ define internal void @AddCatcacheInvalidationMessage(ptr noundef %0, i32 noundef
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8
-  call void @AddInvalidationMessage(ptr noundef %19, i32 noundef 0, ptr noundef %9)
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %5, align 8
+  call void @AddInvalidationMessage(ptr noundef %20, i32 noundef 0, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #7
+  ret void
+}
+
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) #2
+
+declare ptr @palloc0(i64 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @AddCatalogInvalidationMessage(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %union.SharedInvalidationMessage, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #7
+  %8 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 0
+  store i8 -1, ptr %8, align 4
+  %9 = load i32, ptr %5, align 4
+  %10 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 1
+  store i32 %9, ptr %10, align 4
+  %11 = load i32, ptr %6, align 4
+  %12 = getelementptr inbounds nuw %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 2
+  store i32 %11, ptr %12, align 4
+  br label %13
+
+13:                                               ; preds = %3
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %4, align 8
+  call void @AddInvalidationMessage(ptr noundef %16, i32 noundef 0, ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #7
   ret void
 }
 
@@ -2889,47 +3642,51 @@ define internal void @AddRelcacheInvalidationMessage(ptr noundef %0, i32 noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  br label %11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #7
+  br label %12
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %12, i32 0, i32 0
-  %14 = getelementptr [2 x i32], ptr %13, i64 0, i64 1
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %16, i32 0, i32 1
-  %18 = getelementptr [2 x i32], ptr %17, i64 0, i64 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %9, align 4
-  br label %20
+12:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.InvalidationMsgsGroup, ptr %17, i32 0, i32 1
+  %19 = getelementptr inbounds [2 x i32], ptr %18, i64 0, i64 1
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %9, align 4
+  br label %21
 
-20:                                               ; preds = %48, %11
-  %21 = load i32, ptr %8, align 4
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp slt i32 %21, %22
-  br i1 %23, label %24, label %51
+21:                                               ; preds = %51, %12
+  %22 = load i32, ptr %8, align 4
+  %23 = load i32, ptr %9, align 4
+  %24 = icmp slt i32 %22, %23
+  br i1 %24, label %25, label %54
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
-  %26 = load ptr, ptr %25, align 16
+25:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %26 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
   %27 = load i32, ptr %8, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %union.SharedInvalidationMessage, ptr %26, i64 %28
+  %29 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %26, i64 %28
   store ptr %29, ptr %10, align 8
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %30, i32 0, i32 0
   %32 = load i8, ptr %31, align 4
   %33 = sext i8 %32 to i32
   %34 = icmp eq i32 %33, -2
   br i1 %34, label %35, label %47
 
-35:                                               ; preds = %24
+35:                                               ; preds = %25
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %36, i32 0, i32 2
+  %37 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %36, i32 0, i32 2
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %6, align 4
   %40 = icmp eq i32 %38, %39
@@ -2937,102 +3694,120 @@ define internal void @AddRelcacheInvalidationMessage(ptr noundef %0, i32 noundef
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %42, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %42, i32 0, i32 2
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %41, %35
-  br label %61
-
-47:                                               ; preds = %41, %24
+  store i32 1, ptr %11, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load i32, ptr %8, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %8, align 4
-  br label %20, !llvm.loop !14
+47:                                               ; preds = %41, %25
+  store i32 0, ptr %11, align 4
+  br label %48
 
-51:                                               ; preds = %20
-  br label %52
+48:                                               ; preds = %47, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %49 = load i32, ptr %11, align 4
+  switch i32 %49, label %55 [
+    i32 0, label %50
+  ]
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 0
-  store i8 -2, ptr %53, align 4
-  %54 = load i32, ptr %5, align 4
-  %55 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 1
-  store i32 %54, ptr %55, align 4
-  %56 = load i32, ptr %6, align 4
-  %57 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 2
-  store i32 %56, ptr %57, align 4
+50:                                               ; preds = %48
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load i32, ptr %8, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %8, align 4
+  br label %21, !llvm.loop !15
+
+54:                                               ; preds = %21
+  store i32 0, ptr %11, align 4
+  br label %55
+
+55:                                               ; preds = %54, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %56 = load i32, ptr %11, align 4
+  switch i32 %56, label %69 [
+    i32 0, label %57
+  ]
+
+57:                                               ; preds = %55
   br label %58
 
-58:                                               ; preds = %52
+58:                                               ; preds = %57
   br label %59
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr %4, align 8
-  call void @AddInvalidationMessage(ptr noundef %60, i32 noundef 1, ptr noundef %7)
-  br label %61
+  %60 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 0
+  store i8 -2, ptr %60, align 4
+  %61 = load i32, ptr %5, align 4
+  %62 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 1
+  store i32 %61, ptr %62, align 4
+  %63 = load i32, ptr %6, align 4
+  %64 = getelementptr inbounds nuw %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 2
+  store i32 %63, ptr %64, align 4
+  br label %65
 
-61:                                               ; preds = %59, %46
+65:                                               ; preds = %59
+  br label %66
+
+66:                                               ; preds = %65
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %4, align 8
+  call void @AddInvalidationMessage(ptr noundef %68, i32 noundef 1, ptr noundef %7)
+  store i32 0, ptr %11, align 4
+  br label %69
+
+69:                                               ; preds = %67, %55
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #7
+  %70 = load i32, ptr %11, align 4
+  switch i32 %70, label %72 [
+    i32 0, label %71
+    i32 1, label %71
+  ]
+
+71:                                               ; preds = %69, %69
   ret void
+
+72:                                               ; preds = %69
+  unreachable
 }
 
-declare i32 @GetCurrentCommandId(i1 noundef zeroext) #1
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) #2
 
-declare zeroext i1 @RelationIdIsInInitFile(i32 noundef) #1
+declare zeroext i1 @RelationIdIsInInitFile(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @AddCatalogInvalidationMessage(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca %union.SharedInvalidationMessage, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 0
-  store i8 -1, ptr %8, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 1
-  store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = getelementptr inbounds %struct.SharedInvalCatalogMsg, ptr %7, i32 0, i32 2
-  store i32 %11, ptr %12, align 4
-  br label %13
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
 
-13:                                               ; preds = %3
-  br label %14
-
-14:                                               ; preds = %13
-  %15 = load ptr, ptr %4, align 8
-  call void @AddInvalidationMessage(ptr noundef %15, i32 noundef 0, ptr noundef %7)
-  ret void
-}
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

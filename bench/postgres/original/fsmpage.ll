@@ -19,182 +19,218 @@ define dso_local zeroext i1 @fsm_set_avail(ptr noundef %0, i32 noundef %1, i8 no
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  %11 = alloca i8, align 1
-  %12 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store i8 %2, ptr %7, align 1
-  %14 = load i32, ptr %6, align 4
-  %15 = add i32 4095, %14
-  store i32 %15, ptr %8, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr @PageGetContents(ptr noundef %16)
-  store ptr %17, ptr %9, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds %struct.FSMPageData, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %8, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr [0 x i8], ptr %19, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
-  store i8 %23, ptr %10, align 1
-  %24 = load i8, ptr %10, align 1
-  %25 = zext i8 %24 to i32
-  %26 = load i8, ptr %7, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %25, %27
-  br i1 %28, label %29, label %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %15 = load i32, ptr %6, align 4
+  %16 = add i32 4095, %15
+  store i32 %16, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %17 = load ptr, ptr %5, align 8
+  %18 = call ptr @PageGetContents(ptr noundef %17)
+  store ptr %18, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #5
+  %19 = load ptr, ptr %9, align 8
+  %20 = getelementptr inbounds nuw %struct.FSMPageData, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %8, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1
+  store i8 %24, ptr %10, align 1
+  %25 = load i8, ptr %10, align 1
+  %26 = zext i8 %25 to i32
+  %27 = load i8, ptr %7, align 1
+  %28 = zext i8 %27 to i32
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %3
-  %30 = load i8, ptr %7, align 1
-  %31 = zext i8 %30 to i32
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %struct.FSMPageData, ptr %32, i32 0, i32 1
-  %34 = getelementptr [0 x i8], ptr %33, i64 0, i64 0
-  %35 = load i8, ptr %34, align 4
-  %36 = zext i8 %35 to i32
-  %37 = icmp sle i32 %31, %36
-  br i1 %37, label %38, label %39
+30:                                               ; preds = %3
+  %31 = load i8, ptr %7, align 1
+  %32 = zext i8 %31 to i32
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.FSMPageData, ptr %33, i32 0, i32 1
+  %35 = getelementptr inbounds [0 x i8], ptr %34, i64 0, i64 0
+  %36 = load i8, ptr %35, align 4
+  %37 = zext i8 %36 to i32
+  %38 = icmp sle i32 %32, %37
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %29
+39:                                               ; preds = %30
   store i1 false, ptr %4, align 1
-  br label %125
+  store i32 1, ptr %11, align 4
+  br label %129
 
-39:                                               ; preds = %29, %3
-  %40 = load i8, ptr %7, align 1
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct.FSMPageData, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %8, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr [0 x i8], ptr %42, i64 0, i64 %44
-  store i8 %40, ptr %45, align 1
-  br label %46
+40:                                               ; preds = %30, %3
+  %41 = load i8, ptr %7, align 1
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.FSMPageData, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %8, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [0 x i8], ptr %43, i64 0, i64 %45
+  store i8 %41, ptr %46, align 1
+  br label %47
 
-46:                                               ; preds = %109, %39
-  store i8 0, ptr %11, align 1
-  %47 = load i32, ptr %8, align 4
-  %48 = sub i32 %47, 1
-  %49 = sdiv i32 %48, 2
-  store i32 %49, ptr %8, align 4
-  %50 = load i32, ptr %8, align 4
-  %51 = mul i32 2, %50
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %12, align 4
-  %53 = load i32, ptr %12, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %13, align 4
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.FSMPageData, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %12, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr [0 x i8], ptr %56, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1
-  store i8 %60, ptr %11, align 1
-  %61 = load i32, ptr %13, align 4
-  %62 = sext i32 %61 to i64
-  %63 = icmp ult i64 %62, 8164
-  br i1 %63, label %64, label %89
+47:                                               ; preds = %113, %40
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  store i8 0, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %48 = load i32, ptr %8, align 4
+  %49 = sub i32 %48, 1
+  %50 = sdiv i32 %49, 2
+  store i32 %50, ptr %8, align 4
+  %51 = load i32, ptr %8, align 4
+  %52 = mul i32 2, %51
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %13, align 4
+  %54 = load i32, ptr %13, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %14, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds nuw %struct.FSMPageData, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %13, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [0 x i8], ptr %57, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1
+  store i8 %61, ptr %12, align 1
+  %62 = load i32, ptr %14, align 4
+  %63 = sext i32 %62 to i64
+  %64 = icmp ult i64 %63, 8164
+  br i1 %64, label %65, label %90
 
-64:                                               ; preds = %46
-  %65 = load i8, ptr %11, align 1
-  %66 = zext i8 %65 to i32
-  %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds %struct.FSMPageData, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %13, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr [0 x i8], ptr %68, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = icmp sgt i32 %66, %73
-  br i1 %74, label %75, label %78
+65:                                               ; preds = %47
+  %66 = load i8, ptr %12, align 1
+  %67 = zext i8 %66 to i32
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds nuw %struct.FSMPageData, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %14, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [0 x i8], ptr %69, i64 0, i64 %71
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = icmp sgt i32 %67, %74
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %64
-  %76 = load i8, ptr %11, align 1
-  %77 = zext i8 %76 to i32
-  br label %86
+76:                                               ; preds = %65
+  %77 = load i8, ptr %12, align 1
+  %78 = zext i8 %77 to i32
+  br label %87
 
-78:                                               ; preds = %64
-  %79 = load ptr, ptr %9, align 8
-  %80 = getelementptr inbounds %struct.FSMPageData, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %13, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr [0 x i8], ptr %80, i64 0, i64 %82
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  br label %86
+79:                                               ; preds = %65
+  %80 = load ptr, ptr %9, align 8
+  %81 = getelementptr inbounds nuw %struct.FSMPageData, ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %14, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [0 x i8], ptr %81, i64 0, i64 %83
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  br label %87
 
-86:                                               ; preds = %78, %75
-  %87 = phi i32 [ %77, %75 ], [ %85, %78 ]
-  %88 = trunc i32 %87 to i8
-  store i8 %88, ptr %11, align 1
-  br label %89
+87:                                               ; preds = %79, %76
+  %88 = phi i32 [ %78, %76 ], [ %86, %79 ]
+  %89 = trunc i32 %88 to i8
+  store i8 %89, ptr %12, align 1
+  br label %90
 
-89:                                               ; preds = %86, %46
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds %struct.FSMPageData, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %8, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr [0 x i8], ptr %91, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1
-  store i8 %95, ptr %10, align 1
-  %96 = load i8, ptr %10, align 1
-  %97 = zext i8 %96 to i32
-  %98 = load i8, ptr %11, align 1
-  %99 = zext i8 %98 to i32
-  %100 = icmp eq i32 %97, %99
-  br i1 %100, label %101, label %102
+90:                                               ; preds = %87, %47
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds nuw %struct.FSMPageData, ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %8, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds [0 x i8], ptr %92, i64 0, i64 %94
+  %96 = load i8, ptr %95, align 1
+  store i8 %96, ptr %10, align 1
+  %97 = load i8, ptr %10, align 1
+  %98 = zext i8 %97 to i32
+  %99 = load i8, ptr %12, align 1
+  %100 = zext i8 %99 to i32
+  %101 = icmp eq i32 %98, %100
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %89
-  br label %112
+102:                                              ; preds = %90
+  store i32 2, ptr %11, align 4
+  br label %110
 
-102:                                              ; preds = %89
-  %103 = load i8, ptr %11, align 1
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.FSMPageData, ptr %104, i32 0, i32 1
-  %106 = load i32, ptr %8, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr [0 x i8], ptr %105, i64 0, i64 %107
-  store i8 %103, ptr %108, align 1
-  br label %109
+103:                                              ; preds = %90
+  %104 = load i8, ptr %12, align 1
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds nuw %struct.FSMPageData, ptr %105, i32 0, i32 1
+  %107 = load i32, ptr %8, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [0 x i8], ptr %106, i64 0, i64 %108
+  store i8 %104, ptr %109, align 1
+  store i32 0, ptr %11, align 4
+  br label %110
 
-109:                                              ; preds = %102
-  %110 = load i32, ptr %8, align 4
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %46, label %112, !llvm.loop !5
+110:                                              ; preds = %103, %102
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  %111 = load i32, ptr %11, align 4
+  switch i32 %111, label %131 [
+    i32 0, label %112
+    i32 2, label %116
+  ]
 
-112:                                              ; preds = %109, %101
-  %113 = load i8, ptr %7, align 1
-  %114 = zext i8 %113 to i32
-  %115 = load ptr, ptr %9, align 8
-  %116 = getelementptr inbounds %struct.FSMPageData, ptr %115, i32 0, i32 1
-  %117 = getelementptr [0 x i8], ptr %116, i64 0, i64 0
-  %118 = load i8, ptr %117, align 4
-  %119 = zext i8 %118 to i32
-  %120 = icmp sgt i32 %114, %119
-  br i1 %120, label %121, label %124
+112:                                              ; preds = %110
+  br label %113
 
-121:                                              ; preds = %112
-  %122 = load ptr, ptr %5, align 8
-  %123 = call zeroext i1 @fsm_rebuild_page(ptr noundef %122)
-  br label %124
+113:                                              ; preds = %112
+  %114 = load i32, ptr %8, align 4
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %47, label %116, !llvm.loop !4
 
-124:                                              ; preds = %121, %112
+116:                                              ; preds = %113, %110
+  %117 = load i8, ptr %7, align 1
+  %118 = zext i8 %117 to i32
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds nuw %struct.FSMPageData, ptr %119, i32 0, i32 1
+  %121 = getelementptr inbounds [0 x i8], ptr %120, i64 0, i64 0
+  %122 = load i8, ptr %121, align 4
+  %123 = zext i8 %122 to i32
+  %124 = icmp sgt i32 %118, %123
+  br i1 %124, label %125, label %128
+
+125:                                              ; preds = %116
+  %126 = load ptr, ptr %5, align 8
+  %127 = call zeroext i1 @fsm_rebuild_page(ptr noundef %126)
+  br label %128
+
+128:                                              ; preds = %125, %116
   store i1 true, ptr %4, align 1
-  br label %125
+  store i32 1, ptr %11, align 4
+  br label %129
 
-125:                                              ; preds = %124, %38
-  %126 = load i1, ptr %4, align 1
-  ret i1 %126
+129:                                              ; preds = %128, %39
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %130 = load i1, ptr %4, align 1
+  ret i1 %130
+
+131:                                              ; preds = %110
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetContents(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PageGetContents(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   ret ptr %4
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
@@ -206,10 +242,13 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %9 = load ptr, ptr %2, align 8
   %10 = call ptr @PageGetContents(ptr noundef %9)
   store ptr %10, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #5
   store i8 0, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   store i32 4094, ptr %5, align 4
   br label %11
 
@@ -219,13 +258,16 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
   br i1 %13, label %14, label %81
 
 14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
   %15 = load i32, ptr %5, align 4
   %16 = mul i32 2, %15
   %17 = add i32 %16, 1
   store i32 %17, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %18 = load i32, ptr %6, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
   store i8 0, ptr %8, align 1
   %20 = load i32, ptr %6, align 4
   %21 = sext i32 %20 to i64
@@ -234,10 +276,10 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.FSMPageData, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.FSMPageData, ptr %24, i32 0, i32 1
   %26 = load i32, ptr %6, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [0 x i8], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds [0 x i8], ptr %25, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   store i8 %29, ptr %8, align 1
   br label %30
@@ -252,10 +294,10 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
   %35 = load i8, ptr %8, align 1
   %36 = zext i8 %35 to i32
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.FSMPageData, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.FSMPageData, ptr %37, i32 0, i32 1
   %39 = load i32, ptr %7, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr [0 x i8], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds [0 x i8], ptr %38, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = icmp sgt i32 %36, %43
@@ -268,10 +310,10 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
 
 48:                                               ; preds = %34
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.FSMPageData, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.FSMPageData, ptr %49, i32 0, i32 1
   %51 = load i32, ptr %7, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr [0 x i8], ptr %50, i64 0, i64 %52
+  %53 = getelementptr inbounds [0 x i8], ptr %50, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   br label %56
@@ -284,10 +326,10 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
 
 59:                                               ; preds = %56, %30
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.FSMPageData, ptr %60, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.FSMPageData, ptr %60, i32 0, i32 1
   %62 = load i32, ptr %5, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr [0 x i8], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds [0 x i8], ptr %61, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = load i8, ptr %8, align 1
@@ -298,26 +340,32 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef %0) #0 {
 70:                                               ; preds = %59
   %71 = load i8, ptr %8, align 1
   %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.FSMPageData, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.FSMPageData, ptr %72, i32 0, i32 1
   %74 = load i32, ptr %5, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [0 x i8], ptr %73, i64 0, i64 %75
+  %76 = getelementptr inbounds [0 x i8], ptr %73, i64 0, i64 %75
   store i8 %71, ptr %76, align 1
   store i8 1, ptr %4, align 1
   br label %77
 
 77:                                               ; preds = %70, %59
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
   br label %78
 
 78:                                               ; preds = %77
   %79 = load i32, ptr %5, align 4
   %80 = add i32 %79, -1
   store i32 %80, ptr %5, align 4
-  br label %11, !llvm.loop !7
+  br label %11, !llvm.loop !6
 
 81:                                               ; preds = %11
-  %82 = load i8, ptr %4, align 1
+  %82 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %83 = trunc i8 %82 to i1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i1 %83
 }
 
@@ -328,16 +376,18 @@ define dso_local zeroext i8 @fsm_get_avail(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = load ptr, ptr %3, align 8
   %7 = call ptr @PageGetContents(ptr noundef %6)
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.FSMPageData, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.FSMPageData, ptr %8, i32 0, i32 1
   %10 = load i32, ptr %4, align 4
   %11 = add i32 4095, %10
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [0 x i8], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret i8 %14
 }
 
@@ -346,13 +396,15 @@ define dso_local zeroext i8 @fsm_get_max_avail(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %4 = load ptr, ptr %2, align 8
   %5 = call ptr @PageGetContents(ptr noundef %4)
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.FSMPageData, ptr %6, i32 0, i32 1
-  %8 = getelementptr [0 x i8], ptr %7, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.FSMPageData, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds [0 x i8], ptr %7, i64 0, i64 0
   %9 = load i8, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i8 %9
 }
 
@@ -369,237 +421,278 @@ define dso_local i32 @fsm_search_avail(i32 noundef %0, i8 noundef zeroext %1, i1
   %13 = alloca i32, align 4
   %14 = alloca i16, align 2
   %15 = alloca i32, align 4
-  %16 = alloca %struct.RelFileLocator, align 4
-  %17 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.RelFileLocator, align 4
   %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
   store i32 %0, ptr %6, align 4
   store i8 %1, ptr %7, align 1
-  %19 = zext i1 %2 to i8
-  store i8 %19, ptr %8, align 1
-  %20 = zext i1 %3 to i8
-  store i8 %20, ptr %9, align 1
-  %21 = load i32, ptr %6, align 4
-  %22 = call ptr @BufferGetPage(i32 noundef %21)
-  store ptr %22, ptr %10, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = call ptr @PageGetContents(ptr noundef %23)
-  store ptr %24, ptr %11, align 8
-  br label %25
+  %20 = zext i1 %2 to i8
+  store i8 %20, ptr %8, align 1
+  %21 = zext i1 %3 to i8
+  store i8 %21, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %22 = load i32, ptr %6, align 4
+  %23 = call ptr @BufferGetPage(i32 noundef %22)
+  store ptr %23, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %24 = load ptr, ptr %10, align 8
+  %25 = call ptr @PageGetContents(ptr noundef %24)
+  store ptr %25, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
+  br label %26
 
-25:                                               ; preds = %136, %4
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.FSMPageData, ptr %26, i32 0, i32 1
-  %28 = getelementptr [0 x i8], ptr %27, i64 0, i64 0
-  %29 = load i8, ptr %28, align 4
-  %30 = zext i8 %29 to i32
-  %31 = load i8, ptr %7, align 1
-  %32 = zext i8 %31 to i32
-  %33 = icmp slt i32 %30, %32
-  br i1 %33, label %34, label %35
+26:                                               ; preds = %143, %4
+  %27 = load ptr, ptr %11, align 8
+  %28 = getelementptr inbounds nuw %struct.FSMPageData, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds [0 x i8], ptr %28, i64 0, i64 0
+  %30 = load i8, ptr %29, align 4
+  %31 = zext i8 %30 to i32
+  %32 = load i8, ptr %7, align 1
+  %33 = zext i8 %32 to i32
+  %34 = icmp slt i32 %31, %33
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %25
+35:                                               ; preds = %26
   store i32 -1, ptr %5, align 4
-  br label %155
+  store i32 1, ptr %15, align 4
+  br label %160
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct.FSMPageData, ptr %36, i32 0, i32 0
-  %38 = load i32, ptr %37, align 4
-  store i32 %38, ptr %13, align 4
-  %39 = load i32, ptr %13, align 4
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %45, label %41
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds nuw %struct.FSMPageData, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4
+  store i32 %39, ptr %13, align 4
+  %40 = load i32, ptr %13, align 4
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %46, label %42
 
-41:                                               ; preds = %35
-  %42 = load i32, ptr %13, align 4
-  %43 = sext i32 %42 to i64
-  %44 = icmp uge i64 %43, 4069
-  br i1 %44, label %45, label %46
+42:                                               ; preds = %36
+  %43 = load i32, ptr %13, align 4
+  %44 = sext i32 %43 to i64
+  %45 = icmp uge i64 %44, 4069
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %41, %35
+46:                                               ; preds = %42, %36
   store i32 0, ptr %13, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %45, %41
-  %47 = load i32, ptr %13, align 4
-  %48 = add i32 %47, 4095
-  store i32 %48, ptr %13, align 4
-  %49 = load i32, ptr %13, align 4
-  store i32 %49, ptr %12, align 4
-  br label %50
+47:                                               ; preds = %46, %42
+  %48 = load i32, ptr %13, align 4
+  %49 = add i32 %48, 4095
+  store i32 %49, ptr %13, align 4
+  %50 = load i32, ptr %13, align 4
+  store i32 %50, ptr %12, align 4
+  br label %51
 
-50:                                               ; preds = %65, %46
-  %51 = load i32, ptr %12, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %70
+51:                                               ; preds = %66, %47
+  %52 = load i32, ptr %12, align 4
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %54, label %71
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds %struct.FSMPageData, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %12, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr [0 x i8], ptr %55, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load i8, ptr %7, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp sge i32 %60, %62
-  br i1 %63, label %64, label %65
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %11, align 8
+  %56 = getelementptr inbounds nuw %struct.FSMPageData, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %12, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [0 x i8], ptr %56, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = load i8, ptr %7, align 1
+  %63 = zext i8 %62 to i32
+  %64 = icmp sge i32 %61, %63
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %53
-  br label %70
-
-65:                                               ; preds = %53
-  %66 = load i32, ptr %12, align 4
-  %67 = call i32 @rightneighbor(i32 noundef %66)
-  %68 = sub i32 %67, 1
-  %69 = sdiv i32 %68, 2
-  store i32 %69, ptr %12, align 4
-  br label %50, !llvm.loop !8
-
-70:                                               ; preds = %64, %50
+65:                                               ; preds = %54
   br label %71
 
-71:                                               ; preds = %140, %92, %70
-  %72 = load i32, ptr %12, align 4
-  %73 = icmp slt i32 %72, 4095
-  br i1 %73, label %74, label %141
+66:                                               ; preds = %54
+  %67 = load i32, ptr %12, align 4
+  %68 = call i32 @rightneighbor(i32 noundef %67)
+  %69 = sub i32 %68, 1
+  %70 = sdiv i32 %69, 2
+  store i32 %70, ptr %12, align 4
+  br label %51, !llvm.loop !9
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %12, align 4
-  %76 = mul i32 2, %75
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %15, align 4
-  %78 = load i32, ptr %15, align 4
-  %79 = sext i32 %78 to i64
-  %80 = icmp ult i64 %79, 8164
-  br i1 %80, label %81, label %94
+71:                                               ; preds = %65, %51
+  br label %72
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds %struct.FSMPageData, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %15, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr [0 x i8], ptr %83, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = load i8, ptr %7, align 1
-  %90 = zext i8 %89 to i32
-  %91 = icmp sge i32 %88, %90
-  br i1 %91, label %92, label %94
+72:                                               ; preds = %145, %143, %71
+  %73 = load i32, ptr %12, align 4
+  %74 = icmp slt i32 %73, 4095
+  br i1 %74, label %75, label %146
 
-92:                                               ; preds = %81
-  %93 = load i32, ptr %15, align 4
-  store i32 %93, ptr %12, align 4
-  br label %71, !llvm.loop !9
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %76 = load i32, ptr %12, align 4
+  %77 = mul i32 2, %76
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %16, align 4
+  %79 = load i32, ptr %16, align 4
+  %80 = sext i32 %79 to i64
+  %81 = icmp ult i64 %80, 8164
+  br i1 %81, label %82, label %95
 
-94:                                               ; preds = %81, %74
-  %95 = load i32, ptr %15, align 4
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %15, align 4
-  %97 = load i32, ptr %15, align 4
-  %98 = sext i32 %97 to i64
-  %99 = icmp ult i64 %98, 8164
-  br i1 %99, label %100, label %113
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %11, align 8
+  %84 = getelementptr inbounds nuw %struct.FSMPageData, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %16, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [0 x i8], ptr %84, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = load i8, ptr %7, align 1
+  %91 = zext i8 %90 to i32
+  %92 = icmp sge i32 %89, %91
+  br i1 %92, label %93, label %95
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds %struct.FSMPageData, ptr %101, i32 0, i32 1
-  %103 = load i32, ptr %15, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr [0 x i8], ptr %102, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = load i8, ptr %7, align 1
-  %109 = zext i8 %108 to i32
-  %110 = icmp sge i32 %107, %109
-  br i1 %110, label %111, label %113
+93:                                               ; preds = %82
+  %94 = load i32, ptr %16, align 4
+  store i32 %94, ptr %12, align 4
+  store i32 5, ptr %15, align 4
+  br label %143, !llvm.loop !10
 
-111:                                              ; preds = %100
-  %112 = load i32, ptr %15, align 4
-  store i32 %112, ptr %12, align 4
-  br label %140
+95:                                               ; preds = %82, %75
+  %96 = load i32, ptr %16, align 4
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %16, align 4
+  %98 = load i32, ptr %16, align 4
+  %99 = sext i32 %98 to i64
+  %100 = icmp ult i64 %99, 8164
+  br i1 %100, label %101, label %114
 
-113:                                              ; preds = %100, %94
-  %114 = load i32, ptr %6, align 4
-  call void @BufferGetTag(i32 noundef %114, ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  br label %115
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %11, align 8
+  %103 = getelementptr inbounds nuw %struct.FSMPageData, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %16, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds [0 x i8], ptr %103, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = load i8, ptr %7, align 1
+  %110 = zext i8 %109 to i32
+  %111 = icmp sge i32 %108, %110
+  br i1 %111, label %112, label %114
 
-115:                                              ; preds = %113
-  br i1 false, label %116, label %118
+112:                                              ; preds = %101
+  %113 = load i32, ptr %16, align 4
+  store i32 %113, ptr %12, align 4
+  br label %142
 
-116:                                              ; preds = %115
-  %117 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #3
-  br i1 %117, label %120, label %129
+114:                                              ; preds = %101, %95
+  call void @llvm.lifetime.start.p0(i64 12, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  %115 = load i32, ptr %6, align 4
+  call void @BufferGetTag(i32 noundef %115, ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  br label %116
 
-118:                                              ; preds = %115
-  %119 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %119, label %120, label %129
+116:                                              ; preds = %114
+  br i1 false, label %117, label %119
 
-120:                                              ; preds = %118, %116
-  %121 = load i32, ptr %18, align 4
-  %122 = getelementptr inbounds %struct.RelFileLocator, ptr %16, i32 0, i32 0
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds %struct.RelFileLocator, ptr %16, i32 0, i32 1
-  %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds %struct.RelFileLocator, ptr %16, i32 0, i32 2
-  %127 = load i32, ptr %126, align 4
-  %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127)
+117:                                              ; preds = %116
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #6
+  br i1 %118, label %121, label %130
+
+119:                                              ; preds = %116
+  %120 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %120, label %121, label %130
+
+121:                                              ; preds = %119, %117
+  %122 = load i32, ptr %19, align 4
+  %123 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %17, i32 0, i32 0
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %17, i32 0, i32 1
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %17, i32 0, i32 2
+  %128 = load i32, ptr %127, align 4
+  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, i32 noundef %122, i32 noundef %124, i32 noundef %126, i32 noundef %128)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 277, ptr noundef @__func__.fsm_search_avail)
-  br label %129
-
-129:                                              ; preds = %120, %118, %116
   br label %130
 
-130:                                              ; preds = %129
-  %131 = load i8, ptr %9, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %136, label %133
+130:                                              ; preds = %121, %119, %117
+  br label %131
 
-133:                                              ; preds = %130
-  %134 = load i32, ptr %6, align 4
-  call void @LockBuffer(i32 noundef %134, i32 noundef 0)
-  %135 = load i32, ptr %6, align 4
-  call void @LockBuffer(i32 noundef %135, i32 noundef 2)
+131:                                              ; preds = %130
+  br label %132
+
+132:                                              ; preds = %131
+  %133 = load i8, ptr %9, align 1, !range !7, !noundef !8
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %138, label %135
+
+135:                                              ; preds = %132
+  %136 = load i32, ptr %6, align 4
+  call void @LockBuffer(i32 noundef %136, i32 noundef 0)
+  %137 = load i32, ptr %6, align 4
+  call void @LockBuffer(i32 noundef %137, i32 noundef 2)
   store i8 1, ptr %9, align 1
-  br label %136
+  br label %138
 
-136:                                              ; preds = %133, %130
-  %137 = load ptr, ptr %10, align 8
-  %138 = call zeroext i1 @fsm_rebuild_page(ptr noundef %137)
-  %139 = load i32, ptr %6, align 4
-  call void @MarkBufferDirtyHint(i32 noundef %139, i1 noundef zeroext false)
-  br label %25
+138:                                              ; preds = %135, %132
+  %139 = load ptr, ptr %10, align 8
+  %140 = call zeroext i1 @fsm_rebuild_page(ptr noundef %139)
+  %141 = load i32, ptr %6, align 4
+  call void @MarkBufferDirtyHint(i32 noundef %141, i1 noundef zeroext false)
+  store i32 2, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 12, ptr %17) #5
+  br label %143
 
-140:                                              ; preds = %111
-  br label %71, !llvm.loop !9
+142:                                              ; preds = %112
+  store i32 0, ptr %15, align 4
+  br label %143
 
-141:                                              ; preds = %71
-  %142 = load i32, ptr %12, align 4
-  %143 = sub i32 %142, 4095
-  %144 = trunc i32 %143 to i16
-  store i16 %144, ptr %14, align 2
-  %145 = load i16, ptr %14, align 2
-  %146 = zext i16 %145 to i32
-  %147 = load i8, ptr %8, align 1
-  %148 = trunc i8 %147 to i1
-  %149 = select i1 %148, i32 1, i32 0
-  %150 = add i32 %146, %149
-  %151 = load ptr, ptr %11, align 8
-  %152 = getelementptr inbounds %struct.FSMPageData, ptr %151, i32 0, i32 0
-  store i32 %150, ptr %152, align 4
-  %153 = load i16, ptr %14, align 2
-  %154 = zext i16 %153 to i32
-  store i32 %154, ptr %5, align 4
-  br label %155
+143:                                              ; preds = %142, %138, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  %144 = load i32, ptr %15, align 4
+  switch i32 %144, label %162 [
+    i32 0, label %145
+    i32 5, label %72
+    i32 2, label %26
+  ]
 
-155:                                              ; preds = %141, %34
-  %156 = load i32, ptr %5, align 4
-  ret i32 %156
+145:                                              ; preds = %143
+  br label %72, !llvm.loop !10
+
+146:                                              ; preds = %72
+  %147 = load i32, ptr %12, align 4
+  %148 = sub i32 %147, 4095
+  %149 = trunc i32 %148 to i16
+  store i16 %149, ptr %14, align 2
+  %150 = load i16, ptr %14, align 2
+  %151 = zext i16 %150 to i32
+  %152 = load i8, ptr %8, align 1, !range !7, !noundef !8
+  %153 = trunc i8 %152 to i1
+  %154 = select i1 %153, i32 1, i32 0
+  %155 = add i32 %151, %154
+  %156 = load ptr, ptr %11, align 8
+  %157 = getelementptr inbounds nuw %struct.FSMPageData, ptr %156, i32 0, i32 0
+  store i32 %155, ptr %157, align 4
+  %158 = load i16, ptr %14, align 2
+  %159 = zext i16 %158 to i32
+  store i32 %159, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %160
+
+160:                                              ; preds = %146, %35
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %161 = load i32, ptr %5, align 4
+  ret i32 %161
+
+162:                                              ; preds = %143
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetPage(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetPage(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -633,20 +726,20 @@ define internal i32 @rightneighbor(i32 noundef %0) #0 {
   ret i32 %15
 }
 
-declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @LockBuffer(i32 noundef, i32 noundef) #1
+declare void @LockBuffer(i32 noundef, i32 noundef) #3
 
-declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) #1
+declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) #0 {
@@ -657,24 +750,27 @@ define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) 
   %7 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %8 = load ptr, ptr %3, align 8
   %9 = call ptr @PageGetContents(ptr noundef %8)
   store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
   store i8 0, ptr %7, align 1
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.FSMPageData, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.FSMPageData, ptr %10, i32 0, i32 1
   %12 = load i32, ptr %4, align 4
   %13 = add i32 4095, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [0 x i8], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %14
   store ptr %15, ptr %6, align 8
   br label %16
 
 16:                                               ; preds = %30, %2
   %17 = load ptr, ptr %6, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.FSMPageData, ptr %18, i32 0, i32 1
-  %20 = getelementptr [0 x i8], ptr %19, i64 0, i64 8164
+  %19 = getelementptr inbounds nuw %struct.FSMPageData, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 8164
   %21 = icmp ult ptr %17, %20
   br i1 %21, label %22, label %33
 
@@ -696,12 +792,12 @@ define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) 
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr i8, ptr %31, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i32 1
   store ptr %32, ptr %6, align 8
-  br label %16, !llvm.loop !10
+  br label %16, !llvm.loop !11
 
 33:                                               ; preds = %16
-  %34 = load i8, ptr %7, align 1
+  %34 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %39
 
@@ -711,13 +807,16 @@ define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) 
   br label %39
 
 39:                                               ; preds = %36, %33
-  %40 = load i8, ptr %7, align 1
+  %40 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %41 = trunc i8 %40 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret i1 %41
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetBlock(i32 noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -731,7 +830,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %9 = sub i32 0, %8
   %10 = sub i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %2, align 8
   br label %21
@@ -742,7 +841,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %17 = sub i32 %16, 1
   %18 = sext i32 %17 to i64
   %19 = mul i64 %18, 8192
-  %20 = getelementptr i8, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   store ptr %20, ptr %2, align 8
   br label %21
 
@@ -751,21 +850,25 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   ret ptr %22
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

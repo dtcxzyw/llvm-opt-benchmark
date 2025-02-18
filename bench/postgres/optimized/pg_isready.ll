@@ -3,17 +3,15 @@ source_filename = "bench/postgres/original/pg_isready.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.option = type { ptr, i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"3\00", align 1
-@main.long_options = internal global [7 x %struct.option] [%struct.option { ptr @.str.1, i32 1, ptr null, i32 100 }, %struct.option { ptr @.str.2, i32 1, ptr null, i32 104 }, %struct.option { ptr @.str.3, i32 1, ptr null, i32 112 }, %struct.option { ptr @.str.4, i32 0, ptr null, i32 113 }, %struct.option { ptr @.str.5, i32 1, ptr null, i32 116 }, %struct.option { ptr @.str.6, i32 1, ptr null, i32 85 }, %struct.option zeroinitializer], align 16
+@main.long_options = internal global [7 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer, ptr null, i32 100, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 112, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 113, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 1, [4 x i8] zeroinitializer, ptr null, i32 116, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 1, [4 x i8] zeroinitializer, ptr null, i32 85, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.1 = private unnamed_addr constant [7 x i8] c"dbname\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"host\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"port\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"quiet\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
 @.str.6 = private unnamed_addr constant [9 x i8] c"username\00", align 1
-@.str.7 = private unnamed_addr constant [13 x i8] c"pgscripts-17\00", align 1
+@.str.7 = private unnamed_addr constant [13 x i8] c"pgscripts-18\00", align 1
 @.str.8 = private unnamed_addr constant [12 x i8] c"d:h:p:qt:U:\00", align 1
 @optarg = external local_unnamed_addr global ptr, align 8
 @.str.9 = private unnamed_addr constant [38 x i8] c"Try \22%s --help\22 for more information.\00", align 1
@@ -59,14 +57,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca [7 x ptr], align 16
   %4 = alloca [7 x ptr], align 16
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
-  tail call void @pg_logging_init(ptr noundef %6) #6
+  tail call void @pg_logging_init(ptr noundef %6) #7
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call ptr @get_progname(ptr noundef %7) #6
+  %8 = tail call ptr @get_progname(ptr noundef %7) #7
   %9 = load ptr, ptr %1, align 8
-  tail call void @set_pglocale_pgservice(ptr noundef %9, ptr noundef nonnull @.str.7) #6
-  tail call void @handle_help_version_opts(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %8, ptr noundef nonnull @help) #6
+  tail call void @set_pglocale_pgservice(ptr noundef %9, ptr noundef nonnull @.str.7) #7
+  tail call void @handle_help_version_opts(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %8, ptr noundef nonnull @help) #7
   br label %.outer
 
 .outer:                                           ; preds = %24, %2
@@ -104,7 +105,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.062 = phi ptr [ %.062.ph192, %.outer189 ], [ %.062.be, %.backedge ]
   %.062.fr = freeze ptr %.062
   %.078.fr = freeze ptr %.078
-  %11 = tail call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @main.long_options, ptr noundef null) #6
+  %11 = tail call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @main.long_options, ptr noundef null) #7
   switch i32 %11, label %27 [
     i32 -1, label %28
     i32 100, label %12
@@ -113,41 +114,41 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
     i32 113, label %.outer189
     i32 116, label %21
     i32 85, label %24
-  ], !llvm.loop !5
+  ], !llvm.loop !4
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @optarg, align 8
-  %14 = tail call ptr @pg_strdup(ptr noundef %13) #6
-  br label %.outer178, !llvm.loop !5
+  %14 = tail call ptr @pg_strdup(ptr noundef %13) #7
+  br label %.outer178, !llvm.loop !4
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @optarg, align 8
-  %17 = tail call ptr @pg_strdup(ptr noundef %16) #6
+  %17 = tail call ptr @pg_strdup(ptr noundef %16) #7
   br label %.backedge
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr @optarg, align 8
-  %20 = tail call ptr @pg_strdup(ptr noundef %19) #6
+  %20 = tail call ptr @pg_strdup(ptr noundef %19) #7
   br label %.backedge
 
 .backedge:                                        ; preds = %18, %15
   %.078.be = phi ptr [ %20, %18 ], [ %.078.fr, %15 ]
   %.062.be = phi ptr [ %.062.fr, %18 ], [ %17, %15 ]
-  br label %10, !llvm.loop !5
+  br label %10, !llvm.loop !4
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr @optarg, align 8
-  %23 = tail call ptr @pg_strdup(ptr noundef %22) #6
-  br label %.outer184, !llvm.loop !5
+  %23 = tail call ptr @pg_strdup(ptr noundef %22) #7
+  br label %.outer184, !llvm.loop !4
 
 24:                                               ; preds = %10
   %25 = load ptr, ptr @optarg, align 8
-  %26 = tail call ptr @pg_strdup(ptr noundef %25) #6
-  br label %.outer, !llvm.loop !5
+  %26 = tail call ptr @pg_strdup(ptr noundef %25) #7
+  br label %.outer, !llvm.loop !4
 
 27:                                               ; preds = %10
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %8) #6
-  tail call void @exit(i32 noundef 3) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %8) #7
+  tail call void @exit(i32 noundef 3) #8
   unreachable
 
 28:                                               ; preds = %10
@@ -157,11 +158,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
-  %33 = getelementptr ptr, ptr %1, i64 %32
+  %33 = getelementptr inbounds ptr, ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %34) #6
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %8) #6
-  tail call void @exit(i32 noundef 3) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %34) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %8) #7
+  tail call void @exit(i32 noundef 3) #8
   unreachable
 
 35:                                               ; preds = %28
@@ -195,34 +196,34 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not91, label %61, label %48
 
 48:                                               ; preds = %35
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(14) @.str.14, i64 noundef 13) #8
+  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(14) @.str.14, i64 noundef 13) #9
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %56, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(12) @.str.15, i64 noundef 11) #8
+  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.074.ph180, ptr noundef nonnull dereferenceable(12) @.str.15, i64 noundef 11) #9
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.074.ph180, i32 noundef 61) #8
+  %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.074.ph180, i32 noundef 61) #9
   %.not92 = icmp eq ptr %55, null
   br i1 %.not92, label %61, label %56
 
 56:                                               ; preds = %54, %51, %48
-  %57 = call ptr @PQconninfoParse(ptr noundef nonnull %.074.ph180, ptr noundef nonnull %5) #6
+  %57 = call ptr @PQconninfoParse(ptr noundef nonnull %.074.ph180, ptr noundef nonnull %5) #7
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %5, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %60) #6
-  call void @exit(i32 noundef 3) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %60) #7
+  call void @exit(i32 noundef 3) #8
   unreachable
 
 61:                                               ; preds = %56, %54, %35
   %.061 = phi ptr [ %57, %56 ], [ null, %54 ], [ null, %35 ]
-  %62 = call ptr @PQconndefaults() #6
+  %62 = call ptr @PQconndefaults() #7
   %63 = icmp eq ptr %62, null
   br i1 %63, label %132, label %.preheader
 
@@ -243,17 +244,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.066118.us = phi ptr [ %.167.us, %96 ], [ null, %.lr.ph ]
   %.068117.us = phi ptr [ %.169.us, %96 ], [ null, %.lr.ph ]
   %.070116.us = phi ptr [ %.171.us, %96 ], [ null, %.lr.ph ]
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.2) #8
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.2) #9
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %88, label %68
 
 68:                                               ; preds = %.lr.ph.split.us
-  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(9) @.str.19) #8
+  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(9) @.str.19) #9
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %81, label %71
 
 71:                                               ; preds = %68
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.3) #8
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.3) #9
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %96
 
@@ -318,12 +319,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.169.us = phi ptr [ %.068117.us, %71 ], [ %.068117.us, %89 ], [ %.068117.us, %92 ], [ %.068117.us, %93 ], [ %84, %82 ], [ %spec.select.us, %85 ], [ %.068117.us, %75 ], [ %.068117.us, %78 ]
   %.167.us = phi ptr [ %.066118.us, %71 ], [ %.066118.us, %89 ], [ %.066118.us, %92 ], [ %.066118.us, %93 ], [ %.066118.us, %82 ], [ %.066118.us, %85 ], [ %77, %75 ], [ %spec.select107.us, %78 ]
   %.not106.us = icmp eq ptr %.060119.us, null
-  %97 = getelementptr i8, ptr %.060119.us, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %.060119.us, i64 56
   %spec.select108.us = select i1 %.not106.us, ptr null, ptr %97
-  %98 = getelementptr i8, ptr %.0120.us, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 56
   %99 = load ptr, ptr %98, align 8
   %.not93.us = icmp eq ptr %99, null
-  br i1 %.not93.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %.not93.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not104, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -335,17 +336,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.066118.us127 = phi ptr [ %.167.us142, %128 ], [ null, %.lr.ph.split ]
   %.068117.us128 = phi ptr [ %.169.us141, %128 ], [ null, %.lr.ph.split ]
   %.070116.us129 = phi ptr [ %.171.us140, %128 ], [ null, %.lr.ph.split ]
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(5) @.str.2) #8
+  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(5) @.str.2) #9
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %121, label %103
 
 103:                                              ; preds = %.lr.ph.split.split.us
-  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(9) @.str.19) #8
+  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(9) @.str.19) #9
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %103
-  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(5) @.str.3) #8
+  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(5) @.str.3) #9
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %128
 
@@ -401,16 +402,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.169.us141 = phi ptr [ %.068117.us128, %106 ], [ %.068117.us128, %122 ], [ %.068117.us128, %125 ], [ %117, %115 ], [ %spec.select.us135, %118 ], [ %.068117.us128, %110 ], [ %.068117.us128, %113 ]
   %.167.us142 = phi ptr [ %.066118.us127, %106 ], [ %.066118.us127, %122 ], [ %.066118.us127, %125 ], [ %.066118.us127, %115 ], [ %.066118.us127, %118 ], [ %112, %110 ], [ %.078.fr, %113 ]
   %.not106.us143 = icmp eq ptr %.060119.us126, null
-  %129 = getelementptr i8, ptr %.060119.us126, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %.060119.us126, i64 56
   %spec.select108.us144 = select i1 %.not106.us143, ptr null, ptr %129
-  %130 = getelementptr i8, ptr %.0120.us125, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %.0120.us125, i64 56
   %131 = load ptr, ptr %130, align 8
   %.not93.us145 = icmp eq ptr %131, null
-  br i1 %.not93.us145, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !7
+  br i1 %.not93.us145, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !6
 
 132:                                              ; preds = %61
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #6
-  call void @exit(i32 noundef 3) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #7
+  call void @exit(i32 noundef 3) #8
   unreachable
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %159
@@ -420,7 +421,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.066118 = phi ptr [ %.167, %159 ], [ null, %.lr.ph.split ]
   %.068117 = phi ptr [ %.169, %159 ], [ null, %.lr.ph.split ]
   %.070116 = phi ptr [ %.171, %159 ], [ null, %.lr.ph.split ]
-  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(5) @.str.2) #8
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(5) @.str.2) #9
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %141
 
@@ -438,7 +439,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %159
 
 141:                                              ; preds = %.lr.ph.split.split
-  %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(9) @.str.19) #8
+  %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(9) @.str.19) #9
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %151
 
@@ -460,7 +461,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %159
 
 151:                                              ; preds = %141
-  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(5) @.str.3) #8
+  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(5) @.str.3) #9
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %159
 
@@ -482,24 +483,24 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.169 = phi ptr [ %.068117, %151 ], [ %.068117, %137 ], [ %.068117, %140 ], [ %147, %145 ], [ %spec.select, %148 ], [ %.068117, %155 ], [ %.068117, %158 ]
   %.167 = phi ptr [ %.066118, %151 ], [ %.066118, %137 ], [ %.066118, %140 ], [ %.066118, %145 ], [ %.066118, %148 ], [ %157, %155 ], [ %.078.fr, %158 ]
   %.not106 = icmp eq ptr %.060119, null
-  %160 = getelementptr i8, ptr %.060119, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %.060119, i64 56
   %spec.select108 = select i1 %.not106, ptr null, ptr %160
-  %161 = getelementptr i8, ptr %.0120, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %.0120, i64 56
   %162 = load ptr, ptr %161, align 8
   %.not93 = icmp eq ptr %162, null
-  br i1 %.not93, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
+  br i1 %.not93, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %128, %159, %96, %.preheader
   %.070.lcssa = phi ptr [ null, %.preheader ], [ %.171.us, %96 ], [ %.171, %159 ], [ %.171.us140, %128 ]
   %.068.lcssa = phi ptr [ null, %.preheader ], [ %.169.us, %96 ], [ %.169, %159 ], [ %.169.us141, %128 ]
   %.066.lcssa = phi ptr [ null, %.preheader ], [ %.167.us, %96 ], [ %.167, %159 ], [ %.167.us142, %128 ]
-  %163 = call i32 @PQpingParams(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #6
+  %163 = call i32 @PQpingParams(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
   br i1 %.064.ph191, label %170, label %164
 
 164:                                              ; preds = %._crit_edge
   %.not94 = icmp eq ptr %.068.lcssa, null
   %165 = select i1 %.not94, ptr %.070.lcssa, ptr %.068.lcssa
-  %166 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %165, ptr noundef %.066.lcssa) #6
+  %166 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %165, ptr noundef %.066.lcssa) #7
   %167 = icmp ult i32 %163, 4
   br i1 %167, label %switch.lookup, label %.sink.split
 
@@ -511,87 +512,90 @@ switch.lookup:                                    ; preds = %164
 
 .sink.split:                                      ; preds = %164, %switch.lookup
   %.str.21.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.25, %164 ]
-  %169 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.21.sink) #6
+  %169 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.21.sink) #7
   br label %170
 
 170:                                              ; preds = %.sink.split, %._crit_edge
-  call void @exit(i32 noundef %163) #9
+  call void @exit(i32 noundef %163) #10
   unreachable
 }
 
-declare void @pg_logging_init(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
+declare void @pg_logging_init(ptr noundef) local_unnamed_addr #2
 
-declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @get_progname(ptr noundef) local_unnamed_addr #2
 
-declare void @handle_help_version_opts(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @handle_help_version_opts(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @help(ptr noundef %0) #2 {
-  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %0) #6
-  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27) #6
-  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef %0) #6
-  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29) #6
-  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30) #6
-  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31) #6
-  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.32) #6
-  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.33) #6
-  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34) #6
-  %11 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35) #6
-  %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36) #6
-  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str) #6
-  %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #6
-  %15 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40) #6
-  %16 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #6
+define internal void @help(ptr noundef %0) #3 {
+  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %0) #7
+  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27) #7
+  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef %0) #7
+  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29) #7
+  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30) #7
+  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31) #7
+  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.32) #7
+  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.33) #7
+  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34) #7
+  %11 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35) #7
+  %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36) #7
+  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str) #7
+  %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #7
+  %15 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40) #7
+  %16 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #7
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
+declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @PQconninfoParse(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @PQconninfoParse(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQconndefaults() local_unnamed_addr #1
+declare ptr @PQconndefaults() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @PQpingParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @PQpingParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 
-attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { cold noreturn nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { cold noreturn nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

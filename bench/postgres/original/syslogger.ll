@@ -3,8 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__sigset_t = type { [16 x i64] }
 %struct.WaitEvent = type { i32, i32, i32, ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
 %struct.pg_tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.PipeProtoHeader = type { [2 x i8], i16, i32, i8, [0 x i8] }
 %struct.ForEachState = type { ptr, i32 }
@@ -12,6 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union.ListCell = type { ptr }
 %struct.save_buffer = type { i32, %struct.StringInfoData }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
+%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
+%struct.timespec = type { i64, i64 }
 
 @Logging_collector = dso_local global i8 0, align 1
 @Log_RotationAge = dso_local global i32 1440, align 4
@@ -21,380 +21,702 @@ target triple = "x86_64-pc-linux-gnu"
 @Log_truncate_on_rotation = dso_local global i8 0, align 1
 @Log_file_mode = dso_local global i32 384, align 4
 @syslogPipe = dso_local global [2 x i32] [i32 -1, i32 -1], align 4
-@.str = private unnamed_addr constant [37 x i8] c"could not create pipe for syslog: %m\00", align 1
-@.str.1 = private unnamed_addr constant [12 x i8] c"syslogger.c\00", align 1
-@__func__.SysLogger_Start = private unnamed_addr constant [16 x i8] c"SysLogger_Start\00", align 1
-@first_syslogger_file_time = internal global i64 0, align 8
-@.str.2 = private unnamed_addr constant [2 x i8] c"a\00", align 1
-@syslogFile = internal global ptr null, align 8
-@Log_destination = external global i32, align 4
-@.str.3 = private unnamed_addr constant [5 x i8] c".csv\00", align 1
-@csvlogFile = internal global ptr null, align 8
-@.str.4 = private unnamed_addr constant [6 x i8] c".json\00", align 1
-@jsonlogFile = internal global ptr null, align 8
-@.str.5 = private unnamed_addr constant [33 x i8] c"could not fork system logger: %m\00", align 1
-@redirection_done = external global i8, align 1
-@.str.6 = private unnamed_addr constant [52 x i8] c"redirecting log output to logging collector process\00", align 1
-@.str.7 = private unnamed_addr constant [49 x i8] c"Future log output will appear in directory \22%s\22.\00", align 1
-@stdout = external global ptr, align 8
-@.str.8 = private unnamed_addr constant [30 x i8] c"could not redirect stdout: %m\00", align 1
-@stderr = external global ptr, align 8
-@.str.9 = private unnamed_addr constant [30 x i8] c"could not redirect stderr: %m\00", align 1
-@.str.10 = private unnamed_addr constant [33 x i8] c"could not write to log file: %s\0A\00", align 1
-@.str.11 = private unnamed_addr constant [10 x i8] c"logrotate\00", align 1
+@PostmasterContext = external global ptr, align 8
 @MyStartTime = external global i64, align 8
 @MyBackendType = external global i32, align 4
-@.str.12 = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
+@redirection_done = external global i8, align 1
+@.str = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
 @UnBlockSig = external global %struct.__sigset_t, align 8
+@first_syslogger_file_time = internal global i64 0, align 8
 @last_sys_file_name = internal global ptr null, align 8
+@csvlogFile = internal global ptr null, align 8
+@.str.1 = private unnamed_addr constant [5 x i8] c".csv\00", align 1
 @last_csv_file_name = internal global ptr null, align 8
+@jsonlogFile = internal global ptr null, align 8
+@.str.2 = private unnamed_addr constant [6 x i8] c".json\00", align 1
 @last_json_file_name = internal global ptr null, align 8
 @whereToSendOutput = external global i32, align 4
 @MyLatch = external global ptr, align 8
 @ConfigReloadPending = external global i32, align 4
 @rotation_requested = internal global i32 0, align 4
+@Log_destination = external global i32, align 4
 @rotation_disabled = internal global i8 0, align 1
 @next_rotation_time = internal global i64 0, align 8
-@.str.13 = private unnamed_addr constant [36 x i8] c"could not read from logger pipe: %m\00", align 1
+@syslogFile = internal global ptr null, align 8
+@.str.3 = private unnamed_addr constant [36 x i8] c"could not read from logger pipe: %m\00", align 1
+@.str.4 = private unnamed_addr constant [12 x i8] c"syslogger.c\00", align 1
 @__func__.SysLoggerMain = private unnamed_addr constant [14 x i8] c"SysLoggerMain\00", align 1
 @pipe_eof_seen = internal global i8 0, align 1
-@.str.14 = private unnamed_addr constant [21 x i8] c"logger shutting down\00", align 1
+@.str.5 = private unnamed_addr constant [21 x i8] c"logger shutting down\00", align 1
+@.str.6 = private unnamed_addr constant [37 x i8] c"could not create pipe for syslog: %m\00", align 1
+@__func__.SysLogger_Start = private unnamed_addr constant [16 x i8] c"SysLogger_Start\00", align 1
+@.str.7 = private unnamed_addr constant [2 x i8] c"a\00", align 1
+@.str.8 = private unnamed_addr constant [33 x i8] c"could not fork system logger: %m\00", align 1
+@.str.9 = private unnamed_addr constant [52 x i8] c"redirecting log output to logging collector process\00", align 1
+@.str.10 = private unnamed_addr constant [49 x i8] c"Future log output will appear in directory \22%s\22.\00", align 1
+@stdout = external global ptr, align 8
+@.str.11 = private unnamed_addr constant [30 x i8] c"could not redirect stdout: %m\00", align 1
+@stderr = external global ptr, align 8
+@.str.12 = private unnamed_addr constant [30 x i8] c"could not redirect stderr: %m\00", align 1
+@.str.13 = private unnamed_addr constant [33 x i8] c"could not write to log file: %m\0A\00", align 1
+@.str.14 = private unnamed_addr constant [10 x i8] c"logrotate\00", align 1
+@pg_number_of_ones = external constant [256 x i8], align 16
+@buffer_lists = internal global [256 x ptr] zeroinitializer, align 16
+@.str.15 = private unnamed_addr constant [33 x i8] c"could not open log file \22%s\22: %m\00", align 1
+@__func__.logfile_open = private unnamed_addr constant [13 x i8] c"logfile_open\00", align 1
+@.str.16 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@.str.17 = private unnamed_addr constant [55 x i8] c"disabling automatic rotation (use SIGHUP to re-enable)\00", align 1
+@__func__.logfile_rotate_dest = private unnamed_addr constant [20 x i8] c"logfile_rotate_dest\00", align 1
+@.str.18 = private unnamed_addr constant [4 x i8] c"%s/\00", align 1
 @log_timezone = external global ptr, align 8
-@.str.15 = private unnamed_addr constant [17 x i8] c"current_logfiles\00", align 1
-@.str.16 = private unnamed_addr constant [31 x i8] c"could not remove file \22%s\22: %m\00", align 1
+@.str.19 = private unnamed_addr constant [5 x i8] c".log\00", align 1
+@.str.20 = private unnamed_addr constant [17 x i8] c"current_logfiles\00", align 1
+@.str.21 = private unnamed_addr constant [31 x i8] c"could not remove file \22%s\22: %m\00", align 1
 @__func__.update_metainfo_datafile = private unnamed_addr constant [25 x i8] c"update_metainfo_datafile\00", align 1
 @pg_mode_mask = external global i32, align 4
-@.str.17 = private unnamed_addr constant [21 x i8] c"current_logfiles.tmp\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c"w\00", align 1
-@.str.19 = private unnamed_addr constant [29 x i8] c"could not open file \22%s\22: %m\00", align 1
-@.str.20 = private unnamed_addr constant [11 x i8] c"stderr %s\0A\00", align 1
-@.str.21 = private unnamed_addr constant [30 x i8] c"could not write file \22%s\22: %m\00", align 1
-@.str.22 = private unnamed_addr constant [11 x i8] c"csvlog %s\0A\00", align 1
-@.str.23 = private unnamed_addr constant [12 x i8] c"jsonlog %s\0A\00", align 1
-@.str.24 = private unnamed_addr constant [39 x i8] c"could not rename file \22%s\22 to \22%s\22: %m\00", align 1
-@.str.25 = private unnamed_addr constant [55 x i8] c"disabling automatic rotation (use SIGHUP to re-enable)\00", align 1
-@__func__.logfile_rotate_dest = private unnamed_addr constant [20 x i8] c"logfile_rotate_dest\00", align 1
-@buffer_lists = internal global [256 x ptr] zeroinitializer, align 16
-@.str.26 = private unnamed_addr constant [33 x i8] c"could not open log file \22%s\22: %m\00", align 1
-@__func__.logfile_open = private unnamed_addr constant [13 x i8] c"logfile_open\00", align 1
-@.str.27 = private unnamed_addr constant [4 x i8] c"%s/\00", align 1
-@.str.28 = private unnamed_addr constant [5 x i8] c".log\00", align 1
+@.str.22 = private unnamed_addr constant [21 x i8] c"current_logfiles.tmp\00", align 1
+@.str.23 = private unnamed_addr constant [29 x i8] c"could not open file \22%s\22: %m\00", align 1
+@.str.24 = private unnamed_addr constant [11 x i8] c"stderr %s\0A\00", align 1
+@.str.25 = private unnamed_addr constant [30 x i8] c"could not write file \22%s\22: %m\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"csvlog %s\0A\00", align 1
+@.str.27 = private unnamed_addr constant [12 x i8] c"jsonlog %s\0A\00", align 1
+@.str.28 = private unnamed_addr constant [39 x i8] c"could not rename file \22%s\22 to \22%s\22: %m\00", align 1
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @SysLogger_Start() #0 {
-  %1 = alloca i32, align 4
-  %2 = alloca i32, align 4
+; Function Attrs: noreturn nounwind uwtable
+define dso_local void @SysLoggerMain(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = load i8, ptr @Logging_collector, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %7, label %6
+  %4 = alloca i64, align 8
+  %5 = alloca [8192 x i8], align 16
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca %struct.WaitEvent, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i64, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8192, ptr %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %21 = load ptr, ptr @PostmasterContext, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %25
 
-6:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %137
-
-7:                                                ; preds = %0
-  %8 = load i32, ptr @syslogPipe, align 4
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %25
-
-10:                                               ; preds = %7
-  %11 = call i32 @pipe(ptr noundef @syslogPipe) #10
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %24
-
-13:                                               ; preds = %10
-  br label %14
-
-14:                                               ; preds = %13
-  br i1 true, label %15, label %17
-
-15:                                               ; preds = %14
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %16, label %19, label %22
-
-17:                                               ; preds = %14
-  %18 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %18, label %19, label %22
-
-19:                                               ; preds = %17, %15
-  %20 = call i32 @errcode_for_socket_access()
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 598, ptr noundef @__func__.SysLogger_Start)
-  br label %22
-
-22:                                               ; preds = %19, %17, %15
-  unreachable
-
-23:                                               ; No predecessors!
-  br label %24
-
-24:                                               ; preds = %23, %10
+23:                                               ; preds = %2
+  %24 = load ptr, ptr @PostmasterContext, align 8
+  call void @MemoryContextDelete(ptr noundef %24)
+  store ptr null, ptr @PostmasterContext, align 8
   br label %25
 
-25:                                               ; preds = %24, %7
-  %26 = load ptr, ptr @Log_directory, align 8
-  %27 = call i32 @MakePGDirectory(ptr noundef %26)
-  %28 = call i64 @time(ptr noundef null) #10
-  store i64 %28, ptr @first_syslogger_file_time, align 8
-  %29 = load i64, ptr @first_syslogger_file_time, align 8
-  %30 = call ptr @logfile_getname(i64 noundef %29, ptr noundef null)
-  store ptr %30, ptr %3, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = call ptr @logfile_open(ptr noundef %31, ptr noundef @.str.2, i1 noundef zeroext false)
-  store ptr %32, ptr @syslogFile, align 8
-  %33 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %33)
-  %34 = load i32, ptr @Log_destination, align 4
-  %35 = and i32 %34, 8
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %43
+25:                                               ; preds = %23, %2
+  %26 = load i64, ptr @MyStartTime, align 8
+  store i64 %26, ptr %10, align 8
+  store i32 16, ptr @MyBackendType, align 4
+  call void @init_ps_display(ptr noundef null)
+  %27 = load i8, ptr @redirection_done, align 1, !range !4, !noundef !5
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %43
 
-37:                                               ; preds = %25
-  %38 = load i64, ptr @first_syslogger_file_time, align 8
-  %39 = call ptr @logfile_getname(i64 noundef %38, ptr noundef @.str.3)
-  store ptr %39, ptr %3, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = call ptr @logfile_open(ptr noundef %40, ptr noundef @.str.2, i1 noundef zeroext false)
-  store ptr %41, ptr @csvlogFile, align 8
-  %42 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %42)
+29:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  %30 = call i32 (ptr, i32, ...) @open(ptr noundef @.str, i32 noundef 1, i32 noundef 0)
+  store i32 %30, ptr %12, align 4
+  %31 = call i32 @close(i32 noundef 1)
+  %32 = call i32 @close(i32 noundef 2)
+  %33 = load i32, ptr %12, align 4
+  %34 = icmp ne i32 %33, -1
+  br i1 %34, label %35, label %42
+
+35:                                               ; preds = %29
+  %36 = load i32, ptr %12, align 4
+  %37 = call i32 @dup2(i32 noundef %36, i32 noundef 1) #12
+  %38 = load i32, ptr %12, align 4
+  %39 = call i32 @dup2(i32 noundef %38, i32 noundef 2) #12
+  %40 = load i32, ptr %12, align 4
+  %41 = call i32 @close(i32 noundef %40)
+  br label %42
+
+42:                                               ; preds = %35, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
   br label %43
 
-43:                                               ; preds = %37, %25
-  %44 = load i32, ptr @Log_destination, align 4
-  %45 = and i32 %44, 16
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %53
+43:                                               ; preds = %42, %25
+  %44 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %45 = icmp sge i32 %44, 0
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %43
-  %48 = load i64, ptr @first_syslogger_file_time, align 8
-  %49 = call ptr @logfile_getname(i64 noundef %48, ptr noundef @.str.4)
-  store ptr %49, ptr %3, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = call ptr @logfile_open(ptr noundef %50, ptr noundef @.str.2, i1 noundef zeroext false)
-  store ptr %51, ptr @jsonlogFile, align 8
-  %52 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %52)
-  br label %53
+46:                                               ; preds = %43
+  %47 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %48 = call i32 @close(i32 noundef %47)
+  br label %49
 
-53:                                               ; preds = %47, %43
-  %54 = call i32 @fork_process()
-  store i32 %54, ptr %2, align 4
-  switch i32 %54, label %66 [
-    i32 -1, label %55
-    i32 0, label %65
-  ]
+49:                                               ; preds = %46, %43
+  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  call void @pqsignal_be(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
+  call void @pqsignal_be(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 15, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 3, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 10, ptr noundef @sigUsr1Handler)
+  call void @pqsignal_be(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
+  call void @pqsignal_be(i32 noundef 17, ptr noundef null)
+  %50 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #12
+  %51 = load i64, ptr @first_syslogger_file_time, align 8
+  %52 = call ptr @logfile_getname(i64 noundef %51, ptr noundef null)
+  store ptr %52, ptr @last_sys_file_name, align 8
+  %53 = load ptr, ptr @csvlogFile, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-55:                                               ; preds = %53
-  br label %56
+55:                                               ; preds = %49
+  %56 = load i64, ptr @first_syslogger_file_time, align 8
+  %57 = call ptr @logfile_getname(i64 noundef %56, ptr noundef @.str.1)
+  store ptr %57, ptr @last_csv_file_name, align 8
+  br label %58
 
-56:                                               ; preds = %55
-  br i1 false, label %57, label %59
+58:                                               ; preds = %55, %49
+  %59 = load ptr, ptr @jsonlogFile, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %64
 
-57:                                               ; preds = %56
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %58, label %61, label %63
-
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %59, %57
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 677, ptr noundef @__func__.SysLogger_Start)
-  br label %63
-
-63:                                               ; preds = %61, %59, %57
+61:                                               ; preds = %58
+  %62 = load i64, ptr @first_syslogger_file_time, align 8
+  %63 = call ptr @logfile_getname(i64 noundef %62, ptr noundef @.str.2)
+  store ptr %63, ptr @last_json_file_name, align 8
   br label %64
 
-64:                                               ; preds = %63
-  store i32 0, ptr %1, align 4
-  br label %137
+64:                                               ; preds = %61, %58
+  %65 = load ptr, ptr @Log_directory, align 8
+  %66 = call ptr @pstrdup(ptr noundef %65)
+  store ptr %66, ptr %7, align 8
+  %67 = load ptr, ptr @Log_filename, align 8
+  %68 = call ptr @pstrdup(ptr noundef %67)
+  store ptr %68, ptr %8, align 8
+  %69 = load i32, ptr @Log_RotationAge, align 4
+  store i32 %69, ptr %9, align 4
+  call void @set_next_rotation_time()
+  call void @update_metainfo_datafile()
+  store i32 0, ptr @whereToSendOutput, align 4
+  %70 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 2)
+  store ptr %70, ptr %11, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = load ptr, ptr @MyLatch, align 8
+  %73 = call i32 @AddWaitEventToSet(ptr noundef %71, i32 noundef 1, i32 noundef -1, ptr noundef %72, ptr noundef null)
+  %74 = load ptr, ptr %11, align 8
+  %75 = load i32, ptr @syslogPipe, align 4
+  %76 = call i32 @AddWaitEventToSet(ptr noundef %74, i32 noundef 2, i32 noundef %75, ptr noundef null, ptr noundef null)
+  br label %77
 
-65:                                               ; preds = %53
-  call void @InitPostmasterChild()
-  call void @ClosePostmasterPorts(i1 noundef zeroext true)
-  call void @dsm_detach_all()
-  call void @PGSharedMemoryDetach()
-  call void @SysLoggerMain(i32 noundef 0, ptr noundef null) #12
-  unreachable
+77:                                               ; preds = %299, %297, %64
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #12
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #12
+  %78 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %78)
+  %79 = load volatile i32, ptr @ConfigReloadPending, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %132
 
-66:                                               ; preds = %53
-  %67 = load i8, ptr @redirection_done, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %121, label %69
+81:                                               ; preds = %77
+  store volatile i32 0, ptr @ConfigReloadPending, align 4
+  call void @ProcessConfigFile(i32 noundef 2)
+  %82 = load ptr, ptr @Log_directory, align 8
+  %83 = load ptr, ptr %7, align 8
+  %84 = call i32 @strcmp(ptr noundef %82, ptr noundef %83) #13
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %92
 
-69:                                               ; preds = %66
-  br label %70
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %87)
+  %88 = load ptr, ptr @Log_directory, align 8
+  %89 = call ptr @pstrdup(ptr noundef %88)
+  store ptr %89, ptr %7, align 8
+  store volatile i32 1, ptr @rotation_requested, align 4
+  %90 = load ptr, ptr @Log_directory, align 8
+  %91 = call i32 @MakePGDirectory(ptr noundef %90)
+  br label %92
 
-70:                                               ; preds = %69
-  br i1 false, label %71, label %73
+92:                                               ; preds = %86, %81
+  %93 = load ptr, ptr @Log_filename, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = call i32 @strcmp(ptr noundef %93, ptr noundef %94) #13
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %101
 
-71:                                               ; preds = %70
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %72, label %75, label %79
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %98)
+  %99 = load ptr, ptr @Log_filename, align 8
+  %100 = call ptr @pstrdup(ptr noundef %99)
+  store ptr %100, ptr %8, align 8
+  store volatile i32 1, ptr @rotation_requested, align 4
+  br label %101
 
-73:                                               ; preds = %70
-  %74 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %74, label %75, label %79
+101:                                              ; preds = %97, %92
+  %102 = load i32, ptr @Log_destination, align 4
+  %103 = and i32 %102, 8
+  %104 = icmp ne i32 %103, 0
+  %105 = zext i1 %104 to i32
+  %106 = load ptr, ptr @csvlogFile, align 8
+  %107 = icmp ne ptr %106, null
+  %108 = zext i1 %107 to i32
+  %109 = icmp ne i32 %105, %108
+  br i1 %109, label %110, label %111
 
-75:                                               ; preds = %73, %71
-  %76 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
-  %77 = load ptr, ptr @Log_directory, align 8
-  %78 = call i32 (ptr, ...) @errhint(ptr noundef @.str.7, ptr noundef %77)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 715, ptr noundef @__func__.SysLogger_Start)
-  br label %79
+110:                                              ; preds = %101
+  store volatile i32 1, ptr @rotation_requested, align 4
+  br label %111
 
-79:                                               ; preds = %75, %73, %71
-  br label %80
+111:                                              ; preds = %110, %101
+  %112 = load i32, ptr @Log_destination, align 4
+  %113 = and i32 %112, 16
+  %114 = icmp ne i32 %113, 0
+  %115 = zext i1 %114 to i32
+  %116 = load ptr, ptr @jsonlogFile, align 8
+  %117 = icmp ne ptr %116, null
+  %118 = zext i1 %117 to i32
+  %119 = icmp ne i32 %115, %118
+  br i1 %119, label %120, label %121
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr @stdout, align 8
-  %82 = call i32 @fflush(ptr noundef %81)
-  %83 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  %84 = load i32, ptr %83, align 4
-  %85 = call i32 @dup2(i32 noundef %84, i32 noundef 1) #10
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %98
-
-87:                                               ; preds = %80
-  br label %88
-
-88:                                               ; preds = %87
-  br i1 true, label %89, label %91
-
-89:                                               ; preds = %88
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %90, label %93, label %96
-
-91:                                               ; preds = %88
-  %92 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %92, label %93, label %96
-
-93:                                               ; preds = %91, %89
-  %94 = call i32 @errcode_for_file_access()
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.8)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 722, ptr noundef @__func__.SysLogger_Start)
-  br label %96
-
-96:                                               ; preds = %93, %91, %89
-  unreachable
-
-97:                                               ; No predecessors!
-  br label %98
-
-98:                                               ; preds = %97, %80
-  %99 = load ptr, ptr @stderr, align 8
-  %100 = call i32 @fflush(ptr noundef %99)
-  %101 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  %102 = load i32, ptr %101, align 4
-  %103 = call i32 @dup2(i32 noundef %102, i32 noundef 2) #10
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %105, label %116
-
-105:                                              ; preds = %98
-  br label %106
-
-106:                                              ; preds = %105
-  br i1 true, label %107, label %109
-
-107:                                              ; preds = %106
-  %108 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %108, label %111, label %114
-
-109:                                              ; preds = %106
-  %110 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %110, label %111, label %114
-
-111:                                              ; preds = %109, %107
-  %112 = call i32 @errcode_for_file_access()
-  %113 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 727, ptr noundef @__func__.SysLogger_Start)
-  br label %114
-
-114:                                              ; preds = %111, %109, %107
-  unreachable
-
-115:                                              ; No predecessors!
-  br label %116
-
-116:                                              ; preds = %115, %98
-  %117 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  %118 = load i32, ptr %117, align 4
-  %119 = call i32 @close(i32 noundef %118)
-  %120 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  store i32 -1, ptr %120, align 4
-  store i8 1, ptr @redirection_done, align 1
+120:                                              ; preds = %111
+  store volatile i32 1, ptr @rotation_requested, align 4
   br label %121
 
-121:                                              ; preds = %116, %66
-  %122 = load ptr, ptr @syslogFile, align 8
-  %123 = call i32 @fclose(ptr noundef %122)
-  store ptr null, ptr @syslogFile, align 8
-  %124 = load ptr, ptr @csvlogFile, align 8
-  %125 = icmp ne ptr %124, null
-  br i1 %125, label %126, label %129
+121:                                              ; preds = %120, %111
+  %122 = load i32, ptr %9, align 4
+  %123 = load i32, ptr @Log_RotationAge, align 4
+  %124 = icmp ne i32 %122, %123
+  br i1 %124, label %125, label %127
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr @csvlogFile, align 8
-  %128 = call i32 @fclose(ptr noundef %127)
-  store ptr null, ptr @csvlogFile, align 8
-  br label %129
+125:                                              ; preds = %121
+  %126 = load i32, ptr @Log_RotationAge, align 4
+  store i32 %126, ptr %9, align 4
+  call void @set_next_rotation_time()
+  br label %127
 
-129:                                              ; preds = %126, %121
-  %130 = load ptr, ptr @jsonlogFile, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %135
+127:                                              ; preds = %125, %121
+  %128 = load i8, ptr @rotation_disabled, align 1, !range !4, !noundef !5
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %130, label %131
 
-132:                                              ; preds = %129
-  %133 = load ptr, ptr @jsonlogFile, align 8
-  %134 = call i32 @fclose(ptr noundef %133)
-  store ptr null, ptr @jsonlogFile, align 8
-  br label %135
+130:                                              ; preds = %127
+  store i8 0, ptr @rotation_disabled, align 1
+  store volatile i32 1, ptr @rotation_requested, align 4
+  br label %131
 
-135:                                              ; preds = %132, %129
-  %136 = load i32, ptr %2, align 4
-  store i32 %136, ptr %1, align 4
-  br label %137
+131:                                              ; preds = %130, %127
+  call void @update_metainfo_datafile()
+  br label %132
 
-137:                                              ; preds = %135, %64, %6
-  %138 = load i32, ptr %1, align 4
-  ret i32 %138
+132:                                              ; preds = %131, %77
+  %133 = load i32, ptr @Log_RotationAge, align 4
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %145
+
+135:                                              ; preds = %132
+  %136 = load i8, ptr @rotation_disabled, align 1, !range !4, !noundef !5
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %145, label %138
+
+138:                                              ; preds = %135
+  %139 = call i64 @time(ptr noundef null) #12
+  store i64 %139, ptr %10, align 8
+  %140 = load i64, ptr %10, align 8
+  %141 = load i64, ptr @next_rotation_time, align 8
+  %142 = icmp sge i64 %140, %141
+  br i1 %142, label %143, label %144
+
+143:                                              ; preds = %138
+  store i8 1, ptr %13, align 1
+  store volatile i32 1, ptr @rotation_requested, align 4
+  br label %144
+
+144:                                              ; preds = %143, %138
+  br label %145
+
+145:                                              ; preds = %144, %135, %132
+  %146 = load volatile i32, ptr @rotation_requested, align 4
+  %147 = icmp ne i32 %146, 0
+  br i1 %147, label %191, label %148
+
+148:                                              ; preds = %145
+  %149 = load i32, ptr @Log_RotationSize, align 4
+  %150 = icmp sgt i32 %149, 0
+  br i1 %150, label %151, label %191
+
+151:                                              ; preds = %148
+  %152 = load i8, ptr @rotation_disabled, align 1, !range !4, !noundef !5
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %191, label %154
+
+154:                                              ; preds = %151
+  %155 = load ptr, ptr @syslogFile, align 8
+  %156 = call i64 @ftello(ptr noundef %155)
+  %157 = load i32, ptr @Log_RotationSize, align 4
+  %158 = sext i32 %157 to i64
+  %159 = mul i64 %158, 1024
+  %160 = icmp sge i64 %156, %159
+  br i1 %160, label %161, label %164
+
+161:                                              ; preds = %154
+  store volatile i32 1, ptr @rotation_requested, align 4
+  %162 = load i32, ptr %14, align 4
+  %163 = or i32 %162, 1
+  store i32 %163, ptr %14, align 4
+  br label %164
+
+164:                                              ; preds = %161, %154
+  %165 = load ptr, ptr @csvlogFile, align 8
+  %166 = icmp ne ptr %165, null
+  br i1 %166, label %167, label %177
+
+167:                                              ; preds = %164
+  %168 = load ptr, ptr @csvlogFile, align 8
+  %169 = call i64 @ftello(ptr noundef %168)
+  %170 = load i32, ptr @Log_RotationSize, align 4
+  %171 = sext i32 %170 to i64
+  %172 = mul i64 %171, 1024
+  %173 = icmp sge i64 %169, %172
+  br i1 %173, label %174, label %177
+
+174:                                              ; preds = %167
+  store volatile i32 1, ptr @rotation_requested, align 4
+  %175 = load i32, ptr %14, align 4
+  %176 = or i32 %175, 8
+  store i32 %176, ptr %14, align 4
+  br label %177
+
+177:                                              ; preds = %174, %167, %164
+  %178 = load ptr, ptr @jsonlogFile, align 8
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %190
+
+180:                                              ; preds = %177
+  %181 = load ptr, ptr @jsonlogFile, align 8
+  %182 = call i64 @ftello(ptr noundef %181)
+  %183 = load i32, ptr @Log_RotationSize, align 4
+  %184 = sext i32 %183 to i64
+  %185 = mul i64 %184, 1024
+  %186 = icmp sge i64 %182, %185
+  br i1 %186, label %187, label %190
+
+187:                                              ; preds = %180
+  store volatile i32 1, ptr @rotation_requested, align 4
+  %188 = load i32, ptr %14, align 4
+  %189 = or i32 %188, 16
+  store i32 %189, ptr %14, align 4
+  br label %190
+
+190:                                              ; preds = %187, %180, %177
+  br label %191
+
+191:                                              ; preds = %190, %151, %148, %145
+  %192 = load volatile i32, ptr @rotation_requested, align 4
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %194, label %205
+
+194:                                              ; preds = %191
+  %195 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %201, label %197
+
+197:                                              ; preds = %194
+  %198 = load i32, ptr %14, align 4
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %200, label %201
+
+200:                                              ; preds = %197
+  store i32 25, ptr %14, align 4
+  br label %201
+
+201:                                              ; preds = %200, %197, %194
+  %202 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %203 = trunc i8 %202 to i1
+  %204 = load i32, ptr %14, align 4
+  call void @logfile_rotate(i1 noundef zeroext %203, i32 noundef %204)
+  br label %205
+
+205:                                              ; preds = %201, %191
+  %206 = load i32, ptr @Log_RotationAge, align 4
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %208, label %226
+
+208:                                              ; preds = %205
+  %209 = load i8, ptr @rotation_disabled, align 1, !range !4, !noundef !5
+  %210 = trunc i8 %209 to i1
+  br i1 %210, label %226, label %211
+
+211:                                              ; preds = %208
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %212 = load i64, ptr @next_rotation_time, align 8
+  %213 = load i64, ptr %10, align 8
+  %214 = sub i64 %212, %213
+  store i64 %214, ptr %18, align 8
+  %215 = load i64, ptr %18, align 8
+  %216 = icmp sgt i64 %215, 0
+  br i1 %216, label %217, label %224
+
+217:                                              ; preds = %211
+  %218 = load i64, ptr %18, align 8
+  %219 = icmp sgt i64 %218, 2147483
+  br i1 %219, label %220, label %221
+
+220:                                              ; preds = %217
+  store i64 2147483, ptr %18, align 8
+  br label %221
+
+221:                                              ; preds = %220, %217
+  %222 = load i64, ptr %18, align 8
+  %223 = mul i64 %222, 1000
+  store i64 %223, ptr %15, align 8
+  br label %225
+
+224:                                              ; preds = %211
+  store i64 0, ptr %15, align 8
+  br label %225
+
+225:                                              ; preds = %224, %221
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  br label %227
+
+226:                                              ; preds = %208, %205
+  store i64 -1, ptr %15, align 8
+  br label %227
+
+227:                                              ; preds = %226, %225
+  %228 = load ptr, ptr %11, align 8
+  %229 = load i64, ptr %15, align 8
+  %230 = call i32 @WaitEventSetWait(ptr noundef %228, i64 noundef %229, ptr noundef %16, i32 noundef 1, i32 noundef 83886092)
+  store i32 %230, ptr %17, align 4
+  %231 = load i32, ptr %17, align 4
+  %232 = icmp eq i32 %231, 1
+  br i1 %232, label %233, label %282
+
+233:                                              ; preds = %227
+  %234 = getelementptr inbounds nuw %struct.WaitEvent, ptr %16, i32 0, i32 1
+  %235 = load i32, ptr %234, align 4
+  %236 = icmp eq i32 %235, 2
+  br i1 %236, label %237, label %282
+
+237:                                              ; preds = %233
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #12
+  %238 = load i32, ptr @syslogPipe, align 4
+  %239 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  %240 = load i32, ptr %6, align 4
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds i8, ptr %239, i64 %241
+  %243 = load i32, ptr %6, align 4
+  %244 = sext i32 %243 to i64
+  %245 = sub i64 8192, %244
+  %246 = call i64 @read(i32 noundef %238, ptr noundef %242, i64 noundef %245)
+  %247 = trunc i64 %246 to i32
+  store i32 %247, ptr %19, align 4
+  %248 = load i32, ptr %19, align 4
+  %249 = icmp slt i32 %248, 0
+  br i1 %249, label %250, label %267
+
+250:                                              ; preds = %237
+  %251 = call ptr @__errno_location() #14
+  %252 = load i32, ptr %251, align 4
+  %253 = icmp ne i32 %252, 4
+  br i1 %253, label %254, label %266
+
+254:                                              ; preds = %250
+  br label %255
+
+255:                                              ; preds = %254
+  br i1 false, label %256, label %258
+
+256:                                              ; preds = %255
+  %257 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %257, label %260, label %263
+
+258:                                              ; preds = %255
+  %259 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %259, label %260, label %263
+
+260:                                              ; preds = %258, %256
+  %261 = call i32 @errcode_for_socket_access()
+  %262 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 527, ptr noundef @__func__.SysLoggerMain)
+  br label %263
+
+263:                                              ; preds = %260, %258, %256
+  br label %264
+
+264:                                              ; preds = %263
+  br label %265
+
+265:                                              ; preds = %264
+  br label %266
+
+266:                                              ; preds = %265, %250
+  br label %278
+
+267:                                              ; preds = %237
+  %268 = load i32, ptr %19, align 4
+  %269 = icmp sgt i32 %268, 0
+  br i1 %269, label %270, label %275
+
+270:                                              ; preds = %267
+  %271 = load i32, ptr %19, align 4
+  %272 = load i32, ptr %6, align 4
+  %273 = add i32 %272, %271
+  store i32 %273, ptr %6, align 4
+  %274 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  call void @process_pipe_input(ptr noundef %274, ptr noundef %6)
+  store i32 3, ptr %20, align 4
+  br label %279
+
+275:                                              ; preds = %267
+  store i8 1, ptr @pipe_eof_seen, align 1
+  %276 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  call void @flush_pipe_input(ptr noundef %276, ptr noundef %6)
+  br label %277
+
+277:                                              ; preds = %275
+  br label %278
+
+278:                                              ; preds = %277, %266
+  store i32 0, ptr %20, align 4
+  br label %279
+
+279:                                              ; preds = %278, %270
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #12
+  %280 = load i32, ptr %20, align 4
+  switch i32 %280, label %297 [
+    i32 0, label %281
+  ]
+
+281:                                              ; preds = %279
+  br label %282
+
+282:                                              ; preds = %281, %233, %227
+  %283 = load i8, ptr @pipe_eof_seen, align 1, !range !4, !noundef !5
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %285, label %296
+
+285:                                              ; preds = %282
+  br label %286
+
+286:                                              ; preds = %285
+  br i1 false, label %287, label %289
+
+287:                                              ; preds = %286
+  %288 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #15
+  br i1 %288, label %291, label %293
+
+289:                                              ; preds = %286
+  %290 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %290, label %291, label %293
+
+291:                                              ; preds = %289, %287
+  %292 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 575, ptr noundef @__func__.SysLoggerMain)
+  br label %293
+
+293:                                              ; preds = %291, %289, %287
+  br label %294
+
+294:                                              ; preds = %293
+  br label %295
+
+295:                                              ; preds = %294
+  call void @proc_exit(i32 noundef 0) #16
+  unreachable
+
+296:                                              ; preds = %282
+  store i32 0, ptr %20, align 4
+  br label %297
+
+297:                                              ; preds = %296, %279
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #12
+  %298 = load i32, ptr %20, align 4
+  switch i32 %298, label %300 [
+    i32 0, label %299
+    i32 3, label %77
+  ]
+
+299:                                              ; preds = %297
+  br label %77
+
+300:                                              ; preds = %297
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @MemoryContextDelete(ptr noundef) #2
+
+declare void @init_ps_display(ptr noundef) #2
+
+declare i32 @open(ptr noundef, i32 noundef, ...) #2
+
+declare i32 @close(i32 noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @dup2(i32 noundef, i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @pqsignal_be(i32 noundef, ptr noundef) #2
+
+declare void @SignalHandlerForConfigReload(i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @sigUsr1Handler(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  store volatile i32 1, ptr @rotation_requested, align 4
+  %3 = load ptr, ptr @MyLatch, align 8
+  call void @SetLatch(ptr noundef %3)
+  ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) #1
-
-; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
-
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
-
-declare i32 @errcode_for_socket_access() #3
-
-declare i32 @errmsg(ptr noundef, ...) #3
-
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
-
-declare i32 @MakePGDirectory(ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #0 {
+define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
   %7 = call ptr @palloc(i64 noundef 1024)
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr @Log_directory, align 8
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %8, i64 noundef 1024, ptr noundef @.str.27, ptr noundef %9)
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %8, i64 noundef 1024, ptr noundef @.str.18, ptr noundef %9)
   %11 = load ptr, ptr %5, align 8
   %12 = call i64 @strlen(ptr noundef %11) #13
   %13 = trunc i64 %12 to i32
@@ -402,7 +724,7 @@ define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #0 {
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %6, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i8, ptr %14, i64 %16
+  %17 = getelementptr inbounds i8, ptr %14, i64 %16
   %18 = load i32, ptr %6, align 4
   %19 = sub i32 1024, %18
   %20 = sext i32 %19 to i64
@@ -428,8 +750,8 @@ define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #0 {
   %35 = load i32, ptr %6, align 4
   %36 = sub i32 %35, 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i8, ptr %34, i64 %37
-  %39 = call i32 @strcmp(ptr noundef %38, ptr noundef @.str.28) #13
+  %38 = getelementptr inbounds i8, ptr %34, i64 %37
+  %39 = call i32 @strcmp(ptr noundef %38, ptr noundef @.str.19) #13
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -443,7 +765,7 @@ define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #0 {
   %45 = load ptr, ptr %5, align 8
   %46 = load i32, ptr %6, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr i8, ptr %45, i64 %47
+  %48 = getelementptr inbounds i8, ptr %45, i64 %47
   %49 = load ptr, ptr %4, align 8
   %50 = load i32, ptr %6, align 4
   %51 = sub i32 1024, %50
@@ -453,11 +775,1505 @@ define internal ptr @logfile_getname(i64 noundef %0, ptr noundef %1) #0 {
 
 54:                                               ; preds = %44, %2
   %55 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret ptr %55
 }
 
+declare ptr @pstrdup(ptr noundef) #2
+
 ; Function Attrs: nounwind uwtable
-define internal ptr @logfile_open(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
+define internal void @set_next_rotation_time() #4 {
+  %1 = alloca i64, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  %5 = load i32, ptr @Log_RotationAge, align 4
+  %6 = icmp sle i32 %5, 0
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %0
+  store i32 1, ptr %4, align 4
+  br label %35
+
+8:                                                ; preds = %0
+  %9 = load i32, ptr @Log_RotationAge, align 4
+  %10 = mul i32 %9, 60
+  store i32 %10, ptr %3, align 4
+  %11 = call i64 @time(ptr noundef null) #12
+  store i64 %11, ptr %1, align 8
+  %12 = load ptr, ptr @log_timezone, align 8
+  %13 = call ptr @pg_localtime(ptr noundef %1, ptr noundef %12)
+  store ptr %13, ptr %2, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.pg_tm, ptr %14, i32 0, i32 9
+  %16 = load i64, ptr %15, align 8
+  %17 = load i64, ptr %1, align 8
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %1, align 8
+  %19 = load i64, ptr %1, align 8
+  %20 = load i32, ptr %3, align 4
+  %21 = sext i32 %20 to i64
+  %22 = srem i64 %19, %21
+  %23 = load i64, ptr %1, align 8
+  %24 = sub i64 %23, %22
+  store i64 %24, ptr %1, align 8
+  %25 = load i32, ptr %3, align 4
+  %26 = sext i32 %25 to i64
+  %27 = load i64, ptr %1, align 8
+  %28 = add i64 %27, %26
+  store i64 %28, ptr %1, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.pg_tm, ptr %29, i32 0, i32 9
+  %31 = load i64, ptr %30, align 8
+  %32 = load i64, ptr %1, align 8
+  %33 = sub i64 %32, %31
+  store i64 %33, ptr %1, align 8
+  %34 = load i64, ptr %1, align 8
+  store i64 %34, ptr @next_rotation_time, align 8
+  store i32 0, ptr %4, align 4
+  br label %35
+
+35:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #12
+  %36 = load i32, ptr %4, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+    i32 1, label %37
+  ]
+
+37:                                               ; preds = %35, %35
+  ret void
+
+38:                                               ; preds = %35
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @update_metainfo_datafile() #4 {
+  %1 = alloca ptr, align 8
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #12
+  %4 = load i32, ptr @Log_destination, align 4
+  %5 = and i32 %4, 1
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %35, label %7
+
+7:                                                ; preds = %0
+  %8 = load i32, ptr @Log_destination, align 4
+  %9 = and i32 %8, 8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %35, label %11
+
+11:                                               ; preds = %7
+  %12 = load i32, ptr @Log_destination, align 4
+  %13 = and i32 %12, 16
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %35, label %15
+
+15:                                               ; preds = %11
+  %16 = call i32 @unlink(ptr noundef @.str.20) #12
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %34
+
+18:                                               ; preds = %15
+  %19 = call ptr @__errno_location() #14
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ne i32 %20, 2
+  br i1 %21, label %22, label %34
+
+22:                                               ; preds = %18
+  br label %23
+
+23:                                               ; preds = %22
+  br i1 false, label %24, label %26
+
+24:                                               ; preds = %23
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %25, label %28, label %31
+
+26:                                               ; preds = %23
+  %27 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %26, %24
+  %29 = call i32 @errcode_for_file_access()
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.21, ptr noundef @.str.20)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1490, ptr noundef @__func__.update_metainfo_datafile)
+  br label %31
+
+31:                                               ; preds = %28, %26, %24
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33, %18, %15
+  store i32 1, ptr %3, align 4
+  br label %157
+
+35:                                               ; preds = %11, %7, %0
+  %36 = load i32, ptr @pg_mode_mask, align 4
+  %37 = call i32 @umask(i32 noundef %36) #12
+  store i32 %37, ptr %2, align 4
+  %38 = call noalias ptr @fopen(ptr noundef @.str.22, ptr noundef @.str.16)
+  store ptr %38, ptr %1, align 8
+  %39 = load i32, ptr %2, align 4
+  %40 = call i32 @umask(i32 noundef %39) #12
+  %41 = load ptr, ptr %1, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %1, align 8
+  %45 = call i32 @setvbuf(ptr noundef %44, ptr noundef null, i32 noundef 1, i64 noundef 0) #12
+  br label %58
+
+46:                                               ; preds = %35
+  br label %47
+
+47:                                               ; preds = %46
+  br i1 false, label %48, label %50
+
+48:                                               ; preds = %47
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %49, label %52, label %55
+
+50:                                               ; preds = %47
+  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %51, label %52, label %55
+
+52:                                               ; preds = %50, %48
+  %53 = call i32 @errcode_for_file_access()
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.23, ptr noundef @.str.22)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1513, ptr noundef @__func__.update_metainfo_datafile)
+  br label %55
+
+55:                                               ; preds = %52, %50, %48
+  br label %56
+
+56:                                               ; preds = %55
+  br label %57
+
+57:                                               ; preds = %56
+  store i32 1, ptr %3, align 4
+  br label %157
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr @last_sys_file_name, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %85
+
+61:                                               ; preds = %58
+  %62 = load i32, ptr @Log_destination, align 4
+  %63 = and i32 %62, 1
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %85
+
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %1, align 8
+  %67 = load ptr, ptr @last_sys_file_name, align 8
+  %68 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %66, ptr noundef @.str.24, ptr noundef %67)
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %84
+
+70:                                               ; preds = %65
+  br label %71
+
+71:                                               ; preds = %70
+  br i1 false, label %72, label %74
+
+72:                                               ; preds = %71
+  %73 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %73, label %76, label %79
+
+74:                                               ; preds = %71
+  %75 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %75, label %76, label %79
+
+76:                                               ; preds = %74, %72
+  %77 = call i32 @errcode_for_file_access()
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25, ptr noundef @.str.22)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1524, ptr noundef @__func__.update_metainfo_datafile)
+  br label %79
+
+79:                                               ; preds = %76, %74, %72
+  br label %80
+
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %1, align 8
+  %83 = call i32 @fclose(ptr noundef %82)
+  store i32 1, ptr %3, align 4
+  br label %157
+
+84:                                               ; preds = %65
+  br label %85
+
+85:                                               ; preds = %84, %61, %58
+  %86 = load ptr, ptr @last_csv_file_name, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %112
+
+88:                                               ; preds = %85
+  %89 = load i32, ptr @Log_destination, align 4
+  %90 = and i32 %89, 8
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %112
+
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %1, align 8
+  %94 = load ptr, ptr @last_csv_file_name, align 8
+  %95 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %93, ptr noundef @.str.26, ptr noundef %94)
+  %96 = icmp slt i32 %95, 0
+  br i1 %96, label %97, label %111
+
+97:                                               ; preds = %92
+  br label %98
+
+98:                                               ; preds = %97
+  br i1 false, label %99, label %101
+
+99:                                               ; preds = %98
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %100, label %103, label %106
+
+101:                                              ; preds = %98
+  %102 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %102, label %103, label %106
+
+103:                                              ; preds = %101, %99
+  %104 = call i32 @errcode_for_file_access()
+  %105 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25, ptr noundef @.str.22)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1537, ptr noundef @__func__.update_metainfo_datafile)
+  br label %106
+
+106:                                              ; preds = %103, %101, %99
+  br label %107
+
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %1, align 8
+  %110 = call i32 @fclose(ptr noundef %109)
+  store i32 1, ptr %3, align 4
+  br label %157
+
+111:                                              ; preds = %92
+  br label %112
+
+112:                                              ; preds = %111, %88, %85
+  %113 = load ptr, ptr @last_json_file_name, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %139
+
+115:                                              ; preds = %112
+  %116 = load i32, ptr @Log_destination, align 4
+  %117 = and i32 %116, 16
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %139
+
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %1, align 8
+  %121 = load ptr, ptr @last_json_file_name, align 8
+  %122 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %120, ptr noundef @.str.27, ptr noundef %121)
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %124, label %138
+
+124:                                              ; preds = %119
+  br label %125
+
+125:                                              ; preds = %124
+  br i1 false, label %126, label %128
+
+126:                                              ; preds = %125
+  %127 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %127, label %130, label %133
+
+128:                                              ; preds = %125
+  %129 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %129, label %130, label %133
+
+130:                                              ; preds = %128, %126
+  %131 = call i32 @errcode_for_file_access()
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25, ptr noundef @.str.22)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1550, ptr noundef @__func__.update_metainfo_datafile)
+  br label %133
+
+133:                                              ; preds = %130, %128, %126
+  br label %134
+
+134:                                              ; preds = %133
+  br label %135
+
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %1, align 8
+  %137 = call i32 @fclose(ptr noundef %136)
+  store i32 1, ptr %3, align 4
+  br label %157
+
+138:                                              ; preds = %119
+  br label %139
+
+139:                                              ; preds = %138, %115, %112
+  %140 = load ptr, ptr %1, align 8
+  %141 = call i32 @fclose(ptr noundef %140)
+  %142 = call i32 @rename(ptr noundef @.str.22, ptr noundef @.str.20) #12
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %156
+
+144:                                              ; preds = %139
+  br label %145
+
+145:                                              ; preds = %144
+  br i1 false, label %146, label %148
+
+146:                                              ; preds = %145
+  %147 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %147, label %150, label %153
+
+148:                                              ; preds = %145
+  %149 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %149, label %150, label %153
+
+150:                                              ; preds = %148, %146
+  %151 = call i32 @errcode_for_file_access()
+  %152 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.28, ptr noundef @.str.22, ptr noundef @.str.20)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1561, ptr noundef @__func__.update_metainfo_datafile)
+  br label %153
+
+153:                                              ; preds = %150, %148, %146
+  br label %154
+
+154:                                              ; preds = %153
+  br label %155
+
+155:                                              ; preds = %154
+  br label %156
+
+156:                                              ; preds = %155, %139
+  store i32 0, ptr %3, align 4
+  br label %157
+
+157:                                              ; preds = %156, %135, %108, %81, %57, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #12
+  %158 = load i32, ptr %3, align 4
+  switch i32 %158, label %160 [
+    i32 0, label %159
+    i32 1, label %159
+  ]
+
+159:                                              ; preds = %157, %157
+  ret void
+
+160:                                              ; preds = %157
+  unreachable
+}
+
+declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) #2
+
+declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+
+declare void @ResetLatch(ptr noundef) #2
+
+declare void @ProcessConfigFile(i32 noundef) #2
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
+
+declare void @pfree(ptr noundef) #2
+
+declare i32 @MakePGDirectory(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) #3
+
+declare i64 @ftello(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @logfile_rotate(i1 noundef zeroext %0, i32 noundef %1) #4 {
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = zext i1 %0 to i8
+  store i8 %7, ptr %3, align 1
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store volatile i32 0, ptr @rotation_requested, align 4
+  %8 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %2
+  %11 = load i64, ptr @next_rotation_time, align 8
+  store i64 %11, ptr %5, align 8
+  br label %14
+
+12:                                               ; preds = %2
+  %13 = call i64 @time(ptr noundef null) #12
+  store i64 %13, ptr %5, align 8
+  br label %14
+
+14:                                               ; preds = %12, %10
+  %15 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %16 = trunc i8 %15 to i1
+  %17 = load i32, ptr %4, align 4
+  %18 = load i64, ptr %5, align 8
+  %19 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %16, i32 noundef %17, i64 noundef %18, i32 noundef 1, ptr noundef @last_sys_file_name, ptr noundef @syslogFile)
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %14
+  store i32 1, ptr %6, align 4
+  br label %36
+
+21:                                               ; preds = %14
+  %22 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %23 = trunc i8 %22 to i1
+  %24 = load i32, ptr %4, align 4
+  %25 = load i64, ptr %5, align 8
+  %26 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %23, i32 noundef %24, i64 noundef %25, i32 noundef 8, ptr noundef @last_csv_file_name, ptr noundef @csvlogFile)
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %21
+  store i32 1, ptr %6, align 4
+  br label %36
+
+28:                                               ; preds = %21
+  %29 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %30 = trunc i8 %29 to i1
+  %31 = load i32, ptr %4, align 4
+  %32 = load i64, ptr %5, align 8
+  %33 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %30, i32 noundef %31, i64 noundef %32, i32 noundef 16, ptr noundef @last_json_file_name, ptr noundef @jsonlogFile)
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %28
+  store i32 1, ptr %6, align 4
+  br label %36
+
+35:                                               ; preds = %28
+  call void @update_metainfo_datafile()
+  call void @set_next_rotation_time()
+  store i32 0, ptr %6, align 4
+  br label %36
+
+36:                                               ; preds = %35, %34, %27, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %37 = load i32, ptr %6, align 4
+  switch i32 %37, label %39 [
+    i32 0, label %38
+    i32 1, label %38
+  ]
+
+38:                                               ; preds = %36, %36
+  ret void
+
+39:                                               ; preds = %36
+  unreachable
+}
+
+declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__errno_location() #6
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #7
+
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+
+declare i32 @errcode_for_socket_access() #2
+
+declare i32 @errmsg(ptr noundef, ...) #2
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @process_pipe_input(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.PipeProtoHeader, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.ForEachState, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %19 = load ptr, ptr %3, align 8
+  store ptr %19, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  %20 = load ptr, ptr %4, align 8
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  store i32 1, ptr %7, align 4
+  br label %22
+
+22:                                               ; preds = %286, %2
+  %23 = load i32, ptr %6, align 4
+  %24 = icmp sge i32 %23, 10
+  br i1 %24, label %25, label %287
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 12, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  %26 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 1 %26, i64 9, i1 false)
+  %27 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
+  %28 = load i8, ptr %27, align 4
+  %29 = zext i8 %28 to i32
+  %30 = and i32 %29, 112
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %10, align 1
+  %32 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 0
+  %33 = getelementptr inbounds [2 x i8], ptr %32, i64 0, i64 0
+  %34 = load i8, ptr %33, align 4
+  %35 = sext i8 %34 to i32
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %255
+
+37:                                               ; preds = %25
+  %38 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 0
+  %39 = getelementptr inbounds [2 x i8], ptr %38, i64 0, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = sext i8 %40 to i32
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %255
+
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %45 = load i16, ptr %44, align 2
+  %46 = zext i16 %45 to i32
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %255
+
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i32
+  %52 = icmp sle i32 %51, 4087
+  br i1 %52, label %53, label %255
+
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %255
+
+57:                                               ; preds = %53
+  %58 = load i8, ptr %10, align 1
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw [256 x i8], ptr @pg_number_of_ones, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i32
+  %63 = icmp eq i32 %62, 1
+  br i1 %63, label %64, label %255
+
+64:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %65 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i64
+  %68 = add i64 9, %67
+  %69 = trunc i64 %68 to i32
+  store i32 %69, ptr %9, align 4
+  %70 = load i32, ptr %6, align 4
+  %71 = load i32, ptr %9, align 4
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %64
+  store i32 3, ptr %16, align 4
+  br label %252
+
+74:                                               ; preds = %64
+  %75 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
+  %76 = load i8, ptr %75, align 4
+  %77 = zext i8 %76 to i32
+  %78 = and i32 %77, 16
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %74
+  store i32 1, ptr %7, align 4
+  br label %98
+
+81:                                               ; preds = %74
+  %82 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
+  %83 = load i8, ptr %82, align 4
+  %84 = zext i8 %83 to i32
+  %85 = and i32 %84, 32
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %81
+  store i32 8, ptr %7, align 4
+  br label %97
+
+88:                                               ; preds = %81
+  %89 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
+  %90 = load i8, ptr %89, align 4
+  %91 = zext i8 %90 to i32
+  %92 = and i32 %91, 64
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %88
+  store i32 16, ptr %7, align 4
+  br label %96
+
+95:                                               ; preds = %88
+  br label %96
+
+96:                                               ; preds = %95, %94
+  br label %97
+
+97:                                               ; preds = %96, %87
+  br label %98
+
+98:                                               ; preds = %97, %80
+  %99 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
+  %100 = load i32, ptr %99, align 4
+  %101 = srem i32 %100, 256
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds [256 x ptr], ptr @buffer_lists, i64 0, i64 %102
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #12
+  %105 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 0
+  %106 = load ptr, ptr %11, align 8
+  store ptr %106, ptr %105, align 8
+  %107 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 1
+  store i32 0, ptr %107, align 8
+  %108 = getelementptr i8, ptr %17, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %108, i8 0, i64 4, i1 false)
+  br label %109
+
+109:                                              ; preds = %160, %98
+  %110 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %130
+
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 1
+  %115 = load i32, ptr %114, align 8
+  %116 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw %struct.List, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp slt i32 %115, %119
+  br i1 %120, label %121, label %130
+
+121:                                              ; preds = %113
+  %122 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw %struct.List, ptr %123, i32 0, i32 3
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 1
+  %127 = load i32, ptr %126, align 8
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds %union.ListCell, ptr %125, i64 %128
+  store ptr %129, ptr %12, align 8
+  br label %131
+
+130:                                              ; preds = %113, %109
+  store ptr null, ptr %12, align 8
+  br label %131
+
+131:                                              ; preds = %130, %121
+  %132 = phi i32 [ 1, %121 ], [ 0, %130 ]
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %135, label %134
+
+134:                                              ; preds = %131
+  store i32 4, ptr %16, align 4
+  br label %164
+
+135:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %136 = load ptr, ptr %12, align 8
+  %137 = load ptr, ptr %136, align 8
+  store ptr %137, ptr %18, align 8
+  %138 = load ptr, ptr %18, align 8
+  %139 = getelementptr inbounds nuw %struct.save_buffer, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %139, align 8
+  %141 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
+  %142 = load i32, ptr %141, align 4
+  %143 = icmp eq i32 %140, %142
+  br i1 %143, label %144, label %146
+
+144:                                              ; preds = %135
+  %145 = load ptr, ptr %18, align 8
+  store ptr %145, ptr %13, align 8
+  store i32 4, ptr %16, align 4
+  br label %157
+
+146:                                              ; preds = %135
+  %147 = load ptr, ptr %18, align 8
+  %148 = getelementptr inbounds nuw %struct.save_buffer, ptr %147, i32 0, i32 0
+  %149 = load i32, ptr %148, align 8
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %156
+
+151:                                              ; preds = %146
+  %152 = load ptr, ptr %14, align 8
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %154, label %156
+
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %18, align 8
+  store ptr %155, ptr %14, align 8
+  br label %156
+
+156:                                              ; preds = %154, %151, %146
+  store i32 0, ptr %16, align 4
+  br label %157
+
+157:                                              ; preds = %156, %144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  %158 = load i32, ptr %16, align 4
+  switch i32 %158, label %164 [
+    i32 0, label %159
+  ]
+
+159:                                              ; preds = %157
+  br label %160
+
+160:                                              ; preds = %159
+  %161 = getelementptr inbounds nuw %struct.ForEachState, ptr %17, i32 0, i32 1
+  %162 = load i32, ptr %161, align 8
+  %163 = add i32 %162, 1
+  store i32 %163, ptr %161, align 8
+  br label %109, !llvm.loop !6
+
+164:                                              ; preds = %157, %134
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #12
+  br label %165
+
+165:                                              ; preds = %164
+  %166 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
+  %167 = load i8, ptr %166, align 4
+  %168 = zext i8 %167 to i32
+  %169 = and i32 %168, 1
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %212
+
+171:                                              ; preds = %165
+  %172 = load ptr, ptr %13, align 8
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %183
+
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %13, align 8
+  %176 = getelementptr inbounds nuw %struct.save_buffer, ptr %175, i32 0, i32 1
+  store ptr %176, ptr %15, align 8
+  %177 = load ptr, ptr %15, align 8
+  %178 = load ptr, ptr %5, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 9
+  %180 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %181 = load i16, ptr %180, align 2
+  %182 = zext i16 %181 to i32
+  call void @appendBinaryStringInfo(ptr noundef %177, ptr noundef %179, i32 noundef %182)
+  br label %211
+
+183:                                              ; preds = %171
+  %184 = load ptr, ptr %14, align 8
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %186, label %197
+
+186:                                              ; preds = %183
+  %187 = call ptr @palloc(i64 noundef 32)
+  store ptr %187, ptr %14, align 8
+  %188 = load ptr, ptr %11, align 8
+  %189 = load ptr, ptr %14, align 8
+  %190 = call ptr @lappend(ptr noundef %188, ptr noundef %189)
+  store ptr %190, ptr %11, align 8
+  %191 = load ptr, ptr %11, align 8
+  %192 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
+  %193 = load i32, ptr %192, align 4
+  %194 = srem i32 %193, 256
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [256 x ptr], ptr @buffer_lists, i64 0, i64 %195
+  store ptr %191, ptr %196, align 8
+  br label %197
+
+197:                                              ; preds = %186, %183
+  %198 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
+  %199 = load i32, ptr %198, align 4
+  %200 = load ptr, ptr %14, align 8
+  %201 = getelementptr inbounds nuw %struct.save_buffer, ptr %200, i32 0, i32 0
+  store i32 %199, ptr %201, align 8
+  %202 = load ptr, ptr %14, align 8
+  %203 = getelementptr inbounds nuw %struct.save_buffer, ptr %202, i32 0, i32 1
+  store ptr %203, ptr %15, align 8
+  %204 = load ptr, ptr %15, align 8
+  call void @initStringInfo(ptr noundef %204)
+  %205 = load ptr, ptr %15, align 8
+  %206 = load ptr, ptr %5, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 9
+  %208 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %209 = load i16, ptr %208, align 2
+  %210 = zext i16 %209 to i32
+  call void @appendBinaryStringInfo(ptr noundef %205, ptr noundef %207, i32 noundef %210)
+  br label %211
+
+211:                                              ; preds = %197, %174
+  br label %244
+
+212:                                              ; preds = %165
+  %213 = load ptr, ptr %13, align 8
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %236
+
+215:                                              ; preds = %212
+  %216 = load ptr, ptr %13, align 8
+  %217 = getelementptr inbounds nuw %struct.save_buffer, ptr %216, i32 0, i32 1
+  store ptr %217, ptr %15, align 8
+  %218 = load ptr, ptr %15, align 8
+  %219 = load ptr, ptr %5, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 9
+  %221 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %222 = load i16, ptr %221, align 2
+  %223 = zext i16 %222 to i32
+  call void @appendBinaryStringInfo(ptr noundef %218, ptr noundef %220, i32 noundef %223)
+  %224 = load ptr, ptr %15, align 8
+  %225 = getelementptr inbounds nuw %struct.StringInfoData, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8
+  %227 = load ptr, ptr %15, align 8
+  %228 = getelementptr inbounds nuw %struct.StringInfoData, ptr %227, i32 0, i32 1
+  %229 = load i32, ptr %228, align 8
+  %230 = load i32, ptr %7, align 4
+  call void @write_syslogger_file(ptr noundef %226, i32 noundef %229, i32 noundef %230)
+  %231 = load ptr, ptr %13, align 8
+  %232 = getelementptr inbounds nuw %struct.save_buffer, ptr %231, i32 0, i32 0
+  store i32 0, ptr %232, align 8
+  %233 = load ptr, ptr %15, align 8
+  %234 = getelementptr inbounds nuw %struct.StringInfoData, ptr %233, i32 0, i32 0
+  %235 = load ptr, ptr %234, align 8
+  call void @pfree(ptr noundef %235)
+  br label %243
+
+236:                                              ; preds = %212
+  %237 = load ptr, ptr %5, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 9
+  %239 = getelementptr inbounds nuw %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
+  %240 = load i16, ptr %239, align 2
+  %241 = zext i16 %240 to i32
+  %242 = load i32, ptr %7, align 4
+  call void @write_syslogger_file(ptr noundef %238, i32 noundef %241, i32 noundef %242)
+  br label %243
+
+243:                                              ; preds = %236, %215
+  br label %244
+
+244:                                              ; preds = %243, %211
+  %245 = load i32, ptr %9, align 4
+  %246 = load ptr, ptr %5, align 8
+  %247 = sext i32 %245 to i64
+  %248 = getelementptr inbounds i8, ptr %246, i64 %247
+  store ptr %248, ptr %5, align 8
+  %249 = load i32, ptr %9, align 4
+  %250 = load i32, ptr %6, align 4
+  %251 = sub i32 %250, %249
+  store i32 %251, ptr %6, align 4
+  store i32 0, ptr %16, align 4
+  br label %252
+
+252:                                              ; preds = %244, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %253 = load i32, ptr %16, align 4
+  switch i32 %253, label %284 [
+    i32 0, label %254
+  ]
+
+254:                                              ; preds = %252
+  br label %283
+
+255:                                              ; preds = %57, %53, %48, %43, %37, %25
+  store i32 1, ptr %9, align 4
+  br label %256
+
+256:                                              ; preds = %270, %255
+  %257 = load i32, ptr %9, align 4
+  %258 = load i32, ptr %6, align 4
+  %259 = icmp slt i32 %257, %258
+  br i1 %259, label %260, label %273
+
+260:                                              ; preds = %256
+  %261 = load ptr, ptr %5, align 8
+  %262 = load i32, ptr %9, align 4
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds i8, ptr %261, i64 %263
+  %265 = load i8, ptr %264, align 1
+  %266 = sext i8 %265 to i32
+  %267 = icmp eq i32 %266, 0
+  br i1 %267, label %268, label %269
+
+268:                                              ; preds = %260
+  br label %273
+
+269:                                              ; preds = %260
+  br label %270
+
+270:                                              ; preds = %269
+  %271 = load i32, ptr %9, align 4
+  %272 = add i32 %271, 1
+  store i32 %272, ptr %9, align 4
+  br label %256, !llvm.loop !8
+
+273:                                              ; preds = %268, %256
+  %274 = load ptr, ptr %5, align 8
+  %275 = load i32, ptr %9, align 4
+  call void @write_syslogger_file(ptr noundef %274, i32 noundef %275, i32 noundef 1)
+  %276 = load i32, ptr %9, align 4
+  %277 = load ptr, ptr %5, align 8
+  %278 = sext i32 %276 to i64
+  %279 = getelementptr inbounds i8, ptr %277, i64 %278
+  store ptr %279, ptr %5, align 8
+  %280 = load i32, ptr %9, align 4
+  %281 = load i32, ptr %6, align 4
+  %282 = sub i32 %281, %280
+  store i32 %282, ptr %6, align 4
+  br label %283
+
+283:                                              ; preds = %273, %254
+  store i32 0, ptr %16, align 4
+  br label %284
+
+284:                                              ; preds = %283, %252
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 12, ptr %8) #12
+  %285 = load i32, ptr %16, align 4
+  switch i32 %285, label %302 [
+    i32 0, label %286
+    i32 3, label %287
+  ]
+
+286:                                              ; preds = %284
+  br label %22, !llvm.loop !9
+
+287:                                              ; preds = %284, %22
+  %288 = load i32, ptr %6, align 4
+  %289 = icmp sgt i32 %288, 0
+  br i1 %289, label %290, label %299
+
+290:                                              ; preds = %287
+  %291 = load ptr, ptr %5, align 8
+  %292 = load ptr, ptr %3, align 8
+  %293 = icmp ne ptr %291, %292
+  br i1 %293, label %294, label %299
+
+294:                                              ; preds = %290
+  %295 = load ptr, ptr %3, align 8
+  %296 = load ptr, ptr %5, align 8
+  %297 = load i32, ptr %6, align 4
+  %298 = sext i32 %297 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %295, ptr align 1 %296, i64 %298, i1 false)
+  br label %299
+
+299:                                              ; preds = %294, %290, %287
+  %300 = load i32, ptr %6, align 4
+  %301 = load ptr, ptr %4, align 8
+  store i32 %300, ptr %301, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret void
+
+302:                                              ; preds = %284
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @flush_pipe_input(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.ForEachState, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4
+  br label %11
+
+11:                                               ; preds = %76, %2
+  %12 = load i32, ptr %5, align 4
+  %13 = icmp slt i32 %12, 256
+  br i1 %13, label %14, label %79
+
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %15 = load i32, ptr %5, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [256 x ptr], ptr @buffer_lists, i64 0, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #12
+  %19 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %20 = load ptr, ptr %6, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr i8, ptr %8, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 4, i1 false)
+  br label %23
+
+23:                                               ; preds = %71, %14
+  %24 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %44
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.List, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp slt i32 %29, %33
+  br i1 %34, label %35, label %44
+
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.List, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds %union.ListCell, ptr %39, i64 %42
+  store ptr %43, ptr %7, align 8
+  br label %45
+
+44:                                               ; preds = %27, %23
+  store ptr null, ptr %7, align 8
+  br label %45
+
+45:                                               ; preds = %44, %35
+  %46 = phi i32 [ 1, %35 ], [ 0, %44 ]
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %49, label %48
+
+48:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #12
+  br label %75
+
+49:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %9, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.save_buffer, ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %70
+
+56:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.save_buffer, ptr %57, i32 0, i32 1
+  store ptr %58, ptr %10, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds nuw %struct.StringInfoData, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds nuw %struct.StringInfoData, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  call void @write_syslogger_file(ptr noundef %61, i32 noundef %64, i32 noundef 1)
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds nuw %struct.save_buffer, ptr %65, i32 0, i32 0
+  store i32 0, ptr %66, align 8
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds nuw %struct.StringInfoData, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  call void @pfree(ptr noundef %69)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %70
+
+70:                                               ; preds = %56, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %73 = load i32, ptr %72, align 8
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %72, align 8
+  br label %23, !llvm.loop !10
+
+75:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load i32, ptr %5, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %5, align 4
+  br label %11, !llvm.loop !11
+
+79:                                               ; preds = %11
+  %80 = load ptr, ptr %4, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %83, label %87
+
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %3, align 8
+  %85 = load ptr, ptr %4, align 8
+  %86 = load i32, ptr %85, align 4
+  call void @write_syslogger_file(ptr noundef %84, i32 noundef %86, i32 noundef 1)
+  br label %87
+
+87:                                               ; preds = %83, %79
+  %88 = load ptr, ptr %4, align 8
+  store i32 0, ptr %88, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret void
+}
+
+declare i32 @errmsg_internal(ptr noundef, ...) #2
+
+; Function Attrs: noreturn
+declare void @proc_exit(i32 noundef) #8
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @SysLogger_Start(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = load i32, ptr @syslogPipe, align 4
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %25
+
+9:                                                ; preds = %1
+  %10 = call i32 @pipe(ptr noundef @syslogPipe) #12
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %24
+
+12:                                               ; preds = %9
+  br label %13
+
+13:                                               ; preds = %12
+  br i1 true, label %14, label %16
+
+14:                                               ; preds = %13
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  br i1 %15, label %18, label %21
+
+16:                                               ; preds = %13
+  %17 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %16, %14
+  %19 = call i32 @errcode_for_socket_access()
+  %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 626, ptr noundef @__func__.SysLogger_Start)
+  br label %21
+
+21:                                               ; preds = %18, %16, %14
+  unreachable
+
+22:                                               ; No predecessors!
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23, %9
+  br label %25
+
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr @Log_directory, align 8
+  %27 = call i32 @MakePGDirectory(ptr noundef %26)
+  %28 = call i64 @time(ptr noundef null) #12
+  store i64 %28, ptr @first_syslogger_file_time, align 8
+  %29 = load i64, ptr @first_syslogger_file_time, align 8
+  %30 = call ptr @logfile_getname(i64 noundef %29, ptr noundef null)
+  store ptr %30, ptr %5, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = call ptr @logfile_open(ptr noundef %31, ptr noundef @.str.7, i1 noundef zeroext false)
+  store ptr %32, ptr @syslogFile, align 8
+  %33 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %33)
+  %34 = load i32, ptr @Log_destination, align 4
+  %35 = and i32 %34, 8
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %43
+
+37:                                               ; preds = %25
+  %38 = load i64, ptr @first_syslogger_file_time, align 8
+  %39 = call ptr @logfile_getname(i64 noundef %38, ptr noundef @.str.1)
+  store ptr %39, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = call ptr @logfile_open(ptr noundef %40, ptr noundef @.str.7, i1 noundef zeroext false)
+  store ptr %41, ptr @csvlogFile, align 8
+  %42 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %42)
+  br label %43
+
+43:                                               ; preds = %37, %25
+  %44 = load i32, ptr @Log_destination, align 4
+  %45 = and i32 %44, 16
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %53
+
+47:                                               ; preds = %43
+  %48 = load i64, ptr @first_syslogger_file_time, align 8
+  %49 = call ptr @logfile_getname(i64 noundef %48, ptr noundef @.str.2)
+  store ptr %49, ptr %5, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = call ptr @logfile_open(ptr noundef %50, ptr noundef @.str.7, i1 noundef zeroext false)
+  store ptr %51, ptr @jsonlogFile, align 8
+  %52 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %47, %43
+  %54 = load i32, ptr %3, align 4
+  %55 = call i32 @postmaster_child_launch(i32 noundef 16, i32 noundef %54, ptr noundef null, i64 noundef 0, ptr noundef null)
+  store i32 %55, ptr %4, align 4
+  %56 = load i32, ptr %4, align 4
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %58, label %69
+
+58:                                               ; preds = %53
+  br label %59
+
+59:                                               ; preds = %58
+  br i1 false, label %60, label %62
+
+60:                                               ; preds = %59
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %61, label %64, label %66
+
+62:                                               ; preds = %59
+  %63 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %62, %60
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.8)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 711, ptr noundef @__func__.SysLogger_Start)
+  br label %66
+
+66:                                               ; preds = %64, %62, %60
+  br label %67
+
+67:                                               ; preds = %66
+  br label %68
+
+68:                                               ; preds = %67
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %139
+
+69:                                               ; preds = %53
+  %70 = load i8, ptr @redirection_done, align 1, !range !4, !noundef !5
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %123, label %72
+
+72:                                               ; preds = %69
+  br label %73
+
+73:                                               ; preds = %72
+  br i1 false, label %74, label %76
+
+74:                                               ; preds = %73
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %75, label %78, label %82
+
+76:                                               ; preds = %73
+  %77 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %77, label %78, label %82
+
+78:                                               ; preds = %76, %74
+  %79 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9)
+  %80 = load ptr, ptr @Log_directory, align 8
+  %81 = call i32 (ptr, ...) @errhint(ptr noundef @.str.10, ptr noundef %80)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 732, ptr noundef @__func__.SysLogger_Start)
+  br label %82
+
+82:                                               ; preds = %78, %76, %74
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr @stdout, align 8
+  %86 = call i32 @fflush(ptr noundef %85)
+  %87 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %88 = call i32 @dup2(i32 noundef %87, i32 noundef 1) #12
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %102
+
+90:                                               ; preds = %84
+  br label %91
+
+91:                                               ; preds = %90
+  br i1 true, label %92, label %94
+
+92:                                               ; preds = %91
+  %93 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  br i1 %93, label %96, label %99
+
+94:                                               ; preds = %91
+  %95 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %94, %92
+  %97 = call i32 @errcode_for_file_access()
+  %98 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 739, ptr noundef @__func__.SysLogger_Start)
+  br label %99
+
+99:                                               ; preds = %96, %94, %92
+  unreachable
+
+100:                                              ; No predecessors!
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101, %84
+  %103 = load ptr, ptr @stderr, align 8
+  %104 = call i32 @fflush(ptr noundef %103)
+  %105 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %106 = call i32 @dup2(i32 noundef %105, i32 noundef 2) #12
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %108, label %120
+
+108:                                              ; preds = %102
+  br label %109
+
+109:                                              ; preds = %108
+  br i1 true, label %110, label %112
+
+110:                                              ; preds = %109
+  %111 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  br i1 %111, label %114, label %117
+
+112:                                              ; preds = %109
+  %113 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %113, label %114, label %117
+
+114:                                              ; preds = %112, %110
+  %115 = call i32 @errcode_for_file_access()
+  %116 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 744, ptr noundef @__func__.SysLogger_Start)
+  br label %117
+
+117:                                              ; preds = %114, %112, %110
+  unreachable
+
+118:                                              ; No predecessors!
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119, %102
+  %121 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  %122 = call i32 @close(i32 noundef %121)
+  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+  store i8 1, ptr @redirection_done, align 1
+  br label %123
+
+123:                                              ; preds = %120, %69
+  %124 = load ptr, ptr @syslogFile, align 8
+  %125 = call i32 @fclose(ptr noundef %124)
+  store ptr null, ptr @syslogFile, align 8
+  %126 = load ptr, ptr @csvlogFile, align 8
+  %127 = icmp ne ptr %126, null
+  br i1 %127, label %128, label %131
+
+128:                                              ; preds = %123
+  %129 = load ptr, ptr @csvlogFile, align 8
+  %130 = call i32 @fclose(ptr noundef %129)
+  store ptr null, ptr @csvlogFile, align 8
+  br label %131
+
+131:                                              ; preds = %128, %123
+  %132 = load ptr, ptr @jsonlogFile, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %137
+
+134:                                              ; preds = %131
+  %135 = load ptr, ptr @jsonlogFile, align 8
+  %136 = call i32 @fclose(ptr noundef %135)
+  store ptr null, ptr @jsonlogFile, align 8
+  br label %137
+
+137:                                              ; preds = %134, %131
+  %138 = load i32, ptr %4, align 4
+  store i32 %138, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %139
+
+139:                                              ; preds = %137, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %140 = load i32, ptr %2, align 4
+  ret i32 %140
+}
+
+; Function Attrs: nounwind
+declare i32 @pipe(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @logfile_open(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -468,56 +2284,59 @@ define internal ptr @logfile_open(ptr noundef %0, ptr noundef %1, i1 noundef zer
   store ptr %1, ptr %5, align 8
   %10 = zext i1 %2 to i8
   store i8 %10, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
   %11 = load i32, ptr @Log_file_mode, align 4
   %12 = or i32 %11, 128
   %13 = xor i32 %12, -1
   %14 = and i32 %13, 511
-  %15 = call i32 @umask(i32 noundef %14) #10
+  %15 = call i32 @umask(i32 noundef %14) #12
   store i32 %15, ptr %8, align 4
   %16 = load ptr, ptr %4, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noalias ptr @fopen(ptr noundef %16, ptr noundef %17)
   store ptr %18, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
-  %20 = call i32 @umask(i32 noundef %19) #10
+  %20 = call i32 @umask(i32 noundef %19) #12
   %21 = load ptr, ptr %7, align 8
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @setvbuf(ptr noundef %24, ptr noundef null, i32 noundef 1, i64 noundef 0) #10
-  br label %68
+  %25 = call i32 @setvbuf(ptr noundef %24, ptr noundef null, i32 noundef 1, i64 noundef 0) #12
+  br label %69
 
 26:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
   %27 = call ptr @__errno_location() #14
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %9, align 4
   br label %29
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr %6, align 1
+  %30 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %31 = trunc i8 %30 to i1
   %32 = select i1 %31, i32 15, i32 22
   %33 = call i1 @llvm.is.constant.i32(i32 %32)
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %29
-  %35 = load i8, ptr %6, align 1
+  %35 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %36 = trunc i8 %35 to i1
   %37 = select i1 %36, i32 15, i32 22
   %38 = icmp sge i32 %37, 21
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34
-  %40 = load i8, ptr %6, align 1
+  %40 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %41 = trunc i8 %40 to i1
   %42 = select i1 %41, i32 15, i32 22
-  %43 = call zeroext i1 @errstart_cold(i32 noundef %42, ptr noundef null) #11
+  %43 = call zeroext i1 @errstart_cold(i32 noundef %42, ptr noundef null) #15
   br i1 %43, label %49, label %53
 
 44:                                               ; preds = %34, %29
-  %45 = load i8, ptr %6, align 1
+  %45 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %46 = trunc i8 %45 to i1
   %47 = select i1 %46, i32 15, i32 22
   %48 = call zeroext i1 @errstart(i32 noundef %47, ptr noundef null)
@@ -526,19 +2345,19 @@ define internal ptr @logfile_open(ptr noundef %0, ptr noundef %1, i1 noundef zer
 49:                                               ; preds = %44, %39
   %50 = call i32 @errcode_for_file_access()
   %51 = load ptr, ptr %4, align 8
-  %52 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26, ptr noundef %51)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1296, ptr noundef @__func__.logfile_open)
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15, ptr noundef %51)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1248, ptr noundef @__func__.logfile_open)
   br label %53
 
 53:                                               ; preds = %49, %44, %39
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %55 = trunc i8 %54 to i1
   %56 = select i1 %55, i32 15, i32 22
   %57 = call i1 @llvm.is.constant.i32(i32 %56)
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %53
-  %59 = load i8, ptr %6, align 1
+  %59 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %60 = trunc i8 %59 to i1
   %61 = select i1 %60, i32 15, i32 22
   %62 = icmp sge i32 %61, 21
@@ -551,572 +2370,34 @@ define internal ptr @logfile_open(ptr noundef %0, ptr noundef %1, i1 noundef zer
   br label %65
 
 65:                                               ; preds = %64
-  %66 = load i32, ptr %9, align 4
-  %67 = call ptr @__errno_location() #14
-  store i32 %66, ptr %67, align 4
-  br label %68
+  br label %66
 
-68:                                               ; preds = %65, %23
-  %69 = load ptr, ptr %7, align 8
-  ret ptr %69
+66:                                               ; preds = %65
+  %67 = load i32, ptr %9, align 4
+  %68 = call ptr @__errno_location() #14
+  store i32 %67, ptr %68, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  br label %69
+
+69:                                               ; preds = %66, %23
+  %70 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  ret ptr %70
 }
 
-declare void @pfree(ptr noundef) #3
+declare i32 @postmaster_child_launch(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
-declare i32 @fork_process() #3
+declare i32 @errhint(ptr noundef, ...) #2
 
-declare void @InitPostmasterChild() #3
+declare i32 @fflush(ptr noundef) #2
 
-declare void @ClosePostmasterPorts(i1 noundef zeroext) #3
+declare i32 @errcode_for_file_access() #2
 
-declare void @dsm_detach_all() #3
-
-declare void @PGSharedMemoryDetach() #3
-
-; Function Attrs: noreturn nounwind uwtable
-define internal void @SysLoggerMain(i32 noundef %0, ptr noundef %1) #4 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca [8192 x i8], align 16
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca i8, align 1
-  %14 = alloca i32, align 4
-  %15 = alloca i64, align 8
-  %16 = alloca %struct.WaitEvent, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %6, align 4
-  %20 = load i64, ptr @MyStartTime, align 8
-  store i64 %20, ptr %10, align 8
-  store i32 8, ptr @MyBackendType, align 4
-  call void @init_ps_display(ptr noundef null)
-  %21 = load i8, ptr @redirection_done, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %37
-
-23:                                               ; preds = %2
-  %24 = call i32 (ptr, i32, ...) @open(ptr noundef @.str.12, i32 noundef 1, i32 noundef 0)
-  store i32 %24, ptr %12, align 4
-  %25 = call i32 @close(i32 noundef 1)
-  %26 = call i32 @close(i32 noundef 2)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ne i32 %27, -1
-  br i1 %28, label %29, label %36
-
-29:                                               ; preds = %23
-  %30 = load i32, ptr %12, align 4
-  %31 = call i32 @dup2(i32 noundef %30, i32 noundef 1) #10
-  %32 = load i32, ptr %12, align 4
-  %33 = call i32 @dup2(i32 noundef %32, i32 noundef 2) #10
-  %34 = load i32, ptr %12, align 4
-  %35 = call i32 @close(i32 noundef %34)
-  br label %36
-
-36:                                               ; preds = %29, %23
-  br label %37
-
-37:                                               ; preds = %36, %2
-  %38 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp sge i32 %39, 0
-  br i1 %40, label %41, label %45
-
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  %43 = load i32, ptr %42, align 4
-  %44 = call i32 @close(i32 noundef %43)
-  br label %45
-
-45:                                               ; preds = %41, %37
-  %46 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
-  store i32 -1, ptr %46, align 4
-  %47 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
-  %48 = inttoptr i64 1 to ptr
-  %49 = call ptr @pqsignal(i32 noundef 2, ptr noundef %48)
-  %50 = inttoptr i64 1 to ptr
-  %51 = call ptr @pqsignal(i32 noundef 15, ptr noundef %50)
-  %52 = inttoptr i64 1 to ptr
-  %53 = call ptr @pqsignal(i32 noundef 3, ptr noundef %52)
-  %54 = inttoptr i64 1 to ptr
-  %55 = call ptr @pqsignal(i32 noundef 14, ptr noundef %54)
-  %56 = inttoptr i64 1 to ptr
-  %57 = call ptr @pqsignal(i32 noundef 13, ptr noundef %56)
-  %58 = call ptr @pqsignal(i32 noundef 10, ptr noundef @sigUsr1Handler)
-  %59 = inttoptr i64 1 to ptr
-  %60 = call ptr @pqsignal(i32 noundef 12, ptr noundef %59)
-  %61 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %62 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
-  %63 = load i64, ptr @first_syslogger_file_time, align 8
-  %64 = call ptr @logfile_getname(i64 noundef %63, ptr noundef null)
-  store ptr %64, ptr @last_sys_file_name, align 8
-  %65 = load ptr, ptr @csvlogFile, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %45
-  %68 = load i64, ptr @first_syslogger_file_time, align 8
-  %69 = call ptr @logfile_getname(i64 noundef %68, ptr noundef @.str.3)
-  store ptr %69, ptr @last_csv_file_name, align 8
-  br label %70
-
-70:                                               ; preds = %67, %45
-  %71 = load ptr, ptr @jsonlogFile, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %76
-
-73:                                               ; preds = %70
-  %74 = load i64, ptr @first_syslogger_file_time, align 8
-  %75 = call ptr @logfile_getname(i64 noundef %74, ptr noundef @.str.4)
-  store ptr %75, ptr @last_json_file_name, align 8
-  br label %76
-
-76:                                               ; preds = %73, %70
-  %77 = load ptr, ptr @Log_directory, align 8
-  %78 = call ptr @pstrdup(ptr noundef %77)
-  store ptr %78, ptr %7, align 8
-  %79 = load ptr, ptr @Log_filename, align 8
-  %80 = call ptr @pstrdup(ptr noundef %79)
-  store ptr %80, ptr %8, align 8
-  %81 = load i32, ptr @Log_RotationAge, align 4
-  store i32 %81, ptr %9, align 4
-  call void @set_next_rotation_time()
-  call void @update_metainfo_datafile()
-  store i32 0, ptr @whereToSendOutput, align 4
-  %82 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 2)
-  store ptr %82, ptr %11, align 8
-  %83 = load ptr, ptr %11, align 8
-  %84 = load ptr, ptr @MyLatch, align 8
-  %85 = call i32 @AddWaitEventToSet(ptr noundef %83, i32 noundef 1, i32 noundef -1, ptr noundef %84, ptr noundef null)
-  %86 = load ptr, ptr %11, align 8
-  %87 = load i32, ptr @syslogPipe, align 4
-  %88 = call i32 @AddWaitEventToSet(ptr noundef %86, i32 noundef 2, i32 noundef %87, ptr noundef null, ptr noundef null)
-  br label %89
-
-89:                                               ; preds = %303, %281, %76
-  store i8 0, ptr %13, align 1
-  store i32 0, ptr %14, align 4
-  %90 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %90)
-  %91 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %144
-
-93:                                               ; preds = %89
-  store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2)
-  %94 = load ptr, ptr @Log_directory, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = call i32 @strcmp(ptr noundef %94, ptr noundef %95) #13
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %104
-
-98:                                               ; preds = %93
-  %99 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %99)
-  %100 = load ptr, ptr @Log_directory, align 8
-  %101 = call ptr @pstrdup(ptr noundef %100)
-  store ptr %101, ptr %7, align 8
-  store volatile i32 1, ptr @rotation_requested, align 4
-  %102 = load ptr, ptr @Log_directory, align 8
-  %103 = call i32 @MakePGDirectory(ptr noundef %102)
-  br label %104
-
-104:                                              ; preds = %98, %93
-  %105 = load ptr, ptr @Log_filename, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call i32 @strcmp(ptr noundef %105, ptr noundef %106) #13
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %109, label %113
-
-109:                                              ; preds = %104
-  %110 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %110)
-  %111 = load ptr, ptr @Log_filename, align 8
-  %112 = call ptr @pstrdup(ptr noundef %111)
-  store ptr %112, ptr %8, align 8
-  store volatile i32 1, ptr @rotation_requested, align 4
-  br label %113
-
-113:                                              ; preds = %109, %104
-  %114 = load i32, ptr @Log_destination, align 4
-  %115 = and i32 %114, 8
-  %116 = icmp ne i32 %115, 0
-  %117 = zext i1 %116 to i32
-  %118 = load ptr, ptr @csvlogFile, align 8
-  %119 = icmp ne ptr %118, null
-  %120 = zext i1 %119 to i32
-  %121 = icmp ne i32 %117, %120
-  br i1 %121, label %122, label %123
-
-122:                                              ; preds = %113
-  store volatile i32 1, ptr @rotation_requested, align 4
-  br label %123
-
-123:                                              ; preds = %122, %113
-  %124 = load i32, ptr @Log_destination, align 4
-  %125 = and i32 %124, 16
-  %126 = icmp ne i32 %125, 0
-  %127 = zext i1 %126 to i32
-  %128 = load ptr, ptr @jsonlogFile, align 8
-  %129 = icmp ne ptr %128, null
-  %130 = zext i1 %129 to i32
-  %131 = icmp ne i32 %127, %130
-  br i1 %131, label %132, label %133
-
-132:                                              ; preds = %123
-  store volatile i32 1, ptr @rotation_requested, align 4
-  br label %133
-
-133:                                              ; preds = %132, %123
-  %134 = load i32, ptr %9, align 4
-  %135 = load i32, ptr @Log_RotationAge, align 4
-  %136 = icmp ne i32 %134, %135
-  br i1 %136, label %137, label %139
-
-137:                                              ; preds = %133
-  %138 = load i32, ptr @Log_RotationAge, align 4
-  store i32 %138, ptr %9, align 4
-  call void @set_next_rotation_time()
-  br label %139
-
-139:                                              ; preds = %137, %133
-  %140 = load i8, ptr @rotation_disabled, align 1
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %142, label %143
-
-142:                                              ; preds = %139
-  store i8 0, ptr @rotation_disabled, align 1
-  store volatile i32 1, ptr @rotation_requested, align 4
-  br label %143
-
-143:                                              ; preds = %142, %139
-  call void @update_metainfo_datafile()
-  br label %144
-
-144:                                              ; preds = %143, %89
-  %145 = load i32, ptr @Log_RotationAge, align 4
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %157
-
-147:                                              ; preds = %144
-  %148 = load i8, ptr @rotation_disabled, align 1
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %157, label %150
-
-150:                                              ; preds = %147
-  %151 = call i64 @time(ptr noundef null) #10
-  store i64 %151, ptr %10, align 8
-  %152 = load i64, ptr %10, align 8
-  %153 = load i64, ptr @next_rotation_time, align 8
-  %154 = icmp sge i64 %152, %153
-  br i1 %154, label %155, label %156
-
-155:                                              ; preds = %150
-  store i8 1, ptr %13, align 1
-  store volatile i32 1, ptr @rotation_requested, align 4
-  br label %156
-
-156:                                              ; preds = %155, %150
-  br label %157
-
-157:                                              ; preds = %156, %147, %144
-  %158 = load volatile i32, ptr @rotation_requested, align 4
-  %159 = icmp ne i32 %158, 0
-  br i1 %159, label %203, label %160
-
-160:                                              ; preds = %157
-  %161 = load i32, ptr @Log_RotationSize, align 4
-  %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %163, label %203
-
-163:                                              ; preds = %160
-  %164 = load i8, ptr @rotation_disabled, align 1
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %203, label %166
-
-166:                                              ; preds = %163
-  %167 = load ptr, ptr @syslogFile, align 8
-  %168 = call i64 @ftell(ptr noundef %167)
-  %169 = load i32, ptr @Log_RotationSize, align 4
-  %170 = sext i32 %169 to i64
-  %171 = mul i64 %170, 1024
-  %172 = icmp sge i64 %168, %171
-  br i1 %172, label %173, label %176
-
-173:                                              ; preds = %166
-  store volatile i32 1, ptr @rotation_requested, align 4
-  %174 = load i32, ptr %14, align 4
-  %175 = or i32 %174, 1
-  store i32 %175, ptr %14, align 4
-  br label %176
-
-176:                                              ; preds = %173, %166
-  %177 = load ptr, ptr @csvlogFile, align 8
-  %178 = icmp ne ptr %177, null
-  br i1 %178, label %179, label %189
-
-179:                                              ; preds = %176
-  %180 = load ptr, ptr @csvlogFile, align 8
-  %181 = call i64 @ftell(ptr noundef %180)
-  %182 = load i32, ptr @Log_RotationSize, align 4
-  %183 = sext i32 %182 to i64
-  %184 = mul i64 %183, 1024
-  %185 = icmp sge i64 %181, %184
-  br i1 %185, label %186, label %189
-
-186:                                              ; preds = %179
-  store volatile i32 1, ptr @rotation_requested, align 4
-  %187 = load i32, ptr %14, align 4
-  %188 = or i32 %187, 8
-  store i32 %188, ptr %14, align 4
-  br label %189
-
-189:                                              ; preds = %186, %179, %176
-  %190 = load ptr, ptr @jsonlogFile, align 8
-  %191 = icmp ne ptr %190, null
-  br i1 %191, label %192, label %202
-
-192:                                              ; preds = %189
-  %193 = load ptr, ptr @jsonlogFile, align 8
-  %194 = call i64 @ftell(ptr noundef %193)
-  %195 = load i32, ptr @Log_RotationSize, align 4
-  %196 = sext i32 %195 to i64
-  %197 = mul i64 %196, 1024
-  %198 = icmp sge i64 %194, %197
-  br i1 %198, label %199, label %202
-
-199:                                              ; preds = %192
-  store volatile i32 1, ptr @rotation_requested, align 4
-  %200 = load i32, ptr %14, align 4
-  %201 = or i32 %200, 16
-  store i32 %201, ptr %14, align 4
-  br label %202
-
-202:                                              ; preds = %199, %192, %189
-  br label %203
-
-203:                                              ; preds = %202, %163, %160, %157
-  %204 = load volatile i32, ptr @rotation_requested, align 4
-  %205 = icmp ne i32 %204, 0
-  br i1 %205, label %206, label %217
-
-206:                                              ; preds = %203
-  %207 = load i8, ptr %13, align 1
-  %208 = trunc i8 %207 to i1
-  br i1 %208, label %213, label %209
-
-209:                                              ; preds = %206
-  %210 = load i32, ptr %14, align 4
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %213
-
-212:                                              ; preds = %209
-  store i32 25, ptr %14, align 4
-  br label %213
-
-213:                                              ; preds = %212, %209, %206
-  %214 = load i8, ptr %13, align 1
-  %215 = trunc i8 %214 to i1
-  %216 = load i32, ptr %14, align 4
-  call void @logfile_rotate(i1 noundef zeroext %215, i32 noundef %216)
-  br label %217
-
-217:                                              ; preds = %213, %203
-  %218 = load i32, ptr @Log_RotationAge, align 4
-  %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %220, label %238
-
-220:                                              ; preds = %217
-  %221 = load i8, ptr @rotation_disabled, align 1
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %238, label %223
-
-223:                                              ; preds = %220
-  %224 = load i64, ptr @next_rotation_time, align 8
-  %225 = load i64, ptr %10, align 8
-  %226 = sub i64 %224, %225
-  store i64 %226, ptr %18, align 8
-  %227 = load i64, ptr %18, align 8
-  %228 = icmp sgt i64 %227, 0
-  br i1 %228, label %229, label %236
-
-229:                                              ; preds = %223
-  %230 = load i64, ptr %18, align 8
-  %231 = icmp sgt i64 %230, 2147483
-  br i1 %231, label %232, label %233
-
-232:                                              ; preds = %229
-  store i64 2147483, ptr %18, align 8
-  br label %233
-
-233:                                              ; preds = %232, %229
-  %234 = load i64, ptr %18, align 8
-  %235 = mul i64 %234, 1000
-  store i64 %235, ptr %15, align 8
-  br label %237
-
-236:                                              ; preds = %223
-  store i64 0, ptr %15, align 8
-  br label %237
-
-237:                                              ; preds = %236, %233
-  br label %239
-
-238:                                              ; preds = %220, %217
-  store i64 -1, ptr %15, align 8
-  br label %239
-
-239:                                              ; preds = %238, %237
-  %240 = load ptr, ptr %11, align 8
-  %241 = load i64, ptr %15, align 8
-  %242 = call i32 @WaitEventSetWait(ptr noundef %240, i64 noundef %241, ptr noundef %16, i32 noundef 1, i32 noundef 83886091)
-  store i32 %242, ptr %17, align 4
-  %243 = load i32, ptr %17, align 4
-  %244 = icmp eq i32 %243, 1
-  br i1 %244, label %245, label %290
-
-245:                                              ; preds = %239
-  %246 = getelementptr inbounds %struct.WaitEvent, ptr %16, i32 0, i32 1
-  %247 = load i32, ptr %246, align 4
-  %248 = icmp eq i32 %247, 2
-  br i1 %248, label %249, label %290
-
-249:                                              ; preds = %245
-  %250 = load i32, ptr @syslogPipe, align 4
-  %251 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  %252 = load i32, ptr %6, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr i8, ptr %251, i64 %253
-  %255 = load i32, ptr %6, align 4
-  %256 = sext i32 %255 to i64
-  %257 = sub i64 8192, %256
-  %258 = call i64 @read(i32 noundef %250, ptr noundef %254, i64 noundef %257)
-  %259 = trunc i64 %258 to i32
-  store i32 %259, ptr %19, align 4
-  %260 = load i32, ptr %19, align 4
-  %261 = icmp slt i32 %260, 0
-  br i1 %261, label %262, label %278
-
-262:                                              ; preds = %249
-  %263 = call ptr @__errno_location() #14
-  %264 = load i32, ptr %263, align 4
-  %265 = icmp ne i32 %264, 4
-  br i1 %265, label %266, label %277
-
-266:                                              ; preds = %262
-  br label %267
-
-267:                                              ; preds = %266
-  br i1 false, label %268, label %270
-
-268:                                              ; preds = %267
-  %269 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %269, label %272, label %275
-
-270:                                              ; preds = %267
-  %271 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %271, label %272, label %275
-
-272:                                              ; preds = %270, %268
-  %273 = call i32 @errcode_for_socket_access()
-  %274 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 501, ptr noundef @__func__.SysLoggerMain)
-  br label %275
-
-275:                                              ; preds = %272, %270, %268
-  br label %276
-
-276:                                              ; preds = %275
-  br label %277
-
-277:                                              ; preds = %276, %262
-  br label %289
-
-278:                                              ; preds = %249
-  %279 = load i32, ptr %19, align 4
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %281, label %286
-
-281:                                              ; preds = %278
-  %282 = load i32, ptr %19, align 4
-  %283 = load i32, ptr %6, align 4
-  %284 = add i32 %283, %282
-  store i32 %284, ptr %6, align 4
-  %285 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  call void @process_pipe_input(ptr noundef %285, ptr noundef %6)
-  br label %89
-
-286:                                              ; preds = %278
-  store i8 1, ptr @pipe_eof_seen, align 1
-  %287 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  call void @flush_pipe_input(ptr noundef %287, ptr noundef %6)
-  br label %288
-
-288:                                              ; preds = %286
-  br label %289
-
-289:                                              ; preds = %288, %277
-  br label %290
-
-290:                                              ; preds = %289, %245, %239
-  %291 = load i8, ptr @pipe_eof_seen, align 1
-  %292 = trunc i8 %291 to i1
-  br i1 %292, label %293, label %303
-
-293:                                              ; preds = %290
-  br label %294
-
-294:                                              ; preds = %293
-  br i1 false, label %295, label %297
-
-295:                                              ; preds = %294
-  %296 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #11
-  br i1 %296, label %299, label %301
-
-297:                                              ; preds = %294
-  %298 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %298, label %299, label %301
-
-299:                                              ; preds = %297, %295
-  %300 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.14)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 549, ptr noundef @__func__.SysLoggerMain)
-  br label %301
-
-301:                                              ; preds = %299, %297, %295
-  br label %302
-
-302:                                              ; preds = %301
-  call void @proc_exit(i32 noundef 0) #12
-  unreachable
-
-303:                                              ; preds = %290
-  br label %89
-}
-
-declare i32 @errhint(ptr noundef, ...) #3
-
-declare i32 @fflush(ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) #1
-
-declare i32 @errcode_for_file_access() #3
-
-declare i32 @close(i32 noundef) #3
-
-declare i32 @fclose(ptr noundef) #3
+declare i32 @fclose(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_syslogger_file(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define dso_local void @write_syslogger_file(ptr noundef %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1125,6 +2406,8 @@ define dso_local void @write_syslogger_file(ptr noundef %0, i32 noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
   %9 = load i32, ptr %6, align 4
   %10 = and i32 %9, 8
   %11 = icmp ne i32 %10, 0
@@ -1175,1112 +2458,90 @@ define dso_local void @write_syslogger_file(ptr noundef %0, i32 noundef %1, i32 
   %36 = load i32, ptr %7, align 4
   %37 = load i32, ptr %5, align 4
   %38 = icmp ne i32 %36, %37
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %29
-  %40 = call ptr @__errno_location() #14
-  %41 = load i32, ptr %40, align 4
-  %42 = call ptr @pg_strerror(i32 noundef %41)
-  call void (ptr, ...) @write_stderr(ptr noundef @.str.10, ptr noundef %42)
-  br label %43
+  call void (ptr, ...) @write_stderr(ptr noundef @.str.13)
+  br label %40
 
-43:                                               ; preds = %39, %29
+40:                                               ; preds = %39, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
   ret void
 }
 
-declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
+declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
-declare void @write_stderr(ptr noundef, ...) #3
-
-declare ptr @pg_strerror(i32 noundef) #3
-
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare void @write_stderr(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @CheckLogrotateSignal() #0 {
+define dso_local zeroext i1 @CheckLogrotateSignal() #4 {
   %1 = alloca i1, align 1
   %2 = alloca %struct.stat, align 8
-  %3 = call i32 @stat(ptr noundef @.str.11, ptr noundef %2) #10
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %0
-  store i1 true, ptr %1, align 1
-  br label %7
-
-6:                                                ; preds = %0
-  store i1 false, ptr %1, align 1
-  br label %7
-
-7:                                                ; preds = %6, %5
-  %8 = load i1, ptr %1, align 1
-  ret i1 %8
-}
-
-; Function Attrs: nounwind
-declare i32 @stat(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @RemoveLogrotateSignalFiles() #0 {
-  %1 = call i32 @unlink(ptr noundef @.str.11) #10
-  ret void
-}
-
-; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #1
-
-declare void @init_ps_display(ptr noundef) #3
-
-declare i32 @open(ptr noundef, i32 noundef, ...) #3
-
-declare ptr @pqsignal(i32 noundef, ptr noundef) #3
-
-declare void @SignalHandlerForConfigReload(i32 noundef) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @sigUsr1Handler(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  store volatile i32 1, ptr @rotation_requested, align 4
-  %3 = load ptr, ptr @MyLatch, align 8
-  call void @SetLatch(ptr noundef %3)
-  ret void
-}
-
-; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) #1
-
-declare ptr @pstrdup(ptr noundef) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @set_next_rotation_time() #0 {
-  %1 = alloca i64, align 8
-  %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = load i32, ptr @Log_RotationAge, align 4
-  %5 = icmp sle i32 %4, 0
+  call void @llvm.lifetime.start.p0(i64 144, ptr %2) #12
+  %4 = call i32 @stat(ptr noundef @.str.14, ptr noundef %2) #12
+  %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  br label %34
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %8
 
 7:                                                ; preds = %0
-  %8 = load i32, ptr @Log_RotationAge, align 4
-  %9 = mul i32 %8, 60
-  store i32 %9, ptr %3, align 4
-  %10 = call i64 @time(ptr noundef null) #10
-  store i64 %10, ptr %1, align 8
-  %11 = load ptr, ptr @log_timezone, align 8
-  %12 = call ptr @pg_localtime(ptr noundef %1, ptr noundef %11)
-  store ptr %12, ptr %2, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_tm, ptr %13, i32 0, i32 9
-  %15 = load i64, ptr %14, align 8
-  %16 = load i64, ptr %1, align 8
-  %17 = add i64 %16, %15
-  store i64 %17, ptr %1, align 8
-  %18 = load i64, ptr %1, align 8
-  %19 = load i32, ptr %3, align 4
-  %20 = sext i32 %19 to i64
-  %21 = srem i64 %18, %20
-  %22 = load i64, ptr %1, align 8
-  %23 = sub i64 %22, %21
-  store i64 %23, ptr %1, align 8
-  %24 = load i32, ptr %3, align 4
-  %25 = sext i32 %24 to i64
-  %26 = load i64, ptr %1, align 8
-  %27 = add i64 %26, %25
-  store i64 %27, ptr %1, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.pg_tm, ptr %28, i32 0, i32 9
-  %30 = load i64, ptr %29, align 8
-  %31 = load i64, ptr %1, align 8
-  %32 = sub i64 %31, %30
-  store i64 %32, ptr %1, align 8
-  %33 = load i64, ptr %1, align 8
-  store i64 %33, ptr @next_rotation_time, align 8
-  br label %34
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %8
 
-34:                                               ; preds = %7, %6
-  ret void
+8:                                                ; preds = %7, %6
+  call void @llvm.lifetime.end.p0(i64 144, ptr %2) #12
+  %9 = load i1, ptr %1, align 1
+  ret i1 %9
 }
-
-; Function Attrs: nounwind uwtable
-define internal void @update_metainfo_datafile() #0 {
-  %1 = alloca ptr, align 8
-  %2 = alloca i32, align 4
-  %3 = load i32, ptr @Log_destination, align 4
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %33, label %6
-
-6:                                                ; preds = %0
-  %7 = load i32, ptr @Log_destination, align 4
-  %8 = and i32 %7, 8
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %33, label %10
-
-10:                                               ; preds = %6
-  %11 = load i32, ptr @Log_destination, align 4
-  %12 = and i32 %11, 16
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %33, label %14
-
-14:                                               ; preds = %10
-  %15 = call i32 @unlink(ptr noundef @.str.15) #10
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %32
-
-17:                                               ; preds = %14
-  %18 = call ptr @__errno_location() #14
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 2
-  br i1 %20, label %21, label %32
-
-21:                                               ; preds = %17
-  br label %22
-
-22:                                               ; preds = %21
-  br i1 false, label %23, label %25
-
-23:                                               ; preds = %22
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %24, label %27, label %30
-
-25:                                               ; preds = %22
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %26, label %27, label %30
-
-27:                                               ; preds = %25, %23
-  %28 = call i32 @errcode_for_file_access()
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef @.str.15)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1538, ptr noundef @__func__.update_metainfo_datafile)
-  br label %30
-
-30:                                               ; preds = %27, %25, %23
-  br label %31
-
-31:                                               ; preds = %30
-  br label %32
-
-32:                                               ; preds = %31, %17, %14
-  br label %149
-
-33:                                               ; preds = %10, %6, %0
-  %34 = load i32, ptr @pg_mode_mask, align 4
-  %35 = call i32 @umask(i32 noundef %34) #10
-  store i32 %35, ptr %2, align 4
-  %36 = call noalias ptr @fopen(ptr noundef @.str.17, ptr noundef @.str.18)
-  store ptr %36, ptr %1, align 8
-  %37 = load i32, ptr %2, align 4
-  %38 = call i32 @umask(i32 noundef %37) #10
-  %39 = load ptr, ptr %1, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %1, align 8
-  %43 = call i32 @setvbuf(ptr noundef %42, ptr noundef null, i32 noundef 1, i64 noundef 0) #10
-  br label %55
-
-44:                                               ; preds = %33
-  br label %45
-
-45:                                               ; preds = %44
-  br i1 false, label %46, label %48
-
-46:                                               ; preds = %45
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %47, label %50, label %53
-
-48:                                               ; preds = %45
-  %49 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %48, %46
-  %51 = call i32 @errcode_for_file_access()
-  %52 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.19, ptr noundef @.str.17)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1561, ptr noundef @__func__.update_metainfo_datafile)
-  br label %53
-
-53:                                               ; preds = %50, %48, %46
-  br label %54
-
-54:                                               ; preds = %53
-  br label %149
-
-55:                                               ; preds = %41
-  %56 = load ptr, ptr @last_sys_file_name, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %81
-
-58:                                               ; preds = %55
-  %59 = load i32, ptr @Log_destination, align 4
-  %60 = and i32 %59, 1
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %81
-
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %1, align 8
-  %64 = load ptr, ptr @last_sys_file_name, align 8
-  %65 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %63, ptr noundef @.str.20, ptr noundef %64)
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %80
-
-67:                                               ; preds = %62
-  br label %68
-
-68:                                               ; preds = %67
-  br i1 false, label %69, label %71
-
-69:                                               ; preds = %68
-  %70 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %70, label %73, label %76
-
-71:                                               ; preds = %68
-  %72 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %72, label %73, label %76
-
-73:                                               ; preds = %71, %69
-  %74 = call i32 @errcode_for_file_access()
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.21, ptr noundef @.str.17)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1572, ptr noundef @__func__.update_metainfo_datafile)
-  br label %76
-
-76:                                               ; preds = %73, %71, %69
-  br label %77
-
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %1, align 8
-  %79 = call i32 @fclose(ptr noundef %78)
-  br label %149
-
-80:                                               ; preds = %62
-  br label %81
-
-81:                                               ; preds = %80, %58, %55
-  %82 = load ptr, ptr @last_csv_file_name, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %107
-
-84:                                               ; preds = %81
-  %85 = load i32, ptr @Log_destination, align 4
-  %86 = and i32 %85, 8
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %107
-
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %1, align 8
-  %90 = load ptr, ptr @last_csv_file_name, align 8
-  %91 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %89, ptr noundef @.str.22, ptr noundef %90)
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %106
-
-93:                                               ; preds = %88
-  br label %94
-
-94:                                               ; preds = %93
-  br i1 false, label %95, label %97
-
-95:                                               ; preds = %94
-  %96 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %96, label %99, label %102
-
-97:                                               ; preds = %94
-  %98 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %98, label %99, label %102
-
-99:                                               ; preds = %97, %95
-  %100 = call i32 @errcode_for_file_access()
-  %101 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.21, ptr noundef @.str.17)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1585, ptr noundef @__func__.update_metainfo_datafile)
-  br label %102
-
-102:                                              ; preds = %99, %97, %95
-  br label %103
-
-103:                                              ; preds = %102
-  %104 = load ptr, ptr %1, align 8
-  %105 = call i32 @fclose(ptr noundef %104)
-  br label %149
-
-106:                                              ; preds = %88
-  br label %107
-
-107:                                              ; preds = %106, %84, %81
-  %108 = load ptr, ptr @last_json_file_name, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %133
-
-110:                                              ; preds = %107
-  %111 = load i32, ptr @Log_destination, align 4
-  %112 = and i32 %111, 16
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %114, label %133
-
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %1, align 8
-  %116 = load ptr, ptr @last_json_file_name, align 8
-  %117 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %115, ptr noundef @.str.23, ptr noundef %116)
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %132
-
-119:                                              ; preds = %114
-  br label %120
-
-120:                                              ; preds = %119
-  br i1 false, label %121, label %123
-
-121:                                              ; preds = %120
-  %122 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %122, label %125, label %128
-
-123:                                              ; preds = %120
-  %124 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %124, label %125, label %128
-
-125:                                              ; preds = %123, %121
-  %126 = call i32 @errcode_for_file_access()
-  %127 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.21, ptr noundef @.str.17)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1598, ptr noundef @__func__.update_metainfo_datafile)
-  br label %128
-
-128:                                              ; preds = %125, %123, %121
-  br label %129
-
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %1, align 8
-  %131 = call i32 @fclose(ptr noundef %130)
-  br label %149
-
-132:                                              ; preds = %114
-  br label %133
-
-133:                                              ; preds = %132, %110, %107
-  %134 = load ptr, ptr %1, align 8
-  %135 = call i32 @fclose(ptr noundef %134)
-  %136 = call i32 @rename(ptr noundef @.str.17, ptr noundef @.str.15) #10
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %149
-
-138:                                              ; preds = %133
-  br label %139
-
-139:                                              ; preds = %138
-  br i1 false, label %140, label %142
-
-140:                                              ; preds = %139
-  %141 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %141, label %144, label %147
-
-142:                                              ; preds = %139
-  %143 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %143, label %144, label %147
-
-144:                                              ; preds = %142, %140
-  %145 = call i32 @errcode_for_file_access()
-  %146 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.24, ptr noundef @.str.17, ptr noundef @.str.15)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1609, ptr noundef @__func__.update_metainfo_datafile)
-  br label %147
-
-147:                                              ; preds = %144, %142, %140
-  br label %148
-
-148:                                              ; preds = %147
-  br label %149
-
-149:                                              ; preds = %148, %133, %129, %103, %77, %54, %32
-  ret void
-}
-
-declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) #3
-
-declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #3
-
-declare void @ResetLatch(ptr noundef) #3
-
-declare void @ProcessConfigFile(i32 noundef) #3
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #6
-
-declare i64 @ftell(ptr noundef) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @logfile_rotate(i1 noundef zeroext %0, i32 noundef %1) #0 {
-  %3 = alloca i8, align 1
-  %4 = alloca i32, align 4
-  %5 = alloca i64, align 8
-  %6 = zext i1 %0 to i8
-  store i8 %6, ptr %3, align 1
-  store i32 %1, ptr %4, align 4
-  store volatile i32 0, ptr @rotation_requested, align 4
-  %7 = load i8, ptr %3, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %11
-
-9:                                                ; preds = %2
-  %10 = load i64, ptr @next_rotation_time, align 8
-  store i64 %10, ptr %5, align 8
-  br label %13
-
-11:                                               ; preds = %2
-  %12 = call i64 @time(ptr noundef null) #10
-  store i64 %12, ptr %5, align 8
-  br label %13
-
-13:                                               ; preds = %11, %9
-  %14 = load i8, ptr %3, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = load i32, ptr %4, align 4
-  %17 = load i64, ptr %5, align 8
-  %18 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %15, i32 noundef %16, i64 noundef %17, i32 noundef 1, ptr noundef @last_sys_file_name, ptr noundef @syslogFile)
-  br i1 %18, label %20, label %19
-
-19:                                               ; preds = %13
-  br label %35
-
-20:                                               ; preds = %13
-  %21 = load i8, ptr %3, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = load i32, ptr %4, align 4
-  %24 = load i64, ptr %5, align 8
-  %25 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %22, i32 noundef %23, i64 noundef %24, i32 noundef 8, ptr noundef @last_csv_file_name, ptr noundef @csvlogFile)
-  br i1 %25, label %27, label %26
-
-26:                                               ; preds = %20
-  br label %35
-
-27:                                               ; preds = %20
-  %28 = load i8, ptr %3, align 1
-  %29 = trunc i8 %28 to i1
-  %30 = load i32, ptr %4, align 4
-  %31 = load i64, ptr %5, align 8
-  %32 = call zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %29, i32 noundef %30, i64 noundef %31, i32 noundef 16, ptr noundef @last_json_file_name, ptr noundef @jsonlogFile)
-  br i1 %32, label %34, label %33
-
-33:                                               ; preds = %27
-  br label %35
-
-34:                                               ; preds = %27
-  call void @update_metainfo_datafile()
-  call void @set_next_rotation_time()
-  br label %35
-
-35:                                               ; preds = %34, %33, %26, %19
-  ret void
-}
-
-declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) #3
-
-declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @process_pipe_input(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca %struct.PipeProtoHeader, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca i8, align 1
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca %struct.ForEachState, align 8
-  %17 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %18 = load ptr, ptr %3, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %6, align 4
-  store i32 1, ptr %7, align 4
-  br label %21
-
-21:                                               ; preds = %269, %2
-  %22 = load i32, ptr %6, align 4
-  %23 = icmp sge i32 %22, 10
-  br i1 %23, label %24, label %270
-
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 1 %25, i64 9, i1 false)
-  %26 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
-  %27 = load i8, ptr %26, align 4
-  %28 = zext i8 %27 to i32
-  %29 = and i32 %28, 112
-  %30 = trunc i32 %29 to i8
-  store i8 %30, ptr %10, align 1
-  %31 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 0
-  %32 = getelementptr [2 x i8], ptr %31, i64 0, i64 0
-  %33 = load i8, ptr %32, align 4
-  %34 = sext i8 %33 to i32
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %241
-
-36:                                               ; preds = %24
-  %37 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 0
-  %38 = getelementptr [2 x i8], ptr %37, i64 0, i64 1
-  %39 = load i8, ptr %38, align 1
-  %40 = sext i8 %39 to i32
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %241
-
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %241
-
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = icmp sle i32 %50, 4087
-  br i1 %51, label %52, label %241
-
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %241
-
-56:                                               ; preds = %52
-  %57 = call i64 @pg_popcount(ptr noundef %10, i32 noundef 1)
-  %58 = icmp eq i64 %57, 1
-  br i1 %58, label %59, label %241
-
-59:                                               ; preds = %56
-  store ptr null, ptr %13, align 8
-  store ptr null, ptr %14, align 8
-  %60 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %61 = load i16, ptr %60, align 2
-  %62 = zext i16 %61 to i64
-  %63 = add i64 9, %62
-  %64 = trunc i64 %63 to i32
-  store i32 %64, ptr %9, align 4
-  %65 = load i32, ptr %6, align 4
-  %66 = load i32, ptr %9, align 4
-  %67 = icmp slt i32 %65, %66
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %59
-  br label %270
-
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
-  %71 = load i8, ptr %70, align 4
-  %72 = zext i8 %71 to i32
-  %73 = and i32 %72, 16
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %76
-
-75:                                               ; preds = %69
-  store i32 1, ptr %7, align 4
-  br label %93
-
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
-  %78 = load i8, ptr %77, align 4
-  %79 = zext i8 %78 to i32
-  %80 = and i32 %79, 32
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %76
-  store i32 8, ptr %7, align 4
-  br label %92
-
-83:                                               ; preds = %76
-  %84 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
-  %85 = load i8, ptr %84, align 4
-  %86 = zext i8 %85 to i32
-  %87 = and i32 %86, 64
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %90
-
-89:                                               ; preds = %83
-  store i32 16, ptr %7, align 4
-  br label %91
-
-90:                                               ; preds = %83
-  br label %91
-
-91:                                               ; preds = %90, %89
-  br label %92
-
-92:                                               ; preds = %91, %82
-  br label %93
-
-93:                                               ; preds = %92, %75
-  %94 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
-  %95 = load i32, ptr %94, align 4
-  %96 = srem i32 %95, 256
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr [256 x ptr], ptr @buffer_lists, i64 0, i64 %97
-  %99 = load ptr, ptr %98, align 8
-  store ptr %99, ptr %11, align 8
-  %100 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %101 = load ptr, ptr %11, align 8
-  store ptr %101, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  store i32 0, ptr %102, align 8
-  br label %103
-
-103:                                              ; preds = %150, %93
-  %104 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %107, label %124
-
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct.List, ptr %111, i32 0, i32 1
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp slt i32 %109, %113
-  br i1 %114, label %115, label %124
-
-115:                                              ; preds = %107
-  %116 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.List, ptr %117, i32 0, i32 3
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %121 = load i32, ptr %120, align 8
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr %union.ListCell, ptr %119, i64 %122
-  store ptr %123, ptr %12, align 8
-  br label %125
-
-124:                                              ; preds = %107, %103
-  store ptr null, ptr %12, align 8
-  br label %125
-
-125:                                              ; preds = %124, %115
-  %126 = phi i32 [ 1, %115 ], [ 0, %124 ]
-  %127 = icmp ne i32 %126, 0
-  br i1 %127, label %128, label %154
-
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %12, align 8
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %17, align 8
-  %131 = load ptr, ptr %17, align 8
-  %132 = getelementptr inbounds %struct.save_buffer, ptr %131, i32 0, i32 0
-  %133 = load i32, ptr %132, align 8
-  %134 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp eq i32 %133, %135
-  br i1 %136, label %137, label %139
-
-137:                                              ; preds = %128
-  %138 = load ptr, ptr %17, align 8
-  store ptr %138, ptr %13, align 8
-  br label %154
-
-139:                                              ; preds = %128
-  %140 = load ptr, ptr %17, align 8
-  %141 = getelementptr inbounds %struct.save_buffer, ptr %140, i32 0, i32 0
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %149
-
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %14, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %149
-
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %17, align 8
-  store ptr %148, ptr %14, align 8
-  br label %149
-
-149:                                              ; preds = %147, %144, %139
-  br label %150
-
-150:                                              ; preds = %149
-  %151 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %152 = load i32, ptr %151, align 8
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %151, align 8
-  br label %103, !llvm.loop !5
-
-154:                                              ; preds = %137, %125
-  %155 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 3
-  %156 = load i8, ptr %155, align 4
-  %157 = zext i8 %156 to i32
-  %158 = and i32 %157, 1
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %201
-
-160:                                              ; preds = %154
-  %161 = load ptr, ptr %13, align 8
-  %162 = icmp ne ptr %161, null
-  br i1 %162, label %163, label %172
-
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %13, align 8
-  %165 = getelementptr inbounds %struct.save_buffer, ptr %164, i32 0, i32 1
-  store ptr %165, ptr %15, align 8
-  %166 = load ptr, ptr %15, align 8
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr i8, ptr %167, i64 9
-  %169 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %170 = load i16, ptr %169, align 2
-  %171 = zext i16 %170 to i32
-  call void @appendBinaryStringInfo(ptr noundef %166, ptr noundef %168, i32 noundef %171)
-  br label %200
-
-172:                                              ; preds = %160
-  %173 = load ptr, ptr %14, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %186
-
-175:                                              ; preds = %172
-  %176 = call ptr @palloc(i64 noundef 32)
-  store ptr %176, ptr %14, align 8
-  %177 = load ptr, ptr %11, align 8
-  %178 = load ptr, ptr %14, align 8
-  %179 = call ptr @lappend(ptr noundef %177, ptr noundef %178)
-  store ptr %179, ptr %11, align 8
-  %180 = load ptr, ptr %11, align 8
-  %181 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
-  %182 = load i32, ptr %181, align 4
-  %183 = srem i32 %182, 256
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr [256 x ptr], ptr @buffer_lists, i64 0, i64 %184
-  store ptr %180, ptr %185, align 8
-  br label %186
-
-186:                                              ; preds = %175, %172
-  %187 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 2
-  %188 = load i32, ptr %187, align 4
-  %189 = load ptr, ptr %14, align 8
-  %190 = getelementptr inbounds %struct.save_buffer, ptr %189, i32 0, i32 0
-  store i32 %188, ptr %190, align 8
-  %191 = load ptr, ptr %14, align 8
-  %192 = getelementptr inbounds %struct.save_buffer, ptr %191, i32 0, i32 1
-  store ptr %192, ptr %15, align 8
-  %193 = load ptr, ptr %15, align 8
-  call void @initStringInfo(ptr noundef %193)
-  %194 = load ptr, ptr %15, align 8
-  %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr i8, ptr %195, i64 9
-  %197 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %198 = load i16, ptr %197, align 2
-  %199 = zext i16 %198 to i32
-  call void @appendBinaryStringInfo(ptr noundef %194, ptr noundef %196, i32 noundef %199)
-  br label %200
-
-200:                                              ; preds = %186, %163
-  br label %233
-
-201:                                              ; preds = %154
-  %202 = load ptr, ptr %13, align 8
-  %203 = icmp ne ptr %202, null
-  br i1 %203, label %204, label %225
-
-204:                                              ; preds = %201
-  %205 = load ptr, ptr %13, align 8
-  %206 = getelementptr inbounds %struct.save_buffer, ptr %205, i32 0, i32 1
-  store ptr %206, ptr %15, align 8
-  %207 = load ptr, ptr %15, align 8
-  %208 = load ptr, ptr %5, align 8
-  %209 = getelementptr i8, ptr %208, i64 9
-  %210 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %211 = load i16, ptr %210, align 2
-  %212 = zext i16 %211 to i32
-  call void @appendBinaryStringInfo(ptr noundef %207, ptr noundef %209, i32 noundef %212)
-  %213 = load ptr, ptr %15, align 8
-  %214 = getelementptr inbounds %struct.StringInfoData, ptr %213, i32 0, i32 0
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %15, align 8
-  %217 = getelementptr inbounds %struct.StringInfoData, ptr %216, i32 0, i32 1
-  %218 = load i32, ptr %217, align 8
-  %219 = load i32, ptr %7, align 4
-  call void @write_syslogger_file(ptr noundef %215, i32 noundef %218, i32 noundef %219)
-  %220 = load ptr, ptr %13, align 8
-  %221 = getelementptr inbounds %struct.save_buffer, ptr %220, i32 0, i32 0
-  store i32 0, ptr %221, align 8
-  %222 = load ptr, ptr %15, align 8
-  %223 = getelementptr inbounds %struct.StringInfoData, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  call void @pfree(ptr noundef %224)
-  br label %232
-
-225:                                              ; preds = %201
-  %226 = load ptr, ptr %5, align 8
-  %227 = getelementptr i8, ptr %226, i64 9
-  %228 = getelementptr inbounds %struct.PipeProtoHeader, ptr %8, i32 0, i32 1
-  %229 = load i16, ptr %228, align 2
-  %230 = zext i16 %229 to i32
-  %231 = load i32, ptr %7, align 4
-  call void @write_syslogger_file(ptr noundef %227, i32 noundef %230, i32 noundef %231)
-  br label %232
-
-232:                                              ; preds = %225, %204
-  br label %233
-
-233:                                              ; preds = %232, %200
-  %234 = load i32, ptr %9, align 4
-  %235 = load ptr, ptr %5, align 8
-  %236 = sext i32 %234 to i64
-  %237 = getelementptr i8, ptr %235, i64 %236
-  store ptr %237, ptr %5, align 8
-  %238 = load i32, ptr %9, align 4
-  %239 = load i32, ptr %6, align 4
-  %240 = sub i32 %239, %238
-  store i32 %240, ptr %6, align 4
-  br label %269
-
-241:                                              ; preds = %56, %52, %47, %42, %36, %24
-  store i32 1, ptr %9, align 4
-  br label %242
-
-242:                                              ; preds = %256, %241
-  %243 = load i32, ptr %9, align 4
-  %244 = load i32, ptr %6, align 4
-  %245 = icmp slt i32 %243, %244
-  br i1 %245, label %246, label %259
-
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %5, align 8
-  %248 = load i32, ptr %9, align 4
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr i8, ptr %247, i64 %249
-  %251 = load i8, ptr %250, align 1
-  %252 = sext i8 %251 to i32
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %254, label %255
-
-254:                                              ; preds = %246
-  br label %259
-
-255:                                              ; preds = %246
-  br label %256
-
-256:                                              ; preds = %255
-  %257 = load i32, ptr %9, align 4
-  %258 = add i32 %257, 1
-  store i32 %258, ptr %9, align 4
-  br label %242, !llvm.loop !7
-
-259:                                              ; preds = %254, %242
-  %260 = load ptr, ptr %5, align 8
-  %261 = load i32, ptr %9, align 4
-  call void @write_syslogger_file(ptr noundef %260, i32 noundef %261, i32 noundef 1)
-  %262 = load i32, ptr %9, align 4
-  %263 = load ptr, ptr %5, align 8
-  %264 = sext i32 %262 to i64
-  %265 = getelementptr i8, ptr %263, i64 %264
-  store ptr %265, ptr %5, align 8
-  %266 = load i32, ptr %9, align 4
-  %267 = load i32, ptr %6, align 4
-  %268 = sub i32 %267, %266
-  store i32 %268, ptr %6, align 4
-  br label %269
-
-269:                                              ; preds = %259, %233
-  br label %21, !llvm.loop !8
-
-270:                                              ; preds = %68, %21
-  %271 = load i32, ptr %6, align 4
-  %272 = icmp sgt i32 %271, 0
-  br i1 %272, label %273, label %282
-
-273:                                              ; preds = %270
-  %274 = load ptr, ptr %5, align 8
-  %275 = load ptr, ptr %3, align 8
-  %276 = icmp ne ptr %274, %275
-  br i1 %276, label %277, label %282
-
-277:                                              ; preds = %273
-  %278 = load ptr, ptr %3, align 8
-  %279 = load ptr, ptr %5, align 8
-  %280 = load i32, ptr %6, align 4
-  %281 = sext i32 %280 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %278, ptr align 1 %279, i64 %281, i1 false)
-  br label %282
-
-282:                                              ; preds = %277, %273, %270
-  %283 = load i32, ptr %6, align 4
-  %284 = load ptr, ptr %4, align 8
-  store i32 %283, ptr %284, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @flush_pipe_input(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %struct.ForEachState, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %5, align 4
-  br label %11
-
-11:                                               ; preds = %74, %2
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp slt i32 %12, 256
-  br i1 %13, label %14, label %77
-
-14:                                               ; preds = %11
-  %15 = load i32, ptr %5, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr [256 x ptr], ptr @buffer_lists, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  store i32 0, ptr %21, align 8
-  br label %22
-
-22:                                               ; preds = %69, %14
-  %23 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %43
-
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %28, %32
-  br i1 %33, label %34, label %43
-
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr %union.ListCell, ptr %38, i64 %41
-  store ptr %42, ptr %7, align 8
-  br label %44
-
-43:                                               ; preds = %26, %22
-  store ptr null, ptr %7, align 8
-  br label %44
-
-44:                                               ; preds = %43, %34
-  %45 = phi i32 [ 1, %34 ], [ 0, %43 ]
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %73
-
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %9, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.save_buffer, ptr %50, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %68
-
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.save_buffer, ptr %55, i32 0, i32 1
-  store ptr %56, ptr %10, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct.StringInfoData, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds %struct.StringInfoData, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  call void @write_syslogger_file(ptr noundef %59, i32 noundef %62, i32 noundef 1)
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.save_buffer, ptr %63, i32 0, i32 0
-  store i32 0, ptr %64, align 8
-  %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %struct.StringInfoData, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  call void @pfree(ptr noundef %67)
-  br label %68
-
-68:                                               ; preds = %54, %47
-  br label %69
-
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %70, align 8
-  br label %22, !llvm.loop !9
-
-73:                                               ; preds = %44
-  br label %74
-
-74:                                               ; preds = %73
-  %75 = load i32, ptr %5, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %5, align 4
-  br label %11, !llvm.loop !10
-
-77:                                               ; preds = %11
-  %78 = load ptr, ptr %4, align 8
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %85
-
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %3, align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = load i32, ptr %83, align 4
-  call void @write_syslogger_file(ptr noundef %82, i32 noundef %84, i32 noundef 1)
-  br label %85
-
-85:                                               ; preds = %81, %77
-  %86 = load ptr, ptr %4, align 8
-  store i32 0, ptr %86, align 4
-  ret void
-}
-
-declare i32 @errmsg_internal(ptr noundef, ...) #3
-
-; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) #7
-
-declare void @SetLatch(ptr noundef) #3
-
-declare ptr @pg_localtime(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @umask(i32 noundef) #1
-
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @setvbuf(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
-
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #3
-
-; Function Attrs: nounwind
-declare i32 @rename(ptr noundef, ptr noundef) #1
+declare i32 @stat(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define dso_local void @RemoveLogrotateSignalFiles() #4 {
+  %1 = call i32 @unlink(ptr noundef @.str.14) #12
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @unlink(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare ptr @palloc(i64 noundef) #2
+
+declare ptr @lappend(ptr noundef, ptr noundef) #2
+
+declare void @initStringInfo(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: nounwind
+declare i32 @umask(i32 noundef) #3
+
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @setvbuf(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #3
+
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i32(i32) #11
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca i1, align 1
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -2291,299 +2552,306 @@ define internal zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %0, i32 nound
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = zext i1 %0 to i8
-  store i8 %17, ptr %8, align 1
+  %17 = alloca i32, align 4
+  %18 = zext i1 %0 to i8
+  store i8 %18, ptr %8, align 1
   store i32 %1, ptr %9, align 4
   store i64 %2, ptr %10, align 8
   store i32 %3, ptr %11, align 4
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
   store ptr null, ptr %14, align 8
-  %18 = load i32, ptr @Log_destination, align 4
-  %19 = load i32, ptr %11, align 4
-  %20 = and i32 %18, %19
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %19 = load i32, ptr @Log_destination, align 4
+  %20 = load i32, ptr %11, align 4
+  %21 = and i32 %19, %20
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %44
 
-22:                                               ; preds = %6
-  %23 = load i32, ptr %11, align 4
-  %24 = icmp ne i32 %23, 1
-  br i1 %24, label %25, label %43
+23:                                               ; preds = %6
+  %24 = load i32, ptr %11, align 4
+  %25 = icmp ne i32 %24, 1
+  br i1 %25, label %26, label %44
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %13, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %33
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %13, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @fclose(ptr noundef %31)
-  br label %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %13, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 @fclose(ptr noundef %32)
+  br label %34
 
-33:                                               ; preds = %29, %25
-  %34 = load ptr, ptr %13, align 8
-  store ptr null, ptr %34, align 8
-  %35 = load ptr, ptr %12, align 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %41
+34:                                               ; preds = %30, %26
+  %35 = load ptr, ptr %13, align 8
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %12, align 8
-  %40 = load ptr, ptr %39, align 8
-  call void @pfree(ptr noundef %40)
-  br label %41
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %12, align 8
+  %41 = load ptr, ptr %40, align 8
+  call void @pfree(ptr noundef %41)
+  br label %42
 
-41:                                               ; preds = %38, %33
-  %42 = load ptr, ptr %12, align 8
-  store ptr null, ptr %42, align 8
+42:                                               ; preds = %39, %34
+  %43 = load ptr, ptr %12, align 8
+  store ptr null, ptr %43, align 8
   store i1 true, ptr %7, align 1
-  br label %139
+  store i32 1, ptr %17, align 4
+  br label %141
 
-43:                                               ; preds = %22, %6
-  %44 = load i8, ptr %8, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %52, label %46
+44:                                               ; preds = %23, %6
+  %45 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %53, label %47
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %9, align 4
-  %48 = load i32, ptr %11, align 4
-  %49 = and i32 %47, %48
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %52
+47:                                               ; preds = %44
+  %48 = load i32, ptr %9, align 4
+  %49 = load i32, ptr %11, align 4
+  %50 = and i32 %48, %49
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   store i1 true, ptr %7, align 1
-  br label %139
+  store i32 1, ptr %17, align 4
+  br label %141
 
-52:                                               ; preds = %46, %43
-  %53 = load i32, ptr %11, align 4
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %56
+53:                                               ; preds = %47, %44
+  %54 = load i32, ptr %11, align 4
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %52
+56:                                               ; preds = %53
   store ptr null, ptr %14, align 8
+  br label %68
+
+57:                                               ; preds = %53
+  %58 = load i32, ptr %11, align 4
+  %59 = icmp eq i32 %58, 8
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %57
+  store ptr @.str.1, ptr %14, align 8
   br label %67
 
-56:                                               ; preds = %52
-  %57 = load i32, ptr %11, align 4
-  %58 = icmp eq i32 %57, 8
-  br i1 %58, label %59, label %60
+61:                                               ; preds = %57
+  %62 = load i32, ptr %11, align 4
+  %63 = icmp eq i32 %62, 16
+  br i1 %63, label %64, label %65
 
-59:                                               ; preds = %56
-  store ptr @.str.3, ptr %14, align 8
+64:                                               ; preds = %61
+  store ptr @.str.2, ptr %14, align 8
   br label %66
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %11, align 4
-  %62 = icmp eq i32 %61, 16
-  br i1 %62, label %63, label %64
-
-63:                                               ; preds = %60
-  store ptr @.str.4, ptr %14, align 8
-  br label %65
-
-64:                                               ; preds = %60
-  br label %65
-
-65:                                               ; preds = %64, %63
+65:                                               ; preds = %61
   br label %66
 
-66:                                               ; preds = %65, %59
+66:                                               ; preds = %65, %64
   br label %67
 
-67:                                               ; preds = %66, %55
-  %68 = load i64, ptr %10, align 8
-  %69 = load ptr, ptr %14, align 8
-  %70 = call ptr @logfile_getname(i64 noundef %68, ptr noundef %69)
-  store ptr %70, ptr %15, align 8
-  %71 = load i8, ptr @Log_truncate_on_rotation, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %89
+67:                                               ; preds = %66, %60
+  br label %68
 
-73:                                               ; preds = %67
-  %74 = load i8, ptr %8, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %89
+68:                                               ; preds = %67, %56
+  %69 = load i64, ptr %10, align 8
+  %70 = load ptr, ptr %14, align 8
+  %71 = call ptr @logfile_getname(i64 noundef %69, ptr noundef %70)
+  store ptr %71, ptr %15, align 8
+  %72 = load i8, ptr @Log_truncate_on_rotation, align 1, !range !4, !noundef !5
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %90
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %12, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %89
+74:                                               ; preds = %68
+  %75 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %90
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %15, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 @strcmp(ptr noundef %81, ptr noundef %83) #13
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %89
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %12, align 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %90
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %15, align 8
-  %88 = call ptr @logfile_open(ptr noundef %87, ptr noundef @.str.18, i1 noundef zeroext true)
-  store ptr %88, ptr %16, align 8
-  br label %92
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %15, align 8
+  %83 = load ptr, ptr %12, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @strcmp(ptr noundef %82, ptr noundef %84) #13
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %90
 
-89:                                               ; preds = %80, %76, %73, %67
-  %90 = load ptr, ptr %15, align 8
-  %91 = call ptr @logfile_open(ptr noundef %90, ptr noundef @.str.2, i1 noundef zeroext true)
-  store ptr %91, ptr %16, align 8
-  br label %92
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %15, align 8
+  %89 = call ptr @logfile_open(ptr noundef %88, ptr noundef @.str.16, i1 noundef zeroext true)
+  store ptr %89, ptr %16, align 8
+  br label %93
 
-92:                                               ; preds = %89, %86
-  %93 = load ptr, ptr %16, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %119, label %95
+90:                                               ; preds = %81, %77, %74, %68
+  %91 = load ptr, ptr %15, align 8
+  %92 = call ptr @logfile_open(ptr noundef %91, ptr noundef @.str.7, i1 noundef zeroext true)
+  store ptr %92, ptr %16, align 8
+  br label %93
 
-95:                                               ; preds = %92
-  %96 = call ptr @__errno_location() #14
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ne i32 %97, 23
-  br i1 %98, label %99, label %113
+93:                                               ; preds = %90, %87
+  %94 = load ptr, ptr %16, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %121, label %96
 
-99:                                               ; preds = %95
-  %100 = call ptr @__errno_location() #14
-  %101 = load i32, ptr %100, align 4
-  %102 = icmp ne i32 %101, 24
-  br i1 %102, label %103, label %113
+96:                                               ; preds = %93
+  %97 = call ptr @__errno_location() #14
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp ne i32 %98, 23
+  br i1 %99, label %100, label %115
 
-103:                                              ; preds = %99
-  br label %104
+100:                                              ; preds = %96
+  %101 = call ptr @__errno_location() #14
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp ne i32 %102, 24
+  br i1 %103, label %104, label %115
 
-104:                                              ; preds = %103
-  br i1 false, label %105, label %107
+104:                                              ; preds = %100
+  br label %105
 
 105:                                              ; preds = %104
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %106, label %109, label %111
+  br i1 false, label %106, label %108
 
-107:                                              ; preds = %104
-  %108 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %108, label %109, label %111
+106:                                              ; preds = %105
+  %107 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #15
+  br i1 %107, label %110, label %112
 
-109:                                              ; preds = %107, %105
-  %110 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1385, ptr noundef @__func__.logfile_rotate_dest)
-  br label %111
+108:                                              ; preds = %105
+  %109 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %109, label %110, label %112
 
-111:                                              ; preds = %109, %107, %105
+110:                                              ; preds = %108, %106
+  %111 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1337, ptr noundef @__func__.logfile_rotate_dest)
   br label %112
 
-112:                                              ; preds = %111
-  store i8 1, ptr @rotation_disabled, align 1
+112:                                              ; preds = %110, %108, %106
   br label %113
 
-113:                                              ; preds = %112, %99, %95
-  %114 = load ptr, ptr %15, align 8
-  %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %118
+113:                                              ; preds = %112
+  br label %114
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %15, align 8
-  call void @pfree(ptr noundef %117)
-  br label %118
+114:                                              ; preds = %113
+  store i8 1, ptr @rotation_disabled, align 1
+  br label %115
 
-118:                                              ; preds = %116, %113
+115:                                              ; preds = %114, %100, %96
+  %116 = load ptr, ptr %15, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %15, align 8
+  call void @pfree(ptr noundef %119)
+  br label %120
+
+120:                                              ; preds = %118, %115
   store i1 false, ptr %7, align 1
-  br label %139
+  store i32 1, ptr %17, align 4
+  br label %141
 
-119:                                              ; preds = %92
-  %120 = load ptr, ptr %13, align 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %127
+121:                                              ; preds = %93
+  %122 = load ptr, ptr %13, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %129
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %13, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = call i32 @fclose(ptr noundef %125)
-  br label %127
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %13, align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = call i32 @fclose(ptr noundef %127)
+  br label %129
 
-127:                                              ; preds = %123, %119
-  %128 = load ptr, ptr %16, align 8
-  %129 = load ptr, ptr %13, align 8
-  store ptr %128, ptr %129, align 8
-  %130 = load ptr, ptr %12, align 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %136
+129:                                              ; preds = %125, %121
+  %130 = load ptr, ptr %16, align 8
+  %131 = load ptr, ptr %13, align 8
+  store ptr %130, ptr %131, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %135, label %138
 
-133:                                              ; preds = %127
-  %134 = load ptr, ptr %12, align 8
-  %135 = load ptr, ptr %134, align 8
-  call void @pfree(ptr noundef %135)
-  br label %136
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %12, align 8
+  %137 = load ptr, ptr %136, align 8
+  call void @pfree(ptr noundef %137)
+  br label %138
 
-136:                                              ; preds = %133, %127
-  %137 = load ptr, ptr %15, align 8
-  %138 = load ptr, ptr %12, align 8
-  store ptr %137, ptr %138, align 8
+138:                                              ; preds = %135, %129
+  %139 = load ptr, ptr %15, align 8
+  %140 = load ptr, ptr %12, align 8
+  store ptr %139, ptr %140, align 8
   store i1 true, ptr %7, align 1
-  br label %139
+  store i32 1, ptr %17, align 4
+  br label %141
 
-139:                                              ; preds = %136, %118, %51, %41
-  %140 = load i1, ptr %7, align 1
-  ret i1 %140
+141:                                              ; preds = %138, %120, %52, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  %142 = load i1, ptr %7, align 1
+  ret i1 %142
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
-
-declare i64 @pg_popcount(ptr noundef, i32 noundef) #3
-
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) #3
-
-declare ptr @palloc(i64 noundef) #3
-
-declare ptr @lappend(ptr noundef, ptr noundef) #3
-
-declare void @initStringInfo(ptr noundef) #3
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
-
-; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #9
-
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
-declare i64 @pg_strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
+declare i64 @pg_strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #3
+declare ptr @pg_localtime(ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { noreturn }
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nounwind
+declare i32 @rename(ptr noundef, ptr noundef) #3
+
+declare void @SetLatch(ptr noundef) #2
+
+attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { cold }
+attributes #16 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

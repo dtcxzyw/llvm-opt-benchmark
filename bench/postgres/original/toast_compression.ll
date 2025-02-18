@@ -32,182 +32,198 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.varattrib_1b, ptr %7, i32 0, i32 0
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = icmp eq i32 %10, 1
-  br i1 %11, label %12, label %40
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %8, i32 0, i32 0
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i32
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %13, label %41
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.varattrib_1b_e, ptr %13, i32 0, i32 1
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %19
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %14, i32 0, i32 1
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %12
-  br label %36
+19:                                               ; preds = %13
+  br label %37
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.varattrib_1b_e, ptr %20, i32 0, i32 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = and i32 %23, -2
-  %25 = icmp eq i32 %24, 2
-  br i1 %25, label %26, label %27
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %21, i32 0, i32 1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = and i32 %24, -2
+  %26 = icmp eq i32 %25, 2
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %19
-  br label %34
+27:                                               ; preds = %20
+  br label %35
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.varattrib_1b_e, ptr %28, i32 0, i32 1
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = icmp eq i32 %31, 18
-  %33 = select i1 %32, i64 16, i64 0
-  br label %34
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %29, i32 0, i32 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = icmp eq i32 %32, 18
+  %34 = select i1 %33, i64 16, i64 0
+  br label %35
 
-34:                                               ; preds = %27, %26
-  %35 = phi i64 [ 8, %26 ], [ %33, %27 ]
-  br label %36
+35:                                               ; preds = %28, %27
+  %36 = phi i64 [ 8, %27 ], [ %34, %28 ]
+  br label %37
 
-36:                                               ; preds = %34, %18
-  %37 = phi i64 [ 8, %18 ], [ %35, %34 ]
-  %38 = add i64 2, %37
-  %39 = sub i64 %38, 2
-  br label %66
+37:                                               ; preds = %35, %19
+  %38 = phi i64 [ 8, %19 ], [ %36, %35 ]
+  %39 = add i64 2, %38
+  %40 = sub i64 %39, 2
+  br label %67
 
-40:                                               ; preds = %1
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.varattrib_1b, ptr %41, i32 0, i32 0
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = and i32 %44, 1
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %56
+41:                                               ; preds = %1
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %42, i32 0, i32 0
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = and i32 %45, 1
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %48, label %57
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.varattrib_1b, ptr %48, i32 0, i32 0
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = ashr i32 %51, 1
-  %53 = and i32 %52, 127
-  %54 = sext i32 %53 to i64
-  %55 = sub i64 %54, 1
-  br label %64
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %49, i32 0, i32 0
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = ashr i32 %52, 1
+  %54 = and i32 %53, 127
+  %55 = sext i32 %54 to i64
+  %56 = sub i64 %55, 1
+  br label %65
 
-56:                                               ; preds = %40
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.anon, ptr %57, i32 0, i32 0
-  %59 = load i32, ptr %58, align 4
-  %60 = lshr i32 %59, 2
-  %61 = and i32 %60, 1073741823
-  %62 = sub i32 %61, 4
-  %63 = zext i32 %62 to i64
-  br label %64
+57:                                               ; preds = %41
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i32 0, i32 0
+  %60 = load i32, ptr %59, align 4
+  %61 = lshr i32 %60, 2
+  %62 = and i32 %61, 1073741823
+  %63 = sub i32 %62, 4
+  %64 = zext i32 %63 to i64
+  br label %65
 
-64:                                               ; preds = %56, %47
-  %65 = phi i64 [ %55, %47 ], [ %63, %56 ]
-  br label %66
+65:                                               ; preds = %57, %48
+  %66 = phi i64 [ %56, %48 ], [ %64, %57 ]
+  br label %67
 
-66:                                               ; preds = %64, %36
-  %67 = phi i64 [ %39, %36 ], [ %65, %64 ]
-  %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %4, align 4
-  %69 = load i32, ptr %4, align 4
-  %70 = load ptr, ptr @PGLZ_strategy_default, align 8
-  %71 = getelementptr inbounds %struct.PGLZ_Strategy, ptr %70, i32 0, i32 0
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp slt i32 %69, %72
-  br i1 %73, label %80, label %74
+67:                                               ; preds = %65, %37
+  %68 = phi i64 [ %40, %37 ], [ %66, %65 ]
+  %69 = trunc i64 %68 to i32
+  store i32 %69, ptr %4, align 4
+  %70 = load i32, ptr %4, align 4
+  %71 = load ptr, ptr @PGLZ_strategy_default, align 8
+  %72 = getelementptr inbounds nuw %struct.PGLZ_Strategy, ptr %71, i32 0, i32 0
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp slt i32 %70, %73
+  br i1 %74, label %81, label %75
 
-74:                                               ; preds = %66
-  %75 = load i32, ptr %4, align 4
-  %76 = load ptr, ptr @PGLZ_strategy_default, align 8
-  %77 = getelementptr inbounds %struct.PGLZ_Strategy, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp sgt i32 %75, %78
-  br i1 %79, label %80, label %81
+75:                                               ; preds = %67
+  %76 = load i32, ptr %4, align 4
+  %77 = load ptr, ptr @PGLZ_strategy_default, align 8
+  %78 = getelementptr inbounds nuw %struct.PGLZ_Strategy, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp sgt i32 %76, %79
+  br i1 %80, label %81, label %82
 
-80:                                               ; preds = %74, %66
+81:                                               ; preds = %75, %67
   store ptr null, ptr %2, align 8
-  br label %121
+  store i32 1, ptr %7, align 4
+  br label %122
 
-81:                                               ; preds = %74
-  %82 = load i32, ptr %4, align 4
-  %83 = add i32 %82, 4
-  %84 = sext i32 %83 to i64
-  %85 = add i64 %84, 8
-  %86 = call ptr @palloc(i64 noundef %85)
-  store ptr %86, ptr %6, align 8
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.varattrib_1b, ptr %87, i32 0, i32 0
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = and i32 %90, 1
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %97
+82:                                               ; preds = %75
+  %83 = load i32, ptr %4, align 4
+  %84 = add i32 %83, 4
+  %85 = sext i32 %84 to i64
+  %86 = add i64 %85, 8
+  %87 = call ptr @palloc(i64 noundef %86)
+  store ptr %87, ptr %6, align 8
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %88, i32 0, i32 0
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = and i32 %91, 1
+  %93 = icmp eq i32 %92, 1
+  br i1 %93, label %94, label %98
 
-93:                                               ; preds = %81
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.varattrib_1b, ptr %94, i32 0, i32 1
-  %96 = getelementptr inbounds [0 x i8], ptr %95, i64 0, i64 0
-  br label %101
+94:                                               ; preds = %82
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %95, i32 0, i32 1
+  %97 = getelementptr inbounds [0 x i8], ptr %96, i64 0, i64 0
+  br label %102
 
-97:                                               ; preds = %81
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.anon, ptr %98, i32 0, i32 1
-  %100 = getelementptr inbounds [0 x i8], ptr %99, i64 0, i64 0
-  br label %101
+98:                                               ; preds = %82
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds nuw %struct.anon, ptr %99, i32 0, i32 1
+  %101 = getelementptr inbounds [0 x i8], ptr %100, i64 0, i64 0
+  br label %102
 
-101:                                              ; preds = %97, %93
-  %102 = phi ptr [ %96, %93 ], [ %100, %97 ]
-  %103 = load i32, ptr %4, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr i8, ptr %104, i64 8
-  %106 = call i32 @pglz_compress(ptr noundef %102, i32 noundef %103, ptr noundef %105, ptr noundef null)
-  store i32 %106, ptr %5, align 4
-  %107 = load i32, ptr %5, align 4
-  %108 = icmp slt i32 %107, 0
-  br i1 %108, label %109, label %111
+102:                                              ; preds = %98, %94
+  %103 = phi ptr [ %97, %94 ], [ %101, %98 ]
+  %104 = load i32, ptr %4, align 4
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = call i32 @pglz_compress(ptr noundef %103, i32 noundef %104, ptr noundef %106, ptr noundef null)
+  store i32 %107, ptr %5, align 4
+  %108 = load i32, ptr %5, align 4
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %110, label %112
 
-109:                                              ; preds = %101
-  %110 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %110)
+110:                                              ; preds = %102
+  %111 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %111)
   store ptr null, ptr %2, align 8
-  br label %121
+  store i32 1, ptr %7, align 4
+  br label %122
 
-111:                                              ; preds = %101
-  %112 = load i32, ptr %5, align 4
-  %113 = sext i32 %112 to i64
-  %114 = add i64 %113, 8
-  %115 = trunc i64 %114 to i32
-  %116 = shl i32 %115, 2
-  %117 = or i32 %116, 2
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.anon, ptr %118, i32 0, i32 0
-  store i32 %117, ptr %119, align 4
-  %120 = load ptr, ptr %6, align 8
-  store ptr %120, ptr %2, align 8
-  br label %121
+112:                                              ; preds = %102
+  %113 = load i32, ptr %5, align 4
+  %114 = sext i32 %113 to i64
+  %115 = add i64 %114, 8
+  %116 = trunc i64 %115 to i32
+  %117 = shl i32 %116, 2
+  %118 = or i32 %117, 2
+  %119 = load ptr, ptr %6, align 8
+  %120 = getelementptr inbounds nuw %struct.anon, ptr %119, i32 0, i32 0
+  store i32 %118, ptr %120, align 4
+  %121 = load ptr, ptr %6, align 8
+  store ptr %121, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %122
 
-121:                                              ; preds = %111, %109, %80
-  %122 = load ptr, ptr %2, align 8
-  ret ptr %122
+122:                                              ; preds = %112, %110, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %123 = load ptr, ptr %2, align 8
+  ret ptr %123
 }
 
-declare ptr @palloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @pglz_compress(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare ptr @palloc(i64 noundef) #2
 
-declare void @pfree(ptr noundef) #1
+declare i32 @pglz_compress(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+
+declare void @pfree(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
@@ -215,8 +231,10 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.anon.0, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.anon.0, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1073741823
   %9 = add i32 %8, 4
@@ -224,9 +242,9 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
   %11 = call ptr @palloc(i64 noundef %10)
   store ptr %11, ptr %3, align 8
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.anon, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 0
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 2
   %18 = and i32 %17, 1073741823
@@ -234,17 +252,17 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
   %20 = sub i64 %19, 8
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.anon, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %22, i32 0, i32 1
   %24 = getelementptr inbounds [0 x i8], ptr %23, i64 0, i64 0
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.anon.0, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.anon.0, ptr %25, i32 0, i32 1
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1073741823
   %29 = call i32 @pglz_decompress(ptr noundef %13, i32 noundef %21, ptr noundef %24, i32 noundef %28, i1 noundef zeroext true)
   store i32 %29, ptr %4, align 4
   %30 = load i32, ptr %4, align 4
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %43
+  br i1 %31, label %32, label %44
 
 32:                                               ; preds = %1
   br label %33
@@ -253,7 +271,7 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
   br i1 true, label %34, label %36
 
 34:                                               ; preds = %33
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %35, label %38, label %41
 
 36:                                               ; preds = %33
@@ -263,7 +281,7 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
 38:                                               ; preds = %36, %34
   %39 = call i32 @errcode(i32 noundef 16779816)
   %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 100, ptr noundef @__func__.pglz_decompress_datum)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 98, ptr noundef @__func__.pglz_decompress_datum)
   br label %41
 
 41:                                               ; preds = %38, %36, %34
@@ -272,29 +290,34 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) #0 {
 42:                                               ; No predecessors!
   br label %43
 
-43:                                               ; preds = %42, %1
-  %44 = load i32, ptr %4, align 4
-  %45 = add i32 %44, 4
-  %46 = shl i32 %45, 2
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.anon, ptr %47, i32 0, i32 0
-  store i32 %46, ptr %48, align 4
-  %49 = load ptr, ptr %3, align 8
-  ret ptr %49
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43, %1
+  %45 = load i32, ptr %4, align 4
+  %46 = add i32 %45, 4
+  %47 = shl i32 %46, 2
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.anon, ptr %48, i32 0, i32 0
+  store i32 %47, ptr %49, align 4
+  %50 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret ptr %50
 }
 
-declare i32 @pglz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #1
+declare i32 @pglz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1) #0 {
@@ -304,15 +327,17 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
   %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
   %7 = load i32, ptr %4, align 4
   %8 = add i32 %7, 4
   %9 = sext i32 %8 to i64
   %10 = call ptr @palloc(i64 noundef %9)
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.anon, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.anon, ptr %13, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 2
   %17 = and i32 %16, 1073741823
@@ -320,14 +345,14 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
   %19 = sub i64 %18, 8
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.anon, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %21, i32 0, i32 1
   %23 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 0
   %24 = load i32, ptr %4, align 4
   %25 = call i32 @pglz_decompress(ptr noundef %12, i32 noundef %20, ptr noundef %23, i32 noundef %24, i1 noundef zeroext false)
   store i32 %25, ptr %6, align 4
   %26 = load i32, ptr %6, align 4
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %39
+  br i1 %27, label %28, label %40
 
 28:                                               ; preds = %2
   br label %29
@@ -336,7 +361,7 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
   br i1 true, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %31, label %34, label %37
 
 32:                                               ; preds = %29
@@ -346,7 +371,7 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
 34:                                               ; preds = %32, %30
   %35 = call i32 @errcode(i32 noundef 16779816)
   %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 128, ptr noundef @__func__.pglz_decompress_datum_slice)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 126, ptr noundef @__func__.pglz_decompress_datum_slice)
   br label %37
 
 37:                                               ; preds = %34, %32, %30
@@ -355,15 +380,20 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
 38:                                               ; No predecessors!
   br label %39
 
-39:                                               ; preds = %38, %2
-  %40 = load i32, ptr %6, align 4
-  %41 = add i32 %40, 4
-  %42 = shl i32 %41, 2
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.anon, ptr %43, i32 0, i32 0
-  store i32 %42, ptr %44, align 4
-  %45 = load ptr, ptr %5, align 8
-  ret ptr %45
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39, %2
+  %41 = load i32, ptr %6, align 4
+  %42 = add i32 %41, 4
+  %43 = shl i32 %42, 2
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.anon, ptr %44, i32 0, i32 0
+  store i32 %43, ptr %45, align 4
+  %46 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -376,7 +406,7 @@ define dso_local ptr @lz4_compress_datum(ptr noundef %0) #0 {
   br i1 true, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %5, label %8, label %12
 
 6:                                                ; preds = %3
@@ -387,7 +417,7 @@ define dso_local ptr @lz4_compress_datum(ptr noundef %0) #0 {
   %9 = call i32 @errcode(i32 noundef 1088)
   %10 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2)
   %11 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 144, ptr noundef @__func__.lz4_compress_datum)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 142, ptr noundef @__func__.lz4_compress_datum)
   br label %12
 
 12:                                               ; preds = %8, %6, %4
@@ -397,9 +427,9 @@ define dso_local ptr @lz4_compress_datum(ptr noundef %0) #0 {
   ret ptr null
 }
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #2
 
-declare i32 @errdetail(ptr noundef, ...) #1
+declare i32 @errdetail(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @lz4_decompress_datum(ptr noundef %0) #0 {
@@ -411,7 +441,7 @@ define dso_local ptr @lz4_decompress_datum(ptr noundef %0) #0 {
   br i1 true, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %5, label %8, label %12
 
 6:                                                ; preds = %3
@@ -422,7 +452,7 @@ define dso_local ptr @lz4_decompress_datum(ptr noundef %0) #0 {
   %9 = call i32 @errcode(i32 noundef 1088)
   %10 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2)
   %11 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 187, ptr noundef @__func__.lz4_decompress_datum)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 185, ptr noundef @__func__.lz4_decompress_datum)
   br label %12
 
 12:                                               ; preds = %8, %6, %4
@@ -444,7 +474,7 @@ define dso_local ptr @lz4_decompress_datum_slice(ptr noundef %0, i32 noundef %1)
   br i1 true, label %6, label %8
 
 6:                                                ; preds = %5
-  %7 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %7 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %7, label %10, label %14
 
 8:                                                ; preds = %5
@@ -455,7 +485,7 @@ define dso_local ptr @lz4_decompress_datum_slice(ptr noundef %0, i32 noundef %1)
   %11 = call i32 @errcode(i32 noundef 1088)
   %12 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2)
   %13 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 220, ptr noundef @__func__.lz4_decompress_datum_slice)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 218, ptr noundef @__func__.lz4_decompress_datum_slice)
   br label %14
 
 14:                                               ; preds = %10, %8, %6
@@ -472,81 +502,90 @@ define dso_local i32 @toast_get_compression_id(ptr noundef %0) #0 {
   %4 = alloca %struct.varatt_external, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   store i32 2, ptr %3, align 4
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.varattrib_1b, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %6, i32 0, i32 0
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %36
+  br i1 %10, label %11, label %37
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.varattrib_1b_e, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %12, i32 0, i32 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %15, 18
-  br i1 %16, label %17, label %36
+  br i1 %16, label %17, label %37
 
 17:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #6
   br label %18
 
 18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   %19 = load ptr, ptr %2, align 8
   store ptr %19, ptr %5, align 8
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.varattrib_1b_e, ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %20, i32 0, i32 2
   %22 = getelementptr inbounds [0 x i8], ptr %21, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 1 %22, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   br label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds %struct.varatt_external, ptr %4, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 1073741823
-  %27 = getelementptr inbounds %struct.varatt_external, ptr %4, i32 0, i32 0
-  %28 = load i32, ptr %27, align 4
-  %29 = sub i32 %28, 4
-  %30 = icmp ult i32 %26, %29
-  br i1 %30, label %31, label %35
+  br label %24
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds %struct.varatt_external, ptr %4, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
-  %34 = lshr i32 %33, 30
-  store i32 %34, ptr %3, align 4
-  br label %35
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw %struct.varatt_external, ptr %4, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 1073741823
+  %28 = getelementptr inbounds nuw %struct.varatt_external, ptr %4, i32 0, i32 0
+  %29 = load i32, ptr %28, align 4
+  %30 = sub i32 %29, 4
+  %31 = icmp ult i32 %27, %30
+  br i1 %31, label %32, label %36
 
-35:                                               ; preds = %31, %23
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw %struct.varatt_external, ptr %4, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  %35 = lshr i32 %34, 30
+  store i32 %35, ptr %3, align 4
+  br label %36
+
+36:                                               ; preds = %32, %24
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #6
+  br label %50
+
+37:                                               ; preds = %11, %1
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %38, i32 0, i32 0
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = and i32 %41, 3
+  %43 = icmp eq i32 %42, 2
+  br i1 %43, label %44, label %49
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.anon.0, ptr %45, i32 0, i32 1
+  %47 = load i32, ptr %46, align 4
+  %48 = lshr i32 %47, 30
+  store i32 %48, ptr %3, align 4
   br label %49
 
-36:                                               ; preds = %11, %1
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.varattrib_1b, ptr %37, i32 0, i32 0
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = and i32 %40, 3
-  %42 = icmp eq i32 %41, 2
-  br i1 %42, label %43, label %48
+49:                                               ; preds = %44, %37
+  br label %50
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.anon.0, ptr %44, i32 0, i32 1
-  %46 = load i32, ptr %45, align 4
-  %47 = lshr i32 %46, 30
-  store i32 %47, ptr %3, align 4
-  br label %48
-
-48:                                               ; preds = %43, %36
-  br label %49
-
-49:                                               ; preds = %48, %35
-  %50 = load i32, ptr %3, align 4
-  ret i32 %50
+50:                                               ; preds = %49, %36
+  %51 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  ret i32 %51
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
@@ -554,7 +593,7 @@ define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call i32 @strcmp(ptr noundef %4, ptr noundef @.str.4) #6
+  %5 = call i32 @strcmp(ptr noundef %4, ptr noundef @.str.4) #8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
@@ -564,7 +603,7 @@ define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
-  %10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.5) #6
+  %10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.5) #8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %24
 
@@ -575,7 +614,7 @@ define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
   br i1 true, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %15, label %18, label %22
 
 16:                                               ; preds = %13
@@ -586,7 +625,7 @@ define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
   %19 = call i32 @errcode(i32 noundef 1088)
   %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2)
   %21 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 294, ptr noundef @__func__.CompressionNameToMethod)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 292, ptr noundef @__func__.CompressionNameToMethod)
   br label %22
 
 22:                                               ; preds = %18, %16, %14
@@ -609,7 +648,7 @@ define dso_local signext i8 @CompressionNameToMethod(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetCompressionMethodName(i8 noundef signext %0) #0 {
@@ -638,7 +677,7 @@ define dso_local ptr @GetCompressionMethodName(i8 noundef signext %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %11, label %14, label %18
 
 12:                                               ; preds = %9
@@ -649,7 +688,7 @@ define dso_local ptr @GetCompressionMethodName(i8 noundef signext %0) #0 {
   %15 = load i8, ptr %3, align 1
   %16 = sext i8 %15 to i32
   %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, i32 noundef %16)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 315, ptr noundef @__func__.GetCompressionMethodName)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 313, ptr noundef @__func__.GetCompressionMethodName)
   br label %18
 
 18:                                               ; preds = %14, %12, %10
@@ -664,18 +703,19 @@ define dso_local ptr @GetCompressionMethodName(i8 noundef signext %0) #0 {
   ret ptr %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

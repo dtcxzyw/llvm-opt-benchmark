@@ -80,10 +80,10 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.048.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
   %38 = load ptr, ptr %17, align 8
-  %39 = getelementptr i16, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv.i
   %40 = load i16, ptr %39, align 2
   %41 = icmp eq i16 %40, 0
-  %42 = getelementptr i16, ptr %32, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv.i
   br i1 %41, label %43, label %48
 
 43:                                               ; preds = %37
@@ -91,7 +91,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %44 = trunc i64 %indvars.iv.i to i16
   %45 = add i32 %.048.i, 1
   %46 = sext i32 %.048.i to i64
-  %47 = getelementptr i16, ptr %33, i64 %46
+  %47 = getelementptr inbounds i16, ptr %33, i64 %46
   store i16 %44, ptr %47, align 2
   br label %49
 
@@ -103,16 +103,16 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %.1.i = phi i32 [ %45, %43 ], [ %.048.i, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %.preheader.i, label %37, !llvm.loop !5
+  br i1 %exitcond.i, label %.preheader.i, label %37, !llvm.loop !4
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %.loopexit.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.loopexit.i ], [ 0, %.preheader.i ]
   %.254.i = phi i32 [ %.3.i, %.loopexit.i ], [ %.1.i, %.preheader.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %50 = getelementptr i16, ptr %33, i64 %indvars.iv60.i
+  %50 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv60.i
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i64
-  %53 = getelementptr i16, ptr %32, i64 %52
+  %53 = getelementptr inbounds i16, ptr %32, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = load i16, ptr %32, align 2
   %56 = icmp slt i16 %54, %55
@@ -120,7 +120,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 57:                                               ; preds = %.lr.ph55.i
   %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %52
+  %59 = getelementptr inbounds ptr, ptr %58, i64 %52
   %60 = load ptr, ptr %59, align 8
   %.not45.i = icmp eq ptr %60, null
   br i1 %.not45.i, label %.loopexit.i, label %61
@@ -138,13 +138,13 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv57.i = phi i64 [ %64, %.lr.ph51.preheader.i ], [ %indvars.iv.next58.i, %81 ]
   %.450.i = phi i32 [ %.254.i, %.lr.ph51.preheader.i ], [ %.5.i, %81 ]
   %65 = load ptr, ptr %22, align 8
-  %66 = getelementptr i16, ptr %60, i64 %indvars.iv57.i
+  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv57.i
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i64
-  %69 = getelementptr i16, ptr %65, i64 %68
+  %69 = getelementptr inbounds i16, ptr %65, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
-  %72 = getelementptr i16, ptr %32, i64 %71
+  %72 = getelementptr inbounds i16, ptr %32, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = icmp eq i16 %73, 32767
   br i1 %74, label %75, label %81
@@ -155,7 +155,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   store i16 %77, ptr %72, align 2
   %78 = add i32 %.450.i, 1
   %79 = sext i32 %.450.i to i64
-  %80 = getelementptr i16, ptr %33, i64 %79
+  %80 = getelementptr inbounds i16, ptr %33, i64 %79
   store i16 %70, ptr %80, align 2
   br label %81
 
@@ -163,13 +163,13 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %.5.i = phi i32 [ %78, %75 ], [ %.450.i, %.lr.ph51.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
   %82 = icmp sgt i64 %indvars.iv57.i, 1
-  br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %81, %61, %57, %.lr.ph55.i
   %.3.i = phi i32 [ %.254.i, %.lr.ph55.i ], [ %.254.i, %61 ], [ %.254.i, %57 ], [ %.5.i, %81 ]
   %83 = sext i32 %.3.i to i64
   %84 = icmp slt i64 %indvars.iv.next61.i, %83
-  br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !8
+  br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !7
 
 hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preheader.i
   %.pr = load i16, ptr %32, align 2
@@ -182,7 +182,7 @@ hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preh
 .lr.ph:                                           ; preds = %.preheader, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 1, %.preheader ]
   %85 = load ptr, ptr %17, align 8
-  %86 = getelementptr i16, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv
   %87 = load i16, ptr %86, align 2
   %88 = icmp eq i16 %87, 0
   br i1 %88, label %89, label %95
@@ -201,18 +201,18 @@ hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preh
 95:                                               ; preds = %.lr.ph, %92, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %95, %.preheader
   %96 = load volatile i32, ptr @InterruptPending, align 4
   %.not35 = icmp eq i32 %96, 0
-  br i1 %.not35, label %98, label %97
+  br i1 %.not35, label %98, label %97, !prof !9
 
 97:                                               ; preds = %._crit_edge
   tail call void @ProcessInterrupts() #5
   br label %98
 
-98:                                               ; preds = %._crit_edge, %97
+98:                                               ; preds = %97, %._crit_edge
   %99 = load i32, ptr %4, align 8
   %100 = load ptr, ptr %28, align 8
   %101 = load ptr, ptr %24, align 8
@@ -246,7 +246,7 @@ define internal fastcc noundef zeroext i1 @hk_depth_search(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
@@ -259,13 +259,13 @@ define internal fastcc noundef zeroext i1 @hk_depth_search(ptr noundef readonly 
 17:                                               ; preds = %2, %14
   %18 = phi i32 [ %16, %14 ], [ 0, %2 ]
   %19 = icmp eq i32 %1, 0
-  br i1 %19, label %46, label %20
+  br i1 %19, label %45, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr i16, ptr %4, i64 %11
+  %21 = getelementptr inbounds i16, ptr %4, i64 %11
   %22 = load i16, ptr %21, align 2
   %23 = icmp eq i16 %22, 32767
-  br i1 %23, label %46, label %24
+  br i1 %23, label %45, label %24
 
 24:                                               ; preds = %20
   %25 = add nsw i16 %22, 1
@@ -277,43 +277,43 @@ define internal fastcc noundef zeroext i1 @hk_depth_search(ptr noundef readonly 
   %27 = zext nneg i32 %18 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %28 = getelementptr i16, ptr %13, i64 %indvars.iv
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
+  %28 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr i16, ptr %8, i64 %30
+  %31 = getelementptr inbounds i16, ptr %8, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
-  %34 = getelementptr i16, ptr %4, i64 %33
+  %34 = getelementptr inbounds i16, ptr %4, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, %25
-  br i1 %36, label %37, label %44
+  br i1 %36, label %37, label %43
 
 37:                                               ; preds = %.lr.ph
   %38 = sext i16 %32 to i32
   %39 = tail call fastcc zeroext i1 @hk_depth_search(ptr noundef %0, i32 noundef %38)
-  br i1 %39, label %40, label %44
+  br i1 %39, label %.critedge, label %43
 
-40:                                               ; preds = %37
-  %41 = getelementptr i16, ptr %8, i64 %30
-  %42 = trunc i32 %1 to i16
-  store i16 %42, ptr %41, align 2
-  %43 = getelementptr i16, ptr %6, i64 %11
-  store i16 %29, ptr %43, align 2
-  br label %46
+.critedge:                                        ; preds = %37
+  %40 = getelementptr inbounds i16, ptr %8, i64 %30
+  %41 = trunc i32 %1 to i16
+  store i16 %41, ptr %40, align 2
+  %42 = getelementptr inbounds i16, ptr %6, i64 %11
+  store i16 %29, ptr %42, align 2
+  br label %45
 
-44:                                               ; preds = %.lr.ph, %37
+43:                                               ; preds = %37, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %45 = icmp sgt i64 %indvars.iv, 1
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %44 = icmp sgt i64 %indvars.iv, 1
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %44, %24
+._crit_edge:                                      ; preds = %43, %24
   store i16 32767, ptr %21, align 2
-  br label %46
+  br label %45
 
-46:                                               ; preds = %20, %17, %._crit_edge, %40
-  %.0 = phi i1 [ true, %40 ], [ false, %._crit_edge ], [ true, %17 ], [ false, %20 ]
+45:                                               ; preds = %.critedge, %20, %17, %._crit_edge
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %17 ], [ false, %20 ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -347,25 +347,25 @@ declare void @llvm.assume(i1 noundef) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

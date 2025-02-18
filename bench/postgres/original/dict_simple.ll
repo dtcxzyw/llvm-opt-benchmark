@@ -30,214 +30,245 @@ define dso_local i64 @dsimple_init(ptr noundef %0) #0 {
   %8 = alloca %struct.ForEachState, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
-  %12 = getelementptr [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
-  %13 = getelementptr inbounds %struct.NullableDatum, ptr %12, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
+  %12 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
+  %13 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
   %15 = call ptr @DatumGetPointer(i64 noundef %14)
   store ptr %15, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   %16 = call ptr @palloc0(i64 noundef 24)
   store ptr %16, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #7
   store i8 0, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #7
   store i8 0, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.DictSimple, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.DictSimple, ptr %17, i32 0, i32 1
   store i8 1, ptr %18, align 8
-  %19 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #7
+  %19 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
   %20 = load ptr, ptr %3, align 8
   store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
   store i32 0, ptr %21, align 8
-  br label %22
+  %22 = getelementptr i8, ptr %8, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 4, i1 false)
+  br label %23
 
-22:                                               ; preds = %116, %1
-  %23 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %43
+23:                                               ; preds = %121, %1
+  %24 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %44
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %28, %32
-  br i1 %33, label %34, label %43
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.List, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp slt i32 %29, %33
+  br i1 %34, label %35, label %44
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr %union.ListCell, ptr %38, i64 %41
-  store ptr %42, ptr %7, align 8
-  br label %44
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.List, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds %union.ListCell, ptr %39, i64 %42
+  store ptr %43, ptr %7, align 8
+  br label %45
 
-43:                                               ; preds = %26, %22
+44:                                               ; preds = %27, %23
   store ptr null, ptr %7, align 8
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %34
-  %45 = phi i32 [ 1, %34 ], [ 0, %43 ]
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %120
+45:                                               ; preds = %44, %35
+  %46 = phi i32 [ 1, %35 ], [ 0, %44 ]
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %49, label %48
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %9, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.DefElem, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @strcmp(ptr noundef %52, ptr noundef @.str) #4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %74
+48:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #7
+  br label %125
 
-55:                                               ; preds = %47
-  %56 = load i8, ptr %5, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %69
+49:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %9, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.DefElem, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 @strcmp(ptr noundef %54, ptr noundef @.str) #8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %77
 
-58:                                               ; preds = %55
-  br label %59
+57:                                               ; preds = %49
+  %58 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %72
 
-59:                                               ; preds = %58
-  br i1 true, label %60, label %62
+60:                                               ; preds = %57
+  br label %61
 
-60:                                               ; preds = %59
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %61, label %64, label %67
+61:                                               ; preds = %60
+  br i1 true, label %62, label %64
 
-62:                                               ; preds = %59
-  %63 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %63, label %64, label %67
+62:                                               ; preds = %61
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %63, label %66, label %69
 
-64:                                               ; preds = %62, %60
-  %65 = call i32 @errcode(i32 noundef 50856066)
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.1)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 49, ptr noundef @__func__.dsimple_init)
-  br label %67
+64:                                               ; preds = %61
+  %65 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %65, label %66, label %69
 
-67:                                               ; preds = %64, %62, %60
-  unreachable
-
-68:                                               ; No predecessors!
+66:                                               ; preds = %64, %62
+  %67 = call i32 @errcode(i32 noundef 50856066)
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.1)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 50, ptr noundef @__func__.dsimple_init)
   br label %69
 
-69:                                               ; preds = %68, %55
-  %70 = load ptr, ptr %9, align 8
-  %71 = call ptr @defGetString(ptr noundef %70)
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.DictSimple, ptr %72, i32 0, i32 0
-  call void @readstoplist(ptr noundef %71, ptr noundef %73, ptr noundef @lowerstr)
+69:                                               ; preds = %66, %64, %62
+  unreachable
+
+70:                                               ; No predecessors!
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71, %57
+  %73 = load ptr, ptr %9, align 8
+  %74 = call ptr @defGetString(ptr noundef %73)
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds nuw %struct.DictSimple, ptr %75, i32 0, i32 0
+  call void @readstoplist(ptr noundef %74, ptr noundef %76, ptr noundef @str_tolower)
   store i8 1, ptr %5, align 1
-  br label %115
+  br label %120
 
-74:                                               ; preds = %47
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct.DefElem, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @strcmp(ptr noundef %77, ptr noundef @.str.3) #4
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %100
+77:                                               ; preds = %49
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw %struct.DefElem, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 @strcmp(ptr noundef %80, ptr noundef @.str.3) #8
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %104
 
-80:                                               ; preds = %74
-  %81 = load i8, ptr %6, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %94
+83:                                               ; preds = %77
+  %84 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %98
 
-83:                                               ; preds = %80
-  br label %84
+86:                                               ; preds = %83
+  br label %87
 
-84:                                               ; preds = %83
-  br i1 true, label %85, label %87
+87:                                               ; preds = %86
+  br i1 true, label %88, label %90
 
-85:                                               ; preds = %84
-  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %86, label %89, label %92
+88:                                               ; preds = %87
+  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %89, label %92, label %95
 
-87:                                               ; preds = %84
-  %88 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %88, label %89, label %92
+90:                                               ; preds = %87
+  %91 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %91, label %92, label %95
 
-89:                                               ; preds = %87, %85
-  %90 = call i32 @errcode(i32 noundef 50856066)
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 58, ptr noundef @__func__.dsimple_init)
-  br label %92
+92:                                               ; preds = %90, %88
+  %93 = call i32 @errcode(i32 noundef 50856066)
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 59, ptr noundef @__func__.dsimple_init)
+  br label %95
 
-92:                                               ; preds = %89, %87, %85
+95:                                               ; preds = %92, %90, %88
   unreachable
 
-93:                                               ; No predecessors!
-  br label %94
+96:                                               ; No predecessors!
+  br label %97
 
-94:                                               ; preds = %93, %80
-  %95 = load ptr, ptr %9, align 8
-  %96 = call zeroext i1 @defGetBoolean(ptr noundef %95)
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.DictSimple, ptr %97, i32 0, i32 1
-  %99 = zext i1 %96 to i8
-  store i8 %99, ptr %98, align 8
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97, %83
+  %99 = load ptr, ptr %9, align 8
+  %100 = call zeroext i1 @defGetBoolean(ptr noundef %99)
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds nuw %struct.DictSimple, ptr %101, i32 0, i32 1
+  %103 = zext i1 %100 to i8
+  store i8 %103, ptr %102, align 8
   store i8 1, ptr %6, align 1
-  br label %114
+  br label %119
 
-100:                                              ; preds = %74
-  br label %101
+104:                                              ; preds = %77
+  br label %105
 
-101:                                              ; preds = %100
-  br i1 true, label %102, label %104
+105:                                              ; preds = %104
+  br i1 true, label %106, label %108
 
-102:                                              ; preds = %101
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %103, label %106, label %112
+106:                                              ; preds = %105
+  %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %107, label %110, label %116
 
-104:                                              ; preds = %101
-  %105 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %105, label %106, label %112
+108:                                              ; preds = %105
+  %109 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %109, label %110, label %116
 
-106:                                              ; preds = %104, %102
-  %107 = call i32 @errcode(i32 noundef 50856066)
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.DefElem, ptr %108, i32 0, i32 2
-  %110 = load ptr, ptr %109, align 8
-  %111 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %110)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 67, ptr noundef @__func__.dsimple_init)
-  br label %112
-
-112:                                              ; preds = %106, %104, %102
-  unreachable
-
-113:                                              ; No predecessors!
-  br label %114
-
-114:                                              ; preds = %113, %94
-  br label %115
-
-115:                                              ; preds = %114, %69
+110:                                              ; preds = %108, %106
+  %111 = call i32 @errcode(i32 noundef 50856066)
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds nuw %struct.DefElem, ptr %112, i32 0, i32 2
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %114)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 68, ptr noundef @__func__.dsimple_init)
   br label %116
 
-116:                                              ; preds = %115
-  %117 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %118 = load i32, ptr %117, align 8
-  %119 = add i32 %118, 1
-  store i32 %119, ptr %117, align 8
-  br label %22, !llvm.loop !5
+116:                                              ; preds = %110, %108, %106
+  unreachable
 
-120:                                              ; preds = %44
-  %121 = load ptr, ptr %4, align 8
-  %122 = call i64 @PointerGetDatum(ptr noundef %121)
-  ret i64 %122
+117:                                              ; No predecessors!
+  br label %118
+
+118:                                              ; preds = %117
+  br label %119
+
+119:                                              ; preds = %118, %98
+  br label %120
+
+120:                                              ; preds = %119, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %121
+
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %123 = load i32, ptr %122, align 8
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %122, align 8
+  br label %23, !llvm.loop !6
+
+125:                                              ; preds = %48
+  %126 = load ptr, ptr %4, align 8
+  %127 = call i64 @PointerGetDatum(ptr noundef %126)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %127
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -245,32 +276,38 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @defGetString(ptr noundef) #1
+declare ptr @defGetString(ptr noundef) #3
 
-declare ptr @lowerstr(ptr noundef) #1
+declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) #3
 
-declare zeroext i1 @defGetBoolean(ptr noundef) #1
+declare zeroext i1 @defGetBoolean(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -287,89 +324,104 @@ define dso_local i64 @dsimple_lexize(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
-  %11 = getelementptr [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.NullableDatum, ptr %11, i32 0, i32 0
-  %13 = load i64, ptr %12, align 8
-  %14 = call ptr @DatumGetPointer(i64 noundef %13)
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
-  %18 = getelementptr inbounds %struct.NullableDatum, ptr %17, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = call ptr @DatumGetPointer(i64 noundef %19)
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 2
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = call i32 @DatumGetInt32(i64 noundef %25)
-  store i32 %26, ptr %6, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = call ptr @lowerstr_with_len(ptr noundef %27, i32 noundef %28)
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = sext i8 %31 to i32
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %39, label %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
+  %12 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
+  %13 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = call ptr @DatumGetPointer(i64 noundef %14)
+  store ptr %15, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %16, i32 0, i32 6
+  %18 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %17, i64 0, i64 1
+  %19 = getelementptr inbounds nuw %struct.NullableDatum, ptr %18, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = call ptr @DatumGetPointer(i64 noundef %20)
+  store ptr %21, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %23, i64 0, i64 2
+  %25 = getelementptr inbounds nuw %struct.NullableDatum, ptr %24, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = call i32 @DatumGetInt32(i64 noundef %26)
+  store i32 %27, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = sext i32 %29 to i64
+  %31 = call ptr @str_tolower(ptr noundef %28, i64 noundef %30, i32 noundef 100)
+  store ptr %31, ptr %7, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = sext i8 %33 to i32
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %41, label %36
 
-34:                                               ; preds = %1
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.DictSimple, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %7, align 8
-  %38 = call zeroext i1 @searchstoplist(ptr noundef %36, ptr noundef %37)
-  br i1 %38, label %39, label %44
+36:                                               ; preds = %1
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.DictSimple, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %7, align 8
+  %40 = call zeroext i1 @searchstoplist(ptr noundef %38, ptr noundef %39)
+  br i1 %40, label %41, label %46
 
-39:                                               ; preds = %34, %1
-  %40 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %40)
-  %41 = call ptr @palloc0(i64 noundef 32)
-  store ptr %41, ptr %8, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = call i64 @PointerGetDatum(ptr noundef %42)
-  store i64 %43, ptr %2, align 8
-  br label %60
+41:                                               ; preds = %36, %1
+  %42 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %42)
+  %43 = call ptr @palloc0(i64 noundef 32)
+  store ptr %43, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = call i64 @PointerGetDatum(ptr noundef %44)
+  store i64 %45, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %62
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.DictSimple, ptr %45, i32 0, i32 1
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %57
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.DictSimple, ptr %47, i32 0, i32 1
+  %49 = load i8, ptr %48, align 8, !range !4, !noundef !5
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %59
 
-49:                                               ; preds = %44
-  %50 = call ptr @palloc0(i64 noundef 32)
-  store ptr %50, ptr %8, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr %struct.TSLexeme, ptr %52, i64 0
-  %54 = getelementptr inbounds %struct.TSLexeme, ptr %53, i32 0, i32 2
-  store ptr %51, ptr %54, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = call i64 @PointerGetDatum(ptr noundef %55)
-  store i64 %56, ptr %2, align 8
-  br label %60
+51:                                               ; preds = %46
+  %52 = call ptr @palloc0(i64 noundef 32)
+  store ptr %52, ptr %8, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.TSLexeme, ptr %54, i64 0
+  %56 = getelementptr inbounds nuw %struct.TSLexeme, ptr %55, i32 0, i32 2
+  store ptr %53, ptr %56, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = call i64 @PointerGetDatum(ptr noundef %57)
+  store i64 %58, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %62
 
-57:                                               ; preds = %44
-  %58 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %58)
-  %59 = call i64 @PointerGetDatum(ptr noundef null)
-  store i64 %59, ptr %2, align 8
-  br label %60
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %60)
+  %61 = call i64 @PointerGetDatum(ptr noundef null)
+  store i64 %61, ptr %2, align 8
+  store i32 1, ptr %9, align 4
+  br label %62
 
-60:                                               ; preds = %57, %49, %39
-  %61 = load i64, ptr %2, align 8
-  ret i64 %61
+62:                                               ; preds = %59, %51, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %63 = load i64, ptr %2, align 8
+  ret i64 %63
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -377,25 +429,28 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare ptr @lowerstr_with_len(ptr noundef, i32 noundef) #1
+declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) #1
+declare void @pfree(ptr noundef) #3
 
-declare void @pfree(ptr noundef) #1
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { cold }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

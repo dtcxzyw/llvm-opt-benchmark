@@ -3,10 +3,7 @@ source_filename = "bench/postgres/original/stem_UTF_8_danish.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
-
 @g_v = internal constant [19 x i8] c"\11A\10\01\00\00\00\00\00\00\00\00\00\00\00\000\00\80", align 16
-@a_0 = internal constant [32 x %struct.among] [%struct.among { i32 3, ptr @s_0_0, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_1, i32 0, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_2, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_0_3, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_4, i32 3, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_5, i32 3, i32 1, ptr null }, %struct.among { i32 6, ptr @s_0_6, i32 5, i32 1, ptr null }, %struct.among { i32 3, ptr @s_0_7, i32 3, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_8, i32 3, i32 1, ptr null }, %struct.among { i32 3, ptr @s_0_9, i32 3, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_10, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_11, i32 10, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_12, i32 10, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_13, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_14, i32 13, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_15, i32 13, i32 1, ptr null }, %struct.among { i32 1, ptr @s_0_16, i32 -1, i32 2, ptr null }, %struct.among { i32 4, ptr @s_0_17, i32 16, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_18, i32 16, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_19, i32 18, i32 1, ptr null }, %struct.among { i32 7, ptr @s_0_20, i32 19, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_21, i32 18, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_22, i32 18, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_23, i32 18, i32 1, ptr null }, %struct.among { i32 3, ptr @s_0_24, i32 16, i32 1, ptr null }, %struct.among { i32 6, ptr @s_0_25, i32 24, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_26, i32 24, i32 1, ptr null }, %struct.among { i32 3, ptr @s_0_27, i32 16, i32 1, ptr null }, %struct.among { i32 3, ptr @s_0_28, i32 16, i32 1, ptr null }, %struct.among { i32 5, ptr @s_0_29, i32 28, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_30, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_0_31, i32 30, i32 1, ptr null }], align 16
 @g_s_ending = internal constant [17 x i8] c"\EF\FE*\03\00\00\00\00\00\00\00\00\00\00\00\00\10", align 16
 @s_0_0 = internal constant [3 x i8] c"hed", align 1
 @s_0_1 = internal constant [5 x i8] c"ethed", align 1
@@ -40,20 +37,21 @@ target triple = "x86_64-pc-linux-gnu"
 @s_0_29 = internal constant [5 x i8] c"erets", align 1
 @s_0_30 = internal constant [2 x i8] c"et", align 1
 @s_0_31 = internal constant [4 x i8] c"eret", align 1
-@a_1 = internal constant [4 x %struct.among] [%struct.among { i32 2, ptr @s_1_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_1, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_2, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_3, i32 -1, i32 -1, ptr null }], align 16
+@a_0 = internal constant [32 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_4, i32 3, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_5, i32 3, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_6, i32 5, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_7, i32 3, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_8, i32 3, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_9, i32 3, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_10, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_11, i32 10, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_12, i32 10, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_13, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_14, i32 13, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_15, i32 13, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_16, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_17, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_18, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_19, i32 18, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_20, i32 19, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_21, i32 18, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_22, i32 18, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_23, i32 18, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_24, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_25, i32 24, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_26, i32 24, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_27, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_28, i32 16, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_29, i32 28, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_30, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_31, i32 30, i32 1, ptr null }], align 16
 @s_1_0 = internal constant [2 x i8] c"gd", align 1
 @s_1_1 = internal constant [2 x i8] c"dt", align 1
 @s_1_2 = internal constant [2 x i8] c"gt", align 1
 @s_1_3 = internal constant [2 x i8] c"kt", align 1
+@a_1 = internal constant [4 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_1, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_2, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_3, i32 -1, i32 -1, ptr null }], align 16
 @s_0 = internal constant [2 x i8] c"st", align 1
 @s_1 = internal constant [2 x i8] c"ig", align 1
-@a_2 = internal constant [5 x %struct.among] [%struct.among { i32 2, ptr @s_2_0, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_1, i32 0, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_2, i32 1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_3, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_4, i32 -1, i32 2, ptr null }], align 16
 @s_2 = internal constant [4 x i8] c"l\C3\B8s", align 1
 @s_2_0 = internal constant [2 x i8] c"ig", align 1
 @s_2_1 = internal constant [3 x i8] c"lig", align 1
 @s_2_2 = internal constant [4 x i8] c"elig", align 1
 @s_2_3 = internal constant [3 x i8] c"els", align 1
 @s_2_4 = internal constant [5 x i8] c"l\C3\B8st", align 1
+@a_2 = internal constant [5 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_2, i32 1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_4, i32 -1, i32 2, ptr null }], align 16
 @g_c = internal constant [4 x i8] c"w\DFw\01", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -64,11 +62,11 @@ define hidden range(i32 -2147483648, 2) i32 @danish_UTF_8_stem(ptr noundef %0) l
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %5, ptr %8, align 4
   %9 = load i32, ptr %2, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 @skip_utf8(ptr noundef %10, i32 noundef %9, i32 noundef %5, i32 noundef 3) #2
+  %11 = tail call i32 @skip_utf8(ptr noundef %10, i32 noundef %9, i32 noundef %5, i32 noundef 3) #3
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %r_mark_regions.exit, label %13
 
@@ -76,12 +74,12 @@ define hidden range(i32 -2147483648, 2) i32 @danish_UTF_8_stem(ptr noundef %0) l
   %14 = load ptr, ptr %6, align 8
   store i32 %11, ptr %14, align 4
   store i32 %9, ptr %2, align 8
-  %15 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 248, i32 noundef 1) #2
+  %15 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 248, i32 noundef 1) #3
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %r_mark_regions.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 248, i32 noundef 1) #2
+  %18 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 248, i32 noundef 1) #3
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %r_mark_regions.exit, label %20
 
@@ -90,10 +88,10 @@ define hidden range(i32 -2147483648, 2) i32 @danish_UTF_8_stem(ptr noundef %0) l
   %22 = add i32 %21, %18
   store i32 %22, ptr %2, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %22, ptr %24, align 4
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = icmp slt i32 %27, %28
@@ -109,7 +107,7 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %32 = load i32, ptr %4, align 4
   store i32 %32, ptr %2, align 8
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %32, %35
   br i1 %36, label %63, label %37
@@ -129,20 +127,20 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %.mask.i = and i32 %45, 224
-  %.not36.i = icmp eq i32 %.mask.i, 96
-  br i1 %.not36.i, label %46, label %.sink.split
+  %.not45.i = icmp eq i32 %.mask.i, 96
+  br i1 %.not45.i, label %46, label %.sink.split
 
 46:                                               ; preds = %39
   %47 = and i32 %45, 31
   %48 = shl nuw i32 1, %47
   %49 = and i32 %48, 1851440
-  %.not37.i = icmp eq i32 %49, 0
-  br i1 %.not37.i, label %.sink.split, label %50
+  %.not46.i = icmp eq i32 %49, 0
+  br i1 %.not46.i, label %.sink.split, label %50
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 32) #2
-  %.not38.i = icmp eq i32 %51, 0
-  br i1 %.not38.i, label %.sink.split, label %52
+  %51 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 32) #3
+  %.not47.i = icmp eq i32 %51, 0
+  br i1 %.not47.i, label %.sink.split, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %2, align 8
@@ -155,19 +153,19 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   ]
 
 55:                                               ; preds = %52
-  %56 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %r_main_suffix.exit, label %63
+  %56 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %57 = icmp sgt i32 %56, -1
+  br i1 %57, label %63, label %139
 
 58:                                               ; preds = %52
-  %59 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_s_ending, i32 noundef 97, i32 noundef 229, i32 noundef 0) #2
-  %.not39.i = icmp eq i32 %59, 0
-  br i1 %.not39.i, label %60, label %63
+  %59 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_s_ending, i32 noundef 97, i32 noundef 229, i32 noundef 0) #3
+  %.not48.i = icmp eq i32 %59, 0
+  br i1 %.not48.i, label %60, label %63
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %r_main_suffix.exit, label %63
+  %61 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %62 = icmp sgt i32 %61, -1
+  br i1 %62, label %63, label %139
 
 .sink.split:                                      ; preds = %50, %37, %39, %46
   store i32 %3, ptr %31, align 8
@@ -178,154 +176,154 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   store i32 %64, ptr %2, align 8
   %65 = tail call fastcc i32 @r_consonant_pair(ptr noundef nonnull %0)
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %r_main_suffix.exit, label %67
+  br i1 %66, label %139, label %67
 
 67:                                               ; preds = %63
   %68 = load i32, ptr %4, align 4
   store i32 %68, ptr %2, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %68, ptr %69, align 8
-  %70 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_0) #2
-  %.not.i50 = icmp eq i32 %70, 0
-  br i1 %.not.i50, label %78, label %71
+  %70 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_0) #3
+  %.not.i76 = icmp eq i32 %70, 0
+  br i1 %.not.i76, label %78, label %71
 
 71:                                               ; preds = %67
   %72 = load i32, ptr %2, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %72, ptr %73, align 4
-  %74 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #2
-  %.not59.i = icmp eq i32 %74, 0
-  br i1 %.not59.i, label %78, label %75
+  %74 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #3
+  %.not79.i = icmp eq i32 %74, 0
+  br i1 %.not79.i, label %78, label %75
 
 75:                                               ; preds = %71
-  %76 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %r_main_suffix.exit, label %78
+  %76 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %77 = icmp sgt i32 %76, -1
+  br i1 %77, label %78, label %139
 
 78:                                               ; preds = %75, %71, %67
   %79 = load i32, ptr %4, align 4
   store i32 %79, ptr %2, align 8
   %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %79, %82
-  br i1 %83, label %r_other_suffix.exit, label %84
+  br i1 %83, label %111, label %84
 
 84:                                               ; preds = %78
   %85 = load i32, ptr %31, align 8
   store i32 %82, ptr %31, align 8
   store i32 %79, ptr %69, align 8
   %86 = add i32 %79, -1
-  %.not60.i = icmp sgt i32 %86, %82
-  br i1 %.not60.i, label %87, label %r_other_suffix.exit.sink.split
+  %.not80.i = icmp sgt i32 %86, %82
+  br i1 %.not80.i, label %87, label %.sink.split103
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %0, align 8
   %89 = sext i32 %86 to i64
-  %90 = getelementptr i8, ptr %88, i64 %89
+  %90 = getelementptr inbounds i8, ptr %88, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
-  %.mask.i52 = and i32 %92, 224
-  %.not61.i = icmp eq i32 %.mask.i52, 96
-  br i1 %.not61.i, label %93, label %r_other_suffix.exit.sink.split
+  %.mask.i77 = and i32 %92, 224
+  %.not81.i = icmp eq i32 %.mask.i77, 96
+  br i1 %.not81.i, label %93, label %.sink.split103
 
 93:                                               ; preds = %87
   %94 = and i32 %92, 31
   %95 = shl nuw i32 1, %94
   %96 = and i32 %95, 1572992
-  %.not62.i = icmp eq i32 %96, 0
-  br i1 %.not62.i, label %r_other_suffix.exit.sink.split, label %97
+  %.not82.i = icmp eq i32 %96, 0
+  br i1 %.not82.i, label %.sink.split103, label %97
 
 97:                                               ; preds = %93
-  %98 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #2
-  %.not63.i = icmp eq i32 %98, 0
-  br i1 %.not63.i, label %r_other_suffix.exit.sink.split, label %99
+  %98 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #3
+  %.not83.i = icmp eq i32 %98, 0
+  br i1 %.not83.i, label %.sink.split103, label %99
 
 99:                                               ; preds = %97
   %100 = load i32, ptr %2, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %100, ptr %101, align 4
   store i32 %85, ptr %31, align 8
-  switch i32 %98, label %r_other_suffix.exit [
+  switch i32 %98, label %111 [
     i32 1, label %102
     i32 2, label %108
   ]
 
 102:                                              ; preds = %99
-  %103 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %r_main_suffix.exit, label %105
+  %103 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %104 = icmp sgt i32 %103, -1
+  br i1 %104, label %105, label %139
 
 105:                                              ; preds = %102
   %106 = tail call fastcc i32 @r_consonant_pair(ptr noundef nonnull %0)
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %r_main_suffix.exit, label %r_other_suffix.exit
+  %107 = icmp sgt i32 %106, -1
+  br i1 %107, label %111, label %139
 
 108:                                              ; preds = %99
-  %109 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_2) #2
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %r_main_suffix.exit, label %r_other_suffix.exit
+  %109 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_2) #3
+  %110 = icmp sgt i32 %109, -1
+  br i1 %110, label %111, label %139
 
-r_other_suffix.exit.sink.split:                   ; preds = %97, %84, %87, %93
+.sink.split103:                                   ; preds = %97, %84, %87, %93
   store i32 %85, ptr %31, align 8
-  br label %r_other_suffix.exit
+  br label %111
 
-r_other_suffix.exit:                              ; preds = %r_other_suffix.exit.sink.split, %105, %99, %108, %78
-  %111 = load i32, ptr %4, align 4
-  store i32 %111, ptr %2, align 8
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr i8, ptr %112, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp slt i32 %111, %114
-  br i1 %115, label %137, label %116
+111:                                              ; preds = %.sink.split103, %105, %99, %108, %78
+  %112 = load i32, ptr %4, align 4
+  store i32 %112, ptr %2, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp slt i32 %112, %115
+  br i1 %116, label %select.unfold, label %117
 
-116:                                              ; preds = %r_other_suffix.exit
-  %117 = load i32, ptr %31, align 8
-  store i32 %114, ptr %31, align 8
-  store i32 %111, ptr %69, align 8
-  %118 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_c, i32 noundef 98, i32 noundef 122, i32 noundef 0) #2
-  %.not.i53 = icmp eq i32 %118, 0
-  br i1 %.not.i53, label %120, label %119
+117:                                              ; preds = %111
+  %118 = load i32, ptr %31, align 8
+  store i32 %115, ptr %31, align 8
+  store i32 %112, ptr %69, align 8
+  %119 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_c, i32 noundef 98, i32 noundef 122, i32 noundef 0) #3
+  %.not.i78 = icmp eq i32 %119, 0
+  br i1 %.not.i78, label %121, label %120
 
-119:                                              ; preds = %116
-  store i32 %117, ptr %31, align 8
-  br label %137
+120:                                              ; preds = %117
+  store i32 %118, ptr %31, align 8
+  br label %select.unfold
 
-120:                                              ; preds = %116
-  %121 = load i32, ptr %2, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %124 = load ptr, ptr %123, align 8
+121:                                              ; preds = %117
+  %122 = load i32, ptr %2, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %122, ptr %123, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call ptr @slice_to(ptr noundef nonnull %0, ptr noundef %125) #2
-  %127 = load ptr, ptr %123, align 8
-  store ptr %126, ptr %127, align 8
-  %128 = load ptr, ptr %123, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %r_main_suffix.exit, label %131
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call ptr @slice_to(ptr noundef nonnull %0, ptr noundef %126) #3
+  %128 = load ptr, ptr %124, align 8
+  store ptr %127, ptr %128, align 8
+  %129 = load ptr, ptr %124, align 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %139, label %132
 
-131:                                              ; preds = %120
-  store i32 %117, ptr %31, align 8
-  %132 = load ptr, ptr %128, align 8
-  %133 = tail call i32 @eq_v_b(ptr noundef nonnull %0, ptr noundef %132) #2
-  %.not25.i = icmp eq i32 %133, 0
-  br i1 %.not25.i, label %137, label %134
+132:                                              ; preds = %121
+  store i32 %118, ptr %31, align 8
+  %133 = load ptr, ptr %129, align 8
+  %134 = tail call i32 @eq_v_b(ptr noundef nonnull %0, ptr noundef %133) #3
+  %.not29.i = icmp eq i32 %134, 0
+  br i1 %.not29.i, label %select.unfold, label %135
 
-134:                                              ; preds = %131
-  %135 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %r_main_suffix.exit, label %137
+135:                                              ; preds = %132
+  %136 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %137 = icmp sgt i32 %136, -1
+  br i1 %137, label %select.unfold, label %139
 
-137:                                              ; preds = %119, %r_other_suffix.exit, %131, %134
+select.unfold:                                    ; preds = %135, %120, %111, %132
   %138 = load i32, ptr %31, align 8
   store i32 %138, ptr %2, align 8
-  br label %r_main_suffix.exit
+  br label %139
 
-r_main_suffix.exit:                               ; preds = %134, %108, %105, %102, %75, %120, %60, %55, %63, %137
-  %.0 = phi i32 [ 1, %137 ], [ %65, %63 ], [ %56, %55 ], [ %61, %60 ], [ -1, %120 ], [ %109, %108 ], [ %106, %105 ], [ %103, %102 ], [ %76, %75 ], [ %135, %134 ]
-  ret i32 %.0
+139:                                              ; preds = %135, %121, %55, %60, %75, %105, %102, %108, %63, %select.unfold
+  %.1 = phi i32 [ 1, %select.unfold ], [ %65, %63 ], [ %76, %75 ], [ %106, %105 ], [ %103, %102 ], [ %109, %108 ], [ %61, %60 ], [ %56, %55 ], [ %136, %135 ], [ -1, %121 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -337,7 +335,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_consonant_pair(ptr nound
   %.neg = sub i32 %5, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %5, %9
   br i1 %10, label %36, label %11
@@ -355,7 +353,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_consonant_pair(ptr nound
 16:                                               ; preds = %11
   %17 = load ptr, ptr %0, align 8
   %18 = sext i32 %15 to i64
-  %19 = getelementptr i8, ptr %17, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %21 [
     i8 100, label %22
@@ -367,9 +365,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_consonant_pair(ptr nound
   br label %36
 
 22:                                               ; preds = %16, %16
-  %23 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 4) #2
-  %.not45 = icmp eq i32 %23, 0
-  br i1 %.not45, label %24, label %25
+  %23 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 4) #3
+  %.not52 = icmp eq i32 %23, 0
+  br i1 %.not52, label %24, label %25
 
 24:                                               ; preds = %22
   store i32 %13, ptr %12, align 8
@@ -384,26 +382,27 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_consonant_pair(ptr nound
   %29 = add i32 %28, %.neg
   store i32 %29, ptr %4, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = tail call i32 @skip_b_utf8(ptr noundef %30, i32 noundef %29, i32 noundef %13, i32 noundef 1) #2
+  %31 = tail call i32 @skip_b_utf8(ptr noundef %30, i32 noundef %29, i32 noundef %13, i32 noundef 1) #3
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %25
   store i32 %31, ptr %4, align 8
   store i32 %31, ptr %27, align 4
-  %34 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %35 = icmp slt i32 %34, 0
-  %. = select i1 %35, i32 %34, i32 1
+  %34 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
+  %35 = icmp sgt i32 %34, -1
+  %. = tail call i32 @llvm.smin.i32(i32 %34, i32 0)
+  %spec.select = select i1 %35, i32 1, i32 %.
   br label %36
 
-36:                                               ; preds = %33, %25, %1, %24, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %24 ], [ 0, %1 ], [ 0, %25 ], [ %., %33 ]
-  ret i32 %.0
+36:                                               ; preds = %1, %24, %21, %25, %33
+  %.1 = phi i32 [ %spec.select, %33 ], [ 0, %25 ], [ 0, %21 ], [ 0, %24 ], [ 0, %1 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @danish_UTF_8_create_env() local_unnamed_addr #0 {
-  %1 = tail call ptr @SN_create_env(i32 noundef 1, i32 noundef 2) #2
+  %1 = tail call ptr @SN_create_env(i32 noundef 1, i32 noundef 2) #3
   ret ptr %1
 }
 
@@ -411,7 +410,7 @@ declare ptr @SN_create_env(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @danish_UTF_8_close_env(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @SN_close_env(ptr noundef %0, i32 noundef 1) #2
+  tail call void @SN_close_env(ptr noundef %0, i32 noundef 1) #3
   ret void
 }
 
@@ -439,13 +438,16 @@ declare ptr @slice_to(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @eq_v_b(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -27,39 +27,48 @@ define dso_local i64 @ginarrayextract(ptr noundef %0) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
-  %14 = getelementptr [0 x %struct.NullableDatum], ptr %13, i64 0, i64 0
-  %15 = getelementptr inbounds %struct.NullableDatum, ptr %14, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %13, i64 0, i64 0
+  %15 = getelementptr inbounds nuw %struct.NullableDatum, ptr %14, i32 0, i32 0
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @DatumGetPointer(i64 noundef %16)
   %18 = call ptr @pg_detoast_datum_copy(ptr noundef %17)
   store ptr %18, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
-  %21 = getelementptr [0 x %struct.NullableDatum], ptr %20, i64 0, i64 1
-  %22 = getelementptr inbounds %struct.NullableDatum, ptr %21, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %20, i64 0, i64 1
+  %22 = getelementptr inbounds nuw %struct.NullableDatum, ptr %21, i32 0, i32 0
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @DatumGetPointer(i64 noundef %23)
   store ptr %24, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
-  %27 = getelementptr [0 x %struct.NullableDatum], ptr %26, i64 0, i64 2
-  %28 = getelementptr inbounds %struct.NullableDatum, ptr %27, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %25, i32 0, i32 6
+  %27 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %26, i64 0, i64 2
+  %28 = getelementptr inbounds nuw %struct.NullableDatum, ptr %27, i32 0, i32 0
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @DatumGetPointer(i64 noundef %29)
   store ptr %30, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.ArrayType, ptr %31, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %struct.ArrayType, ptr %31, i32 0, i32 3
   %33 = load i32, ptr %32, align 4
   call void @get_typlenbyvalalign(i32 noundef %33, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %34 = load ptr, ptr %3, align 8
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.ArrayType, ptr %35, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.ArrayType, ptr %35, i32 0, i32 3
   %37 = load i32, ptr %36, align 4
   %38 = load i16, ptr %6, align 2
   %39 = sext i16 %38 to i32
-  %40 = load i8, ptr %7, align 1
+  %40 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %41 = trunc i8 %40 to i1
   %42 = load i8, ptr %8, align 1
   call void @deconstruct_array(ptr noundef %34, i32 noundef %37, i32 noundef %39, i1 noundef zeroext %41, i8 noundef signext %42, ptr noundef %9, ptr noundef %10, ptr noundef %11)
@@ -71,13 +80,25 @@ define dso_local i64 @ginarrayextract(ptr noundef %0) #0 {
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %9, align 8
   %48 = call i64 @PointerGetDatum(ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %48
 }
 
-declare ptr @pg_detoast_datum_copy(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+declare ptr @pg_detoast_datum_copy(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -85,12 +106,12 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -98,12 +119,15 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginarrayextract_2args(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %3, i32 0, i32 5
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   %7 = icmp slt i32 %6, 3
@@ -116,7 +140,7 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef %0) #0 {
   br i1 true, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   br i1 %11, label %14, label %16
 
 12:                                               ; preds = %9
@@ -141,13 +165,13 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) #1
+declare i32 @errmsg_internal(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
@@ -164,53 +188,64 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 0
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetPointer(i64 noundef %18)
   %20 = call ptr @pg_detoast_datum_copy(ptr noundef %19)
   store ptr %20, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 1
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %22, i64 0, i64 1
+  %24 = getelementptr inbounds nuw %struct.NullableDatum, ptr %23, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
   %26 = call ptr @DatumGetPointer(i64 noundef %25)
   store ptr %26, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #5
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
-  %29 = getelementptr [0 x %struct.NullableDatum], ptr %28, i64 0, i64 2
-  %30 = getelementptr inbounds %struct.NullableDatum, ptr %29, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %28, i64 0, i64 2
+  %30 = getelementptr inbounds nuw %struct.NullableDatum, ptr %29, i32 0, i32 0
   %31 = load i64, ptr %30, align 8
   %32 = call zeroext i16 @DatumGetUInt16(i64 noundef %31)
   store i16 %32, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 5
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 5
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @DatumGetPointer(i64 noundef %37)
   store ptr %38, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 6
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 6
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call ptr @DatumGetPointer(i64 noundef %43)
   store ptr %44, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.ArrayType, ptr %45, i32 0, i32 3
+  %46 = getelementptr inbounds nuw %struct.ArrayType, ptr %45, i32 0, i32 3
   %47 = load i32, ptr %46, align 4
   call void @get_typlenbyvalalign(i32 noundef %47, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %48 = load ptr, ptr %3, align 8
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.ArrayType, ptr %49, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.ArrayType, ptr %49, i32 0, i32 3
   %51 = load i32, ptr %50, align 4
   %52 = load i16, ptr %8, align 2
   %53 = sext i16 %52 to i32
-  %54 = load i8, ptr %9, align 1
+  %54 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %55 = trunc i8 %54 to i1
   %56 = load i8, ptr %10, align 1
   call void @deconstruct_array(ptr noundef %48, i32 noundef %51, i32 noundef %53, i1 noundef zeroext %55, i8 noundef signext %56, ptr noundef %11, ptr noundef %12, ptr noundef %13)
@@ -232,7 +267,7 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
 63:                                               ; preds = %1
   %64 = load ptr, ptr %7, align 8
   store i32 0, ptr %64, align 4
-  br label %95
+  br label %96
 
 65:                                               ; preds = %1
   %66 = load i32, ptr %13, align 4
@@ -250,12 +285,12 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
   br label %72
 
 72:                                               ; preds = %70, %68
-  br label %95
+  br label %96
 
 73:                                               ; preds = %1
   %74 = load ptr, ptr %7, align 8
   store i32 1, ptr %74, align 4
-  br label %95
+  br label %96
 
 75:                                               ; preds = %1
   %76 = load i32, ptr %13, align 4
@@ -273,7 +308,7 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
   br label %82
 
 82:                                               ; preds = %80, %78
-  br label %95
+  br label %96
 
 83:                                               ; preds = %1
   br label %84
@@ -282,7 +317,7 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
   br i1 true, label %85, label %87
 
 85:                                               ; preds = %84
-  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   br i1 %86, label %89, label %93
 
 87:                                               ; preds = %84
@@ -302,14 +337,28 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef %0) #0 {
 94:                                               ; No predecessors!
   br label %95
 
-95:                                               ; preds = %94, %82, %73, %72, %63
-  %96 = load ptr, ptr %11, align 8
-  %97 = call i64 @PointerGetDatum(ptr noundef %96)
-  ret i64 %97
+95:                                               ; preds = %94
+  br label %96
+
+96:                                               ; preds = %95, %82, %73, %72, %63
+  %97 = load ptr, ptr %11, align 8
+  %98 = call i64 @PointerGetDatum(ptr noundef %97)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %98
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @DatumGetUInt16(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @DatumGetUInt16(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -328,41 +377,48 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
-  %12 = getelementptr [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
-  %13 = getelementptr inbounds %struct.NullableDatum, ptr %12, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %10, i32 0, i32 6
+  %12 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %11, i64 0, i64 0
+  %13 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
   %15 = call ptr @DatumGetPointer(i64 noundef %14)
   store ptr %15, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #5
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %16, i32 0, i32 6
-  %18 = getelementptr [0 x %struct.NullableDatum], ptr %17, i64 0, i64 1
-  %19 = getelementptr inbounds %struct.NullableDatum, ptr %18, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %16, i32 0, i32 6
+  %18 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %17, i64 0, i64 1
+  %19 = getelementptr inbounds nuw %struct.NullableDatum, ptr %18, i32 0, i32 0
   %20 = load i64, ptr %19, align 8
   %21 = call zeroext i16 @DatumGetUInt16(i64 noundef %20)
   store i16 %21, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
-  %24 = getelementptr [0 x %struct.NullableDatum], ptr %23, i64 0, i64 3
-  %25 = getelementptr inbounds %struct.NullableDatum, ptr %24, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %23, i64 0, i64 3
+  %25 = getelementptr inbounds nuw %struct.NullableDatum, ptr %24, i32 0, i32 0
   %26 = load i64, ptr %25, align 8
   %27 = call i32 @DatumGetInt32(i64 noundef %26)
   store i32 %27, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
-  %30 = getelementptr [0 x %struct.NullableDatum], ptr %29, i64 0, i64 5
-  %31 = getelementptr inbounds %struct.NullableDatum, ptr %30, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %29, i64 0, i64 5
+  %31 = getelementptr inbounds nuw %struct.NullableDatum, ptr %30, i32 0, i32 0
   %32 = load i64, ptr %31, align 8
   %33 = call ptr @DatumGetPointer(i64 noundef %32)
   store ptr %33, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %34, i32 0, i32 6
-  %36 = getelementptr [0 x %struct.NullableDatum], ptr %35, i64 0, i64 7
-  %37 = getelementptr inbounds %struct.NullableDatum, ptr %36, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %34, i32 0, i32 6
+  %36 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %35, i64 0, i64 7
+  %37 = getelementptr inbounds nuw %struct.NullableDatum, ptr %36, i32 0, i32 0
   %38 = load i64, ptr %37, align 8
   %39 = call ptr @DatumGetPointer(i64 noundef %38)
   store ptr %39, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   %40 = load i16, ptr %4, align 2
   %41 = zext i16 %40 to i32
   switch i32 %41, label %115 [
@@ -389,8 +445,8 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %49 = load ptr, ptr %3, align 8
   %50 = load i32, ptr %9, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i8, ptr %49, i64 %51
-  %53 = load i8, ptr %52, align 1
+  %52 = getelementptr inbounds i8, ptr %49, i64 %51
+  %53 = load i8, ptr %52, align 1, !range !4, !noundef !5
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %63
 
@@ -398,8 +454,8 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %56 = load ptr, ptr %7, align 8
   %57 = load i32, ptr %9, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %56, i64 %58
-  %60 = load i8, ptr %59, align 1
+  %59 = getelementptr inbounds i8, ptr %56, i64 %58
+  %60 = load i8, ptr %59, align 1, !range !4, !noundef !5
   %61 = trunc i8 %60 to i1
   br i1 %61, label %63, label %62
 
@@ -414,10 +470,10 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %65 = load i32, ptr %9, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %9, align 4
-  br label %44, !llvm.loop !5
+  br label %44, !llvm.loop !6
 
 67:                                               ; preds = %62, %44
-  br label %127
+  br label %128
 
 68:                                               ; preds = %1
   %69 = load ptr, ptr %6, align 8
@@ -436,8 +492,8 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %75 = load ptr, ptr %3, align 8
   %76 = load i32, ptr %9, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %75, i64 %77
-  %79 = load i8, ptr %78, align 1
+  %78 = getelementptr inbounds i8, ptr %75, i64 %77
+  %79 = load i8, ptr %78, align 1, !range !4, !noundef !5
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %88
 
@@ -445,8 +501,8 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %82 = load ptr, ptr %7, align 8
   %83 = load i32, ptr %9, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr i8, ptr %82, i64 %84
-  %86 = load i8, ptr %85, align 1
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
+  %86 = load i8, ptr %85, align 1, !range !4, !noundef !5
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %89
 
@@ -461,16 +517,16 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %91 = load i32, ptr %9, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %9, align 4
-  br label %70, !llvm.loop !7
+  br label %70, !llvm.loop !8
 
 93:                                               ; preds = %88, %70
-  br label %127
+  br label %128
 
 94:                                               ; preds = %1
   %95 = load ptr, ptr %6, align 8
   store i8 1, ptr %95, align 1
   store i8 1, ptr %8, align 1
-  br label %127
+  br label %128
 
 96:                                               ; preds = %1
   %97 = load ptr, ptr %6, align 8
@@ -489,8 +545,8 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %103 = load ptr, ptr %3, align 8
   %104 = load i32, ptr %9, align 4
   %105 = sext i32 %104 to i64
-  %106 = getelementptr i8, ptr %103, i64 %105
-  %107 = load i8, ptr %106, align 1
+  %106 = getelementptr inbounds i8, ptr %103, i64 %105
+  %107 = load i8, ptr %106, align 1, !range !4, !noundef !5
   %108 = trunc i8 %107 to i1
   br i1 %108, label %110, label %109
 
@@ -505,10 +561,10 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   %112 = load i32, ptr %9, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %9, align 4
-  br label %98, !llvm.loop !8
+  br label %98, !llvm.loop !9
 
 114:                                              ; preds = %109, %98
-  br label %127
+  br label %128
 
 115:                                              ; preds = %1
   br label %116
@@ -517,7 +573,7 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   br i1 true, label %117, label %119
 
 117:                                              ; preds = %116
-  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   br i1 %118, label %121, label %125
 
 119:                                              ; preds = %116
@@ -535,18 +591,28 @@ define dso_local i64 @ginarrayconsistent(ptr noundef %0) #0 {
   unreachable
 
 126:                                              ; No predecessors!
-  store i8 0, ptr %8, align 1
   br label %127
 
-127:                                              ; preds = %126, %114, %94, %93, %67
-  %128 = load i8, ptr %8, align 1
-  %129 = trunc i8 %128 to i1
-  %130 = call i64 @BoolGetDatum(i1 noundef zeroext %129)
-  ret i64 %130
+127:                                              ; preds = %126
+  store i8 0, ptr %8, align 1
+  br label %128
+
+128:                                              ; preds = %127, %114, %94, %93, %67
+  %129 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %130 = trunc i8 %129 to i1
+  %131 = call i64 @BoolGetDatum(i1 noundef zeroext %130)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %131
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -554,12 +620,12 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BoolGetDatum(i1 noundef zeroext %0) #3 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
-  %4 = load i8, ptr %2, align 1
+  %4 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i32 1, i32 0
   %7 = sext i32 %6 to i64
@@ -576,34 +642,40 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
-  %11 = getelementptr [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.NullableDatum, ptr %11, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %11, i32 0, i32 0
   %13 = load i64, ptr %12, align 8
   %14 = call ptr @DatumGetPointer(i64 noundef %13)
   store ptr %14, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #5
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
-  %18 = getelementptr inbounds %struct.NullableDatum, ptr %17, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %15, i32 0, i32 6
+  %17 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 1
+  %18 = getelementptr inbounds nuw %struct.NullableDatum, ptr %17, i32 0, i32 0
   %19 = load i64, ptr %18, align 8
   %20 = call zeroext i16 @DatumGetUInt16(i64 noundef %19)
   store i16 %20, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
-  %23 = getelementptr [0 x %struct.NullableDatum], ptr %22, i64 0, i64 3
-  %24 = getelementptr inbounds %struct.NullableDatum, ptr %23, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %22, i64 0, i64 3
+  %24 = getelementptr inbounds nuw %struct.NullableDatum, ptr %23, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
   %26 = call i32 @DatumGetInt32(i64 noundef %25)
   store i32 %26, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
-  %29 = getelementptr [0 x %struct.NullableDatum], ptr %28, i64 0, i64 6
-  %30 = getelementptr inbounds %struct.NullableDatum, ptr %29, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %28, i64 0, i64 6
+  %30 = getelementptr inbounds nuw %struct.NullableDatum, ptr %29, i32 0, i32 0
   %31 = load i64, ptr %30, align 8
   %32 = call ptr @DatumGetPointer(i64 noundef %31)
   store ptr %32, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %33 = load i16, ptr %4, align 2
   %34 = zext i16 %33 to i32
   switch i32 %34, label %131 [
@@ -628,8 +700,8 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %41 = load ptr, ptr %6, align 8
   %42 = load i32, ptr %8, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = load i8, ptr %44, align 1
+  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  %45 = load i8, ptr %44, align 1, !range !4, !noundef !5
   %46 = trunc i8 %45 to i1
   br i1 %46, label %71, label %47
 
@@ -637,7 +709,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %48 = load ptr, ptr %3, align 8
   %49 = load i32, ptr %8, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i8, ptr %48, i64 %50
+  %51 = getelementptr inbounds i8, ptr %48, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
   %54 = icmp eq i32 %53, 1
@@ -651,7 +723,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %57 = load ptr, ptr %3, align 8
   %58 = load i32, ptr %8, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr i8, ptr %57, i64 %59
+  %60 = getelementptr inbounds i8, ptr %57, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = sext i8 %61 to i32
   %63 = icmp eq i32 %62, 2
@@ -680,10 +752,10 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %73 = load i32, ptr %8, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %8, align 4
-  br label %36, !llvm.loop !9
+  br label %36, !llvm.loop !10
 
 75:                                               ; preds = %55, %36
-  br label %143
+  br label %144
 
 76:                                               ; preds = %1
   store i8 1, ptr %7, align 1
@@ -700,7 +772,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %82 = load ptr, ptr %3, align 8
   %83 = load i32, ptr %8, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr i8, ptr %82, i64 %84
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i32
   %88 = icmp eq i32 %87, 0
@@ -710,8 +782,8 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %90 = load ptr, ptr %6, align 8
   %91 = load i32, ptr %8, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr i8, ptr %90, i64 %92
-  %94 = load i8, ptr %93, align 1
+  %93 = getelementptr inbounds i8, ptr %90, i64 %92
+  %94 = load i8, ptr %93, align 1, !range !4, !noundef !5
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %97
 
@@ -723,7 +795,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %98 = load ptr, ptr %3, align 8
   %99 = load i32, ptr %8, align 4
   %100 = sext i32 %99 to i64
-  %101 = getelementptr i8, ptr %98, i64 %100
+  %101 = getelementptr inbounds i8, ptr %98, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = sext i8 %102 to i32
   %104 = icmp eq i32 %103, 2
@@ -740,14 +812,14 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %108 = load i32, ptr %8, align 4
   %109 = add i32 %108, 1
   store i32 %109, ptr %8, align 4
-  br label %77, !llvm.loop !10
+  br label %77, !llvm.loop !11
 
 110:                                              ; preds = %96, %77
-  br label %143
+  br label %144
 
 111:                                              ; preds = %1
   store i8 2, ptr %7, align 1
-  br label %143
+  br label %144
 
 112:                                              ; preds = %1
   store i8 2, ptr %7, align 1
@@ -764,7 +836,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %118 = load ptr, ptr %3, align 8
   %119 = load i32, ptr %8, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr i8, ptr %118, i64 %120
+  %121 = getelementptr inbounds i8, ptr %118, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = sext i8 %122 to i32
   %124 = icmp eq i32 %123, 0
@@ -781,10 +853,10 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   %128 = load i32, ptr %8, align 4
   %129 = add i32 %128, 1
   store i32 %129, ptr %8, align 4
-  br label %113, !llvm.loop !11
+  br label %113, !llvm.loop !12
 
 130:                                              ; preds = %125, %113
-  br label %143
+  br label %144
 
 131:                                              ; preds = %1
   br label %132
@@ -793,7 +865,7 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   br i1 true, label %133, label %135
 
 133:                                              ; preds = %132
-  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   br i1 %134, label %137, label %141
 
 135:                                              ; preds = %132
@@ -811,17 +883,26 @@ define dso_local i64 @ginarraytriconsistent(ptr noundef %0) #0 {
   unreachable
 
 142:                                              ; No predecessors!
-  store i8 0, ptr %7, align 1
   br label %143
 
-143:                                              ; preds = %142, %130, %111, %110, %75
-  %144 = load i8, ptr %7, align 1
-  %145 = call i64 @GinTernaryValueGetDatum(i8 noundef signext %144)
-  ret i64 %145
+143:                                              ; preds = %142
+  store i8 0, ptr %7, align 1
+  br label %144
+
+144:                                              ; preds = %143, %130, %111, %110, %75
+  %145 = load i8, ptr %7, align 1
+  %146 = call i64 @GinTernaryValueGetDatum(i8 noundef signext %145)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %146
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @GinTernaryValueGetDatum(i8 noundef signext %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @GinTernaryValueGetDatum(i8 noundef signext %0) #3 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
@@ -829,22 +910,26 @@ define internal i64 @GinTernaryValueGetDatum(i8 noundef signext %0) #0 {
   ret i64 %4
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

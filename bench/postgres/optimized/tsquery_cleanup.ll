@@ -16,7 +16,7 @@ define dso_local ptr @clean_NOT(ptr noundef %0, ptr noundef writeonly captures(n
   %3 = alloca %struct.PLAINTREE, align 8
   %4 = tail call fastcc ptr @maketree(ptr noundef %0)
   %5 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -44,9 +44,12 @@ plaintree.exit:                                   ; preds = %2, %8, %12
   %14 = phi ptr [ %.pre6.i, %12 ], [ null, %8 ], [ null, %2 ]
   %15 = phi i32 [ %.pre.i, %12 ], [ 0, %8 ], [ 0, %2 ]
   store i32 %15, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret ptr %14
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @maketree(ptr noundef %0) unnamed_addr #0 {
@@ -61,8 +64,8 @@ define internal fastcc ptr @maketree(ptr noundef %0) unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = getelementptr i8, ptr %0, i64 12
-  %9 = tail call fastcc ptr @maketree(ptr noundef %8)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = tail call fastcc ptr @maketree(ptr noundef nonnull %8)
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1
@@ -77,8 +80,8 @@ common.ret12:                                     ; preds = %6, %1, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr %union.QueryItem, ptr %0, i64 %15
-  %17 = tail call fastcc ptr @maketree(ptr noundef %16)
+  %16 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %15
+  %17 = tail call fastcc ptr @maketree(ptr noundef nonnull %16)
   store ptr %17, ptr %2, align 8
   br label %common.ret12
 }
@@ -160,19 +163,24 @@ define internal fastcc ptr @clean_NOT_intree(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.027
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PLAINTREE, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %0, i64 8
-  %11 = tail call fastcc ptr @maketree(ptr noundef %10)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = tail call fastcc ptr @maketree(ptr noundef nonnull %10)
   %12 = call fastcc ptr @clean_stopword_intree(ptr noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %22
@@ -189,7 +197,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 409, ptr noundef nonnull @__func__.cleanup_tsquery_stopwords) #7
   br label %19
 
-19:                                               ; preds = %17, %15, %14
+19:                                               ; preds = %15, %17, %14
   %20 = tail call ptr @palloc(i64 noundef 8) #7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4
@@ -198,7 +206,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 
 22:                                               ; preds = %9
   %23 = tail call fastcc i32 @calcstrlen(ptr noundef nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -221,7 +229,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 plaintree.exit:                                   ; preds = %22, %29
   %31 = phi ptr [ %.pre6.i, %29 ], [ null, %22 ]
   %32 = phi i32 [ %.pre.i, %29 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   %33 = mul i32 %32, 12
   %34 = add i32 %23, 8
   %35 = add i32 %34, %33
@@ -231,48 +239,52 @@ plaintree.exit:                                   ; preds = %22, %29
   store i32 %38, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %32, ptr %39, align 4
-  %40 = getelementptr i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = sext i32 %32 to i64
   %42 = mul nsw i64 %41, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %31, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr align 4 %31, i64 %42, i1 false)
   %43 = icmp sgt i32 %32, 0
   br i1 %43, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %plaintree.exit
-  %44 = getelementptr i8, ptr %40, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %45 = phi i32 [ %32, %.lr.ph.preheader ], [ %80, %79 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
   %.04045 = phi ptr [ %44, %.lr.ph.preheader ], [ %.1, %79 ]
-  %46 = getelementptr %union.QueryItem, ptr %40, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %union.QueryItem, ptr %40, i64 %indvars.iv
   %47 = load i8, ptr %46, align 4
   %.not = icmp eq i8 %47, 1
-  br i1 %.not, label %48, label %79
+  br i1 %.not, label %48, label %.lr.ph._crit_edge
+
+.lr.ph._crit_edge:                                ; preds = %.lr.ph
+  %.pre = sext i32 %45 to i64
+  br label %79
 
 48:                                               ; preds = %.lr.ph
   %49 = load i32, ptr %6, align 4
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 12
-  %52 = getelementptr i8, ptr %10, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = lshr i32 %54, 12
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr i8, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
   %58 = and i32 %54, 4095
   %59 = zext nneg i32 %58 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04045, ptr align 1 %57, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04045, ptr nonnull align 1 %57, i64 %59, i1 false)
   %60 = load i32, ptr %53, align 4
   %61 = and i32 %60, 4095
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr i8, ptr %.04045, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %.04045, i64 %62
   store i8 0, ptr %63, align 1
   %64 = load i32, ptr %39, align 4
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 12
-  %67 = getelementptr i8, ptr %40, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %40, i64 %66
   %68 = ptrtoint ptr %.04045 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
@@ -283,21 +295,22 @@ plaintree.exit:                                   ; preds = %22, %29
   %75 = or disjoint i32 %73, %74
   store i32 %75, ptr %53, align 4
   %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr i8, ptr %.04045, i64 %76
-  %78 = getelementptr i8, ptr %77, i64 1
-  %.pre = load i32, ptr %39, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %.04045, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   br label %79
 
-79:                                               ; preds = %.lr.ph, %48
-  %80 = phi i32 [ %45, %.lr.ph ], [ %.pre, %48 ]
-  %.1 = phi ptr [ %.04045, %.lr.ph ], [ %78, %48 ]
+79:                                               ; preds = %.lr.ph._crit_edge, %48
+  %.pre-phi = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %65, %48 ]
+  %80 = phi i32 [ %45, %.lr.ph._crit_edge ], [ %64, %48 ]
+  %.1 = phi ptr [ %.04045, %.lr.ph._crit_edge ], [ %78, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  %81 = icmp slt i64 %indvars.iv.next, %.pre-phi
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %79, %plaintree.exit, %2, %19
   %.0 = phi ptr [ %20, %19 ], [ %0, %2 ], [ %37, %plaintree.exit ], [ %37, %79 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   ret ptr %.0
 }
 
@@ -314,13 +327,13 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr noundef no
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %12 [
-    i8 1, label %79
+    i8 1, label %80
     i8 3, label %11
   ]
 
 11:                                               ; preds = %3
   tail call void @pfree(ptr noundef nonnull %0) #7
-  br label %79
+  br label %80
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -334,13 +347,17 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr noundef no
   %19 = tail call fastcc ptr @clean_stopword_intree(ptr noundef %18, ptr noundef %1, ptr noundef %2)
   store ptr %19, ptr %17, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %79
+  br i1 %.not, label %20, label %80
 
 20:                                               ; preds = %16
   tail call fastcc void @freetree(ptr noundef nonnull %0)
-  br label %79
+  br label %80
 
 21:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   %22 = load ptr, ptr %0, align 8
   %23 = call fastcc ptr @clean_stopword_intree(ptr noundef %22, ptr noundef %4, ptr noundef %5)
   store ptr %23, ptr %0, align 8
@@ -449,21 +466,29 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr noundef no
   store i32 %78, ptr %2, align 4
   br label %79
 
-79:                                               ; preds = %16, %62, %68, %69, %59, %3, %50, %20, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %50 ], [ %0, %3 ], [ %60, %59 ], [ %67, %62 ], [ %0, %69 ], [ %0, %68 ], [ %0, %16 ]
+79:                                               ; preds = %62, %68, %69, %59, %50
+  %.1 = phi ptr [ null, %50 ], [ %60, %59 ], [ %67, %62 ], [ %0, %69 ], [ %0, %68 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  br label %80
+
+80:                                               ; preds = %16, %3, %79, %20, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %20 ], [ %.1, %79 ], [ %0, %3 ], [ %0, %16 ]
   ret ptr %.0
 }
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @calcstrlen(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc i32 @calcstrlen(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 4
@@ -508,9 +533,9 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @check_stack_depth() local_unnamed_addr #1
+declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -537,7 +562,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %14 = phi i32 [ %.pre27, %8 ], [ %4, %2 ]
   %15 = phi ptr [ %12, %8 ], [ %.pre, %2 ]
   %16 = sext i32 %14 to i64
-  %17 = getelementptr %union.QueryItem, ptr %15, i64 %16
+  %17 = getelementptr inbounds %union.QueryItem, ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
@@ -562,7 +587,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %31 = load ptr, ptr %0, align 8
   %32 = load i32, ptr %3, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %union.QueryItem, ptr %31, i64 %33, i32 0, i32 3
+  %34 = getelementptr inbounds %union.QueryItem, ptr %31, i64 %33, i32 0, i32 3
   store i32 1, ptr %34, align 4
   %35 = load i32, ptr %3, align 4
   %36 = add i32 %35, 1
@@ -583,7 +608,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %45 = sub i32 %44, %40
   %46 = load ptr, ptr %0, align 8
   %47 = sext i32 %40 to i64
-  %48 = getelementptr %union.QueryItem, ptr %46, i64 %47, i32 0, i32 3
+  %48 = getelementptr inbounds %union.QueryItem, ptr %46, i64 %47, i32 0, i32 3
   store i32 %45, ptr %48, align 4
   %49 = load ptr, ptr %1, align 8
   tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %49)
@@ -594,9 +619,9 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @freetree(ptr noundef %0) unnamed_addr #0 {
@@ -632,32 +657,25 @@ define internal fastcc void @freetree(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

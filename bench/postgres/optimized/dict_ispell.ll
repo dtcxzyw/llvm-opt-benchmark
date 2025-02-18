@@ -37,111 +37,111 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph88, label %._crit_edge
 
-.lr.ph88:                                         ; preds = %.lr.ph, %55
-  %.0304887 = phi i1 [ %.131, %55 ], [ false, %.lr.ph ]
-  %.0275086 = phi i8 [ %.128, %55 ], [ 0, %.lr.ph ]
-  %.05185 = phi i8 [ %.1, %55 ], [ 0, %.lr.ph ]
-  %indvars.iv84 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv84
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str) #7
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %27
-
-18:                                               ; preds = %.lr.ph88
-  %19 = trunc nuw i8 %.0275086 to i1
-  br i1 %19, label %20, label %24
-
-20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 52, ptr noundef nonnull @__func__.dispell_init) #6
-  unreachable
-
-24:                                               ; preds = %18
-  %25 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
-  %26 = tail call ptr @get_tsearch_config_filename(ptr noundef %25, ptr noundef nonnull @.str.3) #6
-  tail call void @NIImportDictionary(ptr noundef nonnull %5, ptr noundef %26) #6
-  br label %55
-
-27:                                               ; preds = %.lr.ph88
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.4) #7
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %39
-
-30:                                               ; preds = %27
-  %31 = trunc nuw i8 %.05185 to i1
-  br i1 %31, label %32, label %36
-
-32:                                               ; preds = %30
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 63, ptr noundef nonnull @__func__.dispell_init) #6
-  unreachable
-
-36:                                               ; preds = %30
-  %37 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
-  %38 = tail call ptr @get_tsearch_config_filename(ptr noundef %37, ptr noundef nonnull @.str.6) #6
-  tail call void @NIImportAffixes(ptr noundef nonnull %5, ptr noundef %38) #6
-  br label %55
-
-39:                                               ; preds = %27
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.7) #7
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %49
-
-42:                                               ; preds = %39
-  br i1 %.0304887, label %43, label %47
-
-43:                                               ; preds = %42
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 74, ptr noundef nonnull @__func__.dispell_init) #6
-  unreachable
-
-47:                                               ; preds = %42
-  %48 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
-  tail call void @readstoplist(ptr noundef %48, ptr noundef %4, ptr noundef nonnull @lowerstr) #6
-  br label %55
-
-49:                                               ; preds = %39
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %53 = load ptr, ptr %50, align 8
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %53) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 83, ptr noundef nonnull @__func__.dispell_init) #6
-  unreachable
-
-55:                                               ; preds = %24, %47, %36
-  %.131 = phi i1 [ %.0304887, %24 ], [ %.0304887, %36 ], [ true, %47 ]
-  %.128 = phi i8 [ 1, %24 ], [ %.0275086, %36 ], [ %.0275086, %47 ]
-  %.1 = phi i8 [ %.05185, %24 ], [ 1, %36 ], [ %.05185, %47 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv84, 1
-  %56 = load i32, ptr %7, align 4
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph88, label %.._crit_edge_crit_edge
-
-.._crit_edge_crit_edge:                           ; preds = %55
-  %59 = trunc nuw i8 %.1 to i1
-  %60 = trunc nuw i8 %.128 to i1
+.._crit_edge_crit_edge:                           ; preds = %57
+  %11 = trunc nuw i8 %.1 to i1
+  %12 = trunc nuw i8 %.128 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph
-  %.051.lcssa = phi i1 [ %59, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
-  %.02750.lcssa = phi i1 [ %60, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  %.051.lcssa = phi i1 [ %11, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  %.02750.lcssa = phi i1 [ %12, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
   br i1 %.051.lcssa, label %61, label %.critedge
+
+.lr.ph88:                                         ; preds = %.lr.ph, %57
+  %.0294887 = phi i1 [ %.130, %57 ], [ false, %.lr.ph ]
+  %.0275086 = phi i8 [ %.128, %57 ], [ 0, %.lr.ph ]
+  %.05185 = phi i8 [ %.1, %57 ], [ 0, %.lr.ph ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
+  %13 = load ptr, ptr %8, align 8
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv84
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str) #7
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %29
+
+20:                                               ; preds = %.lr.ph88
+  %21 = trunc nuw i8 %.0275086 to i1
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %20
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %23)
+  %24 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 53, ptr noundef nonnull @__func__.dispell_init) #6
+  unreachable
+
+26:                                               ; preds = %20
+  %27 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  %28 = tail call ptr @get_tsearch_config_filename(ptr noundef %27, ptr noundef nonnull @.str.3) #6
+  tail call void @NIImportDictionary(ptr noundef nonnull %5, ptr noundef %28) #6
+  br label %57
+
+29:                                               ; preds = %.lr.ph88
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.4) #7
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %41
+
+32:                                               ; preds = %29
+  %33 = trunc nuw i8 %.05185 to i1
+  br i1 %33, label %34, label %38
+
+34:                                               ; preds = %32
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 64, ptr noundef nonnull @__func__.dispell_init) #6
+  unreachable
+
+38:                                               ; preds = %32
+  %39 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  %40 = tail call ptr @get_tsearch_config_filename(ptr noundef %39, ptr noundef nonnull @.str.6) #6
+  tail call void @NIImportAffixes(ptr noundef nonnull %5, ptr noundef %40) #6
+  br label %57
+
+41:                                               ; preds = %29
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.7) #7
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %51
+
+44:                                               ; preds = %41
+  br i1 %.0294887, label %45, label %49
+
+45:                                               ; preds = %44
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %46)
+  %47 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 75, ptr noundef nonnull @__func__.dispell_init) #6
+  unreachable
+
+49:                                               ; preds = %44
+  %50 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  tail call void @readstoplist(ptr noundef %50, ptr noundef %4, ptr noundef nonnull @str_tolower) #6
+  br label %57
+
+51:                                               ; preds = %41
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %53)
+  %54 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %55 = load ptr, ptr %52, align 8
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %55) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 84, ptr noundef nonnull @__func__.dispell_init) #6
+  unreachable
+
+57:                                               ; preds = %38, %49, %26
+  %.130 = phi i1 [ %.0294887, %26 ], [ %.0294887, %38 ], [ true, %49 ]
+  %.128 = phi i8 [ 1, %26 ], [ %.0275086, %38 ], [ %.0275086, %49 ]
+  %.1 = phi i8 [ %.05185, %26 ], [ 1, %38 ], [ %.05185, %49 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv84, 1
+  %58 = load i32, ptr %7, align 4
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %.lr.ph88, label %.._crit_edge_crit_edge
 
 61:                                               ; preds = %._crit_edge
   br i1 %.02750.lcssa, label %62, label %67
@@ -158,7 +158,7 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   tail call void @llvm.assume(i1 %64)
   %65 = tail call i32 @errcode(i32 noundef 50856066) #6
   %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 96, ptr noundef nonnull @__func__.dispell_init) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 97, ptr noundef nonnull @__func__.dispell_init) #6
   unreachable
 
 67:                                               ; preds = %61
@@ -166,7 +166,7 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   tail call void @llvm.assume(i1 %68)
   %69 = tail call i32 @errcode(i32 noundef 50856066) #6
   %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 102, ptr noundef nonnull @__func__.dispell_init) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @__func__.dispell_init) #6
   unreachable
 }
 
@@ -196,7 +196,7 @@ declare void @NIImportAffixes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @readstoplist(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lowerstr(ptr noundef) #1
+declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) #1
 
 declare void @NISortDictionary(ptr noundef) local_unnamed_addr #1
 
@@ -209,75 +209,74 @@ define dso_local i64 @dispell_lexize(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %34, label %9
+  br i1 %8, label %35, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @lowerstr_with_len(ptr noundef %12, i32 noundef %7) #6
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = tail call ptr @NINormalizeWord(ptr noundef nonnull %14, ptr noundef %13) #6
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %34, label %.preheader
+  %13 = and i64 %6, 2147483647
+  %14 = tail call ptr @str_tolower(ptr noundef %12, i64 noundef %13, i32 noundef 100) #6
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = tail call ptr @NINormalizeWord(ptr noundef nonnull %15, ptr noundef %14) #6
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %35, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not30 = icmp eq ptr %18, null
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %.not30 = icmp eq ptr %19, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %28
-  %19 = phi ptr [ %31, %28 ], [ %18, %.preheader ]
-  %20 = phi ptr [ %30, %28 ], [ %17, %.preheader ]
-  %.032 = phi ptr [ %.1, %28 ], [ %15, %.preheader ]
-  %.02431 = phi ptr [ %29, %28 ], [ %15, %.preheader ]
-  %21 = tail call zeroext i1 @searchstoplist(ptr noundef %4, ptr noundef nonnull %19) #6
-  br i1 %21, label %22, label %24
+.lr.ph:                                           ; preds = %.preheader, %29
+  %20 = phi ptr [ %32, %29 ], [ %19, %.preheader ]
+  %21 = phi ptr [ %31, %29 ], [ %18, %.preheader ]
+  %.032 = phi ptr [ %.1, %29 ], [ %16, %.preheader ]
+  %.02431 = phi ptr [ %30, %29 ], [ %16, %.preheader ]
+  %22 = tail call zeroext i1 @searchstoplist(ptr noundef %4, ptr noundef nonnull %20) #6
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %20, align 8
-  tail call void @pfree(ptr noundef %23) #6
-  store ptr null, ptr %20, align 8
-  br label %28
+23:                                               ; preds = %.lr.ph
+  %24 = load ptr, ptr %21, align 8
+  tail call void @pfree(ptr noundef %24) #6
+  store ptr null, ptr %21, align 8
+  br label %29
 
-24:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   %.not29 = icmp eq ptr %.032, %.02431
-  br i1 %.not29, label %26, label %25
+  br i1 %.not29, label %27, label %26
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.032, ptr noundef nonnull align 8 dereferenceable(16) %.02431, i64 16, i1 false)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %24
-  %27 = getelementptr i8, ptr %.032, i64 16
-  br label %28
+27:                                               ; preds = %26, %25
+  %28 = getelementptr inbounds nuw i8, ptr %.032, i64 16
+  br label %29
 
-28:                                               ; preds = %22, %26
-  %.1 = phi ptr [ %.032, %22 ], [ %27, %26 ]
-  %29 = getelementptr i8, ptr %.02431, i64 16
-  %30 = getelementptr i8, ptr %.02431, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+29:                                               ; preds = %23, %27
+  %.1 = phi ptr [ %.032, %23 ], [ %28, %27 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.02431, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02431, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %28, %.preheader
-  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %.1, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  store ptr null, ptr %32, align 8
-  %33 = ptrtoint ptr %15 to i64
-  br label %34
+._crit_edge:                                      ; preds = %29, %.preheader
+  %.0.lcssa = phi ptr [ %16, %.preheader ], [ %.1, %29 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
+  store ptr null, ptr %33, align 8
+  %34 = ptrtoint ptr %16 to i64
+  br label %35
 
-34:                                               ; preds = %9, %1, %._crit_edge
-  %.025 = phi i64 [ %33, %._crit_edge ], [ 0, %1 ], [ 0, %9 ]
+35:                                               ; preds = %9, %1, %._crit_edge
+  %.025 = phi i64 [ %34, %._crit_edge ], [ 0, %1 ], [ 0, %9 ]
   ret i64 %.025
 }
-
-declare ptr @lowerstr_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @NINormalizeWord(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -291,22 +290,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

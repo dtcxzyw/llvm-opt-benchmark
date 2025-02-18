@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.xl_xact_parsed_abort = type { i64, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, [200 x i8], i64, i64 }
 %struct.RelFileLocator = type { i32, i32, i32 }
 
-@.str = private unnamed_addr constant [73 x i8] c"logical decoding on standby requires wal_level >= logical on the primary\00", align 1
+@.str = private unnamed_addr constant [77 x i8] c"logical decoding on standby requires \22wal_level\22 >= \22logical\22 on the primary\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"decode.c\00", align 1
 @__func__.xlog_decode = private unnamed_addr constant [12 x i8] c"xlog_decode\00", align 1
 @.str.2 = private unnamed_addr constant [38 x i8] c"unexpected RM_XLOG_ID record type: %u\00", align 1
@@ -24,6 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XLogRecordBuffer, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -56,23 +57,23 @@ define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 57
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %25
-  %27 = load ptr, ptr %26, align 8, !noalias !5
+  %26 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8, !noalias !4
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %28, label %GetRmgr.exit
+  br i1 %.not.i, label %28, label %GetRmgr.exit, !prof !7
 
 28:                                               ; preds = %21
-  tail call void @RmgrNotFound(i8 noundef zeroext %24) #7, !noalias !5
+  tail call void @RmgrNotFound(i8 noundef zeroext %24) #7, !noalias !4
   br label %GetRmgr.exit
 
 GetRmgr.exit:                                     ; preds = %21, %28
-  %.sroa.1.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %.sroa.1.0.copyload14 = load ptr, ptr %.sroa.1.0..sroa_idx13, align 8
-  %.not12 = icmp eq ptr %.sroa.1.0.copyload14, null
+  %.sroa.3.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %.sroa.3.0.copyload14 = load ptr, ptr %.sroa.3.0..sroa_idx13, align 8
+  %.not12 = icmp eq ptr %.sroa.3.0.copyload14, null
   br i1 %.not12, label %30, label %29
 
 29:                                               ; preds = %GetRmgr.exit
-  call void %.sroa.1.0.copyload14(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
+  call void %.sroa.3.0.copyload14(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
   br label %36
 
 30:                                               ; preds = %GetRmgr.exit
@@ -85,15 +86,22 @@ GetRmgr.exit:                                     ; preds = %21, %28
   br label %36
 
 36:                                               ; preds = %30, %29
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   ret void
 }
 
-declare void @ReorderBufferAssignChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @ReorderBufferAssignChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @ReorderBufferProcessXid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @ReorderBufferProcessXid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlog_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -152,32 +160,32 @@ define dso_local void @xlog_decode(ptr noundef readonly captures(none) %0, ptr n
   tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 @errcode(i32 noundef 325) #7
   %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 180, ptr noundef nonnull @__func__.xlog_decode) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.xlog_decode) #7
   unreachable
 
 34:                                               ; preds = %2
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %35)
   %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %17) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.xlog_decode) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.xlog_decode) #7
   unreachable
 
-37:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %2, %19
+37:                                               ; preds = %21, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %19, %2
   ret void
 }
 
-declare void @SnapBuildSerializationPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @SnapBuildSerializationPoint(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -196,7 +204,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures
   %15 = load i8, ptr %14, align 8
   %16 = tail call i32 @SnapBuildCurrentState(ptr noundef %7) #7
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %DecodeCommit.exit, label %18
+  br i1 %17, label %314, label %18
 
 18:                                               ; preds = %2
   %19 = and i8 %15, 112
@@ -207,13 +215,14 @@ define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures
     i32 3, label %22
     i32 2, label %121
     i32 4, label %121
-    i32 5, label %DecodeCommit.exit
+    i32 5, label %314
     i32 6, label %205
     i32 1, label %228
     i32 7, label %311
   ]
 
 22:                                               ; preds = %18, %18
+  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3) #7
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
@@ -242,8 +251,8 @@ define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 281
-  %42 = load i8, ptr %41, align 1
-  %43 = trunc i8 %42 to i1
+  %42 = load i8, ptr %41, align 1, !range !8, !noundef !9
+  %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %FilterPrepare.exit
 
 44:                                               ; preds = %39
@@ -312,8 +321,8 @@ FilterByOrigin.exit.i.i:                          ; preds = %77
 
 FilterByOrigin.exit.thread.i.i:                   ; preds = %FilterByOrigin.exit.i.i, %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load i8, ptr %82, align 8
-  %84 = trunc i8 %83 to i1
+  %83 = load i8, ptr %82, align 8, !range !8, !noundef !9
+  %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %88, label %DecodeTXNNeedSkip.exit.preheader.i
 
 DecodeTXNNeedSkip.exit.preheader.i:               ; preds = %FilterByOrigin.exit.thread.i.i
@@ -339,7 +348,7 @@ DecodeTXNNeedSkip.exit.preheader.i:               ; preds = %FilterByOrigin.exit
   %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %.lr.ph55.i ], [ 0, %.preheader.i ]
   %92 = load ptr, ptr %8, align 8
   %93 = load ptr, ptr %65, align 8
-  %94 = getelementptr i32, ptr %93, i64 %indvars.iv57.i
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv57.i
   %95 = load i32, ptr %94, align 4
   %96 = load i64, ptr %1, align 8
   call void @ReorderBufferForget(ptr noundef %92, i32 noundef %95, i64 noundef %96) #7
@@ -347,7 +356,7 @@ DecodeTXNNeedSkip.exit.preheader.i:               ; preds = %FilterByOrigin.exit
   %97 = load i32, ptr %63, align 4
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next58.i, %98
-  br i1 %99, label %.lr.ph55.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %99, label %.lr.ph55.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.preheader.i
   %100 = load ptr, ptr %8, align 8
@@ -359,7 +368,7 @@ DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.e
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %DecodeTXNNeedSkip.exit.i ]
   %102 = load ptr, ptr %8, align 8
   %103 = load ptr, ptr %65, align 8
-  %104 = getelementptr i32, ptr %103, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4
   %106 = load i64, ptr %1, align 8
   %107 = load i64, ptr %87, align 8
@@ -368,7 +377,7 @@ DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.e
   %108 = load i32, ptr %63, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %DecodeTXNNeedSkip.exit.i, label %DecodeTXNNeedSkip.exit._crit_edge.i, !llvm.loop !10
+  br i1 %110, label %DecodeTXNNeedSkip.exit.i, label %DecodeTXNNeedSkip.exit._crit_edge.i, !llvm.loop !12
 
 DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.exit.i, %DecodeTXNNeedSkip.exit.preheader.i
   %111 = load ptr, ptr %8, align 8
@@ -392,7 +401,12 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
   br label %DecodeCommit.exit
 
+DecodeCommit.exit:                                ; preds = %._crit_edge.i, %120
+  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3) #7
+  br label %314
+
 121:                                              ; preds = %18, %18
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #7
   %122 = load ptr, ptr %12, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %123, align 8
@@ -414,15 +428,15 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br label %136
 
 136:                                              ; preds = %121, %132
-  %.053 = phi i32 [ %135, %132 ], [ %131, %121 ]
+  %.054 = phi i32 [ %135, %132 ], [ %131, %121 ]
   %137 = icmp eq i8 %19, 64
   br i1 %137, label %138, label %FilterPrepare.exit61
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 281
-  %141 = load i8, ptr %140, align 1
-  %142 = trunc i8 %141 to i1
+  %141 = load i8, ptr %140, align 1, !range !8, !noundef !9
+  %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %FilterPrepare.exit61
 
 143:                                              ; preds = %138
@@ -432,12 +446,12 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br i1 %146, label %FilterPrepare.exit61, label %147
 
 147:                                              ; preds = %143
-  %148 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.053, ptr noundef nonnull %139) #7
+  %148 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.054, ptr noundef nonnull %139) #7
   %149 = xor i1 %148, true
   br label %FilterPrepare.exit61
 
 FilterPrepare.exit61:                             ; preds = %147, %143, %138, %136
-  %.054 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
+  %.053 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
   %150 = load ptr, ptr %10, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
   %152 = load ptr, ptr %151, align 8
@@ -484,8 +498,8 @@ FilterByOrigin.exit.i.i71:                        ; preds = %170
 
 FilterByOrigin.exit.thread.i.i72:                 ; preds = %FilterByOrigin.exit.i.i71, %170
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %176 = load i8, ptr %175, align 8
-  %177 = trunc i8 %176 to i1
+  %176 = load i8, ptr %175, align 8, !range !8, !noundef !9
+  %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %DecodeTXNNeedSkip.exit.i73
 
 178:                                              ; preds = %FilterByOrigin.exit.thread.i.i72
@@ -494,7 +508,7 @@ FilterByOrigin.exit.thread.i.i72:                 ; preds = %FilterByOrigin.exit
   br label %.preheader.i66
 
 DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit.thread.i.i72
-  br i1 %.054, label %184, label %.preheader.i66
+  br i1 %.053, label %184, label %.preheader.i66
 
 .preheader.i66:                                   ; preds = %DecodeTXNNeedSkip.exit.i73, %178, %FilterByOrigin.exit.i.i71, %165, %FilterPrepare.exit61
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -512,14 +526,14 @@ DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %188 = load i64, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  call void @ReorderBufferFinishPrepared(ptr noundef %185, i32 noundef %.053, i64 noundef %186, i64 noundef %188, i64 noundef 0, i64 noundef %.032.i, i16 noundef zeroext %154, i64 noundef %.031.i, ptr noundef nonnull %189, i1 noundef zeroext false) #7
+  call void @ReorderBufferFinishPrepared(ptr noundef %185, i32 noundef %.054, i64 noundef %186, i64 noundef %188, i64 noundef 0, i64 noundef %.032.i, i16 noundef zeroext %154, i64 noundef %.031.i, ptr noundef nonnull %189, i1 noundef zeroext false) #7
   br label %DecodeAbort.exit
 
 190:                                              ; preds = %190, %.lr.ph.i68
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next.i70, %190 ]
   %191 = load ptr, ptr %8, align 8
   %192 = load ptr, ptr %183, align 8
-  %193 = getelementptr i32, ptr %192, i64 %indvars.iv.i69
+  %193 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv.i69
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %10, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
@@ -529,19 +543,20 @@ DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit
   %198 = load i32, ptr %180, align 4
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next.i70, %199
-  br i1 %200, label %190, label %._crit_edge.i67, !llvm.loop !11
+  br i1 %200, label %190, label %._crit_edge.i67, !llvm.loop !13
 
 ._crit_edge.i67:                                  ; preds = %190, %.preheader.i66
   %201 = load ptr, ptr %8, align 8
   %202 = load ptr, ptr %10, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %204 = load i64, ptr %203, align 8
-  call void @ReorderBufferAbort(ptr noundef %201, i32 noundef %.053, i64 noundef %204, i64 noundef %.032.i) #7
+  call void @ReorderBufferAbort(ptr noundef %201, i32 noundef %.054, i64 noundef %204, i64 noundef %.032.i) #7
   br label %DecodeAbort.exit
 
 DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i67
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
-  br label %DecodeCommit.exit
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #7
+  br label %314
 
 205:                                              ; preds = %18
   %206 = load ptr, ptr %12, align 8
@@ -551,8 +566,8 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   %210 = load ptr, ptr %209, align 8
   %.not = icmp eq i32 %208, 0
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %212 = load i8, ptr %211, align 8
-  %213 = trunc i8 %212 to i1
+  %212 = load i8, ptr %211, align 8, !range !8, !noundef !9
+  %213 = trunc nuw i8 %212 to i1
   br i1 %.not, label %223, label %214
 
 214:                                              ; preds = %205
@@ -570,19 +585,20 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   %221 = load ptr, ptr %8, align 8
   %222 = load i64, ptr %1, align 8
   tail call void @ReorderBufferXidSetCatalogChanges(ptr noundef %221, i32 noundef %208, i64 noundef %222) #7
-  br label %DecodeCommit.exit
+  br label %314
 
 223:                                              ; preds = %205
-  br i1 %213, label %DecodeCommit.exit, label %224
+  br i1 %213, label %314, label %224
 
 224:                                              ; preds = %223
   %225 = load ptr, ptr %8, align 8
   %226 = load i32, ptr %210, align 4
   %227 = getelementptr inbounds nuw i8, ptr %210, i64 4
   tail call void @ReorderBufferImmediateInvalidation(ptr noundef %225, i32 noundef %226, ptr noundef nonnull %227) #7
-  br label %DecodeCommit.exit
+  br label %314
 
 228:                                              ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %5) #7
   %229 = load ptr, ptr %12, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
@@ -596,8 +612,8 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   %238 = load i32, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 281
-  %241 = load i8, ptr %240, align 1
-  %242 = trunc i8 %241 to i1
+  %241 = load i8, ptr %240, align 1, !range !8, !noundef !9
+  %242 = trunc nuw i8 %241 to i1
   br i1 %242, label %243, label %FilterPrepare.exit75.thread
 
 243:                                              ; preds = %228
@@ -615,7 +631,7 @@ FilterPrepare.exit75.thread:                      ; preds = %FilterPrepare.exit7
   %248 = phi i32 [ %238, %228 ], [ %.pre94, %FilterPrepare.exit75 ]
   %249 = load i64, ptr %1, align 8
   call void @ReorderBufferProcessXid(ptr noundef %9, i32 noundef %248, i64 noundef %249) #7
-  br label %DecodeCommit.exit
+  br label %DecodePrepare.exit
 
 FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare.exit75
   %250 = phi i32 [ %238, %243 ], [ %.pre94, %FilterPrepare.exit75 ]
@@ -637,7 +653,7 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %265 = load i64, ptr %264, align 8
   %266 = call zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef %262, i32 noundef %250, i64 noundef %263, i64 noundef %265, i64 noundef %spec.select.i, i16 noundef zeroext %259, i64 noundef %253) #7
-  br i1 %266, label %267, label %DecodeCommit.exit
+  br i1 %266, label %267, label %DecodePrepare.exit
 
 267:                                              ; preds = %FilterPrepare.exit75.thread89
   %268 = call i32 @SnapBuildCurrentState(ptr noundef %251) #7
@@ -647,7 +663,7 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
 270:                                              ; preds = %267
   %271 = load ptr, ptr %8, align 8
   call void @ReorderBufferSkipPrepare(ptr noundef %271, i32 noundef %250) #7
-  br label %DecodeCommit.exit
+  br label %DecodePrepare.exit
 
 272:                                              ; preds = %267
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -681,8 +697,8 @@ FilterByOrigin.exit.i.i80:                        ; preds = %283
 
 FilterByOrigin.exit.thread.i.i81:                 ; preds = %FilterByOrigin.exit.i.i80, %283
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %289 = load i8, ptr %288, align 8
-  %290 = trunc i8 %289 to i1
+  %289 = load i8, ptr %288, align 8, !range !8, !noundef !9
+  %290 = trunc nuw i8 %289 to i1
   br i1 %290, label %295, label %DecodeTXNNeedSkip.exit.preheader.i82
 
 DecodeTXNNeedSkip.exit.preheader.i82:             ; preds = %FilterByOrigin.exit.thread.i.i81
@@ -706,13 +722,13 @@ DecodeTXNNeedSkip.exit.preheader.i82:             ; preds = %FilterByOrigin.exit
   %299 = load ptr, ptr %8, align 8
   %300 = load i64, ptr %1, align 8
   call void @ReorderBufferInvalidate(ptr noundef %299, i32 noundef %250, i64 noundef %300) #7
-  br label %DecodeCommit.exit
+  br label %DecodePrepare.exit
 
 DecodeTXNNeedSkip.exit.i85:                       ; preds = %DecodeTXNNeedSkip.exit.i85, %.lr.ph.i84
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %DecodeTXNNeedSkip.exit.i85 ]
   %301 = load ptr, ptr %8, align 8
   %302 = load ptr, ptr %294, align 8
-  %303 = getelementptr i32, ptr %302, i64 %indvars.iv.i86
+  %303 = getelementptr inbounds nuw i32, ptr %302, i64 %indvars.iv.i86
   %304 = load i32, ptr %303, align 4
   %305 = load i64, ptr %1, align 8
   %306 = load i64, ptr %264, align 8
@@ -721,13 +737,17 @@ DecodeTXNNeedSkip.exit.i85:                       ; preds = %DecodeTXNNeedSkip.e
   %307 = load i32, ptr %291, align 4
   %308 = sext i32 %307 to i64
   %309 = icmp slt i64 %indvars.iv.next.i87, %308
-  br i1 %309, label %DecodeTXNNeedSkip.exit.i85, label %DecodeTXNNeedSkip.exit._crit_edge.i83, !llvm.loop !12
+  br i1 %309, label %DecodeTXNNeedSkip.exit.i85, label %DecodeTXNNeedSkip.exit._crit_edge.i83, !llvm.loop !14
 
 DecodeTXNNeedSkip.exit._crit_edge.i83:            ; preds = %DecodeTXNNeedSkip.exit.i85, %DecodeTXNNeedSkip.exit.preheader.i82
   %310 = load ptr, ptr %8, align 8
   call void @ReorderBufferPrepare(ptr noundef %310, i32 noundef %250, ptr noundef nonnull %239) #7
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
-  br label %DecodeCommit.exit
+  br label %DecodePrepare.exit
+
+DecodePrepare.exit:                               ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i83, %297, %270, %FilterPrepare.exit75.thread89, %FilterPrepare.exit75.thread
+  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %5) #7
+  br label %314
 
 default.unreachable:                              ; preds = %18
   unreachable
@@ -736,26 +756,26 @@ default.unreachable:                              ; preds = %18
   %312 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %312)
   %313 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.xact_decode) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.xact_decode) #7
   unreachable
 
-DecodeCommit.exit:                                ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i83, %297, %270, %FilterPrepare.exit75.thread89, %120, %._crit_edge.i, %18, %220, %224, %223, %2, %FilterPrepare.exit75.thread, %DecodeAbort.exit
+314:                                              ; preds = %DecodeCommit.exit, %DecodeAbort.exit, %DecodePrepare.exit, %18, %223, %224, %220, %2
   ret void
 }
 
-declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #1
+declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #2
 
-declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferAddInvalidations(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @ReorderBufferAddInvalidations(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferImmediateInvalidation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @ReorderBufferImmediateInvalidation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ParsePrepareRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ParsePrepareRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @standby_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -797,16 +817,16 @@ define dso_local void @standby_decode(ptr noundef readonly captures(none) %0, pt
   %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %27)
   %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %26) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.standby_decode) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 397, ptr noundef nonnull @__func__.standby_decode) #7
   unreachable
 
-29:                                               ; preds = %2, %2, %17
+29:                                               ; preds = %17, %2, %2
   ret void
 }
 
-declare void @SnapBuildProcessRunningXacts(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @SnapBuildProcessRunningXacts(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferAbortOld(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @ReorderBufferAbortOld(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap2_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -830,8 +850,8 @@ define dso_local void @heap2_decode(ptr noundef %0, ptr noundef readonly capture
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
+  %20 = load i8, ptr %19, align 8, !range !8, !noundef !9
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %36, label %22
 
 22:                                               ; preds = %18
@@ -841,9 +861,9 @@ define dso_local void @heap2_decode(ptr noundef %0, ptr noundef readonly capture
     i8 5, label %25
     i8 7, label %29
     i8 0, label %36
-    i8 3, label %36
     i8 1, label %36
     i8 2, label %36
+    i8 3, label %36
     i8 4, label %36
     i8 6, label %36
   ]
@@ -870,11 +890,11 @@ define dso_local void @heap2_decode(ptr noundef %0, ptr noundef readonly capture
 default.unreachable:                              ; preds = %22
   unreachable
 
-36:                                               ; preds = %22, %22, %22, %22, %22, %22, %25, %28, %2, %18, %29
+36:                                               ; preds = %22, %29, %28, %25, %22, %22, %22, %22, %22, %2, %18
   ret void
 }
 
-declare zeroext i1 @SnapBuildProcessChange(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare zeroext i1 @SnapBuildProcessChange(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -882,6 +902,8 @@ define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr noundef reado
   %4 = alloca %struct.RelFileLocator, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -944,7 +966,7 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %42 = add i64 %41, 1
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr i8, ptr %44, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 7
   %46 = load i16, ptr %44, align 2
   %47 = load ptr, ptr %31, align 8
   %48 = zext i16 %46 to i64
@@ -966,8 +988,8 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   store i32 %58, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %52, i8 0, i64 23, i1 false)
   %59 = load ptr, ptr %51, align 8
-  %60 = getelementptr i8, ptr %59, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %45, i64 %48, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 23
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %45, i64 %48, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %62 = load i16, ptr %61, align 2
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 20
@@ -1003,17 +1025,19 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %80 = load i32, ptr %79, align 4
   %81 = load i64, ptr %1, align 8
   call void @ReorderBufferQueueChange(ptr noundef %77, i32 noundef %80, i64 noundef %81, ptr noundef nonnull %34, i1 noundef zeroext false) #7
-  %82 = getelementptr i8, ptr %45, i64 %48
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %48
   %83 = load i16, ptr %29, align 2
   %84 = zext i16 %83 to i32
   %85 = icmp samesign ult i32 %.pre57, %84
-  br i1 %85, label %32, label %.loopexit, !llvm.loop !13
+  br i1 %85, label %32, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %FilterByOrigin.exit.thread, %FilterByOrigin.exit, %13, %2
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
-declare void @SnapBuildProcessNewCid(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @SnapBuildProcessNewCid(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1035,13 +1059,13 @@ define dso_local void @heap_decode(ptr noundef %0, ptr noundef readonly captures
   tail call void @ReorderBufferProcessXid(ptr noundef %16, i32 noundef %12, i64 noundef %17) #7
   %18 = tail call i32 @SnapBuildCurrentState(ptr noundef %14) #7
   %19 = icmp slt i32 %18, 1
-  br i1 %19, label %145, label %20
+  br i1 %19, label %139, label %20
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %145, label %24
+  %22 = load i8, ptr %21, align 8, !range !8, !noundef !9
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %139, label %24
 
 24:                                               ; preds = %20
   %25 = lshr i8 %10, 4
@@ -1052,29 +1076,28 @@ define dso_local void @heap_decode(ptr noundef %0, ptr noundef readonly captures
     i8 2, label %31
     i8 1, label %127
     i8 3, label %131
-    i8 7, label %135
-    i8 5, label %141
-    i8 6, label %145
+    i8 7, label %139
+    i8 5, label %135
+    i8 6, label %139
   ]
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %1, align 8
   %29 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %28) #7
-  br i1 %29, label %30, label %145
+  br i1 %29, label %30, label %139
 
 30:                                               ; preds = %27
   tail call fastcc void @DecodeInsert(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %145
+  br label %139
 
 31:                                               ; preds = %24, %24
   %32 = load i64, ptr %1, align 8
   %33 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %32) #7
-  br i1 %33, label %34, label %145
+  br i1 %33, label %34, label %139
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %35 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -1121,6 +1144,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   br i1 %.not32.i, label %89, label %65
 
 65:                                               ; preds = %FilterByOrigin.exit.thread.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %66 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %35, i8 noundef zeroext 0, ptr noundef nonnull %4) #7
   %67 = load i64, ptr %4, align 8
   %68 = add i64 %67, -5
@@ -1146,21 +1170,22 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %82, align 4
   %.sroa.0.0.copyload.i.i = load i16, ptr %66, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %.sroa.2.0.copyload.i.i = load i16, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %.sroa.3.0.copyload.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i, align 1
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 2
+  %.sroa.4.0.copyload.i.i = load i16, ptr %.sroa.4.0..sroa_idx.i.i, align 1
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %.sroa.5.0.copyload.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %78, i8 0, i64 23, i1 false)
   %83 = load ptr, ptr %77, align 8
-  %84 = getelementptr i8, ptr %83, i64 23
-  %85 = getelementptr i8, ptr %66, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr readonly align 1 %85, i64 %74, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 23
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %85, i64 %74, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %78, i64 20
-  store i16 %.sroa.2.0.copyload.i.i, ptr %86, align 4
+  store i16 %.sroa.4.0.copyload.i.i, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 18
   store i16 %.sroa.0.0.copyload.i.i, ptr %87, align 2
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 22
-  store i8 %.sroa.3.0.copyload.i.i, ptr %88, align 2
+  store i8 %.sroa.5.0.copyload.i.i, ptr %88, align 2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %.pre.i = load i8, ptr %62, align 1
   br label %89
 
@@ -1174,7 +1199,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %93 = load ptr, ptr %36, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr i8, ptr %95, i64 14
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 14
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 80
   %98 = load i32, ptr %97, align 8
   %99 = zext i32 %98 to i64
@@ -1200,21 +1225,21 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 0, ptr %113, align 4
   %.sroa.0.0.copyload.i35.i = load i16, ptr %96, align 1
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr i8, ptr %95, i64 16
-  %.sroa.2.0.copyload.i37.i = load i16, ptr %.sroa.2.0..sroa_idx.i36.i, align 1
-  %.sroa.3.0..sroa_idx.i38.i = getelementptr i8, ptr %95, i64 18
-  %.sroa.3.0.copyload.i39.i = load i8, ptr %.sroa.3.0..sroa_idx.i38.i, align 1
+  %.sroa.4.0..sroa_idx.i36.i = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %.sroa.4.0.copyload.i37.i = load i16, ptr %.sroa.4.0..sroa_idx.i36.i, align 1
+  %.sroa.5.0..sroa_idx.i38.i = getelementptr inbounds nuw i8, ptr %95, i64 18
+  %.sroa.5.0.copyload.i39.i = load i8, ptr %.sroa.5.0..sroa_idx.i38.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %109, i8 0, i64 23, i1 false)
   %114 = load ptr, ptr %108, align 8
-  %115 = getelementptr i8, ptr %114, i64 23
-  %116 = getelementptr i8, ptr %95, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr readonly align 1 %116, i64 %105, i1 false)
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 23
+  %116 = getelementptr inbounds nuw i8, ptr %95, i64 19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull readonly align 1 %116, i64 %105, i1 false)
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 20
-  store i16 %.sroa.2.0.copyload.i37.i, ptr %117, align 4
+  store i16 %.sroa.4.0.copyload.i37.i, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 18
   store i16 %.sroa.0.0.copyload.i35.i, ptr %118, align 2
   %119 = getelementptr inbounds nuw i8, ptr %109, i64 22
-  store i8 %.sroa.3.0.copyload.i39.i, ptr %119, align 2
+  store i8 %.sroa.5.0.copyload.i39.i, ptr %119, align 2
   br label %120
 
 120:                                              ; preds = %92, %89
@@ -1229,53 +1254,40 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   br label %DecodeUpdate.exit
 
 DecodeUpdate.exit:                                ; preds = %34, %FilterByOrigin.exit.i, %120
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %145
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  br label %139
 
 127:                                              ; preds = %24
   %128 = load i64, ptr %1, align 8
   %129 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %128) #7
-  br i1 %129, label %130, label %145
+  br i1 %129, label %130, label %139
 
 130:                                              ; preds = %127
   tail call fastcc void @DecodeDelete(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %145
+  br label %139
 
 131:                                              ; preds = %24
   %132 = load i64, ptr %1, align 8
   %133 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %132) #7
-  br i1 %133, label %134, label %145
+  br i1 %133, label %134, label %139
 
 134:                                              ; preds = %131
   tail call fastcc void @DecodeTruncate(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %145
+  br label %139
 
 135:                                              ; preds = %24
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %145, label %136
+  %136 = load i64, ptr %1, align 8
+  %137 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %136) #7
+  br i1 %137, label %138, label %139
 
-136:                                              ; preds = %135
-  %137 = load i64, ptr %1, align 8
-  %138 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %137) #7
-  %139 = load ptr, ptr %15, align 8
-  %140 = load i64, ptr %1, align 8
-  tail call void @ReorderBufferXidSetCatalogChanges(ptr noundef %139, i32 noundef %12, i64 noundef %140) #7
-  br label %145
-
-141:                                              ; preds = %24
-  %142 = load i64, ptr %1, align 8
-  %143 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %14, i32 noundef %12, i64 noundef %142) #7
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %141
+138:                                              ; preds = %135
   tail call fastcc void @DecodeSpecConfirm(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %145
+  br label %139
 
 default.unreachable:                              ; preds = %24
   unreachable
 
-145:                                              ; preds = %24, %141, %144, %135, %131, %134, %127, %130, %31, %DecodeUpdate.exit, %27, %30, %2, %20, %136
+139:                                              ; preds = %24, %24, %30, %27, %DecodeUpdate.exit, %31, %130, %127, %134, %131, %138, %135, %2, %20
   ret void
 }
 
@@ -1283,8 +1295,10 @@ default.unreachable:                              ; preds = %24
 define internal fastcc void @DecodeInsert(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.RelFileLocator, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -1361,21 +1375,21 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %41, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %.sroa.2.0.copyload.i = load i16, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 2
+  %.sroa.4.0.copyload.i = load i16, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr i8, ptr %58, i64 23
-  %60 = getelementptr i8, ptr %41, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 23
+  %60 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %60, i64 %49, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
+  store i16 %.sroa.4.0.copyload.i, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
   store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 22
-  store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
+  store i8 %.sroa.5.0.copyload.i, ptr %63, align 2
   %64 = getelementptr inbounds nuw i8, ptr %31, i64 44
   store i8 1, ptr %64, align 4
   %65 = load ptr, ptr %29, align 8
@@ -1390,6 +1404,8 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   br label %73
 
 73:                                               ; preds = %FilterByOrigin.exit, %14, %2, %FilterByOrigin.exit.thread
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
@@ -1398,6 +1414,7 @@ define internal fastcc void @DecodeDelete(ptr noundef %0, ptr noundef readonly c
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -1458,7 +1475,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %45 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %44, i64 noundef %43) #7
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %45, ptr %46, align 8
-  %47 = getelementptr i8, ptr %9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = shl nuw i64 %42, 32
   %sext.i = add i64 %48, -55834574848
   %49 = ashr exact i64 %sext.i, 32
@@ -1476,21 +1493,21 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %47, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %9, i64 10
-  %.sroa.2.0.copyload.i = load i16, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %9, i64 12
-  %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %.sroa.4.0.copyload.i = load i16, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr i8, ptr %58, i64 23
-  %60 = getelementptr i8, ptr %9, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 23
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 13
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %60, i64 %49, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
+  store i16 %.sroa.4.0.copyload.i, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
   store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 22
-  store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
+  store i8 %.sroa.5.0.copyload.i, ptr %63, align 2
   br label %64
 
 64:                                               ; preds = %38, %FilterByOrigin.exit.thread
@@ -1505,6 +1522,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   br label %71
 
 71:                                               ; preds = %FilterByOrigin.exit, %2, %64
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
   ret void
 }
 
@@ -1603,6 +1621,7 @@ define internal fastcc void @DecodeSpecConfirm(ptr noundef %0, ptr noundef reado
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   call void @XLogRecGetBlockTag(ptr noundef %5, i8 noundef zeroext 0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1651,6 +1670,7 @@ FilterByOrigin.exit.thread:                       ; preds = %12, %FilterByOrigin
   br label %36
 
 36:                                               ; preds = %FilterByOrigin.exit, %2, %FilterByOrigin.exit.thread
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
   ret void
 }
 
@@ -1677,7 +1697,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %17) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 599, ptr noundef nonnull @__func__.logicalmsg_decode) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 593, ptr noundef nonnull @__func__.logicalmsg_decode) #7
   unreachable
 
 20:                                               ; preds = %2
@@ -1687,7 +1707,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
   tail call void @ReorderBufferProcessXid(ptr noundef %22, i32 noundef %10, i64 noundef %23) #7
   %24 = tail call i32 @SnapBuildCurrentState(ptr noundef %4) #7
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %76, label %26
+  br i1 %25, label %74, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %7, align 8
@@ -1699,7 +1719,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load i32, ptr %33, align 8
   %.not38 = icmp eq i32 %30, %34
-  br i1 %.not38, label %35, label %76
+  br i1 %.not38, label %35, label %74
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1709,165 +1729,157 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
 
 FilterByOrigin.exit:                              ; preds = %35
   %39 = tail call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %15) #7
-  br i1 %39, label %76, label %FilterByOrigin.exit.thread
+  br i1 %39, label %74, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin.exit
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %41 = load i8, ptr %40, align 4
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %46
+  %41 = load i8, ptr %40, align 4, !range !8, !noundef !9
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %FilterByOrigin.exit.thread
   %44 = load i64, ptr %1, align 8
   %45 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %4, i32 noundef %10, i64 noundef %44) #7
-  br i1 %45, label %._crit_edge, label %76
+  br i1 %45, label %46, label %74
 
-._crit_edge:                                      ; preds = %43
-  %.pre = load i8, ptr %40, align 4
-  br label %46
+46:                                               ; preds = %43
+  %.pre = load i8, ptr %40, align 4, !range !8
+  %47 = trunc nuw i8 %.pre to i1
+  br i1 %47, label %52, label %.thread
 
-46:                                               ; preds = %._crit_edge, %FilterByOrigin.exit.thread
-  %47 = phi i8 [ %.pre, %._crit_edge ], [ %41, %FilterByOrigin.exit.thread ]
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %54, label %49
+.thread:                                          ; preds = %FilterByOrigin.exit.thread, %46
+  %48 = tail call i32 @SnapBuildCurrentState(ptr noundef %4) #7
+  %.not39 = icmp eq i32 %48, 2
+  br i1 %.not39, label %49, label %74
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @SnapBuildCurrentState(ptr noundef %4) #7
-  %.not39 = icmp eq i32 %50, 2
-  br i1 %.not39, label %51, label %76
+49:                                               ; preds = %.thread
+  %50 = load i64, ptr %1, align 8
+  %51 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %4, i64 noundef %50) #7
+  br i1 %51, label %74, label %52
 
-51:                                               ; preds = %49
-  %52 = load i64, ptr %1, align 8
-  %53 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %4, i64 noundef %52) #7
-  br i1 %53, label %76, label %54
+52:                                               ; preds = %46, %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %54 = load i8, ptr %53, align 8, !range !8, !noundef !9
+  %55 = trunc nuw i8 %54 to i1
+  %56 = load i8, ptr %40, align 4, !range !8, !noundef !9
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %55, label %58, label %61
 
-54:                                               ; preds = %46, %51
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load i8, ptr %55, align 8
-  %57 = trunc i8 %56 to i1
-  %58 = load i8, ptr %40, align 4
-  %59 = trunc i8 %58 to i1
-  br i1 %57, label %60, label %63
+58:                                               ; preds = %52
+  br i1 %57, label %74, label %59
 
-60:                                               ; preds = %54
-  br i1 %59, label %76, label %61
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 301
+  store i8 1, ptr %60, align 1
+  br label %74
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  store i8 1, ptr %62, align 1
-  br label %76
+61:                                               ; preds = %52
+  br i1 %57, label %64, label %62
 
-63:                                               ; preds = %54
-  br i1 %59, label %66, label %64
+62:                                               ; preds = %61
+  %63 = tail call ptr @SnapBuildGetOrBuildSnapshot(ptr noundef %4) #7
+  %.pre41 = load i8, ptr %40, align 4, !range !8
+  %.pre42 = trunc nuw i8 %.pre41 to i1
+  br label %64
 
-64:                                               ; preds = %63
-  %65 = tail call ptr @SnapBuildGetOrBuildSnapshot(ptr noundef %4) #7
-  %.pre41 = load i8, ptr %40, align 4
-  %.pre42 = trunc i8 %.pre41 to i1
-  br label %66
-
-66:                                               ; preds = %64, %63
-  %.pre-phi = phi i1 [ %.pre42, %64 ], [ true, %63 ]
-  %.0 = phi ptr [ %65, %64 ], [ null, %63 ]
-  %67 = load ptr, ptr %21, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %71 = getelementptr inbounds nuw i8, ptr %29, i64 16
+64:                                               ; preds = %62, %61
+  %.pre-phi = phi i1 [ %.pre42, %62 ], [ true, %61 ]
+  %.0 = phi ptr [ %63, %62 ], [ null, %61 ]
+  %65 = load ptr, ptr %21, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr i8, ptr %70, i64 %74
-  tail call void @ReorderBufferQueueMessage(ptr noundef %67, i32 noundef %10, ptr noundef %.0, i64 noundef %69, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %70, i64 noundef %72, ptr noundef %75) #7
-  br label %76
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %72
+  tail call void @ReorderBufferQueueMessage(ptr noundef %65, i32 noundef %10, ptr noundef %.0, i64 noundef %67, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull %73) #7
+  br label %74
 
-76:                                               ; preds = %60, %61, %49, %51, %43, %26, %FilterByOrigin.exit, %20, %66
+74:                                               ; preds = %58, %59, %.thread, %49, %43, %26, %FilterByOrigin.exit, %20, %64
   ret void
 }
 
-declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @SnapBuildGetOrBuildSnapshot(ptr noundef) local_unnamed_addr #1
+declare ptr @SnapBuildGetOrBuildSnapshot(ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferQueueMessage(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @ReorderBufferQueueMessage(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @RmgrNotFound(i8 noundef zeroext) local_unnamed_addr #1
+declare void @RmgrNotFound(i8 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @filter_prepare_cb_wrapper(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @filter_prepare_cb_wrapper(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
+declare zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @SnapBuildCommitTxn(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @SnapBuildCommitTxn(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferForget(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferForget(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferCommitChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferCommitChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferFinishPrepared(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare void @ReorderBufferFinishPrepared(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @SnapBuildGetTwoPhaseAt(ptr noundef) local_unnamed_addr #1
+declare i64 @SnapBuildGetTwoPhaseAt(ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferCommit(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferCommit(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
-declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #1
+declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
+declare zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferSkipPrepare(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @ReorderBufferSkipPrepare(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferInvalidate(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferInvalidate(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferPrepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @ReorderBufferPrepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferAbort(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare void @ReorderBufferAbort(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @XLogRecGetBlockTag(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @XLogRecGetBlockTag(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ReorderBufferGetChange(ptr noundef) local_unnamed_addr #1
+declare ptr @ReorderBufferGetChange(ptr noundef) local_unnamed_addr #2
 
-declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
+declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ReorderBufferGetTupleBuf(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @ReorderBufferGetTupleBuf(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReorderBufferQueueChange(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare void @ReorderBufferQueueChange(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @ReorderBufferGetRelids(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @ReorderBufferGetRelids(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"GetRmgr: argument 0"}
-!7 = distinct !{!7, !"GetRmgr"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"GetRmgr: argument 0"}
+!6 = distinct !{!6, !"GetRmgr"}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}

@@ -4,22 +4,22 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ForEachState = type { ptr, i32 }
 %union.ListCell = type { ptr }
 %struct.ForThreeState = type { ptr, ptr, ptr, i32 }
-%struct.Query = type { i32, i32, i32, i64, i8, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i8, i32, ptr, i32, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.MergeStmt = type { i32, ptr, ptr, ptr, ptr, ptr }
+%struct.Query = type { i32, i32, i32, i64, i8, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32 }
+%struct.MergeStmt = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.WithClause = type { i32, ptr, i8, i32 }
-%struct.ParseState = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i8, ptr, i32, i32, ptr, ptr, i8, i8, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.ParseState = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, i32, i32, ptr, ptr, i8, i8, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.List = type { i32, i32, i32, ptr, [0 x %union.ListCell] }
-%struct.MergeWhenClause = type { i32, i8, i32, i32, ptr, ptr, ptr }
+%struct.MergeWhenClause = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.RangeVar = type { i32, ptr, ptr, ptr, i8, i8, ptr, i32 }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
 %struct.FormData_pg_class = type { i32, %struct.nameData, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i8, i8, i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32 }
 %struct.nameData = type { [64 x i8] }
-%struct.ParseNamespaceItem = type { ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8 }
+%struct.ParseNamespaceItem = type { ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i32 }
 %struct.Alias = type { i32, ptr, ptr }
-%struct.MergeAction = type { i32, i8, i32, i32, ptr, ptr, ptr }
+%struct.MergeAction = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.ResTarget = type { i32, ptr, ptr, ptr, i32 }
 %struct.RTEPermissionInfo = type { i32, i32, i8, i64, i32, ptr, ptr, ptr }
 %struct.Node = type { i32 }
@@ -41,16 +41,16 @@ define dso_local ptr @transformMergeStmt(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca [2 x i8], align 1
+  %8 = alloca [3 x i8], align 1
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca %struct.ForEachState, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca %union.ListCell, align 8
-  %17 = alloca %struct.ForEachState, align 8
+  %12 = alloca %struct.ForEachState, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %union.ListCell, align 8
+  %15 = alloca %struct.ForEachState, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
@@ -59,928 +59,1008 @@ define dso_local ptr @transformMergeStmt(ptr noundef %0, ptr noundef %1) #0 {
   %23 = alloca ptr, align 8
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca %struct.ForThreeState, align 8
+  %26 = alloca %struct.ForThreeState, align 8
+  %27 = alloca ptr, align 8
   %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca i16, align 2
-  %31 = alloca ptr, align 8
+  %29 = alloca i16, align 2
+  %30 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %32 = call ptr @newNode(i64 noundef 256, i32 noundef 59)
-  store ptr %32, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %31 = call ptr @newNode(i64 noundef 280, i32 noundef 67)
+  store ptr %31, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   store i64 0, ptr %7, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.Query, ptr %33, i32 0, i32 1
-  store i32 5, ptr %34, align 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.Query, ptr %35, i32 0, i32 12
-  store i8 0, ptr %36, align 1
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.MergeStmt, ptr %37, i32 0, i32 5
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %74
+  call void @llvm.lifetime.start.p0(i64 3, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.Query, ptr %32, i32 0, i32 1
+  store i32 5, ptr %33, align 4
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.Query, ptr %34, i32 0, i32 12
+  store i8 0, ptr %35, align 1
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.MergeStmt, ptr %36, i32 0, i32 6
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %74
 
-41:                                               ; preds = %2
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.MergeStmt, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.WithClause, ptr %44, i32 0, i32 2
-  %46 = load i8, ptr %45, align 8
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %59
+40:                                               ; preds = %2
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw %struct.MergeStmt, ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %struct.WithClause, ptr %43, i32 0, i32 2
+  %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %59
 
-48:                                               ; preds = %41
-  br label %49
+47:                                               ; preds = %40
+  br label %48
+
+48:                                               ; preds = %47
+  br i1 true, label %49, label %51
 
 49:                                               ; preds = %48
-  br i1 true, label %50, label %52
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %50, label %53, label %56
 
-50:                                               ; preds = %49
-  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %51, label %54, label %57
+51:                                               ; preds = %48
+  %52 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %53, label %54, label %57
+53:                                               ; preds = %51, %49
+  %54 = call i32 @errcode(i32 noundef 16801924)
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 129, ptr noundef @__func__.transformMergeStmt)
+  br label %56
 
-54:                                               ; preds = %52, %50
-  %55 = call i32 @errcode(i32 noundef 16801924)
-  %56 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 119, ptr noundef @__func__.transformMergeStmt)
-  br label %57
-
-57:                                               ; preds = %54, %52, %50
+56:                                               ; preds = %53, %51, %49
   unreachable
 
-58:                                               ; No predecessors!
+57:                                               ; No predecessors!
+  br label %58
+
+58:                                               ; preds = %57
   br label %59
 
-59:                                               ; preds = %58, %41
+59:                                               ; preds = %58, %40
   %60 = load ptr, ptr %3, align 8
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.MergeStmt, ptr %61, i32 0, i32 5
+  %62 = getelementptr inbounds nuw %struct.MergeStmt, ptr %61, i32 0, i32 6
   %63 = load ptr, ptr %62, align 8
   %64 = call ptr @transformWithClause(ptr noundef %60, ptr noundef %63)
   %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.Query, ptr %65, i32 0, i32 17
+  %66 = getelementptr inbounds nuw %struct.Query, ptr %65, i32 0, i32 18
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.ParseState, ptr %67, i32 0, i32 27
-  %69 = load i8, ptr %68, align 4
+  %68 = getelementptr inbounds nuw %struct.ParseState, ptr %67, i32 0, i32 30
+  %69 = load i8, ptr %68, align 4, !range !4, !noundef !5
   %70 = trunc i8 %69 to i1
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.Query, ptr %71, i32 0, i32 13
+  %72 = getelementptr inbounds nuw %struct.Query, ptr %71, i32 0, i32 13
   %73 = zext i1 %70 to i8
   store i8 %73, ptr %72, align 2
   br label %74
 
 74:                                               ; preds = %59, %2
-  %75 = getelementptr [2 x i8], ptr %8, i64 0, i64 0
+  %75 = getelementptr inbounds [3 x i8], ptr %8, i64 0, i64 0
   store i8 0, ptr %75, align 1
-  %76 = getelementptr [2 x i8], ptr %8, i64 0, i64 1
+  %76 = getelementptr inbounds [3 x i8], ptr %8, i64 0, i64 1
   store i8 0, ptr %76, align 1
-  %77 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 0
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.MergeStmt, ptr %78, i32 0, i32 4
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %77, align 8
-  %81 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 1
-  store i32 0, ptr %81, align 8
-  br label %82
+  %77 = getelementptr inbounds [3 x i8], ptr %8, i64 0, i64 2
+  store i8 0, ptr %77, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #7
+  %78 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds nuw %struct.MergeStmt, ptr %79, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8
+  store ptr %81, ptr %78, align 8
+  %82 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  store i32 0, ptr %82, align 8
+  %83 = getelementptr i8, ptr %12, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %83, i8 0, i64 4, i1 false)
+  br label %84
 
-82:                                               ; preds = %167, %74
-  %83 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %86, label %103
+84:                                               ; preds = %171, %74
+  %85 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %105
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 1
-  %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.List, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 4
-  %93 = icmp slt i32 %88, %92
-  br i1 %93, label %94, label %103
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw %struct.List, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp slt i32 %90, %94
+  br i1 %95, label %96, label %105
 
-94:                                               ; preds = %86
-  %95 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.List, ptr %96, i32 0, i32 3
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 0
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr %union.ListCell, ptr %98, i64 %101
-  store ptr %102, ptr %6, align 8
-  br label %104
+  %99 = getelementptr inbounds nuw %struct.List, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %102 = load i32, ptr %101, align 8
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds %union.ListCell, ptr %100, i64 %103
+  store ptr %104, ptr %6, align 8
+  br label %106
 
-103:                                              ; preds = %86, %82
+105:                                              ; preds = %88, %84
   store ptr null, ptr %6, align 8
-  br label %104
+  br label %106
 
-104:                                              ; preds = %103, %94
-  %105 = phi i32 [ 1, %94 ], [ 0, %103 ]
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %171
+106:                                              ; preds = %105, %96
+  %107 = phi i32 [ 1, %96 ], [ 0, %105 ]
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %110, label %109
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %6, align 8
-  %109 = load ptr, ptr %108, align 8
-  store ptr %109, ptr %14, align 8
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds %struct.MergeWhenClause, ptr %110, i32 0, i32 1
-  %112 = load i8, ptr %111, align 4
-  %113 = trunc i8 %112 to i1
-  %114 = select i1 %113, i32 0, i32 1
-  store i32 %114, ptr %15, align 4
-  %115 = load ptr, ptr %14, align 8
-  %116 = getelementptr inbounds %struct.MergeWhenClause, ptr %115, i32 0, i32 2
-  %117 = load i32, ptr %116, align 8
-  switch i32 %117, label %130 [
-    i32 3, label %118
-    i32 2, label %121
-    i32 4, label %124
-    i32 7, label %127
+109:                                              ; preds = %106
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #7
+  br label %175
+
+110:                                              ; preds = %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %111 = load ptr, ptr %6, align 8
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %13, align 8
+  %113 = load ptr, ptr %13, align 8
+  %114 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %113, i32 0, i32 2
+  %115 = load i32, ptr %114, align 8
+  switch i32 %115, label %128 [
+    i32 3, label %116
+    i32 2, label %119
+    i32 4, label %122
+    i32 7, label %125
   ]
 
-118:                                              ; preds = %107
-  %119 = load i64, ptr %7, align 8
-  %120 = or i64 %119, 1
-  store i64 %120, ptr %7, align 8
-  br label %140
+116:                                              ; preds = %110
+  %117 = load i64, ptr %7, align 8
+  %118 = or i64 %117, 1
+  store i64 %118, ptr %7, align 8
+  br label %139
 
-121:                                              ; preds = %107
-  %122 = load i64, ptr %7, align 8
-  %123 = or i64 %122, 4
-  store i64 %123, ptr %7, align 8
-  br label %140
+119:                                              ; preds = %110
+  %120 = load i64, ptr %7, align 8
+  %121 = or i64 %120, 4
+  store i64 %121, ptr %7, align 8
+  br label %139
 
-124:                                              ; preds = %107
-  %125 = load i64, ptr %7, align 8
-  %126 = or i64 %125, 8
-  store i64 %126, ptr %7, align 8
-  br label %140
+122:                                              ; preds = %110
+  %123 = load i64, ptr %7, align 8
+  %124 = or i64 %123, 8
+  store i64 %124, ptr %7, align 8
+  br label %139
 
-127:                                              ; preds = %107
-  %128 = load i64, ptr %7, align 8
-  %129 = or i64 %128, 2
-  store i64 %129, ptr %7, align 8
-  br label %140
+125:                                              ; preds = %110
+  %126 = load i64, ptr %7, align 8
+  %127 = or i64 %126, 2
+  store i64 %127, ptr %7, align 8
+  br label %139
 
-130:                                              ; preds = %107
-  br label %131
+128:                                              ; preds = %110
+  br label %129
 
-131:                                              ; preds = %130
-  br i1 true, label %132, label %134
+129:                                              ; preds = %128
+  br i1 true, label %130, label %132
 
-132:                                              ; preds = %131
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %133, label %136, label %138
+130:                                              ; preds = %129
+  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %131, label %134, label %136
 
-134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %135, label %136, label %138
+132:                                              ; preds = %129
+  %133 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %133, label %134, label %136
 
-136:                                              ; preds = %134, %132
-  %137 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 157, ptr noundef @__func__.transformMergeStmt)
+134:                                              ; preds = %132, %130
+  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 167, ptr noundef @__func__.transformMergeStmt)
+  br label %136
+
+136:                                              ; preds = %134, %132, %130
+  unreachable
+
+137:                                              ; No predecessors!
   br label %138
 
-138:                                              ; preds = %136, %134, %132
-  unreachable
+138:                                              ; preds = %137
+  br label %139
 
-139:                                              ; No predecessors!
-  br label %140
+139:                                              ; preds = %138, %125, %122, %119, %116
+  %140 = load ptr, ptr %13, align 8
+  %141 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %140, i32 0, i32 1
+  %142 = load i32, ptr %141, align 4
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1, !range !4, !noundef !5
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %147, label %159
 
-140:                                              ; preds = %139, %127, %124, %121, %118
-  %141 = load i32, ptr %15, align 4
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr [2 x i8], ptr %8, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %157
-
-146:                                              ; preds = %140
-  br label %147
-
-147:                                              ; preds = %146
-  br i1 true, label %148, label %150
+147:                                              ; preds = %139
+  br label %148
 
 148:                                              ; preds = %147
-  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %149, label %152, label %155
+  br i1 true, label %149, label %151
 
-150:                                              ; preds = %147
-  %151 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %151, label %152, label %155
+149:                                              ; preds = %148
+  %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %150, label %153, label %156
 
-152:                                              ; preds = %150, %148
-  %153 = call i32 @errcode(i32 noundef 16801924)
-  %154 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 166, ptr noundef @__func__.transformMergeStmt)
-  br label %155
+151:                                              ; preds = %148
+  %152 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %152, label %153, label %156
 
-155:                                              ; preds = %152, %150, %148
+153:                                              ; preds = %151, %149
+  %154 = call i32 @errcode(i32 noundef 16801924)
+  %155 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 176, ptr noundef @__func__.transformMergeStmt)
+  br label %156
+
+156:                                              ; preds = %153, %151, %149
   unreachable
 
-156:                                              ; No predecessors!
-  br label %157
+157:                                              ; No predecessors!
+  br label %158
 
-157:                                              ; preds = %156, %140
-  %158 = load ptr, ptr %14, align 8
-  %159 = getelementptr inbounds %struct.MergeWhenClause, ptr %158, i32 0, i32 4
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %166
+158:                                              ; preds = %157
+  br label %159
 
-162:                                              ; preds = %157
-  %163 = load i32, ptr %15, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr [2 x i8], ptr %8, i64 0, i64 %164
-  store i8 1, ptr %165, align 1
-  br label %166
+159:                                              ; preds = %158, %139
+  %160 = load ptr, ptr %13, align 8
+  %161 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %160, i32 0, i32 4
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %170
 
-166:                                              ; preds = %162, %157
-  br label %167
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %13, align 8
+  %166 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %165, i32 0, i32 1
+  %167 = load i32, ptr %166, align 4
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %168
+  store i8 1, ptr %169, align 1
+  br label %170
 
-167:                                              ; preds = %166
-  %168 = getelementptr inbounds %struct.ForEachState, ptr %13, i32 0, i32 1
-  %169 = load i32, ptr %168, align 8
-  %170 = add i32 %169, 1
-  store i32 %170, ptr %168, align 8
-  br label %82, !llvm.loop !5
+170:                                              ; preds = %164, %159
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %171
 
-171:                                              ; preds = %104
-  %172 = load ptr, ptr %3, align 8
-  %173 = load ptr, ptr %4, align 8
-  %174 = getelementptr inbounds %struct.MergeStmt, ptr %173, i32 0, i32 1
-  %175 = load ptr, ptr %174, align 8
-  %176 = load ptr, ptr %4, align 8
-  %177 = getelementptr inbounds %struct.MergeStmt, ptr %176, i32 0, i32 1
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct.RangeVar, ptr %178, i32 0, i32 4
-  %180 = load i8, ptr %179, align 8
-  %181 = trunc i8 %180 to i1
-  %182 = load i64, ptr %7, align 8
-  %183 = call i32 @setTargetTable(ptr noundef %172, ptr noundef %175, i1 noundef zeroext %181, i1 noundef zeroext false, i64 noundef %182)
-  %184 = load ptr, ptr %5, align 8
-  %185 = getelementptr inbounds %struct.Query, ptr %184, i32 0, i32 6
-  store i32 %183, ptr %185, align 8
-  %186 = load ptr, ptr %5, align 8
-  %187 = getelementptr inbounds %struct.Query, ptr %186, i32 0, i32 6
-  %188 = load i32, ptr %187, align 8
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.Query, ptr %189, i32 0, i32 23
-  store i32 %188, ptr %190, align 4
-  %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.ParseState, ptr %191, i32 0, i32 12
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds %struct.RelationData, ptr %193, i32 0, i32 13
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.FormData_pg_class, ptr %195, i32 0, i32 16
-  %197 = load i8, ptr %196, align 1
-  %198 = sext i8 %197 to i32
-  %199 = icmp ne i32 %198, 114
-  br i1 %199, label %200, label %247
+171:                                              ; preds = %170
+  %172 = getelementptr inbounds nuw %struct.ForEachState, ptr %12, i32 0, i32 1
+  %173 = load i32, ptr %172, align 8
+  %174 = add i32 %173, 1
+  store i32 %174, ptr %172, align 8
+  br label %84, !llvm.loop !6
 
-200:                                              ; preds = %171
-  %201 = load ptr, ptr %3, align 8
-  %202 = getelementptr inbounds %struct.ParseState, ptr %201, i32 0, i32 12
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds %struct.RelationData, ptr %203, i32 0, i32 13
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds %struct.FormData_pg_class, ptr %205, i32 0, i32 16
-  %207 = load i8, ptr %206, align 1
-  %208 = sext i8 %207 to i32
-  %209 = icmp ne i32 %208, 112
-  br i1 %209, label %210, label %247
+175:                                              ; preds = %109
+  %176 = load ptr, ptr %3, align 8
+  %177 = load ptr, ptr %4, align 8
+  %178 = getelementptr inbounds nuw %struct.MergeStmt, ptr %177, i32 0, i32 1
+  %179 = load ptr, ptr %178, align 8
+  %180 = load ptr, ptr %4, align 8
+  %181 = getelementptr inbounds nuw %struct.MergeStmt, ptr %180, i32 0, i32 1
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw %struct.RangeVar, ptr %182, i32 0, i32 4
+  %184 = load i8, ptr %183, align 8, !range !4, !noundef !5
+  %185 = trunc i8 %184 to i1
+  %186 = load i64, ptr %7, align 8
+  %187 = call i32 @setTargetTable(ptr noundef %176, ptr noundef %179, i1 noundef zeroext %185, i1 noundef zeroext false, i64 noundef %186)
+  %188 = load ptr, ptr %5, align 8
+  %189 = getelementptr inbounds nuw %struct.Query, ptr %188, i32 0, i32 6
+  store i32 %187, ptr %189, align 8
+  %190 = load ptr, ptr %5, align 8
+  %191 = getelementptr inbounds nuw %struct.Query, ptr %190, i32 0, i32 6
+  %192 = load i32, ptr %191, align 8
+  %193 = load ptr, ptr %5, align 8
+  %194 = getelementptr inbounds nuw %struct.Query, ptr %193, i32 0, i32 23
+  store i32 %192, ptr %194, align 8
+  %195 = load ptr, ptr %3, align 8
+  %196 = getelementptr inbounds nuw %struct.ParseState, ptr %195, i32 0, i32 14
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds nuw %struct.RelationData, ptr %197, i32 0, i32 13
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %199, i32 0, i32 16
+  %201 = load i8, ptr %200, align 1
+  %202 = sext i8 %201 to i32
+  %203 = icmp ne i32 %202, 114
+  br i1 %203, label %204, label %252
 
-210:                                              ; preds = %200
-  %211 = load ptr, ptr %3, align 8
-  %212 = getelementptr inbounds %struct.ParseState, ptr %211, i32 0, i32 12
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds %struct.RelationData, ptr %213, i32 0, i32 13
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds %struct.FormData_pg_class, ptr %215, i32 0, i32 16
-  %217 = load i8, ptr %216, align 1
-  %218 = sext i8 %217 to i32
-  %219 = icmp ne i32 %218, 118
-  br i1 %219, label %220, label %247
+204:                                              ; preds = %175
+  %205 = load ptr, ptr %3, align 8
+  %206 = getelementptr inbounds nuw %struct.ParseState, ptr %205, i32 0, i32 14
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds nuw %struct.RelationData, ptr %207, i32 0, i32 13
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %209, i32 0, i32 16
+  %211 = load i8, ptr %210, align 1
+  %212 = sext i8 %211 to i32
+  %213 = icmp ne i32 %212, 112
+  br i1 %213, label %214, label %252
 
-220:                                              ; preds = %210
-  br label %221
+214:                                              ; preds = %204
+  %215 = load ptr, ptr %3, align 8
+  %216 = getelementptr inbounds nuw %struct.ParseState, ptr %215, i32 0, i32 14
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw %struct.RelationData, ptr %217, i32 0, i32 13
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %219, i32 0, i32 16
+  %221 = load i8, ptr %220, align 1
+  %222 = sext i8 %221 to i32
+  %223 = icmp ne i32 %222, 118
+  br i1 %223, label %224, label %252
 
-221:                                              ; preds = %220
-  br i1 true, label %222, label %224
+224:                                              ; preds = %214
+  br label %225
 
-222:                                              ; preds = %221
-  %223 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %223, label %226, label %245
+225:                                              ; preds = %224
+  br i1 true, label %226, label %228
 
-224:                                              ; preds = %221
-  %225 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %225, label %226, label %245
+226:                                              ; preds = %225
+  %227 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %227, label %230, label %249
 
-226:                                              ; preds = %224, %222
-  %227 = call i32 @errcode(i32 noundef 1088)
-  %228 = load ptr, ptr %3, align 8
-  %229 = getelementptr inbounds %struct.ParseState, ptr %228, i32 0, i32 12
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds %struct.RelationData, ptr %230, i32 0, i32 13
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds %struct.FormData_pg_class, ptr %232, i32 0, i32 1
-  %234 = getelementptr inbounds %struct.nameData, ptr %233, i32 0, i32 0
-  %235 = getelementptr inbounds [64 x i8], ptr %234, i64 0, i64 0
-  %236 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %235)
-  %237 = load ptr, ptr %3, align 8
-  %238 = getelementptr inbounds %struct.ParseState, ptr %237, i32 0, i32 12
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds %struct.RelationData, ptr %239, i32 0, i32 13
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.FormData_pg_class, ptr %241, i32 0, i32 16
-  %243 = load i8, ptr %242, align 1
-  %244 = call i32 @errdetail_relkind_not_supported(i8 noundef signext %243)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 195, ptr noundef @__func__.transformMergeStmt)
-  br label %245
+228:                                              ; preds = %225
+  %229 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %229, label %230, label %249
 
-245:                                              ; preds = %226, %224, %222
+230:                                              ; preds = %228, %226
+  %231 = call i32 @errcode(i32 noundef 1088)
+  %232 = load ptr, ptr %3, align 8
+  %233 = getelementptr inbounds nuw %struct.ParseState, ptr %232, i32 0, i32 14
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds nuw %struct.RelationData, ptr %234, i32 0, i32 13
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %236, i32 0, i32 1
+  %238 = getelementptr inbounds nuw %struct.nameData, ptr %237, i32 0, i32 0
+  %239 = getelementptr inbounds [64 x i8], ptr %238, i64 0, i64 0
+  %240 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, ptr noundef %239)
+  %241 = load ptr, ptr %3, align 8
+  %242 = getelementptr inbounds nuw %struct.ParseState, ptr %241, i32 0, i32 14
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds nuw %struct.RelationData, ptr %243, i32 0, i32 13
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %245, i32 0, i32 16
+  %247 = load i8, ptr %246, align 1
+  %248 = call i32 @errdetail_relkind_not_supported(i8 noundef signext %247)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 205, ptr noundef @__func__.transformMergeStmt)
+  br label %249
+
+249:                                              ; preds = %230, %228, %226
   unreachable
 
-246:                                              ; No predecessors!
-  br label %247
+250:                                              ; No predecessors!
+  br label %251
 
-247:                                              ; preds = %246, %210, %200, %171
-  %248 = load ptr, ptr %3, align 8
-  %249 = load ptr, ptr %4, align 8
-  %250 = getelementptr inbounds %struct.MergeStmt, ptr %249, i32 0, i32 2
-  %251 = load ptr, ptr %250, align 8
-  store ptr %251, ptr %16, align 8
-  %252 = getelementptr inbounds %union.ListCell, ptr %16, i32 0, i32 0
-  %253 = load ptr, ptr %252, align 8
-  %254 = call ptr @list_make1_impl(i32 noundef 1, ptr %253)
-  call void @transformFromClause(ptr noundef %248, ptr noundef %254)
-  %255 = load ptr, ptr %3, align 8
-  %256 = getelementptr inbounds %struct.ParseState, ptr %255, i32 0, i32 2
-  %257 = load ptr, ptr %256, align 8
-  %258 = call i32 @list_length(ptr noundef %257)
-  store i32 %258, ptr %9, align 4
-  %259 = load ptr, ptr %3, align 8
-  %260 = load i32, ptr %9, align 4
-  %261 = call ptr @GetNSItemByRangeTablePosn(ptr noundef %259, i32 noundef %260, i32 noundef 0)
-  store ptr %261, ptr %12, align 8
-  %262 = load ptr, ptr %3, align 8
-  %263 = getelementptr inbounds %struct.ParseState, ptr %262, i32 0, i32 13
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %264, i32 0, i32 0
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds %struct.Alias, ptr %266, i32 0, i32 1
-  %268 = load ptr, ptr %267, align 8
-  %269 = load ptr, ptr %12, align 8
-  %270 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %269, i32 0, i32 0
+251:                                              ; preds = %250
+  br label %252
+
+252:                                              ; preds = %251, %214, %204, %175
+  %253 = load ptr, ptr %3, align 8
+  %254 = load ptr, ptr %4, align 8
+  %255 = getelementptr inbounds nuw %struct.MergeStmt, ptr %254, i32 0, i32 2
+  %256 = load ptr, ptr %255, align 8
+  store ptr %256, ptr %14, align 8
+  %257 = getelementptr inbounds nuw %union.ListCell, ptr %14, i32 0, i32 0
+  %258 = load ptr, ptr %257, align 8
+  %259 = call ptr @list_make1_impl(i32 noundef 1, ptr %258)
+  call void @transformFromClause(ptr noundef %253, ptr noundef %259)
+  %260 = load ptr, ptr %3, align 8
+  %261 = getelementptr inbounds nuw %struct.ParseState, ptr %260, i32 0, i32 4
+  %262 = load ptr, ptr %261, align 8
+  %263 = call i32 @list_length(ptr noundef %262)
+  store i32 %263, ptr %9, align 4
+  %264 = load ptr, ptr %3, align 8
+  %265 = load i32, ptr %9, align 4
+  %266 = call ptr @GetNSItemByRangeTablePosn(ptr noundef %264, i32 noundef %265, i32 noundef 0)
+  store ptr %266, ptr %11, align 8
+  %267 = load ptr, ptr %3, align 8
+  %268 = getelementptr inbounds nuw %struct.ParseState, ptr %267, i32 0, i32 15
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %269, i32 0, i32 0
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds %struct.Alias, ptr %271, i32 0, i32 1
+  %272 = getelementptr inbounds nuw %struct.Alias, ptr %271, i32 0, i32 1
   %273 = load ptr, ptr %272, align 8
-  %274 = call i32 @strcmp(ptr noundef %268, ptr noundef %273) #5
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %295
+  %274 = load ptr, ptr %11, align 8
+  %275 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %274, i32 0, i32 0
+  %276 = load ptr, ptr %275, align 8
+  %277 = getelementptr inbounds nuw %struct.Alias, ptr %276, i32 0, i32 1
+  %278 = load ptr, ptr %277, align 8
+  %279 = call i32 @strcmp(ptr noundef %273, ptr noundef %278) #9
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %301
 
-276:                                              ; preds = %247
-  br label %277
+281:                                              ; preds = %252
+  br label %282
 
-277:                                              ; preds = %276
-  br i1 true, label %278, label %280
+282:                                              ; preds = %281
+  br i1 true, label %283, label %285
 
-278:                                              ; preds = %277
-  %279 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %279, label %282, label %293
+283:                                              ; preds = %282
+  %284 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %284, label %287, label %298
 
-280:                                              ; preds = %277
-  %281 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %281, label %282, label %293
+285:                                              ; preds = %282
+  %286 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %286, label %287, label %298
 
-282:                                              ; preds = %280, %278
-  %283 = call i32 @errcode(i32 noundef 33845380)
-  %284 = load ptr, ptr %3, align 8
-  %285 = getelementptr inbounds %struct.ParseState, ptr %284, i32 0, i32 13
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %286, i32 0, i32 0
-  %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds %struct.Alias, ptr %288, i32 0, i32 1
-  %290 = load ptr, ptr %289, align 8
-  %291 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %290)
-  %292 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.6)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 214, ptr noundef @__func__.transformMergeStmt)
-  br label %293
+287:                                              ; preds = %285, %283
+  %288 = call i32 @errcode(i32 noundef 33845380)
+  %289 = load ptr, ptr %3, align 8
+  %290 = getelementptr inbounds nuw %struct.ParseState, ptr %289, i32 0, i32 15
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %291, i32 0, i32 0
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds nuw %struct.Alias, ptr %293, i32 0, i32 1
+  %295 = load ptr, ptr %294, align 8
+  %296 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.5, ptr noundef %295)
+  %297 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.6)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 224, ptr noundef @__func__.transformMergeStmt)
+  br label %298
 
-293:                                              ; preds = %282, %280, %278
+298:                                              ; preds = %287, %285, %283
   unreachable
 
-294:                                              ; No predecessors!
-  br label %295
+299:                                              ; No predecessors!
+  br label %300
 
-295:                                              ; preds = %294, %247
-  %296 = load ptr, ptr %5, align 8
-  %297 = getelementptr inbounds %struct.Query, ptr %296, i32 0, i32 24
-  store ptr null, ptr %297, align 8
-  %298 = load ptr, ptr %3, align 8
-  %299 = getelementptr inbounds %struct.ParseState, ptr %298, i32 0, i32 2
-  %300 = load ptr, ptr %299, align 8
-  %301 = load ptr, ptr %5, align 8
-  %302 = getelementptr inbounds %struct.Query, ptr %301, i32 0, i32 18
-  store ptr %300, ptr %302, align 8
-  %303 = load ptr, ptr %3, align 8
-  %304 = getelementptr inbounds %struct.ParseState, ptr %303, i32 0, i32 3
-  %305 = load ptr, ptr %304, align 8
-  %306 = load ptr, ptr %5, align 8
-  %307 = getelementptr inbounds %struct.Query, ptr %306, i32 0, i32 19
-  store ptr %305, ptr %307, align 8
-  %308 = load ptr, ptr %3, align 8
+300:                                              ; preds = %299
+  br label %301
+
+301:                                              ; preds = %300, %252
+  %302 = load ptr, ptr %5, align 8
+  %303 = getelementptr inbounds nuw %struct.Query, ptr %302, i32 0, i32 25
+  store ptr null, ptr %303, align 8
+  %304 = load ptr, ptr %3, align 8
+  %305 = getelementptr inbounds nuw %struct.ParseState, ptr %304, i32 0, i32 4
+  %306 = load ptr, ptr %305, align 8
+  %307 = load ptr, ptr %5, align 8
+  %308 = getelementptr inbounds nuw %struct.Query, ptr %307, i32 0, i32 19
+  store ptr %306, ptr %308, align 8
   %309 = load ptr, ptr %3, align 8
-  %310 = getelementptr inbounds %struct.ParseState, ptr %309, i32 0, i32 13
+  %310 = getelementptr inbounds nuw %struct.ParseState, ptr %309, i32 0, i32 5
   %311 = load ptr, ptr %310, align 8
-  call void @addNSItemToQuery(ptr noundef %308, ptr noundef %311, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  %312 = load ptr, ptr %3, align 8
-  %313 = load ptr, ptr %4, align 8
-  %314 = getelementptr inbounds %struct.MergeStmt, ptr %313, i32 0, i32 3
-  %315 = load ptr, ptr %314, align 8
-  %316 = call ptr @transformExpr(ptr noundef %312, ptr noundef %315, i32 noundef 2)
-  store ptr %316, ptr %11, align 8
-  %317 = load ptr, ptr %3, align 8
-  %318 = getelementptr inbounds %struct.ParseState, ptr %317, i32 0, i32 6
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %11, align 8
-  %321 = call ptr @makeFromExpr(ptr noundef %319, ptr noundef %320)
-  %322 = load ptr, ptr %5, align 8
-  %323 = getelementptr inbounds %struct.Query, ptr %322, i32 0, i32 20
-  store ptr %321, ptr %323, align 8
-  store ptr null, ptr %10, align 8
-  %324 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 0
-  %325 = load ptr, ptr %4, align 8
-  %326 = getelementptr inbounds %struct.MergeStmt, ptr %325, i32 0, i32 4
+  %312 = load ptr, ptr %5, align 8
+  %313 = getelementptr inbounds nuw %struct.Query, ptr %312, i32 0, i32 20
+  store ptr %311, ptr %313, align 8
+  %314 = load ptr, ptr %3, align 8
+  %315 = load ptr, ptr %3, align 8
+  %316 = getelementptr inbounds nuw %struct.ParseState, ptr %315, i32 0, i32 15
+  %317 = load ptr, ptr %316, align 8
+  call void @addNSItemToQuery(ptr noundef %314, ptr noundef %317, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
+  %318 = load ptr, ptr %3, align 8
+  %319 = load ptr, ptr %4, align 8
+  %320 = getelementptr inbounds nuw %struct.MergeStmt, ptr %319, i32 0, i32 3
+  %321 = load ptr, ptr %320, align 8
+  %322 = call ptr @transformExpr(ptr noundef %318, ptr noundef %321, i32 noundef 2)
+  %323 = load ptr, ptr %5, align 8
+  %324 = getelementptr inbounds nuw %struct.Query, ptr %323, i32 0, i32 24
+  store ptr %322, ptr %324, align 8
+  %325 = load ptr, ptr %3, align 8
+  %326 = getelementptr inbounds nuw %struct.ParseState, ptr %325, i32 0, i32 8
   %327 = load ptr, ptr %326, align 8
-  store ptr %327, ptr %324, align 8
-  %328 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 1
-  store i32 0, ptr %328, align 8
-  br label %329
+  %328 = call ptr @makeFromExpr(ptr noundef %327, ptr noundef null)
+  %329 = load ptr, ptr %5, align 8
+  %330 = getelementptr inbounds nuw %struct.Query, ptr %329, i32 0, i32 21
+  store ptr %328, ptr %330, align 8
+  %331 = load ptr, ptr %3, align 8
+  %332 = load ptr, ptr %5, align 8
+  %333 = load ptr, ptr %4, align 8
+  %334 = getelementptr inbounds nuw %struct.MergeStmt, ptr %333, i32 0, i32 5
+  %335 = load ptr, ptr %334, align 8
+  call void @transformReturningClause(ptr noundef %331, ptr noundef %332, ptr noundef %335, i32 noundef 25)
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #7
+  %336 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %337 = load ptr, ptr %4, align 8
+  %338 = getelementptr inbounds nuw %struct.MergeStmt, ptr %337, i32 0, i32 4
+  %339 = load ptr, ptr %338, align 8
+  store ptr %339, ptr %336, align 8
+  %340 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  store i32 0, ptr %340, align 8
+  %341 = getelementptr i8, ptr %15, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %341, i8 0, i64 4, i1 false)
+  br label %342
 
-329:                                              ; preds = %582, %295
-  %330 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 0
-  %331 = load ptr, ptr %330, align 8
-  %332 = icmp ne ptr %331, null
-  br i1 %332, label %333, label %350
+342:                                              ; preds = %588, %301
+  %343 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %344 = load ptr, ptr %343, align 8
+  %345 = icmp ne ptr %344, null
+  br i1 %345, label %346, label %363
 
-333:                                              ; preds = %329
-  %334 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 1
-  %335 = load i32, ptr %334, align 8
-  %336 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 0
-  %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds %struct.List, ptr %337, i32 0, i32 1
-  %339 = load i32, ptr %338, align 4
-  %340 = icmp slt i32 %335, %339
-  br i1 %340, label %341, label %350
+346:                                              ; preds = %342
+  %347 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  %348 = load i32, ptr %347, align 8
+  %349 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds nuw %struct.List, ptr %350, i32 0, i32 1
+  %352 = load i32, ptr %351, align 4
+  %353 = icmp slt i32 %348, %352
+  br i1 %353, label %354, label %363
 
-341:                                              ; preds = %333
-  %342 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 0
-  %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds %struct.List, ptr %343, i32 0, i32 3
-  %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 1
-  %347 = load i32, ptr %346, align 8
-  %348 = sext i32 %347 to i64
-  %349 = getelementptr %union.ListCell, ptr %345, i64 %348
-  store ptr %349, ptr %6, align 8
-  br label %351
-
-350:                                              ; preds = %333, %329
-  store ptr null, ptr %6, align 8
-  br label %351
-
-351:                                              ; preds = %350, %341
-  %352 = phi i32 [ 1, %341 ], [ 0, %350 ]
-  %353 = icmp ne i32 %352, 0
-  br i1 %353, label %354, label %586
-
-354:                                              ; preds = %351
-  %355 = load ptr, ptr %6, align 8
+354:                                              ; preds = %346
+  %355 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
   %356 = load ptr, ptr %355, align 8
-  store ptr %356, ptr %18, align 8
-  %357 = call ptr @newNode(i64 noundef 40, i32 noundef 47)
-  store ptr %357, ptr %19, align 8
-  %358 = load ptr, ptr %18, align 8
-  %359 = getelementptr inbounds %struct.MergeWhenClause, ptr %358, i32 0, i32 2
+  %357 = getelementptr inbounds nuw %struct.List, ptr %356, i32 0, i32 3
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
   %360 = load i32, ptr %359, align 8
-  %361 = load ptr, ptr %19, align 8
-  %362 = getelementptr inbounds %struct.MergeAction, ptr %361, i32 0, i32 2
-  store i32 %360, ptr %362, align 8
-  %363 = load ptr, ptr %18, align 8
-  %364 = getelementptr inbounds %struct.MergeWhenClause, ptr %363, i32 0, i32 1
-  %365 = load i8, ptr %364, align 4
-  %366 = trunc i8 %365 to i1
-  %367 = load ptr, ptr %19, align 8
-  %368 = getelementptr inbounds %struct.MergeAction, ptr %367, i32 0, i32 1
-  %369 = zext i1 %366 to i8
-  store i8 %369, ptr %368, align 4
-  %370 = load ptr, ptr %19, align 8
-  %371 = getelementptr inbounds %struct.MergeAction, ptr %370, i32 0, i32 2
-  %372 = load i32, ptr %371, align 8
-  %373 = icmp eq i32 %372, 3
-  br i1 %373, label %374, label %377
+  %361 = sext i32 %360 to i64
+  %362 = getelementptr inbounds %union.ListCell, ptr %358, i64 %361
+  store ptr %362, ptr %6, align 8
+  br label %364
 
-374:                                              ; preds = %354
-  %375 = load ptr, ptr %5, align 8
-  %376 = getelementptr inbounds %struct.Query, ptr %375, i32 0, i32 22
-  store i8 1, ptr %376, align 8
-  br label %377
+363:                                              ; preds = %346, %342
+  store ptr null, ptr %6, align 8
+  br label %364
 
-377:                                              ; preds = %374, %354
-  %378 = load ptr, ptr %3, align 8
-  %379 = load ptr, ptr %18, align 8
-  %380 = load ptr, ptr %5, align 8
-  %381 = getelementptr inbounds %struct.Query, ptr %380, i32 0, i32 6
-  %382 = load i32, ptr %381, align 8
-  %383 = load i32, ptr %9, align 4
-  call void @setNamespaceForMergeWhen(ptr noundef %378, ptr noundef %379, i32 noundef %382, i32 noundef %383)
-  %384 = load ptr, ptr %3, align 8
-  %385 = load ptr, ptr %18, align 8
-  %386 = getelementptr inbounds %struct.MergeWhenClause, ptr %385, i32 0, i32 4
-  %387 = load ptr, ptr %386, align 8
-  %388 = call ptr @transformWhereClause(ptr noundef %384, ptr noundef %387, i32 noundef 18, ptr noundef @.str.7)
-  %389 = load ptr, ptr %19, align 8
-  %390 = getelementptr inbounds %struct.MergeAction, ptr %389, i32 0, i32 4
-  store ptr %388, ptr %390, align 8
-  %391 = load ptr, ptr %19, align 8
-  %392 = getelementptr inbounds %struct.MergeAction, ptr %391, i32 0, i32 2
-  %393 = load i32, ptr %392, align 8
-  switch i32 %393, label %568 [
-    i32 3, label %394
-    i32 2, label %554
-    i32 4, label %564
-    i32 7, label %565
+364:                                              ; preds = %363, %354
+  %365 = phi i32 [ 1, %354 ], [ 0, %363 ]
+  %366 = icmp ne i32 %365, 0
+  br i1 %366, label %368, label %367
+
+367:                                              ; preds = %364
+  store i32 16, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #7
+  br label %592
+
+368:                                              ; preds = %364
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %369 = load ptr, ptr %6, align 8
+  %370 = load ptr, ptr %369, align 8
+  store ptr %370, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %371 = call ptr @newNode(i64 noundef 40, i32 noundef 54)
+  store ptr %371, ptr %18, align 8
+  %372 = load ptr, ptr %17, align 8
+  %373 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %372, i32 0, i32 2
+  %374 = load i32, ptr %373, align 8
+  %375 = load ptr, ptr %18, align 8
+  %376 = getelementptr inbounds nuw %struct.MergeAction, ptr %375, i32 0, i32 2
+  store i32 %374, ptr %376, align 8
+  %377 = load ptr, ptr %17, align 8
+  %378 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %377, i32 0, i32 1
+  %379 = load i32, ptr %378, align 4
+  %380 = load ptr, ptr %18, align 8
+  %381 = getelementptr inbounds nuw %struct.MergeAction, ptr %380, i32 0, i32 1
+  store i32 %379, ptr %381, align 4
+  %382 = load ptr, ptr %3, align 8
+  %383 = load ptr, ptr %17, align 8
+  %384 = load ptr, ptr %5, align 8
+  %385 = getelementptr inbounds nuw %struct.Query, ptr %384, i32 0, i32 6
+  %386 = load i32, ptr %385, align 8
+  %387 = load i32, ptr %9, align 4
+  call void @setNamespaceForMergeWhen(ptr noundef %382, ptr noundef %383, i32 noundef %386, i32 noundef %387)
+  %388 = load ptr, ptr %3, align 8
+  %389 = load ptr, ptr %17, align 8
+  %390 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %389, i32 0, i32 4
+  %391 = load ptr, ptr %390, align 8
+  %392 = call ptr @transformWhereClause(ptr noundef %388, ptr noundef %391, i32 noundef 18, ptr noundef @.str.7)
+  %393 = load ptr, ptr %18, align 8
+  %394 = getelementptr inbounds nuw %struct.MergeAction, ptr %393, i32 0, i32 4
+  store ptr %392, ptr %394, align 8
+  %395 = load ptr, ptr %18, align 8
+  %396 = getelementptr inbounds nuw %struct.MergeAction, ptr %395, i32 0, i32 2
+  %397 = load i32, ptr %396, align 8
+  switch i32 %397, label %573 [
+    i32 3, label %398
+    i32 2, label %560
+    i32 4, label %584
+    i32 7, label %570
   ]
 
-394:                                              ; preds = %377
-  store ptr null, ptr %20, align 8
-  %395 = load ptr, ptr %3, align 8
-  %396 = getelementptr inbounds %struct.ParseState, ptr %395, i32 0, i32 14
-  store i8 1, ptr %396, align 8
-  %397 = load ptr, ptr %3, align 8
-  %398 = load ptr, ptr %18, align 8
-  %399 = getelementptr inbounds %struct.MergeWhenClause, ptr %398, i32 0, i32 5
-  %400 = load ptr, ptr %399, align 8
-  %401 = call ptr @checkInsertTargets(ptr noundef %397, ptr noundef %400, ptr noundef %26)
-  store ptr %401, ptr %25, align 8
-  %402 = load ptr, ptr %18, align 8
-  %403 = getelementptr inbounds %struct.MergeWhenClause, ptr %402, i32 0, i32 3
-  %404 = load i32, ptr %403, align 4
-  %405 = load ptr, ptr %19, align 8
-  %406 = getelementptr inbounds %struct.MergeAction, ptr %405, i32 0, i32 3
-  store i32 %404, ptr %406, align 4
-  %407 = load ptr, ptr %18, align 8
-  %408 = getelementptr inbounds %struct.MergeWhenClause, ptr %407, i32 0, i32 6
-  %409 = load ptr, ptr %408, align 8
-  %410 = icmp eq ptr %409, null
-  br i1 %410, label %411, label %412
+398:                                              ; preds = %368
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  %399 = load ptr, ptr %3, align 8
+  %400 = getelementptr inbounds nuw %struct.ParseState, ptr %399, i32 0, i32 17
+  store i8 1, ptr %400, align 8
+  %401 = load ptr, ptr %3, align 8
+  %402 = load ptr, ptr %17, align 8
+  %403 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %402, i32 0, i32 5
+  %404 = load ptr, ptr %403, align 8
+  %405 = call ptr @checkInsertTargets(ptr noundef %401, ptr noundef %404, ptr noundef %25)
+  store ptr %405, ptr %24, align 8
+  %406 = load ptr, ptr %17, align 8
+  %407 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %406, i32 0, i32 3
+  %408 = load i32, ptr %407, align 4
+  %409 = load ptr, ptr %18, align 8
+  %410 = getelementptr inbounds nuw %struct.MergeAction, ptr %409, i32 0, i32 3
+  store i32 %408, ptr %410, align 4
+  %411 = load ptr, ptr %17, align 8
+  %412 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %411, i32 0, i32 6
+  %413 = load ptr, ptr %412, align 8
+  %414 = icmp eq ptr %413, null
+  br i1 %414, label %415, label %416
 
-411:                                              ; preds = %394
-  store ptr null, ptr %20, align 8
-  br label %426
+415:                                              ; preds = %398
+  store ptr null, ptr %19, align 8
+  br label %430
 
-412:                                              ; preds = %394
-  %413 = load ptr, ptr %3, align 8
-  %414 = load ptr, ptr %18, align 8
-  %415 = getelementptr inbounds %struct.MergeWhenClause, ptr %414, i32 0, i32 6
-  %416 = load ptr, ptr %415, align 8
-  %417 = call ptr @transformExpressionList(ptr noundef %413, ptr noundef %416, i32 noundef 26, i1 noundef zeroext true)
-  store ptr %417, ptr %20, align 8
-  %418 = load ptr, ptr %3, align 8
-  %419 = load ptr, ptr %20, align 8
-  %420 = load ptr, ptr %18, align 8
-  %421 = getelementptr inbounds %struct.MergeWhenClause, ptr %420, i32 0, i32 5
-  %422 = load ptr, ptr %421, align 8
-  %423 = load ptr, ptr %25, align 8
-  %424 = load ptr, ptr %26, align 8
-  %425 = call ptr @transformInsertRow(ptr noundef %418, ptr noundef %419, ptr noundef %422, ptr noundef %423, ptr noundef %424, i1 noundef zeroext false)
-  store ptr %425, ptr %20, align 8
-  br label %426
+416:                                              ; preds = %398
+  %417 = load ptr, ptr %3, align 8
+  %418 = load ptr, ptr %17, align 8
+  %419 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %418, i32 0, i32 6
+  %420 = load ptr, ptr %419, align 8
+  %421 = call ptr @transformExpressionList(ptr noundef %417, ptr noundef %420, i32 noundef 27, i1 noundef zeroext true)
+  store ptr %421, ptr %19, align 8
+  %422 = load ptr, ptr %3, align 8
+  %423 = load ptr, ptr %19, align 8
+  %424 = load ptr, ptr %17, align 8
+  %425 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %424, i32 0, i32 5
+  %426 = load ptr, ptr %425, align 8
+  %427 = load ptr, ptr %24, align 8
+  %428 = load ptr, ptr %25, align 8
+  %429 = call ptr @transformInsertRow(ptr noundef %422, ptr noundef %423, ptr noundef %426, ptr noundef %427, ptr noundef %428, i1 noundef zeroext false)
+  store ptr %429, ptr %19, align 8
+  br label %430
 
-426:                                              ; preds = %412, %411
-  %427 = load ptr, ptr %3, align 8
-  %428 = getelementptr inbounds %struct.ParseState, ptr %427, i32 0, i32 13
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %429, i32 0, i32 3
-  %431 = load ptr, ptr %430, align 8
-  store ptr %431, ptr %22, align 8
-  %432 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 0
-  %433 = load ptr, ptr %20, align 8
-  store ptr %433, ptr %432, align 8
-  %434 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 1
-  %435 = load ptr, ptr %25, align 8
-  store ptr %435, ptr %434, align 8
-  %436 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 2
-  %437 = load ptr, ptr %26, align 8
+430:                                              ; preds = %416, %415
+  %431 = load ptr, ptr %3, align 8
+  %432 = getelementptr inbounds nuw %struct.ParseState, ptr %431, i32 0, i32 15
+  %433 = load ptr, ptr %432, align 8
+  %434 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %433, i32 0, i32 3
+  %435 = load ptr, ptr %434, align 8
+  store ptr %435, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %26) #7
+  %436 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 0
+  %437 = load ptr, ptr %19, align 8
   store ptr %437, ptr %436, align 8
-  %438 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  store i32 0, ptr %438, align 8
-  br label %439
+  %438 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 1
+  %439 = load ptr, ptr %24, align 8
+  store ptr %439, ptr %438, align 8
+  %440 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 2
+  %441 = load ptr, ptr %25, align 8
+  store ptr %441, ptr %440, align 8
+  %442 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  store i32 0, ptr %442, align 8
+  %443 = getelementptr i8, ptr %26, i64 28
+  call void @llvm.memset.p0.i64(ptr align 4 %443, i8 0, i64 4, i1 false)
+  br label %444
 
-439:                                              ; preds = %549, %426
-  %440 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 0
-  %441 = load ptr, ptr %440, align 8
-  %442 = icmp ne ptr %441, null
-  br i1 %442, label %443, label %460
+444:                                              ; preds = %555, %430
+  %445 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 0
+  %446 = load ptr, ptr %445, align 8
+  %447 = icmp ne ptr %446, null
+  br i1 %447, label %448, label %465
 
-443:                                              ; preds = %439
-  %444 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %445 = load i32, ptr %444, align 8
-  %446 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 0
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds %struct.List, ptr %447, i32 0, i32 1
-  %449 = load i32, ptr %448, align 4
-  %450 = icmp slt i32 %445, %449
-  br i1 %450, label %451, label %460
+448:                                              ; preds = %444
+  %449 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %450 = load i32, ptr %449, align 8
+  %451 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 0
+  %452 = load ptr, ptr %451, align 8
+  %453 = getelementptr inbounds nuw %struct.List, ptr %452, i32 0, i32 1
+  %454 = load i32, ptr %453, align 4
+  %455 = icmp slt i32 %450, %454
+  br i1 %455, label %456, label %465
 
-451:                                              ; preds = %443
-  %452 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 0
-  %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds %struct.List, ptr %453, i32 0, i32 3
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %457 = load i32, ptr %456, align 8
-  %458 = sext i32 %457 to i64
-  %459 = getelementptr %union.ListCell, ptr %455, i64 %458
-  br label %461
+456:                                              ; preds = %448
+  %457 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 0
+  %458 = load ptr, ptr %457, align 8
+  %459 = getelementptr inbounds nuw %struct.List, ptr %458, i32 0, i32 3
+  %460 = load ptr, ptr %459, align 8
+  %461 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %462 = load i32, ptr %461, align 8
+  %463 = sext i32 %462 to i64
+  %464 = getelementptr inbounds %union.ListCell, ptr %460, i64 %463
+  br label %466
 
-460:                                              ; preds = %443, %439
-  br label %461
+465:                                              ; preds = %448, %444
+  br label %466
 
-461:                                              ; preds = %460, %451
-  %462 = phi ptr [ %459, %451 ], [ null, %460 ]
-  store ptr %462, ptr %21, align 8
-  %463 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 1
-  %464 = load ptr, ptr %463, align 8
-  %465 = icmp ne ptr %464, null
-  br i1 %465, label %466, label %483
+466:                                              ; preds = %465, %456
+  %467 = phi ptr [ %464, %456 ], [ null, %465 ]
+  store ptr %467, ptr %20, align 8
+  %468 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 1
+  %469 = load ptr, ptr %468, align 8
+  %470 = icmp ne ptr %469, null
+  br i1 %470, label %471, label %488
 
-466:                                              ; preds = %461
-  %467 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %468 = load i32, ptr %467, align 8
-  %469 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 1
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds %struct.List, ptr %470, i32 0, i32 1
-  %472 = load i32, ptr %471, align 4
-  %473 = icmp slt i32 %468, %472
-  br i1 %473, label %474, label %483
+471:                                              ; preds = %466
+  %472 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %473 = load i32, ptr %472, align 8
+  %474 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 1
+  %475 = load ptr, ptr %474, align 8
+  %476 = getelementptr inbounds nuw %struct.List, ptr %475, i32 0, i32 1
+  %477 = load i32, ptr %476, align 4
+  %478 = icmp slt i32 %473, %477
+  br i1 %478, label %479, label %488
 
-474:                                              ; preds = %466
-  %475 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 1
-  %476 = load ptr, ptr %475, align 8
-  %477 = getelementptr inbounds %struct.List, ptr %476, i32 0, i32 3
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %480 = load i32, ptr %479, align 8
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr %union.ListCell, ptr %478, i64 %481
-  br label %484
+479:                                              ; preds = %471
+  %480 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 1
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds nuw %struct.List, ptr %481, i32 0, i32 3
+  %483 = load ptr, ptr %482, align 8
+  %484 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %485 = load i32, ptr %484, align 8
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds %union.ListCell, ptr %483, i64 %486
+  br label %489
 
-483:                                              ; preds = %466, %461
-  br label %484
+488:                                              ; preds = %471, %466
+  br label %489
 
-484:                                              ; preds = %483, %474
-  %485 = phi ptr [ %482, %474 ], [ null, %483 ]
-  store ptr %485, ptr %23, align 8
-  %486 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 2
-  %487 = load ptr, ptr %486, align 8
-  %488 = icmp ne ptr %487, null
-  br i1 %488, label %489, label %506
+489:                                              ; preds = %488, %479
+  %490 = phi ptr [ %487, %479 ], [ null, %488 ]
+  store ptr %490, ptr %22, align 8
+  %491 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 2
+  %492 = load ptr, ptr %491, align 8
+  %493 = icmp ne ptr %492, null
+  br i1 %493, label %494, label %511
 
-489:                                              ; preds = %484
-  %490 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %491 = load i32, ptr %490, align 8
-  %492 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 2
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds %struct.List, ptr %493, i32 0, i32 1
-  %495 = load i32, ptr %494, align 4
-  %496 = icmp slt i32 %491, %495
-  br i1 %496, label %497, label %506
+494:                                              ; preds = %489
+  %495 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %496 = load i32, ptr %495, align 8
+  %497 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 2
+  %498 = load ptr, ptr %497, align 8
+  %499 = getelementptr inbounds nuw %struct.List, ptr %498, i32 0, i32 1
+  %500 = load i32, ptr %499, align 4
+  %501 = icmp slt i32 %496, %500
+  br i1 %501, label %502, label %511
 
-497:                                              ; preds = %489
-  %498 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 2
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds %struct.List, ptr %499, i32 0, i32 3
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %503 = load i32, ptr %502, align 8
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr %union.ListCell, ptr %501, i64 %504
-  br label %507
+502:                                              ; preds = %494
+  %503 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 2
+  %504 = load ptr, ptr %503, align 8
+  %505 = getelementptr inbounds nuw %struct.List, ptr %504, i32 0, i32 3
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %508 = load i32, ptr %507, align 8
+  %509 = sext i32 %508 to i64
+  %510 = getelementptr inbounds %union.ListCell, ptr %506, i64 %509
+  br label %512
 
-506:                                              ; preds = %489, %484
-  br label %507
+511:                                              ; preds = %494, %489
+  br label %512
 
-507:                                              ; preds = %506, %497
-  %508 = phi ptr [ %505, %497 ], [ null, %506 ]
-  store ptr %508, ptr %24, align 8
-  %509 = load ptr, ptr %21, align 8
-  %510 = icmp ne ptr %509, null
-  br i1 %510, label %511, label %517
+512:                                              ; preds = %511, %502
+  %513 = phi ptr [ %510, %502 ], [ null, %511 ]
+  store ptr %513, ptr %23, align 8
+  %514 = load ptr, ptr %20, align 8
+  %515 = icmp ne ptr %514, null
+  br i1 %515, label %516, label %522
 
-511:                                              ; preds = %507
-  %512 = load ptr, ptr %23, align 8
-  %513 = icmp ne ptr %512, null
-  br i1 %513, label %514, label %517
+516:                                              ; preds = %512
+  %517 = load ptr, ptr %22, align 8
+  %518 = icmp ne ptr %517, null
+  br i1 %518, label %519, label %522
 
-514:                                              ; preds = %511
-  %515 = load ptr, ptr %24, align 8
-  %516 = icmp ne ptr %515, null
-  br label %517
+519:                                              ; preds = %516
+  %520 = load ptr, ptr %23, align 8
+  %521 = icmp ne ptr %520, null
+  br label %522
 
-517:                                              ; preds = %514, %511, %507
-  %518 = phi i1 [ false, %511 ], [ false, %507 ], [ %516, %514 ]
-  br i1 %518, label %519, label %553
+522:                                              ; preds = %519, %516, %512
+  %523 = phi i1 [ false, %516 ], [ false, %512 ], [ %521, %519 ]
+  br i1 %523, label %525, label %524
 
-519:                                              ; preds = %517
-  %520 = load ptr, ptr %21, align 8
-  %521 = load ptr, ptr %520, align 8
-  store ptr %521, ptr %28, align 8
-  %522 = load ptr, ptr %23, align 8
-  %523 = load ptr, ptr %522, align 8
-  store ptr %523, ptr %29, align 8
-  %524 = load ptr, ptr %24, align 8
-  %525 = load i32, ptr %524, align 8
-  %526 = trunc i32 %525 to i16
-  store i16 %526, ptr %30, align 2
-  %527 = load ptr, ptr %28, align 8
-  %528 = load i16, ptr %30, align 2
-  %529 = load ptr, ptr %29, align 8
-  %530 = getelementptr inbounds %struct.ResTarget, ptr %529, i32 0, i32 1
-  %531 = load ptr, ptr %530, align 8
-  %532 = call ptr @makeTargetEntry(ptr noundef %527, i16 noundef signext %528, ptr noundef %531, i1 noundef zeroext false)
-  store ptr %532, ptr %31, align 8
-  %533 = load ptr, ptr %19, align 8
-  %534 = getelementptr inbounds %struct.MergeAction, ptr %533, i32 0, i32 5
-  %535 = load ptr, ptr %534, align 8
-  %536 = load ptr, ptr %31, align 8
-  %537 = call ptr @lappend(ptr noundef %535, ptr noundef %536)
-  %538 = load ptr, ptr %19, align 8
-  %539 = getelementptr inbounds %struct.MergeAction, ptr %538, i32 0, i32 5
-  store ptr %537, ptr %539, align 8
-  %540 = load ptr, ptr %22, align 8
-  %541 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %540, i32 0, i32 6
-  %542 = load ptr, ptr %541, align 8
-  %543 = load i16, ptr %30, align 2
-  %544 = sext i16 %543 to i32
-  %545 = sub i32 %544, -7
-  %546 = call ptr @bms_add_member(ptr noundef %542, i32 noundef %545)
-  %547 = load ptr, ptr %22, align 8
-  %548 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %547, i32 0, i32 6
-  store ptr %546, ptr %548, align 8
-  br label %549
+524:                                              ; preds = %522
+  store i32 20, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %26) #7
+  br label %559
 
-549:                                              ; preds = %519
-  %550 = getelementptr inbounds %struct.ForThreeState, ptr %27, i32 0, i32 3
-  %551 = load i32, ptr %550, align 8
-  %552 = add i32 %551, 1
-  store i32 %552, ptr %550, align 8
-  br label %439, !llvm.loop !7
+525:                                              ; preds = %522
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %526 = load ptr, ptr %20, align 8
+  %527 = load ptr, ptr %526, align 8
+  store ptr %527, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %528 = load ptr, ptr %22, align 8
+  %529 = load ptr, ptr %528, align 8
+  store ptr %529, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #7
+  %530 = load ptr, ptr %23, align 8
+  %531 = load i32, ptr %530, align 8
+  %532 = trunc i32 %531 to i16
+  store i16 %532, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  %533 = load ptr, ptr %27, align 8
+  %534 = load i16, ptr %29, align 2
+  %535 = load ptr, ptr %28, align 8
+  %536 = getelementptr inbounds nuw %struct.ResTarget, ptr %535, i32 0, i32 1
+  %537 = load ptr, ptr %536, align 8
+  %538 = call ptr @makeTargetEntry(ptr noundef %533, i16 noundef signext %534, ptr noundef %537, i1 noundef zeroext false)
+  store ptr %538, ptr %30, align 8
+  %539 = load ptr, ptr %18, align 8
+  %540 = getelementptr inbounds nuw %struct.MergeAction, ptr %539, i32 0, i32 5
+  %541 = load ptr, ptr %540, align 8
+  %542 = load ptr, ptr %30, align 8
+  %543 = call ptr @lappend(ptr noundef %541, ptr noundef %542)
+  %544 = load ptr, ptr %18, align 8
+  %545 = getelementptr inbounds nuw %struct.MergeAction, ptr %544, i32 0, i32 5
+  store ptr %543, ptr %545, align 8
+  %546 = load ptr, ptr %21, align 8
+  %547 = getelementptr inbounds nuw %struct.RTEPermissionInfo, ptr %546, i32 0, i32 6
+  %548 = load ptr, ptr %547, align 8
+  %549 = load i16, ptr %29, align 2
+  %550 = sext i16 %549 to i32
+  %551 = sub i32 %550, -7
+  %552 = call ptr @bms_add_member(ptr noundef %548, i32 noundef %551)
+  %553 = load ptr, ptr %21, align 8
+  %554 = getelementptr inbounds nuw %struct.RTEPermissionInfo, ptr %553, i32 0, i32 6
+  store ptr %552, ptr %554, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  br label %555
 
-553:                                              ; preds = %517
-  br label %578
+555:                                              ; preds = %525
+  %556 = getelementptr inbounds nuw %struct.ForThreeState, ptr %26, i32 0, i32 3
+  %557 = load i32, ptr %556, align 8
+  %558 = add i32 %557, 1
+  store i32 %558, ptr %556, align 8
+  br label %444, !llvm.loop !8
 
-554:                                              ; preds = %377
-  %555 = load ptr, ptr %3, align 8
-  %556 = getelementptr inbounds %struct.ParseState, ptr %555, i32 0, i32 14
-  store i8 0, ptr %556, align 8
-  %557 = load ptr, ptr %3, align 8
-  %558 = load ptr, ptr %18, align 8
-  %559 = getelementptr inbounds %struct.MergeWhenClause, ptr %558, i32 0, i32 5
-  %560 = load ptr, ptr %559, align 8
-  %561 = call ptr @transformUpdateTargetList(ptr noundef %557, ptr noundef %560)
-  %562 = load ptr, ptr %19, align 8
-  %563 = getelementptr inbounds %struct.MergeAction, ptr %562, i32 0, i32 5
-  store ptr %561, ptr %563, align 8
-  br label %578
+559:                                              ; preds = %524
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  br label %584
 
-564:                                              ; preds = %377
-  br label %578
+560:                                              ; preds = %368
+  %561 = load ptr, ptr %3, align 8
+  %562 = getelementptr inbounds nuw %struct.ParseState, ptr %561, i32 0, i32 17
+  store i8 0, ptr %562, align 8
+  %563 = load ptr, ptr %3, align 8
+  %564 = load ptr, ptr %17, align 8
+  %565 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %564, i32 0, i32 5
+  %566 = load ptr, ptr %565, align 8
+  %567 = call ptr @transformUpdateTargetList(ptr noundef %563, ptr noundef %566)
+  %568 = load ptr, ptr %18, align 8
+  %569 = getelementptr inbounds nuw %struct.MergeAction, ptr %568, i32 0, i32 5
+  store ptr %567, ptr %569, align 8
+  br label %584
 
-565:                                              ; preds = %377
-  %566 = load ptr, ptr %19, align 8
-  %567 = getelementptr inbounds %struct.MergeAction, ptr %566, i32 0, i32 5
-  store ptr null, ptr %567, align 8
-  br label %578
+570:                                              ; preds = %368
+  %571 = load ptr, ptr %18, align 8
+  %572 = getelementptr inbounds nuw %struct.MergeAction, ptr %571, i32 0, i32 5
+  store ptr null, ptr %572, align 8
+  br label %584
 
-568:                                              ; preds = %377
-  br label %569
+573:                                              ; preds = %368
+  br label %574
 
-569:                                              ; preds = %568
-  br i1 true, label %570, label %572
+574:                                              ; preds = %573
+  br i1 true, label %575, label %577
 
-570:                                              ; preds = %569
-  %571 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %571, label %574, label %576
+575:                                              ; preds = %574
+  %576 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %576, label %579, label %581
 
-572:                                              ; preds = %569
-  %573 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %573, label %574, label %576
+577:                                              ; preds = %574
+  %578 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %578, label %579, label %581
 
-574:                                              ; preds = %572, %570
-  %575 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 389, ptr noundef @__func__.transformMergeStmt)
-  br label %576
+579:                                              ; preds = %577, %575
+  %580 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 398, ptr noundef @__func__.transformMergeStmt)
+  br label %581
 
-576:                                              ; preds = %574, %572, %570
+581:                                              ; preds = %579, %577, %575
   unreachable
 
-577:                                              ; No predecessors!
-  br label %578
+582:                                              ; No predecessors!
+  br label %583
 
-578:                                              ; preds = %577, %565, %564, %554, %553
-  %579 = load ptr, ptr %10, align 8
-  %580 = load ptr, ptr %19, align 8
-  %581 = call ptr @lappend(ptr noundef %579, ptr noundef %580)
-  store ptr %581, ptr %10, align 8
-  br label %582
+583:                                              ; preds = %582
+  br label %584
 
-582:                                              ; preds = %578
-  %583 = getelementptr inbounds %struct.ForEachState, ptr %17, i32 0, i32 1
-  %584 = load i32, ptr %583, align 8
-  %585 = add i32 %584, 1
-  store i32 %585, ptr %583, align 8
-  br label %329, !llvm.loop !8
+584:                                              ; preds = %583, %570, %368, %560, %559
+  %585 = load ptr, ptr %10, align 8
+  %586 = load ptr, ptr %18, align 8
+  %587 = call ptr @lappend(ptr noundef %585, ptr noundef %586)
+  store ptr %587, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %588
 
-586:                                              ; preds = %351
-  %587 = load ptr, ptr %10, align 8
-  %588 = load ptr, ptr %5, align 8
-  %589 = getelementptr inbounds %struct.Query, ptr %588, i32 0, i32 21
-  store ptr %587, ptr %589, align 8
-  %590 = load ptr, ptr %5, align 8
-  %591 = getelementptr inbounds %struct.Query, ptr %590, i32 0, i32 27
-  store ptr null, ptr %591, align 8
-  %592 = load ptr, ptr %5, align 8
-  %593 = getelementptr inbounds %struct.Query, ptr %592, i32 0, i32 9
-  store i8 0, ptr %593, align 2
-  %594 = load ptr, ptr %3, align 8
-  %595 = getelementptr inbounds %struct.ParseState, ptr %594, i32 0, i32 26
-  %596 = load i8, ptr %595, align 1
-  %597 = trunc i8 %596 to i1
-  %598 = load ptr, ptr %5, align 8
-  %599 = getelementptr inbounds %struct.Query, ptr %598, i32 0, i32 10
-  %600 = zext i1 %597 to i8
-  store i8 %600, ptr %599, align 1
-  %601 = load ptr, ptr %3, align 8
+588:                                              ; preds = %584
+  %589 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  %590 = load i32, ptr %589, align 8
+  %591 = add i32 %590, 1
+  store i32 %591, ptr %589, align 8
+  br label %342, !llvm.loop !9
+
+592:                                              ; preds = %367
+  %593 = load ptr, ptr %10, align 8
+  %594 = load ptr, ptr %5, align 8
+  %595 = getelementptr inbounds nuw %struct.Query, ptr %594, i32 0, i32 22
+  store ptr %593, ptr %595, align 8
+  %596 = load ptr, ptr %5, align 8
+  %597 = getelementptr inbounds nuw %struct.Query, ptr %596, i32 0, i32 9
+  store i8 0, ptr %597, align 2
+  %598 = load ptr, ptr %3, align 8
+  %599 = getelementptr inbounds nuw %struct.ParseState, ptr %598, i32 0, i32 29
+  %600 = load i8, ptr %599, align 1, !range !4, !noundef !5
+  %601 = trunc i8 %600 to i1
   %602 = load ptr, ptr %5, align 8
-  call void @assign_query_collations(ptr noundef %601, ptr noundef %602)
-  %603 = load ptr, ptr %5, align 8
-  ret ptr %603
+  %603 = getelementptr inbounds nuw %struct.Query, ptr %602, i32 0, i32 10
+  %604 = zext i1 %601 to i8
+  store i8 %604, ptr %603, align 1
+  %605 = load ptr, ptr %3, align 8
+  %606 = load ptr, ptr %5, align 8
+  call void @assign_query_collations(ptr noundef %605, ptr noundef %606)
+  %607 = load ptr, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 3, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %607
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %6 = load i64, ptr %3, align 8
   %7 = call ptr @palloc0(i64 noundef %6)
   store ptr %7, ptr %5, align 8
   %8 = load i32, ptr %4, align 4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.Node, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.Node, ptr %9, i32 0, i32 0
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %11
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #4
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #4
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #4
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #4
 
-declare ptr @transformWithClause(ptr noundef, ptr noundef) #2
+declare ptr @transformWithClause(ptr noundef, ptr noundef) #4
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @setTargetTable(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i64 noundef) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #4
 
-declare i32 @errdetail_relkind_not_supported(i8 noundef signext) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @transformFromClause(ptr noundef, ptr noundef) #2
+declare i32 @setTargetTable(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i64 noundef) #4
 
-declare ptr @list_make1_impl(i32 noundef, ptr) #2
+declare i32 @errdetail_relkind_not_supported(i8 noundef signext) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @list_length(ptr noundef %0) #0 {
+declare void @transformFromClause(ptr noundef, ptr noundef) #4
+
+declare ptr @list_make1_impl(i32 noundef, ptr) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @list_length(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -989,7 +1069,7 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   br label %10
 
@@ -1001,18 +1081,20 @@ define internal i32 @list_length(ptr noundef %0) #0 {
   ret i32 %11
 }
 
-declare ptr @GetNSItemByRangeTablePosn(ptr noundef, i32 noundef, i32 noundef) #2
+declare ptr @GetNSItemByRangeTablePosn(ptr noundef, i32 noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #6
 
-declare i32 @errdetail(ptr noundef, ...) #2
+declare i32 @errdetail(ptr noundef, ...) #4
 
-declare void @addNSItemToQuery(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) #2
+declare void @addNSItemToQuery(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) #4
 
-declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) #4
 
-declare ptr @makeFromExpr(ptr noundef, ptr noundef) #2
+declare ptr @makeFromExpr(ptr noundef, ptr noundef) #4
+
+declare void @transformReturningClause(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @setNamespaceForMergeWhen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -1026,78 +1108,105 @@ define internal void @setNamespaceForMergeWhen(ptr noundef %0, ptr noundef %1, i
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.ParseState, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct.ParseState, ptr %11, i32 0, i32 4
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 4
   %15 = sub i32 %14, 1
   %16 = call ptr @list_nth(ptr noundef %13, i32 noundef %15)
   store ptr %16, ptr %9, align 8
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.ParseState, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.ParseState, ptr %17, i32 0, i32 4
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
   %21 = sub i32 %20, 1
   %22 = call ptr @list_nth(ptr noundef %19, i32 noundef %21)
   store ptr %22, ptr %10, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.MergeWhenClause, ptr %23, i32 0, i32 1
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
+  %24 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %4
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.ParseState, ptr %28, i32 0, i32 7
+  %29 = getelementptr inbounds nuw %struct.ParseState, ptr %28, i32 0, i32 9
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %9, align 8
   call void @setNamespaceVisibilityForRTE(ptr noundef %30, ptr noundef %31, i1 noundef zeroext true, i1 noundef zeroext true)
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.ParseState, ptr %32, i32 0, i32 7
+  %33 = getelementptr inbounds nuw %struct.ParseState, ptr %32, i32 0, i32 9
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %10, align 8
   call void @setNamespaceVisibilityForRTE(ptr noundef %34, ptr noundef %35, i1 noundef zeroext true, i1 noundef zeroext true)
-  br label %45
+  br label %60
 
 36:                                               ; preds = %4
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.ParseState, ptr %37, i32 0, i32 7
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %9, align 8
-  call void @setNamespaceVisibilityForRTE(ptr noundef %39, ptr noundef %40, i1 noundef zeroext false, i1 noundef zeroext false)
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.ParseState, ptr %41, i32 0, i32 7
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %10, align 8
-  call void @setNamespaceVisibilityForRTE(ptr noundef %43, ptr noundef %44, i1 noundef zeroext true, i1 noundef zeroext true)
-  br label %45
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %struct.MergeWhenClause, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %50
 
-45:                                               ; preds = %36, %27
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.ParseState, ptr %42, i32 0, i32 9
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  call void @setNamespaceVisibilityForRTE(ptr noundef %44, ptr noundef %45, i1 noundef zeroext true, i1 noundef zeroext true)
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.ParseState, ptr %46, i32 0, i32 9
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %10, align 8
+  call void @setNamespaceVisibilityForRTE(ptr noundef %48, ptr noundef %49, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %59
+
+50:                                               ; preds = %36
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.ParseState, ptr %51, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %9, align 8
+  call void @setNamespaceVisibilityForRTE(ptr noundef %53, ptr noundef %54, i1 noundef zeroext false, i1 noundef zeroext false)
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.ParseState, ptr %55, i32 0, i32 9
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %10, align 8
+  call void @setNamespaceVisibilityForRTE(ptr noundef %57, ptr noundef %58, i1 noundef zeroext true, i1 noundef zeroext true)
+  br label %59
+
+59:                                               ; preds = %50, %41
+  br label %60
+
+60:                                               ; preds = %59, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-declare ptr @transformWhereClause(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare ptr @transformWhereClause(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #4
 
-declare ptr @checkInsertTargets(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @checkInsertTargets(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare ptr @transformExpressionList(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
+declare ptr @transformExpressionList(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #4
 
-declare ptr @transformInsertRow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare ptr @transformInsertRow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #4
 
-declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 noundef zeroext) #2
+declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 noundef zeroext) #4
 
-declare ptr @lappend(ptr noundef, ptr noundef) #2
+declare ptr @lappend(ptr noundef, ptr noundef) #4
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) #4
 
-declare ptr @transformUpdateTargetList(ptr noundef, ptr noundef) #2
+declare ptr @transformUpdateTargetList(ptr noundef, ptr noundef) #4
 
-declare void @assign_query_collations(ptr noundef, ptr noundef) #2
+declare void @assign_query_collations(ptr noundef, ptr noundef) #4
 
-declare ptr @palloc0(i64 noundef) #2
+declare ptr @palloc0(i64 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -1117,128 +1226,160 @@ define internal void @setNamespaceVisibilityForRTE(ptr noundef %0, ptr noundef %
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca %struct.ForEachState, align 8
-  %11 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
-  %12 = zext i1 %2 to i8
-  store i8 %12, ptr %7, align 1
-  %13 = zext i1 %3 to i8
-  store i8 %13, ptr %8, align 1
-  %14 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  store i32 0, ptr %16, align 8
-  br label %17
+  %13 = zext i1 %2 to i8
+  store i8 %13, ptr %7, align 1
+  %14 = zext i1 %3 to i8
+  store i8 %14, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #7
+  %15 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 0
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 1
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr i8, ptr %10, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 4, i1 false)
+  br label %19
 
-17:                                               ; preds = %62, %4
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %38
+19:                                               ; preds = %68, %4
+  %20 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %40
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.List, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp slt i32 %23, %27
-  br i1 %28, label %29, label %38
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.List, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp slt i32 %25, %29
+  br i1 %30, label %31, label %40
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.List, ptr %31, i32 0, i32 3
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 0
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %union.ListCell, ptr %33, i64 %36
-  store ptr %37, ptr %9, align 8
-  br label %39
+  %34 = getelementptr inbounds nuw %struct.List, ptr %33, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %union.ListCell, ptr %35, i64 %38
+  store ptr %39, ptr %9, align 8
+  br label %41
 
-38:                                               ; preds = %21, %17
+40:                                               ; preds = %23, %19
   store ptr null, ptr %9, align 8
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %29
-  %40 = phi i32 [ 1, %29 ], [ 0, %38 ]
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %66
+41:                                               ; preds = %40, %31
+  %42 = phi i32 [ 1, %31 ], [ 0, %40 ]
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %45, label %44
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %9, align 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %11, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %45, i32 0, i32 1
+44:                                               ; preds = %41
+  store i32 2, ptr %11, align 4
+  br label %72
+
+45:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %46 = load ptr, ptr %9, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = icmp eq ptr %47, %48
-  br i1 %49, label %50, label %61
+  store ptr %47, ptr %12, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %53, label %64
 
-50:                                               ; preds = %42
-  %51 = load i8, ptr %7, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %53, i32 0, i32 5
-  %55 = zext i1 %52 to i8
-  store i8 %55, ptr %54, align 8
-  %56 = load i8, ptr %8, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct.ParseNamespaceItem, ptr %58, i32 0, i32 6
-  %60 = zext i1 %57 to i8
-  store i8 %60, ptr %59, align 1
-  br label %66
+53:                                               ; preds = %45
+  %54 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %55 = trunc i8 %54 to i1
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %56, i32 0, i32 5
+  %58 = zext i1 %55 to i8
+  store i8 %58, ptr %57, align 8
+  %59 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %60 = trunc i8 %59 to i1
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds nuw %struct.ParseNamespaceItem, ptr %61, i32 0, i32 6
+  %63 = zext i1 %60 to i8
+  store i8 %63, ptr %62, align 1
+  store i32 2, ptr %11, align 4
+  br label %65
 
-61:                                               ; preds = %42
-  br label %62
+64:                                               ; preds = %45
+  store i32 0, ptr %11, align 4
+  br label %65
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %64 = load i32, ptr %63, align 8
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 8
-  br label %17, !llvm.loop !9
+65:                                               ; preds = %64, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %66 = load i32, ptr %11, align 4
+  switch i32 %66, label %72 [
+    i32 0, label %67
+  ]
 
-66:                                               ; preds = %50, %39
+67:                                               ; preds = %65
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw %struct.ForEachState, ptr %10, i32 0, i32 1
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8
+  br label %19, !llvm.loop !10
+
+72:                                               ; preds = %65, %44
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #7
+  br label %73
+
+73:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.List, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.List, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %union.ListCell, ptr %7, i64 %9
+  %10 = getelementptr inbounds %union.ListCell, ptr %7, i64 %9
   ret ptr %10
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

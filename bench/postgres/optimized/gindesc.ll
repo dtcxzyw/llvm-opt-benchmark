@@ -38,13 +38,13 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
-  %10 = add nsw i32 %9, -16
+  %10 = add nsw i32 %9, -32
   %11 = lshr i32 %10, 4
   switch i32 %11, label %99 [
-    i32 7, label %96
-    i32 1, label %12
-    i32 2, label %73
-    i32 8, label %84
+    i32 6, label %96
+    i32 0, label %12
+    i32 1, label %73
+    i32 7, label %84
   ]
 
 12:                                               ; preds = %2
@@ -63,7 +63,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not50, label %21, label %34
 
 21:                                               ; preds = %12
-  %22 = getelementptr i8, ptr %6, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %.val = load i16, ptr %22, align 2
   %23 = getelementptr i8, ptr %6, i64 4
   %.val53 = load i16, ptr %23, align 2
@@ -71,7 +71,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %25 = shl nuw i32 %24, 16
   %26 = zext i16 %.val53 to i32
   %27 = or disjoint i32 %25, %26
-  %28 = getelementptr i8, ptr %6, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %.val54 = load i16, ptr %28, align 2
   %29 = getelementptr i8, ptr %6, i64 8
   %.val55 = load i16, ptr %29, align 2
@@ -85,14 +85,14 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 34:                                               ; preds = %21, %12
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 117
-  %37 = load i8, ptr %36, align 1
-  %38 = trunc i8 %37 to i1
+  %37 = load i8, ptr %36, align 1, !range !4, !noundef !5
+  %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 118
-  %41 = load i8, ptr %40, align 2
-  %42 = trunc i8 %41 to i1
+  %41 = load i8, ptr %40, align 2, !range !4, !noundef !5
+  %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %39
@@ -113,8 +113,8 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  %52 = load i8, ptr %51, align 2
-  %53 = trunc i8 %52 to i1
+  %52 = load i8, ptr %51, align 2, !range !4, !noundef !5
+  %53 = trunc nuw i8 %52 to i1
   %54 = select i1 %53, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %54) #3
   br label %99
@@ -171,14 +171,14 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 84:                                               ; preds = %2
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 117
-  %86 = load i8, ptr %85, align 1
-  %87 = trunc i8 %86 to i1
+  %86 = load i8, ptr %85, align 1, !range !4, !noundef !5
+  %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 118
-  %90 = load i8, ptr %89, align 2
-  %91 = trunc i8 %90 to i1
+  %90 = load i8, ptr %89, align 2, !range !4, !noundef !5
+  %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %88
@@ -200,7 +200,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %98) #3
   br label %99
 
-99:                                               ; preds = %94, %93, %92, %44, %43, %57, %58, %50, %96, %73, %2
+99:                                               ; preds = %44, %43, %57, %58, %50, %94, %93, %92, %96, %73, %2
   ret void
 }
 
@@ -220,49 +220,49 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr noundef re
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %6 = getelementptr i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.03244 = phi i32 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
-  %.03343 = phi ptr [ %.238, %38 ], [ %6, %.lr.ph.preheader ]
-  %7 = getelementptr i8, ptr %.03343, i64 1
-  %8 = load i8, ptr %.03343, align 1
-  %9 = getelementptr i8, ptr %.03343, i64 2
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
+  %.03446 = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
+  %.03545 = phi ptr [ %.240, %37 ], [ %6, %.lr.ph.preheader ]
+  %7 = getelementptr inbounds nuw i8, ptr %.03545, i64 1
+  %8 = load i8, ptr %.03545, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %.03545, i64 2
   %10 = load i8, ptr %7, align 1
   %11 = and i8 %10, -2
   %or.cond = icmp eq i8 %11, 2
   br i1 %or.cond, label %.thread, label %20
 
 .thread:                                          ; preds = %.lr.ph
-  %12 = getelementptr i8, ptr %.03343, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.03545, i64 8
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %14, 1
   %16 = and i64 %15, 131070
   %17 = add nuw nsw i64 %16, 9
   %18 = and i64 %17, 262142
-  %19 = getelementptr i8, ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %18
   br label %28
 
 20:                                               ; preds = %.lr.ph
   %21 = icmp eq i8 %10, 4
-  br i1 %21, label %.thread35, label %28
+  br i1 %21, label %.thread37, label %28
 
-.thread35:                                        ; preds = %20
+.thread37:                                        ; preds = %20
   %.0.copyload = load i16, ptr %9, align 1
-  %22 = getelementptr i8, ptr %.03343, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.03545, i64 4
   %23 = zext i16 %.0.copyload to i64
   %24 = mul nuw nsw i64 %23, 6
-  %25 = getelementptr i8, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = zext i16 %.0.copyload to i32
   %27 = zext i8 %8 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %27, i32 noundef %26) #3
-  br label %38
+  br label %37
 
 28:                                               ; preds = %.thread, %20
   %.2 = phi ptr [ %9, %20 ], [ %19, %.thread ]
-  switch i8 %10, label %35 [
+  switch i8 %10, label %.critedge [
     i8 3, label %33
     i8 1, label %29
     i8 2, label %31
@@ -271,33 +271,33 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr noundef re
 29:                                               ; preds = %28
   %30 = zext i8 %8 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %30) #3
-  br label %38
+  br label %37
 
 31:                                               ; preds = %28
   %32 = zext i8 %8 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %32) #3
-  br label %38
+  br label %37
 
 33:                                               ; preds = %28
   %34 = zext i8 %8 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %34) #3
-  br label %38
+  br label %37
 
-35:                                               ; preds = %28
-  %36 = zext i8 %10 to i32
-  %37 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %37, i32 noundef %36) #3
+.critedge:                                        ; preds = %28
+  %35 = zext i8 %10 to i32
+  %36 = zext i8 %8 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %36, i32 noundef %35) #3
   br label %.loopexit
 
-38:                                               ; preds = %.thread35, %29, %31, %33
-  %.238 = phi ptr [ %25, %.thread35 ], [ %.2, %29 ], [ %.2, %31 ], [ %.2, %33 ]
-  %39 = add nuw nsw i32 %.03244, 1
-  %40 = load i16, ptr %1, align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp samesign ult i32 %39, %41
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !5
+37:                                               ; preds = %33, %31, %29, %.thread37
+  %.240 = phi ptr [ %.2, %33 ], [ %.2, %31 ], [ %.2, %29 ], [ %25, %.thread37 ]
+  %38 = add nuw nsw i32 %.03446, 1
+  %39 = load i16, ptr %1, align 2
+  %40 = zext i16 %39 to i32
+  %41 = icmp samesign ult i32 %38, %40
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %38, %2, %35
+.loopexit:                                        ; preds = %37, %2, %.critedge
   ret void
 }
 
@@ -320,17 +320,18 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

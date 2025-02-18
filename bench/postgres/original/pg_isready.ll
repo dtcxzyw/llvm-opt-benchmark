@@ -1,18 +1,17 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.option = type { ptr, i32, ptr, i32 }
 %struct._PQconninfoOption = type { ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"3\00", align 1
-@main.long_options = internal global [7 x %struct.option] [%struct.option { ptr @.str.1, i32 1, ptr null, i32 100 }, %struct.option { ptr @.str.2, i32 1, ptr null, i32 104 }, %struct.option { ptr @.str.3, i32 1, ptr null, i32 112 }, %struct.option { ptr @.str.4, i32 0, ptr null, i32 113 }, %struct.option { ptr @.str.5, i32 1, ptr null, i32 116 }, %struct.option { ptr @.str.6, i32 1, ptr null, i32 85 }, %struct.option zeroinitializer], align 16
+@main.long_options = internal global [7 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer, ptr null, i32 100, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 112, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 113, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 1, [4 x i8] zeroinitializer, ptr null, i32 116, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 1, [4 x i8] zeroinitializer, ptr null, i32 85, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.1 = private unnamed_addr constant [7 x i8] c"dbname\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"host\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"port\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"quiet\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
 @.str.6 = private unnamed_addr constant [9 x i8] c"username\00", align 1
-@.str.7 = private unnamed_addr constant [13 x i8] c"pgscripts-17\00", align 1
+@.str.7 = private unnamed_addr constant [13 x i8] c"pgscripts-18\00", align 1
 @.str.8 = private unnamed_addr constant [12 x i8] c"d:h:p:qt:U:\00", align 1
 @optarg = external global ptr, align 8
 @.str.9 = private unnamed_addr constant [38 x i8] c"Try \22%s --help\22 for more information.\00", align 1
@@ -79,29 +78,48 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %3, align 4
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   store ptr @.str, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 56, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #6
   store i8 0, ptr %18, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
   store ptr null, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr ptr, ptr %25, i64 0
+  %26 = getelementptr inbounds ptr, ptr %25, i64 0
   %27 = load ptr, ptr %26, align 8
   call void @pg_logging_init(ptr noundef %27)
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr ptr, ptr %28, i64 0
+  %29 = getelementptr inbounds ptr, ptr %28, i64 0
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @get_progname(ptr noundef %30)
   store ptr %31, ptr %7, align 8
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr ptr, ptr %32, i64 0
+  %33 = getelementptr inbounds ptr, ptr %32, i64 0
   %34 = load ptr, ptr %33, align 8
   call void @set_pglocale_pgservice(ptr noundef %34, ptr noundef @.str.7)
   %35 = load i32, ptr %4, align 4
@@ -113,7 +131,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 38:                                               ; preds = %63, %2
   %39 = load i32, ptr %4, align 4
   %40 = load ptr, ptr %5, align 8
-  %41 = call i32 @getopt_long(i32 noundef %39, ptr noundef %40, ptr noundef @.str.8, ptr noundef @main.long_options, ptr noundef null) #5
+  %41 = call i32 @getopt_long(i32 noundef %39, ptr noundef %40, ptr noundef @.str.8, ptr noundef @main.long_options, ptr noundef null) #6
   store i32 %41, ptr %6, align 4
   %42 = icmp ne i32 %41, -1
   br i1 %42, label %43, label %64
@@ -166,11 +184,11 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 61:                                               ; preds = %43
   %62 = load ptr, ptr %7, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef @.str.9, ptr noundef %62)
-  call void @exit(i32 noundef 3) #6
+  call void @exit(i32 noundef 3) #7
   unreachable
 
 63:                                               ; preds = %58, %55, %54, %51, %48, %45
-  br label %38, !llvm.loop !5
+  br label %38, !llvm.loop !4
 
 64:                                               ; preds = %38
   %65 = load i32, ptr @optind, align 4
@@ -182,48 +200,48 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   %69 = load ptr, ptr %5, align 8
   %70 = load i32, ptr @optind, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
   %73 = load ptr, ptr %72, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.10, ptr noundef %73)
   %74 = load ptr, ptr %7, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef @.str.9, ptr noundef %74)
-  call void @exit(i32 noundef 3) #6
+  call void @exit(i32 noundef 3) #7
   unreachable
 
 75:                                               ; preds = %64
-  %76 = getelementptr [7 x ptr], ptr %16, i64 0, i64 0
+  %76 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 0
   store ptr @.str.2, ptr %76, align 16
   %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr [7 x ptr], ptr %17, i64 0, i64 0
+  %78 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 0
   store ptr %77, ptr %78, align 16
-  %79 = getelementptr [7 x ptr], ptr %16, i64 0, i64 1
+  %79 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 1
   store ptr @.str.3, ptr %79, align 8
   %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr [7 x ptr], ptr %17, i64 0, i64 1
+  %81 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 1
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr [7 x ptr], ptr %16, i64 0, i64 2
+  %82 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 2
   store ptr @.str.11, ptr %82, align 16
   %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr [7 x ptr], ptr %17, i64 0, i64 2
+  %84 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 2
   store ptr %83, ptr %84, align 16
-  %85 = getelementptr [7 x ptr], ptr %16, i64 0, i64 3
+  %85 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 3
   store ptr @.str.1, ptr %85, align 8
   %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr [7 x ptr], ptr %17, i64 0, i64 3
+  %87 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 3
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr [7 x ptr], ptr %16, i64 0, i64 4
+  %88 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 4
   store ptr @.str.12, ptr %88, align 16
   %89 = load ptr, ptr %12, align 8
-  %90 = getelementptr [7 x ptr], ptr %17, i64 0, i64 4
+  %90 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 4
   store ptr %89, ptr %90, align 16
-  %91 = getelementptr [7 x ptr], ptr %16, i64 0, i64 5
+  %91 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 5
   store ptr @.str.13, ptr %91, align 8
   %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr [7 x ptr], ptr %17, i64 0, i64 5
+  %93 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 5
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr [7 x ptr], ptr %16, i64 0, i64 6
+  %94 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 6
   store ptr null, ptr %94, align 16
-  %95 = getelementptr [7 x ptr], ptr %17, i64 0, i64 6
+  %95 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 6
   store ptr null, ptr %95, align 16
   %96 = load ptr, ptr %11, align 8
   %97 = icmp ne ptr %96, null
@@ -231,19 +249,19 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 98:                                               ; preds = %75
   %99 = load ptr, ptr %11, align 8
-  %100 = call i32 @strncmp(ptr noundef %99, ptr noundef @.str.14, i64 noundef 13) #7
+  %100 = call i32 @strncmp(ptr noundef %99, ptr noundef @.str.14, i64 noundef 13) #8
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %110, label %102
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %11, align 8
-  %104 = call i32 @strncmp(ptr noundef %103, ptr noundef @.str.15, i64 noundef 11) #7
+  %104 = call i32 @strncmp(ptr noundef %103, ptr noundef @.str.15, i64 noundef 11) #8
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %11, align 8
-  %108 = call ptr @strchr(ptr noundef %107, i32 noundef 61) #7
+  %108 = call ptr @strchr(ptr noundef %107, i32 noundef 61) #8
   %109 = icmp ne ptr %108, null
   br i1 %109, label %110, label %118
 
@@ -258,7 +276,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 115:                                              ; preds = %110
   %116 = load ptr, ptr %24, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.16, ptr noundef %116)
-  call void @exit(i32 noundef 3) #6
+  call void @exit(i32 noundef 3) #7
   unreachable
 
 117:                                              ; preds = %110
@@ -273,7 +291,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 122:                                              ; preds = %118
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.17)
-  call void @exit(i32 noundef 3) #6
+  call void @exit(i32 noundef 3) #7
   unreachable
 
 123:                                              ; preds = %118
@@ -285,16 +303,16 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 126:                                              ; preds = %240, %123
   %127 = load ptr, ptr %23, align 8
-  %128 = getelementptr inbounds %struct._PQconninfoOption, ptr %127, i32 0, i32 0
+  %128 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %127, i32 0, i32 0
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ne ptr %129, null
   br i1 %130, label %131, label %243
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %23, align 8
-  %133 = getelementptr inbounds %struct._PQconninfoOption, ptr %132, i32 0, i32 0
+  %133 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %132, i32 0, i32 0
   %134 = load ptr, ptr %133, align 8
-  %135 = call i32 @strcmp(ptr noundef %134, ptr noundef @.str.2) #7
+  %135 = call i32 @strcmp(ptr noundef %134, ptr noundef @.str.2) #8
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %167
 
@@ -305,14 +323,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %22, align 8
-  %142 = getelementptr inbounds %struct._PQconninfoOption, ptr %141, i32 0, i32 3
+  %142 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %141, i32 0, i32 3
   %143 = load ptr, ptr %142, align 8
   %144 = icmp ne ptr %143, null
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %22, align 8
-  %147 = getelementptr inbounds %struct._PQconninfoOption, ptr %146, i32 0, i32 3
+  %147 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %146, i32 0, i32 3
   %148 = load ptr, ptr %147, align 8
   store ptr %148, ptr %13, align 8
   br label %166
@@ -329,14 +347,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %23, align 8
-  %156 = getelementptr inbounds %struct._PQconninfoOption, ptr %155, i32 0, i32 3
+  %156 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %155, i32 0, i32 3
   %157 = load ptr, ptr %156, align 8
   %158 = icmp ne ptr %157, null
   br i1 %158, label %159, label %163
 
 159:                                              ; preds = %154
   %160 = load ptr, ptr %23, align 8
-  %161 = getelementptr inbounds %struct._PQconninfoOption, ptr %160, i32 0, i32 3
+  %161 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %160, i32 0, i32 3
   %162 = load ptr, ptr %161, align 8
   store ptr %162, ptr %13, align 8
   br label %164
@@ -356,9 +374,9 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 167:                                              ; preds = %131
   %168 = load ptr, ptr %23, align 8
-  %169 = getelementptr inbounds %struct._PQconninfoOption, ptr %168, i32 0, i32 0
+  %169 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %168, i32 0, i32 0
   %170 = load ptr, ptr %169, align 8
-  %171 = call i32 @strcmp(ptr noundef %170, ptr noundef @.str.19) #7
+  %171 = call i32 @strcmp(ptr noundef %170, ptr noundef @.str.19) #8
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %196
 
@@ -369,28 +387,28 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr %22, align 8
-  %178 = getelementptr inbounds %struct._PQconninfoOption, ptr %177, i32 0, i32 3
+  %178 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %177, i32 0, i32 3
   %179 = load ptr, ptr %178, align 8
   %180 = icmp ne ptr %179, null
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %176
   %182 = load ptr, ptr %22, align 8
-  %183 = getelementptr inbounds %struct._PQconninfoOption, ptr %182, i32 0, i32 3
+  %183 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %182, i32 0, i32 3
   %184 = load ptr, ptr %183, align 8
   store ptr %184, ptr %14, align 8
   br label %195
 
 185:                                              ; preds = %176, %173
   %186 = load ptr, ptr %23, align 8
-  %187 = getelementptr inbounds %struct._PQconninfoOption, ptr %186, i32 0, i32 3
+  %187 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %186, i32 0, i32 3
   %188 = load ptr, ptr %187, align 8
   %189 = icmp ne ptr %188, null
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %185
   %191 = load ptr, ptr %23, align 8
-  %192 = getelementptr inbounds %struct._PQconninfoOption, ptr %191, i32 0, i32 3
+  %192 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %191, i32 0, i32 3
   %193 = load ptr, ptr %192, align 8
   store ptr %193, ptr %14, align 8
   br label %194
@@ -403,9 +421,9 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 196:                                              ; preds = %167
   %197 = load ptr, ptr %23, align 8
-  %198 = getelementptr inbounds %struct._PQconninfoOption, ptr %197, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %197, i32 0, i32 0
   %199 = load ptr, ptr %198, align 8
-  %200 = call i32 @strcmp(ptr noundef %199, ptr noundef @.str.3) #7
+  %200 = call i32 @strcmp(ptr noundef %199, ptr noundef @.str.3) #8
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %231
 
@@ -416,14 +434,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr %22, align 8
-  %207 = getelementptr inbounds %struct._PQconninfoOption, ptr %206, i32 0, i32 3
+  %207 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %206, i32 0, i32 3
   %208 = load ptr, ptr %207, align 8
   %209 = icmp ne ptr %208, null
   br i1 %209, label %210, label %214
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %22, align 8
-  %212 = getelementptr inbounds %struct._PQconninfoOption, ptr %211, i32 0, i32 3
+  %212 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %211, i32 0, i32 3
   %213 = load ptr, ptr %212, align 8
   store ptr %213, ptr %15, align 8
   br label %230
@@ -440,14 +458,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 219:                                              ; preds = %214
   %220 = load ptr, ptr %23, align 8
-  %221 = getelementptr inbounds %struct._PQconninfoOption, ptr %220, i32 0, i32 3
+  %221 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %220, i32 0, i32 3
   %222 = load ptr, ptr %221, align 8
   %223 = icmp ne ptr %222, null
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %219
   %225 = load ptr, ptr %23, align 8
-  %226 = getelementptr inbounds %struct._PQconninfoOption, ptr %225, i32 0, i32 3
+  %226 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %225, i32 0, i32 3
   %227 = load ptr, ptr %226, align 8
   store ptr %227, ptr %15, align 8
   br label %228
@@ -474,7 +492,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %22, align 8
-  %238 = getelementptr %struct._PQconninfoOption, ptr %237, i32 1
+  %238 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %237, i32 1
   store ptr %238, ptr %22, align 8
   br label %239
 
@@ -483,16 +501,16 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 240:                                              ; preds = %239
   %241 = load ptr, ptr %23, align 8
-  %242 = getelementptr %struct._PQconninfoOption, ptr %241, i32 1
+  %242 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %241, i32 1
   store ptr %242, ptr %23, align 8
-  br label %126, !llvm.loop !7
+  br label %126, !llvm.loop !6
 
 243:                                              ; preds = %126
   %244 = getelementptr inbounds [7 x ptr], ptr %16, i64 0, i64 0
   %245 = getelementptr inbounds [7 x ptr], ptr %17, i64 0, i64 0
   %246 = call i32 @PQpingParams(ptr noundef %244, ptr noundef %245, i32 noundef 1)
   store i32 %246, ptr %19, align 4
-  %247 = load i8, ptr %18, align 1
+  %247 = load i8, ptr %18, align 1, !range !7, !noundef !8
   %248 = trunc i8 %247 to i1
   br i1 %248, label %272, label %249
 
@@ -546,17 +564,20 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 272:                                              ; preds = %271, %243
   %273 = load i32, ptr %19, align 4
-  call void @exit(i32 noundef %273) #6
+  call void @exit(i32 noundef %273) #7
   unreachable
 }
 
-declare void @pg_logging_init(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @get_progname(ptr noundef) #1
+declare void @pg_logging_init(ptr noundef) #2
 
-declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) #1
+declare ptr @get_progname(ptr noundef) #2
 
-declare void @handle_help_version_opts(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) #2
+
+declare void @handle_help_version_opts(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @help(ptr noundef %0) #0 {
@@ -583,48 +604,50 @@ define internal void @help(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @pg_strdup(ptr noundef) #1
+declare ptr @pg_strdup(ptr noundef) #2
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) #1
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #3
+declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #4
+declare ptr @strchr(ptr noundef, i32 noundef) #5
 
-declare ptr @PQconninfoParse(ptr noundef, ptr noundef) #1
+declare ptr @PQconninfoParse(ptr noundef, ptr noundef) #2
 
-declare ptr @PQconndefaults() #1
+declare ptr @PQconndefaults() #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-declare i32 @PQpingParams(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @PQpingParams(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @pg_printf(ptr noundef, ...) #1
+declare i32 @pg_printf(ptr noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

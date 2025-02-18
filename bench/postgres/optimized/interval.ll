@@ -39,12 +39,15 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
   store i32 17, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
-  %.0158201 = add i32 %2, -1
-  %10 = icmp sgt i32 %.0158201, -1
-  br i1 %10, label %.lr.ph, label %.loopexit
+  %.0166222 = add i32 %2, -1
+  %10 = icmp sgt i32 %.0166222, -1
+  br i1 %10, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -52,17 +55,17 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = zext nneg i32 %.0158201 to i64
+  %16 = zext nneg i32 %.0166222 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %303
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %303 ]
-  %.0157205 = phi i1 [ false, %.lr.ph ], [ %.2, %303 ]
-  %.0160204 = phi i32 [ 8, %.lr.ph ], [ %.4, %303 ]
-  %.0163202 = phi i32 [ 0, %.lr.ph ], [ %.1164, %303 ]
-  %18 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %.0163226 = phi i1 [ false, %.lr.ph ], [ %.2165, %303 ]
+  %.0168225 = phi i32 [ 8, %.lr.ph ], [ %.5173, %303 ]
+  %.0174223 = phi i32 [ 0, %.lr.ph ], [ %.1175, %303 ]
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
-  switch i32 %19, label %.loopexit [
+  switch i32 %19, label %.thread [
     i32 3, label %20
     i32 4, label %24
     i32 2, label %46
@@ -72,23 +75,23 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   ]
 
 20:                                               ; preds = %17
-  %21 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @DecodeTime(ptr noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %.not189 = icmp eq i32 %23, 0
-  br i1 %.not189, label %._crit_edge208, label %.loopexit
+  %.not200 = icmp eq i32 %23, 0
+  br i1 %.not200, label %._crit_edge229, label %.thread
 
-._crit_edge208:                                   ; preds = %20
+._crit_edge229:                                   ; preds = %20
   %.pre = load i32, ptr %8, align 4
   br label %298
 
 24:                                               ; preds = %17
-  %25 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 58) #14
-  %.not179 = icmp eq ptr %28, null
-  br i1 %.not179, label %46, label %29
+  %.not190 = icmp eq ptr %28, null
+  br i1 %.not190, label %46, label %29
 
 29:                                               ; preds = %24
   %30 = call i32 @DecodeTime(ptr noundef nonnull %27, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
@@ -121,43 +124,43 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %298
 
 46:                                               ; preds = %24, %29, %17, %17
-  %47 = icmp eq i32 %.0160204, 8
-  %.2162 = select i1 %47, i32 18, i32 %.0160204
+  %47 = icmp eq i32 %.0168225, 8
+  %.2170 = select i1 %47, i32 18, i32 %.0168225
   %48 = tail call ptr @__errno_location() #15
   store i32 0, ptr %48, align 4
-  %49 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @strtoint(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 10) #13
   store i32 %51, ptr %9, align 4
   %52 = load i32, ptr %48, align 4
   %53 = icmp eq i32 %52, 34
-  br i1 %53, label %.loopexit, label %54
+  br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %7, align 8
   %56 = load i8, ptr %55, align 1
-  switch i8 %56, label %.loopexit [
+  switch i8 %56, label %.thread [
     i8 45, label %57
     i8 46, label %75
     i8 0, label %88
   ]
 
 57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %55, i64 1
-  %59 = call i32 @strtoint(ptr noundef %58, ptr noundef nonnull %7, i32 noundef 10) #13
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %59 = call i32 @strtoint(ptr noundef nonnull %58, ptr noundef nonnull %7, i32 noundef 10) #13
   %60 = load i32, ptr %48, align 4
   %61 = icmp eq i32 %60, 34
   %62 = icmp ugt i32 %59, 11
   %or.cond3 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond3, label %.loopexit, label %63
+  br i1 %or.cond3, label %.thread, label %63
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %7, align 8
   %65 = load i8, ptr %64, align 1
-  %.not182 = icmp eq i8 %65, 0
-  br i1 %.not182, label %.thread197, label %.loopexit
+  %.not193 = icmp eq i8 %65, 0
+  br i1 %.not193, label %.thread215, label %.thread
 
-.thread197:                                       ; preds = %63
+.thread215:                                       ; preds = %63
   %66 = load ptr, ptr %49, align 8
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 45
@@ -170,7 +173,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %73 = load i32, ptr %14, align 8
   %74 = add i32 %73, %72
   store i32 %74, ptr %14, align 8
-  br label %AdjustFractDays.exit193
+  br label %AdjustFractDays.exit204
 
 75:                                               ; preds = %54
   store i32 0, ptr %48, align 4
@@ -178,13 +181,13 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %77 = call double @strtod(ptr noundef %76, ptr noundef nonnull %7) #13
   %78 = load ptr, ptr %7, align 8
   %79 = load i8, ptr %78, align 1
-  %.not180 = icmp eq i8 %79, 0
-  br i1 %.not180, label %80, label %.loopexit
+  %.not191 = icmp eq i8 %79, 0
+  br i1 %.not191, label %80, label %.thread
 
 80:                                               ; preds = %75
   %81 = load i32, ptr %48, align 4
-  %.not181 = icmp eq i32 %81, 0
-  br i1 %.not181, label %82, label %.loopexit
+  %.not192 = icmp eq i32 %81, 0
+  br i1 %.not192, label %82, label %.thread
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %49, align 8
@@ -197,8 +200,8 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %88
 
 88:                                               ; preds = %54, %86, %82
-  %.0156 = phi double [ %87, %86 ], [ %77, %82 ], [ 0.000000e+00, %54 ]
-  switch i32 %.2162, label %.loopexit [
+  %.3161 = phi double [ %87, %86 ], [ %77, %82 ], [ 0.000000e+00, %54 ]
+  switch i32 %.2170, label %.thread [
     i32 30, label %89
     i32 29, label %98
     i32 18, label %108
@@ -216,7 +219,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
 89:                                               ; preds = %88
   %90 = load i32, ptr %9, align 4
   %91 = sitofp i32 %90 to double
-  %92 = fadd double %.0156, %91
+  %92 = fadd double %.3161, %91
   %93 = call double @llvm.rint.f64(double %92)
   %94 = load i32, ptr %5, align 4
   %95 = sitofp i32 %94 to double
@@ -229,7 +232,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
 98:                                               ; preds = %88
   %99 = load i32, ptr %9, align 4
   %100 = sitofp i32 %99 to double
-  %101 = fadd double %.0156, %100
+  %101 = fadd double %.3161, %100
   %102 = fmul double %101, 1.000000e+03
   %103 = call double @llvm.rint.f64(double %102)
   %104 = load i32, ptr %5, align 4
@@ -245,14 +248,14 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %110 = load i32, ptr %4, align 8
   %111 = add i32 %110, %109
   store i32 %111, ptr %4, align 8
-  %112 = fmul double %.0156, 1.000000e+06
+  %112 = fmul double %.3161, 1.000000e+06
   %113 = call double @llvm.rint.f64(double %112)
   %114 = load i32, ptr %5, align 4
   %115 = sitofp i32 %114 to double
   %116 = fadd double %113, %115
   %117 = fptosi double %116 to i32
   store i32 %117, ptr %5, align 4
-  %118 = fcmp oeq double %.0156, 0.000000e+00
+  %118 = fcmp oeq double %.3161, 0.000000e+00
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %108
@@ -268,11 +271,11 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   %123 = load i32, ptr %12, align 4
   %124 = add i32 %123, %122
   store i32 %124, ptr %12, align 4
-  %125 = fcmp oeq double %.0156, 0.000000e+00
+  %125 = fcmp oeq double %.3161, 0.000000e+00
   br i1 %125, label %AdjustFractSeconds.exit, label %126
 
 126:                                              ; preds = %121
-  %127 = fmul double %.0156, 6.000000e+01
+  %127 = fmul double %.3161, 6.000000e+01
   %128 = fptosi double %127 to i32
   %129 = load i32, ptr %4, align 8
   %130 = add i32 %129, %128
@@ -297,11 +300,11 @@ AdjustFractSeconds.exit:                          ; preds = %121, %126
   %141 = load i32, ptr %11, align 8
   %142 = add i32 %141, %140
   store i32 %142, ptr %11, align 8
-  %143 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %143, label %AdjustFractSeconds.exit191, label %144
+  %143 = fcmp oeq double %.3161, 0.000000e+00
+  br i1 %143, label %AdjustFractSeconds.exit202, label %144
 
 144:                                              ; preds = %139
-  %145 = fmul double %.0156, 3.600000e+03
+  %145 = fmul double %.3161, 3.600000e+03
   %146 = fptosi double %145 to i32
   %147 = load i32, ptr %4, align 8
   %148 = add i32 %147, %146
@@ -315,9 +318,9 @@ AdjustFractSeconds.exit:                          ; preds = %121, %126
   %155 = fadd double %152, %154
   %156 = fptosi double %155 to i32
   store i32 %156, ptr %5, align 4
-  br label %AdjustFractSeconds.exit191
+  br label %AdjustFractSeconds.exit202
 
-AdjustFractSeconds.exit191:                       ; preds = %139, %144
+AdjustFractSeconds.exit202:                       ; preds = %139, %144
   store i32 1024, ptr %8, align 4
   br label %298
 
@@ -326,11 +329,11 @@ AdjustFractSeconds.exit191:                       ; preds = %139, %144
   %159 = load i32, ptr %15, align 4
   %160 = add i32 %159, %158
   store i32 %160, ptr %15, align 4
-  %161 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %161, label %AdjustFractSeconds.exit192, label %162
+  %161 = fcmp oeq double %.3161, 0.000000e+00
+  br i1 %161, label %AdjustFractSeconds.exit203, label %162
 
 162:                                              ; preds = %157
-  %163 = fmul double %.0156, 8.640000e+04
+  %163 = fmul double %.3161, 8.640000e+04
   %164 = fptosi double %163 to i32
   %165 = load i32, ptr %4, align 8
   %166 = add i32 %165, %164
@@ -344,10 +347,10 @@ AdjustFractSeconds.exit191:                       ; preds = %139, %144
   %173 = fadd double %170, %172
   %174 = fptosi double %173 to i32
   store i32 %174, ptr %5, align 4
-  br label %AdjustFractSeconds.exit192
+  br label %AdjustFractSeconds.exit203
 
-AdjustFractSeconds.exit192:                       ; preds = %157, %162
-  %175 = and i32 %.0163202, 8
+AdjustFractSeconds.exit203:                       ; preds = %157, %162
+  %175 = and i32 %.0174223, 8
   %176 = xor i32 %175, 8
   store i32 %176, ptr %8, align 4
   br label %298
@@ -358,11 +361,11 @@ AdjustFractSeconds.exit192:                       ; preds = %157, %162
   %180 = load i32, ptr %15, align 4
   %181 = add i32 %180, %179
   store i32 %181, ptr %15, align 4
-  %182 = fcmp oeq double %.0156, 0.000000e+00
+  %182 = fcmp oeq double %.3161, 0.000000e+00
   br i1 %182, label %AdjustFractDays.exit, label %183
 
 183:                                              ; preds = %177
-  %184 = fmul double %.0156, 7.000000e+00
+  %184 = fmul double %.3161, 7.000000e+00
   %185 = fptosi double %184 to i32
   %186 = add i32 %181, %185
   store i32 %186, ptr %15, align 4
@@ -389,7 +392,7 @@ AdjustFractSeconds.exit192:                       ; preds = %157, %162
   br label %AdjustFractDays.exit
 
 AdjustFractDays.exit:                             ; preds = %177, %183, %190
-  %203 = and i32 %.0163202, 8
+  %203 = and i32 %.0174223, 8
   %204 = xor i32 %203, 8
   store i32 %204, ptr %8, align 4
   br label %298
@@ -399,11 +402,11 @@ AdjustFractDays.exit:                             ; preds = %177, %183, %190
   %207 = load i32, ptr %14, align 8
   %208 = add i32 %207, %206
   store i32 %208, ptr %14, align 8
-  %209 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %209, label %AdjustFractDays.exit193, label %210
+  %209 = fcmp oeq double %.3161, 0.000000e+00
+  br i1 %209, label %AdjustFractDays.exit204, label %210
 
 210:                                              ; preds = %205
-  %211 = fmul double %.0156, 3.000000e+01
+  %211 = fmul double %.3161, 3.000000e+01
   %212 = fptosi double %211 to i32
   %213 = load i32, ptr %15, align 4
   %214 = add i32 %213, %212
@@ -411,7 +414,7 @@ AdjustFractDays.exit:                             ; preds = %177, %183, %190
   %215 = sitofp i32 %212 to double
   %216 = fsub double %211, %215
   %217 = fcmp oeq double %216, 0.000000e+00
-  br i1 %217, label %AdjustFractDays.exit193, label %218
+  br i1 %217, label %AdjustFractDays.exit204, label %218
 
 218:                                              ; preds = %210
   %219 = fmul double %216, 8.640000e+04
@@ -428,9 +431,9 @@ AdjustFractDays.exit:                             ; preds = %177, %183, %190
   %229 = fadd double %226, %228
   %230 = fptosi double %229 to i32
   store i32 %230, ptr %5, align 4
-  br label %AdjustFractDays.exit193
+  br label %AdjustFractDays.exit204
 
-AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %210, %218
+AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %210, %218
   store i32 2, ptr %8, align 4
   br label %298
 
@@ -439,14 +442,14 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %233 = load i32, ptr %13, align 4
   %234 = add i32 %233, %232
   store i32 %234, ptr %13, align 4
-  %235 = fmul double %.0156, 1.200000e+01
+  %235 = fmul double %.3161, 1.200000e+01
   %236 = call double @llvm.rint.f64(double %235)
   %237 = load i32, ptr %14, align 8
   %238 = sitofp i32 %237 to double
   %239 = fadd double %236, %238
   %240 = fptosi double %239 to i32
   store i32 %240, ptr %14, align 8
-  %241 = and i32 %.0163202, 4
+  %241 = and i32 %.0174223, 4
   %242 = xor i32 %241, 4
   store i32 %242, ptr %8, align 4
   br label %298
@@ -457,7 +460,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %246 = load i32, ptr %13, align 4
   %247 = add i32 %246, %245
   store i32 %247, ptr %13, align 4
-  %248 = fmul double %.0156, 1.200000e+01
+  %248 = fmul double %.3161, 1.200000e+01
   %249 = fmul double %248, 1.000000e+01
   %250 = call double @llvm.rint.f64(double %249)
   %251 = load i32, ptr %14, align 8
@@ -465,7 +468,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %253 = fadd double %250, %252
   %254 = fptosi double %253 to i32
   store i32 %254, ptr %14, align 8
-  %255 = and i32 %.0163202, 4
+  %255 = and i32 %.0174223, 4
   %256 = xor i32 %255, 4
   store i32 %256, ptr %8, align 4
   br label %298
@@ -476,7 +479,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %260 = load i32, ptr %13, align 4
   %261 = add i32 %260, %259
   store i32 %261, ptr %13, align 4
-  %262 = fmul double %.0156, 1.200000e+01
+  %262 = fmul double %.3161, 1.200000e+01
   %263 = fmul double %262, 1.000000e+02
   %264 = call double @llvm.rint.f64(double %263)
   %265 = load i32, ptr %14, align 8
@@ -484,7 +487,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %267 = fadd double %264, %266
   %268 = fptosi double %267 to i32
   store i32 %268, ptr %14, align 8
-  %269 = and i32 %.0163202, 4
+  %269 = and i32 %.0174223, 4
   %270 = xor i32 %269, 4
   store i32 %270, ptr %8, align 4
   br label %298
@@ -495,7 +498,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %274 = load i32, ptr %13, align 4
   %275 = add i32 %274, %273
   store i32 %275, ptr %13, align 4
-  %276 = fmul double %.0156, 1.200000e+01
+  %276 = fmul double %.3161, 1.200000e+01
   %277 = fmul double %276, 1.000000e+03
   %278 = call double @llvm.rint.f64(double %277)
   %279 = load i32, ptr %14, align 8
@@ -503,13 +506,13 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %281 = fadd double %278, %280
   %282 = fptosi double %281 to i32
   store i32 %282, ptr %14, align 8
-  %283 = and i32 %.0163202, 4
+  %283 = and i32 %.0174223, 4
   %284 = xor i32 %283, 4
   store i32 %284, ptr %8, align 4
   br label %298
 
 285:                                              ; preds = %17, %17
-  %286 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %287 = load ptr, ptr %286, align 8
   %288 = trunc nuw nsw i64 %indvars.iv to i32
   %289 = call i32 @DecodeUnits(i32 noundef %288, ptr noundef %287, ptr noundef nonnull %9) #13
@@ -518,7 +521,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
 
 291:                                              ; preds = %285
   store i32 0, ptr %8, align 4
-  switch i32 %289, label %.loopexit [
+  switch i32 %289, label %.thread [
     i32 17, label %292
     i32 19, label %294
     i32 0, label %296
@@ -538,29 +541,29 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   store i32 %297, ptr %3, align 4
   br label %298
 
-298:                                              ; preds = %._crit_edge208, %292, %294, %296, %89, %98, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit191, %AdjustFractSeconds.exit192, %AdjustFractDays.exit, %AdjustFractDays.exit193, %231, %243, %257, %271, %120, %119, %45
-  %299 = phi i32 [ 7182, %296 ], [ 0, %294 ], [ 0, %292 ], [ %284, %271 ], [ %270, %257 ], [ %256, %243 ], [ %242, %231 ], [ 2, %AdjustFractDays.exit193 ], [ %204, %AdjustFractDays.exit ], [ %176, %AdjustFractSeconds.exit192 ], [ 1024, %AdjustFractSeconds.exit191 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %119 ], [ 28672, %120 ], [ 8192, %98 ], [ 16384, %89 ], [ 32, %45 ], [ %.pre, %._crit_edge208 ]
-  %.1161 = phi i32 [ 0, %296 ], [ %295, %294 ], [ %293, %292 ], [ 28, %271 ], [ 27, %257 ], [ 26, %243 ], [ 25, %231 ], [ 23, %AdjustFractDays.exit193 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit192 ], [ 21, %AdjustFractSeconds.exit191 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %119 ], [ 18, %120 ], [ 29, %98 ], [ 30, %89 ], [ 21, %45 ], [ 21, %._crit_edge208 ]
-  %.1 = phi i1 [ %.0157205, %296 ], [ true, %294 ], [ %.0157205, %292 ], [ %.0157205, %271 ], [ %.0157205, %257 ], [ %.0157205, %243 ], [ %.0157205, %231 ], [ %.0157205, %AdjustFractDays.exit193 ], [ %.0157205, %AdjustFractDays.exit ], [ %.0157205, %AdjustFractSeconds.exit192 ], [ %.0157205, %AdjustFractSeconds.exit191 ], [ %.0157205, %AdjustFractSeconds.exit ], [ %.0157205, %119 ], [ %.0157205, %120 ], [ %.0157205, %98 ], [ %.0157205, %89 ], [ %.0157205, %45 ], [ %.0157205, %._crit_edge208 ]
-  %300 = and i32 %299, %.0163202
-  %.not190 = icmp eq i32 %300, 0
-  br i1 %.not190, label %301, label %.loopexit
+298:                                              ; preds = %._crit_edge229, %292, %294, %296, %89, %98, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit202, %AdjustFractSeconds.exit203, %AdjustFractDays.exit, %AdjustFractDays.exit204, %231, %243, %257, %271, %120, %119, %45
+  %299 = phi i32 [ 7182, %296 ], [ 0, %294 ], [ 0, %292 ], [ %284, %271 ], [ %270, %257 ], [ %256, %243 ], [ %242, %231 ], [ 2, %AdjustFractDays.exit204 ], [ %204, %AdjustFractDays.exit ], [ %176, %AdjustFractSeconds.exit203 ], [ 1024, %AdjustFractSeconds.exit202 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %119 ], [ 28672, %120 ], [ 8192, %98 ], [ 16384, %89 ], [ 32, %45 ], [ %.pre, %._crit_edge229 ]
+  %.1169 = phi i32 [ 0, %296 ], [ %295, %294 ], [ %293, %292 ], [ 28, %271 ], [ 27, %257 ], [ 26, %243 ], [ 25, %231 ], [ 23, %AdjustFractDays.exit204 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit203 ], [ 21, %AdjustFractSeconds.exit202 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %119 ], [ 18, %120 ], [ 29, %98 ], [ 30, %89 ], [ 21, %45 ], [ 21, %._crit_edge229 ]
+  %.1164 = phi i1 [ %.0163226, %296 ], [ true, %294 ], [ %.0163226, %292 ], [ %.0163226, %271 ], [ %.0163226, %257 ], [ %.0163226, %243 ], [ %.0163226, %231 ], [ %.0163226, %AdjustFractDays.exit204 ], [ %.0163226, %AdjustFractDays.exit ], [ %.0163226, %AdjustFractSeconds.exit203 ], [ %.0163226, %AdjustFractSeconds.exit202 ], [ %.0163226, %AdjustFractSeconds.exit ], [ %.0163226, %119 ], [ %.0163226, %120 ], [ %.0163226, %98 ], [ %.0163226, %89 ], [ %.0163226, %45 ], [ %.0163226, %._crit_edge229 ]
+  %300 = and i32 %299, %.0174223
+  %.not201 = icmp eq i32 %300, 0
+  br i1 %.not201, label %301, label %.thread
 
 301:                                              ; preds = %298
-  %302 = or i32 %299, %.0163202
+  %302 = or i32 %299, %.0174223
   br label %303
 
 303:                                              ; preds = %285, %301
-  %.1164 = phi i32 [ %.0163202, %285 ], [ %302, %301 ]
-  %.4 = phi i32 [ 8, %285 ], [ %.1161, %301 ]
-  %.2 = phi i1 [ %.0157205, %285 ], [ %.1, %301 ]
+  %.1175 = phi i32 [ %.0174223, %285 ], [ %302, %301 ]
+  %.5173 = phi i32 [ 8, %285 ], [ %.1169, %301 ]
+  %.2165 = phi i1 [ %.0163226, %285 ], [ %.1164, %301 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %304 = icmp sgt i64 %indvars.iv, 0
-  br i1 %304, label %17, label %._crit_edge, !llvm.loop !4
+  br i1 %304, label %17, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %303
-  %305 = icmp eq i32 %.1164, 0
-  br i1 %305, label %.loopexit, label %306
+  %305 = icmp eq i32 %.1175, 0
+  br i1 %305, label %.thread, label %306
 
 306:                                              ; preds = %._crit_edge
   %307 = load i32, ptr %5, align 4
@@ -578,7 +581,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   br label %314
 
 314:                                              ; preds = %306, %308
-  br i1 %.2, label %315, label %.loopexit
+  br i1 %.2165, label %315, label %.thread
 
 315:                                              ; preds = %314
   %316 = load i32, ptr %5, align 4
@@ -607,30 +610,78 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %333 = load i32, ptr %332, align 4
   %334 = sub i32 0, %333
   store i32 %334, ptr %332, align 4
-  br label %.loopexit
+  br label %.thread
 
-.loopexit:                                        ; preds = %298, %17, %291, %88, %54, %75, %80, %63, %57, %46, %20, %6, %314, %315, %._crit_edge
-  %.0154 = phi i32 [ -1, %._crit_edge ], [ 0, %315 ], [ 0, %314 ], [ -1, %6 ], [ -1, %298 ], [ -1, %17 ], [ -1, %291 ], [ -1, %88 ], [ -1, %54 ], [ -1, %75 ], [ -1, %80 ], [ -1, %63 ], [ -2, %57 ], [ -2, %46 ], [ %23, %20 ]
-  ret i32 %.0154
+.thread:                                          ; preds = %63, %57, %298, %17, %291, %88, %54, %75, %80, %46, %20, %6, %314, %315, %._crit_edge
+  %.1 = phi i32 [ -1, %._crit_edge ], [ 0, %315 ], [ 0, %314 ], [ -1, %6 ], [ -2, %57 ], [ -1, %63 ], [ -1, %298 ], [ -1, %17 ], [ -1, %291 ], [ -1, %88 ], [ -1, %54 ], [ -1, %75 ], [ -1, %80 ], [ -2, %46 ], [ %23, %20 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  ret i32 %.1
 }
 
-declare i32 @DecodeTime(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @DecodeTime(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
-declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #5
+declare double @llvm.rint.f64(double) #6
 
-declare i32 @DecodeUnits(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @AdjustFractDays(double noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef range(i32 7, 31) %3) unnamed_addr #7 {
+  %5 = fcmp oeq double %0, 0.000000e+00
+  br i1 %5, label %AdjustFractSeconds.exit, label %6
+
+6:                                                ; preds = %4
+  %7 = uitofp nneg i32 %3 to double
+  %8 = fmul double %0, %7
+  %9 = fptosi double %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = add i32 %11, %9
+  store i32 %12, ptr %10, align 4
+  %13 = sitofp i32 %9 to double
+  %14 = fsub double %8, %13
+  %15 = fcmp oeq double %14, 0.000000e+00
+  br i1 %15, label %AdjustFractSeconds.exit, label %16
+
+16:                                               ; preds = %6
+  %17 = fmul double %14, 8.640000e+04
+  %18 = fptosi double %17 to i32
+  %19 = load i32, ptr %1, align 8
+  %20 = add i32 %19, %18
+  store i32 %20, ptr %1, align 8
+  %21 = sitofp i32 %18 to double
+  %22 = fsub double %17, %21
+  %23 = fmul double %22, 1.000000e+06
+  %24 = tail call double @llvm.rint.f64(double %23)
+  %25 = load i32, ptr %2, align 4
+  %26 = sitofp i32 %25 to double
+  %27 = fadd double %24, %26
+  %28 = fptosi double %27 to i32
+  store i32 %28, ptr %2, align 4
+  br label %AdjustFractSeconds.exit
+
+AdjustFractSeconds.exit:                          ; preds = %16, %6, %4
+  ret void
+}
+
+declare i32 @DecodeUnits(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -695,7 +746,7 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %40, label %.thread.thread382, label %.thread.thread
 
 .thread.thread:                                   ; preds = %39
-  %41 = getelementptr i8, ptr %3, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 45, ptr %3, align 1
   %42 = sub i32 0, %6
   %43 = sub i32 0, %8
@@ -729,19 +780,19 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   %60 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
   %61 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %53, i32 noundef %59, i32 noundef %60) #13
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %63 = getelementptr i8, ptr %3, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
   %64 = icmp eq i32 %1, 0
   %65 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   br i1 %64, label %66, label %68
 
 66:                                               ; preds = %.thread.thread382
-  %67 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.21, i32 noundef %65) #13
+  %67 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %63, ptr noundef nonnull @.str.21, i32 noundef %65) #13
   br label %AppendSeconds.exit
 
 68:                                               ; preds = %.thread.thread382
   %69 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.23, i32 noundef %65, i32 noundef 6, i32 noundef %69) #13
-  tail call void @TrimTrailingZeros(ptr noundef %63) #13
+  %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %63, ptr noundef nonnull @.str.23, i32 noundef %65, i32 noundef 6, i32 noundef %69) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %63) #13
   br label %AppendSeconds.exit
 
 71:                                               ; preds = %.thread.thread, %.thread
@@ -765,15 +816,15 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
 75:                                               ; preds = %74
   %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0249351378, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
-  %78 = getelementptr i8, ptr %.0246354375, i64 %77
-  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  %78 = getelementptr inbounds nuw i8, ptr %.0246354375, i64 %77
+  tail call fastcc void @AppendSeconds(ptr noundef nonnull %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 79:                                               ; preds = %74
   %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
-  %82 = getelementptr i8, ptr %.0246354375, i64 %81
-  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  %82 = getelementptr inbounds nuw i8, ptr %.0246354375, i64 %81
+  tail call fastcc void @AppendSeconds(ptr noundef nonnull %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 83:                                               ; preds = %4
@@ -796,14 +847,14 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %AppendSeconds.exit
 
 93:                                               ; preds = %83
-  %94 = getelementptr i8, ptr %3, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 80, ptr %3, align 1
   br i1 %84, label %AddISO8601IntPart.exit, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %94, ptr noundef nonnull @.str.25, i32 noundef %6, i32 noundef 89) #13
+  %96 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %94, ptr noundef nonnull @.str.25, i32 noundef %6, i32 noundef 89) #13
   %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #14
-  %98 = getelementptr i8, ptr %94, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
   br label %AddISO8601IntPart.exit
 
 AddISO8601IntPart.exit:                           ; preds = %93, %95
@@ -811,9 +862,9 @@ AddISO8601IntPart.exit:                           ; preds = %93, %95
   br i1 %85, label %AddISO8601IntPart.exit261, label %99
 
 99:                                               ; preds = %AddISO8601IntPart.exit
-  %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i, ptr noundef nonnull @.str.25, i32 noundef %8, i32 noundef 77) #13
+  %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.25, i32 noundef %8, i32 noundef 77) #13
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
-  %102 = getelementptr i8, ptr %.0.i, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %101
   br label %AddISO8601IntPart.exit261
 
 AddISO8601IntPart.exit261:                        ; preds = %AddISO8601IntPart.exit, %99
@@ -821,9 +872,9 @@ AddISO8601IntPart.exit261:                        ; preds = %AddISO8601IntPart.e
   br i1 %86, label %AddISO8601IntPart.exit263, label %103
 
 103:                                              ; preds = %AddISO8601IntPart.exit261
-  %104 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i260, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
+  %104 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i260, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
   %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i260) #14
-  %106 = getelementptr i8, ptr %.0.i260, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i260, i64 %105
   br label %AddISO8601IntPart.exit263
 
 AddISO8601IntPart.exit263:                        ; preds = %AddISO8601IntPart.exit261, %103
@@ -836,14 +887,14 @@ AddISO8601IntPart.exit263:                        ; preds = %AddISO8601IntPart.e
   br i1 %or.cond47, label %110, label %AppendSeconds.exit
 
 110:                                              ; preds = %AddISO8601IntPart.exit263
-  %111 = getelementptr i8, ptr %.0.i262, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i262, i64 1
   store i8 84, ptr %.0.i262, align 1
   br i1 %87, label %AddISO8601IntPart.exit265, label %112
 
 112:                                              ; preds = %110
-  %113 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %111, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef 72) #13
+  %113 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %111, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef 72) #13
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #14
-  %115 = getelementptr i8, ptr %111, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %114
   br label %AddISO8601IntPart.exit265
 
 AddISO8601IntPart.exit265:                        ; preds = %110, %112
@@ -851,9 +902,9 @@ AddISO8601IntPart.exit265:                        ; preds = %110, %112
   br i1 %88, label %AddISO8601IntPart.exit267, label %116
 
 116:                                              ; preds = %AddISO8601IntPart.exit265
-  %117 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i264, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
+  %117 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i264, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
   %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i264) #14
-  %119 = getelementptr i8, ptr %.0.i264, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %.0.i264, i64 %118
   br label %AddISO8601IntPart.exit267
 
 AddISO8601IntPart.exit267:                        ; preds = %AddISO8601IntPart.exit265, %116
@@ -865,7 +916,7 @@ AddISO8601IntPart.exit267:                        ; preds = %AddISO8601IntPart.e
   br i1 %or.cond51.not, label %123, label %121
 
 121:                                              ; preds = %120
-  %122 = getelementptr i8, ptr %.0.i266, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i266, i64 1
   store i8 45, ptr %.0.i266, align 1
   br label %123
 
@@ -876,19 +927,19 @@ AddISO8601IntPart.exit267:                        ; preds = %AddISO8601IntPart.e
   br i1 %124, label %126, label %128
 
 126:                                              ; preds = %123
-  %127 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.2, ptr noundef nonnull @.str.22, i32 noundef %125) #13
+  %127 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.22, i32 noundef %125) #13
   br label %AppendSeconds.exit268
 
 128:                                              ; preds = %123
   %129 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %130 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.2, ptr noundef nonnull @.str.24, i32 noundef %125, i32 noundef 6, i32 noundef %129) #13
-  tail call void @TrimTrailingZeros(ptr noundef %.2) #13
+  %130 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.24, i32 noundef %125, i32 noundef 6, i32 noundef %129) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %.2) #13
   br label %AppendSeconds.exit268
 
 AppendSeconds.exit268:                            ; preds = %126, %128
   %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #14
-  %132 = getelementptr i8, ptr %.2, i64 %131
-  %133 = getelementptr i8, ptr %132, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.2, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store i8 83, ptr %132, align 1
   store i8 0, ptr %133, align 1
   br label %AppendSeconds.exit
@@ -904,7 +955,7 @@ AppendSeconds.exit268:                            ; preds = %126, %128
   %.lobit.i = lshr i32 %6, 31
   %139 = trunc nuw nsw i32 %.lobit.i to i8
   %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %141 = getelementptr i8, ptr %3, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 %140
   br label %AddPostgresIntPart.exit
 
 AddPostgresIntPart.exit:                          ; preds = %134, %136
@@ -927,7 +978,7 @@ AddPostgresIntPart.exit:                          ; preds = %134, %136
   %.lobit.i271 = lshr i32 %8, 31
   %152 = trunc nuw nsw i32 %.lobit.i271 to i8
   %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i269) #14
-  %154 = getelementptr i8, ptr %.0.i269, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i269, i64 %153
   br label %AddPostgresIntPart.exit273
 
 AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.exit, %143
@@ -950,7 +1001,7 @@ AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.
   %.lobit.i275 = lshr i32 %10, 31
   %165 = trunc nuw nsw i32 %.lobit.i275 to i8
   %166 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i272) #14
-  %167 = getelementptr i8, ptr %.0.i272, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i272, i64 %166
   br label %AddPostgresIntPart.exit277
 
 AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.exit273, %156
@@ -981,24 +1032,24 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   %182 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
   %183 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i276, ptr noundef nonnull @.str.9, ptr noundef nonnull %177, ptr noundef nonnull %180, i32 noundef %181, i32 noundef %182) #13
   %184 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i276) #14
-  %185 = getelementptr i8, ptr %.0.i276, i64 %184
+  %185 = getelementptr inbounds nuw i8, ptr %.0.i276, i64 %184
   %186 = icmp eq i32 %1, 0
   %187 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   br i1 %186, label %188, label %190
 
 188:                                              ; preds = %173
-  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %185, ptr noundef nonnull @.str.21, i32 noundef %187) #13
+  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %185, ptr noundef nonnull @.str.21, i32 noundef %187) #13
   br label %AppendSeconds.exit
 
 190:                                              ; preds = %173
   %191 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %192 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %185, ptr noundef nonnull @.str.23, i32 noundef %187, i32 noundef 6, i32 noundef %191) #13
-  tail call void @TrimTrailingZeros(ptr noundef %185) #13
+  %192 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %185, ptr noundef nonnull @.str.23, i32 noundef %187, i32 noundef 6, i32 noundef %191) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %185) #13
   br label %AppendSeconds.exit
 
 193:                                              ; preds = %4
   store i16 64, ptr %3, align 1
-  %194 = getelementptr i8, ptr %3, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %195 = icmp eq i32 %6, 0
   br i1 %195, label %AddVerboseIntPart.exit, label %196
 
@@ -1008,9 +1059,9 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   %198 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
   %199 = icmp eq i32 %198, 1
   %200 = select i1 %199, ptr @.str.10, ptr @.str.18
-  %201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %194, ptr noundef nonnull @.str.27, i32 noundef %198, ptr noundef nonnull @.str.6, ptr noundef nonnull %200) #13
+  %201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %194, ptr noundef nonnull @.str.27, i32 noundef %198, ptr noundef nonnull @.str.6, ptr noundef nonnull %200) #13
   %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #14
-  %203 = getelementptr i8, ptr %194, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %194, i64 %202
   br label %AddVerboseIntPart.exit
 
 AddVerboseIntPart.exit:                           ; preds = %193, %196
@@ -1041,9 +1092,9 @@ AddVerboseIntPart.exit:                           ; preds = %193, %196
   %.015.i282 = phi i32 [ %209, %207 ], [ %spec.select.i281, %210 ]
   %214 = icmp eq i32 %.015.i282, 1
   %215 = select i1 %214, ptr @.str.10, ptr @.str.18
-  %216 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i279, ptr noundef nonnull @.str.27, i32 noundef %.015.i282, ptr noundef nonnull @.str.7, ptr noundef nonnull %215) #13
+  %216 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i279, ptr noundef nonnull @.str.27, i32 noundef %.015.i282, ptr noundef nonnull @.str.7, ptr noundef nonnull %215) #13
   %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i279) #14
-  %218 = getelementptr i8, ptr %.0.i279, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i279, i64 %217
   br label %AddVerboseIntPart.exit285
 
 AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.exit, %213
@@ -1074,9 +1125,9 @@ AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.e
   %.015.i287 = phi i32 [ %224, %222 ], [ %spec.select.i286, %225 ]
   %229 = icmp eq i32 %.015.i287, 1
   %230 = select i1 %229, ptr @.str.10, ptr @.str.18
-  %231 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i283, ptr noundef nonnull @.str.27, i32 noundef %.015.i287, ptr noundef nonnull @.str.8, ptr noundef nonnull %230) #13
+  %231 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i283, ptr noundef nonnull @.str.27, i32 noundef %.015.i287, ptr noundef nonnull @.str.8, ptr noundef nonnull %230) #13
   %232 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i283) #14
-  %233 = getelementptr i8, ptr %.0.i283, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %.0.i283, i64 %232
   br label %AddVerboseIntPart.exit290
 
 AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.exit285, %228
@@ -1107,9 +1158,9 @@ AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.e
   %.015.i292 = phi i32 [ %239, %237 ], [ %spec.select.i291, %240 ]
   %244 = icmp eq i32 %.015.i292, 1
   %245 = select i1 %244, ptr @.str.10, ptr @.str.18
-  %246 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i288, ptr noundef nonnull @.str.27, i32 noundef %.015.i292, ptr noundef nonnull @.str.15, ptr noundef nonnull %245) #13
+  %246 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i288, ptr noundef nonnull @.str.27, i32 noundef %.015.i292, ptr noundef nonnull @.str.15, ptr noundef nonnull %245) #13
   %247 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i288) #14
-  %248 = getelementptr i8, ptr %.0.i288, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr %.0.i288, i64 %247
   br label %AddVerboseIntPart.exit295
 
 AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.exit290, %243
@@ -1140,9 +1191,9 @@ AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.e
   %.015.i297 = phi i32 [ %254, %252 ], [ %spec.select.i296, %255 ]
   %259 = icmp eq i32 %.015.i297, 1
   %260 = select i1 %259, ptr @.str.10, ptr @.str.18
-  %261 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i293, ptr noundef nonnull @.str.27, i32 noundef %.015.i297, ptr noundef nonnull @.str.16, ptr noundef nonnull %260) #13
+  %261 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i293, ptr noundef nonnull @.str.27, i32 noundef %.015.i297, ptr noundef nonnull @.str.16, ptr noundef nonnull %260) #13
   %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i293) #14
-  %263 = getelementptr i8, ptr %.0.i293, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr %.0.i293, i64 %262
   br label %AddVerboseIntPart.exit300
 
 AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.exit295, %258
@@ -1155,7 +1206,7 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br i1 %or.cond65.not, label %293, label %266
 
 266:                                              ; preds = %AddVerboseIntPart.exit300
-  %267 = getelementptr i8, ptr %.0.i298, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 1
   store i8 32, ptr %.0.i298, align 1
   %268 = icmp slt i32 %15, 0
   br i1 %268, label %272, label %269
@@ -1180,7 +1231,7 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
 
 .sink.split:                                      ; preds = %276, %274
   %.1331.ph = phi i8 [ 0, %274 ], [ 1, %276 ]
-  %278 = getelementptr i8, ptr %.0.i298, i64 2
+  %278 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 2
   store i8 45, ptr %267, align 1
   br label %279
 
@@ -1192,22 +1243,22 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br i1 %280, label %282, label %284
 
 282:                                              ; preds = %279
-  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4, ptr noundef nonnull @.str.22, i32 noundef %281) #13
+  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.22, i32 noundef %281) #13
   br label %.thread360
 
 284:                                              ; preds = %279
   %285 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
-  tail call void @TrimTrailingZeros(ptr noundef %.4) #13
+  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %.4) #13
   br label %.thread360
 
 .thread360:                                       ; preds = %284, %282
   %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #14
-  %288 = getelementptr i8, ptr %.4, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr %.4, i64 %287
   %289 = icmp ne i32 %281, 1
   %290 = or i1 %264, %289
   %291 = select i1 %290, ptr @.str.18, ptr @.str.10
-  %292 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %288, ptr noundef nonnull @.str.17, ptr noundef nonnull %291) #13
+  %292 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %288, ptr noundef nonnull @.str.17, ptr noundef nonnull %291) #13
   br label %296
 
 293:                                              ; preds = %AddVerboseIntPart.exit300
@@ -1232,17 +1283,17 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr255, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   br label %AppendSeconds.exit
 
-AppendSeconds.exit:                               ; preds = %AddISO8601IntPart.exit263, %190, %188, %68, %66, %296, %298, %AddPostgresIntPart.exit277, %AppendSeconds.exit268, %AddISO8601IntPart.exit267, %50, %72, %79, %75, %91
+AppendSeconds.exit:                               ; preds = %AddISO8601IntPart.exit263, %190, %188, %68, %66, %50, %72, %79, %75, %296, %298, %AddPostgresIntPart.exit277, %AppendSeconds.exit268, %AddISO8601IntPart.exit267, %91
   ret void
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @AppendSeconds(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -1278,16 +1329,16 @@ define ptr @PGTYPESinterval_new() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-declare ptr @pgtypes_alloc(i64 noundef) local_unnamed_addr #1
+declare ptr @pgtypes_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PGTYPESinterval_free(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+define void @PGTYPESinterval_free(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   tail call void @free(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1302,6 +1353,14 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = alloca [25 x i32], align 16
   %12 = alloca [153 x i8], align 16
   %13 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 153, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -1316,25 +1375,23 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 21:                                               ; preds = %2
   %22 = tail call ptr @__errno_location() #15
   store i32 330, ptr %22, align 4
-  br label %470
+  br label %457
 
 23:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
   %24 = select i1 %.not, ptr %13, ptr %1
   %25 = call i32 @ParseDateTime(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %24) #13
   %.not22 = icmp eq i32 %25, 0
-  br i1 %.not22, label %26, label %429
+  br i1 %.not22, label %26, label %416
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %9, align 4
   %28 = call i32 @DecodeInterval(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not23 = icmp eq i32 %28, 0
-  br i1 %.not23, label %431, label %29
+  br i1 %.not23, label %418, label %29
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i32 17, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 4
@@ -1345,808 +1402,780 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 32:                                               ; preds = %29
   %33 = load i8, ptr %0, align 1
   %.not.i = icmp eq i8 %33, 80
-  br i1 %.not.i, label %.outer.i.sink.split, label %.sink.split
+  br i1 %.not.i, label %34, label %.sink.split
 
-.outer.i.sink.split:                              ; preds = %32, %39
-  %.sink264 = phi ptr [ %36, %39 ], [ %0, %32 ]
-  %.lcssa177182.i.ph = phi double [ %37, %39 ], [ undef, %32 ]
-  %storemerge.i.lcssa171179.i.ph = phi i32 [ %storemerge.i168.i, %39 ], [ undef, %32 ]
-  %.073.ph.i.ph = phi i1 [ false, %39 ], [ true, %32 ]
-  %34 = getelementptr i8, ptr %.sink264, i64 1
-  store ptr %34, ptr %3, align 8
-  br label %.outer.i
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store ptr %35, ptr %3, align 8
+  %36 = load i8, ptr %35, align 1
+  %.not88167.i = icmp eq i8 %36, 0
+  br i1 %.not88167.i, label %.sink.split162, label %.lr.ph.i
 
-.outer.i:                                         ; preds = %.outer.i.backedge, %.outer.i.sink.split
-  %35 = phi ptr [ %34, %.outer.i.sink.split ], [ %.be, %.outer.i.backedge ]
-  %.lcssa177182.i = phi double [ %.lcssa177182.i.ph, %.outer.i.sink.split ], [ %.lcssa177182.i.be, %.outer.i.backedge ]
-  %storemerge.i.lcssa171179.i = phi i32 [ %storemerge.i.lcssa171179.i.ph, %.outer.i.sink.split ], [ %storemerge.i.lcssa171179.i.be, %.outer.i.backedge ]
-  %.073.ph.i = phi i1 [ %.073.ph.i.ph, %.outer.i.sink.split ], [ false, %.outer.i.backedge ]
-  br label %AdjustFractDays.exit.i
+.lr.ph.i:                                         ; preds = %34, %AdjustFractDays.exit.i
+  %37 = phi i8 [ %413, %AdjustFractDays.exit.i ], [ %36, %34 ]
+  %38 = phi ptr [ %412, %AdjustFractDays.exit.i ], [ %35, %34 ]
+  %.074169.i = phi i1 [ %.175.i, %AdjustFractDays.exit.i ], [ true, %34 ]
+  %.077168.i = phi i8 [ %.178.i, %AdjustFractDays.exit.i ], [ 0, %34 ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  %39 = icmp eq i8 %37, 84
+  br i1 %39, label %40, label %42
 
-AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exit.i.backedge, %.outer.i
-  %36 = phi ptr [ %35, %.outer.i ], [ %68, %AdjustFractDays.exit.i.backedge ]
-  %37 = phi double [ %.lcssa177182.i, %.outer.i ], [ %67, %AdjustFractDays.exit.i.backedge ]
-  %storemerge.i168.i = phi i32 [ %storemerge.i.lcssa171179.i, %.outer.i ], [ %storemerge.i.i, %AdjustFractDays.exit.i.backedge ]
-  %.074.i = phi i1 [ false, %.outer.i ], [ true, %AdjustFractDays.exit.i.backedge ]
-  %38 = load i8, ptr %36, align 1
-  switch i8 %38, label %40 [
-    i8 0, label %.sink.split208
-    i8 84, label %39
-  ]
+40:                                               ; preds = %.lr.ph.i
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store ptr %41, ptr %3, align 8
+  br label %AdjustFractDays.exit.i, !llvm.loop !5
 
-39:                                               ; preds = %AdjustFractDays.exit.i
-  store i32 %storemerge.i168.i, ptr %4, align 4
-  store double %37, ptr %5, align 8
-  br label %.outer.i.sink.split, !llvm.loop !6
-
-40:                                               ; preds = %AdjustFractDays.exit.i
-  %41 = tail call ptr @__ctype_b_loc() #15
-  %42 = load ptr, ptr %41, align 8
-  %43 = zext i8 %38 to i64
-  %44 = getelementptr i16, ptr %42, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %.fr24.i.i = freeze i16 %45
-  %46 = and i16 %.fr24.i.i, 2048
-  %.not.i.i = icmp ne i16 %46, 0
-  %.off.i.i = add i8 %38, -45
+42:                                               ; preds = %.lr.ph.i
+  %43 = tail call ptr @__ctype_b_loc() #15
+  %44 = load ptr, ptr %43, align 8
+  %45 = zext i8 %37 to i64
+  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %47 = load i16, ptr %46, align 2
+  %.fr24.i.i = freeze i16 %47
+  %48 = and i16 %.fr24.i.i, 2048
+  %.not.i.i = icmp ne i16 %48, 0
+  %.off.i.i = add i8 %37, -45
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %or.cond23.i.i = or i1 %switch.i.i, %.not.i.i
-  br i1 %or.cond23.i.i, label %47, label %.sink.split
+  br i1 %or.cond23.i.i, label %49, label %.sink.split.sink.split
 
-47:                                               ; preds = %40
-  %48 = tail call ptr @__errno_location() #15
-  store i32 0, ptr %48, align 4
-  %49 = call double @strtod(ptr noundef nonnull %36, ptr noundef nonnull %3) #13
-  %50 = load ptr, ptr %3, align 8
-  %51 = icmp eq ptr %50, %36
-  br i1 %51, label %.sink.split, label %52
+49:                                               ; preds = %42
+  %50 = tail call ptr @__errno_location() #15
+  store i32 0, ptr %50, align 4
+  %51 = call double @strtod(ptr noundef nonnull %38, ptr noundef nonnull %3) #13
+  %52 = load ptr, ptr %3, align 8
+  %53 = icmp eq ptr %52, %38
+  br i1 %53, label %.sink.split.sink.split, label %54
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %48, align 4
-  %.not20.i.i = icmp eq i32 %53, 0
-  br i1 %.not20.i.i, label %54, label %.sink.split
+54:                                               ; preds = %49
+  %55 = load i32, ptr %50, align 4
+  %.not20.i.i = icmp eq i32 %55, 0
+  br i1 %.not20.i.i, label %56, label %.sink.split.sink.split
 
-54:                                               ; preds = %52
-  %55 = fcmp olt double %49, 0xC1E0000000000000
-  %56 = fcmp ogt double %49, 0x41DFFFFFFFC00000
-  %or.cond.i.i = or i1 %55, %56
-  br i1 %or.cond.i.i, label %.sink.split, label %57
+56:                                               ; preds = %54
+  %57 = fcmp olt double %51, 0xC1E0000000000000
+  %58 = fcmp ogt double %51, 0x41DFFFFFFFC00000
+  %or.cond.i.i = or i1 %57, %58
+  br i1 %or.cond.i.i, label %.sink.split.sink.split, label %59
 
-57:                                               ; preds = %54
-  %58 = fcmp ult double %49, 0.000000e+00
-  br i1 %58, label %61, label %59
+59:                                               ; preds = %56
+  %60 = fcmp ult double %51, 0.000000e+00
+  br i1 %60, label %63, label %61
 
-59:                                               ; preds = %57
-  %60 = call double @llvm.floor.f64(double %49)
-  br label %65
+61:                                               ; preds = %59
+  %62 = call double @llvm.floor.f64(double %51)
+  br label %67
 
-61:                                               ; preds = %57
-  %62 = fneg double %49
-  %63 = call double @llvm.floor.f64(double %62)
-  %64 = fneg double %63
-  br label %65
+63:                                               ; preds = %59
+  %64 = fneg double %51
+  %65 = call double @llvm.floor.f64(double %64)
+  %66 = fneg double %65
+  br label %67
 
-65:                                               ; preds = %61, %59
-  %storemerge.in.i.i = phi double [ %64, %61 ], [ %60, %59 ]
+67:                                               ; preds = %63, %61
+  %storemerge.in.i.i = phi double [ %66, %63 ], [ %62, %61 ]
   %storemerge.i.i = fptosi double %storemerge.in.i.i to i32
-  %66 = sitofp i32 %storemerge.i.i to double
-  %67 = fsub double %49, %66
-  %68 = getelementptr i8, ptr %50, i64 1
-  store ptr %68, ptr %3, align 8
-  %69 = load i8, ptr %50, align 1
-  br i1 %.073.ph.i, label %70, label %286
+  store i32 %storemerge.i.i, ptr %4, align 4
+  %68 = sitofp i32 %storemerge.i.i to double
+  %69 = fsub double %51, %68
+  store double %69, ptr %5, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %70, ptr %3, align 8
+  %71 = load i8, ptr %52, align 1
+  br i1 %.074169.i, label %72, label %248
 
-70:                                               ; preds = %65
-  switch i8 %69, label %.sink.split [
-    i8 89, label %71
-    i8 77, label %80
-    i8 87, label %105
-    i8 68, label %130
-    i8 84, label %147
-    i8 0, label %147
-    i8 45, label %.loopexit137.i
+72:                                               ; preds = %67
+  switch i8 %71, label %.sink.split.sink.split [
+    i8 89, label %73
+    i8 77, label %82
+    i8 87, label %107
+    i8 68, label %132
+    i8 84, label %149
+    i8 0, label %149
+    i8 45, label %183
   ]
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr %14, align 4
-  %73 = add i32 %72, %storemerge.i.i
-  store i32 %73, ptr %14, align 4
-  %74 = fmul double %67, 1.200000e+01
-  %75 = call double @llvm.rint.f64(double %74)
-  %76 = load i32, ptr %15, align 8
-  %77 = sitofp i32 %76 to double
-  %78 = fadd double %75, %77
-  %79 = fptosi double %78 to i32
-  store i32 %79, ptr %15, align 8
-  br label %AdjustFractDays.exit.i.backedge
+73:                                               ; preds = %72
+  %74 = load i32, ptr %14, align 4
+  %75 = add i32 %74, %storemerge.i.i
+  store i32 %75, ptr %14, align 4
+  %76 = fmul double %69, 1.200000e+01
+  %77 = call double @llvm.rint.f64(double %76)
+  %78 = load i32, ptr %15, align 8
+  %79 = sitofp i32 %78 to double
+  %80 = fadd double %77, %79
+  %81 = fptosi double %80 to i32
+  store i32 %81, ptr %15, align 8
+  br label %AdjustFractDays.exit.i
 
-80:                                               ; preds = %70
-  %81 = load i32, ptr %15, align 8
-  %82 = add i32 %81, %storemerge.i.i
-  store i32 %82, ptr %15, align 8
-  %83 = fcmp oeq double %67, 0.000000e+00
-  br i1 %83, label %AdjustFractDays.exit.i.backedge, label %84
+82:                                               ; preds = %72
+  %83 = load i32, ptr %15, align 8
+  %84 = add i32 %83, %storemerge.i.i
+  store i32 %84, ptr %15, align 8
+  %85 = fcmp oeq double %69, 0.000000e+00
+  br i1 %85, label %AdjustFractDays.exit.i, label %86
 
-84:                                               ; preds = %80
-  %85 = fmul double %67, 3.000000e+01
-  %86 = fptosi double %85 to i32
-  %87 = load i32, ptr %16, align 4
-  %88 = add i32 %87, %86
-  store i32 %88, ptr %16, align 4
-  %89 = sitofp i32 %86 to double
-  %90 = fsub double %85, %89
-  %91 = fcmp oeq double %90, 0.000000e+00
-  br i1 %91, label %AdjustFractDays.exit.i.backedge, label %92
+86:                                               ; preds = %82
+  %87 = fmul double %69, 3.000000e+01
+  %88 = fptosi double %87 to i32
+  %89 = load i32, ptr %16, align 4
+  %90 = add i32 %89, %88
+  store i32 %90, ptr %16, align 4
+  %91 = sitofp i32 %88 to double
+  %92 = fsub double %87, %91
+  %93 = fcmp oeq double %92, 0.000000e+00
+  br i1 %93, label %AdjustFractDays.exit.i, label %94
 
-92:                                               ; preds = %84
-  %93 = fmul double %90, 8.640000e+04
-  %94 = fptosi double %93 to i32
-  %95 = load i32, ptr %7, align 8
-  %96 = add i32 %95, %94
-  store i32 %96, ptr %7, align 8
-  %97 = sitofp i32 %94 to double
-  %98 = fsub double %93, %97
-  %99 = fmul double %98, 1.000000e+06
-  %100 = call double @llvm.rint.f64(double %99)
-  %101 = load i32, ptr %6, align 4
-  %102 = sitofp i32 %101 to double
-  %103 = fadd double %100, %102
-  %104 = fptosi double %103 to i32
-  store i32 %104, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+94:                                               ; preds = %86
+  %95 = fmul double %92, 8.640000e+04
+  %96 = fptosi double %95 to i32
+  %97 = load i32, ptr %7, align 8
+  %98 = add i32 %97, %96
+  store i32 %98, ptr %7, align 8
+  %99 = sitofp i32 %96 to double
+  %100 = fsub double %95, %99
+  %101 = fmul double %100, 1.000000e+06
+  %102 = call double @llvm.rint.f64(double %101)
+  %103 = load i32, ptr %6, align 4
+  %104 = sitofp i32 %103 to double
+  %105 = fadd double %102, %104
+  %106 = fptosi double %105 to i32
+  store i32 %106, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-105:                                              ; preds = %70
-  %106 = mul i32 %storemerge.i.i, 7
-  %107 = load i32, ptr %16, align 4
-  %108 = add i32 %107, %106
-  store i32 %108, ptr %16, align 4
-  %109 = fcmp oeq double %67, 0.000000e+00
-  br i1 %109, label %AdjustFractDays.exit.i.backedge, label %110
+107:                                              ; preds = %72
+  %108 = mul i32 %storemerge.i.i, 7
+  %109 = load i32, ptr %16, align 4
+  %110 = add i32 %109, %108
+  store i32 %110, ptr %16, align 4
+  %111 = fcmp oeq double %69, 0.000000e+00
+  br i1 %111, label %AdjustFractDays.exit.i, label %112
 
-110:                                              ; preds = %105
-  %111 = fmul double %67, 7.000000e+00
-  %112 = fptosi double %111 to i32
-  %113 = add i32 %108, %112
-  store i32 %113, ptr %16, align 4
-  %114 = sitofp i32 %112 to double
-  %115 = fsub double %111, %114
-  %116 = fcmp oeq double %115, 0.000000e+00
-  br i1 %116, label %AdjustFractDays.exit.i.backedge, label %117
+112:                                              ; preds = %107
+  %113 = fmul double %69, 7.000000e+00
+  %114 = fptosi double %113 to i32
+  %115 = add i32 %110, %114
+  store i32 %115, ptr %16, align 4
+  %116 = sitofp i32 %114 to double
+  %117 = fsub double %113, %116
+  %118 = fcmp oeq double %117, 0.000000e+00
+  br i1 %118, label %AdjustFractDays.exit.i, label %119
 
-117:                                              ; preds = %110
-  %118 = fmul double %115, 8.640000e+04
-  %119 = fptosi double %118 to i32
-  %120 = load i32, ptr %7, align 8
-  %121 = add i32 %120, %119
-  store i32 %121, ptr %7, align 8
-  %122 = sitofp i32 %119 to double
-  %123 = fsub double %118, %122
-  %124 = fmul double %123, 1.000000e+06
-  %125 = call double @llvm.rint.f64(double %124)
-  %126 = load i32, ptr %6, align 4
-  %127 = sitofp i32 %126 to double
-  %128 = fadd double %125, %127
-  %129 = fptosi double %128 to i32
-  store i32 %129, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+119:                                              ; preds = %112
+  %120 = fmul double %117, 8.640000e+04
+  %121 = fptosi double %120 to i32
+  %122 = load i32, ptr %7, align 8
+  %123 = add i32 %122, %121
+  store i32 %123, ptr %7, align 8
+  %124 = sitofp i32 %121 to double
+  %125 = fsub double %120, %124
+  %126 = fmul double %125, 1.000000e+06
+  %127 = call double @llvm.rint.f64(double %126)
+  %128 = load i32, ptr %6, align 4
+  %129 = sitofp i32 %128 to double
+  %130 = fadd double %127, %129
+  %131 = fptosi double %130 to i32
+  store i32 %131, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-130:                                              ; preds = %70
-  %131 = load i32, ptr %16, align 4
-  %132 = add i32 %131, %storemerge.i.i
-  store i32 %132, ptr %16, align 4
-  %133 = fcmp oeq double %67, 0.000000e+00
-  br i1 %133, label %AdjustFractDays.exit.i.backedge, label %134
+132:                                              ; preds = %72
+  %133 = load i32, ptr %16, align 4
+  %134 = add i32 %133, %storemerge.i.i
+  store i32 %134, ptr %16, align 4
+  %135 = fcmp oeq double %69, 0.000000e+00
+  br i1 %135, label %AdjustFractDays.exit.i, label %136
 
-134:                                              ; preds = %130
-  %135 = fmul double %67, 8.640000e+04
-  %136 = fptosi double %135 to i32
-  %137 = load i32, ptr %7, align 8
-  %138 = add i32 %137, %136
-  store i32 %138, ptr %7, align 8
-  %139 = sitofp i32 %136 to double
-  %140 = fsub double %135, %139
-  %141 = fmul double %140, 1.000000e+06
-  %142 = call double @llvm.rint.f64(double %141)
-  %143 = load i32, ptr %6, align 4
-  %144 = sitofp i32 %143 to double
-  %145 = fadd double %142, %144
-  %146 = fptosi double %145 to i32
-  store i32 %146, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+136:                                              ; preds = %132
+  %137 = fmul double %69, 8.640000e+04
+  %138 = fptosi double %137 to i32
+  %139 = load i32, ptr %7, align 8
+  %140 = add i32 %139, %138
+  store i32 %140, ptr %7, align 8
+  %141 = sitofp i32 %138 to double
+  %142 = fsub double %137, %141
+  %143 = fmul double %142, 1.000000e+06
+  %144 = call double @llvm.rint.f64(double %143)
+  %145 = load i32, ptr %6, align 4
+  %146 = sitofp i32 %145 to double
+  %147 = fadd double %144, %146
+  %148 = fptosi double %147 to i32
+  store i32 %148, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-147:                                              ; preds = %70, %70
-  store i32 %storemerge.i.i, ptr %4, align 4
-  store double %67, ptr %5, align 8
-  %148 = load i8, ptr %36, align 1
-  %149 = icmp eq i8 %148, 45
-  %spec.select.idx.i.i = zext i1 %149 to i64
-  %spec.select.i.i = getelementptr i8, ptr %36, i64 %spec.select.idx.i.i
-  %150 = call i64 @strspn(ptr noundef readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
-  %151 = and i64 %150, 4294967295
-  %152 = icmp ne i64 %151, 8
-  %brmerge.i = or i1 %.074.i, %152
-  br i1 %brmerge.i, label %179, label %153
+149:                                              ; preds = %72, %72
+  %150 = load i8, ptr %38, align 1
+  %151 = icmp eq i8 %150, 45
+  %spec.select.idx.i.i = zext i1 %151 to i64
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx.i.i
+  %152 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
+  %153 = and i64 %152, 4294967295
+  %154 = icmp eq i64 %153, 8
+  br i1 %154, label %155, label %183
 
-153:                                              ; preds = %147
-  %154 = sdiv i32 %storemerge.i.i, 10000
-  %155 = load i32, ptr %14, align 4
-  %156 = add i32 %155, %154
-  store i32 %156, ptr %14, align 4
-  %157 = sdiv i32 %storemerge.i.i, 100
-  %158 = srem i32 %157, 100
-  %159 = load i32, ptr %15, align 8
+155:                                              ; preds = %149
+  %156 = trunc nuw i8 %.077168.i to i1
+  br i1 %156, label %.sink.split.sink.split, label %157
+
+157:                                              ; preds = %155
+  %158 = sdiv i32 %storemerge.i.i, 10000
+  %159 = load i32, ptr %14, align 4
   %160 = add i32 %159, %158
-  store i32 %160, ptr %15, align 8
-  %161 = srem i32 %storemerge.i.i, 100
-  %162 = load i32, ptr %16, align 4
-  %163 = add i32 %162, %161
-  store i32 %163, ptr %16, align 4
-  %164 = fcmp oeq double %67, 0.000000e+00
-  br i1 %164, label %AdjustFractSeconds.exit97.i, label %165
+  store i32 %160, ptr %14, align 4
+  %161 = sdiv i32 %storemerge.i.i, 100
+  %162 = srem i32 %161, 100
+  %163 = load i32, ptr %15, align 8
+  %164 = add i32 %163, %162
+  store i32 %164, ptr %15, align 8
+  %165 = srem i32 %storemerge.i.i, 100
+  %166 = load i32, ptr %16, align 4
+  %167 = add i32 %166, %165
+  store i32 %167, ptr %16, align 4
+  %168 = fcmp oeq double %69, 0.000000e+00
+  br i1 %168, label %AdjustFractSeconds.exit98.i, label %169
 
-165:                                              ; preds = %153
-  %166 = fmul double %67, 8.640000e+04
-  %167 = fptosi double %166 to i32
-  %168 = load i32, ptr %7, align 8
-  %169 = add i32 %168, %167
-  store i32 %169, ptr %7, align 8
-  %170 = sitofp i32 %167 to double
-  %171 = fsub double %166, %170
-  %172 = fmul double %171, 1.000000e+06
-  %173 = call double @llvm.rint.f64(double %172)
-  %174 = load i32, ptr %6, align 4
-  %175 = sitofp i32 %174 to double
-  %176 = fadd double %173, %175
-  %177 = fptosi double %176 to i32
-  store i32 %177, ptr %6, align 4
-  br label %AdjustFractSeconds.exit97.i
+169:                                              ; preds = %157
+  %170 = fmul double %69, 8.640000e+04
+  %171 = fptosi double %170 to i32
+  %172 = load i32, ptr %7, align 8
+  %173 = add i32 %172, %171
+  store i32 %173, ptr %7, align 8
+  %174 = sitofp i32 %171 to double
+  %175 = fsub double %170, %174
+  %176 = fmul double %175, 1.000000e+06
+  %177 = call double @llvm.rint.f64(double %176)
+  %178 = load i32, ptr %6, align 4
+  %179 = sitofp i32 %178 to double
+  %180 = fadd double %177, %179
+  %181 = fptosi double %180 to i32
+  store i32 %181, ptr %6, align 4
+  br label %AdjustFractSeconds.exit98.i
 
-AdjustFractSeconds.exit97.i:                      ; preds = %165, %153
-  %178 = icmp eq i8 %69, 0
-  br i1 %178, label %.sink.split208, label %.outer.i.backedge
+AdjustFractSeconds.exit98.i:                      ; preds = %169, %157
+  %182 = icmp eq i8 %71, 0
+  br i1 %182, label %.sink.split162.sink.split, label %AdjustFractDays.exit.i
 
-.loopexit137.i:                                   ; preds = %70
-  store i32 %storemerge.i.i, ptr %4, align 4
-  store double %67, ptr %5, align 8
-  br label %179
+183:                                              ; preds = %149, %72
+  %184 = trunc nuw i8 %.077168.i to i1
+  br i1 %184, label %.sink.split.sink.split, label %185
 
-179:                                              ; preds = %.loopexit137.i, %147
-  br i1 %.074.i, label %.sink.split, label %180
+185:                                              ; preds = %183
+  %186 = load i32, ptr %14, align 4
+  %187 = add i32 %186, %storemerge.i.i
+  store i32 %187, ptr %14, align 4
+  %188 = fmul double %69, 1.200000e+01
+  %189 = call double @llvm.rint.f64(double %188)
+  %190 = load i32, ptr %15, align 8
+  %191 = sitofp i32 %190 to double
+  %192 = fadd double %189, %191
+  %193 = fptosi double %192 to i32
+  store i32 %193, ptr %15, align 8
+  switch i8 %71, label %194 [
+    i8 0, label %.sink.split162.sink.split
+    i8 84, label %AdjustFractDays.exit.i
+  ], !llvm.loop !5
 
-180:                                              ; preds = %179
-  %181 = load i32, ptr %14, align 4
-  %182 = add i32 %181, %storemerge.i.i
-  store i32 %182, ptr %14, align 4
-  %183 = fmul double %67, 1.200000e+01
-  %184 = call double @llvm.rint.f64(double %183)
-  %185 = load i32, ptr %15, align 8
-  %186 = sitofp i32 %185 to double
-  %187 = fadd double %184, %186
-  %188 = fptosi double %187 to i32
-  store i32 %188, ptr %15, align 8
-  switch i8 %69, label %189 [
-    i8 0, label %.sink.split208
-    i8 84, label %.outer.i.backedge
-  ]
+194:                                              ; preds = %185
+  %195 = load ptr, ptr %43, align 8
+  %196 = load i8, ptr %70, align 1
+  %197 = zext i8 %196 to i64
+  %198 = getelementptr inbounds nuw i16, ptr %195, i64 %197
+  %199 = load i16, ptr %198, align 2
+  %.fr24.i99.i = freeze i16 %199
+  %200 = and i16 %.fr24.i99.i, 2048
+  %.not.i100.i = icmp ne i16 %200, 0
+  %.off.i101.i = add i8 %196, -45
+  %switch.i102.i = icmp ult i8 %.off.i101.i, 2
+  %or.cond23.i103.i = or i1 %switch.i102.i, %.not.i100.i
+  br i1 %or.cond23.i103.i, label %201, label %.sink.split.sink.split
 
-189:                                              ; preds = %180
-  %190 = load ptr, ptr %41, align 8
-  %191 = load i8, ptr %68, align 1
-  %192 = zext i8 %191 to i64
-  %193 = getelementptr i16, ptr %190, i64 %192
-  %194 = load i16, ptr %193, align 2
-  %.fr24.i98.i = freeze i16 %194
-  %195 = and i16 %.fr24.i98.i, 2048
-  %.not.i99.i = icmp ne i16 %195, 0
-  %.off.i100.i = add i8 %191, -45
-  %switch.i101.i = icmp ult i8 %.off.i100.i, 2
-  %or.cond23.i102.i = or i1 %switch.i101.i, %.not.i99.i
-  br i1 %or.cond23.i102.i, label %196, label %.sink.split
+201:                                              ; preds = %194
+  store i32 0, ptr %50, align 4
+  %202 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
+  %203 = load ptr, ptr %3, align 8
+  %204 = icmp eq ptr %203, %70
+  br i1 %204, label %.sink.split.sink.split, label %205
 
-196:                                              ; preds = %189
-  store i32 0, ptr %48, align 4
-  %197 = call double @strtod(ptr noundef nonnull %68, ptr noundef nonnull %3) #13
-  %198 = load ptr, ptr %3, align 8
-  %199 = icmp eq ptr %198, %68
-  br i1 %199, label %.sink.split, label %200
-
-200:                                              ; preds = %196
-  %201 = load i32, ptr %48, align 4
-  %.not20.i104.i = icmp eq i32 %201, 0
-  br i1 %.not20.i104.i, label %202, label %.sink.split
-
-202:                                              ; preds = %200
-  %203 = fcmp olt double %197, 0xC1E0000000000000
-  %204 = fcmp ogt double %197, 0x41DFFFFFFFC00000
-  %or.cond.i105.i = or i1 %203, %204
-  br i1 %or.cond.i105.i, label %.sink.split, label %205
-
-205:                                              ; preds = %202
-  %206 = fcmp ult double %197, 0.000000e+00
-  br i1 %206, label %209, label %207
+205:                                              ; preds = %201
+  %206 = load i32, ptr %50, align 4
+  %.not20.i105.i = icmp eq i32 %206, 0
+  br i1 %.not20.i105.i, label %207, label %.sink.split.sink.split
 
 207:                                              ; preds = %205
-  %208 = call double @llvm.floor.f64(double %197)
-  br label %213
+  %208 = fcmp olt double %202, 0xC1E0000000000000
+  %209 = fcmp ogt double %202, 0x41DFFFFFFFC00000
+  %or.cond.i106.i = or i1 %208, %209
+  br i1 %or.cond.i106.i, label %.sink.split.sink.split, label %210
 
-209:                                              ; preds = %205
-  %210 = fneg double %197
-  %211 = call double @llvm.floor.f64(double %210)
-  %212 = fneg double %211
-  br label %213
+210:                                              ; preds = %207
+  %211 = fcmp ult double %202, 0.000000e+00
+  br i1 %211, label %214, label %212
 
-213:                                              ; preds = %209, %207
-  %storemerge.in.i106.i = phi double [ %212, %209 ], [ %208, %207 ]
-  %storemerge.i107.i = fptosi double %storemerge.in.i106.i to i32
-  store i32 %storemerge.i107.i, ptr %4, align 4
-  %214 = sitofp i32 %storemerge.i107.i to double
-  %215 = fsub double %197, %214
-  store double %215, ptr %5, align 8
-  %216 = load i32, ptr %15, align 8
-  %217 = add i32 %216, %storemerge.i107.i
-  store i32 %217, ptr %15, align 8
-  %218 = fcmp oeq double %215, 0.000000e+00
-  br i1 %218, label %AdjustFractDays.exit109.i, label %219
+212:                                              ; preds = %210
+  %213 = call double @llvm.floor.f64(double %202)
+  br label %218
 
-219:                                              ; preds = %213
-  %220 = fmul double %215, 3.000000e+01
-  %221 = fptosi double %220 to i32
-  %222 = load i32, ptr %16, align 4
-  %223 = add i32 %222, %221
-  store i32 %223, ptr %16, align 4
-  %224 = sitofp i32 %221 to double
-  %225 = fsub double %220, %224
-  %226 = fcmp oeq double %225, 0.000000e+00
-  br i1 %226, label %AdjustFractDays.exit109.i, label %227
+214:                                              ; preds = %210
+  %215 = fneg double %202
+  %216 = call double @llvm.floor.f64(double %215)
+  %217 = fneg double %216
+  br label %218
 
-227:                                              ; preds = %219
-  %228 = fmul double %225, 8.640000e+04
-  %229 = fptosi double %228 to i32
-  %230 = load i32, ptr %7, align 8
-  %231 = add i32 %230, %229
-  store i32 %231, ptr %7, align 8
-  %232 = sitofp i32 %229 to double
-  %233 = fsub double %228, %232
-  %234 = fmul double %233, 1.000000e+06
-  %235 = call double @llvm.rint.f64(double %234)
-  %236 = load i32, ptr %6, align 4
-  %237 = sitofp i32 %236 to double
-  %238 = fadd double %235, %237
-  %239 = fptosi double %238 to i32
-  store i32 %239, ptr %6, align 4
-  br label %AdjustFractDays.exit109.i
+218:                                              ; preds = %214, %212
+  %storemerge.in.i107.i = phi double [ %217, %214 ], [ %213, %212 ]
+  %storemerge.i108.i = fptosi double %storemerge.in.i107.i to i32
+  store i32 %storemerge.i108.i, ptr %4, align 4
+  %219 = sitofp i32 %storemerge.i108.i to double
+  %220 = fsub double %202, %219
+  store double %220, ptr %5, align 8
+  %221 = load i32, ptr %15, align 8
+  %222 = add i32 %221, %storemerge.i108.i
+  store i32 %222, ptr %15, align 8
+  call fastcc void @AdjustFractDays(double noundef %220, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 30)
+  %223 = load i8, ptr %203, align 1
+  switch i8 %223, label %.sink.split.sink.split [
+    i8 0, label %.sink.split162.sink.split
+    i8 84, label %AdjustFractDays.exit.i
+    i8 45, label %224
+  ], !llvm.loop !5
 
-AdjustFractDays.exit109.i:                        ; preds = %227, %219, %213
-  %240 = load i8, ptr %198, align 1
-  switch i8 %240, label %.sink.split [
-    i8 0, label %.sink.split208
-    i8 84, label %.outer.i.backedge
-    i8 45, label %241
+224:                                              ; preds = %218
+  %225 = getelementptr inbounds nuw i8, ptr %203, i64 1
+  store ptr %225, ptr %3, align 8
+  %226 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %225, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not95.i = icmp eq i32 %226, 0
+  br i1 %.not95.i, label %227, label %.sink.split.sink.split
+
+227:                                              ; preds = %224
+  %228 = load i32, ptr %4, align 4
+  %229 = load i32, ptr %16, align 4
+  %230 = add i32 %229, %228
+  store i32 %230, ptr %16, align 4
+  %231 = load double, ptr %5, align 8
+  %232 = fcmp oeq double %231, 0.000000e+00
+  br i1 %232, label %AdjustFractSeconds.exit110.i, label %233
+
+233:                                              ; preds = %227
+  %234 = fmul double %231, 8.640000e+04
+  %235 = fptosi double %234 to i32
+  %236 = load i32, ptr %7, align 8
+  %237 = add i32 %236, %235
+  store i32 %237, ptr %7, align 8
+  %238 = sitofp i32 %235 to double
+  %239 = fsub double %234, %238
+  %240 = fmul double %239, 1.000000e+06
+  %241 = call double @llvm.rint.f64(double %240)
+  %242 = load i32, ptr %6, align 4
+  %243 = sitofp i32 %242 to double
+  %244 = fadd double %241, %243
+  %245 = fptosi double %244 to i32
+  store i32 %245, ptr %6, align 4
+  br label %AdjustFractSeconds.exit110.i
+
+AdjustFractSeconds.exit110.i:                     ; preds = %233, %227
+  %246 = load ptr, ptr %3, align 8
+  %247 = load i8, ptr %246, align 1
+  switch i8 %247, label %.sink.split.sink.split [
+    i8 0, label %.sink.split162.sink.split
+    i8 84, label %AdjustFractDays.exit.i
+  ], !llvm.loop !5
+
+248:                                              ; preds = %67
+  switch i8 %71, label %.sink.split.sink.split [
+    i8 72, label %249
+    i8 77, label %266
+    i8 83, label %283
+    i8 0, label %298
+    i8 58, label %.loopexit142.i
   ]
 
-241:                                              ; preds = %AdjustFractDays.exit109.i
-  %242 = getelementptr i8, ptr %198, i64 1
-  store ptr %242, ptr %3, align 8
-  %243 = load ptr, ptr %41, align 8
-  %244 = load i8, ptr %242, align 1
-  %245 = zext i8 %244 to i64
-  %246 = getelementptr i16, ptr %243, i64 %245
-  %247 = load i16, ptr %246, align 2
-  %.fr24.i110.i = freeze i16 %247
-  %248 = and i16 %.fr24.i110.i, 2048
-  %.not.i111.i = icmp ne i16 %248, 0
-  %.off.i112.i = add i8 %244, -45
-  %switch.i113.i = icmp ult i8 %.off.i112.i, 2
-  %or.cond23.i114.i = or i1 %switch.i113.i, %.not.i111.i
-  br i1 %or.cond23.i114.i, label %249, label %.sink.split
-
-249:                                              ; preds = %241
-  store i32 0, ptr %48, align 4
-  %250 = call double @strtod(ptr noundef nonnull %242, ptr noundef nonnull %3) #13
-  %251 = load ptr, ptr %3, align 8
-  %252 = icmp eq ptr %251, %242
-  br i1 %252, label %.sink.split, label %253
+249:                                              ; preds = %248
+  %250 = load i32, ptr %17, align 8
+  %251 = add i32 %250, %storemerge.i.i
+  store i32 %251, ptr %17, align 8
+  %252 = fcmp oeq double %69, 0.000000e+00
+  br i1 %252, label %AdjustFractDays.exit.i, label %253
 
 253:                                              ; preds = %249
-  %254 = load i32, ptr %48, align 4
-  %.not20.i116.i = icmp eq i32 %254, 0
-  br i1 %.not20.i116.i, label %255, label %.sink.split
+  %254 = fmul double %69, 3.600000e+03
+  %255 = fptosi double %254 to i32
+  %256 = load i32, ptr %7, align 8
+  %257 = add i32 %256, %255
+  store i32 %257, ptr %7, align 8
+  %258 = sitofp i32 %255 to double
+  %259 = fsub double %254, %258
+  %260 = fmul double %259, 1.000000e+06
+  %261 = call double @llvm.rint.f64(double %260)
+  %262 = load i32, ptr %6, align 4
+  %263 = sitofp i32 %262 to double
+  %264 = fadd double %261, %263
+  %265 = fptosi double %264 to i32
+  store i32 %265, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-255:                                              ; preds = %253
-  %256 = fcmp olt double %250, 0xC1E0000000000000
-  %257 = fcmp ogt double %250, 0x41DFFFFFFFC00000
-  %or.cond.i117.i = or i1 %256, %257
-  br i1 %or.cond.i117.i, label %.sink.split, label %258
+266:                                              ; preds = %248
+  %267 = load i32, ptr %18, align 4
+  %268 = add i32 %267, %storemerge.i.i
+  store i32 %268, ptr %18, align 4
+  %269 = fcmp oeq double %69, 0.000000e+00
+  br i1 %269, label %AdjustFractDays.exit.i, label %270
 
-258:                                              ; preds = %255
-  %259 = fcmp ult double %250, 0.000000e+00
-  br i1 %259, label %262, label %260
+270:                                              ; preds = %266
+  %271 = fmul double %69, 6.000000e+01
+  %272 = fptosi double %271 to i32
+  %273 = load i32, ptr %7, align 8
+  %274 = add i32 %273, %272
+  store i32 %274, ptr %7, align 8
+  %275 = sitofp i32 %272 to double
+  %276 = fsub double %271, %275
+  %277 = fmul double %276, 1.000000e+06
+  %278 = call double @llvm.rint.f64(double %277)
+  %279 = load i32, ptr %6, align 4
+  %280 = sitofp i32 %279 to double
+  %281 = fadd double %278, %280
+  %282 = fptosi double %281 to i32
+  store i32 %282, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-260:                                              ; preds = %258
-  %261 = call double @llvm.floor.f64(double %250)
-  br label %266
+283:                                              ; preds = %248
+  %284 = load i32, ptr %7, align 8
+  %285 = add i32 %284, %storemerge.i.i
+  store i32 %285, ptr %7, align 8
+  %286 = fcmp oeq double %69, 0.000000e+00
+  br i1 %286, label %AdjustFractDays.exit.i, label %287
 
-262:                                              ; preds = %258
-  %263 = fneg double %250
-  %264 = call double @llvm.floor.f64(double %263)
-  %265 = fneg double %264
-  br label %266
+287:                                              ; preds = %283
+  %288 = fptosi double %69 to i32
+  %289 = add i32 %285, %288
+  store i32 %289, ptr %7, align 8
+  %290 = sitofp i32 %288 to double
+  %291 = fsub double %69, %290
+  %292 = fmul double %291, 1.000000e+06
+  %293 = call double @llvm.rint.f64(double %292)
+  %294 = load i32, ptr %6, align 4
+  %295 = sitofp i32 %294 to double
+  %296 = fadd double %293, %295
+  %297 = fptosi double %296 to i32
+  store i32 %297, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
 
-266:                                              ; preds = %262, %260
-  %storemerge.in.i118.i = phi double [ %265, %262 ], [ %261, %260 ]
-  %storemerge.i119.i = fptosi double %storemerge.in.i118.i to i32
-  store i32 %storemerge.i119.i, ptr %4, align 4
-  %267 = sitofp i32 %storemerge.i119.i to double
-  %268 = fsub double %250, %267
-  store double %268, ptr %5, align 8
-  %269 = load i32, ptr %16, align 4
-  %270 = add i32 %269, %storemerge.i119.i
-  store i32 %270, ptr %16, align 4
-  %271 = fcmp oeq double %268, 0.000000e+00
-  br i1 %271, label %AdjustFractSeconds.exit121.i, label %272
+298:                                              ; preds = %248
+  %299 = load i8, ptr %38, align 1
+  %300 = icmp eq i8 %299, 45
+  %spec.select.idx.i114.i = zext i1 %300 to i64
+  %spec.select.i115.i = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx.i114.i
+  %301 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i115.i, ptr noundef nonnull @.str.28) #14
+  %302 = and i64 %301, 4294967295
+  %303 = icmp eq i64 %302, 6
+  br i1 %303, label %304, label %.loopexit142.i
 
-272:                                              ; preds = %266
-  %273 = fmul double %268, 8.640000e+04
-  %274 = fptosi double %273 to i32
-  %275 = load i32, ptr %7, align 8
-  %276 = add i32 %275, %274
-  store i32 %276, ptr %7, align 8
-  %277 = sitofp i32 %274 to double
-  %278 = fsub double %273, %277
-  %279 = fmul double %278, 1.000000e+06
-  %280 = call double @llvm.rint.f64(double %279)
-  %281 = load i32, ptr %6, align 4
-  %282 = sitofp i32 %281 to double
-  %283 = fadd double %280, %282
-  %284 = fptosi double %283 to i32
-  store i32 %284, ptr %6, align 4
-  br label %AdjustFractSeconds.exit121.i
+304:                                              ; preds = %298
+  %305 = trunc nuw i8 %.077168.i to i1
+  br i1 %305, label %.sink.split.sink.split, label %306
 
-AdjustFractSeconds.exit121.i:                     ; preds = %272, %266
-  %285 = load i8, ptr %251, align 1
-  switch i8 %285, label %.sink.split [
-    i8 0, label %.sink.split208
-    i8 84, label %.outer.i.backedge
-  ]
+306:                                              ; preds = %304
+  %307 = sdiv i32 %storemerge.i.i, 10000
+  %308 = load i32, ptr %17, align 8
+  %309 = add i32 %308, %307
+  store i32 %309, ptr %17, align 8
+  %310 = sdiv i32 %storemerge.i.i, 100
+  %311 = srem i32 %310, 100
+  %312 = load i32, ptr %18, align 4
+  %313 = add i32 %312, %311
+  store i32 %313, ptr %18, align 4
+  %314 = srem i32 %storemerge.i.i, 100
+  %315 = load i32, ptr %7, align 8
+  %316 = add i32 %315, %314
+  store i32 %316, ptr %7, align 8
+  %317 = fcmp oeq double %69, 0.000000e+00
+  br i1 %317, label %.sink.split162.sink.split, label %318
 
-.outer.i.backedge:                                ; preds = %AdjustFractSeconds.exit121.i, %AdjustFractDays.exit109.i, %180, %AdjustFractSeconds.exit97.i
-  %.be = phi ptr [ %68, %AdjustFractSeconds.exit97.i ], [ %68, %180 ], [ %198, %AdjustFractDays.exit109.i ], [ %251, %AdjustFractSeconds.exit121.i ]
-  %.lcssa177182.i.be = phi double [ %67, %AdjustFractSeconds.exit97.i ], [ %67, %180 ], [ %215, %AdjustFractDays.exit109.i ], [ %268, %AdjustFractSeconds.exit121.i ]
-  %storemerge.i.lcssa171179.i.be = phi i32 [ %storemerge.i.i, %AdjustFractSeconds.exit97.i ], [ %storemerge.i.i, %180 ], [ %storemerge.i107.i, %AdjustFractDays.exit109.i ], [ %storemerge.i119.i, %AdjustFractSeconds.exit121.i ]
-  br label %.outer.i, !llvm.loop !6
+318:                                              ; preds = %306
+  %319 = fptosi double %69 to i32
+  %320 = add i32 %316, %319
+  store i32 %320, ptr %7, align 8
+  %321 = sitofp i32 %319 to double
+  %322 = fsub double %69, %321
+  %323 = fmul double %322, 1.000000e+06
+  %324 = call double @llvm.rint.f64(double %323)
+  %325 = load i32, ptr %6, align 4
+  %326 = sitofp i32 %325 to double
+  %327 = fadd double %324, %326
+  %328 = fptosi double %327 to i32
+  store i32 %328, ptr %6, align 4
+  br label %.sink.split162.sink.split
 
-286:                                              ; preds = %65
-  switch i8 %69, label %.sink.split [
-    i8 72, label %287
-    i8 77, label %304
-    i8 83, label %321
-    i8 0, label %336
-    i8 58, label %.loopexit.i
-  ]
+.loopexit142.i:                                   ; preds = %248, %298
+  %329 = trunc nuw i8 %.077168.i to i1
+  br i1 %329, label %.sink.split.sink.split, label %330
 
-287:                                              ; preds = %286
-  %288 = load i32, ptr %17, align 8
-  %289 = add i32 %288, %storemerge.i.i
-  store i32 %289, ptr %17, align 8
-  %290 = fcmp oeq double %67, 0.000000e+00
-  br i1 %290, label %AdjustFractDays.exit.i.backedge, label %291
+330:                                              ; preds = %.loopexit142.i
+  %331 = load i32, ptr %17, align 8
+  %332 = add i32 %331, %storemerge.i.i
+  store i32 %332, ptr %17, align 8
+  %333 = fcmp oeq double %69, 0.000000e+00
+  br i1 %333, label %AdjustFractSeconds.exit117.i, label %334
 
-291:                                              ; preds = %287
-  %292 = fmul double %67, 3.600000e+03
-  %293 = fptosi double %292 to i32
-  %294 = load i32, ptr %7, align 8
-  %295 = add i32 %294, %293
-  store i32 %295, ptr %7, align 8
-  %296 = sitofp i32 %293 to double
-  %297 = fsub double %292, %296
-  %298 = fmul double %297, 1.000000e+06
-  %299 = call double @llvm.rint.f64(double %298)
-  %300 = load i32, ptr %6, align 4
-  %301 = sitofp i32 %300 to double
-  %302 = fadd double %299, %301
-  %303 = fptosi double %302 to i32
-  store i32 %303, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+334:                                              ; preds = %330
+  %335 = fmul double %69, 3.600000e+03
+  %336 = fptosi double %335 to i32
+  %337 = load i32, ptr %7, align 8
+  %338 = add i32 %337, %336
+  store i32 %338, ptr %7, align 8
+  %339 = sitofp i32 %336 to double
+  %340 = fsub double %335, %339
+  %341 = fmul double %340, 1.000000e+06
+  %342 = call double @llvm.rint.f64(double %341)
+  %343 = load i32, ptr %6, align 4
+  %344 = sitofp i32 %343 to double
+  %345 = fadd double %342, %344
+  %346 = fptosi double %345 to i32
+  store i32 %346, ptr %6, align 4
+  br label %AdjustFractSeconds.exit117.i
 
-304:                                              ; preds = %286
-  %305 = load i32, ptr %18, align 4
-  %306 = add i32 %305, %storemerge.i.i
-  store i32 %306, ptr %18, align 4
-  %307 = fcmp oeq double %67, 0.000000e+00
-  br i1 %307, label %AdjustFractDays.exit.i.backedge, label %308
+AdjustFractSeconds.exit117.i:                     ; preds = %334, %330
+  %347 = icmp eq i8 %71, 0
+  br i1 %347, label %.sink.split162.sink.split, label %348
 
-308:                                              ; preds = %304
-  %309 = fmul double %67, 6.000000e+01
-  %310 = fptosi double %309 to i32
-  %311 = load i32, ptr %7, align 8
-  %312 = add i32 %311, %310
-  store i32 %312, ptr %7, align 8
-  %313 = sitofp i32 %310 to double
-  %314 = fsub double %309, %313
-  %315 = fmul double %314, 1.000000e+06
-  %316 = call double @llvm.rint.f64(double %315)
-  %317 = load i32, ptr %6, align 4
-  %318 = sitofp i32 %317 to double
-  %319 = fadd double %316, %318
-  %320 = fptosi double %319 to i32
-  store i32 %320, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+348:                                              ; preds = %AdjustFractSeconds.exit117.i
+  %349 = load ptr, ptr %43, align 8
+  %350 = load i8, ptr %70, align 1
+  %351 = zext i8 %350 to i64
+  %352 = getelementptr inbounds nuw i16, ptr %349, i64 %351
+  %353 = load i16, ptr %352, align 2
+  %.fr24.i118.i = freeze i16 %353
+  %354 = and i16 %.fr24.i118.i, 2048
+  %.not.i119.i = icmp ne i16 %354, 0
+  %.off.i120.i = add i8 %350, -45
+  %switch.i121.i = icmp ult i8 %.off.i120.i, 2
+  %or.cond23.i122.i = or i1 %switch.i121.i, %.not.i119.i
+  br i1 %or.cond23.i122.i, label %355, label %.sink.split.sink.split
 
-321:                                              ; preds = %286
-  %322 = load i32, ptr %7, align 8
-  %323 = add i32 %322, %storemerge.i.i
-  store i32 %323, ptr %7, align 8
-  %324 = fcmp oeq double %67, 0.000000e+00
-  br i1 %324, label %AdjustFractDays.exit.i.backedge, label %325
+355:                                              ; preds = %348
+  store i32 0, ptr %50, align 4
+  %356 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
+  %357 = load ptr, ptr %3, align 8
+  %358 = icmp eq ptr %357, %70
+  br i1 %358, label %.sink.split.sink.split, label %359
 
-325:                                              ; preds = %321
-  %326 = fptosi double %67 to i32
-  %327 = add i32 %323, %326
-  store i32 %327, ptr %7, align 8
-  %328 = sitofp i32 %326 to double
-  %329 = fsub double %67, %328
-  %330 = fmul double %329, 1.000000e+06
-  %331 = call double @llvm.rint.f64(double %330)
-  %332 = load i32, ptr %6, align 4
-  %333 = sitofp i32 %332 to double
-  %334 = fadd double %331, %333
-  %335 = fptosi double %334 to i32
-  store i32 %335, ptr %6, align 4
-  br label %AdjustFractDays.exit.i.backedge
+359:                                              ; preds = %355
+  %360 = load i32, ptr %50, align 4
+  %.not20.i124.i = icmp eq i32 %360, 0
+  br i1 %.not20.i124.i, label %361, label %.sink.split.sink.split
 
-AdjustFractDays.exit.i.backedge:                  ; preds = %325, %321, %308, %304, %291, %287, %134, %130, %117, %110, %105, %92, %84, %80, %71
-  br label %AdjustFractDays.exit.i, !llvm.loop !6
+361:                                              ; preds = %359
+  %362 = fcmp olt double %356, 0xC1E0000000000000
+  %363 = fcmp ogt double %356, 0x41DFFFFFFFC00000
+  %or.cond.i125.i = or i1 %362, %363
+  br i1 %or.cond.i125.i, label %.sink.split.sink.split, label %364
 
-336:                                              ; preds = %286
-  store i32 %storemerge.i.i, ptr %4, align 4
-  store double %67, ptr %5, align 8
-  %337 = load i8, ptr %36, align 1
-  %338 = icmp eq i8 %337, 45
-  %spec.select.idx.i125.i = zext i1 %338 to i64
-  %spec.select.i126.i = getelementptr i8, ptr %36, i64 %spec.select.idx.i125.i
-  %339 = call i64 @strspn(ptr noundef readonly %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
-  %340 = and i64 %339, 4294967295
-  %341 = icmp ne i64 %340, 6
-  %brmerge95.i = or i1 %.074.i, %341
-  br i1 %brmerge95.i, label %365, label %342
+364:                                              ; preds = %361
+  %365 = fcmp ult double %356, 0.000000e+00
+  br i1 %365, label %368, label %366
 
-342:                                              ; preds = %336
-  %343 = sdiv i32 %storemerge.i.i, 10000
-  %344 = load i32, ptr %17, align 8
-  %345 = add i32 %344, %343
-  store i32 %345, ptr %17, align 8
-  %346 = sdiv i32 %storemerge.i.i, 100
-  %347 = srem i32 %346, 100
-  %348 = load i32, ptr %18, align 4
-  %349 = add i32 %348, %347
-  store i32 %349, ptr %18, align 4
-  %350 = srem i32 %storemerge.i.i, 100
-  %351 = load i32, ptr %7, align 8
-  %352 = add i32 %351, %350
-  store i32 %352, ptr %7, align 8
-  %353 = fcmp oeq double %67, 0.000000e+00
-  br i1 %353, label %.sink.split208, label %354
+366:                                              ; preds = %364
+  %367 = call double @llvm.floor.f64(double %356)
+  br label %372
 
-354:                                              ; preds = %342
-  %355 = fptosi double %67 to i32
-  %356 = add i32 %352, %355
-  store i32 %356, ptr %7, align 8
-  %357 = sitofp i32 %355 to double
-  %358 = fsub double %67, %357
-  %359 = fmul double %358, 1.000000e+06
-  %360 = call double @llvm.rint.f64(double %359)
-  %361 = load i32, ptr %6, align 4
-  %362 = sitofp i32 %361 to double
-  %363 = fadd double %360, %362
-  %364 = fptosi double %363 to i32
-  store i32 %364, ptr %6, align 4
-  br label %.sink.split208
+368:                                              ; preds = %364
+  %369 = fneg double %356
+  %370 = call double @llvm.floor.f64(double %369)
+  %371 = fneg double %370
+  br label %372
 
-.loopexit.i:                                      ; preds = %286
-  store i32 %storemerge.i.i, ptr %4, align 4
-  store double %67, ptr %5, align 8
-  br label %365
+372:                                              ; preds = %368, %366
+  %storemerge.in.i126.i = phi double [ %371, %368 ], [ %367, %366 ]
+  %storemerge.i127.i = fptosi double %storemerge.in.i126.i to i32
+  store i32 %storemerge.i127.i, ptr %4, align 4
+  %373 = sitofp i32 %storemerge.i127.i to double
+  %374 = fsub double %356, %373
+  store double %374, ptr %5, align 8
+  %375 = load i32, ptr %18, align 4
+  %376 = add i32 %375, %storemerge.i127.i
+  store i32 %376, ptr %18, align 4
+  %377 = fcmp oeq double %374, 0.000000e+00
+  br i1 %377, label %AdjustFractSeconds.exit129.i, label %378
 
-365:                                              ; preds = %.loopexit.i, %336
-  br i1 %.074.i, label %.sink.split, label %366
-
-366:                                              ; preds = %365
-  %367 = load i32, ptr %17, align 8
-  %368 = add i32 %367, %storemerge.i.i
-  store i32 %368, ptr %17, align 8
-  %369 = fcmp oeq double %67, 0.000000e+00
-  br i1 %369, label %AdjustFractSeconds.exit128.i, label %370
-
-370:                                              ; preds = %366
-  %371 = fmul double %67, 3.600000e+03
-  %372 = fptosi double %371 to i32
-  %373 = load i32, ptr %7, align 8
-  %374 = add i32 %373, %372
-  store i32 %374, ptr %7, align 8
-  %375 = sitofp i32 %372 to double
-  %376 = fsub double %371, %375
-  %377 = fmul double %376, 1.000000e+06
-  %378 = call double @llvm.rint.f64(double %377)
-  %379 = load i32, ptr %6, align 4
-  %380 = sitofp i32 %379 to double
-  %381 = fadd double %378, %380
-  %382 = fptosi double %381 to i32
-  store i32 %382, ptr %6, align 4
-  br label %AdjustFractSeconds.exit128.i
-
-AdjustFractSeconds.exit128.i:                     ; preds = %370, %366
-  %383 = icmp eq i8 %69, 0
-  br i1 %383, label %.sink.split208, label %384
-
-384:                                              ; preds = %AdjustFractSeconds.exit128.i
-  %385 = call fastcc i32 @ParseISO8601Number(ptr noundef %68, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %.not87.i = icmp eq i32 %385, 0
-  br i1 %.not87.i, label %386, label %.sink.split
-
-386:                                              ; preds = %384
-  %387 = load i32, ptr %4, align 4
-  %388 = load i32, ptr %18, align 4
-  %389 = add i32 %388, %387
-  store i32 %389, ptr %18, align 4
-  %390 = load double, ptr %5, align 8
-  %391 = fcmp oeq double %390, 0.000000e+00
-  br i1 %391, label %AdjustFractSeconds.exit129.i, label %392
-
-392:                                              ; preds = %386
-  %393 = fmul double %390, 6.000000e+01
-  %394 = fptosi double %393 to i32
-  %395 = load i32, ptr %7, align 8
-  %396 = add i32 %395, %394
-  store i32 %396, ptr %7, align 8
-  %397 = sitofp i32 %394 to double
-  %398 = fsub double %393, %397
-  %399 = fmul double %398, 1.000000e+06
-  %400 = call double @llvm.rint.f64(double %399)
-  %401 = load i32, ptr %6, align 4
-  %402 = sitofp i32 %401 to double
-  %403 = fadd double %400, %402
-  %404 = fptosi double %403 to i32
-  store i32 %404, ptr %6, align 4
+378:                                              ; preds = %372
+  %379 = fmul double %374, 6.000000e+01
+  %380 = fptosi double %379 to i32
+  %381 = load i32, ptr %7, align 8
+  %382 = add i32 %381, %380
+  store i32 %382, ptr %7, align 8
+  %383 = sitofp i32 %380 to double
+  %384 = fsub double %379, %383
+  %385 = fmul double %384, 1.000000e+06
+  %386 = call double @llvm.rint.f64(double %385)
+  %387 = load i32, ptr %6, align 4
+  %388 = sitofp i32 %387 to double
+  %389 = fadd double %386, %388
+  %390 = fptosi double %389 to i32
+  store i32 %390, ptr %6, align 4
   br label %AdjustFractSeconds.exit129.i
 
-AdjustFractSeconds.exit129.i:                     ; preds = %392, %386
-  %405 = load ptr, ptr %3, align 8
-  %406 = load i8, ptr %405, align 1
-  switch i8 %406, label %.sink.split [
-    i8 0, label %.sink.split208
-    i8 58, label %407
+AdjustFractSeconds.exit129.i:                     ; preds = %378, %372
+  %391 = load i8, ptr %357, align 1
+  switch i8 %391, label %.sink.split.sink.split [
+    i8 0, label %.sink.split162.sink.split
+    i8 58, label %392
   ]
 
-407:                                              ; preds = %AdjustFractSeconds.exit129.i
-  %408 = getelementptr i8, ptr %405, i64 1
-  store ptr %408, ptr %3, align 8
-  %409 = call fastcc i32 @ParseISO8601Number(ptr noundef %408, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %.not89.i = icmp eq i32 %409, 0
-  br i1 %.not89.i, label %410, label %.sink.split
+392:                                              ; preds = %AdjustFractSeconds.exit129.i
+  %393 = getelementptr inbounds nuw i8, ptr %357, i64 1
+  store ptr %393, ptr %3, align 8
+  %394 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %393, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not92.i = icmp eq i32 %394, 0
+  br i1 %.not92.i, label %395, label %.sink.split.sink.split
 
-410:                                              ; preds = %407
-  %411 = load i32, ptr %4, align 4
-  %412 = load i32, ptr %7, align 8
-  %413 = add i32 %412, %411
-  store i32 %413, ptr %7, align 8
-  %414 = load double, ptr %5, align 8
-  %415 = fcmp oeq double %414, 0.000000e+00
-  br i1 %415, label %DecodeISO8601Interval.exit, label %416
+395:                                              ; preds = %392
+  %396 = load i32, ptr %4, align 4
+  %397 = load i32, ptr %7, align 8
+  %398 = add i32 %397, %396
+  store i32 %398, ptr %7, align 8
+  %399 = load double, ptr %5, align 8
+  %400 = fcmp oeq double %399, 0.000000e+00
+  br i1 %400, label %DecodeISO8601Interval.exit, label %401
 
-416:                                              ; preds = %410
-  %417 = fptosi double %414 to i32
-  %418 = add i32 %413, %417
-  store i32 %418, ptr %7, align 8
-  %419 = sitofp i32 %417 to double
-  %420 = fsub double %414, %419
-  %421 = fmul double %420, 1.000000e+06
-  %422 = call double @llvm.rint.f64(double %421)
-  %423 = load i32, ptr %6, align 4
-  %424 = sitofp i32 %423 to double
-  %425 = fadd double %422, %424
-  %426 = fptosi double %425 to i32
-  store i32 %426, ptr %6, align 4
+401:                                              ; preds = %395
+  %402 = fptosi double %399 to i32
+  %403 = add i32 %398, %402
+  store i32 %403, ptr %7, align 8
+  %404 = sitofp i32 %402 to double
+  %405 = fsub double %399, %404
+  %406 = fmul double %405, 1.000000e+06
+  %407 = call double @llvm.rint.f64(double %406)
+  %408 = load i32, ptr %6, align 4
+  %409 = sitofp i32 %408 to double
+  %410 = fadd double %407, %409
+  %411 = fptosi double %410 to i32
+  store i32 %411, ptr %6, align 4
   br label %DecodeISO8601Interval.exit
 
-DecodeISO8601Interval.exit:                       ; preds = %410, %416
-  %427 = load ptr, ptr %3, align 8
-  %428 = load i8, ptr %427, align 1
-  %.not45 = icmp eq i8 %428, 0
+AdjustFractDays.exit.i:                           ; preds = %287, %283, %270, %266, %253, %249, %AdjustFractSeconds.exit110.i, %218, %185, %AdjustFractSeconds.exit98.i, %136, %132, %119, %112, %107, %94, %86, %82, %73, %40
+  %412 = phi ptr [ %41, %40 ], [ %70, %AdjustFractSeconds.exit98.i ], [ %70, %73 ], [ %70, %82 ], [ %70, %86 ], [ %70, %94 ], [ %70, %107 ], [ %70, %112 ], [ %70, %119 ], [ %70, %132 ], [ %70, %136 ], [ %70, %249 ], [ %70, %253 ], [ %70, %266 ], [ %70, %270 ], [ %70, %283 ], [ %70, %287 ], [ %70, %185 ], [ %203, %218 ], [ %246, %AdjustFractSeconds.exit110.i ]
+  %.178.i = phi i8 [ 0, %40 ], [ 0, %AdjustFractSeconds.exit98.i ], [ 1, %73 ], [ 1, %82 ], [ 1, %86 ], [ 1, %94 ], [ 1, %107 ], [ 1, %112 ], [ 1, %119 ], [ 1, %132 ], [ 1, %136 ], [ 1, %249 ], [ 1, %253 ], [ 1, %266 ], [ 1, %270 ], [ 1, %283 ], [ 1, %287 ], [ 0, %185 ], [ 0, %218 ], [ 0, %AdjustFractSeconds.exit110.i ]
+  %.175.i = phi i1 [ false, %40 ], [ false, %AdjustFractSeconds.exit98.i ], [ true, %73 ], [ true, %82 ], [ true, %86 ], [ true, %94 ], [ true, %107 ], [ true, %112 ], [ true, %119 ], [ true, %132 ], [ true, %136 ], [ false, %249 ], [ false, %253 ], [ false, %266 ], [ false, %270 ], [ false, %283 ], [ false, %287 ], [ false, %185 ], [ false, %218 ], [ false, %AdjustFractSeconds.exit110.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  %413 = load i8, ptr %412, align 1
+  %.not88.i = icmp eq i8 %413, 0
+  br i1 %.not88.i, label %.sink.split162, label %.lr.ph.i
+
+DecodeISO8601Interval.exit:                       ; preds = %395, %401
+  %414 = load ptr, ptr %3, align 8
+  %415 = load i8, ptr %414, align 1
+  %.not53 = icmp eq i8 %415, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not45, label %431, label %429
+  br i1 %.not53, label %418, label %416
 
-.sink.split:                                      ; preds = %253, %249, %255, %241, %200, %196, %202, %189, %179, %AdjustFractSeconds.exit121.i, %AdjustFractDays.exit109.i, %52, %47, %54, %40, %286, %70, %AdjustFractSeconds.exit129.i, %407, %384, %365, %29, %32
+.sink.split.sink.split:                           ; preds = %205, %201, %207, %194, %155, %54, %49, %56, %42, %183, %224, %72, %248, %AdjustFractSeconds.exit110.i, %218, %AdjustFractSeconds.exit129.i, %359, %355, %361, %348, %304, %.loopexit142.i, %392
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.sink.split.sink.split, %29, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %429
+  br label %416
 
-429:                                              ; preds = %.sink.split, %DecodeISO8601Interval.exit, %23
-  %430 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %430, align 4
-  br label %470
+416:                                              ; preds = %.sink.split, %DecodeISO8601Interval.exit, %23
+  %417 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %417, align 4
+  br label %457
 
-.sink.split208:                                   ; preds = %AdjustFractSeconds.exit121.i, %AdjustFractDays.exit109.i, %180, %AdjustFractSeconds.exit97.i, %AdjustFractDays.exit.i, %354, %342, %AdjustFractSeconds.exit129.i, %AdjustFractSeconds.exit128.i
+.sink.split162.sink.split:                        ; preds = %AdjustFractSeconds.exit98.i, %185, %218, %AdjustFractSeconds.exit110.i, %AdjustFractSeconds.exit117.i, %AdjustFractSeconds.exit129.i, %306, %318
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  br label %.sink.split162
+
+.sink.split162:                                   ; preds = %AdjustFractDays.exit.i, %.sink.split162.sink.split, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %431
+  br label %418
 
-431:                                              ; preds = %.sink.split208, %DecodeISO8601Interval.exit, %26
-  %432 = call ptr @pgtypes_alloc(i64 noundef 16) #13
-  %.not25 = icmp eq ptr %432, null
-  br i1 %.not25, label %470, label %433
+418:                                              ; preds = %.sink.split162, %DecodeISO8601Interval.exit, %26
+  %419 = call ptr @pgtypes_alloc(i64 noundef 16) #13
+  %.not25 = icmp eq ptr %419, null
+  br i1 %.not25, label %457, label %420
 
-433:                                              ; preds = %431
-  %434 = load i32, ptr %8, align 4
-  %.not26 = icmp eq i32 %434, 17
-  br i1 %.not26, label %437, label %435
+420:                                              ; preds = %418
+  %421 = load i32, ptr %8, align 4
+  %.not26 = icmp eq i32 %421, 17
+  br i1 %.not26, label %424, label %422
 
-435:                                              ; preds = %433
-  %436 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %436, align 4
-  call void @free(ptr noundef nonnull %432) #13
-  br label %470
+422:                                              ; preds = %420
+  %423 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %423, align 4
+  call void @free(ptr noundef nonnull %419) #13
+  br label %457
 
-437:                                              ; preds = %433
-  %438 = load i32, ptr %14, align 4
-  %439 = sitofp i32 %438 to double
-  %440 = load i32, ptr %15, align 8
-  %441 = sitofp i32 %440 to double
-  %442 = call double @llvm.fmuladd.f64(double %439, double 1.200000e+01, double %441)
-  %443 = fcmp ogt double %442, 0x41DFFFFFFFC00000
-  %444 = fcmp olt double %442, 0xC1E0000000000000
-  %or.cond.i = or i1 %443, %444
-  br i1 %or.cond.i, label %tm2interval.exit, label %446
+424:                                              ; preds = %420
+  %425 = load i32, ptr %14, align 4
+  %426 = sitofp i32 %425 to double
+  %427 = load i32, ptr %15, align 8
+  %428 = sitofp i32 %427 to double
+  %429 = call double @llvm.fmuladd.f64(double %426, double 1.200000e+01, double %428)
+  %430 = fcmp ogt double %429, 0x41DFFFFFFFC00000
+  %431 = fcmp olt double %429, 0xC1E0000000000000
+  %or.cond.i = or i1 %430, %431
+  br i1 %or.cond.i, label %tm2interval.exit, label %433
 
-tm2interval.exit:                                 ; preds = %437
-  %445 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %445, align 4
-  call void @free(ptr noundef nonnull %432) #13
-  br label %470
+tm2interval.exit:                                 ; preds = %424
+  %432 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %432, align 4
+  call void @free(ptr noundef nonnull %419) #13
+  br label %457
 
-446:                                              ; preds = %437
-  %447 = load i32, ptr %6, align 4
-  %448 = mul i32 %438, 12
-  %449 = add i32 %448, %440
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  store i64 %450, ptr %451, align 8
-  %452 = load i32, ptr %16, align 4
-  %453 = sext i32 %452 to i64
-  %454 = mul nsw i64 %453, 24
-  %455 = load i32, ptr %17, align 8
-  %456 = sext i32 %455 to i64
-  %457 = add nsw i64 %454, %456
-  %458 = mul nsw i64 %457, 60
-  %459 = load i32, ptr %18, align 4
-  %460 = sext i32 %459 to i64
-  %461 = add nsw i64 %458, %460
-  %462 = mul nsw i64 %461, 60
-  %463 = load i32, ptr %7, align 8
-  %464 = sext i32 %463 to i64
-  %465 = add nsw i64 %462, %464
-  %466 = mul i64 %465, 1000000
-  %467 = sext i32 %447 to i64
-  %468 = add i64 %466, %467
-  store i64 %468, ptr %432, align 8
-  %469 = tail call ptr @__errno_location() #15
-  store i32 0, ptr %469, align 4
-  br label %470
+433:                                              ; preds = %424
+  %434 = load i32, ptr %6, align 4
+  %435 = mul i32 %425, 12
+  %436 = add i32 %435, %427
+  %437 = sext i32 %436 to i64
+  %438 = getelementptr inbounds nuw i8, ptr %419, i64 8
+  store i64 %437, ptr %438, align 8
+  %439 = load i32, ptr %16, align 4
+  %440 = sext i32 %439 to i64
+  %441 = mul nsw i64 %440, 24
+  %442 = load i32, ptr %17, align 8
+  %443 = sext i32 %442 to i64
+  %444 = add nsw i64 %441, %443
+  %445 = mul nsw i64 %444, 60
+  %446 = load i32, ptr %18, align 4
+  %447 = sext i32 %446 to i64
+  %448 = add nsw i64 %445, %447
+  %449 = mul nsw i64 %448, 60
+  %450 = load i32, ptr %7, align 8
+  %451 = sext i32 %450 to i64
+  %452 = add nsw i64 %449, %451
+  %453 = mul i64 %452, 1000000
+  %454 = sext i32 %434 to i64
+  %455 = add i64 %453, %454
+  store i64 %455, ptr %419, align 8
+  %456 = tail call ptr @__errno_location() #15
+  store i32 0, ptr %456, align 4
+  br label %457
 
-470:                                              ; preds = %431, %446, %tm2interval.exit, %435, %429, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %429 ], [ null, %435 ], [ null, %tm2interval.exit ], [ %432, %446 ], [ null, %431 ]
+457:                                              ; preds = %418, %433, %tm2interval.exit, %422, %416, %21
+  %.0 = phi ptr [ null, %21 ], [ null, %416 ], [ null, %422 ], [ null, %tm2interval.exit ], [ %419, %433 ], [ null, %418 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 153, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   ret ptr %.0
 }
 
-declare i32 @ParseDateTime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @ParseDateTime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESinterval_to_asc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca [129 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %3) #13
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2197,13 +2226,15 @@ interval2tm.exit:                                 ; preds = %1, %7
   %31 = trunc i64 %30 to i32
   call void @EncodeInterval(ptr noundef nonnull %2, i32 noundef %31, i32 noundef 1, ptr noundef nonnull %3)
   %32 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #13
   ret ptr %32
 }
 
-declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
+declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PGTYPESinterval_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #8 {
+define noundef i32 @PGTYPESinterval_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8
   store i64 %3, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2213,15 +2244,15 @@ define noundef i32 @PGTYPESinterval_copy(ptr noundef readonly captures(none) %0,
   ret i32 0
 }
 
-declare void @TrimTrailingZeros(ptr noundef) local_unnamed_addr #1
+declare void @TrimTrailingZeros(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call ptr @__ctype_b_loc() #15
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %0, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr i16, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
   %.fr24 = freeze i16 %10
   %11 = and i16 %.fr24, 2048
@@ -2279,52 +2310,45 @@ define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #5
+declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}

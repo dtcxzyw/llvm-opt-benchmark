@@ -45,16 +45,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_tablespace_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 46, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_tablespace_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -65,27 +65,33 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noun
   ret i64 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_type_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 57, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_type_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -98,16 +104,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__func__.binary_upgrade_set_next_array_pg_type_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.binary_upgrade_set_next_array_pg_type_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -120,16 +126,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.binary_upgrade_set_next_multirange_pg_type_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.binary_upgrade_set_next_multirange_pg_type_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -142,16 +148,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @__func__.binary_upgrade_set_next_multirange_array_pg_type_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.binary_upgrade_set_next_multirange_array_pg_type_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -164,16 +170,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_o
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.binary_upgrade_set_next_heap_pg_class_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__func__.binary_upgrade_set_next_heap_pg_class_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -186,16 +192,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.binary_upgrade_set_next_heap_relfilenode) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull @__func__.binary_upgrade_set_next_heap_relfilenode) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -208,16 +214,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 124, ptr noundef nonnull @__func__.binary_upgrade_set_next_index_pg_class_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.binary_upgrade_set_next_index_pg_class_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -230,16 +236,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull @__func__.binary_upgrade_set_next_index_relfilenode) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 134, ptr noundef nonnull @__func__.binary_upgrade_set_next_index_relfilenode) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -252,16 +258,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.binary_upgrade_set_next_toast_pg_class_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.binary_upgrade_set_next_toast_pg_class_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -274,16 +280,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.binary_upgrade_set_next_toast_relfilenode) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.binary_upgrade_set_next_toast_relfilenode) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -296,16 +302,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 168, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_enum_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_enum_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -318,16 +324,16 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_authid_oid) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.binary_upgrade_set_next_pg_authid_oid) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -342,163 +348,171 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef 
 define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = load i8, ptr @IsBinaryUpgrade, align 1
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.binary_upgrade_create_empty_extension) #5
+  %8 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.binary_upgrade_create_empty_extension) #6
   unreachable
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
+  %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr i8, ptr %0, i64 48
-  %17 = getelementptr i8, ptr %0, i64 56
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = load i8, ptr %17, align 8, !range !4, !noundef !5
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr i8, ptr %0, i64 64
-  %22 = getelementptr i8, ptr %0, i64 72
-  %23 = load i8, ptr %22, align 8
-  %24 = trunc i8 %23 to i1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr i8, ptr %0, i64 88
-  %27 = load i8, ptr %26, align 8
-  %28 = trunc i8 %27 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %27 = load i8, ptr %26, align 8, !range !4, !noundef !5
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25, %20, %15, %10
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @__func__.binary_upgrade_create_empty_extension) #5
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.binary_upgrade_create_empty_extension) #6
   unreachable
 
 32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load i64, ptr %11, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call ptr @pg_detoast_datum_packed(ptr noundef %35) #5
+  %36 = tail call ptr @pg_detoast_datum_packed(ptr noundef %35) #6
   %37 = load i64, ptr %16, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = tail call ptr @pg_detoast_datum_packed(ptr noundef %38) #5
+  %39 = tail call ptr @pg_detoast_datum_packed(ptr noundef %38) #6
   %40 = load i64, ptr %21, align 8
   %41 = load i64, ptr %33, align 8
   %42 = inttoptr i64 %41 to ptr
-  %43 = tail call ptr @pg_detoast_datum_packed(ptr noundef %42) #5
-  %44 = getelementptr i8, ptr %0, i64 104
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
+  %43 = tail call ptr @pg_detoast_datum_packed(ptr noundef %42) #6
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
+  %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %32
-  %48 = getelementptr i8, ptr %0, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %49 = load i64, ptr %48, align 8
   br label %50
 
 50:                                               ; preds = %32, %47
   %.0 = phi i64 [ %49, %47 ], [ 0, %32 ]
-  %51 = getelementptr i8, ptr %0, i64 120
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %52 = load i8, ptr %51, align 8, !range !4, !noundef !5
+  %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr i8, ptr %0, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %56 = load i64, ptr %55, align 8
   br label %57
 
 57:                                               ; preds = %50, %54
   %.028 = phi i64 [ %56, %54 ], [ 0, %50 ]
-  %58 = getelementptr i8, ptr %0, i64 136
-  %59 = load i8, ptr %58, align 8
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %.loopexit, label %61
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %59 = load i8, ptr %58, align 8, !range !4, !noundef !5
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %78, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr i8, ptr %0, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %63 = load i64, ptr %62, align 8
   %64 = inttoptr i64 %63 to ptr
-  %65 = tail call ptr @pg_detoast_datum(ptr noundef %64) #5
-  call void @deconstruct_array_builtin(ptr noundef %65, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #5
+  %65 = tail call ptr @pg_detoast_datum(ptr noundef %64) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @deconstruct_array_builtin(ptr noundef %65, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #6
   %66 = load i32, ptr %3, align 4
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph, label %.loopexit
+  br i1 %67, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
   %.132 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
-  %72 = call ptr @text_to_cstring(ptr noundef %71) #5
-  %73 = call i32 @get_extension_oid(ptr noundef %72, i1 noundef zeroext false) #5
-  %74 = call ptr @lappend_oid(ptr noundef %.132, i32 noundef %73) #5
+  %72 = call ptr @text_to_cstring(ptr noundef %71) #6
+  %73 = call i32 @get_extension_oid(ptr noundef %72, i1 noundef zeroext false) #6
+  %74 = call ptr @lappend_oid(ptr noundef %.132, i32 noundef %73) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %3, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %61, %57
-  %.029 = phi ptr [ null, %57 ], [ null, %61 ], [ %74, %.lr.ph ]
-  %78 = icmp ne i64 %40, 0
-  %79 = call ptr @text_to_cstring(ptr noundef %36) #5
-  %80 = call i32 @GetUserId() #5
-  %81 = call ptr @text_to_cstring(ptr noundef %39) #5
-  %82 = call i32 @get_namespace_oid(ptr noundef %81, i1 noundef zeroext false) #5
-  %83 = call ptr @text_to_cstring(ptr noundef %43) #5
-  %84 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %79, i32 noundef %80, i32 noundef %82, i1 noundef zeroext %78, ptr noundef %83, i64 noundef %.0, i64 noundef %.028, ptr noundef %.029) #5
+._crit_edge:                                      ; preds = %.lr.ph, %61
+  %.1.lcssa = phi ptr [ null, %61 ], [ %74, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  br label %78
+
+78:                                               ; preds = %._crit_edge, %57
+  %.029 = phi ptr [ null, %57 ], [ %.1.lcssa, %._crit_edge ]
+  %79 = icmp ne i64 %40, 0
+  %80 = call ptr @text_to_cstring(ptr noundef %36) #6
+  %81 = call i32 @GetUserId() #6
+  %82 = call ptr @text_to_cstring(ptr noundef %39) #6
+  %83 = call i32 @get_namespace_oid(ptr noundef %82, i1 noundef zeroext false) #6
+  %84 = call ptr @text_to_cstring(ptr noundef %43) #6
+  %85 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %80, i32 noundef %81, i32 noundef %83, i1 noundef zeroext %79, ptr noundef %84, i64 noundef %.0, i64 noundef %.028, ptr noundef %.029) #6
   ret i64 0
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 
-declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
 
-declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #3
 
-declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.binary_upgrade_set_record_init_privs) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.binary_upgrade_set_record_init_privs) #6
   unreachable
 
 8:                                                ; preds = %1
@@ -514,127 +528,127 @@ define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr noundef r
 define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #5
-  %8 = getelementptr i8, ptr %0, i64 64
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #5
-  %12 = tail call ptr @text_to_cstring(ptr noundef %7) #5
-  %13 = tail call ptr @text_to_cstring(ptr noundef %11) #5
-  %14 = load i8, ptr @IsBinaryUpgrade, align 1
-  %15 = trunc i8 %14 to i1
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #6
+  %12 = tail call ptr @text_to_cstring(ptr noundef %7) #6
+  %13 = tail call ptr @text_to_cstring(ptr noundef %11) #6
+  %14 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %1
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.binary_upgrade_set_missing_value) #5
+  %18 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.binary_upgrade_set_missing_value) #6
   unreachable
 
 20:                                               ; preds = %1
   %21 = trunc i64 %3 to i32
-  tail call void @SetAttrMissing(i32 noundef %21, ptr noundef %12, ptr noundef %13) #5
+  tail call void @SetAttrMissing(i32 noundef %21, ptr noundef %12, ptr noundef %13) #6
   ret i64 0
 }
 
-declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @__func__.binary_upgrade_logical_slot_has_caught_up) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @__func__.binary_upgrade_logical_slot_has_caught_up) #6
   unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @ReplicationSlotAcquire(ptr noundef %11, i1 noundef zeroext true) #5
-  %12 = tail call i64 @GetFlushRecPtr(ptr noundef null) #5
-  %13 = tail call zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef %12) #5
-  tail call void @ReplicationSlotRelease() #5
+  tail call void @ReplicationSlotAcquire(ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext true) #6
+  %12 = tail call i64 @GetFlushRecPtr(ptr noundef null) #6
+  %13 = tail call zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef %12) #6
+  tail call void @ReplicationSlotRelease() #6
   %14 = xor i1 %13, true
   %15 = zext i1 %14 to i64
   ret i64 %15
 }
 
-declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #2
+declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) local_unnamed_addr #3
 
-declare void @ReplicationSlotRelease() local_unnamed_addr #2
+declare void @ReplicationSlotRelease() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = trunc i8 %2 to i1
+  %2 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @__func__.binary_upgrade_add_sub_rel_state) #5
+  %6 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @__func__.binary_upgrade_add_sub_rel_state) #6
   unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !5
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr i8, ptr %0, i64 48
-  %15 = getelementptr i8, ptr %0, i64 56
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr i8, ptr %0, i64 72
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = load i8, ptr %19, align 8, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18, %13, %8
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.binary_upgrade_add_sub_rel_state) #5
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @__func__.binary_upgrade_add_sub_rel_state) #6
   unreachable
 
 25:                                               ; preds = %18
-  %26 = getelementptr i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i64, ptr %9, align 8
   %28 = inttoptr i64 %27 to ptr
-  %29 = tail call ptr @pg_detoast_datum_packed(ptr noundef %28) #5
-  %30 = tail call ptr @text_to_cstring(ptr noundef %29) #5
+  %29 = tail call ptr @pg_detoast_datum_packed(ptr noundef %28) #6
+  %30 = tail call ptr @text_to_cstring(ptr noundef %29) #6
   %31 = load i64, ptr %14, align 8
   %32 = load i64, ptr %26, align 8
-  %33 = getelementptr i8, ptr %0, i64 88
-  %34 = load i8, ptr %33, align 8
-  %35 = trunc i8 %34 to i1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %34 = load i8, ptr %33, align 8, !range !4, !noundef !5
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %25
-  %37 = getelementptr i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load i64, ptr %37, align 8
   br label %39
 
@@ -642,110 +656,114 @@ define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr noundef reado
   %40 = phi i64 [ %38, %36 ], [ 0, %25 ]
   %41 = trunc i64 %32 to i8
   %42 = trunc i64 %31 to i32
-  %43 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #5
-  %44 = tail call i32 @get_subscription_oid(ptr noundef %30, i1 noundef zeroext false) #5
-  %45 = tail call ptr @relation_open(i32 noundef %42, i32 noundef 1) #5
-  tail call void @AddSubscriptionRelState(i32 noundef %44, i32 noundef %42, i8 noundef signext %41, i64 noundef %40, i1 noundef zeroext false) #5
-  tail call void @relation_close(ptr noundef %45, i32 noundef 1) #5
-  tail call void @table_close(ptr noundef %43, i32 noundef 3) #5
+  %43 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #6
+  %44 = tail call i32 @get_subscription_oid(ptr noundef %30, i1 noundef zeroext false) #6
+  %45 = tail call ptr @relation_open(i32 noundef %42, i32 noundef 1) #6
+  tail call void @AddSubscriptionRelState(i32 noundef %44, i32 noundef %42, i8 noundef signext %41, i64 noundef %40, i1 noundef zeroext false) #6
+  tail call void @relation_close(ptr noundef %45, i32 noundef 1) #6
+  tail call void @table_close(ptr noundef %43, i32 noundef 3) #6
   ret i64 0
 }
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  %3 = load i8, ptr @IsBinaryUpgrade, align 1
-  %4 = trunc i8 %3 to i1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
+  %3 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 33685829) #5
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @__func__.binary_upgrade_replorigin_advance) #5
+  %7 = tail call i32 @errcode(i32 noundef 33685829) #6
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 377, ptr noundef nonnull @__func__.binary_upgrade_replorigin_advance) #6
   unreachable
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !5
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @__func__.binary_upgrade_replorigin_advance) #5
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 384, ptr noundef nonnull @__func__.binary_upgrade_replorigin_advance) #6
   unreachable
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call ptr @pg_detoast_datum_packed(ptr noundef %19) #5
-  %21 = tail call ptr @text_to_cstring(ptr noundef %20) #5
-  %22 = getelementptr i8, ptr %0, i64 56
-  %23 = load i8, ptr %22, align 8
-  %24 = trunc i8 %23 to i1
+  %20 = tail call ptr @pg_detoast_datum_packed(ptr noundef %19) #6
+  %21 = tail call ptr @text_to_cstring(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %16
-  %26 = getelementptr i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %16, %25
   %29 = phi i64 [ %27, %25 ], [ 0, %16 ]
-  %30 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #5
-  %31 = tail call i32 @get_subscription_oid(ptr noundef %21, i1 noundef zeroext false) #5
-  call void @ReplicationOriginNameForLogicalRep(i32 noundef %31, i32 noundef 0, ptr noundef nonnull %2, i64 noundef 64) #5
-  call void @LockRelationOid(i32 noundef 6000, i32 noundef 3) #5
-  %32 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %2, i1 noundef zeroext false) #5
-  call void @replorigin_advance(i16 noundef zeroext %32, i64 noundef %29, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #5
-  call void @UnlockRelationOid(i32 noundef 6000, i32 noundef 3) #5
-  call void @table_close(ptr noundef %30, i32 noundef 3) #5
+  %30 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #6
+  %31 = tail call i32 @get_subscription_oid(ptr noundef %21, i1 noundef zeroext false) #6
+  call void @ReplicationOriginNameForLogicalRep(i32 noundef %31, i32 noundef 0, ptr noundef nonnull %2, i64 noundef 64) #6
+  call void @LockRelationOid(i32 noundef 6000, i32 noundef 3) #6
+  %32 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  call void @replorigin_advance(i16 noundef zeroext %32, i64 noundef %29, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #6
+  call void @UnlockRelationOid(i32 noundef 6000, i32 noundef 3) #6
+  call void @table_close(ptr noundef %30, i32 noundef 3) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
   ret i64 0
 }
 
-declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { cold nounwind }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { cold nounwind }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

@@ -4,12 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
+%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.LOCKTAG = type { i32, i32, i32, i16, i8, i8 }
 %struct.EnableTimeoutParams = type { i32, i32, i32, i64 }
 %struct.xl_standby_lock = type { i32, i32, i32 }
-%struct.RunningTransactionsData = type { i32, i32, i8, i32, i32, i32, ptr }
+%struct.RunningTransactionsData = type { i32, i32, i32, i32, i32, i32, i32, ptr }
 %struct.xl_running_xacts = type { i32, i32, i8, i32, i32, i32, [0 x i32] }
 %struct.xl_standby_locks = type { i32, [0 x %struct.xl_standby_lock] }
 %struct.xl_invalidations = type { i32, i32, i8, i32, [0 x %union.SharedInvalidationMessage] }
@@ -77,6 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitRecoveryTransactionEnvironment() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #7
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 12, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -93,22 +94,29 @@ define dso_local void @InitRecoveryTransactionEnvironment() local_unnamed_addr #
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 %6, ptr %8, align 4
   %9 = call i32 @GetNextLocalTransactionId() #7
-  %.sroa.2.0.insert.ext = zext i32 %9 to i64
-  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.4.0.insert.ext = zext i32 %9 to i64
+  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %6 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   call void @VirtualXactLockTableInsert(i64 %.sroa.0.0.insert.insert) #7
   store i32 1, ptr @standbyState, align 4
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #7
   ret void
 }
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @SharedInvalBackendInit(i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @GetNextLocalTransactionId() local_unnamed_addr #1
+declare void @SharedInvalBackendInit(i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @VirtualXactLockTableInsert(i64) local_unnamed_addr #1
+declare i32 @GetNextLocalTransactionId() local_unnamed_addr #2
+
+declare void @VirtualXactLockTableInsert(i64) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ShutdownRecoveryTransactionEnvironment() local_unnamed_addr #0 {
@@ -132,20 +140,21 @@ define dso_local void @ShutdownRecoveryTransactionEnvironment() local_unnamed_ad
   ret void
 }
 
-declare void @ExpireAllKnownAssignedTransactionIds() local_unnamed_addr #1
+declare void @ExpireAllKnownAssignedTransactionIds() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @StandbyReleaseAllLocks() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #7
   %2 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #7
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
   %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1112, ptr noundef nonnull @__func__.StandbyReleaseAllLocks) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1110, ptr noundef nonnull @__func__.StandbyReleaseAllLocks) #7
   br label %5
 
-5:                                                ; preds = %0, %3
+5:                                                ; preds = %3, %0
   %6 = load ptr, ptr @RecoveryLockXidHash, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %6) #7
   %7 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
@@ -159,21 +168,25 @@ define dso_local void @StandbyReleaseAllLocks() local_unnamed_addr #0 {
   %10 = call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 2, ptr noundef null) #7
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #7
   ret void
 }
 
-declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
+declare void @hash_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @VirtualXactLockTableCleanup() local_unnamed_addr #1
+declare void @VirtualXactLockTableCleanup() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.StringInfoData, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
   call void @TimestampDifference(i64 noundef %1, i64 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %9 = load i64, ptr %6, align 8
   %10 = mul i64 %9, 1000
@@ -218,11 +231,11 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
 
 27:                                               ; preds = %23, %.lr.ph
   %.2 = phi i32 [ %26, %23 ], [ %.128, %.lr.ph ]
-  %28 = getelementptr i8, ptr %.01927, i64 8
-  %29 = getelementptr i8, ptr %.01927, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.01927, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.01927, i64 12
   %30 = load i32, ptr %29, align 4
   %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %.preheader, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ %.2, %27 ]
@@ -277,7 +290,7 @@ get_recovery_conflict_desc.exit25:                ; preds = %switch.lookup30, %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %get_recovery_conflict_desc.exit, %get_recovery_conflict_desc.exit25
-  %.sink = phi i32 [ 341, %get_recovery_conflict_desc.exit25 ], [ 335, %get_recovery_conflict_desc.exit ], [ 335, %39 ]
+  %.sink = phi i32 [ 339, %get_recovery_conflict_desc.exit25 ], [ 333, %get_recovery_conflict_desc.exit ], [ 333, %39 ]
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef %.sink, ptr noundef nonnull @__func__.LogRecoveryConflict) #7
   br label %49
 
@@ -291,29 +304,32 @@ get_recovery_conflict_desc.exit25:                ; preds = %switch.lookup30, %4
   br label %53
 
 53:                                               ; preds = %51, %49
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret void
 }
 
-declare void @TimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @TimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ProcNumberGetProc(i32 noundef) local_unnamed_addr #1
+declare ptr @ProcNumberGetProc(i32 noundef) local_unnamed_addr #2
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail_log_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
+declare i32 @errdetail_log_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 noundef zeroext %1, i64 %2, i32 %3) local_unnamed_addr #0 {
@@ -324,7 +340,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 no
 
 5:                                                ; preds = %4
   %6 = tail call ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %.sroa.1.0.extract.trunc) #7
-  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %6, i32 noundef 10, i32 noundef 134217771, i1 noundef zeroext true)
+  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %6, i32 noundef 10, i32 noundef 134217772, i1 noundef zeroext true)
   %7 = load i32, ptr @wal_level, align 4
   %8 = icmp sgt i32 %7, 1
   %brmerge.not = and i1 %1, %8
@@ -334,71 +350,71 @@ define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 no
   %10 = tail call zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef 2, i64 noundef 0, i32 noundef %.sroa.1.0.extract.trunc, i32 noundef %0) #7
   br label %11
 
-11:                                               ; preds = %5, %4, %9
+11:                                               ; preds = %9, %5, %4
   ret void
 }
 
-declare ptr @GetConflictingVirtualXIDs(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @GetConflictingVirtualXIDs(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217773) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217774) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.thread61, label %9
+  br i1 %.not, label %.thread62, label %9
 
 9:                                                ; preds = %4
-  br i1 %3, label %10, label %.lr.ph47
+  br i1 %3, label %10, label %.lr.ph48
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr @log_recovery_conflict_waits, align 1
-  %12 = trunc i8 %11 to i1
+  %11 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !7, !noundef !8
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = load i8, ptr @update_process_title, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %.lr.ph47
+  %14 = load i8, ptr @update_process_title, align 1, !range !7, !noundef !8
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %.lr.ph48
 
 16:                                               ; preds = %10, %13
   %17 = tail call i64 @GetCurrentTimestamp() #7
   %.pre = load i32, ptr %7, align 4
   %18 = icmp eq i32 %.pre, 0
-  br i1 %18, label %.thread61, label %.lr.ph47
+  br i1 %18, label %.thread62, label %.lr.ph48
 
-.lr.ph47:                                         ; preds = %9, %13, %16
-  %.02955 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %9 ]
-  %.not37 = icmp eq i64 %.02955, 0
+.lr.ph48:                                         ; preds = %9, %13, %16
+  %.02956 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %9 ]
+  %.not38 = icmp eq i64 %.02956, 0
   br label %19
 
-19:                                               ; preds = %.lr.ph47, %._crit_edge
-  %.045 = phi ptr [ %0, %.lr.ph47 ], [ %77, %._crit_edge ]
-  %.03144 = phi i8 [ 0, %.lr.ph47 ], [ %.1.lcssa, %._crit_edge ]
-  %.03243 = phi i8 [ 0, %.lr.ph47 ], [ %.133.lcssa, %._crit_edge ]
+19:                                               ; preds = %.lr.ph48, %._crit_edge
+  %.046 = phi ptr [ %0, %.lr.ph48 ], [ %77, %._crit_edge ]
+  %.03145 = phi i8 [ 0, %.lr.ph48 ], [ %.1.lcssa, %._crit_edge ]
+  %.03244 = phi i8 [ 0, %.lr.ph48 ], [ %.133.lcssa, %._crit_edge ]
   store i32 1000, ptr @standbyWait_us, align 4
-  %20 = load i64, ptr %.045, align 4
+  %20 = load i64, ptr %.046, align 4
   %21 = call zeroext i1 @VirtualXactLock(i64 %20, i1 noundef zeroext false) #7
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %74
-  %.140 = phi i8 [ %.2, %74 ], [ %.03144, %19 ]
-  %.13339 = phi i8 [ %.234, %74 ], [ %.03243, %19 ]
+  %.141 = phi i8 [ %.2, %74 ], [ %.03145, %19 ]
+  %.13340 = phi i8 [ %.234, %74 ], [ %.03244, %19 ]
   %22 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %24, label %23
+  br i1 %.not.i, label %24, label %23, !prof !9
 
 23:                                               ; preds = %.lr.ph
   call void @ProcessInterrupts() #7
   br label %24
 
 24:                                               ; preds = %23, %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  %25 = load i8, ptr %6, align 1
-  %26 = trunc i8 %25 to i1
+  %25 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
@@ -412,8 +428,8 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   br i1 %32, label %GetStandbyLimitTime.exit.thread.i, label %GetStandbyLimitTime.exit.i
 
 GetStandbyLimitTime.exit.thread.i:                ; preds = %30, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   br label %WaitExceedsMaxStandbyDelay.exit
 
 GetStandbyLimitTime.exit.i:                       ; preds = %30, %27
@@ -422,8 +438,8 @@ GetStandbyLimitTime.exit.i:                       ; preds = %30, %27
   %34 = zext nneg i32 %.sink10.i to i64
   %35 = mul nuw nsw i64 %34, 1000
   %36 = add i64 %35, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   %.not4.i = icmp eq i64 %36, 0
   br i1 %.not4.i, label %WaitExceedsMaxStandbyDelay.exit, label %37
 
@@ -447,38 +463,38 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %49
 
 45:                                               ; preds = %37
-  %46 = load i64, ptr %.045, align 4
+  %46 = load i64, ptr %.046, align 4
   %47 = call i32 @CancelVirtualTransaction(i64 %46, i32 noundef %1) #7
-  %.not36 = icmp eq i32 %47, 0
-  br i1 %.not36, label %49, label %48
+  %.not37 = icmp eq i32 %47, 0
+  br i1 %.not37, label %49, label %48
 
 48:                                               ; preds = %45
   call void @pg_usleep(i64 noundef 5000) #7
   br label %49
 
 49:                                               ; preds = %WaitExceedsMaxStandbyDelay.exit, %45, %48
-  br i1 %.not37, label %74, label %50
+  br i1 %.not38, label %74, label %50
 
 50:                                               ; preds = %49
-  %51 = trunc nuw i8 %.13339 to i1
-  %52 = trunc nuw i8 %.140 to i1
-  br i1 %51, label %54, label %._crit_edge51
+  %51 = trunc nuw i8 %.13340 to i1
+  %52 = trunc nuw i8 %.141 to i1
+  br i1 %51, label %54, label %._crit_edge52
 
-._crit_edge51:                                    ; preds = %50
+._crit_edge52:                                    ; preds = %50
   %53 = xor i1 %52, true
   br label %55
 
 54:                                               ; preds = %50
   br i1 %52, label %74, label %55
 
-55:                                               ; preds = %._crit_edge51, %54
-  %.pre-phi = phi i1 [ %53, %._crit_edge51 ], [ true, %54 ]
-  %56 = load i8, ptr @log_recovery_conflict_waits, align 1
-  %57 = trunc i8 %56 to i1
+55:                                               ; preds = %._crit_edge52, %54
+  %.pre-phi = phi i1 [ %53, %._crit_edge52 ], [ true, %54 ]
+  %56 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !7, !noundef !8
+  %57 = trunc nuw i8 %56 to i1
   %58 = xor i1 %51, true
   %59 = and i1 %58, %57
-  %60 = load i8, ptr @update_process_title, align 1
-  %61 = trunc i8 %60 to i1
+  %60 = load i8, ptr @update_process_title, align 1, !range !7, !noundef !8
+  %61 = trunc nuw i8 %60 to i1
   %62 = select i1 %61, i1 %.pre-phi, i1 false
   %brmerge = select i1 %59, i1 true, i1 %62
   br i1 %brmerge, label %63, label %65
@@ -492,7 +508,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %62, label %66, label %69
 
 66:                                               ; preds = %65
-  %67 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02955, i64 noundef %.030, i32 noundef 500) #7
+  %67 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02956, i64 noundef %.030, i32 noundef 500) #7
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
@@ -500,56 +516,56 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %69
 
 69:                                               ; preds = %68, %66, %65
-  %.3 = phi i8 [ 1, %68 ], [ 0, %66 ], [ %.140, %65 ]
+  %.3 = phi i8 [ 1, %68 ], [ 0, %66 ], [ %.141, %65 ]
   br i1 %59, label %70, label %74
 
 70:                                               ; preds = %69
   %71 = load i32, ptr @DeadlockTimeout, align 4
-  %72 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02955, i64 noundef %.030, i32 noundef %71) #7
+  %72 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02956, i64 noundef %.030, i32 noundef %71) #7
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %70
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02955, i64 noundef %.030, ptr noundef nonnull %.045, i1 noundef zeroext true)
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02956, i64 noundef %.030, ptr noundef nonnull %.046, i1 noundef zeroext true)
   br label %74
 
 74:                                               ; preds = %69, %70, %73, %54, %49
-  %.234 = phi i8 [ 1, %54 ], [ 1, %73 ], [ 0, %70 ], [ %.13339, %69 ], [ %.13339, %49 ]
-  %.2 = phi i8 [ 1, %54 ], [ %.3, %73 ], [ %.3, %70 ], [ %.3, %69 ], [ %.140, %49 ]
-  %75 = load i64, ptr %.045, align 4
+  %.234 = phi i8 [ 1, %54 ], [ %.13340, %49 ], [ 1, %73 ], [ 0, %70 ], [ %.13340, %69 ]
+  %.2 = phi i8 [ 1, %54 ], [ %.141, %49 ], [ %.3, %73 ], [ %.3, %70 ], [ %.3, %69 ]
+  %75 = load i64, ptr %.046, align 4
   %76 = call zeroext i1 @VirtualXactLock(i64 %75, i1 noundef zeroext false) #7
-  br i1 %76, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %76, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %74, %19
-  %.133.lcssa = phi i8 [ %.03243, %19 ], [ %.234, %74 ]
-  %.1.lcssa = phi i8 [ %.03144, %19 ], [ %.2, %74 ]
-  %77 = getelementptr i8, ptr %.045, i64 8
-  %78 = getelementptr i8, ptr %.045, i64 12
+  %.133.lcssa = phi i8 [ %.03244, %19 ], [ %.234, %74 ]
+  %.1.lcssa = phi i8 [ %.03145, %19 ], [ %.2, %74 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.046, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.046, i64 12
   %79 = load i32, ptr %78, align 4
-  %.not35 = icmp eq i32 %79, 0
-  br i1 %.not35, label %._crit_edge48, label %19, !llvm.loop !9
+  %.not36 = icmp eq i32 %79, 0
+  br i1 %.not36, label %._crit_edge49, label %19, !llvm.loop !11
 
-._crit_edge48:                                    ; preds = %._crit_edge
+._crit_edge49:                                    ; preds = %._crit_edge
   %80 = trunc nuw i8 %.133.lcssa to i1
   %81 = trunc nuw i8 %.1.lcssa to i1
   br i1 %80, label %82, label %84
 
-82:                                               ; preds = %._crit_edge48
+82:                                               ; preds = %._crit_edge49
   %83 = call i64 @GetCurrentTimestamp() #7
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02955, i64 noundef %83, ptr noundef null, i1 noundef zeroext false)
-  br i1 %81, label %85, label %.thread61
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02956, i64 noundef %83, ptr noundef null, i1 noundef zeroext false)
+  br i1 %81, label %85, label %.thread62
 
-84:                                               ; preds = %._crit_edge48
-  br i1 %81, label %85, label %.thread61
+84:                                               ; preds = %._crit_edge49
+  br i1 %81, label %85, label %.thread62
 
 85:                                               ; preds = %82, %84
   call void @set_ps_display_remove_suffix() #7
-  br label %.thread61
+  br label %.thread62
 
-.thread61:                                        ; preds = %16, %82, %4, %85, %84
+.thread62:                                        ; preds = %16, %82, %84, %85, %4
   ret void
 }
 
-declare zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithSnapshotFullXid(i64 %0, i1 noundef zeroext %1, i64 %2, i32 %3) local_unnamed_addr #0 {
@@ -567,7 +583,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshotFullXid(i64 %0, i1 nou
 
 10:                                               ; preds = %8
   %11 = tail call ptr @GetConflictingVirtualXIDs(i32 noundef %9, i32 noundef %.sroa.1.0.extract.trunc.i) #7
-  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %11, i32 noundef 10, i32 noundef 134217771, i1 noundef zeroext true)
+  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %11, i32 noundef 10, i32 noundef 134217772, i1 noundef zeroext true)
   %12 = load i32, ptr @wal_level, align 4
   %13 = icmp sgt i32 %12, 1
   %brmerge.not.i = and i1 %1, %13
@@ -581,12 +597,12 @@ ResolveRecoveryConflictWithSnapshot.exit:         ; preds = %14, %10, %8, %4
   ret void
 }
 
-declare i64 @ReadNextFullTransactionId() local_unnamed_addr #1
+declare i64 @ReadNextFullTransactionId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithTablespace(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @GetConflictingVirtualXIDs(i32 noundef 0, i32 noundef 0) #7
-  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %2, i32 noundef 8, i32 noundef 134217772, i1 noundef zeroext true)
+  tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %2, i32 noundef 8, i32 noundef 134217773, i1 noundef zeroext true)
   ret void
 }
 
@@ -601,17 +617,17 @@ define dso_local void @ResolveRecoveryConflictWithDatabase(i32 noundef %0) local
   tail call void @pg_usleep(i64 noundef 10000) #7
   %4 = tail call i32 @CountDBBackends(i32 noundef %0) #7
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
 }
 
-declare i32 @CountDBBackends(i32 noundef) local_unnamed_addr #1
+declare i32 @CountDBBackends(i32 noundef) local_unnamed_addr #2
 
-declare void @CancelDBBackends(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare void @CancelDBBackends(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -622,11 +638,11 @@ define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 nounde
   store i64 %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %9 = load i8, ptr %5, align 1
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %5, align 1, !range !7, !noundef !8
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %3
@@ -655,8 +671,8 @@ define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 nounde
 
 GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %.0.i = phi i64 [ %18, %14 ], [ %26, %22 ], [ 0, %11 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %27 = call i64 @GetCurrentTimestamp() #7
   %28 = load ptr, ptr @MyProc, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
@@ -684,6 +700,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   br label %53
 
 42:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #7
   br i1 %35, label %43, label %46
 
 43:                                               ; preds = %42
@@ -699,7 +716,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %.021 = phi i32 [ 1, %43 ], [ 0, %42 ]
   store volatile i32 0, ptr @got_standby_deadlock_timeout, align 4
   %47 = zext nneg i32 %.021 to i64
-  %48 = getelementptr [2 x %struct.EnableTimeoutParams], ptr %7, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [2 x %struct.EnableTimeoutParams], ptr %7, i64 0, i64 %47
   store i32 4, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %49, align 4
@@ -708,6 +725,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   store i32 %50, ptr %51, align 8
   %52 = add nuw nsw i32 %.021, 1
   call void @enable_timeouts(ptr noundef nonnull %7, i32 noundef %52) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
   br label %53
 
 53:                                               ; preds = %46, %36
@@ -736,11 +754,11 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %.027 = phi ptr [ %67, %.lr.ph ], [ %62, %61 ]
   %65 = load i64, ptr %.027, align 4
   %66 = call i32 @SignalVirtualTransaction(i64 %65, i32 noundef 13, i1 noundef zeroext false) #7
-  %67 = getelementptr i8, ptr %.027, i64 8
-  %68 = getelementptr i8, ptr %.027, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %.027, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.027, i64 12
   %69 = load i32, ptr %68, align 4
   %.not25 = icmp eq i32 %69, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %2, label %74, label %70
@@ -753,35 +771,35 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   call void @ProcWaitForSignal(i32 noundef %73) #7
   br label %74
 
-74:                                               ; preds = %59, %70, %._crit_edge, %61, %53
+74:                                               ; preds = %70, %61, %._crit_edge, %59, %53
   call void @disable_all_timeouts(i1 noundef zeroext false) #7
   store volatile i32 0, ptr @got_standby_lock_timeout, align 4
   store volatile i32 0, ptr @got_standby_deadlock_timeout, align 4
   ret void
 }
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
 
-declare ptr @GetLockConflicts(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @GetLockConflicts(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @enable_timeouts(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @enable_timeouts(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ProcWaitForSignal(i32 noundef) local_unnamed_addr #1
+declare void @ProcWaitForSignal(i32 noundef) local_unnamed_addr #2
 
-declare i32 @SignalVirtualTransaction(i64, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare i32 @SignalVirtualTransaction(i64, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @disable_all_timeouts(i1 noundef zeroext) local_unnamed_addr #1
+declare void @disable_all_timeouts(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca i8, align 1
   %3 = alloca [2 x %struct.EnableTimeoutParams], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
-  %4 = load i8, ptr %2, align 1
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %0
@@ -810,8 +828,8 @@ define dso_local void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr
 
 GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   %.0.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ 0, %6 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   %22 = call i64 @GetCurrentTimestamp() #7
   %23 = icmp sge i64 %22, %.0.i
   %24 = icmp ne i64 %.0.i, 0
@@ -823,6 +841,7 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   br label %37
 
 26:                                               ; preds = %GetStandbyLimitTime.exit
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
   br i1 %24, label %27, label %30
 
 27:                                               ; preds = %26
@@ -837,7 +856,7 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   %.0 = phi i32 [ 1, %27 ], [ 0, %26 ]
   store volatile i32 0, ptr @got_standby_deadlock_timeout, align 4
   %31 = zext nneg i32 %.0 to i64
-  %32 = getelementptr [2 x %struct.EnableTimeoutParams], ptr %3, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [2 x %struct.EnableTimeoutParams], ptr %3, i64 0, i64 %31
   store i32 4, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %33, align 4
@@ -846,6 +865,7 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   store i32 %34, ptr %35, align 8
   %36 = add nuw nsw i32 %.0, 1
   call void @enable_timeouts(ptr noundef nonnull %3, i32 noundef %36) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
   br label %37
 
 37:                                               ; preds = %30, %25
@@ -882,33 +902,33 @@ define dso_local void @CheckRecoveryConflictDeadlock() local_unnamed_addr #0 {
   %4 = tail call i32 @errcode(i32 noundef 16908292) #7
   %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #7
   %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 923, ptr noundef nonnull @__func__.CheckRecoveryConflictDeadlock) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 921, ptr noundef nonnull @__func__.CheckRecoveryConflictDeadlock) #7
   unreachable
 
 7:                                                ; preds = %0
   ret void
 }
 
-declare zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_addr #1
+declare zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
-define dso_local void @StandbyDeadLockHandler() local_unnamed_addr #3 {
+define dso_local void @StandbyDeadLockHandler() local_unnamed_addr #4 {
   store volatile i32 1, ptr @got_standby_deadlock_timeout, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
-define dso_local void @StandbyTimeoutHandler() local_unnamed_addr #3 {
+define dso_local void @StandbyTimeoutHandler() local_unnamed_addr #4 {
   store volatile i32 1, ptr @got_standby_delay_timeout, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
-define dso_local void @StandbyLockTimeoutHandler() local_unnamed_addr #3 {
+define dso_local void @StandbyLockTimeoutHandler() local_unnamed_addr #4 {
   store volatile i32 1, ptr @got_standby_lock_timeout, align 4
   ret void
 }
@@ -920,6 +940,9 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   %6 = alloca %struct.LOCKTAG, align 4
   %7 = alloca i8, align 1
   store i32 %0, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %41, label %8
 
@@ -937,14 +960,14 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
 
 14:                                               ; preds = %12
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %1, i32 noundef %2) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1001, ptr noundef nonnull @__func__.StandbyAcquireAccessExclusiveLock) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 999, ptr noundef nonnull @__func__.StandbyAcquireAccessExclusiveLock) #7
   br label %16
 
-16:                                               ; preds = %12, %14
+16:                                               ; preds = %14, %12
   %17 = load ptr, ptr @RecoveryLockXidHash, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %7) #7
-  %19 = load i8, ptr %7, align 1
-  %20 = trunc i8 %19 to i1
+  %19 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %16
@@ -961,8 +984,8 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   store i32 %2, ptr %26, align 4
   %27 = load ptr, ptr @RecoveryLockHash, align 8
   %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #7
-  %29 = load i8, ptr %7, align 1
-  %30 = trunc i8 %29 to i1
+  %29 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %41, label %31
 
 31:                                               ; preds = %23
@@ -985,19 +1008,22 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   %40 = call i32 @LockAcquire(ptr noundef nonnull %6, i32 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false) #7
   br label %41
 
-41:                                               ; preds = %3, %8, %10, %31, %23
+41:                                               ; preds = %23, %31, %3, %8, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #7
   ret void
 }
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
+declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @StandbyReleaseLockTree(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -1035,7 +1061,7 @@ StandbyReleaseLocks.exit:                         ; preds = %6, %9, %12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %StandbyReleaseLocks.exit7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %StandbyReleaseLocks.exit7 ]
-  %14 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %15, ptr %4, align 4
@@ -1062,15 +1088,15 @@ StandbyReleaseLocks.exit7:                        ; preds = %16, %19, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %StandbyReleaseLocks.exit7, %StandbyReleaseLocks.exit
   ret void
 }
 
-declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -1090,6 +1116,7 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull cap
 
 10:                                               ; preds = %.lr.ph, %32
   %.015 = phi ptr [ %4, %.lr.ph ], [ %34, %32 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   %11 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #7
   br i1 %11, label %12, label %19
 
@@ -1100,10 +1127,10 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull cap
   %16 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %13, i32 noundef %15, i32 noundef %17) #7
-  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1047, ptr noundef nonnull @__func__.StandbyReleaseXidEntryLocks) #7
+  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1045, ptr noundef nonnull @__func__.StandbyReleaseXidEntryLocks) #7
   br label %19
 
-19:                                               ; preds = %10, %12
+19:                                               ; preds = %12, %10
   %20 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %2, align 4
@@ -1126,16 +1153,17 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull cap
   %29 = load i32, ptr %20, align 4
   %30 = load i32, ptr %22, align 8
   %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %28, i32 noundef %29, i32 noundef %30) #7
-  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1054, ptr noundef nonnull @__func__.StandbyReleaseXidEntryLocks) #7
+  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1052, ptr noundef nonnull @__func__.StandbyReleaseXidEntryLocks) #7
   br label %32
 
-32:                                               ; preds = %27, %25, %19
+32:                                               ; preds = %25, %27, %19
   %33 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @RecoveryLockHash, align 8
   %36 = call ptr @hash_search(ptr noundef %35, ptr noundef nonnull %.015, i32 noundef 2, ptr noundef null) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %32, %1
   store ptr null, ptr %3, align 8
@@ -1145,6 +1173,7 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull cap
 ; Function Attrs: nounwind uwtable
 define dso_local void @StandbyReleaseOldLocks(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
   %3 = load ptr, ptr @RecoveryLockXidHash, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %3) #7
   %4 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
@@ -1171,15 +1200,16 @@ define dso_local void @StandbyReleaseOldLocks(i32 noundef %0) local_unnamed_addr
 .backedge:                                        ; preds = %11, %.lr.ph, %8
   %14 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.backedge, %1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
   ret void
 }
 
-declare zeroext i1 @StandbyTransactionIdIsPrepared(i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @StandbyTransactionIdIsPrepared(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1213,7 +1243,7 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr [0 x %struct.xl_standby_lock], ptr %16, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [0 x %struct.xl_standby_lock], ptr %16, i64 0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4
@@ -1224,11 +1254,12 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %24 = load i32, ptr %13, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %17, label %.loopexit, !llvm.loop !15
+  br i1 %26, label %17, label %.loopexit, !llvm.loop !17
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #7
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -1236,27 +1267,28 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %35 = load i8, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = and i8 %35, 1
-  store i8 %37, ptr %36, align 8
+  %35 = load i8, ptr %34, align 4, !range !7, !noundef !8
+  %36 = zext nneg i8 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %39, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %42, ptr %43, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %47, ptr %48, align 8
   call void @ProcArrayApplyRecoveryInfo(ptr noundef nonnull %2) #7
   %49 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #7
   br label %.loopexit
 
 50:                                               ; preds = %7
@@ -1266,8 +1298,8 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %57 = load i8, ptr %56, align 4
-  %58 = trunc i8 %57 to i1
+  %57 = load i8, ptr %56, align 4, !range !7, !noundef !8
+  %58 = trunc nuw i8 %57 to i1
   %59 = load i32, ptr %52, align 4
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %61 = load i32, ptr %60, align 4
@@ -1279,31 +1311,32 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
   tail call void @llvm.assume(i1 %64)
   %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %63) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1217, ptr noundef nonnull @__func__.standby_redo) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1218, ptr noundef nonnull @__func__.standby_redo) #7
   unreachable
 
-.loopexit:                                        ; preds = %17, %11, %27, %50, %1
+.loopexit:                                        ; preds = %17, %11, %50, %27, %1
   ret void
 }
 
-declare void @ProcArrayApplyRecoveryInfo(ptr noundef) local_unnamed_addr #1
+declare void @ProcArrayApplyRecoveryInfo(ptr noundef) local_unnamed_addr #2
 
-declare i64 @pgstat_report_stat(i1 noundef zeroext) local_unnamed_addr #1
+declare i64 @pgstat_report_stat(i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @ProcessCommittedInvalidationMessages(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @ProcessCommittedInvalidationMessages(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   %1 = alloca %struct.xl_running_xacts, align 4
   %2 = alloca %struct.xl_standby_locks, align 4
   %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %4 = call ptr @GetRunningTransactionLocks(ptr noundef nonnull %3) #7
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
   store i32 %5, ptr %2, align 4
   call void @XLogBeginInsert() #7
   call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 4) #7
@@ -1311,7 +1344,7 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   call void @XLogRegisterData(ptr noundef %4, i32 noundef %8) #7
   call void @XLogSetRecordFlags(i8 noundef zeroext 2) #7
   %9 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 0) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   br label %10
 
 10:                                               ; preds = %7, %0
@@ -1323,12 +1356,12 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @MainLWLockArray, align 8
-  %16 = getelementptr i8, ptr %15, i64 512
-  call void @LWLockRelease(ptr noundef %16) #7
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 512
+  call void @LWLockRelease(ptr noundef nonnull %16) #7
   br label %17
 
 17:                                               ; preds = %14, %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #7
   %18 = load i32, ptr %11, align 8
   store i32 %18, ptr %1, align 4
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1336,130 +1369,134 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = and i8 %23, 1
-  store i8 %25, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %33, ptr %34, align 4
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp ne i32 %23, 0
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %34, ptr %35, align 4
   call void @XLogBeginInsert() #7
   call void @XLogSetRecordFlags(i8 noundef zeroext 2) #7
   call void @XLogRegisterData(ptr noundef nonnull %1, i32 noundef 24) #7
-  %35 = load i32, ptr %1, align 4
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %43
+  %36 = load i32, ptr %1, align 4
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %44
 
-37:                                               ; preds = %17
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %21, align 4
-  %41 = add i32 %40, %35
-  %42 = shl i32 %41, 2
-  call void @XLogRegisterData(ptr noundef %39, i32 noundef %42) #7
-  br label %43
+38:                                               ; preds = %17
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %21, align 4
+  %42 = add i32 %41, %36
+  %43 = shl i32 %42, 2
+  call void @XLogRegisterData(ptr noundef %40, i32 noundef %43) #7
+  br label %44
 
-43:                                               ; preds = %37, %17
-  %44 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 16) #7
-  %45 = load i8, ptr %22, align 8
-  %46 = trunc i8 %45 to i1
-  %47 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #7
-  br i1 %46, label %48, label %58
+44:                                               ; preds = %38, %17
+  %45 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 16) #7
+  %46 = load i8, ptr %25, align 4, !range !7, !noundef !8
+  %47 = trunc nuw i8 %46 to i1
+  %48 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #7
+  br i1 %47, label %49, label %59
 
-48:                                               ; preds = %43
-  br i1 %47, label %49, label %LogCurrentRunningXacts.exit
+49:                                               ; preds = %44
+  br i1 %48, label %50, label %LogCurrentRunningXacts.exit
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %11, align 8
-  %51 = lshr i64 %44, 32
-  %52 = trunc nuw i64 %51 to i32
-  %53 = trunc i64 %44 to i32
-  %54 = load i32, ptr %29, align 8
-  %55 = load i32, ptr %32, align 4
-  %56 = load i32, ptr %26, align 4
-  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %50, i32 noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %56) #7
+50:                                               ; preds = %49
+  %51 = load i32, ptr %11, align 8
+  %52 = lshr i64 %45, 32
+  %53 = trunc nuw i64 %52 to i32
+  %54 = trunc i64 %45 to i32
+  %55 = load i32, ptr %30, align 8
+  %56 = load i32, ptr %33, align 8
+  %57 = load i32, ptr %27, align 4
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %51, i32 noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57) #7
   br label %.sink.split.i
 
-58:                                               ; preds = %43
-  br i1 %47, label %59, label %LogCurrentRunningXacts.exit
+59:                                               ; preds = %44
+  br i1 %48, label %60, label %LogCurrentRunningXacts.exit
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %11, align 8
-  %61 = load i32, ptr %19, align 4
-  %62 = lshr i64 %44, 32
-  %63 = trunc nuw i64 %62 to i32
-  %64 = trunc i64 %44 to i32
-  %65 = load i32, ptr %29, align 8
-  %66 = load i32, ptr %32, align 4
-  %67 = load i32, ptr %26, align 4
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %60, i32 noundef %61, i32 noundef %63, i32 noundef %64, i32 noundef %65, i32 noundef %66, i32 noundef %67) #7
+60:                                               ; preds = %59
+  %61 = load i32, ptr %11, align 8
+  %62 = load i32, ptr %19, align 4
+  %63 = lshr i64 %45, 32
+  %64 = trunc nuw i64 %63 to i32
+  %65 = trunc i64 %45 to i32
+  %66 = load i32, ptr %30, align 8
+  %67 = load i32, ptr %33, align 8
+  %68 = load i32, ptr %27, align 4
+  %69 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %61, i32 noundef %62, i32 noundef %64, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68) #7
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %59, %49
-  %.sink.i = phi i32 [ 1386, %59 ], [ 1378, %49 ]
+.sink.split.i:                                    ; preds = %60, %50
+  %.sink.i = phi i32 [ 1380, %60 ], [ 1372, %50 ]
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef %.sink.i, ptr noundef nonnull @__func__.LogCurrentRunningXacts) #7
   br label %LogCurrentRunningXacts.exit
 
-LogCurrentRunningXacts.exit:                      ; preds = %48, %58, %.sink.split.i
-  call void @XLogSetAsyncXactLSN(i64 noundef %44) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  %69 = load i32, ptr @wal_level, align 4
-  %70 = icmp sgt i32 %69, 1
-  br i1 %70, label %71, label %74
+LogCurrentRunningXacts.exit:                      ; preds = %49, %59, %.sink.split.i
+  call void @XLogSetAsyncXactLSN(i64 noundef %45) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #7
+  %70 = load i32, ptr @wal_level, align 4
+  %71 = icmp sgt i32 %70, 1
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %LogCurrentRunningXacts.exit
-  %72 = load ptr, ptr @MainLWLockArray, align 8
-  %73 = getelementptr i8, ptr %72, i64 512
-  call void @LWLockRelease(ptr noundef %73) #7
-  br label %74
+72:                                               ; preds = %LogCurrentRunningXacts.exit
+  %73 = load ptr, ptr @MainLWLockArray, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 512
+  call void @LWLockRelease(ptr noundef nonnull %74) #7
+  br label %75
 
-74:                                               ; preds = %71, %LogCurrentRunningXacts.exit
-  %75 = load ptr, ptr @MainLWLockArray, align 8
-  %76 = getelementptr i8, ptr %75, i64 384
-  call void @LWLockRelease(ptr noundef %76) #7
-  ret i64 %44
+75:                                               ; preds = %72, %LogCurrentRunningXacts.exit
+  %76 = load ptr, ptr @MainLWLockArray, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 384
+  call void @LWLockRelease(ptr noundef nonnull %77) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  ret i64 %45
 }
 
-declare ptr @GetRunningTransactionLocks(ptr noundef) local_unnamed_addr #1
+declare ptr @GetRunningTransactionLocks(ptr noundef) local_unnamed_addr #2
 
-declare ptr @GetRunningTransactionData() local_unnamed_addr #1
+declare ptr @GetRunningTransactionData() local_unnamed_addr #2
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogAccessExclusiveLock(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.xl_standby_locks, align 4
   %4 = alloca %struct.xl_standby_lock, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   %5 = tail call i32 @GetCurrentTransactionId() #7
   store i32 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   store i32 1, ptr %3, align 4
   tail call void @XLogBeginInsert() #7
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 4) #7
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 12) #7
   call void @XLogSetRecordFlags(i8 noundef zeroext 2) #7
   %8 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 0) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   %9 = load i32, ptr @MyXactFlags, align 4
   %10 = or i32 %9, 2
   store i32 %10, ptr @MyXactFlags, align 4
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
   ret void
 }
 
-declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
+declare i32 @GetCurrentTransactionId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogAccessExclusiveLockPrepare() local_unnamed_addr #0 {
@@ -1471,6 +1508,7 @@ define dso_local void @LogAccessExclusiveLockPrepare() local_unnamed_addr #0 {
 define dso_local void @LogStandbyInvalidations(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.xl_invalidations, align 4
   %5 = zext i1 %2 to i8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr @MyDatabaseId, align 4
@@ -1487,72 +1525,69 @@ define dso_local void @LogStandbyInvalidations(i32 noundef %0, ptr noundef %1, i
   %12 = shl i32 %0, 4
   call void @XLogRegisterData(ptr noundef %1, i32 noundef %12) #7
   %13 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 32) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   ret void
 }
 
-declare void @XLogBeginInsert() local_unnamed_addr #1
+declare void @XLogBeginInsert() local_unnamed_addr #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @VirtualXactLock(i64, i1 noundef zeroext) local_unnamed_addr #1
+declare zeroext i1 @VirtualXactLock(i64, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @CancelVirtualTransaction(i64, i32 noundef) local_unnamed_addr #1
+declare i32 @CancelVirtualTransaction(i64, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @set_ps_display_suffix(ptr noundef) local_unnamed_addr #1
+declare void @set_ps_display_suffix(ptr noundef) local_unnamed_addr #2
 
-declare void @set_ps_display_remove_suffix() local_unnamed_addr #1
+declare void @set_ps_display_remove_suffix() local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #1
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare void @GetXLogReceiptTime(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @GetXLogReceiptTime(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #1
+declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @XLogSetAsyncXactLSN(i64 noundef) local_unnamed_addr #1
+declare void @XLogSetAsyncXactLSN(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

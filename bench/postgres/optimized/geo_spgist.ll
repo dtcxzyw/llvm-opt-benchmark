@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @spg_box_quad_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = getelementptr i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   store i32 603, ptr %4, align 4
@@ -34,7 +34,7 @@ define dso_local noundef i64 @spg_box_quad_choose(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -45,8 +45,8 @@ define dso_local noundef i64 @spg_box_quad_choose(ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %14 = load i8, ptr %13, align 4
-  %15 = trunc i8 %14 to i1
+  %14 = load i8, ptr %13, align 4, !range !4, !noundef !5
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %42, label %16
 
 16:                                               ; preds = %1
@@ -91,7 +91,7 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = load i32, ptr %4, align 8
@@ -125,29 +125,29 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr i64, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr double, ptr %11, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   store double %33, ptr %34, align 8
   %35 = load double, ptr %31, align 8
-  %36 = getelementptr double, ptr %15, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   store double %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr double, ptr %19, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   store double %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr double, ptr %23, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   store double %41, ptr %42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %4, align 8
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %27, label %._crit_edge, !llvm.loop !5
+  br i1 %45, label %27, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %44, %27 ]
@@ -165,18 +165,18 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %53 = sdiv i32 %52, 2
   %54 = tail call ptr @palloc(i64 noundef 32) #8
   %55 = sext i32 %53 to i64
-  %56 = getelementptr double, ptr %11, i64 %55
+  %56 = getelementptr inbounds double, ptr %11, i64 %55
   %57 = load double, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %57, ptr %58, align 8
-  %59 = getelementptr double, ptr %15, i64 %55
+  %59 = getelementptr inbounds double, ptr %15, i64 %55
   %60 = load double, ptr %59, align 8
   store double %60, ptr %54, align 8
-  %61 = getelementptr double, ptr %19, i64 %55
+  %61 = getelementptr inbounds double, ptr %19, i64 %55
   %62 = load double, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store double %62, ptr %63, align 8
-  %64 = getelementptr double, ptr %23, i64 %55
+  %64 = getelementptr inbounds double, ptr %23, i64 %55
   %65 = load double, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %65, ptr %66, align 8
@@ -211,7 +211,7 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
 84:                                               ; preds = %.lr.ph69, %84
   %indvars.iv73 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next74, %84 ]
   %85 = load ptr, ptr %83, align 8
-  %86 = getelementptr i64, ptr %85, i64 %indvars.iv73
+  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv73
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -237,17 +237,17 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %106 = zext i1 %105 to i8
   %.3.i = or disjoint i8 %.2.i, %106
   %107 = load ptr, ptr %80, align 8
-  %108 = getelementptr i64, ptr %107, i64 %indvars.iv73
+  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv73
   store i64 %87, ptr %108, align 8
   %109 = zext nneg i8 %.3.i to i32
   %110 = load ptr, ptr %75, align 8
-  %111 = getelementptr i32, ptr %110, i64 %indvars.iv73
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv73
   store i32 %109, ptr %111, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %112 = load i32, ptr %4, align 8
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next74, %113
-  br i1 %114, label %84, label %._crit_edge70, !llvm.loop !7
+  br i1 %114, label %84, label %._crit_edge70, !llvm.loop !8
 
 ._crit_edge70:                                    ; preds = %84, %._crit_edge
   ret i64 0
@@ -273,7 +273,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -301,10 +301,10 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   br label %19
 
 19:                                               ; preds = %1, %10
-  %.0133 = phi ptr [ %11, %10 ], [ %9, %1 ]
+  %.0134 = phi ptr [ %11, %10 ], [ %9, %1 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 53
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 1, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %106
 
 23:                                               ; preds = %19
@@ -318,21 +318,21 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %24, align 8
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph175, label %.loopexit
+  br i1 %31, label %.lr.ph177, label %.loopexit
 
-.lr.ph175:                                        ; preds = %23, %.lr.ph175
-  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.lr.ph175 ], [ 0, %23 ]
+.lr.ph177:                                        ; preds = %23, %.lr.ph177
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph177 ], [ 0, %23 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr i32, ptr %32, i64 %indvars.iv197
-  %34 = trunc nuw nsw i64 %indvars.iv197 to i32
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv199
+  %34 = trunc nuw nsw i64 %indvars.iv199 to i32
   store i32 %34, ptr %33, align 4
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %35 = load i32, ptr %24, align 8
   %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next198, %36
-  br i1 %37, label %.lr.ph175, label %._crit_edge176, !llvm.loop !8
+  %37 = icmp slt i64 %indvars.iv.next200, %36
+  br i1 %37, label %.lr.ph177, label %._crit_edge178, !llvm.loop !9
 
-._crit_edge176:                                   ; preds = %.lr.ph175
+._crit_edge178:                                   ; preds = %.lr.ph177
   %38 = icmp sgt i32 %35, 0
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %40 = load i32, ptr %39, align 4
@@ -340,29 +340,29 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   %or.cond = and i1 %38, %41
   br i1 %or.cond, label %42, label %.loopexit
 
-42:                                               ; preds = %._crit_edge176
+42:                                               ; preds = %._crit_edge178
   %43 = zext nneg i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
   %45 = tail call ptr @palloc(i64 noundef %44) #8
   %46 = load i32, ptr %39, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph179, label %._crit_edge180
+  br i1 %47, label %.lr.ph181, label %._crit_edge182
 
-.lr.ph179:                                        ; preds = %42
+.lr.ph181:                                        ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %.0133, i64 24
-  %50 = getelementptr inbounds nuw i8, ptr %.0133, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %.0133, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0134, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0134, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.0134, i64 56
   br label %52
 
-52:                                               ; preds = %.lr.ph179, %pointToRectBoxDistance.exit
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next201, %pointToRectBoxDistance.exit ]
+52:                                               ; preds = %.lr.ph181, %pointToRectBoxDistance.exit
+  %indvars.iv202 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next203, %pointToRectBoxDistance.exit ]
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr %struct.ScanKeyData, ptr %53, i64 %indvars.iv200, i32 6
+  %54 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %53, i64 %indvars.iv202, i32 6
   %55 = load i64, ptr %54, align 8
   %56 = inttoptr i64 %55 to ptr
   %57 = load double, ptr %56, align 8
-  %58 = load double, ptr %.0133, align 8
+  %58 = load double, ptr %.0134, align 8
   %59 = fcmp olt double %57, %58
   br i1 %59, label %60, label %62
 
@@ -403,15 +403,15 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
   %.0.i = phi double [ %73, %72 ], [ %78, %77 ], [ 0.000000e+00, %74 ]
   %79 = tail call double @pg_hypot(double noundef %.018.i, double noundef %.0.i) #8
-  %80 = getelementptr double, ptr %45, i64 %indvars.iv200
+  %80 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv202
   store double %79, ptr %80, align 8
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %81 = load i32, ptr %39, align 4
   %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next201, %82
-  br i1 %83, label %52, label %._crit_edge180, !llvm.loop !9
+  %83 = icmp slt i64 %indvars.iv.next203, %82
+  br i1 %83, label %52, label %._crit_edge182, !llvm.loop !10
 
-._crit_edge180:                                   ; preds = %pointToRectBoxDistance.exit, %42
+._crit_edge182:                                   ; preds = %pointToRectBoxDistance.exit, %42
   %84 = load i32, ptr %24, align 8
   %85 = sext i32 %84 to i64
   %86 = shl nsw i64 %85, 3
@@ -421,29 +421,29 @@ pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
   store ptr %45, ptr %87, align 8
   %89 = load i32, ptr %24, align 8
   %90 = icmp sgt i32 %89, 1
-  br i1 %90, label %.lr.ph183, label %.loopexit
+  br i1 %90, label %.lr.ph185, label %.loopexit
 
-.lr.ph183:                                        ; preds = %._crit_edge180, %.lr.ph183
-  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %.lr.ph183 ], [ 1, %._crit_edge180 ]
+.lr.ph185:                                        ; preds = %._crit_edge182, %.lr.ph185
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %.lr.ph185 ], [ 1, %._crit_edge182 ]
   %91 = load i32, ptr %39, align 4
   %92 = sext i32 %91 to i64
   %93 = shl nsw i64 %92, 3
   %94 = tail call ptr @palloc(i64 noundef %93) #8
   %95 = load ptr, ptr %88, align 8
-  %96 = getelementptr ptr, ptr %95, i64 %indvars.iv203
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv205
   store ptr %94, ptr %96, align 8
   %97 = load ptr, ptr %88, align 8
-  %98 = getelementptr ptr, ptr %97, i64 %indvars.iv203
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv205
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %39, align 4
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %45, i64 %102, i1 false)
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %103 = load i32, ptr %24, align 8
   %104 = sext i32 %103 to i64
-  %105 = icmp slt i64 %indvars.iv.next204, %104
-  br i1 %105, label %.lr.ph183, label %.loopexit, !llvm.loop !10
+  %105 = icmp slt i64 %indvars.iv.next206, %104
+  br i1 %105, label %.lr.ph185, label %.loopexit, !llvm.loop !11
 
 106:                                              ; preds = %19
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -476,7 +476,7 @@ pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
 .lr.ph:                                           ; preds = %106, %spg_box_quad_get_scankey_bbox.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spg_box_quad_get_scankey_bbox.exit ], [ 0, %106 ]
   %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr %struct.ScanKeyData, ptr %128, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %128, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i32, ptr %130, align 8
   switch i32 %131, label %142 [
@@ -508,29 +508,29 @@ pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
   unreachable
 
 spg_box_quad_get_scankey_bbox.exit:               ; preds = %132, %136
-  %.0.i150 = phi ptr [ %141, %136 ], [ %135, %132 ]
+  %.0.i152 = phi ptr [ %141, %136 ], [ %135, %132 ]
   %147 = tail call ptr @palloc(i64 noundef 32) #8
-  %148 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %.0.i152, i64 16
   %149 = load double, ptr %148, align 8
   store double %149, ptr %147, align 8
-  %150 = load double, ptr %.0.i150, align 8
+  %150 = load double, ptr %.0.i152, align 8
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store double %150, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %.0.i152, i64 24
   %153 = load double, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store double %153, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i152, i64 8
   %156 = load double, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store double %156, ptr %157, align 8
-  %158 = getelementptr ptr, ptr %125, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
   store ptr %147, ptr %158, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %159 = load i32, ptr %121, align 8
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next, %160
-  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %spg_box_quad_get_scankey_bbox.exit, %106
   store i32 0, ptr %7, align 8
@@ -568,18 +568,18 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %132, %136
   store ptr %184, ptr @CurrentMemoryContext, align 8
   %186 = load i32, ptr %162, align 8
   %187 = icmp sgt i32 %186, 0
-  br i1 %187, label %.lr.ph171, label %._crit_edge172
+  br i1 %187, label %.lr.ph173, label %._crit_edge174
 
-.lr.ph171:                                        ; preds = %182
+.lr.ph173:                                        ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %190
 
-190:                                              ; preds = %.lr.ph171, %449
-  %191 = phi i32 [ 0, %.lr.ph171 ], [ %451, %449 ]
-  %.0137169 = phi i8 [ 0, %.lr.ph171 ], [ %450, %449 ]
+190:                                              ; preds = %.lr.ph173, %449
+  %191 = phi i32 [ 0, %.lr.ph173 ], [ %451, %449 ]
+  %.0138171 = phi i8 [ 0, %.lr.ph173 ], [ %450, %449 ]
   %192 = tail call ptr @palloc(i64 noundef 64) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %192, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0133, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %192, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0134, i64 64, i1 false)
   %193 = and i32 %191, 8
   %.not.i = icmp eq i32 %193, 0
   %194 = load double, ptr %110, align 8
@@ -615,9 +615,9 @@ nextRectBox.exit:                                 ; preds = %195, %196
   store double %205, ptr %206, align 8
   %207 = load i32, ptr %121, align 8
   %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %.lr.ph164, label %._crit_edge165
+  br i1 %208, label %.lr.ph166, label %._crit_edge167
 
-.lr.ph164:                                        ; preds = %nextRectBox.exit
+.lr.ph166:                                        ; preds = %nextRectBox.exit
   %209 = load ptr, ptr %4, align 8
   %210 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %211 = getelementptr inbounds nuw i8, ptr %192, i64 48
@@ -629,9 +629,9 @@ nextRectBox.exit:                                 ; preds = %195, %196
   %wide.trip.count = zext nneg i32 %207 to i64
   br label %217
 
-217:                                              ; preds = %.lr.ph164, %391
-  %indvars.iv191 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next192, %391 ]
-  %218 = getelementptr %struct.ScanKeyData, ptr %209, i64 %indvars.iv191, i32 2
+217:                                              ; preds = %.lr.ph166, %391
+  %indvars.iv193 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next194, %391 ]
+  %218 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %209, i64 %indvars.iv193, i32 2
   %219 = load i16, ptr %218, align 2
   switch i16 %219, label %385 [
     i16 3, label %220
@@ -649,7 +649,7 @@ nextRectBox.exit:                                 ; preds = %195, %196
   ]
 
 220:                                              ; preds = %217
-  %221 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %221 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %222 = load ptr, ptr %221, align 8
   %223 = load double, ptr %215, align 8
   %224 = load double, ptr %222, align 8
@@ -682,7 +682,7 @@ overlap2D.exit.i:                                 ; preds = %220
   br i1 %243, label %overlap4D.exit.thread, label %391
 
 244:                                              ; preds = %217
-  %245 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %245 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %246 = load ptr, ptr %245, align 8
   %247 = load double, ptr %215, align 8
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
@@ -715,7 +715,7 @@ contain2D.exit.i:                                 ; preds = %244
   br i1 %267, label %overlap4D.exit.thread, label %391
 
 268:                                              ; preds = %217, %217
-  %269 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %269 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %270 = load ptr, ptr %269, align 8
   %271 = load double, ptr %192, align 8
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -770,7 +770,7 @@ contained2D.exit.i:                               ; preds = %281
   br i1 %305, label %overlap4D.exit.thread, label %391
 
 306:                                              ; preds = %217
-  %307 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %307 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %308 = load ptr, ptr %307, align 8
   %.val = load double, ptr %308, align 8
   %309 = load double, ptr %192, align 8
@@ -785,12 +785,12 @@ contained2D.exit.i:                               ; preds = %281
   br i1 %315, label %391, label %overlap4D.exit.thread
 
 316:                                              ; preds = %217
-  %317 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %317 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr i8, ptr %318, i64 8
-  %.val143 = load double, ptr %319, align 8
+  %.val145 = load double, ptr %319, align 8
   %320 = load double, ptr %192, align 8
-  %321 = fadd double %.val143, 0x3EB0C6F7A0B5ED8D
+  %321 = fadd double %.val145, 0x3EB0C6F7A0B5ED8D
   %322 = fcmp ugt double %320, %321
   br i1 %322, label %overlap4D.exit.thread, label %323
 
@@ -800,12 +800,12 @@ contained2D.exit.i:                               ; preds = %281
   br i1 %325, label %overlap4D.exit.thread, label %391
 
 326:                                              ; preds = %217
-  %327 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %327 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr i8, ptr %328, i64 8
-  %.val144 = load double, ptr %329, align 8
+  %.val146 = load double, ptr %329, align 8
   %330 = load double, ptr %214, align 8
-  %331 = fadd double %.val144, 0x3EB0C6F7A0B5ED8D
+  %331 = fadd double %.val146, 0x3EB0C6F7A0B5ED8D
   %332 = fcmp ogt double %330, %331
   br i1 %332, label %333, label %overlap4D.exit.thread
 
@@ -815,27 +815,27 @@ contained2D.exit.i:                               ; preds = %281
   br i1 %335, label %391, label %overlap4D.exit.thread
 
 336:                                              ; preds = %217
-  %337 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %337 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %338 = load ptr, ptr %337, align 8
-  %.val145 = load double, ptr %338, align 8
+  %.val147 = load double, ptr %338, align 8
   %339 = load double, ptr %214, align 8
   %340 = fadd double %339, 0x3EB0C6F7A0B5ED8D
-  %341 = fcmp ult double %340, %.val145
+  %341 = fcmp ult double %340, %.val147
   br i1 %341, label %overlap4D.exit.thread, label %342
 
 342:                                              ; preds = %336
   %343 = load double, ptr %215, align 8
   %344 = fadd double %343, 0x3EB0C6F7A0B5ED8D
-  %345 = fcmp ult double %344, %.val145
+  %345 = fcmp ult double %344, %.val147
   br i1 %345, label %overlap4D.exit.thread, label %391
 
 346:                                              ; preds = %217
-  %347 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %347 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr i8, ptr %348, i64 24
-  %.val146 = load double, ptr %349, align 8
+  %.val148 = load double, ptr %349, align 8
   %350 = load double, ptr %212, align 8
-  %351 = fadd double %.val146, 0x3EB0C6F7A0B5ED8D
+  %351 = fadd double %.val148, 0x3EB0C6F7A0B5ED8D
   %352 = fcmp ogt double %350, %351
   br i1 %352, label %353, label %overlap4D.exit.thread
 
@@ -845,44 +845,44 @@ contained2D.exit.i:                               ; preds = %281
   br i1 %355, label %391, label %overlap4D.exit.thread
 
 356:                                              ; preds = %217
-  %357 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %357 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr i8, ptr %358, i64 16
-  %.val147 = load double, ptr %359, align 8
+  %.val149 = load double, ptr %359, align 8
   %360 = load double, ptr %212, align 8
   %361 = fadd double %360, 0x3EB0C6F7A0B5ED8D
-  %362 = fcmp ult double %361, %.val147
+  %362 = fcmp ult double %361, %.val149
   br i1 %362, label %overlap4D.exit.thread, label %363
 
 363:                                              ; preds = %356
   %364 = load double, ptr %213, align 8
   %365 = fadd double %364, 0x3EB0C6F7A0B5ED8D
-  %366 = fcmp ult double %365, %.val147
+  %366 = fcmp ult double %365, %.val149
   br i1 %366, label %overlap4D.exit.thread, label %391
 
 367:                                              ; preds = %217
-  %368 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %368 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %369 = load ptr, ptr %368, align 8
   %370 = getelementptr i8, ptr %369, i64 16
-  %.val148 = load double, ptr %370, align 8
+  %.val150 = load double, ptr %370, align 8
   %371 = load double, ptr %210, align 8
   %372 = fadd double %371, 0x3EB0C6F7A0B5ED8D
-  %373 = fcmp olt double %372, %.val148
+  %373 = fcmp olt double %372, %.val150
   br i1 %373, label %374, label %overlap4D.exit.thread
 
 374:                                              ; preds = %367
   %375 = load double, ptr %211, align 8
   %376 = fadd double %375, 0x3EB0C6F7A0B5ED8D
-  %377 = fcmp olt double %376, %.val148
+  %377 = fcmp olt double %376, %.val150
   br i1 %377, label %391, label %overlap4D.exit.thread
 
 378:                                              ; preds = %217
-  %379 = getelementptr ptr, ptr %125, i64 %indvars.iv191
+  %379 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv193
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr i8, ptr %380, i64 24
-  %.val149 = load double, ptr %381, align 8
+  %.val151 = load double, ptr %381, align 8
   %382 = load double, ptr %210, align 8
-  %383 = fadd double %.val149, 0x3EB0C6F7A0B5ED8D
+  %383 = fadd double %.val151, 0x3EB0C6F7A0B5ED8D
   %384 = fcmp ugt double %382, %383
   br i1 %384, label %overlap4D.exit.thread, label %overlap4D.exit
 
@@ -900,48 +900,48 @@ overlap4D.exit:                                   ; preds = %378
   br i1 %390, label %overlap4D.exit.thread, label %391
 
 391:                                              ; preds = %374, %363, %353, %342, %333, %323, %312, %302, %262, %238, %overlap4D.exit
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge165, label %217, !llvm.loop !12
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge167, label %217, !llvm.loop !13
 
-._crit_edge165:                                   ; preds = %391, %nextRectBox.exit
+._crit_edge167:                                   ; preds = %391, %nextRectBox.exit
   %392 = load ptr, ptr %172, align 8
   %393 = load i32, ptr %7, align 8
   %394 = sext i32 %393 to i64
-  %395 = getelementptr ptr, ptr %392, i64 %394
+  %395 = getelementptr inbounds ptr, ptr %392, i64 %394
   store ptr %192, ptr %395, align 8
   %396 = load ptr, ptr %167, align 8
   %397 = load i32, ptr %7, align 8
   %398 = sext i32 %397 to i64
-  %399 = getelementptr i32, ptr %396, i64 %398
+  %399 = getelementptr inbounds i32, ptr %396, i64 %398
   store i32 %191, ptr %399, align 4
   %400 = load i32, ptr %173, align 4
   %401 = icmp sgt i32 %400, 0
-  br i1 %401, label %402, label %.loopexit157
+  br i1 %401, label %402, label %.loopexit159
 
-402:                                              ; preds = %._crit_edge165
+402:                                              ; preds = %._crit_edge167
   %403 = zext nneg i32 %400 to i64
   %404 = shl nuw nsw i64 %403, 3
   %405 = tail call ptr @palloc(i64 noundef %404) #8
   %406 = load ptr, ptr %188, align 8
   %407 = load i32, ptr %7, align 8
   %408 = sext i32 %407 to i64
-  %409 = getelementptr ptr, ptr %406, i64 %408
+  %409 = getelementptr inbounds ptr, ptr %406, i64 %408
   store ptr %405, ptr %409, align 8
   %410 = load i32, ptr %173, align 4
   %411 = icmp sgt i32 %410, 0
-  br i1 %411, label %.lr.ph168, label %.loopexit157
+  br i1 %411, label %.lr.ph170, label %.loopexit159
 
-.lr.ph168:                                        ; preds = %402
+.lr.ph170:                                        ; preds = %402
   %412 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %413 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %414 = getelementptr inbounds nuw i8, ptr %192, i64 56
   br label %415
 
-415:                                              ; preds = %.lr.ph168, %pointToRectBoxDistance.exit153
-  %indvars.iv194 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next195, %pointToRectBoxDistance.exit153 ]
+415:                                              ; preds = %.lr.ph170, %pointToRectBoxDistance.exit155
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next197, %pointToRectBoxDistance.exit155 ]
   %416 = load ptr, ptr %189, align 8
-  %417 = getelementptr %struct.ScanKeyData, ptr %416, i64 %indvars.iv194, i32 6
+  %417 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %416, i64 %indvars.iv196, i32 6
   %418 = load i64, ptr %417, align 8
   %419 = inttoptr i64 %418 to ptr
   %420 = load double, ptr %419, align 8
@@ -963,7 +963,7 @@ overlap4D.exit:                                   ; preds = %378
   br label %430
 
 430:                                              ; preds = %428, %425, %423
-  %.018.i151 = phi double [ %424, %423 ], [ %429, %428 ], [ 0.000000e+00, %425 ]
+  %.018.i153 = phi double [ %424, %423 ], [ %429, %428 ], [ 0.000000e+00, %425 ]
   %431 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %432 = load double, ptr %431, align 8
   %433 = load double, ptr %413, align 8
@@ -972,29 +972,29 @@ overlap4D.exit:                                   ; preds = %378
 
 435:                                              ; preds = %430
   %436 = fsub double %433, %432
-  br label %pointToRectBoxDistance.exit153
+  br label %pointToRectBoxDistance.exit155
 
 437:                                              ; preds = %430
   %438 = load double, ptr %414, align 8
   %439 = fcmp ogt double %432, %438
-  br i1 %439, label %440, label %pointToRectBoxDistance.exit153
+  br i1 %439, label %440, label %pointToRectBoxDistance.exit155
 
 440:                                              ; preds = %437
   %441 = fsub double %432, %438
-  br label %pointToRectBoxDistance.exit153
+  br label %pointToRectBoxDistance.exit155
 
-pointToRectBoxDistance.exit153:                   ; preds = %435, %437, %440
-  %.0.i152 = phi double [ %436, %435 ], [ %441, %440 ], [ 0.000000e+00, %437 ]
-  %442 = tail call double @pg_hypot(double noundef %.018.i151, double noundef %.0.i152) #8
-  %443 = getelementptr double, ptr %405, i64 %indvars.iv194
+pointToRectBoxDistance.exit155:                   ; preds = %435, %437, %440
+  %.0.i154 = phi double [ %436, %435 ], [ %441, %440 ], [ 0.000000e+00, %437 ]
+  %442 = tail call double @pg_hypot(double noundef %.018.i153, double noundef %.0.i154) #8
+  %443 = getelementptr inbounds nuw double, ptr %405, i64 %indvars.iv196
   store double %442, ptr %443, align 8
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %444 = load i32, ptr %173, align 4
   %445 = sext i32 %444 to i64
-  %446 = icmp slt i64 %indvars.iv.next195, %445
-  br i1 %446, label %415, label %.loopexit157, !llvm.loop !13
+  %446 = icmp slt i64 %indvars.iv.next197, %445
+  br i1 %446, label %415, label %.loopexit159, !llvm.loop !14
 
-.loopexit157:                                     ; preds = %pointToRectBoxDistance.exit153, %402, %._crit_edge165
+.loopexit159:                                     ; preds = %pointToRectBoxDistance.exit155, %402, %._crit_edge167
   %447 = load i32, ptr %7, align 8
   %448 = add i32 %447, 1
   store i32 %448, ptr %7, align 8
@@ -1004,18 +1004,18 @@ overlap4D.exit.thread:                            ; preds = %378, %367, %356, %3
   tail call void @pfree(ptr noundef nonnull %192) #8
   br label %449
 
-449:                                              ; preds = %.loopexit157, %overlap4D.exit.thread
-  %450 = add i8 %.0137169, 1
+449:                                              ; preds = %overlap4D.exit.thread, %.loopexit159
+  %450 = add i8 %.0138171, 1
   %451 = zext i8 %450 to i32
   %452 = load i32, ptr %162, align 8
   %453 = icmp sgt i32 %452, %451
-  br i1 %453, label %190, label %._crit_edge172, !llvm.loop !14
+  br i1 %453, label %190, label %._crit_edge174, !llvm.loop !15
 
-._crit_edge172:                                   ; preds = %449, %182
+._crit_edge174:                                   ; preds = %449, %182
   store ptr %185, ptr @CurrentMemoryContext, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph183, %23, %._crit_edge180, %._crit_edge176, %._crit_edge172
+.loopexit:                                        ; preds = %.lr.ph185, %23, %._crit_edge182, %._crit_edge178, %._crit_edge174
   ret i64 0
 }
 
@@ -1036,7 +1036,7 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr noundef r
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1044,8 +1044,8 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr noundef r
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %12 = load i8, ptr %11, align 4
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 4, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %1
@@ -1061,7 +1061,7 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr noundef r
 .lr.ph:                                           ; preds = %15, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %15 ]
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr %struct.ScanKeyData, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -1129,53 +1129,53 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
 
 40:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %41 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not66 = icmp eq i64 %41, 0
-  br i1 %.not66, label %.thread, label %68
+  %.not68 = icmp eq i64 %41, 0
+  br i1 %.not68, label %.thread, label %68
 
 42:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not65 = icmp eq i64 %43, 0
-  br i1 %.not65, label %.thread, label %68
+  %.not67 = icmp eq i64 %43, 0
+  br i1 %.not67, label %.thread, label %68
 
 44:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not64 = icmp eq i64 %45, 0
-  br i1 %.not64, label %.thread, label %68
+  %.not66 = icmp eq i64 %45, 0
+  br i1 %.not66, label %.thread, label %68
 
 46:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not63 = icmp eq i64 %47, 0
-  br i1 %.not63, label %.thread, label %68
+  %.not65 = icmp eq i64 %47, 0
+  br i1 %.not65, label %.thread, label %68
 
 48:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not62 = icmp eq i64 %49, 0
-  br i1 %.not62, label %.thread, label %68
+  %.not64 = icmp eq i64 %49, 0
+  br i1 %.not64, label %.thread, label %68
 
 50:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not61 = icmp eq i64 %51, 0
-  br i1 %.not61, label %.thread, label %68
+  %.not63 = icmp eq i64 %51, 0
+  br i1 %.not63, label %.thread, label %68
 
 52:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not60 = icmp eq i64 %53, 0
-  br i1 %.not60, label %.thread, label %68
+  %.not62 = icmp eq i64 %53, 0
+  br i1 %.not62, label %.thread, label %68
 
 54:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not59 = icmp eq i64 %55, 0
-  br i1 %.not59, label %.thread, label %68
+  %.not61 = icmp eq i64 %55, 0
+  br i1 %.not61, label %.thread, label %68
 
 56:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not58 = icmp eq i64 %57, 0
-  br i1 %.not58, label %.thread, label %68
+  %.not60 = icmp eq i64 %57, 0
+  br i1 %.not60, label %.thread, label %68
 
 58:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not57 = icmp eq i64 %59, 0
-  br i1 %.not57, label %.thread, label %68
+  %.not59 = icmp eq i64 %59, 0
+  br i1 %.not59, label %.thread, label %68
 
 60:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
@@ -1192,15 +1192,15 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
 
 66:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
-  %.not67 = icmp eq i64 %67, 0
-  br i1 %.not67, label %.thread, label %68
+  %.not69 = icmp eq i64 %67, 0
+  br i1 %.not69, label %.thread, label %68
 
 68:                                               ; preds = %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %16, align 8
   %70 = sext i32 %69 to i64
-  %.not79 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %.not79, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %.not81 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %.not81, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %68, %15
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1257,7 +1257,7 @@ declare ptr @spg_key_orderbys_distances(i64 noundef, i1 noundef zeroext, ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @spg_bbox_quad_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = getelementptr i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   store i32 603, ptr %4, align 4
@@ -1292,32 +1292,33 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

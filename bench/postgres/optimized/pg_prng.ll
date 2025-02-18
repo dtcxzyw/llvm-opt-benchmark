@@ -5,10 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.pg_prng_state = type { i64, i64 }
 
-@pg_global_prng_state = dso_local local_unnamed_addr global %struct.pg_prng_state zeroinitializer, align 8
+@pg_global_prng_state = local_unnamed_addr global %struct.pg_prng_state zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_prng_seed(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pg_prng_seed(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -7046029254386353131
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
@@ -32,7 +32,7 @@ define dso_local void @pg_prng_seed(ptr noundef writeonly captures(none) initial
   store i64 %20, ptr %21, align 8
   %22 = or i64 %3, %12
   %or.cond = icmp eq i64 %22, 0
-  br i1 %or.cond, label %23, label %pg_prng_seed_check.exit
+  br i1 %or.cond, label %23, label %pg_prng_seed_check.exit, !prof !3
 
 23:                                               ; preds = %2
   store i64 6364136223846793005, ptr %0, align 8
@@ -44,7 +44,7 @@ pg_prng_seed_check.exit:                          ; preds = %2, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @pg_prng_seed_check(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @pg_prng_seed_check(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %.critedge
@@ -53,7 +53,7 @@ define dso_local noundef zeroext i1 @pg_prng_seed_check(ptr noundef captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %.critedge
+  br i1 %7, label %8, label %.critedge, !prof !4
 
 8:                                                ; preds = %4
   store i64 6364136223846793005, ptr %0, align 8
@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @pg_prng_seed_check(ptr noundef captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_prng_fseed(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #0 {
+define void @pg_prng_fseed(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = fmul double %1, 0x432FFFFFFFFFFFFE
   %4 = fptosi double %3 to i64
   %5 = add i64 %4, -7046029254386353131
@@ -91,7 +91,7 @@ define dso_local void @pg_prng_fseed(ptr noundef writeonly captures(none) initia
   store i64 %22, ptr %23, align 8
   %24 = or i64 %5, %14
   %or.cond.i = icmp eq i64 %24, 0
-  br i1 %or.cond.i, label %25, label %pg_prng_seed.exit
+  br i1 %or.cond.i, label %25, label %pg_prng_seed.exit, !prof !3
 
 25:                                               ; preds = %2
   store i64 6364136223846793005, ptr %0, align 8
@@ -103,7 +103,7 @@ pg_prng_seed.exit:                                ; preds = %2, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @pg_prng_uint64(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define i64 @pg_prng_uint64(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -124,9 +124,9 @@ define dso_local i64 @pg_prng_uint64(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ugt i64 %2, %1
-  br i1 %4, label %5, label %25
+  br i1 %4, label %5, label %25, !prof !5
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
@@ -152,7 +152,7 @@ define dso_local i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 no
   %22 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 37)
   %23 = lshr i64 %17, %7
   %24 = icmp ugt i64 %23, %6
-  br i1 %24, label %9, label %.loopexit, !llvm.loop !5
+  br i1 %24, label %9, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %9
   store i64 %21, ptr %0, align 8
@@ -166,7 +166,7 @@ define dso_local i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @pg_prng_int64(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define i64 @pg_prng_int64(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -187,7 +187,7 @@ define dso_local i64 @pg_prng_int64(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -208,8 +208,50 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr noun
   ret i64 %16
 }
 
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i64 @pg_prng_int64_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+  %4 = icmp sgt i64 %2, %1
+  br i1 %4, label %5, label %26, !prof !5
+
+5:                                                ; preds = %3
+  %6 = sub i64 %2, %1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted.i = load i64, ptr %0, align 8
+  %.promoted14.i = load i64, ptr %8, align 8
+  br label %9
+
+9:                                                ; preds = %9, %5
+  %10 = phi i64 [ %22, %9 ], [ %.promoted14.i, %5 ]
+  %11 = phi i64 [ %21, %9 ], [ %.promoted.i, %5 ]
+  %12 = xor i64 %11, %10
+  %13 = mul i64 %11, 5
+  %14 = mul i64 %11, 640
+  %15 = lshr i64 %13, 57
+  %16 = or disjoint i64 %15, %14
+  %17 = mul i64 %16, 9
+  %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 24)
+  %19 = shl i64 %12, 16
+  %20 = xor i64 %18, %19
+  %21 = xor i64 %20, %12
+  %22 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 37)
+  %23 = lshr i64 %17, %7
+  %24 = icmp ugt i64 %23, %6
+  br i1 %24, label %9, label %.loopexit.i, !llvm.loop !6
+
+.loopexit.i:                                      ; preds = %9
+  store i64 %21, ptr %0, align 8
+  store i64 %22, ptr %8, align 8
+  %25 = add i64 %23, %1
+  br label %26
+
+26:                                               ; preds = %3, %.loopexit.i
+  %.1 = phi i64 [ %25, %.loopexit.i ], [ %1, %3 ]
+  ret i64 %.1
+}
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_prng_uint32(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define i32 @pg_prng_uint32(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -232,7 +274,7 @@ define dso_local i32 @pg_prng_uint32(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_prng_int32(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define i32 @pg_prng_int32(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -255,7 +297,7 @@ define dso_local i32 @pg_prng_int32(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -278,7 +320,7 @@ define dso_local range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr noundef captu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local double @pg_prng_double(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define double @pg_prng_double(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -305,7 +347,7 @@ define dso_local double @pg_prng_double(ptr noundef captures(none) %0) local_unn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local double @pg_prng_double_normal(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define double @pg_prng_double_normal(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -364,7 +406,7 @@ declare double @log(double noundef) local_unnamed_addr #5
 declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @pg_prng_bool(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+define zeroext i1 @pg_prng_bool(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -391,22 +433,23 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!"branch_weights", i32 1, i32 4001}
+!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

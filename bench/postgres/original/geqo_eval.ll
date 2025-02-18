@@ -1,10 +1,10 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PlannerInfo = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, i32, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i32, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
+%struct.PlannerInfo = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, i32, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, i32, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
 %struct.RelOptInfo = type { i32, i32, ptr, double, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, double, ptr, ptr, ptr, i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.QualCost, i32, ptr, i8, i8, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.QualCost = type { double, double }
-%struct.Path = type { i32, i32, ptr, ptr, ptr, i8, i8, i32, double, double, double, ptr }
+%struct.Path = type { i32, i32, ptr, ptr, ptr, i8, i8, i32, double, i32, double, double, ptr }
 %struct.List = type { i32, i32, i32, ptr, [0 x %union.ListCell] }
 %union.ListCell = type { ptr }
 %struct.ForEachState = type { ptr, i32 }
@@ -31,93 +31,115 @@ define dso_local double @geqo_eval(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   br label %15
 
 15:                                               ; preds = %3
   br label %16
 
 16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
   store i32 1, ptr %13, align 4
-  %17 = load ptr, ptr @CurrentMemoryContext, align 8
-  %18 = call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %18, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @MemoryContextSwitchTo(ptr noundef %19)
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.PlannerInfo, ptr %21, i32 0, i32 14
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @list_length(ptr noundef %23)
-  store i32 %24, ptr %11, align 4
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.PlannerInfo, ptr %25, i32 0, i32 15
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.PlannerInfo, ptr %28, i32 0, i32 15
-  store ptr null, ptr %29, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = call ptr @gimme_tree(ptr noundef %30, ptr noundef %31, i32 noundef %32)
-  store ptr %33, ptr %9, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %43
+  %18 = load ptr, ptr @CurrentMemoryContext, align 8
+  %19 = call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %19, ptr %7, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @MemoryContextSwitchTo(ptr noundef %20)
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %22, i32 0, i32 14
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @list_length(ptr noundef %24)
+  store i32 %25, ptr %11, align 4
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %26, i32 0, i32 15
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %12, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %29, i32 0, i32 15
+  store ptr null, ptr %30, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = call ptr @gimme_tree(ptr noundef %31, ptr noundef %32, i32 noundef %33)
+  store ptr %34, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %44
 
-36:                                               ; preds = %16
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.RelOptInfo, ptr %37, i32 0, i32 12
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %14, align 8
-  %40 = load ptr, ptr %14, align 8
-  %41 = getelementptr inbounds %struct.Path, ptr %40, i32 0, i32 10
-  %42 = load double, ptr %41, align 8
-  store double %42, ptr %10, align 8
-  br label %44
+37:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %38, i32 0, i32 12
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %14, align 8
+  %41 = load ptr, ptr %14, align 8
+  %42 = getelementptr inbounds nuw %struct.Path, ptr %41, i32 0, i32 11
+  %43 = load double, ptr %42, align 8
+  store double %43, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %45
 
-43:                                               ; preds = %16
+44:                                               ; preds = %17
   store double 0x7FEFFFFFFFFFFFFF, ptr %10, align 8
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %36
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.PlannerInfo, ptr %45, i32 0, i32 14
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %11, align 4
-  %49 = call ptr @list_truncate(ptr noundef %47, i32 noundef %48)
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.PlannerInfo, ptr %50, i32 0, i32 14
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.PlannerInfo, ptr %53, i32 0, i32 15
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = call ptr @MemoryContextSwitchTo(ptr noundef %55)
-  %57 = load ptr, ptr %7, align 8
-  call void @MemoryContextDelete(ptr noundef %57)
-  %58 = load double, ptr %10, align 8
-  ret double %58
+45:                                               ; preds = %44, %37
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %46, i32 0, i32 14
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %11, align 4
+  %50 = call ptr @list_truncate(ptr noundef %48, i32 noundef %49)
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %51, i32 0, i32 14
+  store ptr %50, ptr %52, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %54, i32 0, i32 15
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = call ptr @MemoryContextSwitchTo(ptr noundef %56)
+  %58 = load ptr, ptr %7, align 8
+  call void @MemoryContextDelete(ptr noundef %58)
+  %59 = load double, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret double %59
 }
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @list_length(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @list_length(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -126,7 +148,7 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   br label %10
 
@@ -154,166 +176,197 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %15 = alloca ptr, align 8
   %16 = alloca %struct.ForEachState, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.PlannerInfo, ptr %18, i32 0, i32 78
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %19, i32 0, i32 80
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store ptr null, ptr %9, align 8
   store i32 0, ptr %10, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %48, %3
-  %22 = load i32, ptr %10, align 4
-  %23 = load i32, ptr %7, align 4
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %25, label %51
+22:                                               ; preds = %49, %3
+  %23 = load i32, ptr %10, align 4
+  %24 = load i32, ptr %7, align 4
+  %25 = icmp slt i32 %23, %24
+  br i1 %25, label %26, label %52
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %26, i64 %28
-  %30 = load i32, ptr %29, align 4
-  store i32 %30, ptr %11, align 4
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.GeqoPrivateData, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %11, align 4
-  %35 = sub i32 %34, 1
-  %36 = call ptr @list_nth(ptr noundef %33, i32 noundef %35)
-  store ptr %36, ptr %12, align 8
-  %37 = call ptr @palloc(i64 noundef 16)
-  store ptr %37, ptr %13, align 8
-  %38 = load ptr, ptr %12, align 8
-  %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds %struct.Clump, ptr %39, i32 0, i32 0
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %13, align 8
-  %42 = getelementptr inbounds %struct.Clump, ptr %41, i32 0, i32 1
-  store i32 1, ptr %42, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = load i32, ptr %7, align 4
-  %47 = call ptr @merge_clump(ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, i1 noundef zeroext false)
-  store ptr %47, ptr %9, align 8
-  br label %48
+26:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr %11, align 4
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.GeqoPrivateData, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = sub i32 %35, 1
+  %37 = call ptr @list_nth(ptr noundef %34, i32 noundef %36)
+  store ptr %37, ptr %12, align 8
+  %38 = call ptr @palloc(i64 noundef 16)
+  store ptr %38, ptr %13, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds nuw %struct.Clump, ptr %40, i32 0, i32 0
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds nuw %struct.Clump, ptr %42, i32 0, i32 1
+  store i32 1, ptr %43, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = load ptr, ptr %13, align 8
+  %47 = load i32, ptr %7, align 4
+  %48 = call ptr @merge_clump(ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i1 noundef zeroext false)
+  store ptr %48, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %49
 
-48:                                               ; preds = %25
-  %49 = load i32, ptr %10, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %10, align 4
-  br label %21, !llvm.loop !5
+49:                                               ; preds = %26
+  %50 = load i32, ptr %10, align 4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %10, align 4
+  br label %22, !llvm.loop !4
 
-51:                                               ; preds = %21
-  %52 = load ptr, ptr %9, align 8
-  %53 = call i32 @list_length(ptr noundef %52)
-  %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %55, label %98
+52:                                               ; preds = %22
+  %53 = load ptr, ptr %9, align 8
+  %54 = call i32 @list_length(ptr noundef %53)
+  %55 = icmp sgt i32 %54, 1
+  br i1 %55, label %56, label %101
 
-55:                                               ; preds = %51
+56:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   store ptr null, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %57 = load ptr, ptr %9, align 8
-  store ptr %57, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  store i32 0, ptr %58, align 8
-  br label %59
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #5
+  %57 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %58 = load ptr, ptr %9, align 8
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  store i32 0, ptr %59, align 8
+  %60 = getelementptr i8, ptr %16, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %60, i8 0, i64 4, i1 false)
+  br label %61
 
-59:                                               ; preds = %92, %55
-  %60 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %80
+61:                                               ; preds = %95, %56
+  %62 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %82
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.List, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp slt i32 %65, %69
-  br i1 %70, label %71, label %80
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw %struct.List, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp slt i32 %67, %71
+  br i1 %72, label %73, label %82
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.List, ptr %73, i32 0, i32 3
+73:                                               ; preds = %65
+  %74 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %77 = load i32, ptr %76, align 8
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr %union.ListCell, ptr %75, i64 %78
-  store ptr %79, ptr %15, align 8
-  br label %81
+  %76 = getelementptr inbounds nuw %struct.List, ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %79 = load i32, ptr %78, align 8
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds %union.ListCell, ptr %77, i64 %80
+  store ptr %81, ptr %15, align 8
+  br label %83
 
-80:                                               ; preds = %63, %59
+82:                                               ; preds = %65, %61
   store ptr null, ptr %15, align 8
-  br label %81
+  br label %83
 
-81:                                               ; preds = %80, %71
-  %82 = phi i32 [ 1, %71 ], [ 0, %80 ]
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %96
+83:                                               ; preds = %82, %73
+  %84 = phi i32 [ 1, %73 ], [ 0, %82 ]
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %87, label %86
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %15, align 8
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %17, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = load ptr, ptr %14, align 8
-  %89 = load ptr, ptr %17, align 8
-  %90 = load i32, ptr %7, align 4
-  %91 = call ptr @merge_clump(ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %90, i1 noundef zeroext true)
-  store ptr %91, ptr %14, align 8
-  br label %92
+86:                                               ; preds = %83
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #5
+  br label %99
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %94 = load i32, ptr %93, align 8
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %93, align 8
-  br label %59, !llvm.loop !7
+87:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %88 = load ptr, ptr %15, align 8
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %17, align 8
+  %90 = load ptr, ptr %5, align 8
+  %91 = load ptr, ptr %14, align 8
+  %92 = load ptr, ptr %17, align 8
+  %93 = load i32, ptr %7, align 4
+  %94 = call ptr @merge_clump(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, i1 noundef zeroext true)
+  store ptr %94, ptr %14, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  br label %95
 
-96:                                               ; preds = %81
-  %97 = load ptr, ptr %14, align 8
-  store ptr %97, ptr %9, align 8
-  br label %98
+95:                                               ; preds = %87
+  %96 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %97 = load i32, ptr %96, align 8
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %96, align 8
+  br label %61, !llvm.loop !6
 
-98:                                               ; preds = %96, %51
-  %99 = load ptr, ptr %9, align 8
-  %100 = call i32 @list_length(ptr noundef %99)
-  %101 = icmp ne i32 %100, 1
-  br i1 %101, label %102, label %103
+99:                                               ; preds = %86
+  %100 = load ptr, ptr %14, align 8
+  store ptr %100, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %101
 
-102:                                              ; preds = %98
+101:                                              ; preds = %99, %52
+  %102 = load ptr, ptr %9, align 8
+  %103 = call i32 @list_length(ptr noundef %102)
+  %104 = icmp ne i32 %103, 1
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %101
   store ptr null, ptr %4, align 8
-  br label %109
+  store i32 1, ptr %18, align 4
+  br label %112
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %9, align 8
-  %105 = call ptr @list_nth_cell(ptr noundef %104, i32 noundef 0)
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.Clump, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %4, align 8
-  br label %109
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %9, align 8
+  %108 = call ptr @list_nth_cell(ptr noundef %107, i32 noundef 0)
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw %struct.Clump, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  store ptr %111, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %112
 
-109:                                              ; preds = %103, %102
-  %110 = load ptr, ptr %4, align 8
-  ret ptr %110
+112:                                              ; preds = %106, %105
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %113 = load ptr, ptr %4, align 8
+  ret ptr %113
 }
 
-declare ptr @list_truncate(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @MemoryContextDelete(ptr noundef) #1
+declare ptr @list_truncate(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #0 {
+declare void @MemoryContextDelete(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -325,7 +378,7 @@ define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr %8
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @merge_clump(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 {
@@ -338,243 +391,309 @@ define internal ptr @merge_clump(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca %struct.ForEachState, align 8
-  %15 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
-  %18 = zext i1 %4 to i8
-  store i8 %18, ptr %11, align 1
-  %19 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %20 = load ptr, ptr %8, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  store i32 0, ptr %21, align 8
-  br label %22
+  %19 = zext i1 %4 to i8
+  store i8 %19, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #5
+  %20 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 0
+  %21 = load ptr, ptr %8, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 1
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr i8, ptr %14, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 4, i1 false)
+  br label %24
 
-22:                                               ; preds = %113, %5
-  %23 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %43
+24:                                               ; preds = %122, %5
+  %25 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %45
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %28, %32
-  br i1 %33, label %34, label %43
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw %struct.List, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp slt i32 %30, %34
+  br i1 %35, label %36, label %45
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 3
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr %union.ListCell, ptr %38, i64 %41
-  store ptr %42, ptr %12, align 8
-  br label %44
+  %39 = getelementptr inbounds nuw %struct.List, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds %union.ListCell, ptr %40, i64 %43
+  store ptr %44, ptr %12, align 8
+  br label %46
 
-43:                                               ; preds = %26, %22
+45:                                               ; preds = %28, %24
   store ptr null, ptr %12, align 8
-  br label %44
+  br label %46
 
-44:                                               ; preds = %43, %34
-  %45 = phi i32 [ 1, %34 ], [ 0, %43 ]
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %117
+46:                                               ; preds = %45, %36
+  %47 = phi i32 [ 1, %36 ], [ 0, %45 ]
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %50, label %49
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %12, align 8
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %15, align 8
-  %50 = load i8, ptr %11, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %61, label %52
+49:                                               ; preds = %46
+  store i32 2, ptr %15, align 4
+  br label %126
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %15, align 8
-  %55 = getelementptr inbounds %struct.Clump, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.Clump, ptr %57, i32 0, i32 0
+50:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %51 = load ptr, ptr %12, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %16, align 8
+  %53 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %64, label %55
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = getelementptr inbounds nuw %struct.Clump, ptr %57, i32 0, i32 0
   %59 = load ptr, ptr %58, align 8
-  %60 = call zeroext i1 @desirable_join(ptr noundef %53, ptr noundef %56, ptr noundef %59)
-  br i1 %60, label %61, label %112
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw %struct.Clump, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = call zeroext i1 @desirable_join(ptr noundef %56, ptr noundef %59, ptr noundef %62)
+  br i1 %63, label %64, label %118
 
-61:                                               ; preds = %52, %47
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %15, align 8
-  %64 = getelementptr inbounds %struct.Clump, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct.Clump, ptr %66, i32 0, i32 0
+64:                                               ; preds = %55, %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %65 = load ptr, ptr %7, align 8
+  %66 = load ptr, ptr %16, align 8
+  %67 = getelementptr inbounds nuw %struct.Clump, ptr %66, i32 0, i32 0
   %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @make_join_rel(ptr noundef %62, ptr noundef %65, ptr noundef %68)
-  store ptr %69, ptr %16, align 8
-  %70 = load ptr, ptr %16, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %111
+  %69 = load ptr, ptr %9, align 8
+  %70 = getelementptr inbounds nuw %struct.Clump, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr @make_join_rel(ptr noundef %65, ptr noundef %68, ptr noundef %71)
+  store ptr %72, ptr %17, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %114
 
-72:                                               ; preds = %61
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %16, align 8
-  call void @generate_partitionwise_join_paths(ptr noundef %73, ptr noundef %74)
-  %75 = load ptr, ptr %16, align 8
-  %76 = getelementptr inbounds %struct.RelOptInfo, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.PlannerInfo, ptr %78, i32 0, i32 13
+75:                                               ; preds = %64
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %17, align 8
+  call void @generate_partitionwise_join_paths(ptr noundef %76, ptr noundef %77)
+  %78 = load ptr, ptr %17, align 8
+  %79 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %78, i32 0, i32 2
   %80 = load ptr, ptr %79, align 8
-  %81 = call zeroext i1 @bms_equal(ptr noundef %77, ptr noundef %80)
-  br i1 %81, label %85, label %82
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %81, i32 0, i32 13
+  %83 = load ptr, ptr %82, align 8
+  %84 = call zeroext i1 @bms_equal(ptr noundef %80, ptr noundef %83)
+  br i1 %84, label %88, label %85
 
-82:                                               ; preds = %72
-  %83 = load ptr, ptr %7, align 8
-  %84 = load ptr, ptr %16, align 8
-  call void @generate_useful_gather_paths(ptr noundef %83, ptr noundef %84, i1 noundef zeroext false)
-  br label %85
+85:                                               ; preds = %75
+  %86 = load ptr, ptr %7, align 8
+  %87 = load ptr, ptr %17, align 8
+  call void @generate_useful_gather_paths(ptr noundef %86, ptr noundef %87, i1 noundef zeroext false)
+  br label %88
 
-85:                                               ; preds = %82, %72
-  %86 = load ptr, ptr %16, align 8
-  call void @set_cheapest(ptr noundef %86)
-  %87 = load ptr, ptr %16, align 8
-  %88 = load ptr, ptr %15, align 8
-  %89 = getelementptr inbounds %struct.Clump, ptr %88, i32 0, i32 0
-  store ptr %87, ptr %89, align 8
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds %struct.Clump, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 8
-  %93 = load ptr, ptr %15, align 8
-  %94 = getelementptr inbounds %struct.Clump, ptr %93, i32 0, i32 1
+88:                                               ; preds = %85, %75
+  %89 = load ptr, ptr %17, align 8
+  call void @set_cheapest(ptr noundef %89)
+  %90 = load ptr, ptr %17, align 8
+  %91 = load ptr, ptr %16, align 8
+  %92 = getelementptr inbounds nuw %struct.Clump, ptr %91, i32 0, i32 0
+  store ptr %90, ptr %92, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = getelementptr inbounds nuw %struct.Clump, ptr %93, i32 0, i32 1
   %95 = load i32, ptr %94, align 8
-  %96 = add i32 %95, %92
-  store i32 %96, ptr %94, align 8
-  %97 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %97)
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %101 = add i32 %100, -1
-  store i32 %101, ptr %99, align 8
-  %102 = call ptr @list_delete_nth_cell(ptr noundef %98, i32 noundef %100)
-  %103 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  store ptr %102, ptr %103, align 8
-  store ptr %102, ptr %8, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = load ptr, ptr %8, align 8
-  %106 = load ptr, ptr %15, align 8
-  %107 = load i32, ptr %10, align 4
-  %108 = load i8, ptr %11, align 1
-  %109 = trunc i8 %108 to i1
-  %110 = call ptr @merge_clump(ptr noundef %104, ptr noundef %105, ptr noundef %106, i32 noundef %107, i1 noundef zeroext %109)
-  store ptr %110, ptr %6, align 8
-  br label %157
+  %96 = load ptr, ptr %16, align 8
+  %97 = getelementptr inbounds nuw %struct.Clump, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = add i32 %98, %95
+  store i32 %99, ptr %97, align 8
+  %100 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %100)
+  %101 = load ptr, ptr %8, align 8
+  %102 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 1
+  %103 = load i32, ptr %102, align 8
+  %104 = add i32 %103, -1
+  store i32 %104, ptr %102, align 8
+  %105 = call ptr @list_delete_nth_cell(ptr noundef %101, i32 noundef %103)
+  %106 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 0
+  store ptr %105, ptr %106, align 8
+  store ptr %105, ptr %8, align 8
+  %107 = load ptr, ptr %7, align 8
+  %108 = load ptr, ptr %8, align 8
+  %109 = load ptr, ptr %16, align 8
+  %110 = load i32, ptr %10, align 4
+  %111 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %112 = trunc i8 %111 to i1
+  %113 = call ptr @merge_clump(ptr noundef %107, ptr noundef %108, ptr noundef %109, i32 noundef %110, i1 noundef zeroext %112)
+  store ptr %113, ptr %6, align 8
+  store i32 1, ptr %15, align 4
+  br label %115
 
-111:                                              ; preds = %61
-  br label %112
+114:                                              ; preds = %64
+  store i32 0, ptr %15, align 4
+  br label %115
 
-112:                                              ; preds = %111, %52
-  br label %113
+115:                                              ; preds = %114, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  %116 = load i32, ptr %15, align 4
+  switch i32 %116, label %119 [
+    i32 0, label %117
+  ]
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %115 = load i32, ptr %114, align 8
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %114, align 8
-  br label %22, !llvm.loop !8
+117:                                              ; preds = %115
+  br label %118
 
-117:                                              ; preds = %44
-  %118 = load ptr, ptr %8, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %125, label %120
+118:                                              ; preds = %117, %55
+  store i32 0, ptr %15, align 4
+  br label %119
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %9, align 8
-  %122 = getelementptr inbounds %struct.Clump, ptr %121, i32 0, i32 1
-  %123 = load i32, ptr %122, align 8
-  %124 = icmp eq i32 %123, 1
-  br i1 %124, label %125, label %129
+119:                                              ; preds = %118, %115
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %120 = load i32, ptr %15, align 4
+  switch i32 %120, label %126 [
+    i32 0, label %121
+  ]
 
-125:                                              ; preds = %120, %117
-  %126 = load ptr, ptr %8, align 8
-  %127 = load ptr, ptr %9, align 8
-  %128 = call ptr @lappend(ptr noundef %126, ptr noundef %127)
-  store ptr %128, ptr %6, align 8
-  br label %157
+121:                                              ; preds = %119
+  br label %122
 
-129:                                              ; preds = %120
+122:                                              ; preds = %121
+  %123 = getelementptr inbounds nuw %struct.ForEachState, ptr %14, i32 0, i32 1
+  %124 = load i32, ptr %123, align 8
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %123, align 8
+  br label %24, !llvm.loop !9
+
+126:                                              ; preds = %119, %49
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #5
+  %127 = load i32, ptr %15, align 4
+  switch i32 %127, label %171 [
+    i32 2, label %128
+  ]
+
+128:                                              ; preds = %126
+  %129 = load ptr, ptr %8, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %136, label %131
+
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds nuw %struct.Clump, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp eq i32 %134, 1
+  br i1 %135, label %136, label %140
+
+136:                                              ; preds = %131, %128
+  %137 = load ptr, ptr %8, align 8
+  %138 = load ptr, ptr %9, align 8
+  %139 = call ptr @lappend(ptr noundef %137, ptr noundef %138)
+  store ptr %139, ptr %6, align 8
+  store i32 1, ptr %15, align 4
+  br label %171
+
+140:                                              ; preds = %131
   store i32 0, ptr %13, align 4
-  br label %130
+  br label %141
 
-130:                                              ; preds = %148, %129
-  %131 = load i32, ptr %13, align 4
-  %132 = load ptr, ptr %8, align 8
-  %133 = call i32 @list_length(ptr noundef %132)
-  %134 = icmp slt i32 %131, %133
-  br i1 %134, label %135, label %151
+141:                                              ; preds = %162, %140
+  %142 = load i32, ptr %13, align 4
+  %143 = load ptr, ptr %8, align 8
+  %144 = call i32 @list_length(ptr noundef %143)
+  %145 = icmp slt i32 %142, %144
+  br i1 %145, label %146, label %165
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %8, align 8
-  %137 = load i32, ptr %13, align 4
-  %138 = call ptr @list_nth(ptr noundef %136, i32 noundef %137)
-  store ptr %138, ptr %17, align 8
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds %struct.Clump, ptr %139, i32 0, i32 1
-  %141 = load i32, ptr %140, align 8
-  %142 = load ptr, ptr %17, align 8
-  %143 = getelementptr inbounds %struct.Clump, ptr %142, i32 0, i32 1
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp sgt i32 %141, %144
-  br i1 %145, label %146, label %147
+146:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %147 = load ptr, ptr %8, align 8
+  %148 = load i32, ptr %13, align 4
+  %149 = call ptr @list_nth(ptr noundef %147, i32 noundef %148)
+  store ptr %149, ptr %18, align 8
+  %150 = load ptr, ptr %9, align 8
+  %151 = getelementptr inbounds nuw %struct.Clump, ptr %150, i32 0, i32 1
+  %152 = load i32, ptr %151, align 8
+  %153 = load ptr, ptr %18, align 8
+  %154 = getelementptr inbounds nuw %struct.Clump, ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 8
+  %156 = icmp sgt i32 %152, %155
+  br i1 %156, label %157, label %158
 
-146:                                              ; preds = %135
-  br label %151
+157:                                              ; preds = %146
+  store i32 5, ptr %15, align 4
+  br label %159
 
-147:                                              ; preds = %135
-  br label %148
+158:                                              ; preds = %146
+  store i32 0, ptr %15, align 4
+  br label %159
 
-148:                                              ; preds = %147
-  %149 = load i32, ptr %13, align 4
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %13, align 4
-  br label %130, !llvm.loop !9
+159:                                              ; preds = %158, %157
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  %160 = load i32, ptr %15, align 4
+  switch i32 %160, label %173 [
+    i32 0, label %161
+    i32 5, label %165
+  ]
 
-151:                                              ; preds = %146, %130
-  %152 = load ptr, ptr %8, align 8
-  %153 = load i32, ptr %13, align 4
-  %154 = load ptr, ptr %9, align 8
-  %155 = call ptr @list_insert_nth(ptr noundef %152, i32 noundef %153, ptr noundef %154)
-  store ptr %155, ptr %8, align 8
-  %156 = load ptr, ptr %8, align 8
-  store ptr %156, ptr %6, align 8
-  br label %157
+161:                                              ; preds = %159
+  br label %162
 
-157:                                              ; preds = %151, %125, %85
-  %158 = load ptr, ptr %6, align 8
-  ret ptr %158
+162:                                              ; preds = %161
+  %163 = load i32, ptr %13, align 4
+  %164 = add i32 %163, 1
+  store i32 %164, ptr %13, align 4
+  br label %141, !llvm.loop !10
+
+165:                                              ; preds = %159, %141
+  %166 = load ptr, ptr %8, align 8
+  %167 = load i32, ptr %13, align 4
+  %168 = load ptr, ptr %9, align 8
+  %169 = call ptr @list_insert_nth(ptr noundef %166, i32 noundef %167, ptr noundef %168)
+  store ptr %169, ptr %8, align 8
+  %170 = load ptr, ptr %8, align 8
+  store ptr %170, ptr %6, align 8
+  store i32 1, ptr %15, align 4
+  br label %171
+
+171:                                              ; preds = %165, %136, %126
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %172 = load ptr, ptr %6, align 8
+  ret ptr %172
+
+173:                                              ; preds = %159
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.List, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.List, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %union.ListCell, ptr %7, i64 %9
+  %10 = getelementptr inbounds %union.ListCell, ptr %7, i64 %9
   ret ptr %10
 }
 
@@ -613,40 +732,45 @@ define internal zeroext i1 @desirable_join(ptr noundef %0, ptr noundef %1, ptr n
   ret i1 %20
 }
 
-declare ptr @make_join_rel(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @make_join_rel(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @generate_partitionwise_join_paths(ptr noundef, ptr noundef) #1
+declare void @generate_partitionwise_join_paths(ptr noundef, ptr noundef) #2
 
-declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) #1
+declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) #2
 
-declare void @generate_useful_gather_paths(ptr noundef, ptr noundef, i1 noundef zeroext) #1
+declare void @generate_useful_gather_paths(ptr noundef, ptr noundef, i1 noundef zeroext) #2
 
-declare void @set_cheapest(ptr noundef) #1
+declare void @set_cheapest(ptr noundef) #2
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #2
 
-declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) #1
+declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) #1
+declare ptr @lappend(ptr noundef, ptr noundef) #2
 
-declare ptr @list_insert_nth(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @list_insert_nth(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @have_relevant_joinclause(ptr noundef, ptr noundef, ptr noundef) #1
+declare zeroext i1 @have_relevant_joinclause(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i1 @have_join_order_restriction(ptr noundef, ptr noundef, ptr noundef) #1
+declare zeroext i1 @have_join_order_restriction(ptr noundef, ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

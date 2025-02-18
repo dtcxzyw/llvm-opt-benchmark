@@ -23,8 +23,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"table\00", align 1
 @.str.14 = private unnamed_addr constant [19 x i8] c"table and children\00", align 1
 @.str.15 = private unnamed_addr constant [8 x i8] c"trigger\00", align 1
-@.str.16 = private unnamed_addr constant [55 x i8] c"invalid format in filter read from \22%s\22 on line %d: %s\00", align 1
-@.str.17 = private unnamed_addr constant [6 x i8] c"stdin\00", align 1
+@.str.16 = private unnamed_addr constant [65 x i8] c"invalid format in filter read from standard input on line %d: %s\00", align 1
+@.str.17 = private unnamed_addr constant [60 x i8] c"invalid format in filter read from file \22%s\22 on line %d: %s\00", align 1
 @.str.18 = private unnamed_addr constant [58 x i8] c"no filter command found (expected \22include\22 or \22exclude\22)\00", align 1
 @.str.19 = private unnamed_addr constant [8 x i8] c"include\00", align 1
 @.str.20 = private unnamed_addr constant [8 x i8] c"exclude\00", align 1
@@ -52,20 +52,20 @@ define dso_local void @filter_init(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.FilterStateData, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.FilterStateData, ptr %8, i32 0, i32 1
   store ptr %7, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.FilterStateData, ptr %10, i32 0, i32 3
+  %11 = getelementptr inbounds nuw %struct.FilterStateData, ptr %10, i32 0, i32 3
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.FilterStateData, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.FilterStateData, ptr %13, i32 0, i32 2
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.FilterStateData, ptr %15, i32 0, i32 4
+  %16 = getelementptr inbounds nuw %struct.FilterStateData, ptr %15, i32 0, i32 4
   call void @initStringInfo(ptr noundef %16)
   %17 = load ptr, ptr %5, align 8
-  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str) #6
+  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str) #7
   %19 = icmp ne i32 %18, 0
   br i1 %19, label %20, label %35
 
@@ -73,10 +73,10 @@ define dso_local void @filter_init(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = load ptr, ptr %5, align 8
   %22 = call noalias ptr @fopen(ptr noundef %21, ptr noundef @.str.1)
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.FilterStateData, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.FilterStateData, ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.FilterStateData, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.FilterStateData, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
   br i1 %28, label %34, label %29
@@ -85,7 +85,7 @@ define dso_local void @filter_init(ptr noundef %0, ptr noundef %1, ptr noundef %
   %30 = load ptr, ptr %5, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.2, ptr noundef %30)
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.FilterStateData, ptr %31, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %struct.FilterStateData, ptr %31, i32 0, i32 2
   %33 = load ptr, ptr %32, align 8
   call void %33(i32 noundef 1)
   br label %34
@@ -96,7 +96,7 @@ define dso_local void @filter_init(ptr noundef %0, ptr noundef %1, ptr noundef %
 35:                                               ; preds = %3
   %36 = load ptr, ptr @stdin, align 8
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.FilterStateData, ptr %37, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.FilterStateData, ptr %37, i32 0, i32 0
   store ptr %36, ptr %38, align 8
   br label %39
 
@@ -126,23 +126,23 @@ define dso_local void @filter_free(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.FilterStateData, ptr %7, i32 0, i32 4
-  %9 = getelementptr inbounds %struct.StringInfoData, ptr %8, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.FilterStateData, ptr %7, i32 0, i32 4
+  %9 = getelementptr inbounds nuw %struct.StringInfoData, ptr %8, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #7
+  call void @free(ptr noundef %10) #8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.FilterStateData, ptr %11, i32 0, i32 4
-  %13 = getelementptr inbounds %struct.StringInfoData, ptr %12, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.FilterStateData, ptr %11, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct.StringInfoData, ptr %12, i32 0, i32 0
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FilterStateData, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FilterStateData, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %37
 
 18:                                               ; preds = %6
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.FilterStateData, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.FilterStateData, ptr %19, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @stdin, align 8
   %23 = icmp ne ptr %21, %22
@@ -150,7 +150,7 @@ define dso_local void @filter_free(ptr noundef %0) #0 {
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.FilterStateData, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.FilterStateData, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @fclose(ptr noundef %27)
   %29 = icmp ne i32 %28, 0
@@ -158,18 +158,18 @@ define dso_local void @filter_free(ptr noundef %0) #0 {
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.FilterStateData, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.FilterStateData, ptr %31, i32 0, i32 1
   %33 = load ptr, ptr %32, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3, ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %30, %24
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.FilterStateData, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.FilterStateData, ptr %35, i32 0, i32 0
   store ptr null, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %34, %18, %6, %5
+37:                                               ; preds = %5, %34, %18, %6
   ret void
 }
 
@@ -263,47 +263,61 @@ define dso_local void @pg_log_filter_error(ptr noundef %0, ptr noundef %1, ...) 
   %6 = alloca [256 x i8], align 16
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 256, ptr %6) #8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @pg_vsnprintf(ptr noundef %8, i64 noundef 256, ptr noundef %9, ptr noundef %10)
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.FilterStateData, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.FilterStateData, ptr %13, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @stdin, align 8
   %17 = icmp eq ptr %15, %16
-  br i1 %17, label %18, label %19
+  br i1 %17, label %18, label %23
 
 18:                                               ; preds = %2
-  br label %23
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.FilterStateData, ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.16, i32 noundef %21, ptr noundef %22)
+  br label %31
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.FilterStateData, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  br label %23
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.FilterStateData, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.FilterStateData, ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.17, ptr noundef %26, i32 noundef %29, ptr noundef %30)
+  br label %31
 
-23:                                               ; preds = %19, %18
-  %24 = phi ptr [ @.str.17, %18 ], [ %22, %19 ]
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.FilterStateData, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.16, ptr noundef %24, i32 noundef %27, ptr noundef %28)
+31:                                               ; preds = %23, %18
+  call void @llvm.lifetime.end.p0(i64 256, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #8
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #5
 
 declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -321,34 +335,38 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.FilterStateData, ptr %14, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FilterStateData, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.FilterStateData, ptr %17, i32 0, i32 4
+  %18 = getelementptr inbounds nuw %struct.FilterStateData, ptr %17, i32 0, i32 4
   %19 = call zeroext i1 @pg_get_line_buf(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %126
 
 20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.FilterStateData, ptr %21, i32 0, i32 4
-  %23 = getelementptr inbounds %struct.StringInfoData, ptr %22, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.FilterStateData, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %struct.StringInfoData, ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #8
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.FilterStateData, ptr %25, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %struct.FilterStateData, ptr %25, i32 0, i32 3
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
   br label %29
 
 29:                                               ; preds = %41, %20
-  %30 = call ptr @__ctype_b_loc() #8
+  %30 = call ptr @__ctype_b_loc() #9
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %10, align 8
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = sext i32 %34 to i64
-  %36 = getelementptr i16, ptr %31, i64 %35
+  %36 = getelementptr inbounds i16, ptr %31, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %39 = and i32 %38, 8192
@@ -357,9 +375,9 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr i8, ptr %42, i32 1
+  %43 = getelementptr inbounds nuw i8, ptr %42, i32 1
   store ptr %43, ptr %10, align 8
-  br label %29, !llvm.loop !5
+  br label %29, !llvm.loop !4
 
 44:                                               ; preds = %29
   %45 = load ptr, ptr %10, align 8
@@ -386,7 +404,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   %59 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef %59, ptr noundef @.str.18)
   %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.FilterStateData, ptr %60, i32 0, i32 2
+  %61 = getelementptr inbounds nuw %struct.FilterStateData, ptr %60, i32 0, i32 2
   %62 = load ptr, ptr %61, align 8
   call void %62(i32 noundef 1)
   br label %63
@@ -433,7 +451,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   %88 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef %88, ptr noundef @.str.21)
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.FilterStateData, ptr %89, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct.FilterStateData, ptr %89, i32 0, i32 2
   %91 = load ptr, ptr %90, align 8
   call void %91(i32 noundef 1)
   br label %92
@@ -452,7 +470,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   %98 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef %98, ptr noundef @.str.22)
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.FilterStateData, ptr %99, i32 0, i32 2
+  %100 = getelementptr inbounds nuw %struct.FilterStateData, ptr %99, i32 0, i32 2
   %101 = load ptr, ptr %100, align 8
   call void %101(i32 noundef 1)
   br label %102
@@ -470,7 +488,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   %110 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef %108, ptr noundef @.str.23, i32 noundef %109, ptr noundef %110)
   %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr inbounds %struct.FilterStateData, ptr %111, i32 0, i32 2
+  %112 = getelementptr inbounds nuw %struct.FilterStateData, ptr %111, i32 0, i32 2
   %113 = load ptr, ptr %112, align 8
   call void %113(i32 noundef 1)
   br label %114
@@ -481,7 +499,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
   %116 = load ptr, ptr %10, align 8
   %117 = call ptr @read_pattern(ptr noundef %115, ptr noundef %116, ptr noundef %13)
   store ptr %117, ptr %10, align 8
-  %118 = getelementptr inbounds %struct.PQExpBufferData, ptr %13, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.PQExpBufferData, ptr %13, i32 0, i32 0
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %7, align 8
   store ptr %119, ptr %120, align 8
@@ -498,23 +516,27 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
 
 125:                                              ; preds = %121, %114
   store i1 true, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
   br label %140
 
 126:                                              ; preds = %4
   %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %struct.FilterStateData, ptr %127, i32 0, i32 0
+  %128 = getelementptr inbounds nuw %struct.FilterStateData, ptr %127, i32 0, i32 0
   %129 = load ptr, ptr %128, align 8
-  %130 = call i32 @ferror(ptr noundef %129) #7
+  %130 = call i32 @ferror(ptr noundef %129) #8
   %131 = icmp ne i32 %130, 0
   br i1 %131, label %132, label %139
 
 132:                                              ; preds = %126
   %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.FilterStateData, ptr %133, i32 0, i32 1
+  %134 = getelementptr inbounds nuw %struct.FilterStateData, ptr %133, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.24, ptr noundef %135)
   %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct.FilterStateData, ptr %136, i32 0, i32 2
+  %137 = getelementptr inbounds nuw %struct.FilterStateData, ptr %136, i32 0, i32 2
   %138 = load ptr, ptr %137, align 8
   call void %138(i32 noundef 1)
   br label %139
@@ -531,7 +553,7 @@ define dso_local zeroext i1 @filter_read_item(ptr noundef %0, ptr noundef %1, pt
 declare zeroext i1 @pg_get_line_buf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #5
+declare ptr @__ctype_b_loc() #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
@@ -541,22 +563,24 @@ define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
   store ptr null, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   store i32 0, ptr %9, align 4
   br label %10
 
 10:                                               ; preds = %22, %2
-  %11 = call ptr @__ctype_b_loc() #8
+  %11 = call ptr @__ctype_b_loc() #9
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i16, ptr %12, i64 %16
+  %17 = getelementptr inbounds i16, ptr %12, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 8192
@@ -565,18 +589,18 @@ define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %10
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr i8, ptr %23, i32 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i32 1
   store ptr %24, ptr %5, align 8
-  br label %10, !llvm.loop !7
+  br label %10, !llvm.loop !6
 
 25:                                               ; preds = %10
-  %26 = call ptr @__ctype_b_loc() #8
+  %26 = call ptr @__ctype_b_loc() #9
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sext i32 %30 to i64
-  %32 = getelementptr i16, ptr %27, i64 %31
+  %32 = getelementptr inbounds i16, ptr %27, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 1024
@@ -585,19 +609,19 @@ define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr i8, ptr %38, i32 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i32 1
   store ptr %39, ptr %5, align 8
   store ptr %38, ptr %6, align 8
   br label %40
 
 40:                                               ; preds = %59, %37
-  %41 = call ptr @__ctype_b_loc() #8
+  %41 = call ptr @__ctype_b_loc() #9
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %5, align 8
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = sext i32 %45 to i64
-  %47 = getelementptr i16, ptr %42, i64 %46
+  %47 = getelementptr inbounds i16, ptr %42, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = and i32 %49, 1024
@@ -617,9 +641,9 @@ define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr i8, ptr %60, i32 1
+  %61 = getelementptr inbounds nuw i8, ptr %60, i32 1
   store ptr %61, ptr %5, align 8
-  br label %40, !llvm.loop !8
+  br label %40, !llvm.loop !7
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %5, align 8
@@ -637,6 +661,8 @@ define internal ptr @filter_get_keyword(ptr noundef %0, ptr noundef %1) #0 {
   %72 = load ptr, ptr %3, align 8
   store ptr %71, ptr %72, align 8
   %73 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret ptr %73
 }
 
@@ -914,18 +940,20 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
   store i8 1, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
   store i8 0, ptr %8, align 1
   br label %9
 
 9:                                                ; preds = %21, %3
-  %10 = call ptr @__ctype_b_loc() #8
+  %10 = call ptr @__ctype_b_loc() #9
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %5, align 8
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i16, ptr %11, i64 %15
+  %16 = getelementptr inbounds i16, ptr %11, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 8192
@@ -934,9 +962,9 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr i8, ptr %22, i32 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
   store ptr %23, ptr %5, align 8
-  br label %9, !llvm.loop !9
+  br label %9, !llvm.loop !8
 
 24:                                               ; preds = %9
   %25 = load ptr, ptr %5, align 8
@@ -949,7 +977,7 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef %30, ptr noundef @.str.29)
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.FilterStateData, ptr %31, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %struct.FilterStateData, ptr %31, i32 0, i32 2
   %33 = load ptr, ptr %32, align 8
   call void %33(i32 noundef 1)
   br label %34
@@ -986,13 +1014,13 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %52, label %53, label %72
 
 53:                                               ; preds = %48
-  %54 = call ptr @__ctype_b_loc() #8
+  %54 = call ptr @__ctype_b_loc() #9
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %5, align 8
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = sext i32 %58 to i64
-  %60 = getelementptr i16, ptr %55, i64 %59
+  %60 = getelementptr inbounds i16, ptr %55, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = and i32 %62, 8192
@@ -1003,7 +1031,7 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %66 = load ptr, ptr %5, align 8
   %67 = load i8, ptr %66, align 1
   %68 = sext i8 %67 to i32
-  %69 = call ptr @strchr(ptr noundef @.str.30, i32 noundef %68) #6
+  %69 = call ptr @strchr(ptr noundef @.str.30, i32 noundef %68) #7
   %70 = icmp ne ptr %69, null
   %71 = xor i1 %70, true
   br label %72
@@ -1013,12 +1041,12 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %72
-  %75 = load i8, ptr %7, align 1
+  %75 = load i8, ptr %7, align 1, !range !9, !noundef !10
   %76 = trunc i8 %75 to i1
   br i1 %76, label %82, label %77
 
 77:                                               ; preds = %74
-  %78 = load i8, ptr %8, align 1
+  %78 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %82
 
@@ -1031,11 +1059,11 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
 82:                                               ; preds = %80, %77, %74
   %83 = load ptr, ptr %6, align 8
   %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr i8, ptr %84, i32 1
+  %85 = getelementptr inbounds nuw i8, ptr %84, i32 1
   store ptr %85, ptr %5, align 8
   %86 = load i8, ptr %84, align 1
   call void @appendPQExpBufferChar(ptr noundef %83, i8 noundef signext %86)
-  br label %48, !llvm.loop !10
+  br label %48, !llvm.loop !11
 
 87:                                               ; preds = %72
   store i8 0, ptr %7, align 1
@@ -1046,7 +1074,7 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %91, label %92, label %102
 
 92:                                               ; preds = %87
-  %93 = load i8, ptr %8, align 1
+  %93 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %97
 
@@ -1075,7 +1103,7 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @appendPQExpBufferStr(ptr noundef %108, ptr noundef @.str.31)
   store i8 1, ptr %7, align 1
   %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr i8, ptr %109, i32 1
+  %110 = getelementptr inbounds nuw i8, ptr %109, i32 1
   store ptr %110, ptr %5, align 8
   br label %128
 
@@ -1090,14 +1118,14 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %117 = load ptr, ptr %5, align 8
   %118 = load i8, ptr %117, align 1
   %119 = sext i8 %118 to i32
-  %120 = call ptr @strchr(ptr noundef @.str.32, i32 noundef %119) #6
+  %120 = call ptr @strchr(ptr noundef @.str.32, i32 noundef %119) #7
   %121 = icmp ne ptr %120, null
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %6, align 8
   %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr i8, ptr %124, i32 1
+  %125 = getelementptr inbounds nuw i8, ptr %124, i32 1
   store ptr %125, ptr %5, align 8
   %126 = load i8, ptr %124, align 1
   call void @appendPQExpBufferChar(ptr noundef %123, i8 noundef signext %126)
@@ -1115,13 +1143,13 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %130
 
 130:                                              ; preds = %142, %129
-  %131 = call ptr @__ctype_b_loc() #8
+  %131 = call ptr @__ctype_b_loc() #9
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %5, align 8
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = sext i32 %135 to i64
-  %137 = getelementptr i16, ptr %132, i64 %136
+  %137 = getelementptr inbounds i16, ptr %132, i64 %136
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
   %140 = and i32 %139, 8192
@@ -1131,15 +1159,17 @@ define internal ptr @read_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2
 142:                                              ; preds = %130
   store i8 1, ptr %8, align 1
   %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr i8, ptr %143, i32 1
+  %144 = getelementptr inbounds nuw i8, ptr %143, i32 1
   store ptr %144, ptr %5, align 8
-  br label %130, !llvm.loop !11
+  br label %130, !llvm.loop !12
 
 145:                                              ; preds = %130
-  br label %35, !llvm.loop !12
+  br label %35, !llvm.loop !13
 
 146:                                              ; preds = %45
   %147 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
   ret ptr %147
 }
 
@@ -1162,11 +1192,11 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = load ptr, ptr %6, align 8
   call void @appendPQExpBufferChar(ptr noundef %7, i8 noundef signext 34)
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr i8, ptr %8, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i32 1
   store ptr %9, ptr %5, align 8
   br label %10
 
-10:                                               ; preds = %111, %20, %3
+10:                                               ; preds = %3, %20, %111
   %11 = load ptr, ptr %5, align 8
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
@@ -1182,7 +1212,7 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 20:                                               ; preds = %15, %10
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr i8, ptr %21, i32 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
   store ptr %22, ptr %5, align 8
   br label %10
 
@@ -1195,24 +1225,24 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.FilterStateData, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.FilterStateData, ptr %29, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.FilterStateData, ptr %32, i32 0, i32 4
+  %33 = getelementptr inbounds nuw %struct.FilterStateData, ptr %32, i32 0, i32 4
   %34 = call zeroext i1 @pg_get_line_buf(ptr noundef %31, ptr noundef %33)
   br i1 %34, label %51, label %35
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.FilterStateData, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.FilterStateData, ptr %36, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @ferror(ptr noundef %38) #7
+  %39 = call i32 @ferror(ptr noundef %38) #8
   %40 = icmp ne i32 %39, 0
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.FilterStateData, ptr %42, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.FilterStateData, ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.24, ptr noundef %44)
   br label %47
@@ -1224,21 +1254,21 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 47:                                               ; preds = %45, %41
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.FilterStateData, ptr %48, i32 0, i32 2
+  %49 = getelementptr inbounds nuw %struct.FilterStateData, ptr %48, i32 0, i32 2
   %50 = load ptr, ptr %49, align 8
   call void %50(i32 noundef 1)
   br label %51
 
 51:                                               ; preds = %47, %28
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.FilterStateData, ptr %52, i32 0, i32 4
-  %54 = getelementptr inbounds %struct.StringInfoData, ptr %53, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.FilterStateData, ptr %52, i32 0, i32 4
+  %54 = getelementptr inbounds nuw %struct.StringInfoData, ptr %53, i32 0, i32 0
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %5, align 8
   %56 = load ptr, ptr %6, align 8
   call void @appendPQExpBufferChar(ptr noundef %56, i8 noundef signext 10)
   %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.FilterStateData, ptr %57, i32 0, i32 3
+  %58 = getelementptr inbounds nuw %struct.FilterStateData, ptr %57, i32 0, i32 3
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 8
@@ -1255,7 +1285,7 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
   %67 = load ptr, ptr %6, align 8
   call void @appendPQExpBufferChar(ptr noundef %67, i8 noundef signext 34)
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr i8, ptr %68, i32 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i32 1
   store ptr %69, ptr %5, align 8
   %70 = load ptr, ptr %5, align 8
   %71 = load i8, ptr %70, align 1
@@ -1267,7 +1297,7 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
   %75 = load ptr, ptr %6, align 8
   call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 34)
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr i8, ptr %76, i32 1
+  %77 = getelementptr inbounds nuw i8, ptr %76, i32 1
   store ptr %77, ptr %5, align 8
   br label %79
 
@@ -1286,7 +1316,7 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr i8, ptr %86, i32 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i32 1
   store ptr %87, ptr %5, align 8
   %88 = load ptr, ptr %5, align 8
   %89 = load i8, ptr %88, align 1
@@ -1316,14 +1346,14 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 102:                                              ; preds = %101, %92
   %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr i8, ptr %103, i32 1
+  %104 = getelementptr inbounds nuw i8, ptr %103, i32 1
   store ptr %104, ptr %5, align 8
   br label %110
 
 105:                                              ; preds = %80
   %106 = load ptr, ptr %6, align 8
   %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr i8, ptr %107, i32 1
+  %108 = getelementptr inbounds nuw i8, ptr %107, i32 1
   store ptr %108, ptr %5, align 8
   %109 = load i8, ptr %107, align 1
   call void @appendPQExpBufferChar(ptr noundef %106, i8 noundef signext %109)
@@ -1342,28 +1372,30 @@ define internal ptr @read_quoted_string(ptr noundef %0, ptr noundef %1, ptr noun
 
 declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

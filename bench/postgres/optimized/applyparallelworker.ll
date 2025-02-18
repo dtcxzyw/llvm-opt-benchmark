@@ -86,6 +86,7 @@ define dso_local void @pa_allocate_worker(i32 noundef %0) local_unnamed_addr #0 
   %4 = alloca i8, align 1
   %5 = alloca %struct.HASHCTL, align 8
   store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
   %6 = load ptr, ptr @MyLogicalRepWorker, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
@@ -95,8 +96,8 @@ define dso_local void @pa_allocate_worker(i32 noundef %0) local_unnamed_addr #0 
   tail call void @maybe_reread_subscription() #10
   %10 = load ptr, ptr @MyLogicalRepWorker, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %12 = load i8, ptr %11, align 4
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 4, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %pa_can_start.exit.thread
 
 14:                                               ; preds = %9
@@ -119,9 +120,9 @@ pa_can_start.exit:                                ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph25.i, label %._crit_edge.i
+  br i1 %24, label %.lr.ph31.i, label %._crit_edge.i
 
-.lr.ph25.i:                                       ; preds = %.lr.ph.i
+.lr.ph31.i:                                       ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load ptr, ptr %25, align 8
   %wide.trip.count.i = zext nneg i32 %23 to i64
@@ -132,21 +133,21 @@ pa_can_start.exit:                                ; preds = %14
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %28
 
-28:                                               ; preds = %27, %.lr.ph25.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph25.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr %union.ListCell, ptr %26, i64 %indvars.iv.i
+28:                                               ; preds = %27, %.lr.ph31.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next.i, %27 ]
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 25
-  %32 = load i8, ptr %31, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %27, label %pa_launch_parallel_worker.exit.thread32
+  %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %27, label %pa_launch_parallel_worker.exit.thread31
 
 ._crit_edge.i:                                    ; preds = %27, %.lr.ph.i, %20
   %34 = load ptr, ptr @ApplyContext, align 8
   %35 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %34, ptr @CurrentMemoryContext, align 8
   %36 = tail call ptr @palloc0(i64 noundef 40) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = tail call i64 @add_size(i64 noundef 0, i64 noundef 96) #10
   %39 = tail call i64 @add_size(i64 noundef %38, i64 noundef 16777216) #10
@@ -161,7 +162,7 @@ pa_can_start.exit:                                ; preds = %14
   br i1 %.not.i.not.i, label %pa_launch_parallel_worker.exit.thread, label %45
 
 pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   store ptr %35, ptr @CurrentMemoryContext, align 8
   call void @pfree(ptr noundef %36) #10
   br label %pa_can_start.exit.thread
@@ -170,7 +171,7 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   %46 = call ptr @dsm_segment_address(ptr noundef nonnull %44) #10
   %47 = call ptr @shm_toc_create(i64 noundef 2021433447, ptr noundef %46, i64 noundef %42) #10
   %48 = call ptr @shm_toc_allocate(ptr noundef %47, i64 noundef 80) #10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %49, align 8
@@ -200,7 +201,7 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   store ptr %44, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %48, ptr %63, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   %64 = load ptr, ptr @MyLogicalRepWorker, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
@@ -212,9 +213,9 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   %72 = load i32, ptr %71, align 4
   %73 = call i32 @dsm_segment_handle(ptr noundef nonnull %44) #10
   %74 = call zeroext i1 @logicalrep_worker_launch(i32 noundef 3, i32 noundef %66, i32 noundef %68, ptr noundef %70, i32 noundef %72, i32 noundef 0, i32 noundef %73) #10
-  br i1 %74, label %pa_launch_parallel_worker.exit, label %pa_launch_parallel_worker.exit.thread36
+  br i1 %74, label %pa_launch_parallel_worker.exit, label %pa_launch_parallel_worker.exit.thread35
 
-pa_launch_parallel_worker.exit.thread36:          ; preds = %45
+pa_launch_parallel_worker.exit.thread35:          ; preds = %45
   call fastcc void @pa_free_worker_info(ptr noundef nonnull %36)
   store ptr %35, ptr @CurrentMemoryContext, align 8
   br label %pa_can_start.exit.thread
@@ -224,15 +225,16 @@ pa_launch_parallel_worker.exit:                   ; preds = %45
   %76 = call ptr @lappend(ptr noundef %75, ptr noundef nonnull %36) #10
   store ptr %76, ptr @ParallelApplyWorkerPool, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  br label %pa_launch_parallel_worker.exit.thread32
+  br label %pa_launch_parallel_worker.exit.thread31
 
-pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_parallel_worker.exit
-  %.0.i2835 = phi ptr [ %36, %pa_launch_parallel_worker.exit ], [ %30, %28 ]
+pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_parallel_worker.exit
+  %.1.i34 = phi ptr [ %36, %pa_launch_parallel_worker.exit ], [ %30, %28 ]
   %77 = load ptr, ptr @ParallelApplyTxnHash, align 8
   %.not26 = icmp eq ptr %77, null
   br i1 %.not26, label %78, label %84
 
-78:                                               ; preds = %pa_launch_parallel_worker.exit.thread32
+78:                                               ; preds = %pa_launch_parallel_worker.exit.thread31
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 4, ptr %79, align 8
@@ -243,13 +245,14 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
   store ptr %81, ptr %82, align 8
   %83 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 16, ptr noundef nonnull %5, i32 noundef 1064) #10
   store ptr %83, ptr @ParallelApplyTxnHash, align 8
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #10
   br label %84
 
-84:                                               ; preds = %78, %pa_launch_parallel_worker.exit.thread32
-  %85 = phi ptr [ %83, %78 ], [ %77, %pa_launch_parallel_worker.exit.thread32 ]
+84:                                               ; preds = %78, %pa_launch_parallel_worker.exit.thread31
+  %85 = phi ptr [ %83, %78 ], [ %77, %pa_launch_parallel_worker.exit.thread31 ]
   %86 = call ptr @hash_search(ptr noundef %85, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #10
-  %87 = load i8, ptr %4, align 1
-  %88 = trunc i8 %87 to i1
+  %87 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %84
@@ -260,9 +263,9 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
   unreachable
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.1.i34, i64 32
   %94 = load ptr, ptr %93, align 8
-  %95 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %94, i8 1, ptr elementtype(i8) %94) #10, !srcloc !6
+  %95 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %94, i8 1, ptr elementtype(i8) %94) #10, !srcloc !7
   %.not27 = icmp eq i8 %95, 0
   br i1 %.not27, label %99, label %96
 
@@ -279,44 +282,52 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
   %103 = load ptr, ptr %93, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 %102, ptr %104, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %105 = load ptr, ptr %93, align 8
   store i8 0, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 25
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i34, i64 25
   store i8 1, ptr %106, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.1.i34, i64 24
   store i8 0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %.0.i2835, ptr %108, align 8
+  store ptr %.1.i34, ptr %108, align 8
   br label %pa_can_start.exit.thread
 
-pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_launch_parallel_worker.exit.thread36, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
+pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_launch_parallel_worker.exit.thread35, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %15, label %4
 
@@ -332,8 +343,8 @@ define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = call ptr @hash_search(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %3) #10
-  %10 = load i8, ptr %3, align 1
-  %11 = trunc i8 %10 to i1
+  %10 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
@@ -343,6 +354,7 @@ define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %8, %6, %4, %1, %12
   %.0 = phi ptr [ %14, %12 ], [ null, %1 ], [ null, %4 ], [ %7, %6 ], [ null, %8 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
   ret ptr %.0
 }
 
@@ -359,11 +371,14 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph17, label %._crit_edge
 
+._crit_edge:                                      ; preds = %13, %.lr.ph, %0
+  ret void
+
 .lr.ph17:                                         ; preds = %.lr.ph, %13
   %6 = phi i32 [ %14, %13 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -376,391 +391,392 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %.pre = load i32, ptr %2, align 4
   br label %13
 
-13:                                               ; preds = %.lr.ph17, %12
-  %14 = phi i32 [ %6, %.lr.ph17 ], [ %.pre, %12 ]
+13:                                               ; preds = %12, %.lr.ph17
+  %14 = phi i32 [ %.pre, %12 ], [ %6, %.lr.ph17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph17, label %._crit_edge
-
-._crit_edge:                                      ; preds = %13, %.lr.ph, %0
-  ret void
 }
 
-declare void @shm_mq_detach(ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_detach(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_addr #4 {
+define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.ErrorContextCallback, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca [64 x i8], align 16
   %7 = trunc i64 %0 to i32
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
   store i8 1, ptr @InitializingApplyWorker, align 1
-  %8 = tail call ptr @pqsignal(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #10
-  %9 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @SignalHandlerForShutdownRequest) #10
-  %10 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @die) #10
+  tail call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #10
+  tail call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @SignalHandlerForShutdownRequest) #10
+  tail call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #10
   tail call void @BackgroundWorkerUnblockSignals() #10
-  %11 = load ptr, ptr @MyBgworkerEntry, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1336
-  %.0.copyload = load i32, ptr %12, align 8
-  %13 = tail call ptr @dsm_attach(i32 noundef %.0.copyload) #10
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %18
+  %8 = load ptr, ptr @MyBgworkerEntry, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1336
+  %.0.copyload = load i32, ptr %9, align 8
+  %10 = tail call ptr @dsm_attach(i32 noundef %.0.copyload) #10
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %15
 
-14:                                               ; preds = %1
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 325) #10
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
+11:                                               ; preds = %1
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call i32 @errcode(i32 noundef 325) #10
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 890, ptr noundef nonnull @__func__.ParallelApplyWorkerMain) #10
   unreachable
 
-18:                                               ; preds = %1
-  %19 = tail call ptr @dsm_segment_address(ptr noundef nonnull %13) #10
-  %20 = tail call ptr @shm_toc_attach(i64 noundef 2021433447, ptr noundef %19) #10
-  %.not23 = icmp eq ptr %20, null
-  br i1 %.not23, label %21, label %25
+15:                                               ; preds = %1
+  %16 = tail call ptr @dsm_segment_address(ptr noundef nonnull %10) #10
+  %17 = tail call ptr @shm_toc_attach(i64 noundef 2021433447, ptr noundef %16) #10
+  %.not23 = icmp eq ptr %17, null
+  br i1 %.not23, label %18, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 325) #10
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
+18:                                               ; preds = %15
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %19)
+  %20 = tail call i32 @errcode(i32 noundef 325) #10
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 896, ptr noundef nonnull @__func__.ParallelApplyWorkerMain) #10
   unreachable
 
-25:                                               ; preds = %18
-  %26 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %20, i64 noundef 1, i1 noundef zeroext false) #10
-  store ptr %26, ptr @MyParallelShared, align 8
-  %27 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %20, i64 noundef 2, i1 noundef zeroext false) #10
-  %28 = load ptr, ptr @MyProc, align 8
-  tail call void @shm_mq_set_receiver(ptr noundef %27, ptr noundef %28) #10
-  %29 = tail call ptr @shm_mq_attach(ptr noundef %27, ptr noundef nonnull %13, ptr noundef null) #10
+22:                                               ; preds = %15
+  %23 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %17, i64 noundef 1, i1 noundef zeroext false) #10
+  store ptr %23, ptr @MyParallelShared, align 8
+  %24 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %17, i64 noundef 2, i1 noundef zeroext false) #10
+  %25 = load ptr, ptr @MyProc, align 8
+  tail call void @shm_mq_set_receiver(ptr noundef %24, ptr noundef %25) #10
+  %26 = tail call ptr @shm_mq_attach(ptr noundef %24, ptr noundef nonnull %10, ptr noundef null) #10
   tail call void @logicalrep_worker_attach(i32 noundef %7) #10
-  %30 = ptrtoint ptr %13 to i64
-  tail call void @before_shmem_exit(ptr noundef nonnull @pa_shutdown, i64 noundef %30) #10
+  %27 = ptrtoint ptr %10 to i64
+  tail call void @before_shmem_exit(ptr noundef nonnull @pa_shutdown, i64 noundef %27) #10
+  %28 = load ptr, ptr @MyParallelShared, align 8
+  %29 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28, i8 1, ptr elementtype(i8) %28) #10, !srcloc !7
+  %.not24 = icmp eq i8 %29, 0
+  br i1 %.not24, label %33, label %30
+
+30:                                               ; preds = %22
   %31 = load ptr, ptr @MyParallelShared, align 8
-  %32 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %31, i8 1, ptr elementtype(i8) %31) #10, !srcloc !6
-  %.not24 = icmp eq i8 %32, 0
-  br i1 %.not24, label %36, label %33
+  %32 = tail call i32 @s_lock(ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.ParallelApplyWorkerMain) #10
+  br label %33
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr @MyParallelShared, align 8
-  %35 = tail call i32 @s_lock(ptr noundef %34, ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.ParallelApplyWorkerMain) #10
-  br label %36
-
-36:                                               ; preds = %25, %33
-  %37 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 18
-  %39 = load i16, ptr %38, align 2
+33:                                               ; preds = %22, %30
+  %34 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 18
+  %36 = load i16, ptr %35, align 2
+  %37 = load ptr, ptr @MyParallelShared, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i16 %36, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 %7, ptr %39, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %40 = load ptr, ptr @MyParallelShared, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i16 %39, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 %7, ptr %42, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
-  %43 = load ptr, ptr @MyParallelShared, align 8
-  store i8 0, ptr %43, align 8
-  %44 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %20, i64 noundef 3, i1 noundef zeroext false) #10
-  %45 = load ptr, ptr @MyProc, align 8
-  tail call void @shm_mq_set_sender(ptr noundef %44, ptr noundef %45) #10
-  %46 = tail call ptr @shm_mq_attach(ptr noundef %44, ptr noundef nonnull %13, ptr noundef null) #10
-  tail call void @pq_redirect_to_shm_mq(ptr noundef nonnull %13, ptr noundef %46) #10
+  store i8 0, ptr %40, align 8
+  %41 = tail call ptr @shm_toc_lookup(ptr noundef nonnull %17, i64 noundef 3, i1 noundef zeroext false) #10
+  %42 = load ptr, ptr @MyProc, align 8
+  tail call void @shm_mq_set_sender(ptr noundef %41, ptr noundef %42) #10
+  %43 = tail call ptr @shm_mq_attach(ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #10
+  tail call void @pq_redirect_to_shm_mq(ptr noundef nonnull %10, ptr noundef %43) #10
+  %44 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
+  %46 = load i32, ptr %45, align 8
+  tail call void @pq_set_parallel_leader(i32 noundef %46, i32 noundef -1) #10
   %47 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %49 = load i32, ptr %48, align 8
-  tail call void @pq_set_parallel_leader(i32 noundef %49, i32 noundef -1) #10
-  %50 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 120
-  store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   tail call void @InitializeLogRepWorker() #10
   store i8 0, ptr @InitializingApplyWorker, align 1
   tail call void @StartTransactionCommand() #10
-  %53 = load ptr, ptr @MySubscription, align 8
-  %54 = load i32, ptr %53, align 8
-  call void @ReplicationOriginNameForLogicalRep(i32 noundef %54, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 64) #10
-  %55 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %6, i1 noundef zeroext false) #10
-  %56 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  %58 = load i32, ptr %57, align 8
-  call void @replorigin_session_setup(i16 noundef zeroext %55, i32 noundef %58) #10
-  store i16 %55, ptr @replorigin_session_origin, align 2
+  %50 = load ptr, ptr @MySubscription, align 8
+  %51 = load i32, ptr %50, align 8
+  call void @ReplicationOriginNameForLogicalRep(i32 noundef %51, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 64) #10
+  %52 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %6, i1 noundef zeroext false) #10
+  %53 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
+  %55 = load i32, ptr %54, align 8
+  call void @replorigin_session_setup(i16 noundef zeroext %52, i32 noundef %55) #10
+  store i16 %52, ptr @replorigin_session_origin, align 2
   call void @CommitTransactionCommand() #10
-  call void @CacheRegisterSyscacheCallback(i32 noundef 66, ptr noundef nonnull @invalidate_syncing_table_states, i64 noundef 0) #10
+  call void @CacheRegisterSyscacheCallback(i32 noundef 68, ptr noundef nonnull @invalidate_syncing_table_states, i64 noundef 0) #10
   call void @set_apply_error_context_origin(ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %59 = load ptr, ptr @CurrentMemoryContext, align 8
-  %60 = load ptr, ptr @ApplyContext, align 8
-  %61 = call ptr @AllocSetContextCreateInternal(ptr noundef %60, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
-  store ptr %61, ptr @ApplyMessageContext, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @apply_error_callback, ptr %62, align 8
-  %63 = load ptr, ptr @error_context_stack, align 8
-  store ptr %63, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  %56 = load ptr, ptr @CurrentMemoryContext, align 8
+  %57 = load ptr, ptr @ApplyContext, align 8
+  %58 = call ptr @AllocSetContextCreateInternal(ptr noundef %57, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
+  store ptr %58, ptr @ApplyMessageContext, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @apply_error_callback, ptr %59, align 8
+  %60 = load ptr, ptr @error_context_stack, align 8
+  store ptr %60, ptr %2, align 8
   store ptr %2, ptr @error_context_stack, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %64
+
+64:                                               ; preds = %pa_process_spooled_messages_if_required.exit.thread.i, %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  %65 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i = icmp eq i32 %65, 0
+  br i1 %.not.i.i, label %67, label %66, !prof !10
+
+66:                                               ; preds = %64
+  call void @ProcessInterrupts() #10
   br label %67
 
-67:                                               ; preds = %pa_process_spooled_messages_if_required.exit.thread.i, %36
-  %68 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i = icmp eq i32 %68, 0
-  br i1 %.not.i.i, label %70, label %69
+67:                                               ; preds = %66, %64
+  %68 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not1.i.i = icmp eq i32 %68, 0
+  br i1 %.not1.i.i, label %77, label %69
 
 69:                                               ; preds = %67
-  call void @ProcessInterrupts() #10
-  br label %70
+  %70 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
+  br i1 %70, label %71, label %76
 
-70:                                               ; preds = %69, %67
-  %71 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not1.i.i = icmp eq i32 %71, 0
-  br i1 %.not1.i.i, label %80, label %72
-
-72:                                               ; preds = %70
-  %73 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
-  br i1 %73, label %74, label %79
-
-74:                                               ; preds = %72
-  %75 = load ptr, ptr @MySubscription, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %77) #10
+71:                                               ; preds = %69
+  %72 = load ptr, ptr @MySubscription, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %74) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 720, ptr noundef nonnull @__func__.ProcessParallelApplyInterrupts) #10
-  br label %79
+  br label %76
 
-79:                                               ; preds = %74, %72
+76:                                               ; preds = %71, %69
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 
-80:                                               ; preds = %70
-  %81 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not2.i.i = icmp eq i32 %81, 0
-  br i1 %.not2.i.i, label %ProcessParallelApplyInterrupts.exit.i, label %82
+77:                                               ; preds = %67
+  %78 = load volatile i32, ptr @ConfigReloadPending, align 4
+  %.not2.i.i = icmp eq i32 %78, 0
+  br i1 %.not2.i.i, label %ProcessParallelApplyInterrupts.exit.i, label %79
 
-82:                                               ; preds = %80
+79:                                               ; preds = %77
   store volatile i32 0, ptr @ConfigReloadPending, align 4
   call void @ProcessConfigFile(i32 noundef 2) #10
   br label %ProcessParallelApplyInterrupts.exit.i
 
-ProcessParallelApplyInterrupts.exit.i:            ; preds = %82, %80
-  %83 = load ptr, ptr @ApplyMessageContext, align 8
-  store ptr %83, ptr @CurrentMemoryContext, align 8
-  %84 = call i32 @shm_mq_receive(ptr noundef %29, ptr noundef nonnull %4, ptr noundef nonnull %3, i1 noundef zeroext true) #10
-  switch i32 %84, label %155 [
-    i32 0, label %85
-    i32 1, label %101
+ProcessParallelApplyInterrupts.exit.i:            ; preds = %79, %77
+  %80 = load ptr, ptr @ApplyMessageContext, align 8
+  store ptr %80, ptr @CurrentMemoryContext, align 8
+  %81 = call i32 @shm_mq_receive(ptr noundef %26, ptr noundef nonnull %4, ptr noundef nonnull %3, i1 noundef zeroext true) #10
+  switch i32 %81, label %152 [
+    i32 0, label %82
+    i32 1, label %98
   ]
 
-85:                                               ; preds = %ProcessParallelApplyInterrupts.exit.i
-  %86 = load i64, ptr %4, align 8
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %91
+82:                                               ; preds = %ProcessParallelApplyInterrupts.exit.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  %83 = load i64, ptr %4, align 8
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %88
 
-88:                                               ; preds = %85
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
+85:                                               ; preds = %82
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %86)
+  %87 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 774, ptr noundef nonnull @__func__.LogicalParallelApplyLoop) #10
   unreachable
 
-91:                                               ; preds = %85
-  %92 = load ptr, ptr %3, align 8
-  %93 = trunc i64 %86 to i32
-  store ptr %92, ptr %5, align 8
-  store i32 %93, ptr %64, align 8
-  store i32 0, ptr %65, align 4
-  store i32 0, ptr %66, align 8
-  %94 = call i32 @pq_getmsgbyte(ptr noundef nonnull %5) #10
-  %.not8.i = icmp eq i32 %94, 119
-  br i1 %.not8.i, label %98, label %95
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %3, align 8
+  %90 = trunc i64 %83 to i32
+  store ptr %89, ptr %5, align 8
+  store i32 %90, ptr %61, align 8
+  store i32 0, ptr %62, align 4
+  store i32 0, ptr %63, align 8
+  %91 = call i32 @pq_getmsgbyte(ptr noundef nonnull %5) #10
+  %.not8.i = icmp eq i32 %91, 119
+  br i1 %.not8.i, label %95, label %92
 
-95:                                               ; preds = %91
-  %96 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %96)
-  %97 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %94) #10
+92:                                               ; preds = %88
+  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %93)
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %91) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 784, ptr noundef nonnull @__func__.LogicalParallelApplyLoop) #10
   unreachable
 
-98:                                               ; preds = %91
-  %99 = load i32, ptr %66, align 8
-  %100 = add i32 %99, 24
-  store i32 %100, ptr %66, align 8
+95:                                               ; preds = %88
+  %96 = load i32, ptr %63, align 8
+  %97 = add i32 %96, 24
+  store i32 %97, ptr %63, align 8
   call void @apply_dispatch(ptr noundef nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
   br label %pa_process_spooled_messages_if_required.exit.thread.i
 
-101:                                              ; preds = %ProcessParallelApplyInterrupts.exit.i
-  %102 = load ptr, ptr @MyParallelShared, align 8
-  %103 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %102, i8 1, ptr elementtype(i8) %102) #10, !srcloc !6
-  %.not.i.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i.i, label %pa_get_fileset_state.exit.i.i, label %104
+98:                                               ; preds = %ProcessParallelApplyInterrupts.exit.i
+  %99 = load ptr, ptr @MyParallelShared, align 8
+  %100 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %99, i8 1, ptr elementtype(i8) %99) #10, !srcloc !7
+  %.not.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i, label %pa_get_fileset_state.exit.i.i, label %101
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr @MyParallelShared, align 8
-  %106 = call i32 @s_lock(ptr noundef %105, ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.pa_get_fileset_state) #10
+101:                                              ; preds = %98
+  %102 = load ptr, ptr @MyParallelShared, align 8
+  %103 = call i32 @s_lock(ptr noundef %102, ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.pa_get_fileset_state) #10
   br label %pa_get_fileset_state.exit.i.i
 
-pa_get_fileset_state.exit.i.i:                    ; preds = %104, %101
+pa_get_fileset_state.exit.i.i:                    ; preds = %101, %98
+  %104 = load ptr, ptr @MyParallelShared, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %106 = load i32, ptr %105, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %107 = load ptr, ptr @MyParallelShared, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load i32, ptr %108, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
-  %110 = load ptr, ptr @MyParallelShared, align 8
-  store i8 0, ptr %110, align 8
-  switch i32 %109, label %133 [
+  store i8 0, ptr %107, align 8
+  switch i32 %106, label %130 [
     i32 0, label %pa_process_spooled_messages_if_required.exit.i
-    i32 1, label %111
+    i32 1, label %108
   ]
 
-111:                                              ; preds = %pa_get_fileset_state.exit.i.i
-  %112 = load ptr, ptr @MyParallelShared, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %117 = load i32, ptr %116, align 8
-  call void @LockApplyTransactionForSession(i32 noundef %117, i32 noundef %114, i16 noundef zeroext 0, i32 noundef 1) #10
-  %118 = load ptr, ptr @MyParallelShared, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %120 = load i32, ptr %119, align 4
-  %121 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
-  %123 = load i32, ptr %122, align 8
-  call void @UnlockApplyTransactionForSession(i32 noundef %123, i32 noundef %120, i16 noundef zeroext 0, i32 noundef 1) #10
-  %124 = load ptr, ptr @MyParallelShared, align 8
-  %125 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124, i8 1, ptr elementtype(i8) %124) #10, !srcloc !6
-  %.not.i6.i.i = icmp eq i8 %125, 0
-  br i1 %.not.i6.i.i, label %pa_get_fileset_state.exit7.i.i, label %126
+108:                                              ; preds = %pa_get_fileset_state.exit.i.i
+  %109 = load ptr, ptr @MyParallelShared, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %111 = load i32, ptr %110, align 4
+  %112 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %114 = load i32, ptr %113, align 8
+  call void @LockApplyTransactionForSession(i32 noundef %114, i32 noundef %111, i16 noundef zeroext 0, i32 noundef 1) #10
+  %115 = load ptr, ptr @MyParallelShared, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %117 = load i32, ptr %116, align 4
+  %118 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
+  %120 = load i32, ptr %119, align 8
+  call void @UnlockApplyTransactionForSession(i32 noundef %120, i32 noundef %117, i16 noundef zeroext 0, i32 noundef 1) #10
+  %121 = load ptr, ptr @MyParallelShared, align 8
+  %122 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %121, i8 1, ptr elementtype(i8) %121) #10, !srcloc !7
+  %.not.i6.i.i = icmp eq i8 %122, 0
+  br i1 %.not.i6.i.i, label %pa_get_fileset_state.exit7.i.i, label %123
 
-126:                                              ; preds = %111
-  %127 = load ptr, ptr @MyParallelShared, align 8
-  %128 = call i32 @s_lock(ptr noundef %127, ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.pa_get_fileset_state) #10
+123:                                              ; preds = %108
+  %124 = load ptr, ptr @MyParallelShared, align 8
+  %125 = call i32 @s_lock(ptr noundef %124, ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.pa_get_fileset_state) #10
   br label %pa_get_fileset_state.exit7.i.i
 
-pa_get_fileset_state.exit7.i.i:                   ; preds = %126, %111
+pa_get_fileset_state.exit7.i.i:                   ; preds = %123, %108
+  %126 = load ptr, ptr @MyParallelShared, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %128 = load i32, ptr %127, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %129 = load ptr, ptr @MyParallelShared, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %131 = load i32, ptr %130, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
-  %132 = load ptr, ptr @MyParallelShared, align 8
-  store i8 0, ptr %132, align 8
-  br label %133
+  store i8 0, ptr %129, align 8
+  br label %130
 
-133:                                              ; preds = %pa_get_fileset_state.exit7.i.i, %pa_get_fileset_state.exit.i.i
-  %.0.i.i = phi i32 [ %131, %pa_get_fileset_state.exit7.i.i ], [ %109, %pa_get_fileset_state.exit.i.i ]
+130:                                              ; preds = %pa_get_fileset_state.exit7.i.i, %pa_get_fileset_state.exit.i.i
+  %.0.i.i = phi i32 [ %128, %pa_get_fileset_state.exit7.i.i ], [ %106, %pa_get_fileset_state.exit.i.i ]
   switch i32 %.0.i.i, label %pa_process_spooled_messages_if_required.exit.thread.i [
-    i32 2, label %134
-    i32 3, label %140
+    i32 2, label %131
+    i32 3, label %137
   ]
 
-134:                                              ; preds = %133
-  %135 = load ptr, ptr @MyParallelShared, align 8
-  %136 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %135, i8 1, ptr elementtype(i8) %135) #10, !srcloc !6
-  %.not.i8.i.i = icmp eq i8 %136, 0
-  br i1 %.not.i8.i.i, label %pa_set_fileset_state.exit.i.i, label %137
+131:                                              ; preds = %130
+  %132 = load ptr, ptr @MyParallelShared, align 8
+  %133 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %132, i8 1, ptr elementtype(i8) %132) #10, !srcloc !7
+  %.not.i8.i.i = icmp eq i8 %133, 0
+  br i1 %.not.i8.i.i, label %pa_set_fileset_state.exit.i.i, label %134
 
-137:                                              ; preds = %134
-  %138 = call i32 @s_lock(ptr noundef %135, ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @__func__.pa_set_fileset_state) #10
+134:                                              ; preds = %131
+  %135 = call i32 @s_lock(ptr noundef %132, ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @__func__.pa_set_fileset_state) #10
   br label %pa_set_fileset_state.exit.i.i
 
-pa_set_fileset_state.exit.i.i:                    ; preds = %137, %134
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store i32 3, ptr %139, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+pa_set_fileset_state.exit.i.i:                    ; preds = %134, %131
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 32
+  store i32 3, ptr %136, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   br label %.sink.split.i.i
 
-140:                                              ; preds = %133
-  %141 = load ptr, ptr @MyParallelShared, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 36
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %144 = load i32, ptr %143, align 4
-  call void @apply_spooled_messages(ptr noundef nonnull %142, i32 noundef %144, i64 noundef 0) #10
-  %145 = load ptr, ptr @MyParallelShared, align 8
-  %146 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %145, i8 1, ptr elementtype(i8) %145) #10, !srcloc !6
-  %.not.i9.i.i = icmp eq i8 %146, 0
-  br i1 %.not.i9.i.i, label %pa_set_fileset_state.exit10.i.i, label %147
+137:                                              ; preds = %130
+  %138 = load ptr, ptr @MyParallelShared, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 36
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %141 = load i32, ptr %140, align 4
+  call void @apply_spooled_messages(ptr noundef nonnull %139, i32 noundef %141, i64 noundef 0) #10
+  %142 = load ptr, ptr @MyParallelShared, align 8
+  %143 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %142, i8 1, ptr elementtype(i8) %142) #10, !srcloc !7
+  %.not.i9.i.i = icmp eq i8 %143, 0
+  br i1 %.not.i9.i.i, label %pa_set_fileset_state.exit10.i.i, label %144
 
-147:                                              ; preds = %140
-  %148 = call i32 @s_lock(ptr noundef %145, ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @__func__.pa_set_fileset_state) #10
+144:                                              ; preds = %137
+  %145 = call i32 @s_lock(ptr noundef %142, ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @__func__.pa_set_fileset_state) #10
   br label %pa_set_fileset_state.exit10.i.i
 
-pa_set_fileset_state.exit10.i.i:                  ; preds = %147, %140
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  store i32 0, ptr %149, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+pa_set_fileset_state.exit10.i.i:                  ; preds = %144, %137
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 32
+  store i32 0, ptr %146, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %pa_set_fileset_state.exit10.i.i, %pa_set_fileset_state.exit.i.i
-  %.sink.i.i = phi ptr [ %135, %pa_set_fileset_state.exit.i.i ], [ %145, %pa_set_fileset_state.exit10.i.i ]
+  %.sink.i.i = phi ptr [ %132, %pa_set_fileset_state.exit.i.i ], [ %142, %pa_set_fileset_state.exit10.i.i ]
   store i8 0, ptr %.sink.i.i, align 8
   br label %pa_process_spooled_messages_if_required.exit.thread.i
 
 pa_process_spooled_messages_if_required.exit.i:   ; preds = %pa_get_fileset_state.exit.i.i
-  %150 = load ptr, ptr @MyLatch, align 8
-  %151 = call i32 @WaitLatch(ptr noundef %150, i32 noundef 41, i64 noundef 1000, i32 noundef 83886087) #10
-  %152 = and i32 %151, 1
-  %.not.i = icmp eq i32 %152, 0
-  br i1 %.not.i, label %pa_process_spooled_messages_if_required.exit.thread.i, label %153
+  %147 = load ptr, ptr @MyLatch, align 8
+  %148 = call i32 @WaitLatch(ptr noundef %147, i32 noundef 41, i64 noundef 1000, i32 noundef 83886088) #10
+  %149 = and i32 %148, 1
+  %.not.i = icmp eq i32 %149, 0
+  br i1 %.not.i, label %pa_process_spooled_messages_if_required.exit.thread.i, label %150
 
-153:                                              ; preds = %pa_process_spooled_messages_if_required.exit.i
-  %154 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %154) #10
+150:                                              ; preds = %pa_process_spooled_messages_if_required.exit.i
+  %151 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %151) #10
   br label %pa_process_spooled_messages_if_required.exit.thread.i
 
-155:                                              ; preds = %ProcessParallelApplyInterrupts.exit.i
-  %156 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %156)
-  %157 = call i32 @errcode(i32 noundef 325) #10
-  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #10
+152:                                              ; preds = %ProcessParallelApplyInterrupts.exit.i
+  %153 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %153)
+  %154 = call i32 @errcode(i32 noundef 325) #10
+  %155 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 822, ptr noundef nonnull @__func__.LogicalParallelApplyLoop) #10
   unreachable
 
-pa_process_spooled_messages_if_required.exit.thread.i: ; preds = %153, %pa_process_spooled_messages_if_required.exit.i, %.sink.split.i.i, %133, %98
-  %159 = load ptr, ptr @ApplyMessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %159) #10
-  store ptr %59, ptr @CurrentMemoryContext, align 8
-  br label %67
+pa_process_spooled_messages_if_required.exit.thread.i: ; preds = %150, %pa_process_spooled_messages_if_required.exit.i, %.sink.split.i.i, %130, %95
+  %156 = load ptr, ptr @ApplyMessageContext, align 8
+  call void @MemoryContextReset(ptr noundef %156) #10
+  store ptr %56, ptr @CurrentMemoryContext, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  br label %64
 }
 
-declare ptr @pqsignal(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @SignalHandlerForConfigReload(i32 noundef) #2
+declare void @SignalHandlerForConfigReload(i32 noundef) #3
 
-declare void @SignalHandlerForShutdownRequest(i32 noundef) #2
+declare void @SignalHandlerForShutdownRequest(i32 noundef) #3
 
-declare void @die(i32 noundef) #2
+declare void @die(i32 noundef) #3
 
-declare void @BackgroundWorkerUnblockSignals() local_unnamed_addr #2
+declare void @BackgroundWorkerUnblockSignals() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare ptr @dsm_attach(i32 noundef) local_unnamed_addr #2
+declare ptr @dsm_attach(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @shm_toc_attach(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @shm_toc_attach(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #2
+declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #3
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @shm_mq_set_receiver(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_set_receiver(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @shm_mq_attach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @shm_mq_attach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @logicalrep_worker_attach(i32 noundef) local_unnamed_addr #2
+declare void @logicalrep_worker_attach(i32 noundef) local_unnamed_addr #3
 
-declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @pa_shutdown(i32 %0, i64 noundef %1) #0 {
@@ -773,29 +789,29 @@ define internal void @pa_shutdown(i32 %0, i64 noundef %1) #0 {
   ret void
 }
 
-declare void @shm_mq_set_sender(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_set_sender(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pq_redirect_to_shm_mq(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pq_redirect_to_shm_mq(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pq_set_parallel_leader(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @pq_set_parallel_leader(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @InitializeLogRepWorker() local_unnamed_addr #2
+declare void @InitializeLogRepWorker() local_unnamed_addr #3
 
-declare void @StartTransactionCommand() local_unnamed_addr #2
+declare void @StartTransactionCommand() local_unnamed_addr #3
 
-declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @replorigin_session_setup(i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @replorigin_session_setup(i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
-declare void @CommitTransactionCommand() local_unnamed_addr #2
+declare void @CommitTransactionCommand() local_unnamed_addr #3
 
-declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @invalidate_syncing_table_states(i64 noundef, i32 noundef, i32 noundef) #2
+declare void @invalidate_syncing_table_states(i64 noundef, i32 noundef, i32 noundef) #3
 
-declare void @set_apply_error_context_origin(ptr noundef) local_unnamed_addr #2
+declare void @set_apply_error_context_origin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @HandleParallelApplyMessageInterrupt() local_unnamed_addr #0 {
@@ -806,7 +822,7 @@ define dso_local void @HandleParallelApplyMessageInterrupt() local_unnamed_addr 
   ret void
 }
 
-declare void @SetLatch(ptr noundef) local_unnamed_addr #2
+declare void @SetLatch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
@@ -848,130 +864,135 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph26, label %._crit_edge
 
-.lr.ph26:                                         ; preds = %.lr.ph, %55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
-  %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not15 = icmp eq ptr %24, null
-  br i1 %.not15, label %55, label %25
+._crit_edge.loopexit:                             ; preds = %58
+  %.pre29 = load ptr, ptr @HandleParallelApplyMessages.hpam_context, align 8
+  br label %._crit_edge
 
-25:                                               ; preds = %.lr.ph26
-  %26 = call i32 @shm_mq_receive(ptr noundef nonnull %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #10
-  switch i32 %26, label %.split [
-    i32 1, label %55
-    i32 0, label %27
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %12
+  %20 = phi ptr [ %.pre29, %._crit_edge.loopexit ], [ %13, %.lr.ph ], [ %13, %12 ]
+  store ptr %14, ptr @CurrentMemoryContext, align 8
+  call void @MemoryContextReset(ptr noundef %20) #10
+  %21 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %22 = add i32 %21, -1
+  store volatile i32 %22, ptr @InterruptHoldoffCount, align 4
+  ret void
+
+.lr.ph26:                                         ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
+  %23 = load ptr, ptr %17, align 8
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not15 = icmp eq ptr %27, null
+  br i1 %.not15, label %58, label %28
+
+28:                                               ; preds = %.lr.ph26
+  %29 = call i32 @shm_mq_receive(ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #10
+  switch i32 %29, label %.split [
+    i32 1, label %58
+    i32 0, label %30
   ]
 
-27:                                               ; preds = %25
+30:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   call void @initStringInfo(ptr noundef nonnull %4) #10
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i64, ptr %2, align 8
-  %30 = trunc i64 %29 to i32
-  call void @appendBinaryStringInfo(ptr noundef nonnull %4, ptr noundef %28, i32 noundef %30) #10
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %1)
-  %31 = call i32 @pq_getmsgbyte(ptr noundef nonnull %4) #10
-  %sext.i = shl i32 %31, 24
-  %32 = ashr exact i32 %sext.i, 24
-  switch i32 %32, label %.split22 [
+  %31 = load ptr, ptr %3, align 8
+  %32 = load i64, ptr %2, align 8
+  %33 = trunc i64 %32 to i32
+  call void @appendBinaryStringInfo(ptr noundef nonnull %4, ptr noundef %31, i32 noundef %33) #10
+  %34 = call i32 @pq_getmsgbyte(ptr noundef nonnull %4) #10
+  %sext.i = shl i32 %34, 24
+  %35 = ashr exact i32 %sext.i, 24
+  switch i32 %35, label %.split22 [
     i32 69, label %.split24
     i32 78, label %HandleParallelApplyMessage.exit
     i32 65, label %HandleParallelApplyMessage.exit
   ]
 
-.split24:                                         ; preds = %27
+.split24:                                         ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %1) #10
   call void @pq_parse_errornotice(ptr noundef nonnull %4, ptr noundef nonnull %1) #10
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %34 = load ptr, ptr %33, align 8
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %37, label %35
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %37 = load ptr, ptr %36, align 8
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %40, label %38
 
-35:                                               ; preds = %.split24
-  %36 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, ptr noundef nonnull %34, ptr noundef nonnull @.str.18) #10
-  br label %39
+38:                                               ; preds = %.split24
+  %39 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, ptr noundef nonnull %37, ptr noundef nonnull @.str.18) #10
+  br label %42
 
-37:                                               ; preds = %.split24
-  %38 = call ptr @pstrdup(ptr noundef nonnull @.str.18) #10
-  br label %39
+40:                                               ; preds = %.split24
+  %41 = call ptr @pstrdup(ptr noundef nonnull @.str.18) #10
+  br label %42
 
-39:                                               ; preds = %37, %35
-  %storemerge.i = phi ptr [ %38, %37 ], [ %36, %35 ]
-  store ptr %storemerge.i, ptr %33, align 8
-  %40 = load ptr, ptr @apply_error_context_stack, align 8
-  store ptr %40, ptr @error_context_stack, align 8
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode(i32 noundef 325) #10
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #10
-  %44 = call i32 @set_errcontext_domain(ptr noundef null) #10
-  %45 = load ptr, ptr %33, align 8
-  %46 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.20, ptr noundef %45) #10
+42:                                               ; preds = %40, %38
+  %storemerge.i = phi ptr [ %41, %40 ], [ %39, %38 ]
+  store ptr %storemerge.i, ptr %36, align 8
+  %43 = load ptr, ptr @apply_error_context_stack, align 8
+  store ptr %43, ptr @error_context_stack, align 8
+  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %44)
+  %45 = call i32 @errcode(i32 noundef 325) #10
+  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #10
+  %47 = call i32 @set_errcontext_domain(ptr noundef null) #10
+  %48 = load ptr, ptr %36, align 8
+  %49 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.20, ptr noundef %48) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1041, ptr noundef nonnull @__func__.HandleParallelApplyMessage) #10
   unreachable
 
-.split22:                                         ; preds = %27
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %32, i32 noundef %49) #10
+.split22:                                         ; preds = %30
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %50)
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = load i32, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %35, i32 noundef %52) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1055, ptr noundef nonnull @__func__.HandleParallelApplyMessage) #10
   unreachable
 
-HandleParallelApplyMessage.exit:                  ; preds = %27, %27
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %1)
-  %51 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %51) #10
-  br label %55
+HandleParallelApplyMessage.exit:                  ; preds = %30, %30
+  %54 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %54) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  br label %58
 
-.split:                                           ; preds = %25
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %52)
-  %53 = call i32 @errcode(i32 noundef 325) #10
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
+.split:                                           ; preds = %28
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %55)
+  %56 = call i32 @errcode(i32 noundef 325) #10
+  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1127, ptr noundef nonnull @.str.5) #10
   unreachable
 
-55:                                               ; preds = %25, %.lr.ph26, %HandleParallelApplyMessage.exit
+58:                                               ; preds = %28, %.lr.ph26, %HandleParallelApplyMessage.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr %16, align 4
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph26, label %._crit_edge.loopexit
-
-._crit_edge.loopexit:                             ; preds = %55
-  %.pre29 = load ptr, ptr @HandleParallelApplyMessages.hpam_context, align 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %12
-  %59 = phi ptr [ %.pre29, %._crit_edge.loopexit ], [ %13, %.lr.ph ], [ %13, %12 ]
-  store ptr %14, ptr @CurrentMemoryContext, align 8
-  call void @MemoryContextReset(ptr noundef %59) #10
-  %60 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %61 = add i32 %60, -1
-  store volatile i32 %61, ptr @InterruptHoldoffCount, align 4
-  ret void
+  %59 = load i32, ptr %16, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %61, label %.lr.ph26, label %._crit_edge.loopexit
 }
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #3
 
-declare i32 @shm_mq_receive(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @shm_mq_receive(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @debug_logical_replication_streaming, align 4
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %.loopexit, label %.preheader.outer
+  br i1 %5, label %.loopexit, label %.preheader.outer, !prof !13
 
 .preheader.outer:                                 ; preds = %21, %3
   %.0.ph = phi i64 [ 0, %3 ], [ %22, %21 ]
@@ -1006,13 +1027,13 @@ define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(
   tail call void @ResetLatch(ptr noundef %18) #10
   %19 = load volatile i32, ptr @InterruptPending, align 4
   %.not10 = icmp eq i32 %19, 0
-  br i1 %.not10, label %21, label %20
+  br i1 %.not10, label %21, label %20, !prof !10
 
 20:                                               ; preds = %17
   tail call void @ProcessInterrupts() #10
   br label %21
 
-21:                                               ; preds = %20, %17, %13
+21:                                               ; preds = %17, %20, %13
   %22 = tail call i64 @GetCurrentTimestamp() #10
   br i1 %6, label %.preheader.outer, label %23
 
@@ -1025,17 +1046,17 @@ define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(
   ret i1 %.08
 }
 
-declare i32 @shm_mq_send(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @shm_mq_send(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #2
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #3
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #3
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #3
 
-declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_switch_to_partial_serialize(ptr noundef captures(none) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -1073,7 +1094,7 @@ define dso_local void @pa_switch_to_partial_serialize(ptr noundef captures(none)
 
 23:                                               ; preds = %16, %10
   %24 = load ptr, ptr %12, align 8
-  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i8 1, ptr elementtype(i8) %24) #10, !srcloc !6
+  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i8 1, ptr elementtype(i8) %24) #10, !srcloc !7
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %pa_set_fileset_state.exit, label %26
 
@@ -1084,12 +1105,12 @@ define dso_local void @pa_switch_to_partial_serialize(ptr noundef captures(none)
 pa_set_fileset_state.exit:                        ; preds = %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 1, ptr %28, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store i8 0, ptr %24, align 8
   ret void
 }
 
-declare void @stream_start_internal(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @stream_start_internal(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_lock_stream(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1102,7 +1123,7 @@ define dso_local void @pa_lock_stream(i32 noundef %0, i32 noundef %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_set_fileset_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #10, !srcloc !6
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #10, !srcloc !7
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -1125,14 +1146,14 @@ define dso_local void @pa_set_fileset_state(ptr noundef %0, i32 noundef %1) loca
   br label %14
 
 14:                                               ; preds = %6, %9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store i8 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_set_xact_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #10, !srcloc !6
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #10, !srcloc !7
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -1143,13 +1164,13 @@ define dso_local void @pa_set_xact_state(ptr noundef %0, i32 noundef %1) local_u
 6:                                                ; preds = %2, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @pa_set_stream_apply_worker(ptr noundef %0) local_unnamed_addr #6 {
+define dso_local void @pa_set_stream_apply_worker(ptr noundef %0) local_unnamed_addr #7 {
   store ptr %0, ptr @stream_apply_worker, align 8
   ret void
 }
@@ -1166,6 +1187,7 @@ define dso_local void @pa_start_subtrans(i32 noundef %0, i32 noundef %1) local_u
   br i1 %6, label %25, label %7
 
 7:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
   %8 = load ptr, ptr @MySubscription, align 8
   %9 = load i32, ptr %8, align 8
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %9, i32 noundef %0) #10
@@ -1177,7 +1199,7 @@ define dso_local void @pa_start_subtrans(i32 noundef %0, i32 noundef %1) local_u
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1373, ptr noundef nonnull @__func__.pa_start_subtrans) #10
   br label %14
 
-14:                                               ; preds = %7, %12
+14:                                               ; preds = %12, %7
   %15 = call zeroext i1 @IsTransactionBlock() #10
   br i1 %15, label %20, label %16
 
@@ -1204,26 +1226,27 @@ define dso_local void @pa_start_subtrans(i32 noundef %0, i32 noundef %1) local_u
   %24 = call ptr @lappend_xid(ptr noundef %23, i32 noundef %0) #10
   store ptr %24, ptr @subxactlist, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
   br label %25
 
 25:                                               ; preds = %20, %4, %2
   ret void
 }
 
-declare zeroext i1 @list_member_xid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @list_member_xid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @IsTransactionBlock() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionBlock() local_unnamed_addr #3
 
-declare zeroext i1 @IsTransactionState() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionState() local_unnamed_addr #3
 
-declare void @BeginTransactionBlock() local_unnamed_addr #2
+declare void @BeginTransactionBlock() local_unnamed_addr #3
 
-declare void @DefineSavepoint(ptr noundef) local_unnamed_addr #2
+declare void @DefineSavepoint(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lappend_xid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lappend_xid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @pa_reset_subtrans() local_unnamed_addr #6 {
+define dso_local void @pa_reset_subtrans() local_unnamed_addr #7 {
   store ptr null, ptr @subxactlist, align 8
   ret void
 }
@@ -1245,7 +1268,7 @@ define dso_local void @pa_stream_abort(ptr noundef readonly captures(none) %0) l
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @MyParallelShared, align 8
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i8 1, ptr elementtype(i8) %12) #10, !srcloc !6
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i8 1, ptr elementtype(i8) %12) #10, !srcloc !7
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %pa_set_xact_state.exit, label %14
 
@@ -1256,7 +1279,7 @@ define dso_local void @pa_stream_abort(ptr noundef readonly captures(none) %0) l
 pa_set_xact_state.exit:                           ; preds = %11, %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %12, align 8
   %17 = load ptr, ptr @MyLogicalRepWorker, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1274,9 +1297,10 @@ pa_set_xact_state.exit:                           ; preds = %11, %14
 23:                                               ; preds = %21, %pa_set_xact_state.exit
   store ptr null, ptr @subxactlist, align 8
   tail call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #10
-  br label %.loopexit
+  br label %48
 
 24:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
   %25 = load ptr, ptr @MySubscription, align 8
   %26 = load i32, ptr %25, align 8
   %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %26, i32 noundef %5) #10
@@ -1288,10 +1312,10 @@ pa_set_xact_state.exit:                           ; preds = %11, %14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1468, ptr noundef nonnull @__func__.pa_stream_abort) #10
   br label %31
 
-31:                                               ; preds = %24, %29
+31:                                               ; preds = %29, %24
   %32 = load ptr, ptr @subxactlist, align 8
-  %.not.i15 = icmp eq ptr %32, null
-  br i1 %.not.i15, label %list_length.exit, label %33
+  %.not.i17 = icmp eq ptr %32, null
+  br i1 %.not.i17, label %list_length.exit, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -1314,20 +1338,24 @@ list_length.exit:                                 ; preds = %31, %33
 41:                                               ; preds = %39
   %.val = load ptr, ptr %38, align 8
   %42 = and i64 %indvars.iv.next, 2147483647
-  %43 = getelementptr %union.ListCell, ptr %.val, i64 %42
+  %43 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %5
-  br i1 %45, label %46, label %39, !llvm.loop !12
+  br i1 %45, label %.thread, label %39, !llvm.loop !15
 
-46:                                               ; preds = %41
+.thread:                                          ; preds = %41
   call void @RollbackToSavepoint(ptr noundef nonnull %2) #10
   call void @CommitTransactionCommand() #10
-  %47 = load ptr, ptr @subxactlist, align 8
-  %48 = call ptr @list_truncate(ptr noundef %47, i32 noundef %indvars) #10
-  store ptr %48, ptr @subxactlist, align 8
+  %46 = load ptr, ptr @subxactlist, align 8
+  %47 = call ptr @list_truncate(ptr noundef %46, i32 noundef %indvars) #10
+  store ptr %47, ptr @subxactlist, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %39, %46, %23
+.loopexit:                                        ; preds = %39, %.thread
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
+  br label %48
+
+48:                                               ; preds = %.loopexit, %23
   ret void
 }
 
@@ -1340,17 +1368,17 @@ define dso_local void @pa_unlock_transaction(i32 noundef %0, i32 noundef %1) loc
   ret void
 }
 
-declare void @AbortCurrentTransaction() local_unnamed_addr #2
+declare void @AbortCurrentTransaction() local_unnamed_addr #3
 
-declare zeroext i1 @EndTransactionBlock(i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @EndTransactionBlock(i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @RollbackToSavepoint(ptr noundef) local_unnamed_addr #2
+declare void @RollbackToSavepoint(ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @LockApplyTransactionForSession(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @LockApplyTransactionForSession(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_unlock_stream(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1361,7 +1389,7 @@ define dso_local void @pa_unlock_stream(i32 noundef %0, i32 noundef %1) local_un
   ret void
 }
 
-declare void @UnlockApplyTransactionForSession(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @UnlockApplyTransactionForSession(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_lock_transaction(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1381,7 +1409,7 @@ define dso_local void @pa_decr_and_wait_stream_block() local_unnamed_addr #0 {
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %0
-  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #10, !srcloc !6
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i8 1, ptr nonnull elementtype(i8) %1) #10, !srcloc !7
   %.not.i.i = icmp eq i8 %6, 0
   br i1 %.not.i.i, label %pa_has_spooled_message_pending.exit, label %7
 
@@ -1394,7 +1422,7 @@ pa_has_spooled_message_pending.exit:              ; preds = %5, %7
   %10 = load ptr, ptr @MyParallelShared, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %13 = load ptr, ptr @MyParallelShared, align 8
   store i8 0, ptr %13, align 8
   %.not = icmp eq i32 %12, 0
@@ -1447,7 +1475,7 @@ define dso_local void @pa_xact_finish(ptr noundef %0, i64 noundef %1) local_unna
 
 10:                                               ; preds = %.backedge, %2
   %11 = load ptr, ptr %3, align 8
-  %12 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i8 1, ptr elementtype(i8) %11) #10, !srcloc !6
+  %12 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i8 1, ptr elementtype(i8) %11) #10, !srcloc !7
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %pa_get_xact_state.exit.i.i, label %13
 
@@ -1458,7 +1486,7 @@ define dso_local void @pa_xact_finish(ptr noundef %0, i64 noundef %1) local_unna
 pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store i8 0, ptr %11, align 8
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %pa_wait_for_xact_state.exit.i
@@ -1470,7 +1498,7 @@ pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
   tail call void @ResetLatch(ptr noundef %20) #10
   %21 = load volatile i32, ptr @InterruptPending, align 4
   %.not1.i.i = icmp eq i32 %21, 0
-  br i1 %.not1.i.i, label %.backedge, label %22
+  br i1 %.not1.i.i, label %.backedge, label %22, !prof !10
 
 22:                                               ; preds = %17
   tail call void @ProcessInterrupts() #10
@@ -1495,7 +1523,7 @@ pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.e
   %34 = load i32, ptr %33, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %34, i32 noundef %31, i16 noundef zeroext 1, i32 noundef 1) #10
   %35 = load ptr, ptr %3, align 8
-  %36 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i8 1, ptr elementtype(i8) %35) #10, !srcloc !6
+  %36 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i8 1, ptr elementtype(i8) %35) #10, !srcloc !7
   %.not.i4.i = icmp eq i8 %36, 0
   br i1 %.not.i4.i, label %pa_get_xact_state.exit.i, label %37
 
@@ -1506,7 +1534,7 @@ pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.e
 pa_get_xact_state.exit.i:                         ; preds = %37, %pa_wait_for_xact_state.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = load i32, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store i8 0, ptr %35, align 8
   %.not.i = icmp eq i32 %40, 2
   br i1 %.not.i, label %pa_wait_for_xact_finish.exit, label %41
@@ -1547,8 +1575,8 @@ pa_wait_for_xact_finish.exit:                     ; preds = %pa_get_xact_state.e
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load i8, ptr %59, align 8
-  %61 = trunc i8 %60 to i1
+  %60 = load i8, ptr %59, align 8, !range !4, !noundef !5
+  %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %71, label %62
 
 62:                                               ; preds = %58
@@ -1583,19 +1611,19 @@ pa_free_worker.exit:                              ; preds = %71, %72
   ret void
 }
 
-declare void @store_flush_position(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @store_flush_position(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @maybe_reread_subscription() local_unnamed_addr #2
+declare void @maybe_reread_subscription() local_unnamed_addr #3
 
-declare zeroext i1 @AllTablesyncsReady() local_unnamed_addr #2
+declare zeroext i1 @AllTablesyncsReady() local_unnamed_addr #3
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @logicalrep_worker_launch(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @logicalrep_worker_launch(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dsm_segment_handle(ptr noundef) local_unnamed_addr #2
+declare i32 @dsm_segment_handle(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pa_free_worker_info(ptr noundef %0) unnamed_addr #0 {
@@ -1619,8 +1647,8 @@ define internal fastcc void @pa_free_worker_info(ptr noundef %0) unnamed_addr #0
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
+  %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %8
@@ -1652,92 +1680,89 @@ define internal fastcc void @pa_free_worker_info(ptr noundef %0) unnamed_addr #0
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @shm_toc_estimate(ptr noundef) local_unnamed_addr #2
+declare i64 @shm_toc_estimate(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dsm_create(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dsm_create(i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @shm_toc_create(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_create(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @shm_mq_create(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_mq_create(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @stream_cleanup_files(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @stream_cleanup_files(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @dsm_detach(ptr noundef) local_unnamed_addr #2
+declare void @dsm_detach(ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @list_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @apply_error_callback(ptr noundef) #2
+declare void @apply_error_callback(ptr noundef) #3
 
-declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #2
+declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #3
 
-declare void @apply_dispatch(ptr noundef) local_unnamed_addr #2
+declare void @apply_dispatch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #7
+declare void @proc_exit(i32 noundef) local_unnamed_addr #8
 
-declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #2
+declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #3
 
-declare void @apply_spooled_messages(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @apply_spooled_messages(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @pq_parse_errornotice(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pq_parse_errornotice(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @logicalrep_pa_worker_stop(ptr noundef) local_unnamed_addr #2
+declare void @logicalrep_pa_worker_stop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { cold nounwind }
 attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2150957106}
-!6 = !{i64 3002419, i64 3002435}
-!7 = !{i64 2150959428}
-!8 = !{i64 2150968480}
-!9 = !{i64 2150981476}
-!10 = !{i64 2150981118}
-!11 = !{i64 2150978607}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{i64 2150978905}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{i64 2151058861}
+!7 = !{i64 2060200, i64 2060216}
+!8 = !{i64 2151061183}
+!9 = !{i64 2151070271}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{i64 2151083267}
+!12 = !{i64 2151082909}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{i64 2151080398}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{i64 2151080696}

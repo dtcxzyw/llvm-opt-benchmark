@@ -77,7 +77,7 @@ define dso_local i32 @BlockSampler_Next(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %13, %11
   %14 = tail call double @pg_prng_double(ptr noundef nonnull %12) #6
   %15 = fcmp oeq double %14, 0.000000e+00
-  br i1 %15, label %13, label %sampler_random_fract.exit, !llvm.loop !5
+  br i1 %15, label %13, label %sampler_random_fract.exit, !prof !4, !llvm.loop !5
 
 sampler_random_fract.exit:                        ; preds = %13
   %16 = sitofp i32 %10 to double
@@ -123,7 +123,7 @@ define dso_local double @sampler_random_fract(ptr noundef %0) local_unnamed_addr
 2:                                                ; preds = %2, %1
   %3 = tail call double @pg_prng_double(ptr noundef %0) #6
   %4 = fcmp oeq double %3, 0.000000e+00
-  br i1 %4, label %2, label %5, !llvm.loop !5
+  br i1 %4, label %2, label %5, !prof !4, !llvm.loop !5
 
 5:                                                ; preds = %2
   ret double %3
@@ -140,7 +140,7 @@ define dso_local void @reservoir_init_selection_state(ptr noundef %0, i32 nounde
 6:                                                ; preds = %6, %2
   %7 = tail call double @pg_prng_double(ptr noundef nonnull %4) #6
   %8 = fcmp oeq double %7, 0.000000e+00
-  br i1 %8, label %6, label %sampler_random_fract.exit, !llvm.loop !5
+  br i1 %8, label %6, label %sampler_random_fract.exit, !prof !4, !llvm.loop !5
 
 sampler_random_fract.exit:                        ; preds = %6
   %9 = tail call double @log(double noundef %7) #6
@@ -174,26 +174,26 @@ define dso_local double @reservoir_get_next_S(ptr noundef %0, double noundef %1,
 9:                                                ; preds = %9, %7
   %10 = tail call double @pg_prng_double(ptr noundef nonnull %8) #6
   %11 = fcmp oeq double %10, 0.000000e+00
-  br i1 %11, label %9, label %sampler_random_fract.exit, !llvm.loop !5
+  br i1 %11, label %9, label %sampler_random_fract.exit, !prof !4, !llvm.loop !5
 
 sampler_random_fract.exit:                        ; preds = %9
   %12 = fadd double %1, 1.000000e+00
   %13 = fsub double %12, %4
   %14 = fdiv double %13, %12
   %15 = fcmp ogt double %14, %10
-  br i1 %15, label %.lr.ph, label %.loopexit92
+  br i1 %15, label %.lr.ph, label %.loopexit98
 
 .lr.ph:                                           ; preds = %sampler_random_fract.exit, %.lr.ph
-  %.0104 = phi double [ %17, %.lr.ph ], [ %12, %sampler_random_fract.exit ]
-  %.077103 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %sampler_random_fract.exit ]
-  %.078102 = phi double [ %20, %.lr.ph ], [ %14, %sampler_random_fract.exit ]
-  %16 = fadd double %.077103, 1.000000e+00
-  %17 = fadd double %.0104, 1.000000e+00
+  %.077110 = phi double [ %17, %.lr.ph ], [ %12, %sampler_random_fract.exit ]
+  %.079109 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %sampler_random_fract.exit ]
+  %.080108 = phi double [ %20, %.lr.ph ], [ %14, %sampler_random_fract.exit ]
+  %16 = fadd double %.079109, 1.000000e+00
+  %17 = fadd double %.077110, 1.000000e+00
   %18 = fsub double %17, %4
   %19 = fdiv double %18, %17
-  %20 = fmul double %.078102, %19
+  %20 = fmul double %.080108, %19
   %21 = fcmp ogt double %20, %10
-  br i1 %21, label %.lr.ph, label %.loopexit92, !llvm.loop !8
+  br i1 %21, label %.lr.ph, label %.loopexit98, !llvm.loop !8
 
 22:                                               ; preds = %3
   %23 = load double, ptr %0, align 8
@@ -204,17 +204,17 @@ sampler_random_fract.exit:                        ; preds = %9
   %28 = fdiv double %27, %25
   br label %29
 
-29:                                               ; preds = %sampler_random_fract.exit91, %22
-  %.079 = phi double [ %23, %22 ], [ %72, %sampler_random_fract.exit91 ]
+29:                                               ; preds = %sampler_random_fract.exit93, %22
+  %.081 = phi double [ %23, %22 ], [ %72, %sampler_random_fract.exit93 ]
   br label %30
 
 30:                                               ; preds = %30, %29
   %31 = tail call double @pg_prng_double(ptr noundef nonnull %26) #6
   %32 = fcmp oeq double %31, 0.000000e+00
-  br i1 %32, label %30, label %sampler_random_fract.exit90, !llvm.loop !5
+  br i1 %32, label %30, label %sampler_random_fract.exit92, !prof !4, !llvm.loop !5
 
-sampler_random_fract.exit90:                      ; preds = %30
-  %33 = fadd double %.079, -1.000000e+00
+sampler_random_fract.exit92:                      ; preds = %30
+  %33 = fadd double %.081, -1.000000e+00
   %34 = fmul double %1, %33
   %35 = tail call double @llvm.floor.f64(double %34)
   %36 = fmul double %28, %31
@@ -232,11 +232,11 @@ sampler_random_fract.exit90:                      ; preds = %30
   %48 = fcmp ugt double %44, %47
   br i1 %48, label %51, label %49
 
-49:                                               ; preds = %sampler_random_fract.exit90
+49:                                               ; preds = %sampler_random_fract.exit92
   %50 = fdiv double %47, %44
   br label %.loopexit
 
-51:                                               ; preds = %sampler_random_fract.exit90
+51:                                               ; preds = %sampler_random_fract.exit92
   %52 = fmul double %27, %31
   %53 = fdiv double %52, %25
   %54 = fadd double %1, %35
@@ -244,53 +244,53 @@ sampler_random_fract.exit90:                      ; preds = %30
   %56 = fmul double %55, %53
   %57 = fdiv double %56, %40
   %58 = fcmp ogt double %35, %4
-  %.084 = select i1 %58, double %38, double %27
-  %59 = fcmp ult double %54, %.084
-  br i1 %59, label %.preheader, label %.lr.ph108.preheader
+  %.086 = select i1 %58, double %38, double %27
+  %59 = fcmp ult double %54, %.086
+  br i1 %59, label %.preheader, label %.lr.ph114.preheader
 
-.lr.ph108.preheader:                              ; preds = %51
+.lr.ph114.preheader:                              ; preds = %51
   %60 = fadd double %24, %35
-  %.082 = select i1 %58, double %1, double %60
-  br label %.lr.ph108
+  %.084 = select i1 %58, double %1, double %60
+  br label %.lr.ph114
 
-.preheader:                                       ; preds = %.lr.ph108, %51
-  %.076.lcssa = phi double [ %57, %51 ], [ %62, %.lr.ph108 ]
+.preheader:                                       ; preds = %.lr.ph114, %51
+  %.078.lcssa = phi double [ %57, %51 ], [ %62, %.lr.ph114 ]
   br label %66
 
-.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
-  %.076107 = phi double [ %62, %.lr.ph108 ], [ %57, %.lr.ph108.preheader ]
-  %.081106 = phi double [ %64, %.lr.ph108 ], [ %54, %.lr.ph108.preheader ]
-  %.183105 = phi double [ %63, %.lr.ph108 ], [ %.082, %.lr.ph108.preheader ]
-  %61 = fdiv double %.081106, %.183105
-  %62 = fmul double %.076107, %61
-  %63 = fadd double %.183105, -1.000000e+00
-  %64 = fadd double %.081106, -1.000000e+00
-  %65 = fcmp ult double %64, %.084
-  br i1 %65, label %.preheader, label %.lr.ph108, !llvm.loop !9
+.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
+  %.078113 = phi double [ %62, %.lr.ph114 ], [ %57, %.lr.ph114.preheader ]
+  %.083112 = phi double [ %64, %.lr.ph114 ], [ %54, %.lr.ph114.preheader ]
+  %.185111 = phi double [ %63, %.lr.ph114 ], [ %.084, %.lr.ph114.preheader ]
+  %61 = fdiv double %.083112, %.185111
+  %62 = fmul double %.078113, %61
+  %63 = fadd double %.185111, -1.000000e+00
+  %64 = fadd double %.083112, -1.000000e+00
+  %65 = fcmp ult double %64, %.086
+  br i1 %65, label %.preheader, label %.lr.ph114, !llvm.loop !9
 
 66:                                               ; preds = %.preheader, %66
   %67 = tail call double @pg_prng_double(ptr noundef nonnull %26) #6
   %68 = fcmp oeq double %67, 0.000000e+00
-  br i1 %68, label %66, label %sampler_random_fract.exit91, !llvm.loop !5
+  br i1 %68, label %66, label %sampler_random_fract.exit93, !prof !4, !llvm.loop !5
 
-sampler_random_fract.exit91:                      ; preds = %66
+sampler_random_fract.exit93:                      ; preds = %66
   %69 = tail call double @log(double noundef %67) #6
   %70 = fneg double %69
   %71 = fdiv double %70, %4
   %72 = tail call double @exp(double noundef %71) #6
-  %73 = tail call double @log(double noundef %.076.lcssa) #6
+  %73 = tail call double @log(double noundef %.078.lcssa) #6
   %74 = fdiv double %73, %4
   %75 = tail call double @exp(double noundef %74) #6
   %76 = fdiv double %40, %1
   %77 = fcmp ugt double %75, %76
   br i1 %77, label %29, label %.loopexit
 
-.loopexit:                                        ; preds = %sampler_random_fract.exit91, %49
-  %.180 = phi double [ %50, %49 ], [ %72, %sampler_random_fract.exit91 ]
-  store double %.180, ptr %0, align 8
-  br label %.loopexit92
+.loopexit:                                        ; preds = %sampler_random_fract.exit93, %49
+  %.182.ph = phi double [ %50, %49 ], [ %72, %sampler_random_fract.exit93 ]
+  store double %.182.ph, ptr %0, align 8
+  br label %.loopexit98
 
-.loopexit92:                                      ; preds = %.lr.ph, %sampler_random_fract.exit, %.loopexit
+.loopexit98:                                      ; preds = %.lr.ph, %sampler_random_fract.exit, %.loopexit
   %.1 = phi double [ %35, %.loopexit ], [ 0.000000e+00, %sampler_random_fract.exit ], [ %16, %.lr.ph ]
   ret double %.1
 }
@@ -305,7 +305,7 @@ declare double @pg_prng_double(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_random_fract() local_unnamed_addr #0 {
   %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %1
+  br i1 %.b1, label %.preheader, label %1, !prof !10
 
 1:                                                ; preds = %0
   %2 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
@@ -320,7 +320,7 @@ define dso_local double @anl_random_fract() local_unnamed_addr #0 {
 4:                                                ; preds = %.preheader, %4
   %5 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @oldrs, i64 8)) #6
   %6 = fcmp oeq double %5, 0.000000e+00
-  br i1 %6, label %4, label %sampler_random_fract.exit, !llvm.loop !5
+  br i1 %6, label %4, label %sampler_random_fract.exit, !prof !4, !llvm.loop !5
 
 sampler_random_fract.exit:                        ; preds = %4
   ret double %5
@@ -329,7 +329,7 @@ sampler_random_fract.exit:                        ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_addr #0 {
   %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %2
+  br i1 %.b1, label %.preheader, label %2, !prof !10
 
 2:                                                ; preds = %1
   %3 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
@@ -344,7 +344,7 @@ define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_
 5:                                                ; preds = %.preheader, %5
   %6 = tail call double @pg_prng_double(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @oldrs, i64 8)) #6
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %5, label %sampler_random_fract.exit, !llvm.loop !5
+  br i1 %7, label %5, label %sampler_random_fract.exit, !prof !4, !llvm.loop !5
 
 sampler_random_fract.exit:                        ; preds = %5
   %8 = tail call double @log(double noundef %6) #6
@@ -368,23 +368,24 @@ define dso_local double @anl_get_next_S(double noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}

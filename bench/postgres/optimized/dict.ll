@@ -11,12 +11,13 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #3
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %10 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %5) #3
+  %10 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %5) #4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -63,11 +64,11 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %41 = phi i32 [ %30, %23 ], [ %35, %33 ], [ %39, %36 ]
   %42 = sext i32 %41 to i64
   %43 = ptrtoint ptr %2 to i64
-  %44 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %14, i64 noundef %20, i64 noundef %42, i64 noundef %43) #3
+  %44 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %14, i64 noundef %20, i64 noundef %42, i64 noundef %43) #4
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %47 = load i8, ptr %46, align 1
-  %48 = trunc i8 %47 to i1
+  %47 = load i8, ptr %46, align 1, !range !4, !noundef !5
+  %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %80
 
 49:                                               ; preds = %40
@@ -113,7 +114,7 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
 75:                                               ; preds = %68, %71, %58
   %76 = phi i32 [ %65, %58 ], [ %70, %68 ], [ %74, %71 ]
   %77 = sext i32 %76 to i64
-  %78 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %51, i64 noundef %55, i64 noundef %77, i64 noundef %43) #3
+  %78 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %51, i64 noundef %55, i64 noundef %77, i64 noundef %43) #4
   %79 = inttoptr i64 %78 to ptr
   %.not67 = icmp eq i64 %78, 0
   %spec.select = select i1 %.not67, ptr %45, ptr %79
@@ -134,15 +135,15 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %83 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not69 = icmp eq ptr %84, null
-  %85 = getelementptr i8, ptr %.056, i64 16
-  br i1 %.not69, label %86, label %.preheader, !llvm.loop !5
+  %85 = getelementptr inbounds nuw i8, ptr %.056, i64 16
+  br i1 %.not69, label %86, label %.preheader, !llvm.loop !6
 
 86:                                               ; preds = %.preheader
   %87 = ptrtoint ptr %.056 to i64
   %88 = ptrtoint ptr %.057 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 1
-  %91 = call ptr @palloc(i64 noundef %90) #3
+  %91 = call ptr @palloc(i64 noundef %90) #4
   %92 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not7075 = icmp eq ptr %93, null
@@ -151,18 +152,18 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
 .lr.ph:                                           ; preds = %86, %.lr.ph
   %94 = phi ptr [ %103, %.lr.ph ], [ %93, %86 ]
   %.176 = phi ptr [ %101, %.lr.ph ], [ %.057, %86 ]
-  %95 = call ptr @cstring_to_text(ptr noundef nonnull %94) #3
+  %95 = call ptr @cstring_to_text(ptr noundef nonnull %94) #4
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %.176 to i64
   %98 = sub i64 %97, %88
   %99 = ashr exact i64 %98, 1
-  %100 = getelementptr i8, ptr %91, i64 %99
+  %100 = getelementptr inbounds i8, ptr %91, i64 %99
   store i64 %96, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.176, i64 16
-  %102 = getelementptr i8, ptr %.176, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.176, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.176, i64 24
   %103 = load ptr, ptr %102, align 8
   %.not70 = icmp eq ptr %103, null
-  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = ptrtoint ptr %101 to i64
@@ -173,7 +174,7 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %104 = sub i64 %.pre-phi, %88
   %105 = lshr exact i64 %104, 4
   %106 = trunc i64 %105 to i32
-  %107 = call ptr @construct_array_builtin(ptr noundef %91, i32 noundef %106, i32 noundef 25) #3
+  %107 = call ptr @construct_array_builtin(ptr noundef %91, i32 noundef %106, i32 noundef 25) #4
   %108 = load ptr, ptr %92, align 8
   %.not7177 = icmp eq ptr %108, null
   br i1 %.not7177, label %._crit_edge81, label %.lr.ph80
@@ -184,59 +185,68 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %110 = ptrtoint ptr %.278 to i64
   %111 = sub i64 %110, %88
   %112 = ashr exact i64 %111, 1
-  %113 = getelementptr i8, ptr %91, i64 %112
+  %113 = getelementptr inbounds i8, ptr %91, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = inttoptr i64 %114 to ptr
-  call void @pfree(ptr noundef %115) #3
+  call void @pfree(ptr noundef %115) #4
   %116 = load ptr, ptr %109, align 8
-  call void @pfree(ptr noundef %116) #3
-  %117 = getelementptr i8, ptr %.278, i64 16
-  %118 = getelementptr i8, ptr %.278, i64 24
+  call void @pfree(ptr noundef %116) #4
+  %117 = getelementptr inbounds nuw i8, ptr %.278, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.278, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not71 = icmp eq ptr %119, null
-  br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !8
+  br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !9
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %._crit_edge
-  call void @pfree(ptr noundef nonnull %.057) #3
-  call void @pfree(ptr noundef %91) #3
+  call void @pfree(ptr noundef nonnull %.057) #4
+  call void @pfree(ptr noundef %91) #4
   %120 = ptrtoint ptr %107 to i64
   br label %121
 
 121:                                              ; preds = %._crit_edge81, %81
   %.0 = phi i64 [ %120, %._crit_edge81 ], [ 0, %81 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
   ret i64 %.0
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @lookup_ts_dictionary_cache(i32 noundef) local_unnamed_addr #1
+declare ptr @lookup_ts_dictionary_cache(i32 noundef) local_unnamed_addr #2
 
-declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

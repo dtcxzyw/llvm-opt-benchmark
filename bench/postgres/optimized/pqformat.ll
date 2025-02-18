@@ -50,48 +50,45 @@ define dso_local void @pq_sendbytes(ptr noundef %0, ptr noundef %1, i32 noundef 
 declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = select i1 %3, i32 4, i32 0
-  %6 = tail call ptr @pg_server_to_client(ptr noundef %1, i32 noundef %2) #9
-  %.not = icmp eq ptr %6, %1
-  br i1 %.not, label %18, label %7
+define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @pg_server_to_client(ptr noundef %1, i32 noundef %2) #9
+  %.not = icmp eq ptr %4, %1
+  br i1 %.not, label %15, label %5
 
-7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
-  %9 = trunc i64 %8 to i32
-  %10 = add i32 %5, %9
+5:                                                ; preds = %3
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %7 = trunc i64 %6 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 4) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %11 = tail call i32 @llvm.bswap.i32(i32 %10)
-  %12 = load ptr, ptr %0, align 8, !alias.scope !5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !alias.scope !5
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr i8, ptr %12, i64 %15
-  store i32 %11, ptr %16, align 1, !noalias !5
-  %17 = add i32 %14, 4
-  store i32 %17, ptr %13, align 8, !alias.scope !5
-  tail call void @appendBinaryStringInfoNT(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %9) #9
-  tail call void @pfree(ptr noundef nonnull %6) #9
-  br label %27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  %8 = tail call i32 @llvm.bswap.i32(i32 %7)
+  %9 = load ptr, ptr %0, align 8, !alias.scope !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i32, ptr %10, align 8, !alias.scope !4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  store i32 %8, ptr %13, align 1, !noalias !4
+  %14 = add i32 %11, 4
+  store i32 %14, ptr %10, align 8, !alias.scope !4
+  tail call void @appendBinaryStringInfoNT(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %7) #9
+  tail call void @pfree(ptr noundef nonnull %4) #9
+  br label %23
 
-18:                                               ; preds = %4
-  %19 = add i32 %5, %2
+15:                                               ; preds = %3
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 4) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %20 = tail call i32 @llvm.bswap.i32(i32 %19)
-  %21 = load ptr, ptr %0, align 8, !alias.scope !8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i32, ptr %22, align 8, !alias.scope !8
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr i8, ptr %21, i64 %24
-  store i32 %20, ptr %25, align 1, !noalias !8
-  %26 = add i32 %23, 4
-  store i32 %26, ptr %22, align 8, !alias.scope !8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %16 = tail call i32 @llvm.bswap.i32(i32 %2)
+  %17 = load ptr, ptr %0, align 8, !alias.scope !7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i32, ptr %18, align 8, !alias.scope !7
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %17, i64 %20
+  store i32 %16, ptr %21, align 1, !noalias !7
+  %22 = add i32 %19, 4
+  store i32 %22, ptr %18, align 8, !alias.scope !7
   tail call void @appendBinaryStringInfoNT(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #9
-  br label %27
+  br label %23
 
-27:                                               ; preds = %18, %7
+23:                                               ; preds = %15, %5
   ret void
 }
 
@@ -164,7 +161,7 @@ define dso_local void @pq_send_ascii_string(ptr noundef %0, ptr noundef readonly
 6:                                                ; preds = %.lr.ph, %22
   %7 = phi i8 [ %3, %.lr.ph ], [ %23, %22 ]
   %.016 = phi ptr [ %1, %.lr.ph ], [ %8, %22 ]
-  %8 = getelementptr i8, ptr %.016, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %.not13 = icmp sgt i8 %7, -1
   %spec.store.select = select i1 %.not13, i8 %7, i8 63
   %9 = load i32, ptr %4, align 8
@@ -180,21 +177,21 @@ define dso_local void @pq_send_ascii_string(ptr noundef %0, ptr noundef readonly
 13:                                               ; preds = %6
   %14 = load ptr, ptr %0, align 8
   %15 = sext i32 %9 to i64
-  %16 = getelementptr i8, ptr %14, i64 %15
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
   store i8 %spec.store.select, ptr %16, align 1
   %17 = load ptr, ptr %0, align 8
   %18 = load i32, ptr %4, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %4, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i8, ptr %17, i64 %20
+  %21 = getelementptr inbounds i8, ptr %17, i64 %20
   store i8 0, ptr %21, align 1
   br label %22
 
 22:                                               ; preds = %13, %12
   %23 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %22, %2
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 0) #9
@@ -207,16 +204,16 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 define dso_local void @pq_sendfloat4(ptr noundef %0, float noundef %1) local_unnamed_addr #0 {
   %3 = bitcast float %1 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 4) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
-  %5 = load ptr, ptr %0, align 8, !alias.scope !13
+  %5 = load ptr, ptr %0, align 8, !alias.scope !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !13
+  %7 = load i32, ptr %6, align 8, !alias.scope !12
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i8, ptr %5, i64 %8
-  store i32 %4, ptr %9, align 1, !noalias !13
+  %9 = getelementptr inbounds i8, ptr %5, i64 %8
+  store i32 %4, ptr %9, align 1, !noalias !12
   %10 = add i32 %7, 4
-  store i32 %10, ptr %6, align 8, !alias.scope !13
+  store i32 %10, ptr %6, align 8, !alias.scope !12
   ret void
 }
 
@@ -224,16 +221,16 @@ define dso_local void @pq_sendfloat4(ptr noundef %0, float noundef %1) local_unn
 define dso_local void @pq_sendfloat8(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = bitcast double %1 to i64
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 8) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %5 = load ptr, ptr %0, align 8, !alias.scope !16
+  %5 = load ptr, ptr %0, align 8, !alias.scope !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !16
+  %7 = load i32, ptr %6, align 8, !alias.scope !15
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i8, ptr %5, i64 %8
-  store i64 %4, ptr %9, align 1, !noalias !16
+  %9 = getelementptr inbounds i8, ptr %5, i64 %8
+  store i64 %4, ptr %9, align 1, !noalias !15
   %10 = add i32 %7, 8
-  store i32 %10, ptr %6, align 8, !alias.scope !16
+  store i32 %10, ptr %6, align 8, !alias.scope !15
   ret void
 }
 
@@ -290,14 +287,14 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr i8, ptr %9, i64 %10
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 0, ptr %11, align 1
   %12 = load ptr, ptr %0, align 8
   %13 = load i32, ptr %2, align 8
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i8, ptr %12, i64 %15
+  %16 = getelementptr inbounds i8, ptr %12, i64 %15
   store i8 0, ptr %16, align 1
   br label %17
 
@@ -315,14 +312,14 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8
   %24 = sext i32 %18 to i64
-  %25 = getelementptr i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   store i8 0, ptr %25, align 1
   %26 = load ptr, ptr %0, align 8
   %27 = load i32, ptr %2, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %2, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i8, ptr %26, i64 %29
+  %30 = getelementptr inbounds i8, ptr %26, i64 %29
   store i8 0, ptr %30, align 1
   br label %31
 
@@ -340,14 +337,14 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %31
   %37 = load ptr, ptr %0, align 8
   %38 = sext i32 %32 to i64
-  %39 = getelementptr i8, ptr %37, i64 %38
+  %39 = getelementptr inbounds i8, ptr %37, i64 %38
   store i8 0, ptr %39, align 1
   %40 = load ptr, ptr %0, align 8
   %41 = load i32, ptr %2, align 8
   %42 = add i32 %41, 1
   store i32 %42, ptr %2, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %40, i64 %43
+  %44 = getelementptr inbounds i8, ptr %40, i64 %43
   store i8 0, ptr %44, align 1
   br label %45
 
@@ -365,14 +362,14 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 50:                                               ; preds = %45
   %51 = load ptr, ptr %0, align 8
   %52 = sext i32 %46 to i64
-  %53 = getelementptr i8, ptr %51, i64 %52
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
   store i8 0, ptr %53, align 1
   %54 = load ptr, ptr %0, align 8
   %55 = load i32, ptr %2, align 8
   %56 = add i32 %55, 1
   store i32 %56, ptr %2, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr i8, ptr %54, i64 %57
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
   store i8 0, ptr %58, align 1
   br label %59
 
@@ -442,7 +439,7 @@ define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr noundef captures(none)
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 16908800) #9
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 407, ptr noundef nonnull @__func__.pq_getmsgbyte) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.pq_getmsgbyte) #9
   unreachable
 
 10:                                               ; preds = %1
@@ -450,7 +447,7 @@ define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr noundef captures(none)
   %12 = add nsw i32 %3, 1
   store i32 %12, ptr %2, align 8
   %13 = sext i32 %3 to i64
-  %14 = getelementptr i8, ptr %11, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   ret i32 %16
@@ -487,13 +484,13 @@ define dso_local i32 @pq_getmsgint(ptr noundef captures(none) %0, i32 noundef %1
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 @errcode(i32 noundef 16908800) #9
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_copymsgbytes.exit:                             ; preds = %3
   %14 = load ptr, ptr %0, align 8
   %15 = sext i32 %7 to i64
-  %16 = getelementptr i8, ptr %14, i64 %15
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %.0.copyload10 = load i8, ptr %16, align 1
   %17 = add i32 %7, 1
   store i32 %17, ptr %6, align 8
@@ -514,13 +511,13 @@ pq_copymsgbytes.exit:                             ; preds = %3
   tail call void @llvm.assume(i1 %27)
   %28 = tail call i32 @errcode(i32 noundef 16908800) #9
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_copymsgbytes.exit5:                            ; preds = %19
   %30 = load ptr, ptr %0, align 8
   %31 = sext i32 %23 to i64
-  %32 = getelementptr i8, ptr %30, i64 %31
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %.0.copyload8 = load i16, ptr %32, align 1
   %33 = add i32 %23, 2
   store i32 %33, ptr %22, align 8
@@ -542,13 +539,13 @@ pq_copymsgbytes.exit5:                            ; preds = %19
   tail call void @llvm.assume(i1 %44)
   %45 = tail call i32 @errcode(i32 noundef 16908800) #9
   %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_copymsgbytes.exit6:                            ; preds = %36
   %47 = load ptr, ptr %0, align 8
   %48 = sext i32 %40 to i64
-  %49 = getelementptr i8, ptr %47, i64 %48
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
   %.0.copyload = load i32, ptr %49, align 1
   %50 = add i32 %40, 4
   store i32 %50, ptr %39, align 8
@@ -559,7 +556,7 @@ pq_copymsgbytes.exit6:                            ; preds = %36
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.pq_getmsgint) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.pq_getmsgint) #9
   unreachable
 
 55:                                               ; preds = %pq_copymsgbytes.exit6, %pq_copymsgbytes.exit5, %pq_copymsgbytes.exit
@@ -586,13 +583,13 @@ define dso_local void @pq_copymsgbytes(ptr noundef captures(none) %0, ptr nounde
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 16908800) #9
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %0, align 8
   %18 = sext i32 %9 to i64
-  %19 = getelementptr i8, ptr %17, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %19, i64 %20, i1 false)
   %21 = load i32, ptr %8, align 8
@@ -624,13 +621,13 @@ define dso_local i64 @pq_getmsgint64(ptr noundef captures(none) %0) local_unname
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 16908800) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_copymsgbytes.exit:                             ; preds = %1
   %12 = load ptr, ptr %0, align 8
   %13 = sext i32 %5 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %.0.copyload = load i64, ptr %14, align 1
   %15 = add i32 %5, 8
   store i32 %15, ptr %4, align 8
@@ -656,13 +653,13 @@ define dso_local float @pq_getmsgfloat4(ptr noundef captures(none) %0) local_unn
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 16908800) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_getmsgint.exit:                                ; preds = %1
   %12 = load ptr, ptr %0, align 8
   %13 = sext i32 %5 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = add i32 %5, 4
   store i32 %15, ptr %4, align 8
@@ -686,13 +683,13 @@ define dso_local double @pq_getmsgfloat8(ptr noundef captures(none) %0) local_un
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 16908800) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.pq_copymsgbytes) #9
   unreachable
 
 pq_getmsgint64.exit:                              ; preds = %1
   %12 = load ptr, ptr %0, align 8
   %13 = sext i32 %5 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %.0.copyload.i = load i64, ptr %14, align 1
   %15 = add i32 %5, 8
   store i32 %15, ptr %4, align 8
@@ -720,13 +717,13 @@ define dso_local ptr @pq_getmsgbytes(ptr noundef captures(none) %0, i32 noundef 
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 16908800) #9
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 518, ptr noundef nonnull @__func__.pq_getmsgbytes) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 515, ptr noundef nonnull @__func__.pq_getmsgbytes) #9
   unreachable
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %0, align 8
   %17 = sext i32 %8 to i64
-  %18 = getelementptr i8, ptr %16, i64 %17
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
   %19 = add i32 %8, %1
   store i32 %19, ptr %7, align 8
   ret ptr %18
@@ -754,13 +751,13 @@ define dso_local ptr @pq_getmsgtext(ptr noundef captures(none) %0, i32 noundef %
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 16908800) #9
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @__func__.pq_getmsgtext) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.pq_getmsgtext) #9
   unreachable
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %0, align 8
   %18 = sext i32 %9 to i64
-  %19 = getelementptr i8, ptr %17, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = add i32 %9, %1
   store i32 %20, ptr %8, align 8
   %21 = tail call ptr @pg_client_to_server(ptr noundef %19, i32 noundef %1) #9
@@ -778,7 +775,7 @@ define dso_local ptr @pq_getmsgtext(ptr noundef captures(none) %0, i32 noundef %
   %28 = tail call ptr @palloc(i64 noundef %27) #9
   %29 = zext nneg i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %19, i64 %29, i1 false)
-  %30 = getelementptr i8, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   store i8 0, ptr %30, align 1
   br label %31
 
@@ -799,7 +796,7 @@ define dso_local ptr @pq_getmsgstring(ptr noundef captures(none) %0) local_unnam
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr i8, ptr %2, i64 %5
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = add i32 %4, %8
@@ -813,7 +810,7 @@ define dso_local ptr @pq_getmsgstring(ptr noundef captures(none) %0) local_unnam
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 16908800) #9
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 598, ptr noundef nonnull @__func__.pq_getmsgstring) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.pq_getmsgstring) #9
   unreachable
 
 16:                                               ; preds = %1
@@ -829,7 +826,7 @@ define dso_local noundef ptr @pq_getmsgrawstring(ptr noundef captures(none) %0) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr i8, ptr %2, i64 %5
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = add i32 %4, %8
@@ -843,7 +840,7 @@ define dso_local noundef ptr @pq_getmsgrawstring(ptr noundef captures(none) %0) 
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 16908800) #9
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.pq_getmsgrawstring) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @__func__.pq_getmsgrawstring) #9
   unreachable
 
 16:                                               ; preds = %1
@@ -866,7 +863,7 @@ define dso_local void @pq_getmsgend(ptr noundef readonly captures(none) %0) loca
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 16908800) #9
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.pq_getmsgend) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 640, ptr noundef nonnull @__func__.pq_getmsgend) #9
   unreachable
 
 10:                                               ; preds = %1
@@ -881,11 +878,11 @@ declare void @llvm.assume(i1 noundef) #7
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -894,24 +891,23 @@ attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"pq_writeint32: argument 0"}
-!7 = distinct !{!7, !"pq_writeint32"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"pq_writeint32: argument 0"}
-!10 = distinct !{!10, !"pq_writeint32"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"pq_writeint32: argument 0"}
-!15 = distinct !{!15, !"pq_writeint32"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pq_writeint64: argument 0"}
-!18 = distinct !{!18, !"pq_writeint64"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"pq_writeint32: argument 0"}
+!6 = distinct !{!6, !"pq_writeint32"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"pq_writeint32: argument 0"}
+!9 = distinct !{!9, !"pq_writeint32"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"pq_writeint32: argument 0"}
+!14 = distinct !{!14, !"pq_writeint32"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"pq_writeint64: argument 0"}
+!17 = distinct !{!17, !"pq_writeint64"}

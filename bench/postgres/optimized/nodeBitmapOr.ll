@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitBitmapOr(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 216) #5
-  store i32 385, ptr %4, align 4
+  store i32 400, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -53,22 +53,22 @@ list_length.exit:                                 ; preds = %3, %7
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph33, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph33, %.lr.ph, %list_length.exit
+  ret ptr %4
+
 .lr.ph33:                                         ; preds = %.lr.ph, %.lr.ph33
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph33 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @ExecInitNode(ptr noundef %26, ptr noundef %1, i32 noundef %2) #5
-  %28 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %20, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph33, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph33, %.lr.ph, %list_length.exit
-  ret ptr %4
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
@@ -112,10 +112,10 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
 13:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %.02938 = phi ptr [ null, %.lr.ph ], [ %.2, %52 ]
-  %14 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, 391
+  %17 = icmp eq i32 %16, 406
   br i1 %17, label %18, label %41
 
 18:                                               ; preds = %13
@@ -128,13 +128,13 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   %23 = shl nsw i64 %22, 10
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %26 = load i8, ptr %25, align 8
-  %27 = trunc i8 %26 to i1
+  %26 = load i8, ptr %25, align 8, !range !4, !noundef !5
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 256
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 296
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -165,7 +165,7 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
 
 43:                                               ; preds = %41
   %44 = load i32, ptr %42, align 4
-  %45 = icmp eq i32 %44, 460
+  %45 = icmp eq i32 %44, 477
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %43, %41
@@ -184,11 +184,11 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   tail call void @tbm_free(ptr noundef nonnull %42) #5
   br label %52
 
-52:                                               ; preds = %49, %35, %51
+52:                                               ; preds = %49, %51, %35
   %.2 = phi ptr [ %.1, %35 ], [ %.02938, %51 ], [ %42, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %52
   %53 = icmp eq ptr %.2, null
@@ -248,7 +248,7 @@ define dso_local void @ExecEndBitmapOr(ptr noundef readonly captures(none) %0) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -260,7 +260,7 @@ define dso_local void @ExecEndBitmapOr(ptr noundef readonly captures(none) %0) l
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %1
   ret void
@@ -283,7 +283,7 @@ define dso_local void @ExecReScanBitmapOr(ptr noundef readonly captures(none) %0
 7:                                                ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %11, null
@@ -303,12 +303,12 @@ define dso_local void @ExecReScanBitmapOr(ptr noundef readonly captures(none) %0
   tail call void @ExecReScan(ptr noundef nonnull %10) #5
   br label %18
 
-18:                                               ; preds = %13, %17
+18:                                               ; preds = %17, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %2, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !8
+  br i1 %21, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %1
   ret void
@@ -321,22 +321,23 @@ declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

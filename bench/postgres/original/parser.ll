@@ -3,19 +3,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { %struct.this_type }
 %struct.this_type = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.YYLTYPE = type { i32, i32, i32, i32 }
 
 @have_lookahead = internal global i8 0, align 1
 @lookahead_token = internal global i32 0, align 4
 @base_yylval = external global %union.YYSTYPE, align 8
 @lookahead_yylval = internal global %union.YYSTYPE zeroinitializer, align 8
-@base_yylloc = external global %struct.YYLTYPE, align 4
-@lookahead_yylloc = internal global %struct.YYLTYPE zeroinitializer, align 4
+@lookahead_yylloc = internal global ptr null, align 8
+@base_yylloc = external global ptr, align 8
 @lookahead_yytext = internal global ptr null, align 8
 @base_yytext = external global ptr, align 8
 @.str = private unnamed_addr constant [52 x i8] c"UESCAPE must be followed by a simple string literal\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"invalid Unicode escape character\00", align 1
-@.str.2 = private unnamed_addr constant [14 x i8] c"%s UESCAPE %s\00", align 1
+@.str.2 = private unnamed_addr constant [10 x i8] c" UESCAPE \00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @filtered_base_yylex() #0 {
@@ -23,254 +22,368 @@ define dso_local i32 @filtered_base_yylex() #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %union.YYSTYPE, align 8
-  %5 = alloca %struct.YYLTYPE, align 4
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = load i8, ptr @have_lookahead, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %13
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 48, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %9 = load i8, ptr @have_lookahead, align 1, !range !4, !noundef !5
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %0
-  %11 = load i32, ptr @lookahead_token, align 4
-  store i32 %11, ptr %2, align 4
+11:                                               ; preds = %0
+  %12 = load i32, ptr @lookahead_token, align 4
+  store i32 %12, ptr %2, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @base_yylval, ptr align 8 @lookahead_yylval, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @base_yylloc, ptr align 4 @lookahead_yylloc, i64 16, i1 false)
-  %12 = load ptr, ptr @lookahead_yytext, align 8
-  store ptr %12, ptr @base_yytext, align 8
+  %13 = load ptr, ptr @lookahead_yylloc, align 8
+  store ptr %13, ptr @base_yylloc, align 8
+  %14 = load ptr, ptr @lookahead_yytext, align 8
+  store ptr %14, ptr @base_yytext, align 8
   store i8 0, ptr @have_lookahead, align 1
-  br label %15
+  br label %17
 
-13:                                               ; preds = %0
-  %14 = call i32 @base_yylex()
-  store i32 %14, ptr %2, align 4
-  br label %15
+15:                                               ; preds = %0
+  %16 = call i32 @base_yylex_location()
+  store i32 %16, ptr %2, align 4
+  br label %17
 
-15:                                               ; preds = %13, %10
-  %16 = load i32, ptr %2, align 4
-  switch i32 %16, label %18 [
-    i32 496, label %17
-    i32 607, label %17
-    i32 614, label %17
-    i32 797, label %17
-    i32 799, label %17
-    i32 329, label %17
-    i32 332, label %17
+17:                                               ; preds = %15, %11
+  %18 = load i32, ptr %2, align 4
+  switch i32 %18, label %20 [
+    i32 500, label %19
+    i32 618, label %19
+    i32 625, label %19
+    i32 817, label %19
+    i32 819, label %19
+    i32 329, label %19
+    i32 332, label %19
   ]
 
-17:                                               ; preds = %15, %15, %15, %15, %15, %15, %15
-  br label %20
-
-18:                                               ; preds = %15
-  %19 = load i32, ptr %2, align 4
-  store i32 %19, ptr %1, align 4
-  br label %84
+19:                                               ; preds = %17, %17, %17, %17, %17, %17, %17
+  br label %22
 
 20:                                               ; preds = %17
+  %21 = load i32, ptr %2, align 4
+  store i32 %21, ptr %1, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
+
+22:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 @base_yylval, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 @base_yylloc, i64 16, i1 false)
-  %21 = load ptr, ptr @base_yytext, align 8
-  store ptr %21, ptr %6, align 8
-  %22 = call i32 @base_yylex()
-  store i32 %22, ptr %3, align 4
-  %23 = load i32, ptr %3, align 4
-  store i32 %23, ptr @lookahead_token, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lookahead_yylval, ptr align 8 @base_yylval, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @lookahead_yylloc, ptr align 4 @base_yylloc, i64 16, i1 false)
+  %23 = load ptr, ptr @base_yylloc, align 8
+  store ptr %23, ptr %5, align 8
   %24 = load ptr, ptr @base_yytext, align 8
-  store ptr %24, ptr @lookahead_yytext, align 8
+  store ptr %24, ptr %6, align 8
+  %25 = call i32 @base_yylex_location()
+  store i32 %25, ptr %3, align 4
+  %26 = load i32, ptr %3, align 4
+  store i32 %26, ptr @lookahead_token, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lookahead_yylval, ptr align 8 @base_yylval, i64 48, i1 false)
+  %27 = load ptr, ptr @base_yylloc, align 8
+  store ptr %27, ptr @lookahead_yylloc, align 8
+  %28 = load ptr, ptr @base_yytext, align 8
+  store ptr %28, ptr @lookahead_yytext, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @base_yylval, ptr align 8 %4, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @base_yylloc, ptr align 4 %5, i64 16, i1 false)
-  %25 = load ptr, ptr %6, align 8
-  store ptr %25, ptr @base_yytext, align 8
+  %29 = load ptr, ptr %5, align 8
+  store ptr %29, ptr @base_yylloc, align 8
+  %30 = load ptr, ptr %6, align 8
+  store ptr %30, ptr @base_yytext, align 8
   store i8 1, ptr @have_lookahead, align 1
-  %26 = load i32, ptr %2, align 4
-  switch i32 %26, label %82 [
-    i32 496, label %27
-    i32 607, label %31
-    i32 614, label %35
-    i32 797, label %39
-    i32 799, label %43
-    i32 329, label %47
-    i32 332, label %47
+  %31 = load i32, ptr %2, align 4
+  switch i32 %31, label %91 [
+    i32 500, label %32
+    i32 618, label %36
+    i32 625, label %40
+    i32 817, label %44
+    i32 819, label %48
+    i32 329, label %52
+    i32 332, label %52
   ]
 
-27:                                               ; preds = %20
-  %28 = load i32, ptr %3, align 4
-  switch i32 %28, label %30 [
-    i32 550, label %29
+32:                                               ; preds = %22
+  %33 = load i32, ptr %3, align 4
+  switch i32 %33, label %35 [
+    i32 554, label %34
   ]
 
-29:                                               ; preds = %27
-  store i32 818, ptr %2, align 4
-  br label %30
+34:                                               ; preds = %32
+  store i32 838, ptr %2, align 4
+  br label %35
 
-30:                                               ; preds = %29, %27
-  br label %82
+35:                                               ; preds = %32, %34
+  br label %91
 
-31:                                               ; preds = %20
-  %32 = load i32, ptr %3, align 4
-  switch i32 %32, label %34 [
-    i32 377, label %33
-    i32 523, label %33
-    i32 569, label %33
-    i32 518, label %33
-    i32 717, label %33
+36:                                               ; preds = %22
+  %37 = load i32, ptr %3, align 4
+  switch i32 %37, label %39 [
+    i32 377, label %38
+    i32 527, label %38
+    i32 578, label %38
+    i32 522, label %38
+    i32 732, label %38
   ]
 
-33:                                               ; preds = %31, %31, %31, %31, %31
-  store i32 819, ptr %2, align 4
-  br label %34
+38:                                               ; preds = %36, %36, %36, %36, %36
+  store i32 839, ptr %2, align 4
+  br label %39
 
-34:                                               ; preds = %33, %31
-  br label %82
+39:                                               ; preds = %36, %38
+  br label %91
 
-35:                                               ; preds = %20
-  %36 = load i32, ptr %3, align 4
-  switch i32 %36, label %38 [
-    i32 490, label %37
-    i32 562, label %37
+40:                                               ; preds = %22
+  %41 = load i32, ptr %3, align 4
+  switch i32 %41, label %43 [
+    i32 494, label %42
+    i32 571, label %42
   ]
 
-37:                                               ; preds = %35, %35
-  store i32 820, ptr %2, align 4
-  br label %38
+42:                                               ; preds = %40, %40
+  store i32 840, ptr %2, align 4
+  br label %43
 
-38:                                               ; preds = %37, %35
-  br label %82
+43:                                               ; preds = %40, %42
+  br label %91
 
-39:                                               ; preds = %20
-  %40 = load i32, ptr %3, align 4
-  switch i32 %40, label %42 [
-    i32 752, label %41
-    i32 629, label %41
+44:                                               ; preds = %22
+  %45 = load i32, ptr %3, align 4
+  switch i32 %45, label %47 [
+    i32 770, label %46
+    i32 641, label %46
   ]
 
-41:                                               ; preds = %39, %39
-  store i32 821, ptr %2, align 4
-  br label %42
+46:                                               ; preds = %44, %44
+  store i32 841, ptr %2, align 4
+  br label %47
 
-42:                                               ; preds = %41, %39
-  br label %82
+47:                                               ; preds = %44, %46
+  br label %91
 
-43:                                               ; preds = %20
-  %44 = load i32, ptr %3, align 4
-  switch i32 %44, label %46 [
-    i32 752, label %45
+48:                                               ; preds = %22
+  %49 = load i32, ptr %3, align 4
+  switch i32 %49, label %51 [
+    i32 770, label %50
   ]
 
-45:                                               ; preds = %43
-  store i32 822, ptr %2, align 4
-  br label %46
+50:                                               ; preds = %48
+  store i32 842, ptr %2, align 4
+  br label %51
 
-46:                                               ; preds = %45, %43
-  br label %82
+51:                                               ; preds = %48, %50
+  br label %91
 
-47:                                               ; preds = %20, %20
-  %48 = load i32, ptr %3, align 4
-  %49 = icmp eq i32 %48, 766
-  br i1 %49, label %50, label %72
-
-50:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 @base_yylval, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 @base_yylloc, i64 16, i1 false)
-  %51 = load ptr, ptr @base_yytext, align 8
-  store ptr %51, ptr %6, align 8
-  %52 = call i32 @base_yylex()
-  store i32 %52, ptr %3, align 4
+52:                                               ; preds = %22, %22
   %53 = load i32, ptr %3, align 4
-  %54 = icmp ne i32 %53, 331
-  br i1 %54, label %55, label %56
+  %54 = icmp eq i32 %53, 784
+  br i1 %54, label %55, label %81
 
-55:                                               ; preds = %50
+55:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 @base_yylval, i64 48, i1 false)
+  %56 = load ptr, ptr @base_yylloc, align 8
+  store ptr %56, ptr %5, align 8
+  %57 = load ptr, ptr @base_yytext, align 8
+  store ptr %57, ptr %6, align 8
+  %58 = call i32 @base_yylex_location()
+  store i32 %58, ptr %3, align 4
+  %59 = load i32, ptr %3, align 4
+  %60 = icmp ne i32 %59, 331
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %55
   call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str)
-  br label %56
+  br label %62
 
-56:                                               ; preds = %55, %50
-  %57 = load ptr, ptr @base_yylval, align 8
-  store ptr %57, ptr %7, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = call i64 @strlen(ptr noundef %58) #5
-  %60 = icmp ne i64 %59, 3
-  br i1 %60, label %66, label %61
+62:                                               ; preds = %61, %55
+  %63 = load ptr, ptr @base_yylval, align 8
+  store ptr %63, ptr %8, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = call i64 @strlen(ptr noundef %64) #7
+  %66 = icmp ne i64 %65, 3
+  br i1 %66, label %72, label %67
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr i8, ptr %62, i64 1
-  %64 = load i8, ptr %63, align 1
-  %65 = call zeroext i1 @check_uescapechar(i8 noundef zeroext %64)
-  br i1 %65, label %67, label %66
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = call zeroext i1 @check_uescapechar(i8 noundef zeroext %70)
+  br i1 %71, label %73, label %72
 
-66:                                               ; preds = %61, %56
+72:                                               ; preds = %67, %62
   call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef @.str.1)
-  br label %67
+  br label %73
 
-67:                                               ; preds = %66, %61
+73:                                               ; preds = %72, %67
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @base_yylval, ptr align 8 %4, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @base_yylloc, ptr align 4 %5, i64 16, i1 false)
-  %68 = load ptr, ptr %6, align 8
-  store ptr %68, ptr @base_yytext, align 8
-  %69 = load ptr, ptr @base_yylval, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.2, ptr noundef %69, ptr noundef %70)
-  store ptr %71, ptr @base_yylval, align 8
+  %74 = load ptr, ptr %5, align 8
+  store ptr %74, ptr @base_yylloc, align 8
+  %75 = load ptr, ptr %6, align 8
+  store ptr %75, ptr @base_yytext, align 8
+  %76 = load ptr, ptr @base_yylval, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = call ptr @make3_str(ptr noundef %76, ptr noundef @.str.2, ptr noundef %77)
+  store ptr %78, ptr @base_yylval, align 8
+  %79 = load ptr, ptr @base_yylval, align 8
+  %80 = call ptr @loc_strdup(ptr noundef %79)
+  store ptr %80, ptr @base_yylloc, align 8
   store i8 0, ptr @have_lookahead, align 1
-  br label %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %81
 
-72:                                               ; preds = %67, %47
-  %73 = load i32, ptr %2, align 4
-  %74 = icmp eq i32 %73, 329
-  br i1 %74, label %75, label %76
+81:                                               ; preds = %73, %52
+  %82 = load i32, ptr %2, align 4
+  %83 = icmp eq i32 %82, 329
+  br i1 %83, label %84, label %85
 
-75:                                               ; preds = %72
+84:                                               ; preds = %81
   store i32 328, ptr %2, align 4
-  br label %81
+  br label %90
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %2, align 4
-  %78 = icmp eq i32 %77, 332
-  br i1 %78, label %79, label %80
+85:                                               ; preds = %81
+  %86 = load i32, ptr %2, align 4
+  %87 = icmp eq i32 %86, 332
+  br i1 %87, label %88, label %89
 
-79:                                               ; preds = %76
+88:                                               ; preds = %85
   store i32 331, ptr %2, align 4
-  br label %80
+  br label %89
 
-80:                                               ; preds = %79, %76
-  br label %81
+89:                                               ; preds = %88, %85
+  br label %90
 
-81:                                               ; preds = %80, %75
-  br label %82
+90:                                               ; preds = %89, %84
+  br label %91
 
-82:                                               ; preds = %81, %46, %42, %38, %34, %30, %20
-  %83 = load i32, ptr %2, align 4
-  store i32 %83, ptr %1, align 4
-  br label %84
+91:                                               ; preds = %22, %90, %51, %47, %43, %39, %35
+  %92 = load i32, ptr %2, align 4
+  store i32 %92, ptr %1, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
 
-84:                                               ; preds = %82, %18
-  %85 = load i32, ptr %1, align 4
-  ret i32 %85
+93:                                               ; preds = %91, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 48, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #6
+  %94 = load i32, ptr %1, align 4
+  ret i32 %94
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @base_yylex() #2
+; Function Attrs: nounwind uwtable
+define internal i32 @base_yylex_location() #0 {
+  %1 = alloca i32, align 4
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #6
+  %3 = call i32 @base_yylex()
+  store i32 %3, ptr %1, align 4
+  %4 = load i32, ptr %1, align 4
+  switch i32 %4, label %8 [
+    i32 335, label %5
+    i32 324, label %5
+    i32 326, label %5
+    i32 325, label %5
+    i32 333, label %5
+    i32 331, label %5
+    i32 332, label %5
+    i32 334, label %5
+    i32 330, label %5
+    i32 328, label %5
+    i32 329, label %5
+    i32 327, label %5
+  ]
 
-declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) #2
+5:                                                ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
+  %6 = load ptr, ptr @base_yylval, align 8
+  %7 = call ptr @loc_strdup(ptr noundef %6)
+  store ptr %7, ptr @base_yylloc, align 8
+  br label %38
+
+8:                                                ; preds = %0
+  %9 = load ptr, ptr @base_yytext, align 8
+  %10 = call ptr @loc_strdup(ptr noundef %9)
+  store ptr %10, ptr @base_yylloc, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #6
+  %11 = load ptr, ptr @base_yylloc, align 8
+  store ptr %11, ptr %2, align 8
+  br label %12
+
+12:                                               ; preds = %34, %8
+  %13 = load ptr, ptr %2, align 8
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #6
+  br label %37
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %2, align 8
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = icmp sge i32 %20, 65
+  br i1 %21, label %22, label %33
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = icmp sle i32 %25, 90
+  br i1 %26, label %27, label %33
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %2, align 8
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i32
+  %31 = add i32 %30, 32
+  %32 = trunc i32 %31 to i8
+  store i8 %32, ptr %28, align 1
+  br label %33
+
+33:                                               ; preds = %27, %22, %17
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i32 1
+  store ptr %36, ptr %2, align 8
+  br label %12, !llvm.loop !6
+
+37:                                               ; preds = %16
+  br label %38
+
+38:                                               ; preds = %37, %5
+  %39 = load i32, ptr %1, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #6
+  ret i32 %39
+}
+
+declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @check_uescapechar(i8 noundef zeroext %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
-  %4 = call ptr @__ctype_b_loc() #6
+  %4 = call ptr @__ctype_b_loc() #8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %3, align 1
   %7 = zext i8 %6 to i32
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds i16, ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = and i32 %11, 4096
@@ -313,10 +426,17 @@ define internal zeroext i1 @check_uescapechar(i8 noundef zeroext %0) #0 {
   ret i1 %32
 }
 
-declare ptr @psprintf(ptr noundef, ...) #2
+declare ptr @make3_str(ptr noundef, ptr noundef, ptr noundef) #3
+
+declare ptr @loc_strdup(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @base_yylex() #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #4
+declare ptr @__ctype_b_loc() #5
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ecpg_isspace(i8 noundef signext %0) #0 {
@@ -365,18 +485,23 @@ define internal zeroext i1 @ecpg_isspace(i8 noundef signext %0) #0 {
   ret i1 %26
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

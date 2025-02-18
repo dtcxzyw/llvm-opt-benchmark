@@ -2,229 +2,222 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PlanState = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.BitmapHeapScanState = type { %struct.ScanState, ptr, ptr, ptr, ptr, i8, i32, i32, i32, i64, i64, ptr, i32, i32, i32, i64, i8, ptr, ptr, ptr }
+%struct.BitmapHeapScanState = type { %struct.ScanState, ptr, ptr, i32, %struct.BitmapHeapScanInstrumentation, %struct.TBMIterator, i32, i32, i32, i8, ptr, ptr, i8, i32, i32 }
 %struct.ScanState = type { %struct.PlanState, ptr, ptr, ptr }
-%struct.TableScanDescData = type { ptr, ptr, i32, ptr, %struct.ItemPointerData, %struct.ItemPointerData, i32, ptr }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.BitmapHeapScanInstrumentation = type { i64, i64 }
+%struct.TBMIterator = type { i8, %union.anon }
+%union.anon = type { ptr }
+%struct.TableScanDescData = type { ptr, ptr, i32, ptr, %union.anon.0, i32, ptr }
+%union.anon.0 = type { %struct.TBMIterator }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
 %struct.TableAmRoutine = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.SharedBitmapHeapInstrumentation = type { i32, [0 x %struct.BitmapHeapScanInstrumentation] }
 %struct.BitmapHeapScan = type { %struct.Scan, ptr }
 %struct.Scan = type { %struct.Plan, i32 }
-%struct.Plan = type { i32, double, double, double, i32, i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.Plan = type { i32, i32, double, double, double, i32, i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.FormData_pg_class = type { i32, %struct.nameData, i32, i32, i32, i32, i32, i32, i32, i32, float, i32, i32, i8, i8, i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32 }
 %struct.nameData = type { [64 x i8] }
-%struct.EState = type { i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, i8, ptr, i32, ptr, ptr, ptr, ptr }
 %struct.Node = type { i32 }
 %struct.ParallelContext = type { %struct.dlist_node, i32, i32, i32, i32, ptr, ptr, ptr, %struct.shm_toc_estimator, ptr, ptr, ptr, ptr, i32, ptr }
 %struct.dlist_node = type { ptr, ptr }
 %struct.shm_toc_estimator = type { i64, i64 }
-%struct.ParallelBitmapHeapState = type { i64, i64, i8, i32, i32, i32, %struct.ConditionVariable, [0 x i8] }
+%struct.EState = type { i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, ptr, i32, ptr, ptr, ptr, ptr }
+%struct.ParallelBitmapHeapState = type { i64, i64, i8, i32, i32, i32, %struct.ConditionVariable }
 %struct.ConditionVariable = type { i8, %struct.proclist_head }
 %struct.proclist_head = type { i32, i32 }
 %struct.ParallelWorkerContext = type { ptr, ptr }
-%struct.TBMIterateResult = type { i32, i32, i8, [0 x i16] }
-%struct.ExprContext = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i8, i64, i8, ptr, ptr }
+%struct.ExprContext = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i8, i64, i8, ptr, ptr, ptr, ptr }
 %struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
 %struct.instr_time = type { i64 }
 %struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
-%struct.WalUsage = type { i64, i64, i64 }
+%struct.WalUsage = type { i64, i64, i64, i64 }
 %struct.PrefetchBufferResult = type { i32, i8 }
+%struct.TBMIterateResult = type { i32, i32, i8, [0 x i16] }
 %struct.TupleTableSlot = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, %struct.ItemPointerData, i32 }
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
+%struct.BlockIdData = type { i16, i16 }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ExprState = type { i32, i8, i8, i64, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
-@.str = private unnamed_addr constant [33 x i8] c"unrecognized result from subplan\00", align 1
-@.str.1 = private unnamed_addr constant [21 x i8] c"nodeBitmapHeapscan.c\00", align 1
-@__func__.BitmapHeapNext = private unnamed_addr constant [15 x i8] c"BitmapHeapNext\00", align 1
+@ParallelWorkerNumber = external global i32, align 4
 @InterruptPending = external global i32, align 4
+@.str = private unnamed_addr constant [21 x i8] c"nodeBitmapHeapscan.c\00", align 1
+@__func__.BitmapHeapNext = private unnamed_addr constant [15 x i8] c"BitmapHeapNext\00", align 1
+@.str.1 = private unnamed_addr constant [72 x i8] c"prefetch and main iterators are out of sync. pfblockno: %d. blockno: %d\00", align 1
+@.str.2 = private unnamed_addr constant [33 x i8] c"unrecognized result from subplan\00", align 1
+@__func__.BitmapTableScanSetup = private unnamed_addr constant [21 x i8] c"BitmapTableScanSetup\00", align 1
 @__func__.BitmapShouldInitializeSharedState = private unnamed_addr constant [34 x i8] c"BitmapShouldInitializeSharedState\00", align 1
 @__func__.BitmapDoneInitializingSharedState = private unnamed_addr constant [34 x i8] c"BitmapDoneInitializingSharedState\00", align 1
-@.str.2 = private unnamed_addr constant [44 x i8] c"prefetch and main iterators are out of sync\00", align 1
-@__func__.BitmapAdjustPrefetchIterator = private unnamed_addr constant [29 x i8] c"BitmapAdjustPrefetchIterator\00", align 1
 @CheckXidAlive = external global i32, align 4
 @bsysscan = external global i8, align 1
-@.str.3 = private unnamed_addr constant [69 x i8] c"unexpected table_scan_bitmap_next_block call during logical decoding\00", align 1
+@.str.3 = private unnamed_addr constant [69 x i8] c"unexpected table_scan_bitmap_next_tuple call during logical decoding\00", align 1
 @.str.4 = private unnamed_addr constant [38 x i8] c"../../../src/include/access/tableam.h\00", align 1
+@__func__.table_scan_bitmap_next_tuple = private unnamed_addr constant [29 x i8] c"table_scan_bitmap_next_tuple\00", align 1
+@__func__.BitmapPrefetch = private unnamed_addr constant [15 x i8] c"BitmapPrefetch\00", align 1
+@CurrentMemoryContext = external global ptr, align 8
+@__func__.BitmapAdjustPrefetchIterator = private unnamed_addr constant [29 x i8] c"BitmapAdjustPrefetchIterator\00", align 1
+@.str.5 = private unnamed_addr constant [69 x i8] c"unexpected table_scan_bitmap_next_block call during logical decoding\00", align 1
 @__func__.table_scan_bitmap_next_block = private unnamed_addr constant [29 x i8] c"table_scan_bitmap_next_block\00", align 1
 @__func__.BitmapAdjustPrefetchTarget = private unnamed_addr constant [27 x i8] c"BitmapAdjustPrefetchTarget\00", align 1
-@__func__.BitmapPrefetch = private unnamed_addr constant [15 x i8] c"BitmapPrefetch\00", align 1
-@.str.5 = private unnamed_addr constant [69 x i8] c"unexpected table_scan_bitmap_next_tuple call during logical decoding\00", align 1
-@__func__.table_scan_bitmap_next_tuple = private unnamed_addr constant [29 x i8] c"table_scan_bitmap_next_tuple\00", align 1
-@CurrentMemoryContext = external global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.PlanState, ptr %4, i32 0, i32 9
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %struct.ScanState, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  call void @table_rescan(ptr noundef %10, ptr noundef null)
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.PlanState, ptr %5, i32 0, i32 9
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.ScanState, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %26
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  call void @tbm_end_iterate(ptr noundef %18)
-  br label %19
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %15, i32 0, i32 4
+  %17 = call zeroext i1 @tbm_exhausted(ptr noundef %16)
+  br i1 %17, label %21, label %18
 
-19:                                               ; preds = %15, %1
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %20, i32 0, i32 11
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %28
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %19, i32 0, i32 4
+  call void @tbm_end_iterate(ptr noundef %20)
+  br label %21
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %25, i32 0, i32 11
-  %27 = load ptr, ptr %26, align 8
-  call void @tbm_end_iterate(ptr noundef %27)
-  br label %28
+21:                                               ; preds = %18, %14
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.ScanState, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  call void @table_rescan(ptr noundef %25, ptr noundef null)
+  br label %26
 
-28:                                               ; preds = %24, %19
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %29, i32 0, i32 17
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %37
+26:                                               ; preds = %21, %1
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %27, i32 0, i32 5
+  %29 = call zeroext i1 @tbm_exhausted(ptr noundef %28)
+  br i1 %29, label %33, label %30
 
-33:                                               ; preds = %28
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %31, i32 0, i32 5
+  call void @tbm_end_iterate(ptr noundef %32)
+  br label %33
+
+33:                                               ; preds = %30, %26
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %34, i32 0, i32 17
+  %35 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %34, i32 0, i32 2
   %36 = load ptr, ptr %35, align 8
-  call void @tbm_end_shared_iterate(ptr noundef %36)
-  br label %37
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %33, %28
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %38, i32 0, i32 18
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  call void @tbm_free(ptr noundef %41)
+  br label %42
 
-42:                                               ; preds = %37
+42:                                               ; preds = %38, %33
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %43, i32 0, i32 18
-  %45 = load ptr, ptr %44, align 8
-  call void @tbm_end_shared_iterate(ptr noundef %45)
-  br label %46
+  %44 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %42, %37
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %55
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %48, i32 0, i32 3
+  %50 = load i32, ptr %49, align 8
+  call void @ReleaseBuffer(i32 noundef %50)
+  br label %51
 
-51:                                               ; preds = %46
+51:                                               ; preds = %47, %42
   %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %52, i32 0, i32 2
-  %54 = load ptr, ptr %53, align 8
-  call void @tbm_free(ptr noundef %54)
-  br label %55
-
-55:                                               ; preds = %51, %46
+  %53 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %52, i32 0, i32 2
+  store ptr null, ptr %53, align 8
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %54, i32 0, i32 9
+  store i8 0, ptr %55, align 4
   %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %56, i32 0, i32 7
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %64
+  %57 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %56, i32 0, i32 3
+  store i32 0, ptr %57, align 8
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %58, i32 0, i32 12
+  store i8 1, ptr %59, align 8
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %60, i32 0, i32 13
+  store i32 -1, ptr %61, align 4
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %62, i32 0, i32 14
+  store i32 -1, ptr %63, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %64, i32 0, i32 6
+  store i32 0, ptr %65, align 8
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %66, i32 0, i32 7
+  store i32 -1, ptr %67, align 4
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %68, i32 0, i32 0
+  call void @ExecScanReScan(ptr noundef %69)
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.PlanState, ptr %70, i32 0, i32 13
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %76
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 8
-  call void @ReleaseBuffer(i32 noundef %63)
-  br label %64
+74:                                               ; preds = %51
+  %75 = load ptr, ptr %3, align 8
+  call void @ExecReScan(ptr noundef %75)
+  br label %76
 
-64:                                               ; preds = %60, %55
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %65, i32 0, i32 8
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %73
-
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %70, i32 0, i32 8
-  %72 = load i32, ptr %71, align 4
-  call void @ReleaseBuffer(i32 noundef %72)
-  br label %73
-
-73:                                               ; preds = %69, %64
-  %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %74, i32 0, i32 2
-  store ptr null, ptr %75, align 8
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %76, i32 0, i32 3
-  store ptr null, ptr %77, align 8
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %78, i32 0, i32 4
-  store ptr null, ptr %79, align 8
-  %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %80, i32 0, i32 11
-  store ptr null, ptr %81, align 8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %82, i32 0, i32 16
-  store i8 0, ptr %83, align 8
-  %84 = load ptr, ptr %2, align 8
-  %85 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %84, i32 0, i32 17
-  store ptr null, ptr %85, align 8
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %86, i32 0, i32 18
-  store ptr null, ptr %87, align 8
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %88, i32 0, i32 7
-  store i32 0, ptr %89, align 8
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %90, i32 0, i32 8
-  store i32 0, ptr %91, align 4
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %92, i32 0, i32 0
-  call void @ExecScanReScan(ptr noundef %93)
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.PlanState, ptr %94, i32 0, i32 13
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %100
-
-98:                                               ; preds = %73
-  %99 = load ptr, ptr %3, align 8
-  call void @ExecReScan(ptr noundef %99)
-  br label %100
-
-100:                                              ; preds = %98, %73
+76:                                               ; preds = %74, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @table_rescan(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @tbm_exhausted(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.TBMIterator, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
+
+declare void @tbm_end_iterate(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @table_rescan(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.TableScanDescData, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.RelationData, ptr %7, i32 0, i32 46
+  %8 = getelementptr inbounds nuw %struct.RelationData, ptr %7, i32 0, i32 47
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.TableAmRoutine, ptr %9, i32 0, i32 4
+  %10 = getelementptr inbounds nuw %struct.TableAmRoutine, ptr %9, i32 0, i32 4
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
@@ -232,147 +225,154 @@ define internal void @table_rescan(ptr noundef %0, ptr noundef %1) #0 {
   ret void
 }
 
-declare void @tbm_end_iterate(ptr noundef) #1
+declare void @tbm_free(ptr noundef) #3
 
-declare void @tbm_end_shared_iterate(ptr noundef) #1
+declare void @ReleaseBuffer(i32 noundef) #3
 
-declare void @tbm_free(ptr noundef) #1
+declare void @ExecScanReScan(ptr noundef) #3
 
-declare void @ReleaseBuffer(i32 noundef) #1
+declare void @ExecReScan(ptr noundef) #3
 
-declare void @ExecScanReScan(ptr noundef) #1
-
-declare void @ExecReScan(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %struct.ScanState, ptr %5, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %5, i32 0, i32 11
   %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.PlanState, ptr %8, i32 0, i32 9
-  %10 = load ptr, ptr %9, align 8
-  call void @ExecEndNode(ptr noundef %10)
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %19
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %36
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  call void @tbm_end_iterate(ptr noundef %18)
-  br label %19
+9:                                                ; preds = %1
+  %10 = load i32, ptr @ParallelWorkerNumber, align 4
+  %11 = icmp sge i32 %10, 0
+  br i1 %11, label %12, label %36
 
-19:                                               ; preds = %15, %1
+12:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %13, i32 0, i32 11
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct.SharedBitmapHeapInstrumentation, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr @ParallelWorkerNumber, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [0 x %struct.BitmapHeapScanInstrumentation], ptr %16, i64 0, i64 %18
+  store ptr %19, ptr %4, align 8
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %20, i32 0, i32 11
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %28
+  %21 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %20, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %24, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %23
+  store i64 %27, ptr %25, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %28, i32 0, i32 4
+  %30 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %32, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, %31
+  store i64 %35, ptr %33, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %36
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %25, i32 0, i32 11
-  %27 = load ptr, ptr %26, align 8
-  call void @tbm_end_iterate(ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %24, %19
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %29, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %37
-
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  call void @tbm_free(ptr noundef %36)
-  br label %37
-
-37:                                               ; preds = %33, %28
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %38, i32 0, i32 17
+36:                                               ; preds = %12, %9, %1
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %struct.ScanState, ptr %38, i32 0, i32 2
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+  store ptr %40, ptr %3, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw %struct.PlanState, ptr %41, i32 0, i32 9
+  %43 = load ptr, ptr %42, align 8
+  call void @ExecEndNode(ptr noundef %43)
+  %44 = load ptr, ptr %3, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %55
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %43, i32 0, i32 17
-  %45 = load ptr, ptr %44, align 8
-  call void @tbm_end_shared_iterate(ptr noundef %45)
-  br label %46
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %47, i32 0, i32 4
+  %49 = call zeroext i1 @tbm_exhausted(ptr noundef %48)
+  br i1 %49, label %53, label %50
 
-46:                                               ; preds = %42, %37
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %47, i32 0, i32 18
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %55
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %51, i32 0, i32 4
+  call void @tbm_end_iterate(ptr noundef %52)
+  br label %53
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %52, i32 0, i32 18
-  %54 = load ptr, ptr %53, align 8
-  call void @tbm_end_shared_iterate(ptr noundef %54)
+53:                                               ; preds = %50, %46
+  %54 = load ptr, ptr %3, align 8
+  call void @table_endscan(ptr noundef %54)
   br label %55
 
-55:                                               ; preds = %51, %46
+55:                                               ; preds = %53, %36
   %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %56, i32 0, i32 7
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %64
+  %57 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %56, i32 0, i32 5
+  %58 = call zeroext i1 @tbm_exhausted(ptr noundef %57)
+  br i1 %58, label %62, label %59
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 8
-  call void @ReleaseBuffer(i32 noundef %63)
-  br label %64
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %60, i32 0, i32 5
+  call void @tbm_end_iterate(ptr noundef %61)
+  br label %62
 
-64:                                               ; preds = %60, %55
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %65, i32 0, i32 8
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %73
+62:                                               ; preds = %59, %55
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %71
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %70, i32 0, i32 8
-  %72 = load i32, ptr %71, align 4
-  call void @ReleaseBuffer(i32 noundef %72)
-  br label %73
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  call void @tbm_free(ptr noundef %70)
+  br label %71
 
-73:                                               ; preds = %69, %64
-  %74 = load ptr, ptr %3, align 8
-  call void @table_endscan(ptr noundef %74)
+71:                                               ; preds = %67, %62
+  %72 = load ptr, ptr %2, align 8
+  %73 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %72, i32 0, i32 3
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %80
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %77, i32 0, i32 3
+  %79 = load i32, ptr %78, align 8
+  call void @ReleaseBuffer(i32 noundef %79)
+  br label %80
+
+80:                                               ; preds = %76, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) #1
+declare void @ExecEndNode(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @table_endscan(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @table_endscan(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.TableScanDescData, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.RelationData, ptr %5, i32 0, i32 46
+  %6 = getelementptr inbounds nuw %struct.RelationData, ptr %5, i32 0, i32 47
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.TableAmRoutine, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %struct.TableAmRoutine, ptr %7, i32 0, i32 3
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   call void %9(ptr noundef %10)
@@ -389,196 +389,152 @@ define dso_local ptr @ExecInitBitmapHeapScan(ptr noundef %0, ptr noundef %1, i32
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
-  %9 = call ptr @newNode(i64 noundef 352, i32 noundef 392)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %9 = call ptr @newNode(i64 noundef 328, i32 noundef 407)
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.ScanState, ptr %12, i32 0, i32 0
-  %14 = getelementptr inbounds %struct.PlanState, ptr %13, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.PlanState, ptr %13, i32 0, i32 1
   store ptr %10, ptr %14, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.ScanState, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.PlanState, ptr %18, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.ScanState, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.PlanState, ptr %18, i32 0, i32 2
   store ptr %15, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %20, i32 0, i32 0
-  %22 = getelementptr inbounds %struct.ScanState, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.PlanState, ptr %22, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.ScanState, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.PlanState, ptr %22, i32 0, i32 3
   store ptr @ExecBitmapHeapScan, ptr %23, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %24, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %24, i32 0, i32 2
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %26, i32 0, i32 3
-  store ptr null, ptr %27, align 8
+  %27 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %26, i32 0, i32 3
+  store i32 0, ptr %27, align 8
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %28, i32 0, i32 4
-  store ptr null, ptr %29, align 8
+  %29 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %28, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %30, i32 0, i32 6
-  store i32 0, ptr %31, align 4
+  %31 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %30, i32 0, i32 6
+  store i32 0, ptr %31, align 8
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %32, i32 0, i32 7
-  store i32 0, ptr %33, align 8
+  %33 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %32, i32 0, i32 7
+  store i32 -1, ptr %33, align 4
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %34, i32 0, i32 8
-  store i32 0, ptr %35, align 4
+  %35 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %34, i32 0, i32 9
+  store i8 0, ptr %35, align 4
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %36, i32 0, i32 9
-  store i64 0, ptr %37, align 8
+  %37 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %36, i32 0, i32 10
+  store ptr null, ptr %37, align 8
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %38, i32 0, i32 10
-  store i64 0, ptr %39, align 8
+  %39 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %38, i32 0, i32 12
+  store i8 1, ptr %39, align 8
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %40, i32 0, i32 11
-  store ptr null, ptr %41, align 8
+  %41 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %40, i32 0, i32 13
+  store i32 -1, ptr %41, align 4
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %42, i32 0, i32 12
-  store i32 0, ptr %43, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %44, i32 0, i32 13
-  store i32 0, ptr %45, align 4
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %46, i32 0, i32 15
-  store i64 0, ptr %47, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %48, i32 0, i32 16
-  store i8 0, ptr %49, align 8
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %50, i32 0, i32 17
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %52, i32 0, i32 18
-  store ptr null, ptr %53, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %54, i32 0, i32 19
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.BitmapHeapScan, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.Scan, ptr %57, i32 0, i32 0
-  %59 = getelementptr inbounds %struct.Plan, ptr %58, i32 0, i32 10
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %69
-
-62:                                               ; preds = %3
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.BitmapHeapScan, ptr %63, i32 0, i32 0
-  %65 = getelementptr inbounds %struct.Scan, ptr %64, i32 0, i32 0
-  %66 = getelementptr inbounds %struct.Plan, ptr %65, i32 0, i32 9
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br label %69
-
-69:                                               ; preds = %62, %3
-  %70 = phi i1 [ false, %3 ], [ %68, %62 ]
+  %43 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %42, i32 0, i32 14
+  store i32 -1, ptr %43, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.ScanState, ptr %46, i32 0, i32 0
+  call void @ExecAssignExprContext(ptr noundef %44, ptr noundef %47)
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw %struct.BitmapHeapScan, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.Scan, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = call ptr @ExecOpenScanRelation(ptr noundef %48, i32 noundef %52, i32 noundef %53)
+  store ptr %54, ptr %8, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.Plan, ptr %55, i32 0, i32 12
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = load i32, ptr %6, align 4
+  %60 = call ptr @ExecInitNode(ptr noundef %57, ptr noundef %58, i32 noundef %59)
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.PlanState, ptr %61, i32 0, i32 9
+  store ptr %60, ptr %62, align 8
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.RelationData, ptr %66, i32 0, i32 14
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = call ptr @table_slot_callbacks(ptr noundef %69)
+  call void @ExecInitScanTupleSlot(ptr noundef %63, ptr noundef %65, ptr noundef %68, ptr noundef %70)
   %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %71, i32 0, i32 5
-  %73 = zext i1 %70 to i8
-  store i8 %73, ptr %72, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %75, i32 0, i32 0
-  %77 = getelementptr inbounds %struct.ScanState, ptr %76, i32 0, i32 0
-  call void @ExecAssignExprContext(ptr noundef %74, ptr noundef %77)
-  %78 = load ptr, ptr %5, align 8
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.BitmapHeapScan, ptr %79, i32 0, i32 0
-  %81 = getelementptr inbounds %struct.Scan, ptr %80, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  %83 = load i32, ptr %6, align 4
-  %84 = call ptr @ExecOpenScanRelation(ptr noundef %78, i32 noundef %82, i32 noundef %83)
-  store ptr %84, ptr %8, align 8
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.Plan, ptr %85, i32 0, i32 11
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %5, align 8
-  %89 = load i32, ptr %6, align 4
-  %90 = call ptr @ExecInitNode(ptr noundef %87, ptr noundef %88, i32 noundef %89)
-  %91 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds %struct.PlanState, ptr %91, i32 0, i32 9
-  store ptr %90, ptr %92, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %94, i32 0, i32 0
-  %96 = load ptr, ptr %8, align 8
-  %97 = getelementptr inbounds %struct.RelationData, ptr %96, i32 0, i32 14
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %8, align 8
-  %100 = call ptr @table_slot_callbacks(ptr noundef %99)
-  call void @ExecInitScanTupleSlot(ptr noundef %93, ptr noundef %95, ptr noundef %98, ptr noundef %100)
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %101, i32 0, i32 0
-  %103 = getelementptr inbounds %struct.ScanState, ptr %102, i32 0, i32 0
-  call void @ExecInitResultTypeTL(ptr noundef %103)
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %104, i32 0, i32 0
-  call void @ExecAssignScanProjectionInfo(ptr noundef %105)
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.BitmapHeapScan, ptr %106, i32 0, i32 0
-  %108 = getelementptr inbounds %struct.Scan, ptr %107, i32 0, i32 0
-  %109 = getelementptr inbounds %struct.Plan, ptr %108, i32 0, i32 10
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = call ptr @ExecInitQual(ptr noundef %110, ptr noundef %111)
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %113, i32 0, i32 0
-  %115 = getelementptr inbounds %struct.ScanState, ptr %114, i32 0, i32 0
-  %116 = getelementptr inbounds %struct.PlanState, ptr %115, i32 0, i32 8
-  store ptr %112, ptr %116, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.BitmapHeapScan, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = call ptr @ExecInitQual(ptr noundef %119, ptr noundef %120)
-  %122 = load ptr, ptr %7, align 8
-  %123 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %122, i32 0, i32 1
-  store ptr %121, ptr %123, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.RelationData, ptr %124, i32 0, i32 13
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds %struct.FormData_pg_class, ptr %126, i32 0, i32 8
-  %128 = load i32, ptr %127, align 4
-  %129 = call i32 @get_tablespace_io_concurrency(i32 noundef %128)
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %130, i32 0, i32 14
-  store i32 %129, ptr %131, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %133, i32 0, i32 0
-  %135 = getelementptr inbounds %struct.ScanState, ptr %134, i32 0, i32 1
-  store ptr %132, ptr %135, align 8
-  %136 = load ptr, ptr %8, align 8
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.EState, ptr %137, i32 0, i32 2
-  %139 = load ptr, ptr %138, align 8
-  %140 = call ptr @table_beginscan_bm(ptr noundef %136, ptr noundef %139, i32 noundef 0, ptr noundef null)
-  %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %141, i32 0, i32 0
-  %143 = getelementptr inbounds %struct.ScanState, ptr %142, i32 0, i32 2
-  store ptr %140, ptr %143, align 8
-  %144 = load ptr, ptr %7, align 8
-  ret ptr %144
+  %72 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %struct.ScanState, ptr %72, i32 0, i32 0
+  call void @ExecInitResultTypeTL(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %74, i32 0, i32 0
+  call void @ExecAssignScanProjectionInfo(ptr noundef %75)
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw %struct.BitmapHeapScan, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.Scan, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.Plan, ptr %78, i32 0, i32 11
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %7, align 8
+  %82 = call ptr @ExecInitQual(ptr noundef %80, ptr noundef %81)
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.ScanState, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.PlanState, ptr %85, i32 0, i32 8
+  store ptr %82, ptr %86, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds nuw %struct.BitmapHeapScan, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %7, align 8
+  %91 = call ptr @ExecInitQual(ptr noundef %89, ptr noundef %90)
+  %92 = load ptr, ptr %7, align 8
+  %93 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %92, i32 0, i32 1
+  store ptr %91, ptr %93, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds nuw %struct.RelationData, ptr %94, i32 0, i32 13
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw %struct.FormData_pg_class, ptr %96, i32 0, i32 8
+  %98 = load i32, ptr %97, align 4
+  %99 = call i32 @get_tablespace_io_concurrency(i32 noundef %98)
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %100, i32 0, i32 8
+  store i32 %99, ptr %101, align 8
+  %102 = load ptr, ptr %8, align 8
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %103, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %struct.ScanState, ptr %104, i32 0, i32 1
+  store ptr %102, ptr %105, align 8
+  %106 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %106
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load i64, ptr %3, align 8
   %7 = call ptr @palloc0(i64 noundef %6)
   store ptr %7, ptr %5, align 8
   %8 = load i32, ptr %4, align 4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.Node, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.Node, ptr %9, i32 0, i32 0
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret ptr %11
 }
 
@@ -587,108 +543,104 @@ define internal ptr @ExecBitmapHeapScan(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %5, i32 0, i32 0
   %7 = call ptr @ExecScan(ptr noundef %6, ptr noundef @BitmapHeapNext, ptr noundef @BitmapHeapRecheck)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %7
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) #1
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) #3
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) #1
+declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @table_slot_callbacks(ptr noundef) #1
+declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @ExecInitResultTypeTL(ptr noundef) #1
+declare ptr @table_slot_callbacks(ptr noundef) #3
 
-declare void @ExecAssignScanProjectionInfo(ptr noundef) #1
+declare void @ExecInitResultTypeTL(ptr noundef) #3
 
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) #1
+declare void @ExecAssignScanProjectionInfo(ptr noundef) #3
 
-declare i32 @get_tablespace_io_concurrency(i32 noundef) #1
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @table_beginscan_bm(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  store i32 258, ptr %9, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.RelationData, ptr %10, i32 0, i32 46
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.TableAmRoutine, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = call ptr %14(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef null, i32 noundef %19)
-  ret ptr %20
-}
+declare i32 @get_tablespace_io_concurrency(i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecBitmapHeapEstimate(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
+  %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 48, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %struct.ScanState, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %struct.PlanState, ptr %8, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.ScanState, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.PlanState, ptr %8, i32 0, i32 5
   %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.EState, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = call i64 @EstimateSnapshotSpace(ptr noundef %13)
-  %15 = call i64 @add_size(i64 noundef 44, i64 noundef %14)
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %16, i32 0, i32 15
-  store i64 %15, ptr %17, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.ParallelContext, ptr %18, i32 0, i32 8
-  %20 = getelementptr inbounds %struct.shm_toc_estimator, ptr %19, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %22, i32 0, i32 15
-  %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, 31
-  %26 = and i64 %25, -32
-  %27 = call i64 @add_size(i64 noundef %21, i64 noundef %26)
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %27
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.ParallelContext, ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %17, label %27
+
+17:                                               ; preds = %12
+  %18 = load i64, ptr %5, align 8
+  %19 = call i64 @add_size(i64 noundef %18, i64 noundef 8)
+  store i64 %19, ptr %5, align 8
+  %20 = load i64, ptr %5, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.ParallelContext, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 4
+  %24 = sext i32 %23 to i64
+  %25 = call i64 @mul_size(i64 noundef %24, i64 noundef 16)
+  %26 = call i64 @add_size(i64 noundef %20, i64 noundef %25)
+  store i64 %26, ptr %5, align 8
+  br label %27
+
+27:                                               ; preds = %17, %12, %2
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.ParallelContext, ptr %28, i32 0, i32 8
-  %30 = getelementptr inbounds %struct.shm_toc_estimator, ptr %29, i32 0, i32 0
-  store i64 %27, ptr %30, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.ParallelContext, ptr %31, i32 0, i32 8
-  %33 = getelementptr inbounds %struct.shm_toc_estimator, ptr %32, i32 0, i32 1
-  %34 = load i64, ptr %33, align 8
-  %35 = call i64 @add_size(i64 noundef %34, i64 noundef 1)
+  %29 = getelementptr inbounds nuw %struct.ParallelContext, ptr %28, i32 0, i32 8
+  %30 = getelementptr inbounds nuw %struct.shm_toc_estimator, ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = load i64, ptr %5, align 8
+  %33 = add i64 %32, 31
+  %34 = and i64 %33, -32
+  %35 = call i64 @add_size(i64 noundef %31, i64 noundef %34)
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.ParallelContext, ptr %36, i32 0, i32 8
-  %38 = getelementptr inbounds %struct.shm_toc_estimator, ptr %37, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.ParallelContext, ptr %36, i32 0, i32 8
+  %38 = getelementptr inbounds nuw %struct.shm_toc_estimator, ptr %37, i32 0, i32 0
   store i64 %35, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.ParallelContext, ptr %39, i32 0, i32 8
+  %41 = getelementptr inbounds nuw %struct.shm_toc_estimator, ptr %40, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  %43 = call i64 @add_size(i64 noundef %42, i64 noundef 1)
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds nuw %struct.ParallelContext, ptr %44, i32 0, i32 8
+  %46 = getelementptr inbounds nuw %struct.shm_toc_estimator, ptr %45, i32 0, i32 1
+  store i64 %43, ptr %46, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) #1
+declare i64 @add_size(i64 noundef, i64 noundef) #3
 
-declare i64 @EstimateSnapshotSpace(ptr noundef) #1
+declare i64 @mul_size(i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecBitmapHeapInitializeDSM(ptr noundef %0, ptr noundef %1) #0 {
@@ -697,103 +649,199 @@ define dso_local void @ExecBitmapHeapInitializeDSM(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.ScanState, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds %struct.PlanState, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds %struct.ScanState, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.PlanState, ptr %15, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.PlanState, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct.EState, ptr %15, i32 0, i32 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.EState, ptr %17, i32 0, i32 34
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
+  store ptr %17, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %18 = load ptr, ptr %7, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-22:                                               ; preds = %2
-  br label %68
+20:                                               ; preds = %2
+  store i32 1, ptr %10, align 4
+  br label %118
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.ParallelContext, ptr %24, i32 0, i32 11
+21:                                               ; preds = %2
+  store i64 48, ptr %9, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.ScanState, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.PlanState, ptr %24, i32 0, i32 5
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %27, i32 0, i32 15
-  %29 = load i64, ptr %28, align 8
-  %30 = call ptr @shm_toc_allocate(ptr noundef %26, i64 noundef %29)
-  store ptr %30, ptr %5, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %31, i32 0, i32 0
-  store i64 0, ptr %32, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %33, i32 0, i32 1
-  store i64 0, ptr %34, align 8
-  br label %35
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %43
 
-35:                                               ; preds = %23
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %36, i32 0, i32 2
-  store i8 0, ptr %37, align 8
-  br label %38
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.ParallelContext, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %33, label %43
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %39, i32 0, i32 3
-  store i32 0, ptr %40, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %41, i32 0, i32 4
-  store i32 0, ptr %42, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %43, i32 0, i32 5
-  store i32 0, ptr %44, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %45, i32 0, i32 6
-  call void @ConditionVariableInit(ptr noundef %46)
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.EState, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %50, i32 0, i32 7
-  %52 = getelementptr inbounds [0 x i8], ptr %51, i64 0, i64 0
-  call void @SerializeSnapshot(ptr noundef %49, ptr noundef %52)
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.ParallelContext, ptr %53, i32 0, i32 11
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.ScanState, ptr %57, i32 0, i32 0
-  %59 = getelementptr inbounds %struct.PlanState, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.Plan, ptr %60, i32 0, i32 8
-  %62 = load i32, ptr %61, align 8
-  %63 = sext i32 %62 to i64
-  %64 = load ptr, ptr %5, align 8
-  call void @shm_toc_insert(ptr noundef %55, i64 noundef %63, ptr noundef %64)
-  %65 = load ptr, ptr %5, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %66, i32 0, i32 19
-  store ptr %65, ptr %67, align 8
-  br label %68
+33:                                               ; preds = %28
+  %34 = load i64, ptr %9, align 8
+  %35 = call i64 @add_size(i64 noundef %34, i64 noundef 8)
+  store i64 %35, ptr %9, align 8
+  %36 = load i64, ptr %9, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.ParallelContext, ptr %37, i32 0, i32 2
+  %39 = load i32, ptr %38, align 4
+  %40 = sext i32 %39 to i64
+  %41 = call i64 @mul_size(i64 noundef %40, i64 noundef 16)
+  %42 = call i64 @add_size(i64 noundef %36, i64 noundef %41)
+  store i64 %42, ptr %9, align 8
+  br label %43
 
-68:                                               ; preds = %38, %22
+43:                                               ; preds = %33, %28, %21
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds nuw %struct.ParallelContext, ptr %44, i32 0, i32 11
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i64, ptr %9, align 8
+  %48 = call ptr @shm_toc_allocate(ptr noundef %46, i64 noundef %47)
+  store ptr %48, ptr %8, align 8
+  %49 = load ptr, ptr %8, align 8
+  store ptr %49, ptr %5, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  store ptr %51, ptr %8, align 8
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.ScanState, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.PlanState, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %65
+
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.ParallelContext, ptr %59, i32 0, i32 2
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %8, align 8
+  store ptr %64, ptr %6, align 8
+  br label %65
+
+65:                                               ; preds = %63, %58, %43
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %66, i32 0, i32 0
+  store i64 0, ptr %67, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %68, i32 0, i32 1
+  store i64 0, ptr %69, align 8
+  br label %70
+
+70:                                               ; preds = %65
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !4
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %71, i32 0, i32 2
+  store i8 0, ptr %72, align 8
+  br label %73
+
+73:                                               ; preds = %70
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %75, i32 0, i32 3
+  store i32 0, ptr %76, align 4
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %77, i32 0, i32 4
+  store i32 -1, ptr %78, align 8
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %79, i32 0, i32 5
+  store i32 0, ptr %80, align 4
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %81, i32 0, i32 6
+  call void @ConditionVariableInit(ptr noundef %82)
+  %83 = load ptr, ptr %6, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %99
+
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds nuw %struct.ParallelContext, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 4
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds nuw %struct.SharedBitmapHeapInstrumentation, ptr %89, i32 0, i32 0
+  store i32 %88, ptr %90, align 8
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds nuw %struct.SharedBitmapHeapInstrumentation, ptr %91, i32 0, i32 1
+  %93 = getelementptr inbounds [0 x %struct.BitmapHeapScanInstrumentation], ptr %92, i64 0, i64 0
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds nuw %struct.ParallelContext, ptr %94, i32 0, i32 2
+  %96 = load i32, ptr %95, align 4
+  %97 = sext i32 %96 to i64
+  %98 = mul i64 %97, 16
+  call void @llvm.memset.p0.i64(ptr align 8 %93, i8 0, i64 %98, i1 false)
+  br label %99
+
+99:                                               ; preds = %85, %74
+  %100 = load ptr, ptr %4, align 8
+  %101 = getelementptr inbounds nuw %struct.ParallelContext, ptr %100, i32 0, i32 11
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %103, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %struct.ScanState, ptr %104, i32 0, i32 0
+  %106 = getelementptr inbounds nuw %struct.PlanState, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw %struct.Plan, ptr %107, i32 0, i32 9
+  %109 = load i32, ptr %108, align 8
+  %110 = sext i32 %109 to i64
+  %111 = load ptr, ptr %5, align 8
+  call void @shm_toc_insert(ptr noundef %102, i64 noundef %110, ptr noundef %111)
+  %112 = load ptr, ptr %5, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %113, i32 0, i32 10
+  store ptr %112, ptr %114, align 8
+  %115 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %3, align 8
+  %117 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %116, i32 0, i32 11
+  store ptr %115, ptr %117, align 8
+  store i32 0, ptr %10, align 4
+  br label %118
+
+118:                                              ; preds = %99, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %119 = load i32, ptr %10, align 4
+  switch i32 %119, label %121 [
+    i32 0, label %120
+    i32 1, label %120
+  ]
+
+120:                                              ; preds = %118, %118
   ret void
+
+121:                                              ; preds = %118
+  unreachable
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) #1
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) #3
 
-declare void @ConditionVariableInit(ptr noundef) #1
+declare void @ConditionVariableInit(ptr noundef) #3
 
-declare void @SerializeSnapshot(ptr noundef, ptr noundef) #1
-
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) #1
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecBitmapHeapReInitializeDSM(ptr noundef %0, ptr noundef %1) #0 {
@@ -801,123 +849,215 @@ define dso_local void @ExecBitmapHeapReInitializeDSM(ptr noundef %0, ptr noundef
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %7, i32 0, i32 19
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %10, i32 0, i32 0
-  %12 = getelementptr inbounds %struct.ScanState, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.PlanState, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.EState, ptr %14, i32 0, i32 34
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %6, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %2
-  br label %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %8, i32 0, i32 10
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.PlanState, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct.EState, ptr %15, i32 0, i32 40
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %21, i32 0, i32 5
-  store i32 0, ptr %22, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %23, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ne i64 %25, 0
-  br i1 %26, label %27, label %32
+  store i32 1, ptr %7, align 4
+  br label %52
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %29, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  call void @tbm_free_shared_area(ptr noundef %28, i64 noundef %31)
-  br label %32
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %22, i32 0, i32 5
+  store i32 0, ptr %23, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %24, i32 0, i32 3
+  store i32 0, ptr %25, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %26, i32 0, i32 4
+  store i32 -1, ptr %27, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %37
 
-32:                                               ; preds = %27, %20
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %33, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %42
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  call void @tbm_free_shared_area(ptr noundef %33, i64 noundef %36)
+  br label %37
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %39, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  call void @tbm_free_shared_area(ptr noundef %38, i64 noundef %41)
-  br label %42
+37:                                               ; preds = %32, %21
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %38, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %47
 
-42:                                               ; preds = %37, %32
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %43, i32 0, i32 0
-  store i64 0, ptr %44, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %45, i32 0, i32 1
-  store i64 0, ptr %46, align 8
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  call void @tbm_free_shared_area(ptr noundef %43, i64 noundef %46)
   br label %47
 
-47:                                               ; preds = %42, %19
+47:                                               ; preds = %42, %37
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %48, i32 0, i32 0
+  store i64 0, ptr %49, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %50, i32 0, i32 1
+  store i64 0, ptr %51, align 8
+  store i32 0, ptr %7, align 4
+  br label %52
+
+52:                                               ; preds = %47, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %53 = load i32, ptr %7, align 4
+  switch i32 %53, label %55 [
+    i32 0, label %54
+    i32 1, label %54
+  ]
+
+54:                                               ; preds = %52, %52
   ret void
+
+55:                                               ; preds = %52
+  unreachable
 }
 
-declare void @tbm_free_shared_area(ptr noundef, i64 noundef) #1
+declare void @tbm_free_shared_area(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecBitmapHeapInitializeWorker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.ParallelWorkerContext, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %10, i32 0, i32 0
-  %12 = getelementptr inbounds %struct.ScanState, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.PlanState, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.Plan, ptr %14, i32 0, i32 8
-  %16 = load i32, ptr %15, align 8
-  %17 = sext i32 %16 to i64
-  %18 = call ptr @shm_toc_lookup(ptr noundef %9, i64 noundef %17, i1 noundef zeroext false)
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %20, i32 0, i32 19
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %22, i32 0, i32 7
-  %24 = getelementptr inbounds [0 x i8], ptr %23, i64 0, i64 0
-  %25 = call ptr @RestoreSnapshot(ptr noundef %24)
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %26, i32 0, i32 0
-  %28 = getelementptr inbounds %struct.ScanState, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %6, align 8
-  call void @table_scan_update_snapshot(ptr noundef %29, ptr noundef %30)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %struct.ParallelWorkerContext, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.ScanState, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.PlanState, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %struct.Plan, ptr %13, i32 0, i32 9
+  %15 = load i32, ptr %14, align 8
+  %16 = sext i32 %15 to i64
+  %17 = call ptr @shm_toc_lookup(ptr noundef %8, i64 noundef %16, i1 noundef zeroext false)
+  store ptr %17, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %19, i32 0, i32 10
+  store ptr %18, ptr %20, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store ptr %22, ptr %5, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.ScanState, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.PlanState, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %33
+
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %31, i32 0, i32 11
+  store ptr %30, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %29, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) #1
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) #3
 
-declare ptr @RestoreSnapshot(ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define dso_local void @ExecBitmapHeapRetrieveInstrumentation(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %6, i32 0, i32 11
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-declare void @table_scan_update_snapshot(ptr noundef, ptr noundef) #1
+11:                                               ; preds = %1
+  store i32 1, ptr %5, align 4
+  br label %28
 
-declare ptr @palloc0(i64 noundef) #1
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.SharedBitmapHeapInstrumentation, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8
+  %16 = sext i32 %15 to i64
+  %17 = mul i64 %16, 16
+  %18 = add i64 8, %17
+  store i64 %18, ptr %4, align 8
+  %19 = load i64, ptr %4, align 8
+  %20 = call ptr @palloc(i64 noundef %19)
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %21, i32 0, i32 11
+  store ptr %20, ptr %22, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %23, i32 0, i32 11
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = load i64, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %26, i64 %27, i1 false)
+  store i32 0, ptr %5, align 4
+  br label %28
 
-declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) #1
+28:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %29 = load i32, ptr %5, align 4
+  switch i32 %29, label %31 [
+    i32 0, label %30
+    i32 1, label %30
+  ]
+
+30:                                               ; preds = %28, %28
+  ret void
+
+31:                                               ; preds = %28
+  unreachable
+}
+
+declare ptr @palloc(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+declare ptr @palloc0(i64 noundef) #3
+
+declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
@@ -927,631 +1067,332 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca i8, align 1
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  store ptr null, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %14, i32 0, i32 19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %9, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %7, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.ScanState, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.PlanState, ptr %14, i32 0, i32 16
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %11, align 8
+  store ptr %16, ptr %4, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.ScanState, ptr %18, i32 0, i32 0
-  %20 = getelementptr inbounds %struct.PlanState, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.EState, ptr %21, i32 0, i32 34
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %12, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.ScanState, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.PlanState, ptr %26, i32 0, i32 16
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %4, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds %struct.ScanState, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %33, i32 0, i32 0
-  %35 = getelementptr inbounds %struct.ScanState, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %6, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  %18 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.ScanState, ptr %18, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %6, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.ScanState, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %25, i32 0, i32 9
+  %27 = load i8, ptr %26, align 4, !range !5, !noundef !6
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %35, label %29
 
-42:                                               ; preds = %1
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %7, align 8
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %3, align 8
+  call void @BitmapTableScanSetup(ptr noundef %30)
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.ScanState, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %5, align 8
+  br label %145
+
+35:                                               ; preds = %1
+  br label %36
+
+36:                                               ; preds = %194, %35
+  br label %37
+
+37:                                               ; preds = %138, %36
+  %38 = load ptr, ptr %5, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = call zeroext i1 @table_scan_bitmap_next_tuple(ptr noundef %38, ptr noundef %39)
+  br i1 %40, label %41, label %144
+
+41:                                               ; preds = %37
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load volatile i32, ptr @InterruptPending, align 4
+  %44 = icmp ne i32 %43, 0
+  %45 = zext i1 %44 to i32
+  %46 = sext i32 %45 to i64
+  %47 = call i64 @llvm.expect.i64(i64 %46, i64 0)
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %42
+  call void @ProcessInterrupts()
   br label %50
 
-46:                                               ; preds = %1
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %47, i32 0, i32 17
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %8, align 8
-  br label %50
+50:                                               ; preds = %49, %42
+  br label %51
 
-50:                                               ; preds = %46, %42
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %9, align 8
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %54, i32 0, i32 16
-  %56 = load i8, ptr %55, align 8
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %181, label %58
+51:                                               ; preds = %50
+  br label %52
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %11, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %107, label %61
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %7, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %69, label %55
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.PlanState, ptr %62, i32 0, i32 9
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @MultiExecProcNode(ptr noundef %64)
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %56, i32 0, i32 7
+  %58 = load i32, ptr %57, align 4
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %59, i32 0, i32 8
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp slt i32 %58, %61
+  br i1 %62, label %63, label %68
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.Node, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, 460
-  br i1 %72, label %83, label %73
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %64, i32 0, i32 7
+  %66 = load i32, ptr %65, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %65, align 4
+  br label %68
 
-73:                                               ; preds = %68, %61
-  br label %74
+68:                                               ; preds = %63, %55
+  br label %107
 
-74:                                               ; preds = %73
-  br i1 true, label %75, label %77
+69:                                               ; preds = %52
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %70, i32 0, i32 4
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %73, i32 0, i32 8
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp slt i32 %72, %75
+  br i1 %76, label %77, label %106
 
-75:                                               ; preds = %74
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %76, label %79, label %81
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %78, i32 0, i32 2
+  %80 = call i32 @tas(ptr noundef %79)
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %86
 
-77:                                               ; preds = %74
-  %78 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %78, label %79, label %81
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %83, i32 0, i32 2
+  %85 = call i32 @s_lock(ptr noundef %84, ptr noundef @.str, i32 noundef 221, ptr noundef @__func__.BitmapHeapNext)
+  br label %87
 
-79:                                               ; preds = %77, %75
-  %80 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 116, ptr noundef @__func__.BitmapHeapNext)
-  br label %81
+86:                                               ; preds = %77
+  br label %87
 
-81:                                               ; preds = %79, %77, %75
-  unreachable
-
-82:                                               ; No predecessors!
-  br label %83
-
-83:                                               ; preds = %82, %68
-  %84 = load ptr, ptr %6, align 8
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %85, i32 0, i32 2
-  store ptr %84, ptr %86, align 8
-  %87 = load ptr, ptr %6, align 8
-  %88 = call ptr @tbm_begin_iterate(ptr noundef %87)
-  store ptr %88, ptr %7, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %89, i32 0, i32 3
-  store ptr %88, ptr %90, align 8
-  store ptr null, ptr %9, align 8
+87:                                               ; preds = %86, %82
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %88, i32 0, i32 4
+  %90 = load i32, ptr %89, align 8
   %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %91, i32 0, i32 4
-  store ptr null, ptr %92, align 8
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %93, i32 0, i32 14
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %97, label %106
+  %92 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %91, i32 0, i32 8
+  %93 = load i32, ptr %92, align 8
+  %94 = icmp slt i32 %90, %93
+  br i1 %94, label %95, label %100
 
-97:                                               ; preds = %83
-  %98 = load ptr, ptr %6, align 8
-  %99 = call ptr @tbm_begin_iterate(ptr noundef %98)
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %100, i32 0, i32 11
-  store ptr %99, ptr %101, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %102, i32 0, i32 12
-  store i32 0, ptr %103, align 8
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %104, i32 0, i32 13
-  store i32 -1, ptr %105, align 4
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %7, align 8
+  %97 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %96, i32 0, i32 4
+  %98 = load i32, ptr %97, align 8
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %97, align 8
+  br label %100
+
+100:                                              ; preds = %95, %87
+  br label %101
+
+101:                                              ; preds = %100
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %102, i32 0, i32 2
+  store i8 0, ptr %103, align 8
+  br label %104
+
+104:                                              ; preds = %101
+  br label %105
+
+105:                                              ; preds = %104
   br label %106
 
-106:                                              ; preds = %97, %83
-  br label %178
+106:                                              ; preds = %105, %69
+  br label %107
 
-107:                                              ; preds = %58
-  %108 = load ptr, ptr %11, align 8
-  %109 = call zeroext i1 @BitmapShouldInitializeSharedState(ptr noundef %108)
-  br i1 %109, label %110, label %155
+107:                                              ; preds = %106, %68
+  %108 = load ptr, ptr %3, align 8
+  %109 = load ptr, ptr %5, align 8
+  call void @BitmapPrefetch(ptr noundef %108, ptr noundef %109)
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %110, i32 0, i32 12
+  %112 = load i8, ptr %111, align 8, !range !5, !noundef !6
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %142
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds %struct.PlanState, ptr %111, i32 0, i32 9
-  %113 = load ptr, ptr %112, align 8
-  %114 = call ptr @MultiExecProcNode(ptr noundef %113)
-  store ptr %114, ptr %6, align 8
+114:                                              ; preds = %107
   %115 = load ptr, ptr %6, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %117, label %122
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.ExprContext, ptr %116, i32 0, i32 1
+  store ptr %115, ptr %117, align 8
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %121 = load ptr, ptr %4, align 8
+  %122 = call zeroext i1 @ExecQualAndReset(ptr noundef %120, ptr noundef %121)
+  br i1 %122, label %141, label %123
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.Node, ptr %118, i32 0, i32 0
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp eq i32 %120, 460
-  br i1 %121, label %132, label %122
-
-122:                                              ; preds = %117, %110
-  br label %123
-
-123:                                              ; preds = %122
-  br i1 true, label %124, label %126
+123:                                              ; preds = %114
+  br label %124
 
 124:                                              ; preds = %123
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %125, label %128, label %130
+  %125 = load ptr, ptr %3, align 8
+  %126 = getelementptr inbounds nuw %struct.PlanState, ptr %125, i32 0, i32 5
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %129, label %136
 
-126:                                              ; preds = %123
-  %127 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %127, label %128, label %130
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds nuw %struct.PlanState, ptr %130, i32 0, i32 5
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw %struct.Instrumentation, ptr %132, i32 0, i32 17
+  %134 = load double, ptr %133, align 8
+  %135 = fadd double %134, 1.000000e+00
+  store double %135, ptr %133, align 8
+  br label %136
 
-128:                                              ; preds = %126, %124
-  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 142, ptr noundef @__func__.BitmapHeapNext)
-  br label %130
+136:                                              ; preds = %129, %124
+  br label %137
 
-130:                                              ; preds = %128, %126, %124
-  unreachable
+137:                                              ; preds = %136
+  br label %138
 
-131:                                              ; No predecessors!
-  br label %132
+138:                                              ; preds = %137
+  %139 = load ptr, ptr %6, align 8
+  %140 = call ptr @ExecClearTuple(ptr noundef %139)
+  br label %37, !llvm.loop !8
 
-132:                                              ; preds = %131, %117
-  %133 = load ptr, ptr %6, align 8
-  %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %134, i32 0, i32 2
-  store ptr %133, ptr %135, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = call i64 @tbm_prepare_shared_iterate(ptr noundef %136)
-  %138 = load ptr, ptr %11, align 8
-  %139 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %138, i32 0, i32 0
-  store i64 %137, ptr %139, align 8
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %140, i32 0, i32 14
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %144, label %153
+141:                                              ; preds = %114
+  br label %142
 
-144:                                              ; preds = %132
-  %145 = load ptr, ptr %6, align 8
-  %146 = call i64 @tbm_prepare_shared_iterate(ptr noundef %145)
-  %147 = load ptr, ptr %11, align 8
-  %148 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %147, i32 0, i32 1
-  store i64 %146, ptr %148, align 8
-  %149 = load ptr, ptr %11, align 8
-  %150 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %149, i32 0, i32 3
-  store i32 0, ptr %150, align 4
-  %151 = load ptr, ptr %11, align 8
-  %152 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %151, i32 0, i32 4
-  store i32 -1, ptr %152, align 8
-  br label %153
+142:                                              ; preds = %141, %107
+  %143 = load ptr, ptr %6, align 8
+  store ptr %143, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %199
 
-153:                                              ; preds = %144, %132
-  %154 = load ptr, ptr %11, align 8
-  call void @BitmapDoneInitializingSharedState(ptr noundef %154)
-  br label %155
+144:                                              ; preds = %37
+  br label %145
 
-155:                                              ; preds = %153, %107
-  %156 = load ptr, ptr %12, align 8
-  %157 = load ptr, ptr %11, align 8
-  %158 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %157, i32 0, i32 0
-  %159 = load i64, ptr %158, align 8
-  %160 = call ptr @tbm_attach_shared_iterate(ptr noundef %156, i64 noundef %159)
-  store ptr %160, ptr %8, align 8
+145:                                              ; preds = %144, %29
+  %146 = load ptr, ptr %3, align 8
+  call void @BitmapAdjustPrefetchIterator(ptr noundef %146)
+  %147 = load ptr, ptr %5, align 8
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %148, i32 0, i32 13
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %150, i32 0, i32 12
+  %152 = load ptr, ptr %3, align 8
+  %153 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %152, i32 0, i32 4
+  %154 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %155, i32 0, i32 4
+  %157 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %156, i32 0, i32 0
+  %158 = call zeroext i1 @table_scan_bitmap_next_block(ptr noundef %147, ptr noundef %149, ptr noundef %151, ptr noundef %154, ptr noundef %157)
+  br i1 %158, label %160, label %159
+
+159:                                              ; preds = %145
+  br label %196
+
+160:                                              ; preds = %145
   %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %161, i32 0, i32 17
-  store ptr %160, ptr %162, align 8
-  store ptr null, ptr %9, align 8
-  %163 = load ptr, ptr %3, align 8
-  %164 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %163, i32 0, i32 4
-  store ptr null, ptr %164, align 8
-  %165 = load ptr, ptr %3, align 8
-  %166 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %165, i32 0, i32 14
-  %167 = load i32, ptr %166, align 8
-  %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %169, label %177
+  %162 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %161, i32 0, i32 10
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %194
 
-169:                                              ; preds = %155
-  %170 = load ptr, ptr %12, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %171, i32 0, i32 1
-  %173 = load i64, ptr %172, align 8
-  %174 = call ptr @tbm_attach_shared_iterate(ptr noundef %170, i64 noundef %173)
-  %175 = load ptr, ptr %3, align 8
-  %176 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %175, i32 0, i32 18
-  store ptr %174, ptr %176, align 8
-  br label %177
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %166, i32 0, i32 5
+  %168 = call zeroext i1 @tbm_exhausted(ptr noundef %167)
+  br i1 %168, label %194, label %169
 
-177:                                              ; preds = %169, %155
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %3, align 8
+  %171 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %170, i32 0, i32 14
+  %172 = load i32, ptr %171, align 8
+  %173 = load ptr, ptr %3, align 8
+  %174 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %173, i32 0, i32 13
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp ult i32 %172, %175
+  br i1 %176, label %177, label %194
+
+177:                                              ; preds = %169
   br label %178
 
-178:                                              ; preds = %177, %106
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %179, i32 0, i32 16
-  store i8 1, ptr %180, align 8
-  br label %181
+178:                                              ; preds = %177
+  br i1 true, label %179, label %181
 
-181:                                              ; preds = %178, %50
-  br label %182
+179:                                              ; preds = %178
+  %180 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %180, label %183, label %191
 
-182:                                              ; preds = %381, %350, %252, %181
-  br label %183
+181:                                              ; preds = %178
+  %182 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %182, label %183, label %191
 
-183:                                              ; preds = %182
-  %184 = load volatile i32, ptr @InterruptPending, align 4
-  %185 = icmp ne i32 %184, 0
-  %186 = zext i1 %185 to i32
-  %187 = sext i32 %186 to i64
-  %188 = icmp ne i64 %187, 0
-  br i1 %188, label %189, label %190
-
-189:                                              ; preds = %183
-  call void @ProcessInterrupts()
-  br label %190
-
-190:                                              ; preds = %189, %183
+183:                                              ; preds = %181, %179
+  %184 = load ptr, ptr %3, align 8
+  %185 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %184, i32 0, i32 14
+  %186 = load i32, ptr %185, align 8
+  %187 = load ptr, ptr %3, align 8
+  %188 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %187, i32 0, i32 13
+  %189 = load i32, ptr %188, align 4
+  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.1, i32 noundef %186, i32 noundef %189)
+  call void @errfinish(ptr noundef @.str, i32 noundef 281, ptr noundef @__func__.BitmapHeapNext)
   br label %191
 
-191:                                              ; preds = %190
-  %192 = load ptr, ptr %9, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %194, label %271
+191:                                              ; preds = %183, %181, %179
+  unreachable
 
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %11, align 8
-  %196 = icmp ne ptr %195, null
-  br i1 %196, label %202, label %197
+192:                                              ; No predecessors!
+  br label %193
 
-197:                                              ; preds = %194
-  %198 = load ptr, ptr %7, align 8
-  %199 = call ptr @tbm_iterate(ptr noundef %198)
-  store ptr %199, ptr %9, align 8
-  %200 = load ptr, ptr %3, align 8
-  %201 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %200, i32 0, i32 4
-  store ptr %199, ptr %201, align 8
-  br label %207
+193:                                              ; preds = %192
+  br label %194
 
-202:                                              ; preds = %194
-  %203 = load ptr, ptr %8, align 8
-  %204 = call ptr @tbm_shared_iterate(ptr noundef %203)
-  store ptr %204, ptr %9, align 8
-  %205 = load ptr, ptr %3, align 8
-  %206 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %205, i32 0, i32 4
-  store ptr %204, ptr %206, align 8
-  br label %207
+194:                                              ; preds = %193, %169, %165, %160
+  %195 = load ptr, ptr %3, align 8
+  call void @BitmapAdjustPrefetchTarget(ptr noundef %195)
+  br label %36
 
-207:                                              ; preds = %202, %197
-  %208 = load ptr, ptr %9, align 8
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %211
+196:                                              ; preds = %159
+  %197 = load ptr, ptr %6, align 8
+  %198 = call ptr @ExecClearTuple(ptr noundef %197)
+  store ptr %198, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %199
 
-210:                                              ; preds = %207
-  br label %388
-
-211:                                              ; preds = %207
-  %212 = load ptr, ptr %3, align 8
-  %213 = load ptr, ptr %9, align 8
-  call void @BitmapAdjustPrefetchIterator(ptr noundef %212, ptr noundef %213)
-  %214 = load ptr, ptr %3, align 8
-  %215 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %214, i32 0, i32 5
-  %216 = load i8, ptr %215, align 8
-  %217 = trunc i8 %216 to i1
-  br i1 %217, label %218, label %237
-
-218:                                              ; preds = %211
-  %219 = load ptr, ptr %9, align 8
-  %220 = getelementptr inbounds %struct.TBMIterateResult, ptr %219, i32 0, i32 2
-  %221 = load i8, ptr %220, align 4
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %237, label %223
-
-223:                                              ; preds = %218
-  %224 = load ptr, ptr %3, align 8
-  %225 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %224, i32 0, i32 0
-  %226 = getelementptr inbounds %struct.ScanState, ptr %225, i32 0, i32 1
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %9, align 8
-  %229 = getelementptr inbounds %struct.TBMIterateResult, ptr %228, i32 0, i32 0
-  %230 = load i32, ptr %229, align 4
-  %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %231, i32 0, i32 7
-  %233 = call zeroext i8 @visibilitymap_get_status(ptr noundef %227, i32 noundef %230, ptr noundef %232)
-  %234 = zext i8 %233 to i32
-  %235 = and i32 %234, 1
-  %236 = icmp ne i32 %235, 0
-  br label %237
-
-237:                                              ; preds = %223, %218, %211
-  %238 = phi i1 [ false, %218 ], [ false, %211 ], [ %236, %223 ]
-  %239 = zext i1 %238 to i8
-  store i8 %239, ptr %13, align 1
-  %240 = load i8, ptr %13, align 1
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %248
-
-242:                                              ; preds = %237
-  %243 = load ptr, ptr %9, align 8
-  %244 = getelementptr inbounds %struct.TBMIterateResult, ptr %243, i32 0, i32 1
-  %245 = load i32, ptr %244, align 4
-  %246 = load ptr, ptr %3, align 8
-  %247 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %246, i32 0, i32 6
-  store i32 %245, ptr %247, align 4
-  br label %254
-
-248:                                              ; preds = %237
-  %249 = load ptr, ptr %5, align 8
-  %250 = load ptr, ptr %9, align 8
-  %251 = call zeroext i1 @table_scan_bitmap_next_block(ptr noundef %249, ptr noundef %250)
-  br i1 %251, label %253, label %252
-
-252:                                              ; preds = %248
-  br label %182
-
-253:                                              ; preds = %248
-  br label %254
-
-254:                                              ; preds = %253, %242
-  %255 = load ptr, ptr %9, align 8
-  %256 = getelementptr inbounds %struct.TBMIterateResult, ptr %255, i32 0, i32 1
-  %257 = load i32, ptr %256, align 4
-  %258 = icmp sge i32 %257, 0
-  br i1 %258, label %259, label %264
-
-259:                                              ; preds = %254
-  %260 = load ptr, ptr %3, align 8
-  %261 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %260, i32 0, i32 9
-  %262 = load i64, ptr %261, align 8
-  %263 = add i64 %262, 1
-  store i64 %263, ptr %261, align 8
-  br label %269
-
-264:                                              ; preds = %254
-  %265 = load ptr, ptr %3, align 8
-  %266 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %265, i32 0, i32 10
-  %267 = load i64, ptr %266, align 8
-  %268 = add i64 %267, 1
-  store i64 %268, ptr %266, align 8
-  br label %269
-
-269:                                              ; preds = %264, %259
-  %270 = load ptr, ptr %3, align 8
-  call void @BitmapAdjustPrefetchTarget(ptr noundef %270)
-  br label %326
-
-271:                                              ; preds = %191
-  %272 = load ptr, ptr %11, align 8
-  %273 = icmp ne ptr %272, null
-  br i1 %273, label %288, label %274
-
-274:                                              ; preds = %271
-  %275 = load ptr, ptr %3, align 8
-  %276 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %275, i32 0, i32 13
-  %277 = load i32, ptr %276, align 4
-  %278 = load ptr, ptr %3, align 8
-  %279 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %278, i32 0, i32 14
-  %280 = load i32, ptr %279, align 8
-  %281 = icmp slt i32 %277, %280
-  br i1 %281, label %282, label %287
-
-282:                                              ; preds = %274
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %283, i32 0, i32 13
-  %285 = load i32, ptr %284, align 4
-  %286 = add i32 %285, 1
-  store i32 %286, ptr %284, align 4
-  br label %287
-
-287:                                              ; preds = %282, %274
-  br label %325
-
-288:                                              ; preds = %271
-  %289 = load ptr, ptr %11, align 8
-  %290 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %289, i32 0, i32 4
-  %291 = load i32, ptr %290, align 8
-  %292 = load ptr, ptr %3, align 8
-  %293 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %292, i32 0, i32 14
-  %294 = load i32, ptr %293, align 8
-  %295 = icmp slt i32 %291, %294
-  br i1 %295, label %296, label %324
-
-296:                                              ; preds = %288
-  %297 = load ptr, ptr %11, align 8
-  %298 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %297, i32 0, i32 2
-  %299 = call i32 @tas(ptr noundef %298)
-  %300 = icmp ne i32 %299, 0
-  br i1 %300, label %301, label %305
-
-301:                                              ; preds = %296
-  %302 = load ptr, ptr %11, align 8
-  %303 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %302, i32 0, i32 2
-  %304 = call i32 @s_lock(ptr noundef %303, ptr noundef @.str.1, i32 noundef 269, ptr noundef @__func__.BitmapHeapNext)
-  br label %306
-
-305:                                              ; preds = %296
-  br label %306
-
-306:                                              ; preds = %305, %301
-  %307 = load ptr, ptr %11, align 8
-  %308 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %307, i32 0, i32 4
-  %309 = load i32, ptr %308, align 8
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %310, i32 0, i32 14
-  %312 = load i32, ptr %311, align 8
-  %313 = icmp slt i32 %309, %312
-  br i1 %313, label %314, label %319
-
-314:                                              ; preds = %306
-  %315 = load ptr, ptr %11, align 8
-  %316 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %315, i32 0, i32 4
-  %317 = load i32, ptr %316, align 8
-  %318 = add i32 %317, 1
-  store i32 %318, ptr %316, align 8
-  br label %319
-
-319:                                              ; preds = %314, %306
-  br label %320
-
-320:                                              ; preds = %319
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  %321 = load ptr, ptr %11, align 8
-  %322 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %321, i32 0, i32 2
-  store i8 0, ptr %322, align 8
-  br label %323
-
-323:                                              ; preds = %320
-  br label %324
-
-324:                                              ; preds = %323, %288
-  br label %325
-
-325:                                              ; preds = %324, %287
-  br label %326
-
-326:                                              ; preds = %325, %269
-  %327 = load ptr, ptr %3, align 8
-  %328 = load ptr, ptr %5, align 8
-  call void @BitmapPrefetch(ptr noundef %327, ptr noundef %328)
-  %329 = load ptr, ptr %3, align 8
-  %330 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %329, i32 0, i32 6
-  %331 = load i32, ptr %330, align 4
-  %332 = icmp sgt i32 %331, 0
-  br i1 %332, label %333, label %345
-
-333:                                              ; preds = %326
-  %334 = load ptr, ptr %10, align 8
-  %335 = call ptr @ExecStoreAllNullTuple(ptr noundef %334)
-  %336 = load ptr, ptr %3, align 8
-  %337 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %336, i32 0, i32 6
-  %338 = load i32, ptr %337, align 4
-  %339 = add i32 %338, -1
-  store i32 %339, ptr %337, align 4
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %341, label %344
-
-341:                                              ; preds = %333
-  store ptr null, ptr %9, align 8
-  %342 = load ptr, ptr %3, align 8
-  %343 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %342, i32 0, i32 4
-  store ptr null, ptr %343, align 8
-  br label %344
-
-344:                                              ; preds = %341, %333
-  br label %386
-
-345:                                              ; preds = %326
-  %346 = load ptr, ptr %5, align 8
-  %347 = load ptr, ptr %9, align 8
-  %348 = load ptr, ptr %10, align 8
-  %349 = call zeroext i1 @table_scan_bitmap_next_tuple(ptr noundef %346, ptr noundef %347, ptr noundef %348)
-  br i1 %349, label %353, label %350
-
-350:                                              ; preds = %345
-  store ptr null, ptr %9, align 8
-  %351 = load ptr, ptr %3, align 8
-  %352 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %351, i32 0, i32 4
-  store ptr null, ptr %352, align 8
-  br label %182
-
-353:                                              ; preds = %345
-  %354 = load ptr, ptr %9, align 8
-  %355 = getelementptr inbounds %struct.TBMIterateResult, ptr %354, i32 0, i32 2
-  %356 = load i8, ptr %355, align 4
-  %357 = trunc i8 %356 to i1
-  br i1 %357, label %358, label %385
-
-358:                                              ; preds = %353
-  %359 = load ptr, ptr %10, align 8
-  %360 = load ptr, ptr %4, align 8
-  %361 = getelementptr inbounds %struct.ExprContext, ptr %360, i32 0, i32 1
-  store ptr %359, ptr %361, align 8
-  %362 = load ptr, ptr %3, align 8
-  %363 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %362, i32 0, i32 1
-  %364 = load ptr, ptr %363, align 8
-  %365 = load ptr, ptr %4, align 8
-  %366 = call zeroext i1 @ExecQualAndReset(ptr noundef %364, ptr noundef %365)
-  br i1 %366, label %384, label %367
-
-367:                                              ; preds = %358
-  br label %368
-
-368:                                              ; preds = %367
-  %369 = load ptr, ptr %3, align 8
-  %370 = getelementptr inbounds %struct.PlanState, ptr %369, i32 0, i32 5
-  %371 = load ptr, ptr %370, align 8
-  %372 = icmp ne ptr %371, null
-  br i1 %372, label %373, label %380
-
-373:                                              ; preds = %368
-  %374 = load ptr, ptr %3, align 8
-  %375 = getelementptr inbounds %struct.PlanState, ptr %374, i32 0, i32 5
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %struct.Instrumentation, ptr %376, i32 0, i32 17
-  %378 = load double, ptr %377, align 8
-  %379 = fadd double %378, 1.000000e+00
-  store double %379, ptr %377, align 8
-  br label %380
-
-380:                                              ; preds = %373, %368
-  br label %381
-
-381:                                              ; preds = %380
-  %382 = load ptr, ptr %10, align 8
-  %383 = call ptr @ExecClearTuple(ptr noundef %382)
-  br label %182
-
-384:                                              ; preds = %358
-  br label %385
-
-385:                                              ; preds = %384, %353
-  br label %386
-
-386:                                              ; preds = %385, %344
-  %387 = load ptr, ptr %10, align 8
-  store ptr %387, ptr %2, align 8
-  br label %391
-
-388:                                              ; preds = %210
-  %389 = load ptr, ptr %10, align 8
-  %390 = call ptr @ExecClearTuple(ptr noundef %389)
-  store ptr %390, ptr %2, align 8
-  br label %391
-
-391:                                              ; preds = %388, %386
-  %392 = load ptr, ptr %2, align 8
-  ret ptr %392
+199:                                              ; preds = %196, %142
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %200 = load ptr, ptr %2, align 8
+  ret ptr %200
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1561,337 +1402,343 @@ define internal zeroext i1 @BitmapHeapRecheck(ptr noundef %0, ptr noundef %1) #0
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %struct.ScanState, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %struct.PlanState, ptr %8, i32 0, i32 16
+  %7 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.ScanState, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.PlanState, ptr %8, i32 0, i32 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.ExprContext, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.ExprContext, ptr %12, i32 0, i32 1
   store ptr %11, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call zeroext i1 @ExecQualAndReset(ptr noundef %16, ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i1 %18
 }
 
-declare ptr @MultiExecProcNode(ptr noundef) #1
-
-; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
-
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
-
-declare i32 @errmsg_internal(ptr noundef, ...) #1
-
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
-
-declare ptr @tbm_begin_iterate(ptr noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @BitmapShouldInitializeSharedState(ptr noundef %0) #0 {
+define internal void @BitmapTableScanSetup(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  br label %4
-
-4:                                                ; preds = %33, %1
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %5, i32 0, i32 2
-  %7 = call i32 @tas(ptr noundef %6)
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %13
-
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %10, i32 0, i32 2
-  %12 = call i32 @s_lock(ptr noundef %11, ptr noundef @.str.1, i32 noundef 817, ptr noundef @__func__.BitmapShouldInitializeSharedState)
-  br label %14
-
-13:                                               ; preds = %4
-  br label %14
-
-14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %15, i32 0, i32 5
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %3, align 4
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %18, i32 0, i32 5
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %23, i32 0, i32 5
-  store i32 1, ptr %24, align 4
-  br label %25
-
-25:                                               ; preds = %22, %14
-  br label %26
-
-26:                                               ; preds = %25
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %27, i32 0, i32 2
-  store i8 0, ptr %28, align 8
-  br label %29
-
-29:                                               ; preds = %26
-  %30 = load i32, ptr %3, align 4
-  %31 = icmp ne i32 %30, 1
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %29
-  br label %36
-
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %34, i32 0, i32 6
-  call void @ConditionVariableSleep(ptr noundef %35, i32 noundef 134217765)
-  br label %4
-
-36:                                               ; preds = %32
-  %37 = call zeroext i1 @ConditionVariableCancelSleep()
-  %38 = load i32, ptr %3, align 4
-  %39 = icmp eq i32 %38, 0
-  ret i1 %39
-}
-
-declare i64 @tbm_prepare_shared_iterate(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @BitmapDoneInitializingSharedState(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %3, i32 0, i32 2
-  %5 = call i32 @tas(ptr noundef %4)
-  %6 = icmp ne i32 %5, 0
-  br i1 %6, label %7, label %11
-
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %8, i32 0, i32 2
-  %10 = call i32 @s_lock(ptr noundef %9, ptr noundef @.str.1, i32 noundef 350, ptr noundef @__func__.BitmapDoneInitializingSharedState)
-  br label %12
-
-11:                                               ; preds = %1
-  br label %12
-
-12:                                               ; preds = %11, %7
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %13, i32 0, i32 5
-  store i32 2, ptr %14, align 4
-  br label %15
-
-15:                                               ; preds = %12
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %16, i32 0, i32 2
-  store i8 0, ptr %17, align 8
-  br label %18
-
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %19, i32 0, i32 6
-  call void @ConditionVariableBroadcast(ptr noundef %20)
-  ret void
-}
-
-declare ptr @tbm_attach_shared_iterate(ptr noundef, i64 noundef) #1
-
-declare void @ProcessInterrupts() #1
-
-declare ptr @tbm_iterate(ptr noundef) #1
-
-declare ptr @tbm_shared_iterate(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @BitmapAdjustPrefetchIterator(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
+  %3 = alloca %struct.TBMIterator, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %9, i32 0, i32 19
+  %6 = alloca %struct.TBMIterator, align 8
+  %7 = alloca %struct.TBMIterator, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #8
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %9, i32 0, i32 10
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %5, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %56
+  store ptr %11, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.ScanState, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.PlanState, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.EState, ptr %16, i32 0, i32 40
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %51, label %21
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %15, i32 0, i32 11
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %18, i32 0, i32 12
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %27
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.PlanState, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @MultiExecProcNode(ptr noundef %24)
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %26, i32 0, i32 2
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %39
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %23, i32 0, i32 12
-  %25 = load i32, ptr %24, align 8
-  %26 = add i32 %25, -1
-  store i32 %26, ptr %24, align 8
-  br label %55
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.Node, ptr %35, i32 0, i32 0
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, 477
+  br i1 %38, label %50, label %39
 
-27:                                               ; preds = %14
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %54
+39:                                               ; preds = %32, %21
+  br label %40
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %6, align 8
-  %32 = call ptr @tbm_iterate(ptr noundef %31)
-  store ptr %32, ptr %7, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %43, label %35
+40:                                               ; preds = %39
+  br i1 true, label %41, label %43
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.TBMIterateResult, ptr %36, i32 0, i32 0
-  %38 = load i32, ptr %37, align 4
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.TBMIterateResult, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp ne i32 %38, %41
-  br i1 %42, label %43, label %53
+41:                                               ; preds = %40
+  %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %42, label %45, label %47
 
-43:                                               ; preds = %35, %30
-  br label %44
+43:                                               ; preds = %40
+  %44 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %43
-  br i1 true, label %45, label %47
+45:                                               ; preds = %43, %41
+  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str, i32 noundef 86, ptr noundef @__func__.BitmapTableScanSetup)
+  br label %47
 
-45:                                               ; preds = %44
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %46, label %49, label %51
-
-47:                                               ; preds = %44
-  %48 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %47, %45
-  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 381, ptr noundef @__func__.BitmapAdjustPrefetchIterator)
-  br label %51
-
-51:                                               ; preds = %49, %47, %45
+47:                                               ; preds = %45, %43, %41
   unreachable
 
-52:                                               ; No predecessors!
-  br label %53
+48:                                               ; No predecessors!
+  br label %49
 
-53:                                               ; preds = %52, %35
-  br label %54
+49:                                               ; preds = %48
+  br label %50
 
-54:                                               ; preds = %53, %27
-  br label %55
+50:                                               ; preds = %49, %32
+  br label %104
 
-55:                                               ; preds = %54, %22
-  br label %100
+51:                                               ; preds = %1
+  %52 = load ptr, ptr %4, align 8
+  %53 = call zeroext i1 @BitmapShouldInitializeSharedState(ptr noundef %52)
+  br i1 %53, label %54, label %103
 
-56:                                               ; preds = %2
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %57, i32 0, i32 14
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %100
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds nuw %struct.PlanState, ptr %55, i32 0, i32 9
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @MultiExecProcNode(ptr noundef %57)
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %59, i32 0, i32 2
+  store ptr %58, ptr %60, align 8
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %72
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %62, i32 0, i32 18
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %8, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %65, i32 0, i32 2
-  %67 = call i32 @tas(ptr noundef %66)
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %73
+65:                                               ; preds = %54
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %struct.Node, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 477
+  br i1 %71, label %83, label %72
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %70, i32 0, i32 2
-  %72 = call i32 @s_lock(ptr noundef %71, ptr noundef @.str.1, i32 noundef 390, ptr noundef @__func__.BitmapAdjustPrefetchIterator)
-  br label %74
+72:                                               ; preds = %65, %54
+  br label %73
 
-73:                                               ; preds = %61
-  br label %74
+73:                                               ; preds = %72
+  br i1 true, label %74, label %76
 
-74:                                               ; preds = %73, %69
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %75, i32 0, i32 3
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %79, label %88
+74:                                               ; preds = %73
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %75, label %78, label %80
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %80, i32 0, i32 3
-  %82 = load i32, ptr %81, align 4
-  %83 = add i32 %82, -1
-  store i32 %83, ptr %81, align 4
-  br label %84
+76:                                               ; preds = %73
+  %77 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %77, label %78, label %80
 
-84:                                               ; preds = %79
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %85, i32 0, i32 2
-  store i8 0, ptr %86, align 8
-  br label %87
+78:                                               ; preds = %76, %74
+  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+  call void @errfinish(ptr noundef @.str, i32 noundef 96, ptr noundef @__func__.BitmapTableScanSetup)
+  br label %80
 
-87:                                               ; preds = %84
-  br label %99
+80:                                               ; preds = %78, %76, %74
+  unreachable
 
-88:                                               ; preds = %74
-  br label %89
+81:                                               ; No predecessors!
+  br label %82
 
-89:                                               ; preds = %88
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %90, i32 0, i32 2
-  store i8 0, ptr %91, align 8
-  br label %92
+82:                                               ; preds = %81
+  br label %83
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %8, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %98
+83:                                               ; preds = %82, %65
+  %84 = load ptr, ptr %2, align 8
+  %85 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i64 @tbm_prepare_shared_iterate(ptr noundef %86)
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %88, i32 0, i32 0
+  store i64 %87, ptr %89, align 8
+  %90 = load ptr, ptr %2, align 8
+  %91 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %90, i32 0, i32 8
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %94, label %101
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %8, align 8
-  %97 = call ptr @tbm_shared_iterate(ptr noundef %96)
-  br label %98
+94:                                               ; preds = %83
+  %95 = load ptr, ptr %2, align 8
+  %96 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i64 @tbm_prepare_shared_iterate(ptr noundef %97)
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %99, i32 0, i32 1
+  store i64 %98, ptr %100, align 8
+  br label %101
 
-98:                                               ; preds = %95, %92
-  br label %99
+101:                                              ; preds = %94, %83
+  %102 = load ptr, ptr %4, align 8
+  call void @BitmapDoneInitializingSharedState(ptr noundef %102)
+  br label %103
 
-99:                                               ; preds = %98, %87
-  br label %100
+103:                                              ; preds = %101, %51
+  br label %104
 
-100:                                              ; preds = %99, %56, %55
+104:                                              ; preds = %103, %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #8
+  %105 = load ptr, ptr %2, align 8
+  %106 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %105, i32 0, i32 2
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = load ptr, ptr %4, align 8
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %115
+
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %4, align 8
+  %113 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %112, i32 0, i32 0
+  %114 = load i64, ptr %113, align 8
+  br label %116
+
+115:                                              ; preds = %104
+  br label %116
+
+116:                                              ; preds = %115, %111
+  %117 = phi i64 [ %114, %111 ], [ 0, %115 ]
+  %118 = call { i8, ptr } @tbm_begin_iterate(ptr noundef %107, ptr noundef %108, i64 noundef %117)
+  %119 = getelementptr inbounds nuw { i8, ptr }, ptr %6, i32 0, i32 0
+  %120 = extractvalue { i8, ptr } %118, 0
+  store i8 %120, ptr %119, align 8
+  %121 = getelementptr inbounds nuw { i8, ptr }, ptr %6, i32 0, i32 1
+  %122 = extractvalue { i8, ptr } %118, 1
+  store ptr %122, ptr %121, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #8
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %123, i32 0, i32 8
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %127, label %148
+
+127:                                              ; preds = %116
+  %128 = load ptr, ptr %2, align 8
+  %129 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %128, i32 0, i32 5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  %130 = load ptr, ptr %2, align 8
+  %131 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %130, i32 0, i32 2
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %5, align 8
+  %134 = load ptr, ptr %4, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %140
+
+136:                                              ; preds = %127
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %137, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  br label %141
+
+140:                                              ; preds = %127
+  br label %141
+
+141:                                              ; preds = %140, %136
+  %142 = phi i64 [ %139, %136 ], [ 0, %140 ]
+  %143 = call { i8, ptr } @tbm_begin_iterate(ptr noundef %132, ptr noundef %133, i64 noundef %142)
+  %144 = getelementptr inbounds nuw { i8, ptr }, ptr %7, i32 0, i32 0
+  %145 = extractvalue { i8, ptr } %143, 0
+  store i8 %145, ptr %144, align 8
+  %146 = getelementptr inbounds nuw { i8, ptr }, ptr %7, i32 0, i32 1
+  %147 = extractvalue { i8, ptr } %143, 1
+  store ptr %147, ptr %146, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %129, ptr align 8 %7, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  br label %148
+
+148:                                              ; preds = %141, %116
+  %149 = load ptr, ptr %2, align 8
+  %150 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %149, i32 0, i32 0
+  %151 = getelementptr inbounds nuw %struct.ScanState, ptr %150, i32 0, i32 2
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %192, label %154
+
+154:                                              ; preds = %148
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
+  store i8 0, ptr %8, align 1
+  %155 = load ptr, ptr %2, align 8
+  %156 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %155, i32 0, i32 0
+  %157 = getelementptr inbounds nuw %struct.ScanState, ptr %156, i32 0, i32 0
+  %158 = getelementptr inbounds nuw %struct.PlanState, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds nuw %struct.Plan, ptr %159, i32 0, i32 11
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %172, label %163
+
+163:                                              ; preds = %154
+  %164 = load ptr, ptr %2, align 8
+  %165 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %164, i32 0, i32 0
+  %166 = getelementptr inbounds nuw %struct.ScanState, ptr %165, i32 0, i32 0
+  %167 = getelementptr inbounds nuw %struct.PlanState, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw %struct.Plan, ptr %168, i32 0, i32 10
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp ne ptr %170, null
+  br label %172
+
+172:                                              ; preds = %163, %154
+  %173 = phi i1 [ true, %154 ], [ %171, %163 ]
+  %174 = zext i1 %173 to i8
+  store i8 %174, ptr %8, align 1
+  %175 = load ptr, ptr %2, align 8
+  %176 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %175, i32 0, i32 0
+  %177 = getelementptr inbounds nuw %struct.ScanState, ptr %176, i32 0, i32 1
+  %178 = load ptr, ptr %177, align 8
+  %179 = load ptr, ptr %2, align 8
+  %180 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %179, i32 0, i32 0
+  %181 = getelementptr inbounds nuw %struct.ScanState, ptr %180, i32 0, i32 0
+  %182 = getelementptr inbounds nuw %struct.PlanState, ptr %181, i32 0, i32 2
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw %struct.EState, ptr %183, i32 0, i32 2
+  %185 = load ptr, ptr %184, align 8
+  %186 = load i8, ptr %8, align 1, !range !5, !noundef !6
+  %187 = trunc i8 %186 to i1
+  %188 = call ptr @table_beginscan_bm(ptr noundef %178, ptr noundef %185, i32 noundef 0, ptr noundef null, i1 noundef zeroext %187)
+  %189 = load ptr, ptr %2, align 8
+  %190 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %189, i32 0, i32 0
+  %191 = getelementptr inbounds nuw %struct.ScanState, ptr %190, i32 0, i32 2
+  store ptr %188, ptr %191, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  br label %192
+
+192:                                              ; preds = %172, %148
+  %193 = load ptr, ptr %2, align 8
+  %194 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %193, i32 0, i32 0
+  %195 = getelementptr inbounds nuw %struct.ScanState, ptr %194, i32 0, i32 2
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %196, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %197, ptr align 8 %3, i64 16, i1 false)
+  %198 = load ptr, ptr %2, align 8
+  %199 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %198, i32 0, i32 9
+  store i8 1, ptr %199, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #8
   ret void
 }
 
-declare zeroext i8 @visibilitymap_get_status(ptr noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @table_scan_bitmap_next_block(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @table_scan_bitmap_next_tuple(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1901,7 +1748,7 @@ define internal zeroext i1 @table_scan_bitmap_next_block(ptr noundef %0, ptr nou
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr @bsysscan, align 1
+  %8 = load i8, ptr @bsysscan, align 1, !range !5, !noundef !6
   %9 = trunc i8 %8 to i1
   %10 = xor i1 %9, true
   br label %11
@@ -1912,649 +1759,462 @@ define internal zeroext i1 @table_scan_bitmap_next_block(ptr noundef %0, ptr nou
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   %16 = sext i32 %15 to i64
-  %17 = icmp ne i64 %16, 0
-  br i1 %17, label %18, label %28
+  %17 = call i64 @llvm.expect.i64(i64 %16, i64 0)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %29
 
-18:                                               ; preds = %11
-  br label %19
-
-19:                                               ; preds = %18
-  br i1 true, label %20, label %22
+19:                                               ; preds = %11
+  br label %20
 
 20:                                               ; preds = %19
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %21, label %24, label %26
+  br i1 true, label %21, label %23
 
-22:                                               ; preds = %19
-  %23 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %20
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %22, label %25, label %27
 
-24:                                               ; preds = %22, %20
-  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
-  call void @errfinish(ptr noundef @.str.4, i32 noundef 1967, ptr noundef @__func__.table_scan_bitmap_next_block)
-  br label %26
+23:                                               ; preds = %20
+  %24 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %24, label %25, label %27
 
-26:                                               ; preds = %24, %22, %20
+25:                                               ; preds = %23, %21
+  %26 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 2015, ptr noundef @__func__.table_scan_bitmap_next_tuple)
+  br label %27
+
+27:                                               ; preds = %25, %23, %21
   unreachable
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %11
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.TableScanDescData, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.RelationData, ptr %31, i32 0, i32 46
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.TableAmRoutine, ptr %33, i32 0, i32 42
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = call zeroext i1 %35(ptr noundef %36, ptr noundef %37)
-  ret i1 %38
+29:                                               ; preds = %28, %11
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw %struct.RelationData, ptr %32, i32 0, i32 47
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.TableAmRoutine, ptr %34, i32 0, i32 43
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %4, align 8
+  %39 = call zeroext i1 %36(ptr noundef %37, ptr noundef %38)
+  ret i1 %39
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @BitmapAdjustPrefetchTarget(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %4, i32 0, i32 19
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %51
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %10, i32 0, i32 13
-  %12 = load i32, ptr %11, align 4
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %13, i32 0, i32 14
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp sge i32 %12, %15
-  br i1 %16, label %17, label %18
+declare void @ProcessInterrupts() #3
 
-17:                                               ; preds = %9
-  br label %50
-
-18:                                               ; preds = %9
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %19, i32 0, i32 13
-  %21 = load i32, ptr %20, align 4
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %22, i32 0, i32 14
-  %24 = load i32, ptr %23, align 8
-  %25 = sdiv i32 %24, 2
-  %26 = icmp sge i32 %21, %25
-  br i1 %26, label %27, label %33
-
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %28, i32 0, i32 14
-  %30 = load i32, ptr %29, align 8
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %31, i32 0, i32 13
-  store i32 %30, ptr %32, align 4
-  br label %49
-
-33:                                               ; preds = %18
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %34, i32 0, i32 13
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %38, label %43
-
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %39, i32 0, i32 13
-  %41 = load i32, ptr %40, align 4
-  %42 = mul i32 %41, 2
-  store i32 %42, ptr %40, align 4
-  br label %48
-
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %44, i32 0, i32 13
-  %46 = load i32, ptr %45, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %45, align 4
-  br label %48
-
-48:                                               ; preds = %43, %38
-  br label %49
-
-49:                                               ; preds = %48, %27
-  br label %50
-
-50:                                               ; preds = %49, %17
-  br label %115
-
-51:                                               ; preds = %1
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %52, i32 0, i32 4
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %55, i32 0, i32 14
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp slt i32 %54, %57
-  br i1 %58, label %59, label %115
-
-59:                                               ; preds = %51
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %60, i32 0, i32 2
-  %62 = call i32 @tas(ptr noundef %61)
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %68
-
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %65, i32 0, i32 2
-  %67 = call i32 @s_lock(ptr noundef %66, ptr noundef @.str.1, i32 noundef 446, ptr noundef @__func__.BitmapAdjustPrefetchTarget)
-  br label %69
-
-68:                                               ; preds = %59
-  br label %69
-
-69:                                               ; preds = %68, %64
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %70, i32 0, i32 4
-  %72 = load i32, ptr %71, align 8
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %73, i32 0, i32 14
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp sge i32 %72, %75
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %69
-  br label %110
-
-78:                                               ; preds = %69
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %79, i32 0, i32 4
-  %81 = load i32, ptr %80, align 8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %82, i32 0, i32 14
-  %84 = load i32, ptr %83, align 8
-  %85 = sdiv i32 %84, 2
-  %86 = icmp sge i32 %81, %85
-  br i1 %86, label %87, label %93
-
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %88, i32 0, i32 14
-  %90 = load i32, ptr %89, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %91, i32 0, i32 4
-  store i32 %90, ptr %92, align 8
-  br label %109
-
-93:                                               ; preds = %78
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %94, i32 0, i32 4
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %98, label %103
-
-98:                                               ; preds = %93
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %99, i32 0, i32 4
-  %101 = load i32, ptr %100, align 8
-  %102 = mul i32 %101, 2
-  store i32 %102, ptr %100, align 8
-  br label %108
-
-103:                                              ; preds = %93
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %104, i32 0, i32 4
-  %106 = load i32, ptr %105, align 8
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 8
-  br label %108
-
-108:                                              ; preds = %103, %98
-  br label %109
-
-109:                                              ; preds = %108, %87
-  br label %110
-
-110:                                              ; preds = %109, %77
-  br label %111
-
-111:                                              ; preds = %110
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %112, i32 0, i32 2
-  store i8 0, ptr %113, align 8
-  br label %114
-
-114:                                              ; preds = %111
-  br label %115
-
-115:                                              ; preds = %114, %51, %50
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @tas(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @tas(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
   store i8 1, ptr %3, align 1
   %4 = load i8, ptr %3, align 1
   %5 = load ptr, ptr %2, align 8
-  %6 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i8 %4, ptr elementtype(i8) %5) #3, !srcloc !12
+  %6 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i8 %4, ptr elementtype(i8) %5) #8, !srcloc !10
   store i8 %6, ptr %3, align 1
   %7 = load i8, ptr %3, align 1
   %8 = zext i8 %7 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
   ret i32 %8
 }
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @BitmapPrefetch(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BitmapPrefetch(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  %9 = alloca %struct.PrefetchBufferResult, align 4
-  %10 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %struct.PrefetchBufferResult, align 4
   %11 = alloca ptr, align 8
-  %12 = alloca i8, align 1
+  %12 = alloca ptr, align 8
   %13 = alloca i8, align 1
-  %14 = alloca %struct.PrefetchBufferResult, align 4
+  %14 = alloca i8, align 1
+  %15 = alloca %struct.PrefetchBufferResult, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %15, i32 0, i32 19
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %5, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %96
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %16, i32 0, i32 10
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %95
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %21, i32 0, i32 11
-  %23 = load ptr, ptr %22, align 8
+21:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %22, i32 0, i32 5
   store ptr %23, ptr %6, align 8
   %24 = load ptr, ptr %6, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %95
+  %25 = call zeroext i1 @tbm_exhausted(ptr noundef %24)
+  br i1 %25, label %94, label %26
 
-26:                                               ; preds = %20
+26:                                               ; preds = %21
   br label %27
 
-27:                                               ; preds = %93, %26
+27:                                               ; preds = %92, %26
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %28, i32 0, i32 12
+  %29 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %28, i32 0, i32 6
   %30 = load i32, ptr %29, align 8
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %31, i32 0, i32 13
+  %32 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %31, i32 0, i32 7
   %33 = load i32, ptr %32, align 4
   %34 = icmp slt i32 %30, %33
-  br i1 %34, label %35, label %94
+  br i1 %34, label %35, label %93
 
 35:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   %36 = load ptr, ptr %6, align 8
   %37 = call ptr @tbm_iterate(ptr noundef %36)
   store ptr %37, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
   %38 = load ptr, ptr %7, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %6, align 8
   call void @tbm_end_iterate(ptr noundef %41)
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %42, i32 0, i32 11
-  store ptr null, ptr %43, align 8
+  store i32 3, ptr %9, align 4
+  br label %90
+
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %43, i32 0, i32 6
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %44, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %50, i32 0, i32 14
+  store i32 %49, ptr %51, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %52, i32 0, i32 5
+  %54 = load i32, ptr %53, align 8
+  %55 = and i32 %54, 1024
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %76, label %57
+
+57:                                               ; preds = %42
+  %58 = load ptr, ptr %7, align 8
+  %59 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %58, i32 0, i32 2
+  %60 = load i8, ptr %59, align 4, !range !5, !noundef !6
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %76, label %62
+
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %63, i32 0, i32 0
+  %65 = getelementptr inbounds nuw %struct.ScanState, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 4
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %70, i32 0, i32 3
+  %72 = call zeroext i8 @visibilitymap_get_status(ptr noundef %66, i32 noundef %69, ptr noundef %71)
+  %73 = zext i8 %72 to i32
+  %74 = and i32 %73, 1
+  %75 = icmp ne i32 %74, 0
+  br label %76
+
+76:                                               ; preds = %62, %57, %42
+  %77 = phi i1 [ false, %57 ], [ false, %42 ], [ %75, %62 ]
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr %8, align 1
+  %79 = load i8, ptr %8, align 1, !range !5, !noundef !6
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %89, label %81
+
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %85, i32 0, i32 0
+  %87 = load i32, ptr %86, align 4
+  %88 = call i64 @PrefetchBuffer(ptr noundef %84, i32 noundef 0, i32 noundef %87)
+  store i64 %88, ptr %10, align 4
+  br label %89
+
+89:                                               ; preds = %81, %76
+  store i32 0, ptr %9, align 4
+  br label %90
+
+90:                                               ; preds = %89, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %91 = load i32, ptr %9, align 4
+  switch i32 %91, label %205 [
+    i32 0, label %92
+    i32 3, label %93
+  ]
+
+92:                                               ; preds = %90
+  br label %27, !llvm.loop !11
+
+93:                                               ; preds = %90, %27
   br label %94
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %45, i32 0, i32 12
-  %47 = load i32, ptr %46, align 8
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %46, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %49, i32 0, i32 5
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %80
+94:                                               ; preds = %93, %21
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %202
 
-53:                                               ; preds = %44
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %54, i32 0, i32 4
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %65
+95:                                               ; preds = %2
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %96, i32 0, i32 3
+  %98 = load i32, ptr %97, align 4
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %99, i32 0, i32 4
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp slt i32 %98, %101
+  br i1 %102, label %103, label %201
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %59, i32 0, i32 4
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.TBMIterateResult, ptr %61, i32 0, i32 2
-  %63 = load i8, ptr %62, align 4
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %80, label %66
+103:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %104, i32 0, i32 5
+  store ptr %105, ptr %11, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = call zeroext i1 @tbm_exhausted(ptr noundef %106)
+  br i1 %107, label %197, label %108
 
-65:                                               ; preds = %53
-  br i1 false, label %66, label %80
+108:                                              ; preds = %103
+  br label %109
 
-66:                                               ; preds = %65, %58
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %67, i32 0, i32 0
-  %69 = getelementptr inbounds %struct.ScanState, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.TBMIterateResult, ptr %71, i32 0, i32 0
-  %73 = load i32, ptr %72, align 4
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %74, i32 0, i32 8
-  %76 = call zeroext i8 @visibilitymap_get_status(ptr noundef %70, i32 noundef %73, ptr noundef %75)
-  %77 = zext i8 %76 to i32
-  %78 = and i32 %77, 1
-  %79 = icmp ne i32 %78, 0
-  br label %80
+109:                                              ; preds = %195, %108
+  br label %110
 
-80:                                               ; preds = %66, %65, %58, %44
-  %81 = phi i1 [ false, %65 ], [ false, %58 ], [ false, %44 ], [ %79, %66 ]
-  %82 = zext i1 %81 to i8
-  store i8 %82, ptr %8, align 1
-  %83 = load i8, ptr %8, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %93, label %85
+110:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #8
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #8
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %111, i32 0, i32 2
+  %113 = call i32 @tas(ptr noundef %112)
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %119
 
-85:                                               ; preds = %80
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.TableScanDescData, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.TBMIterateResult, ptr %89, i32 0, i32 0
-  %91 = load i32, ptr %90, align 4
-  %92 = call i64 @PrefetchBuffer(ptr noundef %88, i32 noundef 0, i32 noundef %91)
-  store i64 %92, ptr %9, align 4
-  br label %93
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %5, align 8
+  %117 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %116, i32 0, i32 2
+  %118 = call i32 @s_lock(ptr noundef %117, ptr noundef @.str, i32 noundef 492, ptr noundef @__func__.BitmapPrefetch)
+  br label %120
 
-93:                                               ; preds = %85, %80
-  br label %27, !llvm.loop !13
+119:                                              ; preds = %110
+  br label %120
 
-94:                                               ; preds = %40, %27
-  br label %95
+120:                                              ; preds = %119, %115
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %121, i32 0, i32 3
+  %123 = load i32, ptr %122, align 4
+  %124 = load ptr, ptr %5, align 8
+  %125 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %124, i32 0, i32 4
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp slt i32 %123, %126
+  br i1 %127, label %128, label %133
 
-95:                                               ; preds = %94, %20
-  br label %199
+128:                                              ; preds = %120
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %129, i32 0, i32 3
+  %131 = load i32, ptr %130, align 4
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 4
+  store i8 1, ptr %13, align 1
+  br label %133
 
-96:                                               ; preds = %2
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %97, i32 0, i32 3
-  %99 = load i32, ptr %98, align 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %100, i32 0, i32 4
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp slt i32 %99, %102
-  br i1 %103, label %104, label %199
-
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %105, i32 0, i32 18
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %10, align 8
-  %108 = load ptr, ptr %10, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %198
-
-110:                                              ; preds = %104
-  br label %111
-
-111:                                              ; preds = %196, %110
-  store i8 0, ptr %12, align 1
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %112, i32 0, i32 2
-  %114 = call i32 @tas(ptr noundef %113)
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %120
-
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %117, i32 0, i32 2
-  %119 = call i32 @s_lock(ptr noundef %118, ptr noundef @.str.1, i32 noundef 530, ptr noundef @__func__.BitmapPrefetch)
-  br label %121
-
-120:                                              ; preds = %111
-  br label %121
-
-121:                                              ; preds = %120, %116
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %122, i32 0, i32 3
-  %124 = load i32, ptr %123, align 4
-  %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %125, i32 0, i32 4
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp slt i32 %124, %127
-  br i1 %128, label %129, label %134
-
-129:                                              ; preds = %121
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %130, i32 0, i32 3
-  %132 = load i32, ptr %131, align 4
-  %133 = add i32 %132, 1
-  store i32 %133, ptr %131, align 4
-  store i8 1, ptr %12, align 1
+133:                                              ; preds = %128, %120
   br label %134
 
-134:                                              ; preds = %129, %121
-  br label %135
+134:                                              ; preds = %133
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  %135 = load ptr, ptr %5, align 8
+  %136 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %135, i32 0, i32 2
+  store i8 0, ptr %136, align 8
+  br label %137
 
-135:                                              ; preds = %134
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
-  %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds %struct.ParallelBitmapHeapState, ptr %136, i32 0, i32 2
-  store i8 0, ptr %137, align 8
+137:                                              ; preds = %134
   br label %138
 
-138:                                              ; preds = %135
-  %139 = load i8, ptr %12, align 1
+138:                                              ; preds = %137
+  %139 = load i8, ptr %13, align 1, !range !5, !noundef !6
   %140 = trunc i8 %139 to i1
   br i1 %140, label %142, label %141
 
 141:                                              ; preds = %138
-  br label %199
+  store i32 1, ptr %9, align 4
+  br label %193
 
 142:                                              ; preds = %138
-  %143 = load ptr, ptr %10, align 8
-  %144 = call ptr @tbm_shared_iterate(ptr noundef %143)
-  store ptr %144, ptr %11, align 8
-  %145 = load ptr, ptr %11, align 8
+  %143 = load ptr, ptr %11, align 8
+  %144 = call ptr @tbm_iterate(ptr noundef %143)
+  store ptr %144, ptr %12, align 8
+  %145 = load ptr, ptr %12, align 8
   %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %151
+  br i1 %146, label %147, label %149
 
 147:                                              ; preds = %142
-  %148 = load ptr, ptr %10, align 8
-  call void @tbm_end_shared_iterate(ptr noundef %148)
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %149, i32 0, i32 18
-  store ptr null, ptr %150, align 8
+  %148 = load ptr, ptr %11, align 8
+  call void @tbm_end_iterate(ptr noundef %148)
+  store i32 5, ptr %9, align 4
+  br label %193
+
+149:                                              ; preds = %142
+  %150 = load ptr, ptr %12, align 8
+  %151 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %150, i32 0, i32 0
+  %152 = load i32, ptr %151, align 4
+  %153 = load ptr, ptr %3, align 8
+  %154 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %153, i32 0, i32 14
+  store i32 %152, ptr %154, align 8
+  %155 = load ptr, ptr %4, align 8
+  %156 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %155, i32 0, i32 5
+  %157 = load i32, ptr %156, align 8
+  %158 = and i32 %157, 1024
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %179, label %160
+
+160:                                              ; preds = %149
+  %161 = load ptr, ptr %12, align 8
+  %162 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %161, i32 0, i32 2
+  %163 = load i8, ptr %162, align 4, !range !5, !noundef !6
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %179, label %165
+
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %166, i32 0, i32 0
+  %168 = getelementptr inbounds nuw %struct.ScanState, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %168, align 8
+  %170 = load ptr, ptr %12, align 8
+  %171 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %170, i32 0, i32 0
+  %172 = load i32, ptr %171, align 4
+  %173 = load ptr, ptr %3, align 8
+  %174 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %173, i32 0, i32 3
+  %175 = call zeroext i8 @visibilitymap_get_status(ptr noundef %169, i32 noundef %172, ptr noundef %174)
+  %176 = zext i8 %175 to i32
+  %177 = and i32 %176, 1
+  %178 = icmp ne i32 %177, 0
+  br label %179
+
+179:                                              ; preds = %165, %160, %149
+  %180 = phi i1 [ false, %160 ], [ false, %149 ], [ %178, %165 ]
+  %181 = zext i1 %180 to i8
+  store i8 %181, ptr %14, align 1
+  %182 = load i8, ptr %14, align 1, !range !5, !noundef !6
+  %183 = trunc i8 %182 to i1
+  br i1 %183, label %192, label %184
+
+184:                                              ; preds = %179
+  %185 = load ptr, ptr %4, align 8
+  %186 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %185, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = load ptr, ptr %12, align 8
+  %189 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %188, i32 0, i32 0
+  %190 = load i32, ptr %189, align 4
+  %191 = call i64 @PrefetchBuffer(ptr noundef %187, i32 noundef 0, i32 noundef %190)
+  store i64 %191, ptr %15, align 4
+  br label %192
+
+192:                                              ; preds = %184, %179
+  store i32 0, ptr %9, align 4
+  br label %193
+
+193:                                              ; preds = %192, %147, %141
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %194 = load i32, ptr %9, align 4
+  switch i32 %194, label %198 [
+    i32 0, label %195
+    i32 5, label %196
+  ]
+
+195:                                              ; preds = %193
+  br label %109
+
+196:                                              ; preds = %193
   br label %197
 
-151:                                              ; preds = %142
-  %152 = load ptr, ptr %3, align 8
-  %153 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %152, i32 0, i32 5
-  %154 = load i8, ptr %153, align 8
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %183
-
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %157, i32 0, i32 4
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %161, label %168
-
-161:                                              ; preds = %156
-  %162 = load ptr, ptr %3, align 8
-  %163 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %162, i32 0, i32 4
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.TBMIterateResult, ptr %164, i32 0, i32 2
-  %166 = load i8, ptr %165, align 4
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %183, label %169
-
-168:                                              ; preds = %156
-  br i1 false, label %169, label %183
-
-169:                                              ; preds = %168, %161
-  %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %170, i32 0, i32 0
-  %172 = getelementptr inbounds %struct.ScanState, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr inbounds %struct.TBMIterateResult, ptr %174, i32 0, i32 0
-  %176 = load i32, ptr %175, align 4
-  %177 = load ptr, ptr %3, align 8
-  %178 = getelementptr inbounds %struct.BitmapHeapScanState, ptr %177, i32 0, i32 8
-  %179 = call zeroext i8 @visibilitymap_get_status(ptr noundef %173, i32 noundef %176, ptr noundef %178)
-  %180 = zext i8 %179 to i32
-  %181 = and i32 %180, 1
-  %182 = icmp ne i32 %181, 0
-  br label %183
-
-183:                                              ; preds = %169, %168, %161, %151
-  %184 = phi i1 [ false, %168 ], [ false, %161 ], [ false, %151 ], [ %182, %169 ]
-  %185 = zext i1 %184 to i8
-  store i8 %185, ptr %13, align 1
-  %186 = load i8, ptr %13, align 1
-  %187 = trunc i8 %186 to i1
-  br i1 %187, label %196, label %188
-
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %4, align 8
-  %190 = getelementptr inbounds %struct.TableScanDescData, ptr %189, i32 0, i32 0
-  %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %11, align 8
-  %193 = getelementptr inbounds %struct.TBMIterateResult, ptr %192, i32 0, i32 0
-  %194 = load i32, ptr %193, align 4
-  %195 = call i64 @PrefetchBuffer(ptr noundef %191, i32 noundef 0, i32 noundef %194)
-  store i64 %195, ptr %14, align 4
-  br label %196
-
-196:                                              ; preds = %188, %183
-  br label %111
-
-197:                                              ; preds = %147
+197:                                              ; preds = %196, %103
+  store i32 0, ptr %9, align 4
   br label %198
 
-198:                                              ; preds = %197, %104
-  br label %199
+198:                                              ; preds = %197, %193
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %199 = load i32, ptr %9, align 4
+  switch i32 %199, label %202 [
+    i32 0, label %200
+  ]
 
-199:                                              ; preds = %198, %141, %96, %95
+200:                                              ; preds = %198
+  br label %201
+
+201:                                              ; preds = %200, %95
+  store i32 0, ptr %9, align 4
+  br label %202
+
+202:                                              ; preds = %201, %198, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %203 = load i32, ptr %9, align 4
+  switch i32 %203, label %205 [
+    i32 0, label %204
+    i32 1, label %204
+  ]
+
+204:                                              ; preds = %202, %202
   ret void
-}
 
-declare ptr @ExecStoreAllNullTuple(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @table_scan_bitmap_next_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load i32, ptr @CheckXidAlive, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %13
-
-9:                                                ; preds = %3
-  %10 = load i8, ptr @bsysscan, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = xor i1 %11, true
-  br label %13
-
-13:                                               ; preds = %9, %3
-  %14 = phi i1 [ false, %3 ], [ %12, %9 ]
-  %15 = zext i1 %14 to i32
-  %16 = icmp ne i32 %15, 0
-  %17 = zext i1 %16 to i32
-  %18 = sext i32 %17 to i64
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %30
-
-20:                                               ; preds = %13
-  br label %21
-
-21:                                               ; preds = %20
-  br i1 true, label %22, label %24
-
-22:                                               ; preds = %21
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %23, label %26, label %28
-
-24:                                               ; preds = %21
-  %25 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %25, label %26, label %28
-
-26:                                               ; preds = %24, %22
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
-  call void @errfinish(ptr noundef @.str.4, i32 noundef 1992, ptr noundef @__func__.table_scan_bitmap_next_tuple)
-  br label %28
-
-28:                                               ; preds = %26, %24, %22
+205:                                              ; preds = %202, %90
   unreachable
-
-29:                                               ; No predecessors!
-  br label %30
-
-30:                                               ; preds = %29, %13
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.TableScanDescData, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.RelationData, ptr %33, i32 0, i32 46
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.TableAmRoutine, ptr %35, i32 0, i32 43
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = call zeroext i1 %37(ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  ret i1 %41
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ExecQualAndReset(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ExecQualAndReset(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #8
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = call zeroext i1 @ExecQual(ptr noundef %6, ptr noundef %7)
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %5, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.ExprContext, ptr %10, i32 0, i32 5
+  %11 = getelementptr inbounds nuw %struct.ExprContext, ptr %10, i32 0, i32 5
   %12 = load ptr, ptr %11, align 8
   call void @MemoryContextReset(ptr noundef %12)
-  %13 = load i8, ptr %5, align 1
+  %13 = load i8, ptr %5, align 1, !range !5, !noundef !6
   %14 = trunc i8 %13 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @ExecClearTuple(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ExecClearTuple(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.TupleTableSlot, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.TupleTableSlot, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.TupleTableSlotOps, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.TupleTableSlotOps, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   call void %7(ptr noundef %8)
@@ -2562,50 +2222,713 @@ define internal ptr @ExecClearTuple(ptr noundef %0) #0 {
   ret ptr %9
 }
 
-declare void @ConditionVariableSleep(ptr noundef, i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BitmapAdjustPrefetchIterator(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %8, i32 0, i32 10
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %11 = load ptr, ptr %3, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %44
 
-declare zeroext i1 @ConditionVariableCancelSleep() #1
+13:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %14, i32 0, i32 5
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %20, label %25
 
-declare void @ConditionVariableBroadcast(ptr noundef) #1
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 8
+  %24 = add i32 %23, -1
+  store i32 %24, ptr %22, align 8
+  br label %43
 
-declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) #1
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %5, align 8
+  %27 = call zeroext i1 @tbm_exhausted(ptr noundef %26)
+  br i1 %27, label %42, label %28
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8
+  %30 = call ptr @tbm_iterate(ptr noundef %29)
+  store ptr %30, ptr %4, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %37
+
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4
+  br label %38
+
+37:                                               ; preds = %28
+  br label %38
+
+38:                                               ; preds = %37, %33
+  %39 = phi i32 [ %36, %33 ], [ -1, %37 ]
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %40, i32 0, i32 14
+  store i32 %39, ptr %41, align 8
+  br label %42
+
+42:                                               ; preds = %38, %25
+  br label %43
+
+43:                                               ; preds = %42, %20
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  br label %101
+
+44:                                               ; preds = %1
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %45, i32 0, i32 8
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %100
+
+49:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %50, i32 0, i32 5
+  store ptr %51, ptr %7, align 8
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %52, i32 0, i32 2
+  %54 = call i32 @tas(ptr noundef %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %57, i32 0, i32 2
+  %59 = call i32 @s_lock(ptr noundef %58, ptr noundef @.str, i32 noundef 353, ptr noundef @__func__.BitmapAdjustPrefetchIterator)
+  br label %61
+
+60:                                               ; preds = %49
+  br label %61
+
+61:                                               ; preds = %60, %56
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %62, i32 0, i32 3
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %66, label %76
+
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %67, i32 0, i32 3
+  %69 = load i32, ptr %68, align 4
+  %70 = add i32 %69, -1
+  store i32 %70, ptr %68, align 4
+  br label %71
+
+71:                                               ; preds = %66
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %72, i32 0, i32 2
+  store i8 0, ptr %73, align 8
+  br label %74
+
+74:                                               ; preds = %71
+  br label %75
+
+75:                                               ; preds = %74
+  br label %99
+
+76:                                               ; preds = %61
+  br label %77
+
+77:                                               ; preds = %76
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %78, i32 0, i32 2
+  store i8 0, ptr %79, align 8
+  br label %80
+
+80:                                               ; preds = %77
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %7, align 8
+  %83 = call zeroext i1 @tbm_exhausted(ptr noundef %82)
+  br i1 %83, label %98, label %84
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %7, align 8
+  %86 = call ptr @tbm_iterate(ptr noundef %85)
+  store ptr %86, ptr %4, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %93
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.TBMIterateResult, ptr %90, i32 0, i32 0
+  %92 = load i32, ptr %91, align 4
+  br label %94
+
+93:                                               ; preds = %84
+  br label %94
+
+94:                                               ; preds = %93, %89
+  %95 = phi i32 [ %92, %89 ], [ -1, %93 ]
+  %96 = load ptr, ptr %2, align 8
+  %97 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %96, i32 0, i32 14
+  store i32 %95, ptr %97, align 8
+  br label %98
+
+98:                                               ; preds = %94, %81
+  br label %99
+
+99:                                               ; preds = %98, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %100
+
+100:                                              ; preds = %99, %44
+  store i32 0, ptr %6, align 4
+  br label %101
+
+101:                                              ; preds = %100, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %102 = load i32, ptr %6, align 4
+  switch i32 %102, label %104 [
+    i32 0, label %103
+    i32 1, label %103
+  ]
+
+103:                                              ; preds = %101, %101
+  ret void
+
+104:                                              ; preds = %101
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @table_scan_bitmap_next_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load i32, ptr @CheckXidAlive, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %5
+  %14 = load i8, ptr @bsysscan, align 1, !range !5, !noundef !6
+  %15 = trunc i8 %14 to i1
+  %16 = xor i1 %15, true
+  br label %17
+
+17:                                               ; preds = %13, %5
+  %18 = phi i1 [ false, %5 ], [ %16, %13 ]
+  %19 = zext i1 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 0)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %17
+  br label %26
+
+26:                                               ; preds = %25
+  br i1 true, label %27, label %29
+
+27:                                               ; preds = %26
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %28, label %31, label %33
+
+29:                                               ; preds = %26
+  %30 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %29, %27
+  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
+  call void @errfinish(ptr noundef @.str.4, i32 noundef 1989, ptr noundef @__func__.table_scan_bitmap_next_block)
+  br label %33
+
+33:                                               ; preds = %31, %29, %27
+  unreachable
+
+34:                                               ; No predecessors!
+  br label %35
+
+35:                                               ; preds = %34, %17
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct.TableScanDescData, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.RelationData, ptr %38, i32 0, i32 47
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.TableAmRoutine, ptr %40, i32 0, i32 42
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = call zeroext i1 %42(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
+  ret i1 %48
+}
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #7
+
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
+
+declare i32 @errmsg_internal(ptr noundef, ...) #3
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BitmapAdjustPrefetchTarget(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %5, i32 0, i32 10
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %52
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %11, i32 0, i32 7
+  %13 = load i32, ptr %12, align 4
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %14, i32 0, i32 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp sge i32 %13, %16
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %10
+  br label %51
+
+19:                                               ; preds = %10
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %20, i32 0, i32 7
+  %22 = load i32, ptr %21, align 4
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %23, i32 0, i32 8
+  %25 = load i32, ptr %24, align 8
+  %26 = sdiv i32 %25, 2
+  %27 = icmp sge i32 %22, %26
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %32, i32 0, i32 7
+  store i32 %31, ptr %33, align 4
+  br label %50
+
+34:                                               ; preds = %19
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %35, i32 0, i32 7
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %44
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %40, i32 0, i32 7
+  %42 = load i32, ptr %41, align 4
+  %43 = mul i32 %42, 2
+  store i32 %43, ptr %41, align 4
+  br label %49
+
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %45, i32 0, i32 7
+  %47 = load i32, ptr %46, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 4
+  br label %49
+
+49:                                               ; preds = %44, %39
+  br label %50
+
+50:                                               ; preds = %49, %28
+  br label %51
+
+51:                                               ; preds = %50, %18
+  store i32 1, ptr %4, align 4
+  br label %118
+
+52:                                               ; preds = %1
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %53, i32 0, i32 4
+  %55 = load i32, ptr %54, align 8
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %56, i32 0, i32 8
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp slt i32 %55, %58
+  br i1 %59, label %60, label %117
+
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %61, i32 0, i32 2
+  %63 = call i32 @tas(ptr noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %69
+
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %66, i32 0, i32 2
+  %68 = call i32 @s_lock(ptr noundef %67, ptr noundef @.str, i32 noundef 413, ptr noundef @__func__.BitmapAdjustPrefetchTarget)
+  br label %70
+
+69:                                               ; preds = %60
+  br label %70
+
+70:                                               ; preds = %69, %65
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %71, i32 0, i32 4
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %74, i32 0, i32 8
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp sge i32 %73, %76
+  br i1 %77, label %78, label %79
+
+78:                                               ; preds = %70
+  br label %111
+
+79:                                               ; preds = %70
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %80, i32 0, i32 4
+  %82 = load i32, ptr %81, align 8
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %83, i32 0, i32 8
+  %85 = load i32, ptr %84, align 8
+  %86 = sdiv i32 %85, 2
+  %87 = icmp sge i32 %82, %86
+  br i1 %87, label %88, label %94
+
+88:                                               ; preds = %79
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds nuw %struct.BitmapHeapScanState, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %92, i32 0, i32 4
+  store i32 %91, ptr %93, align 8
+  br label %110
+
+94:                                               ; preds = %79
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %95, i32 0, i32 4
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %99, label %104
+
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %100, i32 0, i32 4
+  %102 = load i32, ptr %101, align 8
+  %103 = mul i32 %102, 2
+  store i32 %103, ptr %101, align 8
+  br label %109
+
+104:                                              ; preds = %94
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %105, i32 0, i32 4
+  %107 = load i32, ptr %106, align 8
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 8
+  br label %109
+
+109:                                              ; preds = %104, %99
+  br label %110
+
+110:                                              ; preds = %109, %88
+  br label %111
+
+111:                                              ; preds = %110, %78
+  br label %112
+
+112:                                              ; preds = %111
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %113, i32 0, i32 2
+  store i8 0, ptr %114, align 8
+  br label %115
+
+115:                                              ; preds = %112
+  br label %116
+
+116:                                              ; preds = %115
+  br label %117
+
+117:                                              ; preds = %116, %52
+  store i32 0, ptr %4, align 4
+  br label %118
+
+118:                                              ; preds = %117, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %119 = load i32, ptr %4, align 4
+  switch i32 %119, label %121 [
+    i32 0, label %120
+    i32 1, label %120
+  ]
+
+120:                                              ; preds = %118, %118
+  ret void
+
+121:                                              ; preds = %118
+  unreachable
+}
+
+declare ptr @MultiExecProcNode(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ExecQual(ptr noundef %0, ptr noundef %1) #0 {
+define internal zeroext i1 @BitmapShouldInitializeSharedState(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  br label %4
+
+4:                                                ; preds = %35, %1
+  br label %5
+
+5:                                                ; preds = %4
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %6, i32 0, i32 2
+  %8 = call i32 @tas(ptr noundef %7)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %11, i32 0, i32 2
+  %13 = call i32 @s_lock(ptr noundef %12, ptr noundef @.str, i32 noundef 795, ptr noundef @__func__.BitmapShouldInitializeSharedState)
+  br label %15
+
+14:                                               ; preds = %5
+  br label %15
+
+15:                                               ; preds = %14, %10
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %16, i32 0, i32 5
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %3, align 4
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %19, i32 0, i32 5
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %24, i32 0, i32 5
+  store i32 1, ptr %25, align 4
+  br label %26
+
+26:                                               ; preds = %23, %15
+  br label %27
+
+27:                                               ; preds = %26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %28, i32 0, i32 2
+  store i8 0, ptr %29, align 8
+  br label %30
+
+30:                                               ; preds = %27
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load i32, ptr %3, align 4
+  %33 = icmp ne i32 %32, 1
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %31
+  br label %38
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %36, i32 0, i32 6
+  call void @ConditionVariableSleep(ptr noundef %37, i32 noundef 134217766)
+  br label %4
+
+38:                                               ; preds = %34
+  %39 = call zeroext i1 @ConditionVariableCancelSleep()
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp eq i32 %40, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i1 %41
+}
+
+declare i64 @tbm_prepare_shared_iterate(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @BitmapDoneInitializingSharedState(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %3, i32 0, i32 2
+  %5 = call i32 @tas(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %8, i32 0, i32 2
+  %10 = call i32 @s_lock(ptr noundef %9, ptr noundef @.str, i32 noundef 302, ptr noundef @__func__.BitmapDoneInitializingSharedState)
+  br label %12
+
+11:                                               ; preds = %1
+  br label %12
+
+12:                                               ; preds = %11, %7
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %13, i32 0, i32 5
+  store i32 2, ptr %14, align 4
+  br label %15
+
+15:                                               ; preds = %12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %16, i32 0, i32 2
+  store i8 0, ptr %17, align 8
+  br label %18
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.ParallelBitmapHeapState, ptr %19, i32 0, i32 6
+  call void @ConditionVariableBroadcast(ptr noundef %20)
+  ret void
+}
+
+declare { i8, ptr } @tbm_begin_iterate(ptr noundef, ptr noundef, i64 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @table_beginscan_bm(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  %12 = zext i1 %4 to i8
+  store i8 %12, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 258, ptr %11, align 4
+  %13 = load i8, ptr %10, align 1, !range !5, !noundef !6
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %5
+  %16 = load i32, ptr %11, align 4
+  %17 = or i32 %16, 1024
+  store i32 %17, ptr %11, align 4
+  br label %18
+
+18:                                               ; preds = %15, %5
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds nuw %struct.RelationData, ptr %19, i32 0, i32 47
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %struct.TableAmRoutine, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %11, align 4
+  %29 = call ptr %23(ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef null, i32 noundef %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  ret ptr %29
+}
+
+declare void @ConditionVariableSleep(ptr noundef, i32 noundef) #3
+
+declare zeroext i1 @ConditionVariableCancelSleep() #3
+
+declare void @ConditionVariableBroadcast(ptr noundef) #3
+
+declare ptr @tbm_iterate(ptr noundef) #3
+
+declare zeroext i8 @visibilitymap_get_status(ptr noundef, i32 noundef, ptr noundef) #3
+
+declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ExecQual(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  store i1 true, ptr %3, align 1
-  br label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = call i64 @ExecEvalExprSwitchContext(ptr noundef %12, ptr noundef %13, ptr noundef %7)
-  store i64 %14, ptr %6, align 8
-  %15 = load i64, ptr %6, align 8
-  %16 = call zeroext i1 @DatumGetBool(i64 noundef %15)
-  store i1 %16, ptr %3, align 1
-  br label %17
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i1, ptr %3, align 1
-  ret i1 %18
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = call i64 @ExecEvalExprSwitchContext(ptr noundef %13, ptr noundef %14, ptr noundef %7)
+  store i64 %15, ptr %6, align 8
+  %16 = load i64, ptr %6, align 8
+  %17 = call zeroext i1 @DatumGetBool(i64 noundef %16)
+  store i1 %17, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %19 = load i1, ptr %3, align 1
+  ret i1 %19
 }
 
-declare void @MemoryContextReset(ptr noundef) #1
+declare void @MemoryContextReset(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ExecEvalExprSwitchContext(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ExecEvalExprSwitchContext(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2614,13 +2937,15 @@ define internal i64 @ExecEvalExprSwitchContext(ptr noundef %0, ptr noundef %1, p
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.ExprContext, ptr %9, i32 0, i32 5
+  %10 = getelementptr inbounds nuw %struct.ExprContext, ptr %9, i32 0, i32 5
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @MemoryContextSwitchTo(ptr noundef %11)
   store ptr %12, ptr %8, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.ExprState, ptr %13, i32 0, i32 6
+  %14 = getelementptr inbounds nuw %struct.ExprState, ptr %13, i32 0, i32 6
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = load ptr, ptr %5, align 8
@@ -2630,11 +2955,13 @@ define internal i64 @ExecEvalExprSwitchContext(ptr noundef %0, ptr noundef %1, p
   %20 = load ptr, ptr %8, align 8
   %21 = call ptr @MemoryContextSwitchTo(ptr noundef %20)
   %22 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret i64 %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @DatumGetBool(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2642,40 +2969,49 @@ define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
   ret i1 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %6
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2150895999}
-!6 = !{i64 2150891827}
-!7 = !{i64 2150895398}
-!8 = !{i64 2150892276}
-!9 = !{i64 2150893368}
-!10 = !{i64 2150893485}
-!11 = !{i64 2150893786}
-!12 = !{i64 1805684, i64 1805700}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{i64 2150894276}
+!4 = !{i64 2150990601}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = !{i64 2150985623}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{i64 1872081, i64 1872097}
+!11 = distinct !{!11, !9}
+!12 = !{i64 2150988310}
+!13 = !{i64 2150987388}
+!14 = !{i64 2150987505}
+!15 = !{i64 2150987833}
+!16 = !{i64 2150989402}
+!17 = !{i64 2150987060}

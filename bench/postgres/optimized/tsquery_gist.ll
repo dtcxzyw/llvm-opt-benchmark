@@ -12,8 +12,8 @@ define dso_local i64 @gtsquery_compress(ptr noundef readonly captures(none) %0) 
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2
-  %7 = trunc i8 %6 to i1
+  %6 = load i8, ptr %5, align 2, !range !4, !noundef !5
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
@@ -53,13 +53,13 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i16
-  %11 = getelementptr i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %4, align 8
@@ -76,13 +76,13 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly c
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i64
-  %22 = getelementptr i8, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, 1
-  %.not20 = icmp eq i16 %25, 0
+  %.not24 = icmp eq i16 %25, 0
   %26 = and i64 %15, %14
-  br i1 %.not20, label %29, label %27
+  br i1 %.not24, label %29, label %27
 
 27:                                               ; preds = %16
   %28 = icmp eq i64 %26, %15
@@ -98,7 +98,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly c
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i64
-  %37 = getelementptr i8, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 1
@@ -125,7 +125,7 @@ define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   %8 = icmp sgt i32 %7, 0
@@ -139,12 +139,12 @@ define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) loc
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.0910 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
-  %11 = getelementptr [0 x %struct.GISTENTRY], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %9, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, %.0910
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %10, %1
   %.09.lcssa = phi i64 [ 0, %1 ], [ %13, %10 ]
@@ -157,9 +157,9 @@ define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) loc
 define dso_local i64 @gtsquery_same(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = icmp eq i64 %3, %5
@@ -174,11 +174,11 @@ define dso_local i64 @gtsquery_penalty(ptr noundef readonly captures(none) %0) l
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %9, %5
   br label %13
@@ -192,7 +192,7 @@ define dso_local i64 @gtsquery_penalty(ptr noundef readonly captures(none) %0) l
   %17 = add i32 %16, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %hemdist.exit, label %13, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %hemdist.exit, label %13, !llvm.loop !8
 
 hemdist.exit:                                     ; preds = %13
   %18 = inttoptr i64 %11 to ptr
@@ -206,7 +206,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = load i32, ptr %4, align 8
@@ -235,7 +235,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
 
 .loopexit:                                        ; preds = %hemdist.exit
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph167
   %indvars.iv = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next, %.loopexit ]
@@ -243,7 +243,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %.0107165 = phi i16 [ 0, %.lr.ph167 ], [ %.2109, %.loopexit ]
   %.0113163 = phi i32 [ -1, %.lr.ph167 ], [ %.2115, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = trunc nuw i64 %indvars.iv.next to i16
   %25 = trunc nuw i64 %indvars.iv to i16
@@ -255,7 +255,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %.1114158 = phi i32 [ %.0113163, %.lr.ph ], [ %.2115, %hemdist.exit ]
   %.0116157 = phi i16 [ %24, %.lr.ph ], [ %37, %hemdist.exit ]
   %27 = zext i16 %.0116157 to i64
-  %28 = getelementptr [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = xor i64 %23, %29
   br label %31
@@ -269,7 +269,7 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %35 = add i32 %34, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %hemdist.exit, label %31, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %hemdist.exit, label %31, !llvm.loop !8
 
 hemdist.exit:                                     ; preds = %31
   %36 = icmp sgt i32 %35, %.1114158
@@ -278,7 +278,7 @@ hemdist.exit:                                     ; preds = %31
   %.2 = select i1 %36, i16 %.0116157, i16 %.1106160
   %37 = add i16 %.0116157, 1
   %.not130 = icmp ugt i16 %37, %21
-  br i1 %.not130, label %.loopexit, label %26, !llvm.loop !9
+  br i1 %.not130, label %.loopexit, label %26, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %.0107.lcssa = phi i16 [ 0, %1 ], [ %.2109, %.loopexit ]
@@ -290,10 +290,10 @@ hemdist.exit:                                     ; preds = %31
   %spec.select131 = select i1 %or.cond, i16 2, i16 %.0105.lcssa
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = zext i16 %spec.select to i64
-  %42 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = zext i16 %spec.select131 to i64
-  %45 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = trunc i32 %8 to i16
   %48 = add i16 %47, -1
@@ -319,7 +319,7 @@ hemdist.exit:                                     ; preds = %31
   %54 = trunc nuw i64 %indvars.iv194 to i16
   store i16 %54, ptr %53, align 4
   %55 = load i64, ptr %42, align 8
-  %56 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %indvars.iv194
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, %55
   br label %59
@@ -333,7 +333,7 @@ hemdist.exit:                                     ; preds = %31
   %63 = add i32 %62, %.067.i.i133
   %indvars.iv.next.i.i134 = add nuw nsw i64 %indvars.iv.i.i132, 1
   %exitcond.not.i.i135 = icmp eq i64 %indvars.iv.next.i.i134, 64
-  br i1 %exitcond.not.i.i135, label %hemdist.exit136, label %59, !llvm.loop !7
+  br i1 %exitcond.not.i.i135, label %hemdist.exit136, label %59, !llvm.loop !8
 
 hemdist.exit136:                                  ; preds = %59
   %64 = load i64, ptr %45, align 8
@@ -349,7 +349,7 @@ hemdist.exit136:                                  ; preds = %59
   %70 = add i32 %69, %.067.i.i138
   %indvars.iv.next.i.i139 = add nuw nsw i64 %indvars.iv.i.i137, 1
   %exitcond.not.i.i140 = icmp eq i64 %indvars.iv.next.i.i139, 64
-  br i1 %exitcond.not.i.i140, label %hemdist.exit141, label %66, !llvm.loop !7
+  br i1 %exitcond.not.i.i140, label %hemdist.exit141, label %66, !llvm.loop !8
 
 hemdist.exit141:                                  ; preds = %66
   %71 = sub i32 %63, %70
@@ -358,7 +358,7 @@ hemdist.exit141:                                  ; preds = %66
   store i32 %72, ptr %73, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198 = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198, label %._crit_edge174, label %.lr.ph173, !llvm.loop !10
+  br i1 %exitcond198, label %._crit_edge174, label %.lr.ph173, !llvm.loop !11
 
 ._crit_edge174:                                   ; preds = %hemdist.exit141
   tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #7
@@ -370,13 +370,13 @@ hemdist.exit141:                                  ; preds = %66
   %.0103178 = phi ptr [ %.1104, %124 ], [ %14, %._crit_edge174 ]
   %.0118176 = phi i64 [ %.1119, %124 ], [ %46, %._crit_edge174 ]
   %.0120175 = phi i64 [ %.1121, %124 ], [ %43, %._crit_edge174 ]
-  %74 = getelementptr %struct.SPLITCOST, ptr %51, i64 %indvars.iv199
+  %74 = getelementptr inbounds nuw %struct.SPLITCOST, ptr %51, i64 %indvars.iv199
   %75 = load i16, ptr %74, align 4
   %76 = icmp eq i16 %75, %spec.select
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %.lr.ph181
-  %78 = getelementptr i8, ptr %.0103178, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.0103178, i64 2
   store i16 %spec.select, ptr %.0103178, align 2
   %79 = load i32, ptr %18, align 8
   %80 = add i32 %79, 1
@@ -388,7 +388,7 @@ hemdist.exit141:                                  ; preds = %66
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %81
-  %84 = getelementptr i8, ptr %.0179, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.0179, i64 2
   store i16 %spec.select131, ptr %.0179, align 2
   %85 = load i32, ptr %17, align 8
   %86 = add i32 %85, 1
@@ -397,7 +397,7 @@ hemdist.exit141:                                  ; preds = %66
 
 87:                                               ; preds = %81
   %88 = zext i16 %75 to i64
-  %89 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = xor i64 %90, %.0120175
   br label %92
@@ -411,7 +411,7 @@ hemdist.exit141:                                  ; preds = %66
   %96 = add i32 %95, %.067.i.i143
   %indvars.iv.next.i.i144 = add nuw nsw i64 %indvars.iv.i.i142, 1
   %exitcond.not.i.i145 = icmp eq i64 %indvars.iv.next.i.i144, 64
-  br i1 %exitcond.not.i.i145, label %hemdist.exit146, label %92, !llvm.loop !7
+  br i1 %exitcond.not.i.i145, label %hemdist.exit146, label %92, !llvm.loop !8
 
 hemdist.exit146:                                  ; preds = %92
   %97 = xor i64 %90, %.0118176
@@ -426,7 +426,7 @@ hemdist.exit146:                                  ; preds = %92
   %102 = add i32 %101, %.067.i.i148
   %indvars.iv.next.i.i149 = add nuw nsw i64 %indvars.iv.i.i147, 1
   %exitcond.not.i.i150 = icmp eq i64 %indvars.iv.next.i.i149, 64
-  br i1 %exitcond.not.i.i150, label %hemdist.exit151, label %98, !llvm.loop !7
+  br i1 %exitcond.not.i.i150, label %hemdist.exit151, label %98, !llvm.loop !8
 
 hemdist.exit151:                                  ; preds = %98
   %103 = sitofp i32 %96 to double
@@ -444,7 +444,7 @@ hemdist.exit151:                                  ; preds = %98
 
 114:                                              ; preds = %hemdist.exit151
   %115 = or i64 %90, %.0120175
-  %116 = getelementptr i8, ptr %.0103178, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %.0103178, i64 2
   store i16 %75, ptr %.0103178, align 2
   %117 = load i32, ptr %18, align 8
   %118 = add i32 %117, 1
@@ -453,7 +453,7 @@ hemdist.exit151:                                  ; preds = %98
 
 119:                                              ; preds = %hemdist.exit151
   %120 = or i64 %90, %.0118176
-  %121 = getelementptr i8, ptr %.0179, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %.0179, i64 2
   store i16 %75, ptr %.0179, align 2
   %122 = load i32, ptr %17, align 8
   %123 = add i32 %122, 1
@@ -467,7 +467,7 @@ hemdist.exit151:                                  ; preds = %98
   %.1 = phi ptr [ %.0179, %77 ], [ %84, %83 ], [ %.0179, %114 ], [ %121, %119 ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %49
-  br i1 %exitcond203.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !11
+  br i1 %exitcond203.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !12
 
 ._crit_edge182:                                   ; preds = %124, %._crit_edge174.thread
   %.0120.lcssa = phi i64 [ %43, %._crit_edge174.thread ], [ %.1121, %124 ]
@@ -506,13 +506,13 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef rea
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i16
-  %11 = getelementptr i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %4, align 8
@@ -529,13 +529,13 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef rea
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i64
-  %22 = getelementptr i8, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, 1
-  %.not20.i = icmp eq i16 %25, 0
+  %.not24.i = icmp eq i16 %25, 0
   %26 = and i64 %15, %14
-  br i1 %.not20.i, label %29, label %27
+  br i1 %.not24.i, label %29, label %27
 
 27:                                               ; preds = %16
   %28 = icmp eq i64 %26, %15
@@ -551,7 +551,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef rea
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i64
-  %37 = getelementptr i8, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 1
@@ -582,26 +582,27 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

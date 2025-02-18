@@ -3,9 +3,8 @@ source_filename = "bench/postgres/original/tstoreReceiver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -39,8 +38,8 @@ define internal noundef zeroext i1 @tstoreReceiveSlot_notoast(ptr noundef %0, pt
 define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
+  %6 = load i8, ptr %5, align 8, !range !4, !noundef !5
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
@@ -52,96 +51,85 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %10 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 95
-  %12 = load i8, ptr %11, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %18, label %14
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
+  %10 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i16, ptr %15, align 4
   %17 = icmp eq i16 %16, -1
-  br i1 %17, label %.loopexit.thread, label %18
+  br i1 %17, label %.loopexit, label %.thread
 
-18:                                               ; preds = %14, %.lr.ph
+.thread:                                          ; preds = %.lr.ph, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %18, %.preheader, %3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.thread41, label %38
+.loopexit:                                        ; preds = %.thread, %14, %.preheader, %3
+  %.035 = phi i1 [ false, %3 ], [ false, %.preheader ], [ false, %.thread ], [ true, %14 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %.thread48, label %20
 
-.loopexit.thread:                                 ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+20:                                               ; preds = %.loopexit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not44 = icmp eq ptr %22, null
-  br i1 %.not44, label %.thread.thread, label %.thread48
+  %23 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef %22) #4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %23, ptr %24, align 8
+  br i1 %.035, label %26, label %37
 
-.thread48:                                        ; preds = %.loopexit.thread
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef %24) #4
-  br label %.thread.thread
+.thread48:                                        ; preds = %.loopexit
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr null, ptr %25, align 8
+  br i1 %.035, label %26, label %.thread49
 
-.thread41:                                        ; preds = %.loopexit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %26, align 8
-  br label %48
-
-.thread.thread:                                   ; preds = %.loopexit.thread, %.thread48
-  %.sink = phi ptr [ %25, %.thread48 ], [ null, %.loopexit.thread ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %.sink, ptr %27, align 8
+26:                                               ; preds = %.thread48, %20
   store ptr @tstoreReceiveSlot_detoast, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = zext nneg i32 %4 to i64
-  %31 = shl nuw nsw i64 %30, 3
-  %32 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef %31) #4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr %28, align 8
-  %35 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %31) #4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %37, align 8
-  br label %51
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %29 = sext i32 %4 to i64
+  %30 = shl nsw i64 %29, 3
+  %31 = tail call ptr @MemoryContextAlloc(ptr noundef %28, i64 noundef %30) #4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %31, ptr %32, align 8
+  %33 = load ptr, ptr %27, align 8
+  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %33, i64 noundef %30) #4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr null, ptr %36, align 8
+  br label %45
 
-38:                                               ; preds = %.loopexit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef %40) #4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %41, ptr %42, align 8
-  %.not36 = icmp eq ptr %41, null
-  br i1 %.not36, label %48, label %43
+37:                                               ; preds = %20
+  %.not38 = icmp eq ptr %23, null
+  br i1 %.not38, label %.thread49, label %38
 
-43:                                               ; preds = %38
+38:                                               ; preds = %37
   store ptr @tstoreReceiveSlot_tupmap, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %19, align 8
-  %46 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsVirtual) #4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %46, ptr %47, align 8
-  br label %51
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  %40 = load ptr, ptr %18, align 8
+  %41 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %40, ptr noundef nonnull @TTSOpsVirtual) #4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %41, ptr %42, align 8
+  br label %45
 
-48:                                               ; preds = %.thread41, %38
+.thread49:                                        ; preds = %.thread48, %37
   store ptr @tstoreReceiveSlot_notoast, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %50, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  br label %51
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr null, ptr %44, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  br label %45
 
-51:                                               ; preds = %43, %48, %.thread.thread
+45:                                               ; preds = %38, %.thread49, %26
   ret void
 }
 
@@ -252,25 +240,25 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.037 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 95
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
+  %21 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %13, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 9
+  %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %45, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %27 = load i16, ptr %26, align 4
   %28 = icmp eq i16 %27, -1
   br i1 %28, label %29, label %45
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr i8, ptr %30, i64 %indvars.iv
-  %32 = load i8, ptr %31, align 1
-  %33 = trunc i8 %32 to i1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %45, label %34
 
 34:                                               ; preds = %29
@@ -285,7 +273,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %41 = load ptr, ptr %15, align 8
   %42 = add i32 %.037, 1
   %43 = sext i32 %.037 to i64
-  %44 = getelementptr i64, ptr %41, i64 %43
+  %44 = getelementptr inbounds i64, ptr %41, i64 %43
   store i64 %40, ptr %44, align 8
   br label %45
 
@@ -293,11 +281,11 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %.033 = phi i64 [ %20, %17 ], [ %20, %29 ], [ %40, %38 ], [ %20, %34 ], [ %20, %25 ]
   %.1 = phi i32 [ %.037, %17 ], [ %.037, %29 ], [ %42, %38 ], [ %.037, %34 ], [ %.037, %25 ]
   %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr i64, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
   store i64 %.033, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %45, %slot_getallattrs.exit
   %.0.lcssa = phi i32 [ 0, %slot_getallattrs.exit ], [ %.1, %45 ]
@@ -324,13 +312,13 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 59:                                               ; preds = %.lr.ph40, %59
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next44, %59 ]
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr i64, ptr %60, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv43
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   tail call void @pfree(ptr noundef %63) #4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge41, label %59, !llvm.loop !8
+  br i1 %exitcond47.not, label %._crit_edge41, label %59, !llvm.loop !9
 
 ._crit_edge41:                                    ; preds = %59, %._crit_edge
   ret i1 true
@@ -373,20 +361,21 @@ declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

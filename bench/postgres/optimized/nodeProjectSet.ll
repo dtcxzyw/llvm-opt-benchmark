@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/nodeProjectSet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitProjectSet(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 232) #2
-  store i32 379, ptr %4, align 4
+  store i32 394, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -67,78 +67,78 @@ list_length.exit:                                 ; preds = %3, %15
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph53, label %._crit_edge
 
-.lr.ph53:                                         ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
-  %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %.thread46 [
-    i32 13, label %41
-    i32 15, label %45
+._crit_edge:                                      ; preds = %56, %.lr.ph, %list_length.exit
+  %35 = load ptr, ptr @CurrentMemoryContext, align 8
+  %36 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %35, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #2
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  store ptr %36, ptr %37, align 8
+  ret ptr %4
+
+.lr.ph53:                                         ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
+  %38 = load ptr, ptr %31, align 8
+  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %42, align 4
+  switch i32 %43, label %.thread46 [
+    i32 15, label %44
+    i32 17, label %48
   ]
 
-41:                                               ; preds = %.lr.ph53
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %43 = load i8, ptr %42, align 4
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %49, label %.thread46
+44:                                               ; preds = %.lr.ph53
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %46 = load i8, ptr %45, align 4, !range !4, !noundef !5
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %52, label %.thread46
 
-45:                                               ; preds = %.lr.ph53
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %.thread46
+48:                                               ; preds = %.lr.ph53
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %50 = load i8, ptr %49, align 8, !range !4, !noundef !5
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %.thread46
 
-49:                                               ; preds = %45, %41
-  %50 = load ptr, ptr %32, align 8
-  %51 = tail call ptr @ExecInitFunctionResultSet(ptr noundef nonnull %39, ptr noundef %50, ptr noundef nonnull %4) #2
-  br label %53
+52:                                               ; preds = %48, %44
+  %53 = load ptr, ptr %32, align 8
+  %54 = tail call ptr @ExecInitFunctionResultSet(ptr noundef nonnull %42, ptr noundef %53, ptr noundef nonnull %4) #2
+  br label %56
 
-.thread46:                                        ; preds = %.lr.ph53, %41, %45
-  %52 = tail call ptr @ExecInitExpr(ptr noundef nonnull %39, ptr noundef nonnull %4) #2
-  br label %53
+.thread46:                                        ; preds = %.lr.ph53, %44, %48
+  %55 = tail call ptr @ExecInitExpr(ptr noundef nonnull %42, ptr noundef nonnull %4) #2
+  br label %56
 
-53:                                               ; preds = %.thread46, %49
-  %.sink = phi ptr [ %52, %.thread46 ], [ %51, %49 ]
-  %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %indvars.iv
-  store ptr %.sink, ptr %55, align 8
+56:                                               ; preds = %.thread46, %52
+  %.sink = phi ptr [ %55, %.thread46 ], [ %54, %52 ]
+  %57 = load ptr, ptr %23, align 8
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  store ptr %.sink, ptr %58, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr %30, align 4
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph53, label %._crit_edge
-
-._crit_edge:                                      ; preds = %53, %.lr.ph, %list_length.exit
-  %59 = load ptr, ptr @CurrentMemoryContext, align 8
-  %60 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %59, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #2
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %60, ptr %61, align 8
-  ret ptr %4
+  %59 = load i32, ptr %30, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %61, label %.lr.ph53, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ExecProjectSet(ptr noundef captures(none) %0) #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3
+  br i1 %.not, label %4, label %3, !prof !6
 
 3:                                                ; preds = %1
   tail call void @ProcessInterrupts() #2
   br label %4
 
-4:                                                ; preds = %1, %3
+4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void @MemoryContextReset(ptr noundef %8) #2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %10 = load i8, ptr %9, align 4
-  %11 = trunc i8 %10 to i1
+  %10 = load i8, ptr %9, align 4, !range !4, !noundef !5
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
@@ -278,23 +278,23 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %48 ], [ 0, %.lr.ph ]
-  %.03942.us = phi i1 [ %.2.us, %48 ], [ false, %.lr.ph ]
+  %.03942.us = phi i1 [ %.1.us, %48 ], [ false, %.lr.ph ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv44
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr i32, ptr %26, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv44
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr i64, ptr %28, i64 %indvars.iv44
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv44
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr i8, ptr %30, i64 %indvars.iv44
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv44
   %32 = load i32, ptr %27, align 4
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %47, label %34
 
 34:                                               ; preds = %.lr.ph.split.us
   %35 = load i32, ptr %25, align 4
-  %36 = icmp eq i32 %35, 375
+  %36 = icmp eq i32 %35, 390
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
@@ -325,27 +325,27 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   br label %48
 
 48:                                               ; preds = %47, %46, %41, %37
-  %.2.us = phi i1 [ %.03942.us, %47 ], [ %.03942.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
+  %.1.us = phi i1 [ %.03942.us, %47 ], [ %.03942.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %49 = load i32, ptr %15, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next45, %50
-  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !5
+  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %.03942 = phi i1 [ %.2, %73 ], [ false, %.lr.ph ]
+  %.03942 = phi i1 [ %.1, %73 ], [ false, %.lr.ph ]
   %52 = load ptr, ptr %18, align 8
-  %53 = getelementptr ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr i64, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %21, align 8
-  %60 = getelementptr i8, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %54, align 4
-  %62 = icmp eq i32 %61, 375
+  %62 = icmp eq i32 %61, 390
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %.lr.ph.split
@@ -371,15 +371,15 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   br label %73
 
 73:                                               ; preds = %63, %68, %69
-  %.2 = phi i1 [ %.03942, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
+  %.1 = phi i1 [ %.03942, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
+  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %73, %48
-  %.039.lcssa = phi i1 [ %.2.us, %48 ], [ %.2, %73 ]
+  %.039.lcssa = phi i1 [ %.1.us, %48 ], [ %.1, %73 ]
   store ptr %13, ptr @CurrentMemoryContext, align 8
   br i1 %.039.lcssa, label %77, label %79
 
@@ -400,16 +400,18 @@ declare i64 @ExecMakeFunctionResultSet(ptr noundef, ptr noundef, ptr noundef, pt
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

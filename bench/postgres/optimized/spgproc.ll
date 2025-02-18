@@ -27,10 +27,10 @@ point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_
   %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %14, i64 noundef %0) #3
   store i64 %15, ptr %.01417.us, align 8
   %16 = add nuw nsw i32 %.01516.us, 1
-  %17 = getelementptr i8, ptr %.018.us, i64 72
-  %18 = getelementptr i8, ptr %.01417.us, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.018.us, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.01417.us, i64 8
   %exitcond20.not = icmp eq i32 %16, %3
-  br i1 %exitcond20.not, label %._crit_edge, label %point_box_distance.exit.us, !llvm.loop !5
+  br i1 %exitcond20.not, label %._crit_edge, label %point_box_distance.exit.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %point_box_distance.exit
   %.018 = phi ptr [ %56, %point_box_distance.exit ], [ %2, %.lr.ph ]
@@ -103,10 +103,10 @@ point_box_distance.exit:                          ; preds = %52, %31, %27, %24, 
   %54 = phi double [ %53, %52 ], [ 0x7FF8000000000000, %31 ], [ 0x7FF8000000000000, %27 ], [ 0x7FF8000000000000, %24 ], [ 0x7FF8000000000000, %.lr.ph.split ]
   store double %54, ptr %.01417, align 8
   %55 = add nuw nsw i32 %.01516, 1
-  %56 = getelementptr i8, ptr %.018, i64 72
-  %57 = getelementptr i8, ptr %.01417, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.018, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
   %exitcond.not = icmp eq i32 %55, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %point_box_distance.exit, %point_box_distance.exit.us, %4
   ret ptr %7
@@ -130,17 +130,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare double @pg_hypot(double noundef, double noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

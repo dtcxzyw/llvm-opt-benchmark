@@ -32,24 +32,24 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.062 = phi i32 [ %18, %.lr.ph ], [ 0, %4 ]
   %14 = sext i32 %.062 to i64
-  %15 = getelementptr double, ptr %11, i64 %14
+  %15 = getelementptr inbounds double, ptr %11, i64 %14
   store double 0.000000e+00, ptr %15, align 8
   %16 = tail call ptr @bms_make_singleton(i32 noundef %1) #2
-  %17 = getelementptr ptr, ptr %12, i64 %14
+  %17 = getelementptr inbounds ptr, ptr %12, i64 %14
   store ptr %16, ptr %17, align 8
   %18 = add i32 %.062, 1
   %.not = icmp sgt i32 %18, %0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !4
 
 19:                                               ; preds = %.lr.ph68, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %._crit_edge ]
-  %20 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %.fr = freeze i32 %21
   br i1 %.not58, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr double, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %24 = load double, ptr %23, align 8
   br label %25
 
@@ -66,14 +66,14 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 .lr.ph65.split.us:                                ; preds = %.lr.ph65, %39
   %.05364.us = phi i32 [ %40, %39 ], [ %0, %.lr.ph65 ]
   %28 = sext i32 %.05364.us to i64
-  %29 = getelementptr double, ptr %11, i64 %28
+  %29 = getelementptr inbounds double, ptr %11, i64 %28
   %30 = load double, ptr %29, align 8
   %31 = fadd double %26, %30
   %32 = fcmp ugt double %30, %31
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %.lr.ph65.split.us
-  %34 = getelementptr ptr, ptr %12, i64 %28
+  %34 = getelementptr inbounds ptr, ptr %12, i64 %28
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @bms_add_member(ptr noundef %35, i32 noundef %27) #2
   store ptr %36, ptr %34, align 8
@@ -85,25 +85,25 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 39:                                               ; preds = %33, %.lr.ph65.split.us
   %40 = add i32 %.05364.us, -1
   %.not59.us = icmp slt i32 %40, 0
-  br i1 %.not59.us, label %._crit_edge, label %.lr.ph65.split.us, !llvm.loop !7
+  br i1 %.not59.us, label %._crit_edge, label %.lr.ph65.split.us, !llvm.loop !6
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %59
   %.05364 = phi i32 [ %60, %59 ], [ %0, %.lr.ph65 ]
   %41 = sub i32 %.05364, %.fr
   %42 = sext i32 %.05364 to i64
-  %43 = getelementptr double, ptr %11, i64 %42
+  %43 = getelementptr inbounds double, ptr %11, i64 %42
   %44 = load double, ptr %43, align 8
   %45 = sext i32 %41 to i64
-  %46 = getelementptr double, ptr %11, i64 %45
+  %46 = getelementptr inbounds double, ptr %11, i64 %45
   %47 = load double, ptr %46, align 8
   %48 = fadd double %26, %47
   %49 = fcmp ugt double %44, %48
   br i1 %49, label %59, label %50
 
 50:                                               ; preds = %.lr.ph65.split
-  %51 = getelementptr ptr, ptr %12, i64 %42
+  %51 = getelementptr inbounds ptr, ptr %12, i64 %42
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr ptr, ptr %12, i64 %45
+  %53 = getelementptr inbounds ptr, ptr %12, i64 %45
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @bms_replace_members(ptr noundef %52, ptr noundef %54) #2
   store ptr %55, ptr %51, align 8
@@ -114,20 +114,20 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
   store double %58, ptr %43, align 8
   br label %59
 
-59:                                               ; preds = %.lr.ph65.split, %50
+59:                                               ; preds = %50, %.lr.ph65.split
   %60 = add i32 %.05364, -1
   %.not59 = icmp slt i32 %60, %.fr
-  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !7
+  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %59, %39, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !7
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.preheader
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %61 = sext i32 %0 to i64
-  %62 = getelementptr ptr, ptr %12, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %12, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @bms_copy(ptr noundef %63) #2
   %65 = tail call ptr @bms_del_member(ptr noundef %64, i32 noundef %1) #2
@@ -151,18 +151,17 @@ declare ptr @bms_copy(ptr noundef) local_unnamed_addr #1
 
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

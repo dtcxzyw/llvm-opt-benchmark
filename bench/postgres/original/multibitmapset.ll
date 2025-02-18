@@ -20,6 +20,8 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %9 = load i32, ptr %5, align 4
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %14, label %11
@@ -27,7 +29,7 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
 11:                                               ; preds = %3
   %12 = load i32, ptr %6, align 4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %11, %3
   br label %15
@@ -36,7 +38,7 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 true, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %17, label %20, label %22
 
 18:                                               ; preds = %15
@@ -54,52 +56,60 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
 23:                                               ; No predecessors!
   br label %24
 
-24:                                               ; preds = %23, %11
+24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %30, %24
-  %26 = load ptr, ptr %4, align 8
-  %27 = call i32 @list_length(ptr noundef %26)
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp sle i32 %27, %28
-  br i1 %29, label %30, label %33
+25:                                               ; preds = %24, %11
+  br label %26
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %4, align 8
-  %32 = call ptr @lappend(ptr noundef %31, ptr noundef null)
-  store ptr %32, ptr %4, align 8
-  br label %25, !llvm.loop !5
+26:                                               ; preds = %31, %25
+  %27 = load ptr, ptr %4, align 8
+  %28 = call i32 @list_length(ptr noundef %27)
+  %29 = load i32, ptr %5, align 4
+  %30 = icmp sle i32 %28, %29
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %5, align 4
-  %36 = call ptr @list_nth_cell(ptr noundef %34, i32 noundef %35)
-  store ptr %36, ptr %8, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %6, align 4
-  %41 = call ptr @bms_add_member(ptr noundef %39, i32 noundef %40)
-  store ptr %41, ptr %7, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load ptr, ptr %8, align 8
-  store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr %4, align 8
-  ret ptr %44
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %4, align 8
+  %33 = call ptr @lappend(ptr noundef %32, ptr noundef null)
+  store ptr %33, ptr %4, align 8
+  br label %26, !llvm.loop !4
+
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %4, align 8
+  %36 = load i32, ptr %5, align 4
+  %37 = call ptr @list_nth_cell(ptr noundef %35, i32 noundef %36)
+  store ptr %37, ptr %8, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %7, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %6, align 4
+  %42 = call ptr @bms_add_member(ptr noundef %40, i32 noundef %41)
+  store ptr %42, ptr %7, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = load ptr, ptr %8, align 8
+  store ptr %43, ptr %44, align 8
+  %45 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret ptr %45
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @list_length(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @list_length(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -108,7 +118,7 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   br label %10
 
@@ -120,24 +130,27 @@ define internal i32 @list_length(ptr noundef %0) #0 {
   ret i32 %11
 }
 
-declare ptr @lappend(ptr noundef, ptr noundef) #2
+declare ptr @lappend(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.List, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.List, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %union.ListCell, ptr %7, i64 %9
+  %10 = getelementptr inbounds %union.ListCell, ptr %7, i64 %9
   ret ptr %10
 }
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef %1) #0 {
@@ -150,6 +163,8 @@ define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   br label %10
 
 10:                                               ; preds = %16, %2
@@ -164,126 +179,142 @@ define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef %1) #0 {
   %17 = load ptr, ptr %3, align 8
   %18 = call ptr @lappend(ptr noundef %17, ptr noundef null)
   store ptr %18, ptr %3, align 8
-  br label %10, !llvm.loop !7
+  br label %10, !llvm.loop !6
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #6
+  %20 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
   %23 = load ptr, ptr %4, align 8
   store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
   store i32 0, ptr %24, align 8
-  br label %25
+  %25 = getelementptr i8, ptr %7, i64 20
+  call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 4, i1 false)
+  br label %26
 
-25:                                               ; preds = %89, %19
-  %26 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %46
+26:                                               ; preds = %91, %19
+  %27 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %47
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.List, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp slt i32 %31, %35
-  br i1 %36, label %37, label %46
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.List, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp slt i32 %32, %36
+  br i1 %37, label %38, label %47
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.List, ptr %39, i32 0, i32 3
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr %union.ListCell, ptr %41, i64 %44
-  br label %47
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.List, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %union.ListCell, ptr %42, i64 %45
+  br label %48
 
-46:                                               ; preds = %29, %25
-  br label %47
+47:                                               ; preds = %30, %26
+  br label %48
 
-47:                                               ; preds = %46, %37
-  %48 = phi ptr [ %45, %37 ], [ null, %46 ]
-  store ptr %48, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %69
+48:                                               ; preds = %47, %38
+  %49 = phi ptr [ %46, %38 ], [ null, %47 ]
+  store ptr %49, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %70
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.List, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp slt i32 %54, %58
-  br i1 %59, label %60, label %69
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.List, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp slt i32 %55, %59
+  br i1 %60, label %61, label %70
 
-60:                                               ; preds = %52
-  %61 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.List, ptr %62, i32 0, i32 3
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr %union.ListCell, ptr %64, i64 %67
-  br label %70
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw %struct.List, ptr %63, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %union.ListCell, ptr %65, i64 %68
+  br label %71
 
-69:                                               ; preds = %52, %47
-  br label %70
+70:                                               ; preds = %53, %48
+  br label %71
 
-70:                                               ; preds = %69, %60
-  %71 = phi ptr [ %68, %60 ], [ null, %69 ]
-  store ptr %71, ptr %6, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %77
+71:                                               ; preds = %70, %61
+  %72 = phi ptr [ %69, %61 ], [ null, %70 ]
+  store ptr %72, ptr %6, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %78
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %6, align 8
-  %76 = icmp ne ptr %75, null
-  br label %77
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %6, align 8
+  %77 = icmp ne ptr %76, null
+  br label %78
 
-77:                                               ; preds = %74, %70
-  %78 = phi i1 [ false, %70 ], [ %76, %74 ]
-  br i1 %78, label %79, label %93
+78:                                               ; preds = %75, %71
+  %79 = phi i1 [ false, %71 ], [ %77, %75 ]
+  br i1 %79, label %81, label %80
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %5, align 8
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %8, align 8
-  %82 = load ptr, ptr %6, align 8
+80:                                               ; preds = %78
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #6
+  br label %95
+
+81:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %82 = load ptr, ptr %5, align 8
   %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %9, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %9, align 8
-  %86 = call ptr @bms_add_members(ptr noundef %84, ptr noundef %85)
-  store ptr %86, ptr %8, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = load ptr, ptr %5, align 8
-  store ptr %87, ptr %88, align 8
-  br label %89
+  store ptr %83, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %84 = load ptr, ptr %6, align 8
+  %85 = load ptr, ptr %84, align 8
+  store ptr %85, ptr %9, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = call ptr @bms_add_members(ptr noundef %86, ptr noundef %87)
+  store ptr %88, ptr %8, align 8
+  %89 = load ptr, ptr %8, align 8
+  %90 = load ptr, ptr %5, align 8
+  store ptr %89, ptr %90, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %91
 
-89:                                               ; preds = %79
-  %90 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %91 = load i32, ptr %90, align 8
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 8
-  br label %25, !llvm.loop !8
+91:                                               ; preds = %81
+  %92 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %93 = load i32, ptr %92, align 8
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %92, align 8
+  br label %26, !llvm.loop !7
 
-93:                                               ; preds = %77
-  %94 = load ptr, ptr %3, align 8
-  ret ptr %94
+95:                                               ; preds = %80
+  %96 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %96
 }
 
-declare ptr @bms_add_members(ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+declare ptr @bms_add_members(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbms_int_members(ptr noundef %0, ptr noundef %1) #0 {
@@ -296,130 +327,145 @@ define dso_local ptr @mbms_int_members(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = call i32 @list_length(ptr noundef %11)
   %13 = call ptr @list_truncate(ptr noundef %10, i32 noundef %12)
   store ptr %13, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #6
+  %14 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
   %17 = load ptr, ptr %4, align 8
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
   store i32 0, ptr %18, align 8
-  br label %19
+  %19 = getelementptr i8, ptr %7, i64 20
+  call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 4, i1 false)
+  br label %20
 
-19:                                               ; preds = %83, %2
-  %20 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %40
+20:                                               ; preds = %85, %2
+  %21 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %41
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.List, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp slt i32 %25, %29
-  br i1 %30, label %31, label %40
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.List, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp slt i32 %26, %30
+  br i1 %31, label %32, label %41
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.List, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr %union.ListCell, ptr %35, i64 %38
-  br label %41
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.List, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %union.ListCell, ptr %36, i64 %39
+  br label %42
 
-40:                                               ; preds = %23, %19
-  br label %41
+41:                                               ; preds = %24, %20
+  br label %42
 
-41:                                               ; preds = %40, %31
-  %42 = phi ptr [ %39, %31 ], [ null, %40 ]
-  store ptr %42, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %63
+42:                                               ; preds = %41, %32
+  %43 = phi ptr [ %40, %32 ], [ null, %41 ]
+  store ptr %43, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %64
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.List, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp slt i32 %48, %52
-  br i1 %53, label %54, label %63
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %struct.List, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp slt i32 %49, %53
+  br i1 %54, label %55, label %64
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.List, ptr %56, i32 0, i32 3
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr %union.ListCell, ptr %58, i64 %61
-  br label %64
+55:                                               ; preds = %47
+  %56 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.List, ptr %57, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %61 = load i32, ptr %60, align 8
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %union.ListCell, ptr %59, i64 %62
+  br label %65
 
-63:                                               ; preds = %46, %41
-  br label %64
+64:                                               ; preds = %47, %42
+  br label %65
 
-64:                                               ; preds = %63, %54
-  %65 = phi ptr [ %62, %54 ], [ null, %63 ]
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %71
+65:                                               ; preds = %64, %55
+  %66 = phi ptr [ %63, %55 ], [ null, %64 ]
+  store ptr %66, ptr %6, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %72
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %6, align 8
-  %70 = icmp ne ptr %69, null
-  br label %71
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %6, align 8
+  %71 = icmp ne ptr %70, null
+  br label %72
 
-71:                                               ; preds = %68, %64
-  %72 = phi i1 [ false, %64 ], [ %70, %68 ]
-  br i1 %72, label %73, label %87
+72:                                               ; preds = %69, %65
+  %73 = phi i1 [ false, %65 ], [ %71, %69 ]
+  br i1 %73, label %75, label %74
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %5, align 8
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %8, align 8
-  %76 = load ptr, ptr %6, align 8
+74:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #6
+  br label %89
+
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %76 = load ptr, ptr %5, align 8
   %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %9, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = load ptr, ptr %9, align 8
-  %80 = call ptr @bms_int_members(ptr noundef %78, ptr noundef %79)
-  store ptr %80, ptr %8, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %5, align 8
-  store ptr %81, ptr %82, align 8
-  br label %83
+  store ptr %77, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %9, align 8
+  %80 = load ptr, ptr %8, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = call ptr @bms_int_members(ptr noundef %80, ptr noundef %81)
+  store ptr %82, ptr %8, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr %5, align 8
+  store ptr %83, ptr %84, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %85
 
-83:                                               ; preds = %73
-  %84 = getelementptr inbounds %struct.ForBothState, ptr %7, i32 0, i32 2
-  %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %84, align 8
-  br label %19, !llvm.loop !9
+85:                                               ; preds = %75
+  %86 = getelementptr inbounds nuw %struct.ForBothState, ptr %7, i32 0, i32 2
+  %87 = load i32, ptr %86, align 8
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %86, align 8
+  br label %20, !llvm.loop !8
 
-87:                                               ; preds = %71
-  %88 = load ptr, ptr %3, align 8
-  ret ptr %88
+89:                                               ; preds = %74
+  %90 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %90
 }
 
-declare ptr @list_truncate(ptr noundef, i32 noundef) #2
+declare ptr @list_truncate(ptr noundef, i32 noundef) #3
 
-declare ptr @bms_int_members(ptr noundef, ptr noundef) #2
+declare ptr @bms_int_members(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -428,72 +474,80 @@ define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr 
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %14, label %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = load i32, ptr %5, align 4
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %3
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %24
+12:                                               ; preds = %3
+  %13 = load i32, ptr %6, align 4
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %26
 
-14:                                               ; preds = %11, %3
-  br label %15
-
-15:                                               ; preds = %14
-  br i1 true, label %16, label %18
+15:                                               ; preds = %12, %3
+  br label %16
 
 16:                                               ; preds = %15
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %17, label %20, label %22
+  br i1 true, label %17, label %19
 
-18:                                               ; preds = %15
-  %19 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %19, label %20, label %22
+17:                                               ; preds = %16
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %18, label %21, label %23
 
-20:                                               ; preds = %18, %16
-  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
+19:                                               ; preds = %16
+  %20 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %19, %17
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 132, ptr noundef @__func__.mbms_is_member)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %20, %18, %16
+23:                                               ; preds = %21, %19, %17
   unreachable
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %11
-  %25 = load i32, ptr %5, align 4
-  %26 = load ptr, ptr %7, align 8
-  %27 = call i32 @list_length(ptr noundef %26)
-  %28 = icmp sge i32 %25, %27
-  br i1 %28, label %29, label %30
+25:                                               ; preds = %24
+  br label %26
 
-29:                                               ; preds = %24
+26:                                               ; preds = %25, %12
+  %27 = load i32, ptr %5, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = call i32 @list_length(ptr noundef %28)
+  %30 = icmp sge i32 %27, %29
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
   store i1 false, ptr %4, align 1
-  br label %37
+  store i32 1, ptr %9, align 4
+  br label %39
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %5, align 4
-  %33 = call ptr @list_nth(ptr noundef %31, i32 noundef %32)
-  store ptr %33, ptr %8, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = load ptr, ptr %8, align 8
-  %36 = call zeroext i1 @bms_is_member(i32 noundef %34, ptr noundef %35)
-  store i1 %36, ptr %4, align 1
-  br label %37
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %5, align 4
+  %35 = call ptr @list_nth(ptr noundef %33, i32 noundef %34)
+  store ptr %35, ptr %8, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = load ptr, ptr %8, align 8
+  %38 = call zeroext i1 @bms_is_member(i32 noundef %36, ptr noundef %37)
+  store i1 %38, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %39
 
-37:                                               ; preds = %30, %29
-  %38 = load i1, ptr %4, align 1
-  ret i1 %38
+39:                                               ; preds = %32, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %40 = load i1, ptr %4, align 1
+  ret i1 %40
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -505,7 +559,7 @@ define internal ptr @list_nth(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr %8
 }
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) #2
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbms_overlap_sets(ptr noundef %0, ptr noundef %1) #0 {
@@ -519,147 +573,167 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   store ptr null, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #6
+  %11 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 0
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
   store i32 0, ptr %15, align 8
-  br label %16
+  %16 = getelementptr i8, ptr %8, i64 20
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 4, i1 false)
+  br label %17
 
-16:                                               ; preds = %84, %2
-  %17 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %37
+17:                                               ; preds = %86, %2
+  %18 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %38
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.List, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %22, %26
-  br i1 %27, label %28, label %37
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.List, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp slt i32 %23, %27
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr %union.ListCell, ptr %32, i64 %35
-  br label %38
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.List, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %union.ListCell, ptr %33, i64 %36
+  br label %39
 
-37:                                               ; preds = %20, %16
-  br label %38
+38:                                               ; preds = %21, %17
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = phi ptr [ %36, %28 ], [ null, %37 ]
-  store ptr %39, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %60
+39:                                               ; preds = %38, %29
+  %40 = phi ptr [ %37, %29 ], [ null, %38 ]
+  store ptr %40, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %61
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.List, ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp slt i32 %45, %49
-  br i1 %50, label %51, label %60
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw %struct.List, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %46, %50
+  br i1 %51, label %52, label %61
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.List, ptr %53, i32 0, i32 3
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr %union.ListCell, ptr %55, i64 %58
-  br label %61
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw %struct.List, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %union.ListCell, ptr %56, i64 %59
+  br label %62
 
-60:                                               ; preds = %43, %38
-  br label %61
+61:                                               ; preds = %44, %39
+  br label %62
 
-61:                                               ; preds = %60, %51
-  %62 = phi ptr [ %59, %51 ], [ null, %60 ]
-  store ptr %62, ptr %7, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %68
+62:                                               ; preds = %61, %52
+  %63 = phi ptr [ %60, %52 ], [ null, %61 ]
+  store ptr %63, ptr %7, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %7, align 8
-  %67 = icmp ne ptr %66, null
-  br label %68
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %7, align 8
+  %68 = icmp ne ptr %67, null
+  br label %69
 
-68:                                               ; preds = %65, %61
-  %69 = phi i1 [ false, %61 ], [ %67, %65 ]
-  br i1 %69, label %70, label %88
+69:                                               ; preds = %66, %62
+  %70 = phi i1 [ false, %62 ], [ %68, %66 ]
+  br i1 %70, label %72, label %71
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %9, align 8
-  %73 = load ptr, ptr %7, align 8
+71:                                               ; preds = %69
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #6
+  br label %90
+
+72:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %73 = load ptr, ptr %6, align 8
   %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %10, align 8
-  %75 = load ptr, ptr %9, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = call zeroext i1 @bms_overlap(ptr noundef %75, ptr noundef %76)
-  br i1 %77, label %78, label %83
+  store ptr %74, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %75 = load ptr, ptr %7, align 8
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %10, align 8
+  %77 = load ptr, ptr %9, align 8
+  %78 = load ptr, ptr %10, align 8
+  %79 = call zeroext i1 @bms_overlap(ptr noundef %77, ptr noundef %78)
+  br i1 %79, label %80, label %85
 
-78:                                               ; preds = %70
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %81 = load i32, ptr %80, align 8
-  %82 = call ptr @bms_add_member(ptr noundef %79, i32 noundef %81)
-  store ptr %82, ptr %5, align 8
-  br label %83
+80:                                               ; preds = %72
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %83 = load i32, ptr %82, align 8
+  %84 = call ptr @bms_add_member(ptr noundef %81, i32 noundef %83)
+  store ptr %84, ptr %5, align 8
+  br label %85
 
-83:                                               ; preds = %78, %70
-  br label %84
+85:                                               ; preds = %80, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %86
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds %struct.ForBothState, ptr %8, i32 0, i32 2
-  %86 = load i32, ptr %85, align 8
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %85, align 8
-  br label %16, !llvm.loop !10
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds nuw %struct.ForBothState, ptr %8, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %87, align 8
+  br label %17, !llvm.loop !9
 
-88:                                               ; preds = %68
-  %89 = load ptr, ptr %5, align 8
-  ret ptr %89
+90:                                               ; preds = %71
+  %91 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %91
 }
 
-declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) #2
+declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

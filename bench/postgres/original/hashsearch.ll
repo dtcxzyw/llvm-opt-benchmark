@@ -7,8 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HashScanOpaqueData = type { i32, i32, i32, i8, i8, ptr, i32, %struct.HashScanPosData }
 %struct.HashScanPosData = type { i32, i32, i32, i32, i32, i32, i32, [408 x %struct.HashScanPosItem] }
 %struct.HashScanPosItem = type { %struct.ItemPointerData, i16 }
+%struct.PageHeaderData = type { %struct.PageXLogRecPtr, i16, i16, i16, i16, i16, i16, i32, [0 x %struct.ItemIdData] }
+%struct.PageXLogRecPtr = type { i32, i32 }
+%struct.ItemIdData = type { i32 }
 %struct.HashPageOpaqueData = type { i32, i32, i32, i16, i16 }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
@@ -16,9 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_TableCounts = type { i64, i64, i64, i64, i64, i64, i64, i64, i8, i64, i64, i64, i64, i64 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.PageHeaderData = type { %struct.PageXLogRecPtr, i16, i16, i16, i16, i16, i16, i32, [0 x %struct.ItemIdData] }
-%struct.PageXLogRecPtr = type { i32, i32 }
-%struct.ItemIdData = type { i32 }
 %struct.IndexTupleData = type { %struct.ItemPointerData, i16 }
 
 @.str = private unnamed_addr constant [46 x i8] c"hash indexes do not support whole-index scans\00", align 1
@@ -39,243 +39,264 @@ define dso_local zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
+  %12 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.IndexScanDescData, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.IndexScanDescData, ptr %15, i32 0, i32 12
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %16, i32 0, i32 12
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #7
   store i8 0, ptr %11, align 1
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp eq i32 %18, 1
-  br i1 %19, label %20, label %57
+  %19 = load i32, ptr %5, align 4
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %58
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %21, i32 0, i32 7
-  %23 = getelementptr inbounds %struct.HashScanPosData, ptr %22, i32 0, i32 6
-  %24 = load i32, ptr %23, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %26, i32 0, i32 7
-  %28 = getelementptr inbounds %struct.HashScanPosData, ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp sgt i32 %25, %29
-  br i1 %30, label %31, label %56
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %22, i32 0, i32 7
+  %24 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %23, i32 0, i32 6
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %27, i32 0, i32 7
+  %29 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %26, %30
+  br i1 %31, label %32, label %57
 
-31:                                               ; preds = %20
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %32, i32 0, i32 6
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %38
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %33, i32 0, i32 6
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %4, align 8
-  call void @_hash_kill_items(ptr noundef %37)
-  br label %38
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %4, align 8
+  call void @_hash_kill_items(ptr noundef %38)
+  br label %39
 
-38:                                               ; preds = %36, %31
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %39, i32 0, i32 7
-  %41 = getelementptr inbounds %struct.HashScanPosData, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr %9, align 4
-  %43 = load i32, ptr %9, align 4
-  %44 = call zeroext i1 @BlockNumberIsValid(i32 noundef %43)
-  br i1 %44, label %45, label %54
+39:                                               ; preds = %37, %32
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %40, i32 0, i32 7
+  %42 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4
+  store i32 %43, ptr %9, align 4
+  %44 = load i32, ptr %9, align 4
+  %45 = call zeroext i1 @BlockNumberIsValid(i32 noundef %44)
+  br i1 %45, label %46, label %55
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %9, align 4
-  %48 = call i32 @_hash_getbuf(ptr noundef %46, i32 noundef %47, i32 noundef 1, i32 noundef 1)
-  store i32 %48, ptr %10, align 4
-  %49 = load ptr, ptr %4, align 8
-  %50 = load i32, ptr %5, align 4
-  %51 = call zeroext i1 @_hash_readpage(ptr noundef %49, ptr noundef %10, i32 noundef %50)
-  br i1 %51, label %53, label %52
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %6, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = call i32 @_hash_getbuf(ptr noundef %47, i32 noundef %48, i32 noundef 1, i32 noundef 1)
+  store i32 %49, ptr %10, align 4
+  %50 = load ptr, ptr %4, align 8
+  %51 = load i32, ptr %5, align 4
+  %52 = call zeroext i1 @_hash_readpage(ptr noundef %50, ptr noundef %10, i32 noundef %51)
+  br i1 %52, label %54, label %53
 
-52:                                               ; preds = %45
+53:                                               ; preds = %46
   store i8 1, ptr %11, align 1
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %45
-  br label %55
-
-54:                                               ; preds = %38
-  store i8 1, ptr %11, align 1
-  br label %55
-
-55:                                               ; preds = %54, %53
+54:                                               ; preds = %53, %46
   br label %56
 
-56:                                               ; preds = %55, %20
-  br label %109
-
-57:                                               ; preds = %2
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %58, i32 0, i32 7
-  %60 = getelementptr inbounds %struct.HashScanPosData, ptr %59, i32 0, i32 6
-  %61 = load i32, ptr %60, align 4
-  %62 = add i32 %61, -1
-  store i32 %62, ptr %60, align 4
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %63, i32 0, i32 7
-  %65 = getelementptr inbounds %struct.HashScanPosData, ptr %64, i32 0, i32 4
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp slt i32 %62, %66
-  br i1 %67, label %68, label %108
-
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %69, i32 0, i32 6
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %75
-
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %4, align 8
-  call void @_hash_kill_items(ptr noundef %74)
-  br label %75
-
-75:                                               ; preds = %73, %68
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %76, i32 0, i32 7
-  %78 = getelementptr inbounds %struct.HashScanPosData, ptr %77, i32 0, i32 3
-  %79 = load i32, ptr %78, align 4
-  store i32 %79, ptr %9, align 4
-  %80 = load i32, ptr %9, align 4
-  %81 = call zeroext i1 @BlockNumberIsValid(i32 noundef %80)
-  br i1 %81, label %82, label %106
-
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %6, align 8
-  %84 = load i32, ptr %9, align 4
-  %85 = call i32 @_hash_getbuf(ptr noundef %83, i32 noundef %84, i32 noundef 1, i32 noundef 3)
-  store i32 %85, ptr %10, align 4
-  %86 = load i32, ptr %10, align 4
-  %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %86, %89
-  br i1 %90, label %97, label %91
-
-91:                                               ; preds = %82
-  %92 = load i32, ptr %10, align 4
-  %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %93, i32 0, i32 2
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp eq i32 %92, %95
-  br i1 %96, label %97, label %100
-
-97:                                               ; preds = %91, %82
-  %98 = load ptr, ptr %6, align 8
-  %99 = load i32, ptr %10, align 4
-  call void @_hash_dropbuf(ptr noundef %98, i32 noundef %99)
-  br label %100
-
-100:                                              ; preds = %97, %91
-  %101 = load ptr, ptr %4, align 8
-  %102 = load i32, ptr %5, align 4
-  %103 = call zeroext i1 @_hash_readpage(ptr noundef %101, ptr noundef %10, i32 noundef %102)
-  br i1 %103, label %105, label %104
-
-104:                                              ; preds = %100
+55:                                               ; preds = %39
   store i8 1, ptr %11, align 1
-  br label %105
+  br label %56
 
-105:                                              ; preds = %104, %100
-  br label %107
+56:                                               ; preds = %55, %54
+  br label %57
 
-106:                                              ; preds = %75
+57:                                               ; preds = %56, %21
+  br label %110
+
+58:                                               ; preds = %2
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %59, i32 0, i32 7
+  %61 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %60, i32 0, i32 6
+  %62 = load i32, ptr %61, align 4
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %61, align 4
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %64, i32 0, i32 7
+  %66 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %65, i32 0, i32 4
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp slt i32 %63, %67
+  br i1 %68, label %69, label %109
+
+69:                                               ; preds = %58
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %70, i32 0, i32 6
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %76
+
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %4, align 8
+  call void @_hash_kill_items(ptr noundef %75)
+  br label %76
+
+76:                                               ; preds = %74, %69
+  %77 = load ptr, ptr %7, align 8
+  %78 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %77, i32 0, i32 7
+  %79 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %78, i32 0, i32 3
+  %80 = load i32, ptr %79, align 4
+  store i32 %80, ptr %9, align 4
+  %81 = load i32, ptr %9, align 4
+  %82 = call zeroext i1 @BlockNumberIsValid(i32 noundef %81)
+  br i1 %82, label %83, label %107
+
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %6, align 8
+  %85 = load i32, ptr %9, align 4
+  %86 = call i32 @_hash_getbuf(ptr noundef %84, i32 noundef %85, i32 noundef 1, i32 noundef 3)
+  store i32 %86, ptr %10, align 4
+  %87 = load i32, ptr %10, align 4
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %87, %90
+  br i1 %91, label %98, label %92
+
+92:                                               ; preds = %83
+  %93 = load i32, ptr %10, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %94, i32 0, i32 2
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp eq i32 %93, %96
+  br i1 %97, label %98, label %101
+
+98:                                               ; preds = %92, %83
+  %99 = load ptr, ptr %6, align 8
+  %100 = load i32, ptr %10, align 4
+  call void @_hash_dropbuf(ptr noundef %99, i32 noundef %100)
+  br label %101
+
+101:                                              ; preds = %98, %92
+  %102 = load ptr, ptr %4, align 8
+  %103 = load i32, ptr %5, align 4
+  %104 = call zeroext i1 @_hash_readpage(ptr noundef %102, ptr noundef %10, i32 noundef %103)
+  br i1 %104, label %106, label %105
+
+105:                                              ; preds = %101
   store i8 1, ptr %11, align 1
-  br label %107
+  br label %106
 
-107:                                              ; preds = %106, %105
+106:                                              ; preds = %105, %101
   br label %108
 
-108:                                              ; preds = %107, %57
+107:                                              ; preds = %76
+  store i8 1, ptr %11, align 1
+  br label %108
+
+108:                                              ; preds = %107, %106
   br label %109
 
-109:                                              ; preds = %108, %56
-  %110 = load i8, ptr %11, align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %138
+109:                                              ; preds = %108, %58
+  br label %110
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %6, align 8
-  %114 = load ptr, ptr %7, align 8
-  call void @_hash_dropscanbuf(ptr noundef %113, ptr noundef %114)
-  br label %115
+110:                                              ; preds = %109, %57
+  %111 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %140
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %116, i32 0, i32 7
-  %118 = getelementptr inbounds %struct.HashScanPosData, ptr %117, i32 0, i32 0
-  store i32 0, ptr %118, align 4
-  %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %119, i32 0, i32 7
-  %121 = getelementptr inbounds %struct.HashScanPosData, ptr %120, i32 0, i32 1
-  store i32 -1, ptr %121, align 4
-  %122 = load ptr, ptr %7, align 8
-  %123 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %122, i32 0, i32 7
-  %124 = getelementptr inbounds %struct.HashScanPosData, ptr %123, i32 0, i32 2
-  store i32 -1, ptr %124, align 4
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %125, i32 0, i32 7
-  %127 = getelementptr inbounds %struct.HashScanPosData, ptr %126, i32 0, i32 3
-  store i32 -1, ptr %127, align 4
-  %128 = load ptr, ptr %7, align 8
-  %129 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %128, i32 0, i32 7
-  %130 = getelementptr inbounds %struct.HashScanPosData, ptr %129, i32 0, i32 4
-  store i32 0, ptr %130, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %131, i32 0, i32 7
-  %133 = getelementptr inbounds %struct.HashScanPosData, ptr %132, i32 0, i32 5
-  store i32 0, ptr %133, align 4
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %134, i32 0, i32 7
-  %136 = getelementptr inbounds %struct.HashScanPosData, ptr %135, i32 0, i32 6
-  store i32 0, ptr %136, align 4
-  br label %137
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %6, align 8
+  %115 = load ptr, ptr %7, align 8
+  call void @_hash_dropscanbuf(ptr noundef %114, ptr noundef %115)
+  br label %116
 
-137:                                              ; preds = %115
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %117, i32 0, i32 7
+  %119 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %118, i32 0, i32 0
+  store i32 0, ptr %119, align 4
+  %120 = load ptr, ptr %7, align 8
+  %121 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %120, i32 0, i32 7
+  %122 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %121, i32 0, i32 1
+  store i32 -1, ptr %122, align 4
+  %123 = load ptr, ptr %7, align 8
+  %124 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %123, i32 0, i32 7
+  %125 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %124, i32 0, i32 2
+  store i32 -1, ptr %125, align 4
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %126, i32 0, i32 7
+  %128 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %127, i32 0, i32 3
+  store i32 -1, ptr %128, align 4
+  %129 = load ptr, ptr %7, align 8
+  %130 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %129, i32 0, i32 7
+  %131 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %130, i32 0, i32 4
+  store i32 0, ptr %131, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %132, i32 0, i32 7
+  %134 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %133, i32 0, i32 5
+  store i32 0, ptr %134, align 4
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %135, i32 0, i32 7
+  %137 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %136, i32 0, i32 6
+  store i32 0, ptr %137, align 4
+  br label %138
+
+138:                                              ; preds = %116
+  br label %139
+
+139:                                              ; preds = %138
   store i1 false, ptr %3, align 1
-  br label %152
+  store i32 1, ptr %12, align 4
+  br label %154
 
-138:                                              ; preds = %109
-  %139 = load ptr, ptr %7, align 8
-  %140 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %139, i32 0, i32 7
-  %141 = getelementptr inbounds %struct.HashScanPosData, ptr %140, i32 0, i32 7
-  %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %142, i32 0, i32 7
-  %144 = getelementptr inbounds %struct.HashScanPosData, ptr %143, i32 0, i32 6
-  %145 = load i32, ptr %144, align 4
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr [408 x %struct.HashScanPosItem], ptr %141, i64 0, i64 %146
-  store ptr %147, ptr %8, align 8
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.IndexScanDescData, ptr %148, i32 0, i32 17
-  %150 = load ptr, ptr %8, align 8
-  %151 = getelementptr inbounds %struct.HashScanPosItem, ptr %150, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %149, ptr align 2 %151, i64 6, i1 false)
+140:                                              ; preds = %110
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %141, i32 0, i32 7
+  %143 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %142, i32 0, i32 7
+  %144 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %144, i32 0, i32 7
+  %146 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %145, i32 0, i32 6
+  %147 = load i32, ptr %146, align 4
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds [408 x %struct.HashScanPosItem], ptr %143, i64 0, i64 %148
+  store ptr %149, ptr %8, align 8
+  %150 = load ptr, ptr %4, align 8
+  %151 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %150, i32 0, i32 17
+  %152 = load ptr, ptr %8, align 8
+  %153 = getelementptr inbounds nuw %struct.HashScanPosItem, ptr %152, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 2 %153, i64 6, i1 false)
   store i1 true, ptr %3, align 1
-  br label %152
+  store i32 1, ptr %12, align 4
+  br label %154
 
-152:                                              ; preds = %138, %137
-  %153 = load i1, ptr %3, align 1
-  ret i1 %153
+154:                                              ; preds = %140, %139
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %155 = load i1, ptr %3, align 1
+  ret i1 %155
 }
 
-declare void @_hash_kill_items(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @BlockNumberIsValid(i32 noundef %0) #0 {
+declare void @_hash_kill_items(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @BlockNumberIsValid(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -283,7 +304,7 @@ define internal zeroext i1 @BlockNumberIsValid(i32 noundef %0) #0 {
   ret i1 %4
 }
 
-declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @_hash_readpage(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -300,384 +321,436 @@ define internal zeroext i1 @_hash_readpage(ptr noundef %0, ptr noundef %1, i32 n
   %14 = alloca i16, align 2
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.IndexScanDescData, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.IndexScanDescData, ptr %20, i32 0, i32 12
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %10, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %10, align 4
-  call void @_hash_checkpage(ptr noundef %25, i32 noundef %26, i32 noundef 3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %21, i32 0, i32 12
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #7
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %10, align 4
+  %26 = load ptr, ptr %8, align 8
   %27 = load i32, ptr %10, align 4
-  %28 = call ptr @BufferGetPage(i32 noundef %27)
-  store ptr %28, ptr %11, align 8
-  %29 = load ptr, ptr %11, align 8
-  %30 = call ptr @PageGetSpecialPointer(ptr noundef %29)
-  store ptr %30, ptr %12, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %32, i32 0, i32 7
-  %34 = getelementptr inbounds %struct.HashScanPosData, ptr %33, i32 0, i32 0
-  store i32 %31, ptr %34, align 4
-  %35 = load i32, ptr %10, align 4
-  %36 = call i32 @BufferGetBlockNumber(i32 noundef %35)
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %37, i32 0, i32 7
-  %39 = getelementptr inbounds %struct.HashScanPosData, ptr %38, i32 0, i32 1
-  store i32 %36, ptr %39, align 4
-  %40 = load i32, ptr %7, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %129
+  call void @_hash_checkpage(ptr noundef %26, i32 noundef %27, i32 noundef 3)
+  %28 = load i32, ptr %10, align 4
+  %29 = call ptr @BufferGetPage(i32 noundef %28)
+  store ptr %29, ptr %11, align 8
+  %30 = load ptr, ptr %11, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %30)
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %32, i32 0, i32 5
+  %34 = load i16, ptr %33, align 4
+  %35 = zext i16 %34 to i32
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %31, i64 %36
+  store ptr %37, ptr %12, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %39, i32 0, i32 7
+  %41 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %40, i32 0, i32 0
+  store i32 %38, ptr %41, align 4
+  %42 = load i32, ptr %10, align 4
+  %43 = call i32 @BufferGetBlockNumber(i32 noundef %42)
+  %44 = load ptr, ptr %9, align 8
+  %45 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %44, i32 0, i32 7
+  %46 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %45, i32 0, i32 1
+  store i32 %43, ptr %46, align 4
+  %47 = load i32, ptr %7, align 4
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %49, label %139
 
-42:                                               ; preds = %3
+49:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
   store i32 -1, ptr %15, align 4
-  br label %43
+  br label %50
 
-43:                                               ; preds = %115, %42
-  %44 = load ptr, ptr %11, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = call zeroext i16 @_hash_binsearch(ptr noundef %44, i32 noundef %47)
-  store i16 %48, ptr %13, align 2
-  %49 = load ptr, ptr %5, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load i16, ptr %13, align 2
-  %52 = load i32, ptr %7, align 4
-  %53 = call i32 @_hash_load_qualified_items(ptr noundef %49, ptr noundef %50, i16 noundef zeroext %51, i32 noundef %52)
-  %54 = trunc i32 %53 to i16
-  store i16 %54, ptr %14, align 2
-  %55 = load i16, ptr %14, align 2
-  %56 = zext i16 %55 to i32
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %59
+50:                                               ; preds = %122, %49
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8
+  %55 = call zeroext i16 @_hash_binsearch(ptr noundef %51, i32 noundef %54)
+  store i16 %55, ptr %13, align 2
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load i16, ptr %13, align 2
+  %59 = load i32, ptr %7, align 4
+  %60 = call i32 @_hash_load_qualified_items(ptr noundef %56, ptr noundef %57, i16 noundef zeroext %58, i32 noundef %59)
+  %61 = trunc i32 %60 to i16
+  store i16 %61, ptr %14, align 2
+  %62 = load i16, ptr %14, align 2
+  %63 = zext i16 %62 to i32
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %66
 
-58:                                               ; preds = %43
-  br label %116
+65:                                               ; preds = %50
+  br label %123
 
-59:                                               ; preds = %43
-  %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %60, i32 0, i32 6
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %66
-
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %5, align 8
-  call void @_hash_kill_items(ptr noundef %65)
-  br label %66
-
-66:                                               ; preds = %64, %59
+66:                                               ; preds = %50
   %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %67, i32 0, i32 7
-  %69 = getelementptr inbounds %struct.HashScanPosData, ptr %68, i32 0, i32 0
-  %70 = load i32, ptr %69, align 4
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %70, %73
-  br i1 %74, label %84, label %75
+  %68 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %67, i32 0, i32 6
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %73
 
-75:                                               ; preds = %66
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %76, i32 0, i32 7
-  %78 = getelementptr inbounds %struct.HashScanPosData, ptr %77, i32 0, i32 0
-  %79 = load i32, ptr %78, align 4
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %80, i32 0, i32 2
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %79, %82
-  br i1 %83, label %84, label %85
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %5, align 8
+  call void @_hash_kill_items(ptr noundef %72)
+  br label %73
 
-84:                                               ; preds = %75, %66
+73:                                               ; preds = %71, %66
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %74, i32 0, i32 7
+  %76 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %75, i32 0, i32 0
+  %77 = load i32, ptr %76, align 4
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %77, %80
+  br i1 %81, label %91, label %82
+
+82:                                               ; preds = %73
+  %83 = load ptr, ptr %9, align 8
+  %84 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %83, i32 0, i32 7
+  %85 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %85, align 4
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %87, i32 0, i32 2
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp eq i32 %86, %89
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %82, %73
   store i32 -1, ptr %15, align 4
-  br label %89
+  br label %96
 
-85:                                               ; preds = %75
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %86, i32 0, i32 0
-  %88 = load i32, ptr %87, align 4
-  store i32 %88, ptr %15, align 4
-  br label %89
+92:                                               ; preds = %82
+  %93 = load ptr, ptr %12, align 8
+  %94 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %93, i32 0, i32 0
+  %95 = load i32, ptr %94, align 4
+  store i32 %95, ptr %15, align 4
+  br label %96
 
-89:                                               ; preds = %85, %84
-  %90 = load ptr, ptr %5, align 8
-  call void @_hash_readnext(ptr noundef %90, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %91 = load i32, ptr %10, align 4
-  %92 = call zeroext i1 @BufferIsValid(i32 noundef %91)
-  br i1 %92, label %93, label %103
-
-93:                                               ; preds = %89
-  %94 = load i32, ptr %10, align 4
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %95, i32 0, i32 7
-  %97 = getelementptr inbounds %struct.HashScanPosData, ptr %96, i32 0, i32 0
-  store i32 %94, ptr %97, align 4
+96:                                               ; preds = %92, %91
+  %97 = load ptr, ptr %5, align 8
+  call void @_hash_readnext(ptr noundef %97, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %98 = load i32, ptr %10, align 4
-  %99 = call i32 @BufferGetBlockNumber(i32 noundef %98)
-  %100 = load ptr, ptr %9, align 8
-  %101 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %100, i32 0, i32 7
-  %102 = getelementptr inbounds %struct.HashScanPosData, ptr %101, i32 0, i32 1
-  store i32 %99, ptr %102, align 4
-  br label %115
+  %99 = call zeroext i1 @BufferIsValid(i32 noundef %98)
+  br i1 %99, label %100, label %110
 
-103:                                              ; preds = %89
-  %104 = load i32, ptr %15, align 4
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %105, i32 0, i32 7
-  %107 = getelementptr inbounds %struct.HashScanPosData, ptr %106, i32 0, i32 3
-  store i32 %104, ptr %107, align 4
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %108, i32 0, i32 7
-  %110 = getelementptr inbounds %struct.HashScanPosData, ptr %109, i32 0, i32 2
-  store i32 -1, ptr %110, align 4
-  %111 = load i32, ptr %10, align 4
+100:                                              ; preds = %96
+  %101 = load i32, ptr %10, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %102, i32 0, i32 7
+  %104 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %103, i32 0, i32 0
+  store i32 %101, ptr %104, align 4
+  %105 = load i32, ptr %10, align 4
+  %106 = call i32 @BufferGetBlockNumber(i32 noundef %105)
+  %107 = load ptr, ptr %9, align 8
+  %108 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %107, i32 0, i32 7
+  %109 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %108, i32 0, i32 1
+  store i32 %106, ptr %109, align 4
+  br label %122
+
+110:                                              ; preds = %96
+  %111 = load i32, ptr %15, align 4
   %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %112, i32 0, i32 7
-  %114 = getelementptr inbounds %struct.HashScanPosData, ptr %113, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %112, i32 0, i32 7
+  %114 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %113, i32 0, i32 3
   store i32 %111, ptr %114, align 4
+  %115 = load ptr, ptr %9, align 8
+  %116 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %115, i32 0, i32 7
+  %117 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %116, i32 0, i32 2
+  store i32 -1, ptr %117, align 4
+  %118 = load i32, ptr %10, align 4
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %119, i32 0, i32 7
+  %121 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %120, i32 0, i32 0
+  store i32 %118, ptr %121, align 4
   store i1 false, ptr %4, align 1
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %136
 
-115:                                              ; preds = %93
-  br label %43
+122:                                              ; preds = %100
+  br label %50
 
-116:                                              ; preds = %58
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %117, i32 0, i32 7
-  %119 = getelementptr inbounds %struct.HashScanPosData, ptr %118, i32 0, i32 4
-  store i32 0, ptr %119, align 4
-  %120 = load i16, ptr %14, align 2
-  %121 = zext i16 %120 to i32
-  %122 = sub i32 %121, 1
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %123, i32 0, i32 7
-  %125 = getelementptr inbounds %struct.HashScanPosData, ptr %124, i32 0, i32 5
-  store i32 %122, ptr %125, align 4
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %126, i32 0, i32 7
-  %128 = getelementptr inbounds %struct.HashScanPosData, ptr %127, i32 0, i32 6
-  store i32 0, ptr %128, align 4
-  br label %214
+123:                                              ; preds = %65
+  %124 = load ptr, ptr %9, align 8
+  %125 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %124, i32 0, i32 7
+  %126 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %125, i32 0, i32 4
+  store i32 0, ptr %126, align 4
+  %127 = load i16, ptr %14, align 2
+  %128 = zext i16 %127 to i32
+  %129 = sub i32 %128, 1
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %130, i32 0, i32 7
+  %132 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %131, i32 0, i32 5
+  store i32 %129, ptr %132, align 4
+  %133 = load ptr, ptr %9, align 8
+  %134 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %133, i32 0, i32 7
+  %135 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %134, i32 0, i32 6
+  store i32 0, ptr %135, align 4
+  store i32 0, ptr %16, align 4
+  br label %136
 
-129:                                              ; preds = %3
-  store i32 -1, ptr %16, align 4
-  br label %130
+136:                                              ; preds = %123, %110
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  %137 = load i32, ptr %16, align 4
+  switch i32 %137, label %281 [
+    i32 0, label %138
+  ]
 
-130:                                              ; preds = %201, %129
-  %131 = load ptr, ptr %11, align 8
-  %132 = load ptr, ptr %9, align 8
-  %133 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %132, i32 0, i32 0
-  %134 = load i32, ptr %133, align 8
-  %135 = call zeroext i16 @_hash_binsearch_last(ptr noundef %131, i32 noundef %134)
-  store i16 %135, ptr %13, align 2
-  %136 = load ptr, ptr %5, align 8
-  %137 = load ptr, ptr %11, align 8
-  %138 = load i16, ptr %13, align 2
-  %139 = load i32, ptr %7, align 4
-  %140 = call i32 @_hash_load_qualified_items(ptr noundef %136, ptr noundef %137, i16 noundef zeroext %138, i32 noundef %139)
-  %141 = trunc i32 %140 to i16
-  store i16 %141, ptr %14, align 2
-  %142 = load i16, ptr %14, align 2
-  %143 = zext i16 %142 to i32
-  %144 = icmp ne i32 %143, 408
-  br i1 %144, label %145, label %146
+138:                                              ; preds = %136
+  br label %227
 
-145:                                              ; preds = %130
-  br label %202
+139:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  store i32 -1, ptr %17, align 4
+  br label %140
 
-146:                                              ; preds = %130
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %147, i32 0, i32 6
-  %149 = load i32, ptr %148, align 8
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %151, label %153
+140:                                              ; preds = %211, %139
+  %141 = load ptr, ptr %11, align 8
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %142, i32 0, i32 0
+  %144 = load i32, ptr %143, align 8
+  %145 = call zeroext i16 @_hash_binsearch_last(ptr noundef %141, i32 noundef %144)
+  store i16 %145, ptr %13, align 2
+  %146 = load ptr, ptr %5, align 8
+  %147 = load ptr, ptr %11, align 8
+  %148 = load i16, ptr %13, align 2
+  %149 = load i32, ptr %7, align 4
+  %150 = call i32 @_hash_load_qualified_items(ptr noundef %146, ptr noundef %147, i16 noundef zeroext %148, i32 noundef %149)
+  %151 = trunc i32 %150 to i16
+  store i16 %151, ptr %14, align 2
+  %152 = load i16, ptr %14, align 2
+  %153 = zext i16 %152 to i32
+  %154 = icmp ne i32 %153, 408
+  br i1 %154, label %155, label %156
 
-151:                                              ; preds = %146
-  %152 = load ptr, ptr %5, align 8
-  call void @_hash_kill_items(ptr noundef %152)
-  br label %153
+155:                                              ; preds = %140
+  br label %212
 
-153:                                              ; preds = %151, %146
-  %154 = load ptr, ptr %9, align 8
-  %155 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %154, i32 0, i32 7
-  %156 = getelementptr inbounds %struct.HashScanPosData, ptr %155, i32 0, i32 0
-  %157 = load i32, ptr %156, align 4
-  %158 = load ptr, ptr %9, align 8
-  %159 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %158, i32 0, i32 1
-  %160 = load i32, ptr %159, align 4
-  %161 = icmp eq i32 %157, %160
-  br i1 %161, label %171, label %162
+156:                                              ; preds = %140
+  %157 = load ptr, ptr %9, align 8
+  %158 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %157, i32 0, i32 6
+  %159 = load i32, ptr %158, align 8
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %163
 
-162:                                              ; preds = %153
-  %163 = load ptr, ptr %9, align 8
-  %164 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %163, i32 0, i32 7
-  %165 = getelementptr inbounds %struct.HashScanPosData, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 4
-  %167 = load ptr, ptr %9, align 8
-  %168 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %167, i32 0, i32 2
-  %169 = load i32, ptr %168, align 8
-  %170 = icmp eq i32 %166, %169
-  br i1 %170, label %171, label %175
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %5, align 8
+  call void @_hash_kill_items(ptr noundef %162)
+  br label %163
 
-171:                                              ; preds = %162, %153
-  %172 = load ptr, ptr %12, align 8
-  %173 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %172, i32 0, i32 1
-  %174 = load i32, ptr %173, align 4
-  store i32 %174, ptr %16, align 4
-  br label %175
+163:                                              ; preds = %161, %156
+  %164 = load ptr, ptr %9, align 8
+  %165 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %164, i32 0, i32 7
+  %166 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %165, i32 0, i32 0
+  %167 = load i32, ptr %166, align 4
+  %168 = load ptr, ptr %9, align 8
+  %169 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %168, i32 0, i32 1
+  %170 = load i32, ptr %169, align 4
+  %171 = icmp eq i32 %167, %170
+  br i1 %171, label %181, label %172
 
-175:                                              ; preds = %171, %162
-  %176 = load ptr, ptr %5, align 8
-  call void @_hash_readprev(ptr noundef %176, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %177 = load i32, ptr %10, align 4
-  %178 = call zeroext i1 @BufferIsValid(i32 noundef %177)
-  br i1 %178, label %179, label %189
+172:                                              ; preds = %163
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %173, i32 0, i32 7
+  %175 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %174, i32 0, i32 0
+  %176 = load i32, ptr %175, align 4
+  %177 = load ptr, ptr %9, align 8
+  %178 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %177, i32 0, i32 2
+  %179 = load i32, ptr %178, align 8
+  %180 = icmp eq i32 %176, %179
+  br i1 %180, label %181, label %185
 
-179:                                              ; preds = %175
-  %180 = load i32, ptr %10, align 4
-  %181 = load ptr, ptr %9, align 8
-  %182 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %181, i32 0, i32 7
-  %183 = getelementptr inbounds %struct.HashScanPosData, ptr %182, i32 0, i32 0
-  store i32 %180, ptr %183, align 4
-  %184 = load i32, ptr %10, align 4
-  %185 = call i32 @BufferGetBlockNumber(i32 noundef %184)
-  %186 = load ptr, ptr %9, align 8
-  %187 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %186, i32 0, i32 7
-  %188 = getelementptr inbounds %struct.HashScanPosData, ptr %187, i32 0, i32 1
-  store i32 %185, ptr %188, align 4
-  br label %201
+181:                                              ; preds = %172, %163
+  %182 = load ptr, ptr %12, align 8
+  %183 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %182, i32 0, i32 1
+  %184 = load i32, ptr %183, align 4
+  store i32 %184, ptr %17, align 4
+  br label %185
 
-189:                                              ; preds = %175
-  %190 = load ptr, ptr %9, align 8
-  %191 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %190, i32 0, i32 7
-  %192 = getelementptr inbounds %struct.HashScanPosData, ptr %191, i32 0, i32 3
-  store i32 -1, ptr %192, align 4
-  %193 = load i32, ptr %16, align 4
-  %194 = load ptr, ptr %9, align 8
-  %195 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %194, i32 0, i32 7
-  %196 = getelementptr inbounds %struct.HashScanPosData, ptr %195, i32 0, i32 2
-  store i32 %193, ptr %196, align 4
-  %197 = load i32, ptr %10, align 4
-  %198 = load ptr, ptr %9, align 8
-  %199 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %198, i32 0, i32 7
-  %200 = getelementptr inbounds %struct.HashScanPosData, ptr %199, i32 0, i32 0
-  store i32 %197, ptr %200, align 4
-  store i1 false, ptr %4, align 1
-  br label %268
+185:                                              ; preds = %181, %172
+  %186 = load ptr, ptr %5, align 8
+  call void @_hash_readprev(ptr noundef %186, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %187 = load i32, ptr %10, align 4
+  %188 = call zeroext i1 @BufferIsValid(i32 noundef %187)
+  br i1 %188, label %189, label %199
 
-201:                                              ; preds = %179
-  br label %130
+189:                                              ; preds = %185
+  %190 = load i32, ptr %10, align 4
+  %191 = load ptr, ptr %9, align 8
+  %192 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %191, i32 0, i32 7
+  %193 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %192, i32 0, i32 0
+  store i32 %190, ptr %193, align 4
+  %194 = load i32, ptr %10, align 4
+  %195 = call i32 @BufferGetBlockNumber(i32 noundef %194)
+  %196 = load ptr, ptr %9, align 8
+  %197 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %196, i32 0, i32 7
+  %198 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %197, i32 0, i32 1
+  store i32 %195, ptr %198, align 4
+  br label %211
 
-202:                                              ; preds = %145
-  %203 = load i16, ptr %14, align 2
-  %204 = zext i16 %203 to i32
-  %205 = load ptr, ptr %9, align 8
-  %206 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %205, i32 0, i32 7
-  %207 = getelementptr inbounds %struct.HashScanPosData, ptr %206, i32 0, i32 4
-  store i32 %204, ptr %207, align 4
+199:                                              ; preds = %185
+  %200 = load ptr, ptr %9, align 8
+  %201 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %200, i32 0, i32 7
+  %202 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %201, i32 0, i32 3
+  store i32 -1, ptr %202, align 4
+  %203 = load i32, ptr %17, align 4
+  %204 = load ptr, ptr %9, align 8
+  %205 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %204, i32 0, i32 7
+  %206 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %205, i32 0, i32 2
+  store i32 %203, ptr %206, align 4
+  %207 = load i32, ptr %10, align 4
   %208 = load ptr, ptr %9, align 8
-  %209 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %208, i32 0, i32 7
-  %210 = getelementptr inbounds %struct.HashScanPosData, ptr %209, i32 0, i32 5
-  store i32 407, ptr %210, align 4
-  %211 = load ptr, ptr %9, align 8
-  %212 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %211, i32 0, i32 7
-  %213 = getelementptr inbounds %struct.HashScanPosData, ptr %212, i32 0, i32 6
-  store i32 407, ptr %213, align 4
-  br label %214
+  %209 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %208, i32 0, i32 7
+  %210 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %209, i32 0, i32 0
+  store i32 %207, ptr %210, align 4
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %16, align 4
+  br label %224
 
-214:                                              ; preds = %202, %116
+211:                                              ; preds = %189
+  br label %140
+
+212:                                              ; preds = %155
+  %213 = load i16, ptr %14, align 2
+  %214 = zext i16 %213 to i32
   %215 = load ptr, ptr %9, align 8
-  %216 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %215, i32 0, i32 7
-  %217 = getelementptr inbounds %struct.HashScanPosData, ptr %216, i32 0, i32 0
-  %218 = load i32, ptr %217, align 4
-  %219 = load ptr, ptr %9, align 8
-  %220 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %219, i32 0, i32 1
-  %221 = load i32, ptr %220, align 4
-  %222 = icmp eq i32 %218, %221
-  br i1 %222, label %232, label %223
+  %216 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %215, i32 0, i32 7
+  %217 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %216, i32 0, i32 4
+  store i32 %214, ptr %217, align 4
+  %218 = load ptr, ptr %9, align 8
+  %219 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %218, i32 0, i32 7
+  %220 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %219, i32 0, i32 5
+  store i32 407, ptr %220, align 4
+  %221 = load ptr, ptr %9, align 8
+  %222 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %221, i32 0, i32 7
+  %223 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %222, i32 0, i32 6
+  store i32 407, ptr %223, align 4
+  store i32 0, ptr %16, align 4
+  br label %224
 
-223:                                              ; preds = %214
-  %224 = load ptr, ptr %9, align 8
-  %225 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %224, i32 0, i32 7
-  %226 = getelementptr inbounds %struct.HashScanPosData, ptr %225, i32 0, i32 0
-  %227 = load i32, ptr %226, align 4
+224:                                              ; preds = %212, %199
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  %225 = load i32, ptr %16, align 4
+  switch i32 %225, label %281 [
+    i32 0, label %226
+  ]
+
+226:                                              ; preds = %224
+  br label %227
+
+227:                                              ; preds = %226, %138
   %228 = load ptr, ptr %9, align 8
-  %229 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %228, i32 0, i32 2
-  %230 = load i32, ptr %229, align 8
-  %231 = icmp eq i32 %227, %230
-  br i1 %231, label %232, label %246
+  %229 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %228, i32 0, i32 7
+  %230 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %229, i32 0, i32 0
+  %231 = load i32, ptr %230, align 4
+  %232 = load ptr, ptr %9, align 8
+  %233 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %232, i32 0, i32 1
+  %234 = load i32, ptr %233, align 4
+  %235 = icmp eq i32 %231, %234
+  br i1 %235, label %245, label %236
 
-232:                                              ; preds = %223, %214
-  %233 = load ptr, ptr %9, align 8
-  %234 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %233, i32 0, i32 7
-  %235 = getelementptr inbounds %struct.HashScanPosData, ptr %234, i32 0, i32 3
-  store i32 -1, ptr %235, align 4
-  %236 = load ptr, ptr %12, align 8
-  %237 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %236, i32 0, i32 1
-  %238 = load i32, ptr %237, align 4
-  %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %239, i32 0, i32 7
-  %241 = getelementptr inbounds %struct.HashScanPosData, ptr %240, i32 0, i32 2
-  store i32 %238, ptr %241, align 4
-  %242 = load ptr, ptr %9, align 8
-  %243 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %242, i32 0, i32 7
-  %244 = getelementptr inbounds %struct.HashScanPosData, ptr %243, i32 0, i32 0
-  %245 = load i32, ptr %244, align 4
-  call void @LockBuffer(i32 noundef %245, i32 noundef 0)
-  br label %267
+236:                                              ; preds = %227
+  %237 = load ptr, ptr %9, align 8
+  %238 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %237, i32 0, i32 7
+  %239 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %238, i32 0, i32 0
+  %240 = load i32, ptr %239, align 4
+  %241 = load ptr, ptr %9, align 8
+  %242 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %241, i32 0, i32 2
+  %243 = load i32, ptr %242, align 8
+  %244 = icmp eq i32 %240, %243
+  br i1 %244, label %245, label %259
 
-246:                                              ; preds = %223
-  %247 = load ptr, ptr %12, align 8
-  %248 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %247, i32 0, i32 0
-  %249 = load i32, ptr %248, align 4
-  %250 = load ptr, ptr %9, align 8
-  %251 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %250, i32 0, i32 7
-  %252 = getelementptr inbounds %struct.HashScanPosData, ptr %251, i32 0, i32 3
-  store i32 %249, ptr %252, align 4
-  %253 = load ptr, ptr %12, align 8
-  %254 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %253, i32 0, i32 1
-  %255 = load i32, ptr %254, align 4
-  %256 = load ptr, ptr %9, align 8
-  %257 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %256, i32 0, i32 7
-  %258 = getelementptr inbounds %struct.HashScanPosData, ptr %257, i32 0, i32 2
-  store i32 %255, ptr %258, align 4
-  %259 = load ptr, ptr %8, align 8
-  %260 = load ptr, ptr %9, align 8
-  %261 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %260, i32 0, i32 7
-  %262 = getelementptr inbounds %struct.HashScanPosData, ptr %261, i32 0, i32 0
-  %263 = load i32, ptr %262, align 4
-  call void @_hash_relbuf(ptr noundef %259, i32 noundef %263)
-  %264 = load ptr, ptr %9, align 8
-  %265 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %264, i32 0, i32 7
-  %266 = getelementptr inbounds %struct.HashScanPosData, ptr %265, i32 0, i32 0
-  store i32 0, ptr %266, align 4
-  br label %267
+245:                                              ; preds = %236, %227
+  %246 = load ptr, ptr %9, align 8
+  %247 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %246, i32 0, i32 7
+  %248 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %247, i32 0, i32 3
+  store i32 -1, ptr %248, align 4
+  %249 = load ptr, ptr %12, align 8
+  %250 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %249, i32 0, i32 1
+  %251 = load i32, ptr %250, align 4
+  %252 = load ptr, ptr %9, align 8
+  %253 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %252, i32 0, i32 7
+  %254 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %253, i32 0, i32 2
+  store i32 %251, ptr %254, align 4
+  %255 = load ptr, ptr %9, align 8
+  %256 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %255, i32 0, i32 7
+  %257 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %256, i32 0, i32 0
+  %258 = load i32, ptr %257, align 4
+  call void @LockBuffer(i32 noundef %258, i32 noundef 0)
+  br label %280
 
-267:                                              ; preds = %246, %232
+259:                                              ; preds = %236
+  %260 = load ptr, ptr %12, align 8
+  %261 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %260, i32 0, i32 0
+  %262 = load i32, ptr %261, align 4
+  %263 = load ptr, ptr %9, align 8
+  %264 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %263, i32 0, i32 7
+  %265 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %264, i32 0, i32 3
+  store i32 %262, ptr %265, align 4
+  %266 = load ptr, ptr %12, align 8
+  %267 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %266, i32 0, i32 1
+  %268 = load i32, ptr %267, align 4
+  %269 = load ptr, ptr %9, align 8
+  %270 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %269, i32 0, i32 7
+  %271 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %270, i32 0, i32 2
+  store i32 %268, ptr %271, align 4
+  %272 = load ptr, ptr %8, align 8
+  %273 = load ptr, ptr %9, align 8
+  %274 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %273, i32 0, i32 7
+  %275 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %274, i32 0, i32 0
+  %276 = load i32, ptr %275, align 4
+  call void @_hash_relbuf(ptr noundef %272, i32 noundef %276)
+  %277 = load ptr, ptr %9, align 8
+  %278 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %277, i32 0, i32 7
+  %279 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %278, i32 0, i32 0
+  store i32 0, ptr %279, align 4
+  br label %280
+
+280:                                              ; preds = %259, %245
   store i1 true, ptr %4, align 1
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %281
 
-268:                                              ; preds = %267, %189, %103
-  %269 = load i1, ptr %4, align 1
-  ret i1 %269
+281:                                              ; preds = %280, %224, %136
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %282 = load i1, ptr %4, align 1
+  ret i1 %282
 }
 
-declare void @_hash_dropbuf(ptr noundef, i32 noundef) #1
+declare void @_hash_dropbuf(ptr noundef, i32 noundef) #2
 
-declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) #1
+declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1) #0 {
@@ -695,353 +768,403 @@ define dso_local zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1) #0 {
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.IndexScanDescData, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %6, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.IndexScanDescData, ptr %20, i32 0, i32 12
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %7, align 8
-  br label %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %21, i32 0, i32 12
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  br label %24
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.RelationData, ptr %24, i32 0, i32 67
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  %28 = zext i1 %27 to i32
-  %29 = icmp ne i32 %28, 0
-  %30 = zext i1 %29 to i32
-  %31 = sext i32 %30 to i64
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %34
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw %struct.RelationData, ptr %25, i32 0, i32 68
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  %29 = zext i1 %28 to i32
+  %30 = icmp ne i32 %29, 0
+  %31 = zext i1 %30 to i32
+  %32 = sext i32 %31 to i64
+  %33 = call i64 @llvm.expect.i64(i64 %32, i64 1)
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %23
-  br i1 true, label %42, label %50
+35:                                               ; preds = %24
+  br i1 true, label %44, label %52
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.RelationData, ptr %35, i32 0, i32 66
-  %37 = load i8, ptr %36, align 4
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %struct.RelationData, ptr %37, i32 0, i32 67
+  %39 = load i8, ptr %38, align 4, !range !4, !noundef !5
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %43
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %6, align 8
-  call void @pgstat_assoc_relation(ptr noundef %40)
-  br i1 true, label %42, label %50
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %6, align 8
+  call void @pgstat_assoc_relation(ptr noundef %42)
+  br i1 true, label %44, label %52
 
-41:                                               ; preds = %34
-  br i1 false, label %42, label %50
+43:                                               ; preds = %36
+  br i1 false, label %44, label %52
 
-42:                                               ; preds = %41, %39, %33
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.RelationData, ptr %43, i32 0, i32 67
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.PgStat_TableStatus, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds %struct.PgStat_TableCounts, ptr %46, i32 0, i32 0
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %47, align 8
-  br label %50
+44:                                               ; preds = %43, %41, %35
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds nuw %struct.RelationData, ptr %45, i32 0, i32 68
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw %struct.PgStat_TableStatus, ptr %47, i32 0, i32 3
+  %49 = getelementptr inbounds nuw %struct.PgStat_TableCounts, ptr %48, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %49, align 8
+  br label %52
 
-50:                                               ; preds = %42, %41, %39, %33
-  br label %51
+52:                                               ; preds = %44, %43, %41, %35
+  br label %53
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.IndexScanDescData, ptr %52, i32 0, i32 3
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp slt i32 %54, 1
-  br i1 %55, label %56, label %67
+53:                                               ; preds = %52
+  br label %54
 
-56:                                               ; preds = %51
-  br label %57
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %55, i32 0, i32 3
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp slt i32 %57, 1
+  br i1 %58, label %59, label %71
 
-57:                                               ; preds = %56
-  br i1 true, label %58, label %60
+59:                                               ; preds = %54
+  br label %60
 
-58:                                               ; preds = %57
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  br i1 %59, label %62, label %65
+60:                                               ; preds = %59
+  br i1 true, label %61, label %63
 
-60:                                               ; preds = %57
-  %61 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %61, label %62, label %65
+61:                                               ; preds = %60
+  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %62, label %65, label %68
 
-62:                                               ; preds = %60, %58
-  %63 = call i32 @errcode(i32 noundef 1088)
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
+63:                                               ; preds = %60
+  %64 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %64, label %65, label %68
+
+65:                                               ; preds = %63, %61
+  %66 = call i32 @errcode(i32 noundef 1088)
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef @.str)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 311, ptr noundef @__func__._hash_first)
-  br label %65
+  br label %68
 
-65:                                               ; preds = %62, %60, %58
+68:                                               ; preds = %65, %63, %61
   unreachable
 
-66:                                               ; No predecessors!
-  br label %67
+69:                                               ; No predecessors!
+  br label %70
 
-67:                                               ; preds = %66, %51
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.IndexScanDescData, ptr %68, i32 0, i32 5
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr %struct.ScanKeyData, ptr %70, i64 0
-  store ptr %71, ptr %8, align 8
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.ScanKeyData, ptr %72, i32 0, i32 0
-  %74 = load i32, ptr %73, align 8
-  %75 = and i32 %74, 1
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %78
+70:                                               ; preds = %69
+  br label %71
 
-77:                                               ; preds = %67
+71:                                               ; preds = %70, %54
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %72, i32 0, i32 5
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds %struct.ScanKeyData, ptr %74, i64 0
+  store ptr %75, ptr %8, align 8
+  %76 = load ptr, ptr %8, align 8
+  %77 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8
+  %79 = and i32 %78, 1
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %71
   store i1 false, ptr %3, align 1
-  br label %221
+  store i32 1, ptr %15, align 4
+  br label %237
 
-78:                                               ; preds = %67
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.ScanKeyData, ptr %79, i32 0, i32 3
-  %81 = load i32, ptr %80, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.RelationData, ptr %82, i32 0, i32 52
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr i32, ptr %84, i64 0
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %81, %86
-  br i1 %87, label %93, label %88
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds nuw %struct.RelationData, ptr %86, i32 0, i32 53
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i32, ptr %88, i64 0
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %85, %90
+  br i1 %91, label %97, label %92
 
-88:                                               ; preds = %78
-  %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct.ScanKeyData, ptr %89, i32 0, i32 3
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %99
+92:                                               ; preds = %82
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %93, i32 0, i32 3
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %103
 
-93:                                               ; preds = %88, %78
-  %94 = load ptr, ptr %6, align 8
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct.ScanKeyData, ptr %95, i32 0, i32 6
-  %97 = load i64, ptr %96, align 8
-  %98 = call i32 @_hash_datum2hashkey(ptr noundef %94, i64 noundef %97)
-  store i32 %98, ptr %9, align 4
-  br label %108
+97:                                               ; preds = %92, %82
+  %98 = load ptr, ptr %6, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %99, i32 0, i32 6
+  %101 = load i64, ptr %100, align 8
+  %102 = call i32 @_hash_datum2hashkey(ptr noundef %98, i64 noundef %101)
+  store i32 %102, ptr %9, align 4
+  br label %112
 
-99:                                               ; preds = %88
-  %100 = load ptr, ptr %6, align 8
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.ScanKeyData, ptr %101, i32 0, i32 6
-  %103 = load i64, ptr %102, align 8
-  %104 = load ptr, ptr %8, align 8
-  %105 = getelementptr inbounds %struct.ScanKeyData, ptr %104, i32 0, i32 3
-  %106 = load i32, ptr %105, align 8
-  %107 = call i32 @_hash_datum2hashkey_type(ptr noundef %100, i64 noundef %103, i32 noundef %106)
-  store i32 %107, ptr %9, align 4
-  br label %108
+103:                                              ; preds = %92
+  %104 = load ptr, ptr %6, align 8
+  %105 = load ptr, ptr %8, align 8
+  %106 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %105, i32 0, i32 6
+  %107 = load i64, ptr %106, align 8
+  %108 = load ptr, ptr %8, align 8
+  %109 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %108, i32 0, i32 3
+  %110 = load i32, ptr %109, align 8
+  %111 = call i32 @_hash_datum2hashkey_type(ptr noundef %104, i64 noundef %107, i32 noundef %110)
+  store i32 %111, ptr %9, align 4
+  br label %112
 
-108:                                              ; preds = %99, %93
-  %109 = load i32, ptr %9, align 4
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %110, i32 0, i32 0
-  store i32 %109, ptr %111, align 8
-  %112 = load ptr, ptr %6, align 8
+112:                                              ; preds = %103, %97
   %113 = load i32, ptr %9, align 4
-  %114 = call i32 @_hash_getbucketbuf_from_hashkey(ptr noundef %112, i32 noundef %113, i32 noundef 1, ptr noundef null)
-  store i32 %114, ptr %11, align 4
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %11, align 4
-  %117 = call i32 @BufferGetBlockNumber(i32 noundef %116)
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.IndexScanDescData, ptr %118, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8
-  call void @PredicateLockPage(ptr noundef %115, i32 noundef %117, ptr noundef %120)
-  %121 = load i32, ptr %11, align 4
-  %122 = call ptr @BufferGetPage(i32 noundef %121)
-  store ptr %122, ptr %12, align 8
-  %123 = load ptr, ptr %12, align 8
-  %124 = call ptr @PageGetSpecialPointer(ptr noundef %123)
-  store ptr %124, ptr %13, align 8
-  %125 = load ptr, ptr %13, align 8
-  %126 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %125, i32 0, i32 2
-  %127 = load i32, ptr %126, align 4
-  store i32 %127, ptr %10, align 4
-  %128 = load i32, ptr %11, align 4
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %129, i32 0, i32 1
-  store i32 %128, ptr %130, align 4
-  %131 = load ptr, ptr %13, align 8
-  %132 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %131, i32 0, i32 3
-  %133 = load i16, ptr %132, align 4
-  %134 = zext i16 %133 to i32
-  %135 = and i32 %134, 16
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %171
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %114, i32 0, i32 0
+  store i32 %113, ptr %115, align 8
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %9, align 4
+  %118 = call i32 @_hash_getbucketbuf_from_hashkey(ptr noundef %116, i32 noundef %117, i32 noundef 1, ptr noundef null)
+  store i32 %118, ptr %11, align 4
+  %119 = load ptr, ptr %6, align 8
+  %120 = load i32, ptr %11, align 4
+  %121 = call i32 @BufferGetBlockNumber(i32 noundef %120)
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  call void @PredicateLockPage(ptr noundef %119, i32 noundef %121, ptr noundef %124)
+  %125 = load i32, ptr %11, align 4
+  %126 = call ptr @BufferGetPage(i32 noundef %125)
+  store ptr %126, ptr %12, align 8
+  %127 = load ptr, ptr %12, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %127)
+  %128 = load ptr, ptr %12, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %129, i32 0, i32 5
+  %131 = load i16, ptr %130, align 4
+  %132 = zext i16 %131 to i32
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %128, i64 %133
+  store ptr %134, ptr %13, align 8
+  %135 = load ptr, ptr %13, align 8
+  %136 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %135, i32 0, i32 2
+  %137 = load i32, ptr %136, align 4
+  store i32 %137, ptr %10, align 4
+  %138 = load i32, ptr %11, align 4
+  %139 = load ptr, ptr %7, align 8
+  %140 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %139, i32 0, i32 1
+  store i32 %138, ptr %140, align 4
+  %141 = load ptr, ptr %13, align 8
+  %142 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %141, i32 0, i32 3
+  %143 = load i16, ptr %142, align 4
+  %144 = zext i16 %143 to i32
+  %145 = and i32 %144, 16
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %187
 
-137:                                              ; preds = %108
-  %138 = load ptr, ptr %6, align 8
-  %139 = load i32, ptr %10, align 4
-  %140 = call i32 @_hash_get_oldblock_from_newbucket(ptr noundef %138, i32 noundef %139)
-  store i32 %140, ptr %15, align 4
-  %141 = load i32, ptr %11, align 4
-  call void @LockBuffer(i32 noundef %141, i32 noundef 0)
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %15, align 4
-  %144 = call i32 @_hash_getbuf(ptr noundef %142, i32 noundef %143, i32 noundef 1, i32 noundef 2)
-  store i32 %144, ptr %16, align 4
-  %145 = load i32, ptr %16, align 4
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %146, i32 0, i32 2
-  store i32 %145, ptr %147, align 8
-  %148 = load i32, ptr %16, align 4
-  call void @LockBuffer(i32 noundef %148, i32 noundef 0)
-  %149 = load i32, ptr %11, align 4
-  call void @LockBuffer(i32 noundef %149, i32 noundef 1)
-  %150 = load i32, ptr %11, align 4
-  %151 = call ptr @BufferGetPage(i32 noundef %150)
-  store ptr %151, ptr %12, align 8
-  %152 = load ptr, ptr %12, align 8
-  %153 = call ptr @PageGetSpecialPointer(ptr noundef %152)
-  store ptr %153, ptr %13, align 8
-  %154 = load ptr, ptr %13, align 8
-  %155 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %154, i32 0, i32 3
-  %156 = load i16, ptr %155, align 4
-  %157 = zext i16 %156 to i32
-  %158 = and i32 %157, 16
-  %159 = icmp ne i32 %158, 0
-  br i1 %159, label %160, label %163
+147:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  %148 = load ptr, ptr %6, align 8
+  %149 = load i32, ptr %10, align 4
+  %150 = call i32 @_hash_get_oldblock_from_newbucket(ptr noundef %148, i32 noundef %149)
+  store i32 %150, ptr %16, align 4
+  %151 = load i32, ptr %11, align 4
+  call void @LockBuffer(i32 noundef %151, i32 noundef 0)
+  %152 = load ptr, ptr %6, align 8
+  %153 = load i32, ptr %16, align 4
+  %154 = call i32 @_hash_getbuf(ptr noundef %152, i32 noundef %153, i32 noundef 1, i32 noundef 2)
+  store i32 %154, ptr %17, align 4
+  %155 = load i32, ptr %17, align 4
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %156, i32 0, i32 2
+  store i32 %155, ptr %157, align 8
+  %158 = load i32, ptr %17, align 4
+  call void @LockBuffer(i32 noundef %158, i32 noundef 0)
+  %159 = load i32, ptr %11, align 4
+  call void @LockBuffer(i32 noundef %159, i32 noundef 1)
+  %160 = load i32, ptr %11, align 4
+  %161 = call ptr @BufferGetPage(i32 noundef %160)
+  store ptr %161, ptr %12, align 8
+  %162 = load ptr, ptr %12, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %162)
+  %163 = load ptr, ptr %12, align 8
+  %164 = load ptr, ptr %12, align 8
+  %165 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %164, i32 0, i32 5
+  %166 = load i16, ptr %165, align 4
+  %167 = zext i16 %166 to i32
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds i8, ptr %163, i64 %168
+  store ptr %169, ptr %13, align 8
+  %170 = load ptr, ptr %13, align 8
+  %171 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %170, i32 0, i32 3
+  %172 = load i16, ptr %171, align 4
+  %173 = zext i16 %172 to i32
+  %174 = and i32 %173, 16
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %179
 
-160:                                              ; preds = %137
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %161, i32 0, i32 3
-  store i8 1, ptr %162, align 4
-  br label %170
+176:                                              ; preds = %147
+  %177 = load ptr, ptr %7, align 8
+  %178 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %177, i32 0, i32 3
+  store i8 1, ptr %178, align 4
+  br label %186
 
-163:                                              ; preds = %137
-  %164 = load ptr, ptr %6, align 8
-  %165 = load ptr, ptr %7, align 8
-  %166 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %165, i32 0, i32 2
-  %167 = load i32, ptr %166, align 8
-  call void @_hash_dropbuf(ptr noundef %164, i32 noundef %167)
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %168, i32 0, i32 2
-  store i32 0, ptr %169, align 8
-  br label %170
-
-170:                                              ; preds = %163, %160
-  br label %171
-
-171:                                              ; preds = %170, %108
-  %172 = load i32, ptr %5, align 4
-  %173 = icmp eq i32 %172, -1
-  br i1 %173, label %174, label %198
-
-174:                                              ; preds = %171
-  br label %175
-
-175:                                              ; preds = %195, %174
-  %176 = load ptr, ptr %13, align 8
-  %177 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %176, i32 0, i32 1
-  %178 = load i32, ptr %177, align 4
-  %179 = call zeroext i1 @BlockNumberIsValid(i32 noundef %178)
-  br i1 %179, label %193, label %180
-
-180:                                              ; preds = %175
+179:                                              ; preds = %147
+  %180 = load ptr, ptr %6, align 8
   %181 = load ptr, ptr %7, align 8
-  %182 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %181, i32 0, i32 3
-  %183 = load i8, ptr %182, align 4
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %185, label %191
+  %182 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %181, i32 0, i32 2
+  %183 = load i32, ptr %182, align 8
+  call void @_hash_dropbuf(ptr noundef %180, i32 noundef %183)
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %184, i32 0, i32 2
+  store i32 0, ptr %185, align 8
+  br label %186
 
-185:                                              ; preds = %180
-  %186 = load ptr, ptr %7, align 8
-  %187 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %186, i32 0, i32 4
-  %188 = load i8, ptr %187, align 1
-  %189 = trunc i8 %188 to i1
-  %190 = xor i1 %189, true
+186:                                              ; preds = %179, %176
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  br label %187
+
+187:                                              ; preds = %186, %112
+  %188 = load i32, ptr %5, align 4
+  %189 = icmp eq i32 %188, -1
+  br i1 %189, label %190, label %214
+
+190:                                              ; preds = %187
   br label %191
 
-191:                                              ; preds = %185, %180
-  %192 = phi i1 [ false, %180 ], [ %190, %185 ]
-  br label %193
+191:                                              ; preds = %211, %190
+  %192 = load ptr, ptr %13, align 8
+  %193 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 4
+  %195 = call zeroext i1 @BlockNumberIsValid(i32 noundef %194)
+  br i1 %195, label %209, label %196
 
-193:                                              ; preds = %191, %175
-  %194 = phi i1 [ true, %175 ], [ %192, %191 ]
-  br i1 %194, label %195, label %197
+196:                                              ; preds = %191
+  %197 = load ptr, ptr %7, align 8
+  %198 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %197, i32 0, i32 3
+  %199 = load i8, ptr %198, align 4, !range !4, !noundef !5
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %201, label %207
 
-195:                                              ; preds = %193
-  %196 = load ptr, ptr %4, align 8
-  call void @_hash_readnext(ptr noundef %196, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  br label %175, !llvm.loop !5
+201:                                              ; preds = %196
+  %202 = load ptr, ptr %7, align 8
+  %203 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %202, i32 0, i32 4
+  %204 = load i8, ptr %203, align 1, !range !4, !noundef !5
+  %205 = trunc i8 %204 to i1
+  %206 = xor i1 %205, true
+  br label %207
 
-197:                                              ; preds = %193
-  br label %198
+207:                                              ; preds = %201, %196
+  %208 = phi i1 [ false, %196 ], [ %206, %201 ]
+  br label %209
 
-198:                                              ; preds = %197, %171
-  %199 = load i32, ptr %11, align 4
-  %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %200, i32 0, i32 7
-  %202 = getelementptr inbounds %struct.HashScanPosData, ptr %201, i32 0, i32 0
-  store i32 %199, ptr %202, align 4
-  %203 = load ptr, ptr %4, align 8
-  %204 = load i32, ptr %5, align 4
-  %205 = call zeroext i1 @_hash_readpage(ptr noundef %203, ptr noundef %11, i32 noundef %204)
-  br i1 %205, label %207, label %206
+209:                                              ; preds = %207, %191
+  %210 = phi i1 [ true, %191 ], [ %208, %207 ]
+  br i1 %210, label %211, label %213
 
-206:                                              ; preds = %198
+211:                                              ; preds = %209
+  %212 = load ptr, ptr %4, align 8
+  call void @_hash_readnext(ptr noundef %212, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  br label %191, !llvm.loop !6
+
+213:                                              ; preds = %209
+  br label %214
+
+214:                                              ; preds = %213, %187
+  %215 = load i32, ptr %11, align 4
+  %216 = load ptr, ptr %7, align 8
+  %217 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %216, i32 0, i32 7
+  %218 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %217, i32 0, i32 0
+  store i32 %215, ptr %218, align 4
+  %219 = load ptr, ptr %4, align 8
+  %220 = load i32, ptr %5, align 4
+  %221 = call zeroext i1 @_hash_readpage(ptr noundef %219, ptr noundef %11, i32 noundef %220)
+  br i1 %221, label %223, label %222
+
+222:                                              ; preds = %214
   store i1 false, ptr %3, align 1
-  br label %221
+  store i32 1, ptr %15, align 4
+  br label %237
 
-207:                                              ; preds = %198
-  %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %208, i32 0, i32 7
-  %210 = getelementptr inbounds %struct.HashScanPosData, ptr %209, i32 0, i32 7
-  %211 = load ptr, ptr %7, align 8
-  %212 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %211, i32 0, i32 7
-  %213 = getelementptr inbounds %struct.HashScanPosData, ptr %212, i32 0, i32 6
-  %214 = load i32, ptr %213, align 4
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr [408 x %struct.HashScanPosItem], ptr %210, i64 0, i64 %215
-  store ptr %216, ptr %14, align 8
-  %217 = load ptr, ptr %4, align 8
-  %218 = getelementptr inbounds %struct.IndexScanDescData, ptr %217, i32 0, i32 17
-  %219 = load ptr, ptr %14, align 8
-  %220 = getelementptr inbounds %struct.HashScanPosItem, ptr %219, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %218, ptr align 2 %220, i64 6, i1 false)
+223:                                              ; preds = %214
+  %224 = load ptr, ptr %7, align 8
+  %225 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %224, i32 0, i32 7
+  %226 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %225, i32 0, i32 7
+  %227 = load ptr, ptr %7, align 8
+  %228 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %227, i32 0, i32 7
+  %229 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %228, i32 0, i32 6
+  %230 = load i32, ptr %229, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds [408 x %struct.HashScanPosItem], ptr %226, i64 0, i64 %231
+  store ptr %232, ptr %14, align 8
+  %233 = load ptr, ptr %4, align 8
+  %234 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %233, i32 0, i32 17
+  %235 = load ptr, ptr %14, align 8
+  %236 = getelementptr inbounds nuw %struct.HashScanPosItem, ptr %235, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %234, ptr align 2 %236, i64 6, i1 false)
   store i1 true, ptr %3, align 1
-  br label %221
+  store i32 1, ptr %15, align 4
+  br label %237
 
-221:                                              ; preds = %207, %206, %77
-  %222 = load i1, ptr %3, align 1
-  ret i1 %222
+237:                                              ; preds = %223, %222, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %238 = load i1, ptr %3, align 1
+  ret i1 %238
 }
 
-declare void @pgstat_assoc_relation(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+declare void @pgstat_assoc_relation(ptr noundef) #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
-declare i32 @errcode(i32 noundef) #1
+declare i32 @errcode(i32 noundef) #2
 
-declare i32 @errmsg(ptr noundef, ...) #1
+declare i32 @errmsg(ptr noundef, ...) #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @_hash_datum2hashkey(ptr noundef, i64 noundef) #1
+declare i32 @_hash_datum2hashkey(ptr noundef, i64 noundef) #2
 
-declare i32 @_hash_datum2hashkey_type(ptr noundef, i64 noundef, i32 noundef) #1
+declare i32 @_hash_datum2hashkey_type(ptr noundef, i64 noundef, i32 noundef) #2
 
-declare i32 @_hash_getbucketbuf_from_hashkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare i32 @_hash_getbucketbuf_from_hashkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @PredicateLockPage(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @PredicateLockPage(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @BufferGetBlockNumber(i32 noundef) #1
+declare i32 @BufferGetBlockNumber(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetPage(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetPage(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -1049,25 +1172,16 @@ define internal ptr @BufferGetPage(i32 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetSpecialPointer(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PageValidateSpecialPointer(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @PageValidateSpecialPointer(ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.PageHeaderData, ptr %5, i32 0, i32 5
-  %7 = load i16, ptr %6, align 4
-  %8 = zext i16 %7 to i32
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %4, i64 %9
-  ret ptr %10
+  ret void
 }
 
-declare i32 @_hash_get_oldblock_from_newbucket(ptr noundef, i32 noundef) #1
+declare i32 @_hash_get_oldblock_from_newbucket(ptr noundef, i32 noundef) #2
 
-declare void @LockBuffer(i32 noundef, i32 noundef) #1
+declare void @LockBuffer(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @_hash_readnext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1083,24 +1197,28 @@ define internal void @_hash_readnext(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.IndexScanDescData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.IndexScanDescData, ptr %16, i32 0, i32 12
+  %17 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %16, i32 0, i32 12
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
   store i8 0, ptr %12, align 1
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %20, i32 0, i32 1
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %9, align 4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %25, i32 0, i32 1
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %36, label %29
@@ -1109,7 +1227,7 @@ define internal void @_hash_readnext(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %32, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %32, i32 0, i32 2
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %31, %34
   br i1 %35, label %36, label %39
@@ -1137,94 +1255,111 @@ define internal void @_hash_readnext(ptr noundef %0, ptr noundef %1, ptr noundef
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
   %49 = sext i32 %48 to i64
-  %50 = icmp ne i64 %49, 0
-  br i1 %50, label %51, label %52
+  %50 = call i64 @llvm.expect.i64(i64 %49, i64 0)
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %45
   call void @ProcessInterrupts()
-  br label %52
-
-52:                                               ; preds = %51, %45
   br label %53
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %9, align 4
-  %55 = call zeroext i1 @BlockNumberIsValid(i32 noundef %54)
-  br i1 %55, label %56, label %61
+53:                                               ; preds = %52, %45
+  br label %54
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %10, align 8
-  %58 = load i32, ptr %9, align 4
-  %59 = call i32 @_hash_getbuf(ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef 1)
-  %60 = load ptr, ptr %6, align 8
-  store i32 %59, ptr %60, align 4
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load i32, ptr %9, align 4
+  %57 = call zeroext i1 @BlockNumberIsValid(i32 noundef %56)
+  br i1 %57, label %58, label %63
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %10, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = call i32 @_hash_getbuf(ptr noundef %59, i32 noundef %60, i32 noundef 1, i32 noundef 1)
+  %62 = load ptr, ptr %6, align 8
+  store i32 %61, ptr %62, align 4
   store i8 1, ptr %12, align 1
-  br label %88
+  br label %90
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %62, i32 0, i32 3
-  %64 = load i8, ptr %63, align 4
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %87
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %64, i32 0, i32 3
+  %66 = load i8, ptr %65, align 4, !range !4, !noundef !5
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %89
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %11, align 8
-  %68 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %67, i32 0, i32 4
-  %69 = load i8, ptr %68, align 1
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %87, label %71
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %11, align 8
+  %70 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %69, i32 0, i32 4
+  %71 = load i8, ptr %70, align 1, !range !4, !noundef !5
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %89, label %73
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %72, i32 0, i32 2
-  %74 = load i32, ptr %73, align 8
-  %75 = load ptr, ptr %6, align 8
-  store i32 %74, ptr %75, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr %76, align 4
-  call void @LockBuffer(i32 noundef %77, i32 noundef 1)
-  %78 = load ptr, ptr %10, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %79, align 4
-  %81 = call i32 @BufferGetBlockNumber(i32 noundef %80)
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.IndexScanDescData, ptr %82, i32 0, i32 2
-  %84 = load ptr, ptr %83, align 8
-  call void @PredicateLockPage(ptr noundef %78, i32 noundef %81, ptr noundef %84)
-  %85 = load ptr, ptr %11, align 8
-  %86 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %85, i32 0, i32 4
-  store i8 1, ptr %86, align 1
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %11, align 8
+  %75 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %74, i32 0, i32 2
+  %76 = load i32, ptr %75, align 8
+  %77 = load ptr, ptr %6, align 8
+  store i32 %76, ptr %77, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %78, align 4
+  call void @LockBuffer(i32 noundef %79, i32 noundef 1)
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %6, align 8
+  %82 = load i32, ptr %81, align 4
+  %83 = call i32 @BufferGetBlockNumber(i32 noundef %82)
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  call void @PredicateLockPage(ptr noundef %80, i32 noundef %83, ptr noundef %86)
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %87, i32 0, i32 4
+  store i8 1, ptr %88, align 1
   store i8 1, ptr %12, align 1
-  br label %87
+  br label %89
 
-87:                                               ; preds = %71, %66, %61
-  br label %88
+89:                                               ; preds = %73, %68, %63
+  br label %90
 
-88:                                               ; preds = %87, %56
-  %89 = load i8, ptr %12, align 1
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %100
+90:                                               ; preds = %89, %58
+  %91 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %110
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = call ptr @BufferGetPage(i32 noundef %93)
-  %95 = load ptr, ptr %7, align 8
-  store ptr %94, ptr %95, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @PageGetSpecialPointer(ptr noundef %97)
-  %99 = load ptr, ptr %8, align 8
-  store ptr %98, ptr %99, align 8
-  br label %100
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %6, align 8
+  %95 = load i32, ptr %94, align 4
+  %96 = call ptr @BufferGetPage(i32 noundef %95)
+  %97 = load ptr, ptr %7, align 8
+  store ptr %96, ptr %97, align 8
+  %98 = load ptr, ptr %7, align 8
+  %99 = load ptr, ptr %98, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %99)
+  %100 = load ptr, ptr %7, align 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %103, i32 0, i32 5
+  %105 = load i16, ptr %104, align 4
+  %106 = zext i16 %105 to i32
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %101, i64 %107
+  %109 = load ptr, ptr %8, align 8
+  store ptr %108, ptr %109, align 8
+  br label %110
 
-100:                                              ; preds = %91, %88
+110:                                              ; preds = %93, %90
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @BufferGetBlock(i32 noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -1238,7 +1373,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %9 = sub i32 0, %8
   %10 = sub i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %2, align 8
   br label %21
@@ -1249,7 +1384,7 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   %17 = sub i32 %16, 1
   %18 = sext i32 %17 to i64
   %19 = mul i64 %18, 8192
-  %20 = getelementptr i8, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   store ptr %20, ptr %2, align 8
   br label %21
 
@@ -1258,20 +1393,13 @@ define internal ptr @BufferGetBlock(i32 noundef %0) #0 {
   ret ptr %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @PageValidateSpecialPointer(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
+declare void @_hash_relbuf(ptr noundef, i32 noundef) #2
 
-declare void @_hash_relbuf(ptr noundef, i32 noundef) #1
+declare void @ProcessInterrupts() #2
 
-declare void @ProcessInterrupts() #1
+declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) #1
-
-declare zeroext i16 @_hash_binsearch(ptr noundef, i32 noundef) #1
+declare zeroext i16 @_hash_binsearch(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_hash_load_qualified_items(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
@@ -1284,242 +1412,253 @@ define internal i32 @_hash_load_qualified_items(ptr noundef %0, ptr noundef %1, 
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i16, align 2
+  %14 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i16 %2, ptr %8, align 2
   store i32 %3, ptr %9, align 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.IndexScanDescData, ptr %14, i32 0, i32 12
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %10, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = call zeroext i16 @PageGetMaxOffsetNumber(ptr noundef %17)
-  store i16 %18, ptr %13, align 2
-  %19 = load i32, ptr %9, align 4
-  %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %94
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %15, i32 0, i32 12
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  %18 = load ptr, ptr %7, align 8
+  %19 = call zeroext i16 @PageGetMaxOffsetNumber(ptr noundef %18)
+  store i16 %19, ptr %13, align 2
+  %20 = load i32, ptr %9, align 4
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %22, label %95
 
-21:                                               ; preds = %4
+22:                                               ; preds = %4
   store i32 0, ptr %12, align 4
-  br label %22
+  br label %23
 
-22:                                               ; preds = %87, %63, %21
-  %23 = load i16, ptr %8, align 2
-  %24 = zext i16 %23 to i32
-  %25 = load i16, ptr %13, align 2
-  %26 = zext i16 %25 to i32
-  %27 = icmp sle i32 %24, %26
-  br i1 %27, label %28, label %92
+23:                                               ; preds = %88, %64, %22
+  %24 = load i16, ptr %8, align 2
+  %25 = zext i16 %24 to i32
+  %26 = load i16, ptr %13, align 2
+  %27 = zext i16 %26 to i32
+  %28 = icmp sle i32 %25, %27
+  br i1 %28, label %29, label %93
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %7, align 8
+29:                                               ; preds = %23
   %30 = load ptr, ptr %7, align 8
-  %31 = load i16, ptr %8, align 2
-  %32 = call ptr @PageGetItemId(ptr noundef %30, i16 noundef zeroext %31)
-  %33 = call ptr @PageGetItem(ptr noundef %29, ptr noundef %32)
-  store ptr %33, ptr %11, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %34, i32 0, i32 3
-  %36 = load i8, ptr %35, align 4
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %50
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i16, ptr %8, align 2
+  %33 = call ptr @PageGetItemId(ptr noundef %31, i16 noundef zeroext %32)
+  %34 = call ptr @PageGetItem(ptr noundef %30, ptr noundef %33)
+  store ptr %34, ptr %11, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %35, i32 0, i32 3
+  %37 = load i8, ptr %36, align 4, !range !4, !noundef !5
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %51
 
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %39, i32 0, i32 4
-  %41 = load i8, ptr %40, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %50, label %43
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %40, i32 0, i32 4
+  %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %51, label %44
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct.IndexTupleData, ptr %44, i32 0, i32 1
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i32
-  %48 = and i32 %47, 8192
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %63, label %50
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds nuw %struct.IndexTupleData, ptr %45, i32 0, i32 1
+  %47 = load i16, ptr %46, align 2
+  %48 = zext i16 %47 to i32
+  %49 = and i32 %48, 8192
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %64, label %51
 
-50:                                               ; preds = %43, %38, %28
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.IndexScanDescData, ptr %51, i32 0, i32 10
-  %53 = load i8, ptr %52, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %68
+51:                                               ; preds = %44, %39, %29
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %52, i32 0, i32 10
+  %54 = load i8, ptr %53, align 1, !range !4, !noundef !5
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %69
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %7, align 8
-  %57 = load i16, ptr %8, align 2
-  %58 = call ptr @PageGetItemId(ptr noundef %56, i16 noundef zeroext %57)
-  %59 = load i32, ptr %58, align 4
-  %60 = lshr i32 %59, 15
-  %61 = and i32 %60, 3
-  %62 = icmp eq i32 %61, 3
-  br i1 %62, label %63, label %68
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i16, ptr %8, align 2
+  %59 = call ptr @PageGetItemId(ptr noundef %57, i16 noundef zeroext %58)
+  %60 = load i32, ptr %59, align 4
+  %61 = lshr i32 %60, 15
+  %62 = and i32 %61, 3
+  %63 = icmp eq i32 %62, 3
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %55, %43
-  %64 = load i16, ptr %8, align 2
-  %65 = zext i16 %64 to i32
-  %66 = add i32 1, %65
-  %67 = trunc i32 %66 to i16
-  store i16 %67, ptr %8, align 2
-  br label %22, !llvm.loop !7
+64:                                               ; preds = %56, %44
+  %65 = load i16, ptr %8, align 2
+  %66 = zext i16 %65 to i32
+  %67 = add i32 1, %66
+  %68 = trunc i32 %67 to i16
+  store i16 %68, ptr %8, align 2
+  br label %23, !llvm.loop !8
 
-68:                                               ; preds = %55, %50
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %11, align 8
-  %73 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %72)
-  %74 = icmp eq i32 %71, %73
-  br i1 %74, label %75, label %86
+69:                                               ; preds = %56, %51
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %73)
+  %75 = icmp eq i32 %72, %74
+  br i1 %75, label %76, label %87
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %6, align 8
-  %77 = load ptr, ptr %11, align 8
-  %78 = call zeroext i1 @_hash_checkqual(ptr noundef %76, ptr noundef %77)
-  br i1 %78, label %79, label %86
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %6, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = call zeroext i1 @_hash_checkqual(ptr noundef %77, ptr noundef %78)
+  br i1 %79, label %80, label %87
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %10, align 8
-  %81 = load i32, ptr %12, align 4
-  %82 = load i16, ptr %8, align 2
-  %83 = load ptr, ptr %11, align 8
-  call void @_hash_saveitem(ptr noundef %80, i32 noundef %81, i16 noundef zeroext %82, ptr noundef %83)
-  %84 = load i32, ptr %12, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %12, align 4
-  br label %87
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %10, align 8
+  %82 = load i32, ptr %12, align 4
+  %83 = load i16, ptr %8, align 2
+  %84 = load ptr, ptr %11, align 8
+  call void @_hash_saveitem(ptr noundef %81, i32 noundef %82, i16 noundef zeroext %83, ptr noundef %84)
+  %85 = load i32, ptr %12, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %12, align 4
+  br label %88
 
-86:                                               ; preds = %75, %68
-  br label %92
+87:                                               ; preds = %76, %69
+  br label %93
 
-87:                                               ; preds = %79
-  %88 = load i16, ptr %8, align 2
-  %89 = zext i16 %88 to i32
-  %90 = add i32 1, %89
-  %91 = trunc i32 %90 to i16
-  store i16 %91, ptr %8, align 2
-  br label %22, !llvm.loop !7
+88:                                               ; preds = %80
+  %89 = load i16, ptr %8, align 2
+  %90 = zext i16 %89 to i32
+  %91 = add i32 1, %90
+  %92 = trunc i32 %91 to i16
+  store i16 %92, ptr %8, align 2
+  br label %23, !llvm.loop !8
 
-92:                                               ; preds = %86, %22
-  %93 = load i32, ptr %12, align 4
-  store i32 %93, ptr %5, align 4
-  br label %165
+93:                                               ; preds = %87, %23
+  %94 = load i32, ptr %12, align 4
+  store i32 %94, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %166
 
-94:                                               ; preds = %4
+95:                                               ; preds = %4
   store i32 408, ptr %12, align 4
-  br label %95
+  br label %96
 
-95:                                               ; preds = %158, %134, %94
-  %96 = load i16, ptr %8, align 2
-  %97 = zext i16 %96 to i32
-  %98 = icmp sge i32 %97, 1
-  br i1 %98, label %99, label %163
+96:                                               ; preds = %159, %135, %95
+  %97 = load i16, ptr %8, align 2
+  %98 = zext i16 %97 to i32
+  %99 = icmp sge i32 %98, 1
+  br i1 %99, label %100, label %164
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %7, align 8
+100:                                              ; preds = %96
   %101 = load ptr, ptr %7, align 8
-  %102 = load i16, ptr %8, align 2
-  %103 = call ptr @PageGetItemId(ptr noundef %101, i16 noundef zeroext %102)
-  %104 = call ptr @PageGetItem(ptr noundef %100, ptr noundef %103)
-  store ptr %104, ptr %11, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %105, i32 0, i32 3
-  %107 = load i8, ptr %106, align 4
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %121
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i16, ptr %8, align 2
+  %104 = call ptr @PageGetItemId(ptr noundef %102, i16 noundef zeroext %103)
+  %105 = call ptr @PageGetItem(ptr noundef %101, ptr noundef %104)
+  store ptr %105, ptr %11, align 8
+  %106 = load ptr, ptr %10, align 8
+  %107 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %106, i32 0, i32 3
+  %108 = load i8, ptr %107, align 4, !range !4, !noundef !5
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %122
 
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %110, i32 0, i32 4
-  %112 = load i8, ptr %111, align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %121, label %114
+110:                                              ; preds = %100
+  %111 = load ptr, ptr %10, align 8
+  %112 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %111, i32 0, i32 4
+  %113 = load i8, ptr %112, align 1, !range !4, !noundef !5
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %122, label %115
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %11, align 8
-  %116 = getelementptr inbounds %struct.IndexTupleData, ptr %115, i32 0, i32 1
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  %119 = and i32 %118, 8192
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %134, label %121
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %11, align 8
+  %117 = getelementptr inbounds nuw %struct.IndexTupleData, ptr %116, i32 0, i32 1
+  %118 = load i16, ptr %117, align 2
+  %119 = zext i16 %118 to i32
+  %120 = and i32 %119, 8192
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %135, label %122
 
-121:                                              ; preds = %114, %109, %99
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.IndexScanDescData, ptr %122, i32 0, i32 10
-  %124 = load i8, ptr %123, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %126, label %139
+122:                                              ; preds = %115, %110, %100
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %123, i32 0, i32 10
+  %125 = load i8, ptr %124, align 1, !range !4, !noundef !5
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %127, label %140
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i16, ptr %8, align 2
-  %129 = call ptr @PageGetItemId(ptr noundef %127, i16 noundef zeroext %128)
-  %130 = load i32, ptr %129, align 4
-  %131 = lshr i32 %130, 15
-  %132 = and i32 %131, 3
-  %133 = icmp eq i32 %132, 3
-  br i1 %133, label %134, label %139
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %7, align 8
+  %129 = load i16, ptr %8, align 2
+  %130 = call ptr @PageGetItemId(ptr noundef %128, i16 noundef zeroext %129)
+  %131 = load i32, ptr %130, align 4
+  %132 = lshr i32 %131, 15
+  %133 = and i32 %132, 3
+  %134 = icmp eq i32 %133, 3
+  br i1 %134, label %135, label %140
 
-134:                                              ; preds = %126, %114
-  %135 = load i16, ptr %8, align 2
-  %136 = zext i16 %135 to i32
-  %137 = add i32 -1, %136
-  %138 = trunc i32 %137 to i16
-  store i16 %138, ptr %8, align 2
-  br label %95, !llvm.loop !8
+135:                                              ; preds = %127, %115
+  %136 = load i16, ptr %8, align 2
+  %137 = zext i16 %136 to i32
+  %138 = add i32 -1, %137
+  %139 = trunc i32 %138 to i16
+  store i16 %139, ptr %8, align 2
+  br label %96, !llvm.loop !9
 
-139:                                              ; preds = %126, %121
-  %140 = load ptr, ptr %10, align 8
-  %141 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %140, i32 0, i32 0
-  %142 = load i32, ptr %141, align 8
-  %143 = load ptr, ptr %11, align 8
-  %144 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %143)
-  %145 = icmp eq i32 %142, %144
-  br i1 %145, label %146, label %157
+140:                                              ; preds = %127, %122
+  %141 = load ptr, ptr %10, align 8
+  %142 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %141, i32 0, i32 0
+  %143 = load i32, ptr %142, align 8
+  %144 = load ptr, ptr %11, align 8
+  %145 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %144)
+  %146 = icmp eq i32 %143, %145
+  br i1 %146, label %147, label %158
 
-146:                                              ; preds = %139
-  %147 = load ptr, ptr %6, align 8
-  %148 = load ptr, ptr %11, align 8
-  %149 = call zeroext i1 @_hash_checkqual(ptr noundef %147, ptr noundef %148)
-  br i1 %149, label %150, label %157
+147:                                              ; preds = %140
+  %148 = load ptr, ptr %6, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = call zeroext i1 @_hash_checkqual(ptr noundef %148, ptr noundef %149)
+  br i1 %150, label %151, label %158
 
-150:                                              ; preds = %146
-  %151 = load i32, ptr %12, align 4
-  %152 = add i32 %151, -1
-  store i32 %152, ptr %12, align 4
-  %153 = load ptr, ptr %10, align 8
-  %154 = load i32, ptr %12, align 4
-  %155 = load i16, ptr %8, align 2
-  %156 = load ptr, ptr %11, align 8
-  call void @_hash_saveitem(ptr noundef %153, i32 noundef %154, i16 noundef zeroext %155, ptr noundef %156)
-  br label %158
+151:                                              ; preds = %147
+  %152 = load i32, ptr %12, align 4
+  %153 = add i32 %152, -1
+  store i32 %153, ptr %12, align 4
+  %154 = load ptr, ptr %10, align 8
+  %155 = load i32, ptr %12, align 4
+  %156 = load i16, ptr %8, align 2
+  %157 = load ptr, ptr %11, align 8
+  call void @_hash_saveitem(ptr noundef %154, i32 noundef %155, i16 noundef zeroext %156, ptr noundef %157)
+  br label %159
 
-157:                                              ; preds = %146, %139
-  br label %163
+158:                                              ; preds = %147, %140
+  br label %164
 
-158:                                              ; preds = %150
-  %159 = load i16, ptr %8, align 2
-  %160 = zext i16 %159 to i32
-  %161 = add i32 -1, %160
-  %162 = trunc i32 %161 to i16
-  store i16 %162, ptr %8, align 2
-  br label %95, !llvm.loop !8
+159:                                              ; preds = %151
+  %160 = load i16, ptr %8, align 2
+  %161 = zext i16 %160 to i32
+  %162 = add i32 -1, %161
+  %163 = trunc i32 %162 to i16
+  store i16 %163, ptr %8, align 2
+  br label %96, !llvm.loop !9
 
-163:                                              ; preds = %157, %95
-  %164 = load i32, ptr %12, align 4
-  store i32 %164, ptr %5, align 4
-  br label %165
+164:                                              ; preds = %158, %96
+  %165 = load i32, ptr %12, align 4
+  store i32 %165, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %166
 
-165:                                              ; preds = %163, %92
-  %166 = load i32, ptr %5, align 4
-  ret i32 %166
+166:                                              ; preds = %164, %93
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %167 = load i32, ptr %5, align 4
+  ret i32 %167
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @BufferIsValid(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @BufferIsValid(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -1527,7 +1666,7 @@ define internal zeroext i1 @BufferIsValid(i32 noundef %0) #0 {
   ret i1 %4
 }
 
-declare zeroext i16 @_hash_binsearch_last(ptr noundef, i32 noundef) #1
+declare zeroext i16 @_hash_binsearch_last(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @_hash_readprev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1543,23 +1682,27 @@ define internal void @_hash_readprev(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.IndexScanDescData, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.IndexScanDescData, ptr %16, i32 0, i32 12
+  %17 = getelementptr inbounds nuw %struct.IndexScanDescData, ptr %16, i32 0, i32 12
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %20, i32 0, i32 0
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %9, align 4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %25, i32 0, i32 1
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %36, label %29
@@ -1568,7 +1711,7 @@ define internal void @_hash_readprev(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %32, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %32, i32 0, i32 2
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %31, %34
   br i1 %35, label %36, label %39
@@ -1598,165 +1741,196 @@ define internal void @_hash_readprev(ptr noundef %0, ptr noundef %1, ptr noundef
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
   %49 = sext i32 %48 to i64
-  %50 = icmp ne i64 %49, 0
-  br i1 %50, label %51, label %52
+  %50 = call i64 @llvm.expect.i64(i64 %49, i64 0)
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %45
   call void @ProcessInterrupts()
-  br label %52
-
-52:                                               ; preds = %51, %45
   br label %53
 
-53:                                               ; preds = %52
-  %54 = load i8, ptr %12, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %87
+53:                                               ; preds = %52, %45
+  br label %54
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %10, align 8
-  %58 = load i32, ptr %9, align 4
-  %59 = call i32 @_hash_getbuf(ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef 3)
-  %60 = load ptr, ptr %6, align 8
-  store i32 %59, ptr %60, align 4
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i32, ptr %61, align 4
-  %63 = call ptr @BufferGetPage(i32 noundef %62)
-  %64 = load ptr, ptr %7, align 8
-  store ptr %63, ptr %64, align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @PageGetSpecialPointer(ptr noundef %66)
-  %68 = load ptr, ptr %8, align 8
-  store ptr %67, ptr %68, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %69, align 4
-  %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %70, %73
-  br i1 %74, label %82, label %75
+54:                                               ; preds = %53
+  br label %55
 
-75:                                               ; preds = %56
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr %76, align 4
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %78, i32 0, i32 2
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp eq i32 %77, %80
-  br i1 %81, label %82, label %86
+55:                                               ; preds = %54
+  %56 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %97
 
-82:                                               ; preds = %75, %56
-  %83 = load ptr, ptr %10, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %84, align 4
-  call void @_hash_dropbuf(ptr noundef %83, i32 noundef %85)
-  br label %86
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %10, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = call i32 @_hash_getbuf(ptr noundef %59, i32 noundef %60, i32 noundef 1, i32 noundef 3)
+  %62 = load ptr, ptr %6, align 8
+  store i32 %61, ptr %62, align 4
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %63, align 4
+  %65 = call ptr @BufferGetPage(i32 noundef %64)
+  %66 = load ptr, ptr %7, align 8
+  store ptr %65, ptr %66, align 8
+  %67 = load ptr, ptr %7, align 8
+  %68 = load ptr, ptr %67, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %68)
+  %69 = load ptr, ptr %7, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %72, i32 0, i32 5
+  %74 = load i16, ptr %73, align 4
+  %75 = zext i16 %74 to i32
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i8, ptr %70, i64 %76
+  %78 = load ptr, ptr %8, align 8
+  store ptr %77, ptr %78, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %79, align 4
+  %81 = load ptr, ptr %11, align 8
+  %82 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %81, i32 0, i32 1
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %80, %83
+  br i1 %84, label %92, label %85
 
-86:                                               ; preds = %82, %75
-  br label %127
-
-87:                                               ; preds = %53
+85:                                               ; preds = %58
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %86, align 4
   %88 = load ptr, ptr %11, align 8
-  %89 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %88, i32 0, i32 3
-  %90 = load i8, ptr %89, align 4
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %126
+  %89 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %88, i32 0, i32 2
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %87, %90
+  br i1 %91, label %92, label %96
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %11, align 8
-  %94 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %93, i32 0, i32 4
-  %95 = load i8, ptr %94, align 1
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %126
+92:                                               ; preds = %85, %58
+  %93 = load ptr, ptr %10, align 8
+  %94 = load ptr, ptr %6, align 8
+  %95 = load i32, ptr %94, align 4
+  call void @_hash_dropbuf(ptr noundef %93, i32 noundef %95)
+  br label %96
 
-97:                                               ; preds = %92
+96:                                               ; preds = %92, %85
+  br label %145
+
+97:                                               ; preds = %55
   %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %99, align 4
-  %101 = load ptr, ptr %6, align 8
-  store i32 %100, ptr %101, align 4
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i32, ptr %102, align 4
-  call void @LockBuffer(i32 noundef %103, i32 noundef 1)
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %104, align 4
-  %106 = call ptr @BufferGetPage(i32 noundef %105)
-  %107 = load ptr, ptr %7, align 8
-  store ptr %106, ptr %107, align 8
-  %108 = load ptr, ptr %7, align 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = call ptr @PageGetSpecialPointer(ptr noundef %109)
-  %111 = load ptr, ptr %8, align 8
-  store ptr %110, ptr %111, align 8
-  br label %112
+  %99 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %98, i32 0, i32 3
+  %100 = load i8, ptr %99, align 4, !range !4, !noundef !5
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %144
 
-112:                                              ; preds = %118, %97
-  %113 = load ptr, ptr %8, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.HashPageOpaqueData, ptr %114, i32 0, i32 1
-  %116 = load i32, ptr %115, align 4
-  %117 = call zeroext i1 @BlockNumberIsValid(i32 noundef %116)
-  br i1 %117, label %118, label %123
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %11, align 8
+  %104 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %103, i32 0, i32 4
+  %105 = load i8, ptr %104, align 1, !range !4, !noundef !5
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %107, label %144
 
-118:                                              ; preds = %112
-  %119 = load ptr, ptr %5, align 8
-  %120 = load ptr, ptr %6, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = load ptr, ptr %8, align 8
-  call void @_hash_readnext(ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122)
-  br label %112, !llvm.loop !9
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %11, align 8
+  %109 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 4
+  %111 = load ptr, ptr %6, align 8
+  store i32 %110, ptr %111, align 4
+  %112 = load ptr, ptr %6, align 8
+  %113 = load i32, ptr %112, align 4
+  call void @LockBuffer(i32 noundef %113, i32 noundef 1)
+  %114 = load ptr, ptr %6, align 8
+  %115 = load i32, ptr %114, align 4
+  %116 = call ptr @BufferGetPage(i32 noundef %115)
+  %117 = load ptr, ptr %7, align 8
+  store ptr %116, ptr %117, align 8
+  %118 = load ptr, ptr %7, align 8
+  %119 = load ptr, ptr %118, align 8
+  call void @PageValidateSpecialPointer(ptr noundef %119)
+  %120 = load ptr, ptr %7, align 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %123, i32 0, i32 5
+  %125 = load i16, ptr %124, align 4
+  %126 = zext i16 %125 to i32
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %121, i64 %127
+  %129 = load ptr, ptr %8, align 8
+  store ptr %128, ptr %129, align 8
+  br label %130
 
-123:                                              ; preds = %112
-  %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %124, i32 0, i32 4
-  store i8 0, ptr %125, align 1
-  br label %126
+130:                                              ; preds = %136, %107
+  %131 = load ptr, ptr %8, align 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw %struct.HashPageOpaqueData, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 4
+  %135 = call zeroext i1 @BlockNumberIsValid(i32 noundef %134)
+  br i1 %135, label %136, label %141
 
-126:                                              ; preds = %123, %92, %87
-  br label %127
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %5, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = load ptr, ptr %7, align 8
+  %140 = load ptr, ptr %8, align 8
+  call void @_hash_readnext(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140)
+  br label %130, !llvm.loop !10
 
-127:                                              ; preds = %126, %86
+141:                                              ; preds = %130
+  %142 = load ptr, ptr %11, align 8
+  %143 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %142, i32 0, i32 4
+  store i8 0, ptr %143, align 1
+  br label %144
+
+144:                                              ; preds = %141, %102, %97
+  br label %145
+
+145:                                              ; preds = %144, %96
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @PageGetMaxOffsetNumber(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @PageGetMaxOffsetNumber(ptr noundef %0) #3 {
   %2 = alloca i16, align 2
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  store ptr %5, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.PageHeaderData, ptr %6, i32 0, i32 3
-  %8 = load i16, ptr %7, align 4
-  %9 = zext i16 %8 to i64
-  %10 = icmp ule i64 %9, 24
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i16 0, ptr %2, align 2
-  br label %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %7, i32 0, i32 3
+  %9 = load i16, ptr %8, align 4
+  %10 = zext i16 %9 to i64
+  %11 = icmp ule i64 %10, 24
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.PageHeaderData, ptr %13, i32 0, i32 3
-  %15 = load i16, ptr %14, align 4
-  %16 = zext i16 %15 to i64
-  %17 = sub i64 %16, 24
-  %18 = udiv i64 %17, 4
-  %19 = trunc i64 %18 to i16
-  store i16 %19, ptr %2, align 2
-  br label %20
+  store i16 0, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %21
 
-20:                                               ; preds = %12, %11
-  %21 = load i16, ptr %2, align 2
-  ret i16 %21
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %14, i32 0, i32 3
+  %16 = load i16, ptr %15, align 4
+  %17 = zext i16 %16 to i64
+  %18 = sub i64 %17, 24
+  %19 = udiv i64 %18, 4
+  %20 = trunc i64 %19 to i16
+  store i16 %20, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %21
+
+21:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %22 = load i16, ptr %2, align 2
+  ret i16 %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetItem(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PageGetItem(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1766,32 +1940,32 @@ define internal ptr @PageGetItem(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32767
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %5, i64 %9
+  %10 = getelementptr inbounds i8, ptr %5, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PageGetItemId(ptr noundef %0, i16 noundef zeroext %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PageGetItemId(ptr noundef %0, i16 noundef zeroext %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   store ptr %0, ptr %3, align 8
   store i16 %1, ptr %4, align 2
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.PageHeaderData, ptr %5, i32 0, i32 8
+  %6 = getelementptr inbounds nuw %struct.PageHeaderData, ptr %5, i32 0, i32 8
   %7 = load i16, ptr %4, align 2
   %8 = zext i16 %7 to i32
   %9 = sub i32 %8, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [0 x %struct.ItemIdData], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %6, i64 0, i64 %10
   ret ptr %11
 }
 
-declare i32 @_hash_get_indextuple_hashkey(ptr noundef) #1
+declare i32 @_hash_get_indextuple_hashkey(ptr noundef) #2
 
-declare zeroext i1 @_hash_checkqual(ptr noundef, ptr noundef) #1
+declare zeroext i1 @_hash_checkqual(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @_hash_saveitem(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_hash_saveitem(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) #3 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i16, align 2
@@ -1801,40 +1975,47 @@ define internal void @_hash_saveitem(ptr noundef %0, i32 noundef %1, i16 noundef
   store i32 %1, ptr %6, align 4
   store i16 %2, ptr %7, align 2
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.HashScanOpaqueData, ptr %10, i32 0, i32 7
-  %12 = getelementptr inbounds %struct.HashScanPosData, ptr %11, i32 0, i32 7
+  %11 = getelementptr inbounds nuw %struct.HashScanOpaqueData, ptr %10, i32 0, i32 7
+  %12 = getelementptr inbounds nuw %struct.HashScanPosData, ptr %11, i32 0, i32 7
   %13 = load i32, ptr %6, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [408 x %struct.HashScanPosItem], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds [408 x %struct.HashScanPosItem], ptr %12, i64 0, i64 %14
   store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds %struct.HashScanPosItem, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.HashScanPosItem, ptr %16, i32 0, i32 0
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.IndexTupleData, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.IndexTupleData, ptr %18, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr align 2 %19, i64 6, i1 false)
   %20 = load i16, ptr %7, align 2
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.HashScanPosItem, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.HashScanPosItem, ptr %21, i32 0, i32 1
   store i16 %20, ptr %22, align 2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

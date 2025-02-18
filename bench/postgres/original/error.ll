@@ -53,352 +53,373 @@ define void @ecpg_raise(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %10 = call ptr @ECPGget_sqlca()
-  store ptr %10, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
-  call void @ECPGfree_auto_mem()
-  br label %239
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = call ptr @ECPGget_sqlca()
+  store ptr %11, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %6, align 4
-  %16 = sext i32 %15 to i64
-  %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.sqlca_t, ptr %17, i32 0, i32 2
-  store i64 %16, ptr %18, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.sqlca_t, ptr %19, i32 0, i32 7
-  %21 = getelementptr inbounds [5 x i8], ptr %20, i64 0, i64 0
-  %22 = load ptr, ptr %7, align 8
-  %23 = call ptr @strncpy(ptr noundef %21, ptr noundef %22, i64 noundef 5) #4
-  %24 = load i32, ptr %6, align 4
-  switch i32 %24, label %215 [
-    i32 100, label %25
-    i32 -12, label %32
-    i32 -200, label %39
-    i32 -201, label %47
-    i32 -202, label %54
-    i32 -204, label %61
-    i32 -205, label %69
-    i32 -206, label %77
-    i32 -211, label %85
-    i32 -212, label %104
-    i32 -213, label %111
-    i32 -214, label %118
-    i32 -215, label %125
-    i32 -216, label %132
-    i32 -220, label %139
-    i32 -221, label %147
-    i32 -230, label %155
-    i32 -240, label %163
-    i32 -241, label %171
-    i32 -242, label %178
-    i32 -243, label %186
-    i32 -244, label %193
-    i32 -401, label %200
-    i32 -402, label %207
+  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
+  call void @ECPGfree_auto_mem()
+  store i32 1, ptr %10, align 4
+  br label %240
+
+15:                                               ; preds = %4
+  %16 = load i32, ptr %6, align 4
+  %17 = sext i32 %16 to i64
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw %struct.sqlca_t, ptr %18, i32 0, i32 2
+  store i64 %17, ptr %19, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.sqlca_t, ptr %20, i32 0, i32 7
+  %22 = getelementptr inbounds [5 x i8], ptr %21, i64 0, i64 0
+  %23 = load ptr, ptr %7, align 8
+  %24 = call ptr @strncpy(ptr noundef %22, ptr noundef %23, i64 noundef 5) #5
+  %25 = load i32, ptr %6, align 4
+  switch i32 %25, label %216 [
+    i32 100, label %26
+    i32 -12, label %33
+    i32 -200, label %40
+    i32 -201, label %48
+    i32 -202, label %55
+    i32 -204, label %62
+    i32 -205, label %70
+    i32 -206, label %78
+    i32 -211, label %86
+    i32 -212, label %105
+    i32 -213, label %112
+    i32 -214, label %119
+    i32 -215, label %126
+    i32 -216, label %133
+    i32 -220, label %140
+    i32 -221, label %148
+    i32 -230, label %156
+    i32 -240, label %164
+    i32 -241, label %172
+    i32 -242, label %179
+    i32 -243, label %187
+    i32 -244, label %194
+    i32 -401, label %201
+    i32 -402, label %208
   ]
 
-25:                                               ; preds = %14
-  %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.sqlca_t, ptr %26, i32 0, i32 3
-  %28 = getelementptr inbounds %struct.anon, ptr %27, i32 0, i32 1
-  %29 = getelementptr inbounds [150 x i8], ptr %28, i64 0, i64 0
-  %30 = load i32, ptr %5, align 4
-  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %29, i64 noundef 150, ptr noundef @.str.1, i32 noundef %30)
-  br label %223
+26:                                               ; preds = %15
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.sqlca_t, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct.anon, ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds [150 x i8], ptr %29, i64 0, i64 0
+  %31 = load i32, ptr %5, align 4
+  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %30, i64 noundef 150, ptr noundef @.str.1, i32 noundef %31)
+  br label %224
 
-32:                                               ; preds = %14
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.sqlca_t, ptr %33, i32 0, i32 3
-  %35 = getelementptr inbounds %struct.anon, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds [150 x i8], ptr %35, i64 0, i64 0
-  %37 = load i32, ptr %5, align 4
-  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %36, i64 noundef 150, ptr noundef @.str.2, i32 noundef %37)
-  br label %223
+33:                                               ; preds = %15
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.sqlca_t, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds [150 x i8], ptr %36, i64 0, i64 0
+  %38 = load i32, ptr %5, align 4
+  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %37, i64 noundef 150, ptr noundef @.str.2, i32 noundef %38)
+  br label %224
 
-39:                                               ; preds = %14
-  %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct.sqlca_t, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds %struct.anon, ptr %41, i32 0, i32 1
-  %43 = getelementptr inbounds [150 x i8], ptr %42, i64 0, i64 0
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr %5, align 4
-  %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %43, i64 noundef 150, ptr noundef @.str.3, ptr noundef %44, i32 noundef %45)
-  br label %223
+40:                                               ; preds = %15
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.sqlca_t, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds nuw %struct.anon, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds [150 x i8], ptr %43, i64 0, i64 0
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i32, ptr %5, align 4
+  %47 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %44, i64 noundef 150, ptr noundef @.str.3, ptr noundef %45, i32 noundef %46)
+  br label %224
 
-47:                                               ; preds = %14
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct.sqlca_t, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds %struct.anon, ptr %49, i32 0, i32 1
-  %51 = getelementptr inbounds [150 x i8], ptr %50, i64 0, i64 0
-  %52 = load i32, ptr %5, align 4
-  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %51, i64 noundef 150, ptr noundef @.str.4, i32 noundef %52)
-  br label %223
+48:                                               ; preds = %15
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.sqlca_t, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.anon, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [150 x i8], ptr %51, i64 0, i64 0
+  %53 = load i32, ptr %5, align 4
+  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %52, i64 noundef 150, ptr noundef @.str.4, i32 noundef %53)
+  br label %224
 
-54:                                               ; preds = %14
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.sqlca_t, ptr %55, i32 0, i32 3
-  %57 = getelementptr inbounds %struct.anon, ptr %56, i32 0, i32 1
-  %58 = getelementptr inbounds [150 x i8], ptr %57, i64 0, i64 0
-  %59 = load i32, ptr %5, align 4
-  %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %58, i64 noundef 150, ptr noundef @.str.5, i32 noundef %59)
-  br label %223
+55:                                               ; preds = %15
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds nuw %struct.sqlca_t, ptr %56, i32 0, i32 3
+  %58 = getelementptr inbounds nuw %struct.anon, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds [150 x i8], ptr %58, i64 0, i64 0
+  %60 = load i32, ptr %5, align 4
+  %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %59, i64 noundef 150, ptr noundef @.str.5, i32 noundef %60)
+  br label %224
 
-61:                                               ; preds = %14
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds %struct.sqlca_t, ptr %62, i32 0, i32 3
-  %64 = getelementptr inbounds %struct.anon, ptr %63, i32 0, i32 1
-  %65 = getelementptr inbounds [150 x i8], ptr %64, i64 0, i64 0
-  %66 = load ptr, ptr %8, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %65, i64 noundef 150, ptr noundef @.str.6, ptr noundef %66, i32 noundef %67)
-  br label %223
+62:                                               ; preds = %15
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.sqlca_t, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.anon, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds [150 x i8], ptr %65, i64 0, i64 0
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %66, i64 noundef 150, ptr noundef @.str.6, ptr noundef %67, i32 noundef %68)
+  br label %224
 
-69:                                               ; preds = %14
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.sqlca_t, ptr %70, i32 0, i32 3
-  %72 = getelementptr inbounds %struct.anon, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds [150 x i8], ptr %72, i64 0, i64 0
-  %74 = load ptr, ptr %8, align 8
-  %75 = load i32, ptr %5, align 4
-  %76 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %73, i64 noundef 150, ptr noundef @.str.7, ptr noundef %74, i32 noundef %75)
-  br label %223
+70:                                               ; preds = %15
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds nuw %struct.sqlca_t, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct.anon, ptr %72, i32 0, i32 1
+  %74 = getelementptr inbounds [150 x i8], ptr %73, i64 0, i64 0
+  %75 = load ptr, ptr %8, align 8
+  %76 = load i32, ptr %5, align 4
+  %77 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %74, i64 noundef 150, ptr noundef @.str.7, ptr noundef %75, i32 noundef %76)
+  br label %224
 
-77:                                               ; preds = %14
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds %struct.sqlca_t, ptr %78, i32 0, i32 3
-  %80 = getelementptr inbounds %struct.anon, ptr %79, i32 0, i32 1
-  %81 = getelementptr inbounds [150 x i8], ptr %80, i64 0, i64 0
-  %82 = load ptr, ptr %8, align 8
-  %83 = load i32, ptr %5, align 4
-  %84 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %81, i64 noundef 150, ptr noundef @.str.8, ptr noundef %82, i32 noundef %83)
-  br label %223
+78:                                               ; preds = %15
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.sqlca_t, ptr %79, i32 0, i32 3
+  %81 = getelementptr inbounds nuw %struct.anon, ptr %80, i32 0, i32 1
+  %82 = getelementptr inbounds [150 x i8], ptr %81, i64 0, i64 0
+  %83 = load ptr, ptr %8, align 8
+  %84 = load i32, ptr %5, align 4
+  %85 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %82, i64 noundef 150, ptr noundef @.str.8, ptr noundef %83, i32 noundef %84)
+  br label %224
 
-85:                                               ; preds = %14
-  %86 = load ptr, ptr %8, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %96
+86:                                               ; preds = %15
+  %87 = load ptr, ptr %8, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %97
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr inbounds %struct.sqlca_t, ptr %89, i32 0, i32 3
-  %91 = getelementptr inbounds %struct.anon, ptr %90, i32 0, i32 1
-  %92 = getelementptr inbounds [150 x i8], ptr %91, i64 0, i64 0
-  %93 = load ptr, ptr %8, align 8
-  %94 = load i32, ptr %5, align 4
-  %95 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %92, i64 noundef 150, ptr noundef @.str.9, ptr noundef %93, i32 noundef %94)
-  br label %103
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds nuw %struct.sqlca_t, ptr %90, i32 0, i32 3
+  %92 = getelementptr inbounds nuw %struct.anon, ptr %91, i32 0, i32 1
+  %93 = getelementptr inbounds [150 x i8], ptr %92, i64 0, i64 0
+  %94 = load ptr, ptr %8, align 8
+  %95 = load i32, ptr %5, align 4
+  %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %93, i64 noundef 150, ptr noundef @.str.9, ptr noundef %94, i32 noundef %95)
+  br label %104
 
-96:                                               ; preds = %85
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.sqlca_t, ptr %97, i32 0, i32 3
-  %99 = getelementptr inbounds %struct.anon, ptr %98, i32 0, i32 1
-  %100 = getelementptr inbounds [150 x i8], ptr %99, i64 0, i64 0
-  %101 = load i32, ptr %5, align 4
-  %102 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %100, i64 noundef 150, ptr noundef @.str.10, i32 noundef %101)
-  br label %103
+97:                                               ; preds = %86
+  %98 = load ptr, ptr %9, align 8
+  %99 = getelementptr inbounds nuw %struct.sqlca_t, ptr %98, i32 0, i32 3
+  %100 = getelementptr inbounds nuw %struct.anon, ptr %99, i32 0, i32 1
+  %101 = getelementptr inbounds [150 x i8], ptr %100, i64 0, i64 0
+  %102 = load i32, ptr %5, align 4
+  %103 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %101, i64 noundef 150, ptr noundef @.str.10, i32 noundef %102)
+  br label %104
 
-103:                                              ; preds = %96, %88
-  br label %223
+104:                                              ; preds = %97, %89
+  br label %224
 
-104:                                              ; preds = %14
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct.sqlca_t, ptr %105, i32 0, i32 3
-  %107 = getelementptr inbounds %struct.anon, ptr %106, i32 0, i32 1
-  %108 = getelementptr inbounds [150 x i8], ptr %107, i64 0, i64 0
-  %109 = load i32, ptr %5, align 4
-  %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %108, i64 noundef 150, ptr noundef @.str.11, i32 noundef %109)
-  br label %223
+105:                                              ; preds = %15
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw %struct.sqlca_t, ptr %106, i32 0, i32 3
+  %108 = getelementptr inbounds nuw %struct.anon, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds [150 x i8], ptr %108, i64 0, i64 0
+  %110 = load i32, ptr %5, align 4
+  %111 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %109, i64 noundef 150, ptr noundef @.str.11, i32 noundef %110)
+  br label %224
 
-111:                                              ; preds = %14
-  %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.sqlca_t, ptr %112, i32 0, i32 3
-  %114 = getelementptr inbounds %struct.anon, ptr %113, i32 0, i32 1
-  %115 = getelementptr inbounds [150 x i8], ptr %114, i64 0, i64 0
-  %116 = load i32, ptr %5, align 4
-  %117 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %115, i64 noundef 150, ptr noundef @.str.12, i32 noundef %116)
-  br label %223
+112:                                              ; preds = %15
+  %113 = load ptr, ptr %9, align 8
+  %114 = getelementptr inbounds nuw %struct.sqlca_t, ptr %113, i32 0, i32 3
+  %115 = getelementptr inbounds nuw %struct.anon, ptr %114, i32 0, i32 1
+  %116 = getelementptr inbounds [150 x i8], ptr %115, i64 0, i64 0
+  %117 = load i32, ptr %5, align 4
+  %118 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %116, i64 noundef 150, ptr noundef @.str.12, i32 noundef %117)
+  br label %224
 
-118:                                              ; preds = %14
-  %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr inbounds %struct.sqlca_t, ptr %119, i32 0, i32 3
-  %121 = getelementptr inbounds %struct.anon, ptr %120, i32 0, i32 1
-  %122 = getelementptr inbounds [150 x i8], ptr %121, i64 0, i64 0
-  %123 = load i32, ptr %5, align 4
-  %124 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %122, i64 noundef 150, ptr noundef @.str.13, i32 noundef %123)
-  br label %223
+119:                                              ; preds = %15
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds nuw %struct.sqlca_t, ptr %120, i32 0, i32 3
+  %122 = getelementptr inbounds nuw %struct.anon, ptr %121, i32 0, i32 1
+  %123 = getelementptr inbounds [150 x i8], ptr %122, i64 0, i64 0
+  %124 = load i32, ptr %5, align 4
+  %125 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %123, i64 noundef 150, ptr noundef @.str.13, i32 noundef %124)
+  br label %224
 
-125:                                              ; preds = %14
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %struct.sqlca_t, ptr %126, i32 0, i32 3
-  %128 = getelementptr inbounds %struct.anon, ptr %127, i32 0, i32 1
-  %129 = getelementptr inbounds [150 x i8], ptr %128, i64 0, i64 0
-  %130 = load i32, ptr %5, align 4
-  %131 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %129, i64 noundef 150, ptr noundef @.str.14, i32 noundef %130)
-  br label %223
+126:                                              ; preds = %15
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds nuw %struct.sqlca_t, ptr %127, i32 0, i32 3
+  %129 = getelementptr inbounds nuw %struct.anon, ptr %128, i32 0, i32 1
+  %130 = getelementptr inbounds [150 x i8], ptr %129, i64 0, i64 0
+  %131 = load i32, ptr %5, align 4
+  %132 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %130, i64 noundef 150, ptr noundef @.str.14, i32 noundef %131)
+  br label %224
 
-132:                                              ; preds = %14
-  %133 = load ptr, ptr %9, align 8
-  %134 = getelementptr inbounds %struct.sqlca_t, ptr %133, i32 0, i32 3
-  %135 = getelementptr inbounds %struct.anon, ptr %134, i32 0, i32 1
-  %136 = getelementptr inbounds [150 x i8], ptr %135, i64 0, i64 0
-  %137 = load i32, ptr %5, align 4
-  %138 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %136, i64 noundef 150, ptr noundef @.str.15, i32 noundef %137)
-  br label %223
+133:                                              ; preds = %15
+  %134 = load ptr, ptr %9, align 8
+  %135 = getelementptr inbounds nuw %struct.sqlca_t, ptr %134, i32 0, i32 3
+  %136 = getelementptr inbounds nuw %struct.anon, ptr %135, i32 0, i32 1
+  %137 = getelementptr inbounds [150 x i8], ptr %136, i64 0, i64 0
+  %138 = load i32, ptr %5, align 4
+  %139 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %137, i64 noundef 150, ptr noundef @.str.15, i32 noundef %138)
+  br label %224
 
-139:                                              ; preds = %14
-  %140 = load ptr, ptr %9, align 8
-  %141 = getelementptr inbounds %struct.sqlca_t, ptr %140, i32 0, i32 3
-  %142 = getelementptr inbounds %struct.anon, ptr %141, i32 0, i32 1
-  %143 = getelementptr inbounds [150 x i8], ptr %142, i64 0, i64 0
-  %144 = load ptr, ptr %8, align 8
-  %145 = load i32, ptr %5, align 4
-  %146 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %143, i64 noundef 150, ptr noundef @.str.16, ptr noundef %144, i32 noundef %145)
-  br label %223
+140:                                              ; preds = %15
+  %141 = load ptr, ptr %9, align 8
+  %142 = getelementptr inbounds nuw %struct.sqlca_t, ptr %141, i32 0, i32 3
+  %143 = getelementptr inbounds nuw %struct.anon, ptr %142, i32 0, i32 1
+  %144 = getelementptr inbounds [150 x i8], ptr %143, i64 0, i64 0
+  %145 = load ptr, ptr %8, align 8
+  %146 = load i32, ptr %5, align 4
+  %147 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %144, i64 noundef 150, ptr noundef @.str.16, ptr noundef %145, i32 noundef %146)
+  br label %224
 
-147:                                              ; preds = %14
-  %148 = load ptr, ptr %9, align 8
-  %149 = getelementptr inbounds %struct.sqlca_t, ptr %148, i32 0, i32 3
-  %150 = getelementptr inbounds %struct.anon, ptr %149, i32 0, i32 1
-  %151 = getelementptr inbounds [150 x i8], ptr %150, i64 0, i64 0
-  %152 = load ptr, ptr %8, align 8
-  %153 = load i32, ptr %5, align 4
-  %154 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %151, i64 noundef 150, ptr noundef @.str.17, ptr noundef %152, i32 noundef %153)
-  br label %223
+148:                                              ; preds = %15
+  %149 = load ptr, ptr %9, align 8
+  %150 = getelementptr inbounds nuw %struct.sqlca_t, ptr %149, i32 0, i32 3
+  %151 = getelementptr inbounds nuw %struct.anon, ptr %150, i32 0, i32 1
+  %152 = getelementptr inbounds [150 x i8], ptr %151, i64 0, i64 0
+  %153 = load ptr, ptr %8, align 8
+  %154 = load i32, ptr %5, align 4
+  %155 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %152, i64 noundef 150, ptr noundef @.str.17, ptr noundef %153, i32 noundef %154)
+  br label %224
 
-155:                                              ; preds = %14
-  %156 = load ptr, ptr %9, align 8
-  %157 = getelementptr inbounds %struct.sqlca_t, ptr %156, i32 0, i32 3
-  %158 = getelementptr inbounds %struct.anon, ptr %157, i32 0, i32 1
-  %159 = getelementptr inbounds [150 x i8], ptr %158, i64 0, i64 0
-  %160 = load ptr, ptr %8, align 8
-  %161 = load i32, ptr %5, align 4
-  %162 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %159, i64 noundef 150, ptr noundef @.str.18, ptr noundef %160, i32 noundef %161)
-  br label %223
+156:                                              ; preds = %15
+  %157 = load ptr, ptr %9, align 8
+  %158 = getelementptr inbounds nuw %struct.sqlca_t, ptr %157, i32 0, i32 3
+  %159 = getelementptr inbounds nuw %struct.anon, ptr %158, i32 0, i32 1
+  %160 = getelementptr inbounds [150 x i8], ptr %159, i64 0, i64 0
+  %161 = load ptr, ptr %8, align 8
+  %162 = load i32, ptr %5, align 4
+  %163 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %160, i64 noundef 150, ptr noundef @.str.18, ptr noundef %161, i32 noundef %162)
+  br label %224
 
-163:                                              ; preds = %14
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds %struct.sqlca_t, ptr %164, i32 0, i32 3
-  %166 = getelementptr inbounds %struct.anon, ptr %165, i32 0, i32 1
-  %167 = getelementptr inbounds [150 x i8], ptr %166, i64 0, i64 0
-  %168 = load ptr, ptr %8, align 8
-  %169 = load i32, ptr %5, align 4
-  %170 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %167, i64 noundef 150, ptr noundef @.str.19, ptr noundef %168, i32 noundef %169)
-  br label %223
+164:                                              ; preds = %15
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds nuw %struct.sqlca_t, ptr %165, i32 0, i32 3
+  %167 = getelementptr inbounds nuw %struct.anon, ptr %166, i32 0, i32 1
+  %168 = getelementptr inbounds [150 x i8], ptr %167, i64 0, i64 0
+  %169 = load ptr, ptr %8, align 8
+  %170 = load i32, ptr %5, align 4
+  %171 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %168, i64 noundef 150, ptr noundef @.str.19, ptr noundef %169, i32 noundef %170)
+  br label %224
 
-171:                                              ; preds = %14
-  %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds %struct.sqlca_t, ptr %172, i32 0, i32 3
-  %174 = getelementptr inbounds %struct.anon, ptr %173, i32 0, i32 1
-  %175 = getelementptr inbounds [150 x i8], ptr %174, i64 0, i64 0
-  %176 = load i32, ptr %5, align 4
-  %177 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %175, i64 noundef 150, ptr noundef @.str.20, i32 noundef %176)
-  br label %223
+172:                                              ; preds = %15
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds nuw %struct.sqlca_t, ptr %173, i32 0, i32 3
+  %175 = getelementptr inbounds nuw %struct.anon, ptr %174, i32 0, i32 1
+  %176 = getelementptr inbounds [150 x i8], ptr %175, i64 0, i64 0
+  %177 = load i32, ptr %5, align 4
+  %178 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %176, i64 noundef 150, ptr noundef @.str.20, i32 noundef %177)
+  br label %224
 
-178:                                              ; preds = %14
-  %179 = load ptr, ptr %9, align 8
-  %180 = getelementptr inbounds %struct.sqlca_t, ptr %179, i32 0, i32 3
-  %181 = getelementptr inbounds %struct.anon, ptr %180, i32 0, i32 1
-  %182 = getelementptr inbounds [150 x i8], ptr %181, i64 0, i64 0
-  %183 = load ptr, ptr %8, align 8
-  %184 = load i32, ptr %5, align 4
-  %185 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %182, i64 noundef 150, ptr noundef @.str.21, ptr noundef %183, i32 noundef %184)
-  br label %223
+179:                                              ; preds = %15
+  %180 = load ptr, ptr %9, align 8
+  %181 = getelementptr inbounds nuw %struct.sqlca_t, ptr %180, i32 0, i32 3
+  %182 = getelementptr inbounds nuw %struct.anon, ptr %181, i32 0, i32 1
+  %183 = getelementptr inbounds [150 x i8], ptr %182, i64 0, i64 0
+  %184 = load ptr, ptr %8, align 8
+  %185 = load i32, ptr %5, align 4
+  %186 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %183, i64 noundef 150, ptr noundef @.str.21, ptr noundef %184, i32 noundef %185)
+  br label %224
 
-186:                                              ; preds = %14
-  %187 = load ptr, ptr %9, align 8
-  %188 = getelementptr inbounds %struct.sqlca_t, ptr %187, i32 0, i32 3
-  %189 = getelementptr inbounds %struct.anon, ptr %188, i32 0, i32 1
-  %190 = getelementptr inbounds [150 x i8], ptr %189, i64 0, i64 0
-  %191 = load i32, ptr %5, align 4
-  %192 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %190, i64 noundef 150, ptr noundef @.str.22, i32 noundef %191)
-  br label %223
+187:                                              ; preds = %15
+  %188 = load ptr, ptr %9, align 8
+  %189 = getelementptr inbounds nuw %struct.sqlca_t, ptr %188, i32 0, i32 3
+  %190 = getelementptr inbounds nuw %struct.anon, ptr %189, i32 0, i32 1
+  %191 = getelementptr inbounds [150 x i8], ptr %190, i64 0, i64 0
+  %192 = load i32, ptr %5, align 4
+  %193 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %191, i64 noundef 150, ptr noundef @.str.22, i32 noundef %192)
+  br label %224
 
-193:                                              ; preds = %14
-  %194 = load ptr, ptr %9, align 8
-  %195 = getelementptr inbounds %struct.sqlca_t, ptr %194, i32 0, i32 3
-  %196 = getelementptr inbounds %struct.anon, ptr %195, i32 0, i32 1
-  %197 = getelementptr inbounds [150 x i8], ptr %196, i64 0, i64 0
-  %198 = load i32, ptr %5, align 4
-  %199 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %197, i64 noundef 150, ptr noundef @.str.23, i32 noundef %198)
-  br label %223
+194:                                              ; preds = %15
+  %195 = load ptr, ptr %9, align 8
+  %196 = getelementptr inbounds nuw %struct.sqlca_t, ptr %195, i32 0, i32 3
+  %197 = getelementptr inbounds nuw %struct.anon, ptr %196, i32 0, i32 1
+  %198 = getelementptr inbounds [150 x i8], ptr %197, i64 0, i64 0
+  %199 = load i32, ptr %5, align 4
+  %200 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %198, i64 noundef 150, ptr noundef @.str.23, i32 noundef %199)
+  br label %224
 
-200:                                              ; preds = %14
-  %201 = load ptr, ptr %9, align 8
-  %202 = getelementptr inbounds %struct.sqlca_t, ptr %201, i32 0, i32 3
-  %203 = getelementptr inbounds %struct.anon, ptr %202, i32 0, i32 1
-  %204 = getelementptr inbounds [150 x i8], ptr %203, i64 0, i64 0
-  %205 = load i32, ptr %5, align 4
-  %206 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %204, i64 noundef 150, ptr noundef @.str.24, i32 noundef %205)
-  br label %223
+201:                                              ; preds = %15
+  %202 = load ptr, ptr %9, align 8
+  %203 = getelementptr inbounds nuw %struct.sqlca_t, ptr %202, i32 0, i32 3
+  %204 = getelementptr inbounds nuw %struct.anon, ptr %203, i32 0, i32 1
+  %205 = getelementptr inbounds [150 x i8], ptr %204, i64 0, i64 0
+  %206 = load i32, ptr %5, align 4
+  %207 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %205, i64 noundef 150, ptr noundef @.str.24, i32 noundef %206)
+  br label %224
 
-207:                                              ; preds = %14
-  %208 = load ptr, ptr %9, align 8
-  %209 = getelementptr inbounds %struct.sqlca_t, ptr %208, i32 0, i32 3
-  %210 = getelementptr inbounds %struct.anon, ptr %209, i32 0, i32 1
-  %211 = getelementptr inbounds [150 x i8], ptr %210, i64 0, i64 0
-  %212 = load ptr, ptr %8, align 8
-  %213 = load i32, ptr %5, align 4
-  %214 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %211, i64 noundef 150, ptr noundef @.str.25, ptr noundef %212, i32 noundef %213)
-  br label %223
+208:                                              ; preds = %15
+  %209 = load ptr, ptr %9, align 8
+  %210 = getelementptr inbounds nuw %struct.sqlca_t, ptr %209, i32 0, i32 3
+  %211 = getelementptr inbounds nuw %struct.anon, ptr %210, i32 0, i32 1
+  %212 = getelementptr inbounds [150 x i8], ptr %211, i64 0, i64 0
+  %213 = load ptr, ptr %8, align 8
+  %214 = load i32, ptr %5, align 4
+  %215 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %212, i64 noundef 150, ptr noundef @.str.25, ptr noundef %213, i32 noundef %214)
+  br label %224
 
-215:                                              ; preds = %14
-  %216 = load ptr, ptr %9, align 8
-  %217 = getelementptr inbounds %struct.sqlca_t, ptr %216, i32 0, i32 3
-  %218 = getelementptr inbounds %struct.anon, ptr %217, i32 0, i32 1
-  %219 = getelementptr inbounds [150 x i8], ptr %218, i64 0, i64 0
-  %220 = load i32, ptr %6, align 4
-  %221 = load i32, ptr %5, align 4
-  %222 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %219, i64 noundef 150, ptr noundef @.str.26, i32 noundef %220, i32 noundef %221)
-  br label %223
+216:                                              ; preds = %15
+  %217 = load ptr, ptr %9, align 8
+  %218 = getelementptr inbounds nuw %struct.sqlca_t, ptr %217, i32 0, i32 3
+  %219 = getelementptr inbounds nuw %struct.anon, ptr %218, i32 0, i32 1
+  %220 = getelementptr inbounds [150 x i8], ptr %219, i64 0, i64 0
+  %221 = load i32, ptr %6, align 4
+  %222 = load i32, ptr %5, align 4
+  %223 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %220, i64 noundef 150, ptr noundef @.str.26, i32 noundef %221, i32 noundef %222)
+  br label %224
 
-223:                                              ; preds = %215, %207, %200, %193, %186, %178, %171, %163, %155, %147, %139, %132, %125, %118, %111, %104, %103, %77, %69, %61, %54, %47, %39, %32, %25
-  %224 = load ptr, ptr %9, align 8
-  %225 = getelementptr inbounds %struct.sqlca_t, ptr %224, i32 0, i32 3
-  %226 = getelementptr inbounds %struct.anon, ptr %225, i32 0, i32 1
-  %227 = getelementptr inbounds [150 x i8], ptr %226, i64 0, i64 0
-  %228 = call i64 @strlen(ptr noundef %227) #5
-  %229 = trunc i64 %228 to i32
-  %230 = load ptr, ptr %9, align 8
-  %231 = getelementptr inbounds %struct.sqlca_t, ptr %230, i32 0, i32 3
-  %232 = getelementptr inbounds %struct.anon, ptr %231, i32 0, i32 0
-  store i32 %229, ptr %232, align 8
-  %233 = load i32, ptr %6, align 4
-  %234 = load i32, ptr %5, align 4
-  %235 = load ptr, ptr %9, align 8
-  %236 = getelementptr inbounds %struct.sqlca_t, ptr %235, i32 0, i32 3
-  %237 = getelementptr inbounds %struct.anon, ptr %236, i32 0, i32 1
-  %238 = getelementptr inbounds [150 x i8], ptr %237, i64 0, i64 0
-  call void (ptr, ...) @ecpg_log(ptr noundef @.str.27, i32 noundef %233, i32 noundef %234, ptr noundef %238)
+224:                                              ; preds = %216, %208, %201, %194, %187, %179, %172, %164, %156, %148, %140, %133, %126, %119, %112, %105, %104, %78, %70, %62, %55, %48, %40, %33, %26
+  %225 = load ptr, ptr %9, align 8
+  %226 = getelementptr inbounds nuw %struct.sqlca_t, ptr %225, i32 0, i32 3
+  %227 = getelementptr inbounds nuw %struct.anon, ptr %226, i32 0, i32 1
+  %228 = getelementptr inbounds [150 x i8], ptr %227, i64 0, i64 0
+  %229 = call i64 @strlen(ptr noundef %228) #6
+  %230 = trunc i64 %229 to i32
+  %231 = load ptr, ptr %9, align 8
+  %232 = getelementptr inbounds nuw %struct.sqlca_t, ptr %231, i32 0, i32 3
+  %233 = getelementptr inbounds nuw %struct.anon, ptr %232, i32 0, i32 0
+  store i32 %230, ptr %233, align 8
+  %234 = load i32, ptr %6, align 4
+  %235 = load i32, ptr %5, align 4
+  %236 = load ptr, ptr %9, align 8
+  %237 = getelementptr inbounds nuw %struct.sqlca_t, ptr %236, i32 0, i32 3
+  %238 = getelementptr inbounds nuw %struct.anon, ptr %237, i32 0, i32 1
+  %239 = getelementptr inbounds [150 x i8], ptr %238, i64 0, i64 0
+  call void (ptr, ...) @ecpg_log(ptr noundef @.str.27, i32 noundef %234, i32 noundef %235, ptr noundef %239)
   call void @ECPGfree_auto_mem()
-  br label %239
+  store i32 0, ptr %10, align 4
+  br label %240
 
-239:                                              ; preds = %223, %13
+240:                                              ; preds = %224, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %241 = load i32, ptr %10, align 4
+  switch i32 %241, label %243 [
+    i32 0, label %242
+    i32 1, label %242
+  ]
+
+242:                                              ; preds = %240, %240
   ret void
+
+243:                                              ; preds = %240
+  unreachable
 }
 
-declare ptr @ECPGget_sqlca() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ecpg_log(ptr noundef, ...) #1
+declare ptr @ECPGget_sqlca() #2
 
-declare void @ECPGfree_auto_mem() #1
+declare void @ecpg_log(ptr noundef, ...) #2
+
+declare void @ECPGfree_auto_mem() #2
 
 ; Function Attrs: nounwind
-declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @ecpg_raise_backend(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -409,182 +430,201 @@ define void @ecpg_raise_backend(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %12 = call ptr @ECPGget_sqlca()
-  store ptr %12, ptr %9, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %4
-  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
-  call void @ECPGfree_auto_mem()
-  br label %112
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %13 = call ptr @ECPGget_sqlca()
+  store ptr %13, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %14 = load ptr, ptr %9, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr %6, align 8
-  %18 = call ptr @PQresultErrorField(ptr noundef %17, i32 noundef 67)
-  store ptr %18, ptr %10, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
+  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
+  call void @ECPGfree_auto_mem()
+  store i32 1, ptr %12, align 4
+  br label %113
 
-21:                                               ; preds = %16
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %6, align 8
+  %19 = call ptr @PQresultErrorField(ptr noundef %18, i32 noundef 67)
+  store ptr %19, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %17
   store ptr @.str.28, ptr %10, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = call ptr @PQresultErrorField(ptr noundef %23, i32 noundef 77)
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %30
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr %6, align 8
+  %25 = call ptr @PQresultErrorField(ptr noundef %24, i32 noundef 77)
+  store ptr %25, ptr %11, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %7, align 8
-  %29 = call ptr @PQerrorMessage(ptr noundef %28)
-  store ptr %29, ptr %11, align 8
-  br label %30
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %7, align 8
+  %30 = call ptr @PQerrorMessage(ptr noundef %29)
+  store ptr %30, ptr %11, align 8
+  br label %31
 
-30:                                               ; preds = %27, %22
-  %31 = load ptr, ptr %10, align 8
-  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.28) #5
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %40
+31:                                               ; preds = %28, %23
+  %32 = load ptr, ptr %10, align 8
+  %33 = call i32 @strcmp(ptr noundef %32, ptr noundef @.str.28) #6
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %41
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %7, align 8
-  %36 = call i32 @PQstatus(ptr noundef %35)
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %39
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %7, align 8
+  %37 = call i32 @PQstatus(ptr noundef %36)
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   store ptr @.str.29, ptr %10, align 8
   store ptr @.str.30, ptr %11, align 8
-  br label %39
-
-39:                                               ; preds = %38, %34
   br label %40
 
-40:                                               ; preds = %39, %30
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct.sqlca_t, ptr %41, i32 0, i32 3
-  %43 = getelementptr inbounds %struct.anon, ptr %42, i32 0, i32 1
-  %44 = getelementptr inbounds [150 x i8], ptr %43, i64 0, i64 0
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr %5, align 4
-  %47 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %44, i64 noundef 150, ptr noundef @.str.31, ptr noundef %45, i32 noundef %46)
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct.sqlca_t, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds %struct.anon, ptr %49, i32 0, i32 1
-  %51 = getelementptr inbounds [150 x i8], ptr %50, i64 0, i64 0
-  %52 = call i64 @strlen(ptr noundef %51) #5
-  %53 = trunc i64 %52 to i32
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct.sqlca_t, ptr %54, i32 0, i32 3
-  %56 = getelementptr inbounds %struct.anon, ptr %55, i32 0, i32 0
-  store i32 %53, ptr %56, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.sqlca_t, ptr %57, i32 0, i32 7
-  %59 = getelementptr inbounds [5 x i8], ptr %58, i64 0, i64 0
-  %60 = load ptr, ptr %10, align 8
-  %61 = call ptr @strncpy(ptr noundef %59, ptr noundef %60, i64 noundef 5) #4
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds %struct.sqlca_t, ptr %62, i32 0, i32 7
-  %64 = getelementptr inbounds [5 x i8], ptr %63, i64 0, i64 0
-  %65 = call i32 @strncmp(ptr noundef %64, ptr noundef @.str.32, i64 noundef 5) #5
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %79
+40:                                               ; preds = %39, %35
+  br label %41
 
-67:                                               ; preds = %40
-  %68 = load i32, ptr %8, align 4
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %73, label %70
+41:                                               ; preds = %40, %31
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.sqlca_t, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds nuw %struct.anon, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds [150 x i8], ptr %44, i64 0, i64 0
+  %46 = load ptr, ptr %11, align 8
+  %47 = load i32, ptr %5, align 4
+  %48 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %45, i64 noundef 150, ptr noundef @.str.31, ptr noundef %46, i32 noundef %47)
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.sqlca_t, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.anon, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [150 x i8], ptr %51, i64 0, i64 0
+  %53 = call i64 @strlen(ptr noundef %52) #6
+  %54 = trunc i64 %53 to i32
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds nuw %struct.sqlca_t, ptr %55, i32 0, i32 3
+  %57 = getelementptr inbounds nuw %struct.anon, ptr %56, i32 0, i32 0
+  store i32 %54, ptr %57, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = getelementptr inbounds nuw %struct.sqlca_t, ptr %58, i32 0, i32 7
+  %60 = getelementptr inbounds [5 x i8], ptr %59, i64 0, i64 0
+  %61 = load ptr, ptr %10, align 8
+  %62 = call ptr @strncpy(ptr noundef %60, ptr noundef %61, i64 noundef 5) #5
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.sqlca_t, ptr %63, i32 0, i32 7
+  %65 = getelementptr inbounds [5 x i8], ptr %64, i64 0, i64 0
+  %66 = call i32 @strncmp(ptr noundef %65, ptr noundef @.str.32, i64 noundef 5) #6
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %80
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %8, align 4
-  %72 = icmp eq i32 %71, 2
-  br label %73
+68:                                               ; preds = %41
+  %69 = load i32, ptr %8, align 4
+  %70 = icmp eq i32 %69, 1
+  br i1 %70, label %74, label %71
 
-73:                                               ; preds = %70, %67
-  %74 = phi i1 [ true, %67 ], [ %72, %70 ]
-  %75 = select i1 %74, i32 -239, i32 -403
-  %76 = sext i32 %75 to i64
-  %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds %struct.sqlca_t, ptr %77, i32 0, i32 2
-  store i64 %76, ptr %78, align 8
+71:                                               ; preds = %68
+  %72 = load i32, ptr %8, align 4
+  %73 = icmp eq i32 %72, 2
+  br label %74
+
+74:                                               ; preds = %71, %68
+  %75 = phi i1 [ true, %68 ], [ %73, %71 ]
+  %76 = select i1 %75, i32 -239, i32 -403
+  %77 = sext i32 %76 to i64
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw %struct.sqlca_t, ptr %78, i32 0, i32 2
+  store i64 %77, ptr %79, align 8
+  br label %102
+
+80:                                               ; preds = %41
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw %struct.sqlca_t, ptr %81, i32 0, i32 7
+  %83 = getelementptr inbounds [5 x i8], ptr %82, i64 0, i64 0
+  %84 = call i32 @strncmp(ptr noundef %83, ptr noundef @.str.33, i64 noundef 5) #6
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %98
+
+86:                                               ; preds = %80
+  %87 = load i32, ptr %8, align 4
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %92, label %89
+
+89:                                               ; preds = %86
+  %90 = load i32, ptr %8, align 4
+  %91 = icmp eq i32 %90, 2
+  br label %92
+
+92:                                               ; preds = %89, %86
+  %93 = phi i1 [ true, %86 ], [ %91, %89 ]
+  %94 = select i1 %93, i32 -284, i32 -404
+  %95 = sext i32 %94 to i64
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds nuw %struct.sqlca_t, ptr %96, i32 0, i32 2
+  store i64 %95, ptr %97, align 8
   br label %101
 
-79:                                               ; preds = %40
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct.sqlca_t, ptr %80, i32 0, i32 7
-  %82 = getelementptr inbounds [5 x i8], ptr %81, i64 0, i64 0
-  %83 = call i32 @strncmp(ptr noundef %82, ptr noundef @.str.33, i64 noundef 5) #5
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %97
-
-85:                                               ; preds = %79
-  %86 = load i32, ptr %8, align 4
-  %87 = icmp eq i32 %86, 1
-  br i1 %87, label %91, label %88
-
-88:                                               ; preds = %85
-  %89 = load i32, ptr %8, align 4
-  %90 = icmp eq i32 %89, 2
-  br label %91
-
-91:                                               ; preds = %88, %85
-  %92 = phi i1 [ true, %85 ], [ %90, %88 ]
-  %93 = select i1 %92, i32 -284, i32 -404
-  %94 = sext i32 %93 to i64
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.sqlca_t, ptr %95, i32 0, i32 2
-  store i64 %94, ptr %96, align 8
-  br label %100
-
-97:                                               ; preds = %79
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds %struct.sqlca_t, ptr %98, i32 0, i32 2
-  store i64 -400, ptr %99, align 8
-  br label %100
-
-100:                                              ; preds = %97, %91
+98:                                               ; preds = %80
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds nuw %struct.sqlca_t, ptr %99, i32 0, i32 2
+  store i64 -400, ptr %100, align 8
   br label %101
 
-101:                                              ; preds = %100, %73
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds %struct.sqlca_t, ptr %102, i32 0, i32 7
-  %104 = getelementptr inbounds [5 x i8], ptr %103, i64 0, i64 0
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct.sqlca_t, ptr %105, i32 0, i32 2
-  %107 = load i64, ptr %106, align 8
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.sqlca_t, ptr %108, i32 0, i32 3
-  %110 = getelementptr inbounds %struct.anon, ptr %109, i32 0, i32 1
-  %111 = getelementptr inbounds [150 x i8], ptr %110, i64 0, i64 0
-  call void (ptr, ...) @ecpg_log(ptr noundef @.str.34, i32 noundef 5, ptr noundef %104, i64 noundef %107, ptr noundef %111)
+101:                                              ; preds = %98, %92
+  br label %102
+
+102:                                              ; preds = %101, %74
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds nuw %struct.sqlca_t, ptr %103, i32 0, i32 7
+  %105 = getelementptr inbounds [5 x i8], ptr %104, i64 0, i64 0
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw %struct.sqlca_t, ptr %106, i32 0, i32 2
+  %108 = load i64, ptr %107, align 8
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds nuw %struct.sqlca_t, ptr %109, i32 0, i32 3
+  %111 = getelementptr inbounds nuw %struct.anon, ptr %110, i32 0, i32 1
+  %112 = getelementptr inbounds [150 x i8], ptr %111, i64 0, i64 0
+  call void (ptr, ...) @ecpg_log(ptr noundef @.str.34, i32 noundef 5, ptr noundef %105, i64 noundef %108, ptr noundef %112)
   call void @ECPGfree_auto_mem()
-  br label %112
+  store i32 0, ptr %12, align 4
+  br label %113
 
-112:                                              ; preds = %101, %15
+113:                                              ; preds = %102, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %114 = load i32, ptr %12, align 4
+  switch i32 %114, label %116 [
+    i32 0, label %115
+    i32 1, label %115
+  ]
+
+115:                                              ; preds = %113, %113
   ret void
+
+116:                                              ; preds = %113
+  unreachable
 }
 
-declare ptr @PQresultErrorField(ptr noundef, i32 noundef) #1
+declare ptr @PQresultErrorField(ptr noundef, i32 noundef) #2
 
-declare ptr @PQerrorMessage(ptr noundef) #1
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
-
-declare i32 @PQstatus(ptr noundef) #1
+declare ptr @PQerrorMessage(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
+
+declare i32 @PQstatus(ptr noundef) #2
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ecpg_check_PQresult(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -690,62 +730,77 @@ define zeroext i1 @ecpg_check_PQresult(ptr noundef %0, i32 noundef %1, ptr nound
   ret i1 %50
 }
 
-declare i32 @PQresultStatus(ptr noundef) #1
+declare i32 @PQresultStatus(ptr noundef) #2
 
-declare void @PQclear(ptr noundef) #1
+declare void @PQclear(ptr noundef) #2
 
-declare ptr @PQresultErrorMessage(ptr noundef) #1
+declare ptr @PQresultErrorMessage(ptr noundef) #2
 
-declare i32 @PQendcopy(ptr noundef) #1
+declare i32 @PQendcopy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @sqlprint() #0 {
   %1 = alloca ptr, align 8
-  %2 = call ptr @ECPGget_sqlca()
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %0
-  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
-  br label %22
+  %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
+  %3 = call ptr @ECPGget_sqlca()
+  store ptr %3, ptr %1, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds %struct.sqlca_t, ptr %7, i32 0, i32 3
-  %9 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds %struct.sqlca_t, ptr %10, i32 0, i32 3
-  %12 = getelementptr inbounds %struct.anon, ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [150 x i8], ptr %9, i64 0, i64 %14
-  store i8 0, ptr %15, align 1
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds %struct.sqlca_t, ptr %17, i32 0, i32 3
-  %19 = getelementptr inbounds %struct.anon, ptr %18, i32 0, i32 1
-  %20 = getelementptr inbounds [150 x i8], ptr %19, i64 0, i64 0
-  %21 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %16, ptr noundef @.str.39, ptr noundef %20)
-  br label %22
+  call void (ptr, ...) @ecpg_log(ptr noundef @.str)
+  store i32 1, ptr %2, align 4
+  br label %23
 
-22:                                               ; preds = %6, %5
+7:                                                ; preds = %0
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds nuw %struct.sqlca_t, ptr %8, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds nuw %struct.sqlca_t, ptr %11, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [150 x i8], ptr %10, i64 0, i64 %15
+  store i8 0, ptr %16, align 1
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr %1, align 8
+  %19 = getelementptr inbounds nuw %struct.sqlca_t, ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %19, i32 0, i32 1
+  %21 = getelementptr inbounds [150 x i8], ptr %20, i64 0, i64 0
+  %22 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %17, ptr noundef @.str.39, ptr noundef %21)
+  store i32 0, ptr %2, align 4
+  br label %23
+
+23:                                               ; preds = %7, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #5
+  %24 = load i32, ptr %2, align 4
+  switch i32 %24, label %26 [
+    i32 0, label %25
+    i32 1, label %25
+  ]
+
+25:                                               ; preds = %23, %23
   ret void
+
+26:                                               ; preds = %23
+  unreachable
 }
 
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -27,7 +27,7 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond.not, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void @free(ptr noundef nonnull %8) #4
+  tail call void @free(ptr noundef nonnull %8) #5
   store ptr null, ptr @connectDatabase.password, align 8
   br label %11
 
@@ -41,7 +41,7 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond3, label %17, label %19
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #4
+  %18 = tail call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #5
   store ptr %18, ptr @connectDatabase.password, align 8
   br label %19
 
@@ -65,6 +65,8 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
 
 35:                                               ; preds = %.critedge, %19
   %36 = phi ptr [ %62, %.critedge ], [ %20, %19 ]
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
   store ptr @.str.1, ptr %6, align 16
   %37 = load ptr, ptr %21, align 8
   store ptr %37, ptr %7, align 16
@@ -91,33 +93,33 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
 43:                                               ; preds = %42, %35
   %.0 = phi i32 [ 6, %42 ], [ 5, %35 ]
   %44 = zext nneg i32 %.0 to i64
-  %45 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %44
   store ptr @.str.6, ptr %45, align 8
   %46 = add nuw nsw i32 %.0, 1
-  %47 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %44
+  %47 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %44
   store ptr %1, ptr %47, align 8
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %48
   store ptr null, ptr %49, align 8
-  %50 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %48
   store ptr null, ptr %50, align 8
-  %51 = call ptr @PQconnectdbParams(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1) #4
+  %51 = call ptr @PQconnectdbParams(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1) #5
   %.not47 = icmp eq ptr %51, null
   br i1 %.not47, label %52, label %54
 
 52:                                               ; preds = %43
   %53 = load ptr, ptr %0, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %53) #4
-  call void @exit(i32 noundef 1) #5
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %53) #5
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 54:                                               ; preds = %43
-  %55 = call i32 @PQstatus(ptr noundef nonnull %51) #4
+  %55 = call i32 @PQstatus(ptr noundef nonnull %51) #5
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
-  %58 = call i32 @PQconnectionNeedsPassword(ptr noundef nonnull %51) #4
+  %58 = call i32 @PQconnectionNeedsPassword(ptr noundef nonnull %51) #5
   %.not48 = icmp eq i32 %58, 0
   br i1 %.not48, label %63, label %59
 
@@ -127,15 +129,19 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   br i1 %.not49, label %63, label %.critedge
 
 .critedge:                                        ; preds = %59
-  call void @PQfinish(ptr noundef nonnull %51) #4
+  call void @PQfinish(ptr noundef nonnull %51) #5
   %61 = load ptr, ptr @connectDatabase.password, align 8
-  call void @free(ptr noundef %61) #4
-  %62 = call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #4
+  call void @free(ptr noundef %61) #5
+  %62 = call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #5
   store ptr %62, ptr @connectDatabase.password, align 8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
   br label %35
 
 63:                                               ; preds = %59, %57, %54
-  %64 = call i32 @PQstatus(ptr noundef nonnull %51) #4
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  %64 = call i32 @PQstatus(ptr noundef nonnull %51) #5
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %70
 
@@ -143,18 +149,18 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   br i1 %3, label %67, label %68
 
 67:                                               ; preds = %66
-  call void @PQfinish(ptr noundef nonnull %51) #4
+  call void @PQfinish(ptr noundef nonnull %51) #5
   br label %72
 
 68:                                               ; preds = %66
-  %69 = call ptr @PQerrorMessage(ptr noundef nonnull %51) #4
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %69) #4
-  call void @exit(i32 noundef 1) #5
+  %69 = call ptr @PQerrorMessage(ptr noundef nonnull %51) #5
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %69) #5
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 70:                                               ; preds = %63
-  %71 = call ptr @executeQuery(ptr noundef nonnull %51, ptr noundef nonnull @.str.9, i1 noundef zeroext %2) #4
-  call void @PQclear(ptr noundef %71) #4
+  %71 = call ptr @executeQuery(ptr noundef nonnull %51, ptr noundef nonnull @.str.9, i1 noundef zeroext %2) #5
+  call void @PQclear(ptr noundef %71) #5
   br label %72
 
 72:                                               ; preds = %70, %67
@@ -162,29 +168,35 @@ define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, pt
   ret ptr %.043
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @PQconnectdbParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PQconnectdbParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare i32 @PQstatus(ptr noundef) local_unnamed_addr #2
+declare i32 @PQstatus(ptr noundef) local_unnamed_addr #3
 
-declare i32 @PQconnectionNeedsPassword(ptr noundef) local_unnamed_addr #2
+declare i32 @PQconnectionNeedsPassword(ptr noundef) local_unnamed_addr #3
 
-declare void @PQfinish(ptr noundef) local_unnamed_addr #2
+declare void @PQfinish(ptr noundef) local_unnamed_addr #3
 
-declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #2
+declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #3
 
-declare ptr @executeQuery(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @PQclear(ptr noundef) local_unnamed_addr #3
+
+declare ptr @executeQuery(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @connectMaintenanceDatabase(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -213,45 +225,40 @@ define dso_local ptr @connectMaintenanceDatabase(ptr noundef captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @disconnectDatabase(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca [256 x i8], align 16
-  %3 = tail call i32 @PQtransactionStatus(ptr noundef %0) #4
-  %4 = icmp eq i32 %3, 1
-  br i1 %4, label %5, label %9
+  %2 = tail call i32 @PQtransactionStatus(ptr noundef %0) #5
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %4, label %7
 
-5:                                                ; preds = %1
-  %6 = tail call ptr @PQgetCancel(ptr noundef %0) #4
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %9, label %7
+4:                                                ; preds = %1
+  %5 = tail call ptr @PQcancelCreate(ptr noundef %0) #5
+  %6 = tail call i32 @PQcancelBlocking(ptr noundef %5) #5
+  tail call void @PQcancelFinish(ptr noundef %5) #5
+  br label %7
 
-7:                                                ; preds = %5
-  %8 = call i32 @PQcancel(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 256) #4
-  call void @PQfreeCancel(ptr noundef nonnull %6) #4
-  br label %9
-
-9:                                                ; preds = %5, %7, %1
-  call void @PQfinish(ptr noundef %0) #4
+7:                                                ; preds = %4, %1
+  tail call void @PQfinish(ptr noundef %0) #5
   ret void
 }
 
-declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #2
+declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #3
 
-declare ptr @PQgetCancel(ptr noundef) local_unnamed_addr #2
+declare ptr @PQcancelCreate(ptr noundef) local_unnamed_addr #3
 
-declare i32 @PQcancel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQcancelBlocking(ptr noundef) local_unnamed_addr #3
 
-declare void @PQfreeCancel(ptr noundef) local_unnamed_addr #2
+declare void @PQcancelFinish(ptr noundef) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { cold noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

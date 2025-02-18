@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
 %struct.instr_time = type { i64 }
-%struct.WalUsage = type { i64, i64, i64 }
+%struct.WalUsage = type { i64, i64, i64, i64 }
 %struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
 %struct.timespec = type { i64, i64 }
 
@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = zext i1 %2 to i8
   %5 = sext i32 %0 to i64
-  %6 = mul nsw i64 %5, 400
+  %6 = mul nsw i64 %5, 416
   %7 = tail call ptr @palloc0(i64 noundef %6) #13
   %8 = and i32 %1, 11
   %.not = icmp eq i32 %8, 0
@@ -47,7 +47,7 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr %struct.Instrumentation, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.Instrumentation, ptr %7, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %12, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 2
@@ -57,17 +57,23 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
   store i8 %4, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %3
   ret ptr %7
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InstrInit(ptr noundef writeonly captures(none) initializes((0, 400)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
+define dso_local void @InstrInit(ptr noundef writeonly captures(none) initializes((0, 416)) %0, i32 noundef %1) local_unnamed_addr #3 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, i8 0, i64 416, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = trunc i32 %1 to i8
   %5 = lshr i8 %4, 1
@@ -83,13 +89,13 @@ define dso_local void @InstrInit(ptr noundef writeonly captures(none) initialize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
-  %3 = load i8, ptr %0, align 8
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %0, align 8, !range !6, !noundef !7
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
@@ -99,14 +105,14 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
   %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #13
   %11 = load i64, ptr %2, align 8
   %12 = mul i64 %11, 1000000000
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
   store i64 %15, ptr %6, align 8
   br label %19
 
@@ -119,8 +125,8 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 
 19:                                               ; preds = %9, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
@@ -130,13 +136,13 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 
 25:                                               ; preds = %23, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i8, ptr %26, align 2
-  %28 = trunc i8 %27 to i1
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) @pgWalUsage, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) @pgWalUsage, i64 32, i1 false)
   br label %31
 
 31:                                               ; preds = %29, %25
@@ -144,14 +150,14 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
@@ -160,8 +166,8 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
   %5 = load double, ptr %4, align 8
   %6 = fadd double %1, %5
   store double %6, ptr %4, align 8
-  %7 = load i8, ptr %0, align 8
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %0, align 8, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %28
 
 9:                                                ; preds = %2
@@ -178,14 +184,14 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
   unreachable
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
   %18 = load i64, ptr %3, align 8
   %19 = mul i64 %18, 1000000000
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %19, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   %23 = load i64, ptr %10, align 8
   %24 = sub i64 %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -197,30 +203,30 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
 
 28:                                               ; preds = %16, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @BufferUsageAccumDiff(ptr noundef nonnull %33, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %34)
   br label %35
 
 35:                                               ; preds = %32, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %37 = load i8, ptr %36, align 2
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %61
+  %37 = load i8, ptr %36, align 2, !range !6, !noundef !7
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %68
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load i64, ptr %43, align 8
   %45 = sub i64 %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %45, %47
   store i64 %48, ptr %46, align 8
@@ -234,45 +240,53 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load i64, ptr %55, align 8
   %57 = sub i64 %54, %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %57, %59
   store i64 %60, ptr %58, align 8
-  br label %61
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 24), align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %63 = load i64, ptr %62, align 8
+  %64 = sub i64 %61, %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %64, %66
+  store i64 %67, ptr %65, align 8
+  br label %68
 
-61:                                               ; preds = %39, %35
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %63 = load i8, ptr %62, align 4
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %66, label %65
+68:                                               ; preds = %39, %35
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %70 = load i8, ptr %69, align 4, !range !6, !noundef !7
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %73, label %72
 
-65:                                               ; preds = %61
-  store i8 1, ptr %62, align 4
+72:                                               ; preds = %68
+  store i8 1, ptr %69, align 4
   br label %.sink.split
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %68 = load i8, ptr %67, align 1
-  %69 = trunc i8 %68 to i1
-  %70 = fcmp olt double %5, 1.000000e+00
-  %or.cond = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond, label %.sink.split, label %76
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc nuw i8 %75 to i1
+  %77 = fcmp olt double %5, 1.000000e+00
+  %or.cond = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond, label %.sink.split, label %83
 
-.sink.split:                                      ; preds = %66, %65
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = sitofp i64 %72 to double
-  %74 = fdiv double %73, 1.000000e+09
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %74, ptr %75, align 8
-  br label %76
+.sink.split:                                      ; preds = %73, %72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = load i64, ptr %78, align 8
+  %80 = sitofp i64 %79 to double
+  %81 = fdiv double %80, 1.000000e+09
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %81, ptr %82, align 8
+  br label %83
 
-76:                                               ; preds = %.sink.split, %66
+83:                                               ; preds = %.sink.split, %73
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @BufferUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local void @BufferUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   %6 = sub i64 %4, %5
@@ -418,7 +432,7 @@ define dso_local void @BufferUsageAccumDiff(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @WalUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local void @WalUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -443,11 +457,20 @@ define dso_local void @WalUsageAccumDiff(ptr noundef captures(none) %0, ptr noun
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %21, %23
   store i64 %24, ptr %22, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %28 = load i64, ptr %27, align 8
+  %29 = sub i64 %26, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %29, %31
+  store i64 %32, ptr %30, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InstrUpdateTupleCount(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #6 {
+define dso_local void @InstrUpdateTupleCount(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
   %5 = fadd double %1, %4
@@ -458,8 +481,8 @@ define dso_local void @InstrUpdateTupleCount(ptr noundef captures(none) %0, doub
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 4
-  %4 = trunc i8 %3 to i1
+  %3 = load i8, ptr %2, align 4, !range !6, !noundef !7
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %33
 
 5:                                                ; preds = %1
@@ -482,21 +505,21 @@ define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed
   %16 = fdiv double %15, 1.000000e+09
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
   store double %21, ptr %19, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %23 = load double, ptr %22, align 8
   %24 = fadd double %16, %23
   store double %24, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %28 = load double, ptr %27, align 8
   %29 = fadd double %26, %28
   store double %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = load double, ptr %30, align 8
   %32 = fadd double %31, 1.000000e+00
   store double %32, ptr %30, align 8
@@ -509,13 +532,13 @@ define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i8, ptr %3, align 4
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr %3, align 4, !range !6, !noundef !7
+  %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i8, ptr %6, align 4
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
   br i1 %5, label %14, label %9
 
 9:                                                ; preds = %2
@@ -557,147 +580,147 @@ define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef r
   %31 = load double, ptr %30, align 8
   %32 = fadd double %29, %31
   store double %32, ptr %30, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %36 = load double, ptr %35, align 8
   %37 = fadd double %34, %36
   store double %37, ptr %35, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %41 = load double, ptr %40, align 8
   %42 = fadd double %39, %41
   store double %42, ptr %40, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %46 = load double, ptr %45, align 8
   %47 = fadd double %44, %46
   store double %47, ptr %45, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %51 = load double, ptr %50, align 8
   %52 = fadd double %49, %51
   store double %52, ptr %50, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %56 = load double, ptr %55, align 8
   %57 = fadd double %54, %56
   store double %57, ptr %55, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %61 = load double, ptr %60, align 8
   %62 = fadd double %59, %61
   store double %62, ptr %60, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %66 = load double, ptr %65, align 8
   %67 = fadd double %64, %66
   store double %67, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %69 = load i8, ptr %68, align 1
-  %70 = trunc i8 %69 to i1
+  %69 = load i8, ptr %68, align 1, !range !6, !noundef !7
+  %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %152
 
 71:                                               ; preds = %22
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %74 = load i64, ptr %73, align 8
   %75 = load i64, ptr %72, align 8
   %76 = add i64 %75, %74
   store i64 %76, ptr %72, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, %78
   store i64 %81, ptr %79, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %83
   store i64 %86, ptr %84, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %90, %88
   store i64 %91, ptr %89, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %93
   store i64 %96, ptr %94, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %98
   store i64 %101, ptr %99, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, %103
   store i64 %106, ptr %104, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %110, %108
   store i64 %111, ptr %109, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %115, %113
   store i64 %116, ptr %114, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %118
   store i64 %121, ptr %119, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %125 = load i64, ptr %124, align 8
   %126 = add i64 %125, %123
   store i64 %126, ptr %124, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %128 = load i64, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, %128
   store i64 %131, ptr %129, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %135 = load i64, ptr %134, align 8
   %136 = add i64 %135, %133
   store i64 %136, ptr %134, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %140 = load i64, ptr %139, align 8
   %141 = add i64 %140, %138
   store i64 %141, ptr %139, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %145, %143
   store i64 %146, ptr %144, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %150, %148
   store i64 %151, ptr %149, align 8
@@ -705,16 +728,16 @@ define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef r
 
 152:                                              ; preds = %71, %22
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %154 = load i8, ptr %153, align 2
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %172
+  %154 = load i8, ptr %153, align 2, !range !6, !noundef !7
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %177
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, %160
   store i64 %163, ptr %161, align 8
@@ -722,30 +745,36 @@ define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef r
   %165 = load i64, ptr %157, align 8
   %166 = add i64 %165, %164
   store i64 %166, ptr %157, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %170 = load i64, ptr %169, align 8
   %171 = add i64 %170, %168
   store i64 %171, ptr %169, align 8
-  br label %172
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %173 = load i64, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %175 = load i64, ptr %174, align 8
+  %176 = add i64 %175, %173
+  store i64 %176, ptr %174, align 8
+  br label %177
 
-172:                                              ; preds = %156, %152
+177:                                              ; preds = %156, %152
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @InstrStartParallelQuery() local_unnamed_addr #7 {
+define dso_local void @InstrStartParallelQuery() local_unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @save_pgBufferUsage, ptr noundef nonnull align 8 dereferenceable(128) @pgBufferUsage, i64 128, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @save_pgWalUsage, ptr noundef nonnull align 8 dereferenceable(24) @pgWalUsage, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @save_pgWalUsage, ptr noundef nonnull align 8 dereferenceable(32) @pgWalUsage, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @InstrEndParallelQuery(ptr noundef captures(none) initializes((0, 128)) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #8 {
+define dso_local void @InstrEndParallelQuery(ptr noundef captures(none) initializes((0, 128)) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #9 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   tail call void @BufferUsageAccumDiff(ptr noundef nonnull %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @save_pgWalUsage, i64 16), align 8
   %5 = sub i64 %3, %4
@@ -760,11 +789,16 @@ define dso_local void @InstrEndParallelQuery(ptr noundef captures(none) initiali
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 24), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @save_pgWalUsage, i64 24), align 8
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %16, ptr %17, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @InstrAccumParallelQuery(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define dso_local void @InstrAccumParallelQuery(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr @pgBufferUsage, align 8
   %5 = add i64 %4, %3
@@ -858,43 +892,43 @@ define dso_local void @InstrAccumParallelQuery(ptr noundef readonly captures(non
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   %76 = add i64 %75, %74
   store i64 %76, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %78 = load i64, ptr %77, align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 24), align 8
+  %80 = add i64 %79, %78
+  store i64 %80, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 24), align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}

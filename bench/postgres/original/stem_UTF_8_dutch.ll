@@ -1,10 +1,8 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
 %struct.SN_env = type { ptr, i32, i32, i32, i32, i32, ptr, ptr }
 
-@a_0 = internal constant [11 x %struct.among] [%struct.among { i32 0, ptr null, i32 -1, i32 6, ptr null }, %struct.among { i32 2, ptr @s_0_1, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_2, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_3, i32 0, i32 2, ptr null }, %struct.among { i32 2, ptr @s_0_4, i32 0, i32 2, ptr null }, %struct.among { i32 2, ptr @s_0_5, i32 0, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_6, i32 0, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_7, i32 0, i32 4, ptr null }, %struct.among { i32 2, ptr @s_0_8, i32 0, i32 4, ptr null }, %struct.among { i32 2, ptr @s_0_9, i32 0, i32 5, ptr null }, %struct.among { i32 2, ptr @s_0_10, i32 0, i32 5, ptr null }], align 16
 @s_0 = internal constant [1 x i8] c"a", align 1
 @s_1 = internal constant [1 x i8] c"e", align 1
 @s_2 = internal constant [1 x i8] c"i", align 1
@@ -24,20 +22,19 @@ target triple = "x86_64-pc-linux-gnu"
 @s_0_8 = internal constant [2 x i8] c"\C3\B6", align 1
 @s_0_9 = internal constant [2 x i8] c"\C3\BA", align 1
 @s_0_10 = internal constant [2 x i8] c"\C3\BC", align 1
-@a_3 = internal constant [5 x %struct.among] [%struct.among { i32 3, ptr @s_3_0, i32 -1, i32 2, ptr null }, %struct.among { i32 2, ptr @s_3_1, i32 -1, i32 3, ptr null }, %struct.among { i32 2, ptr @s_3_2, i32 -1, i32 2, ptr null }, %struct.among { i32 5, ptr @s_3_3, i32 2, i32 1, ptr null }, %struct.among { i32 1, ptr @s_3_4, i32 -1, i32 3, ptr null }], align 16
+@a_0 = internal constant [11 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 6, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_2, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_3, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_4, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_5, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_6, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_7, i32 0, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_8, i32 0, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_9, i32 0, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_10, i32 0, i32 5, ptr null }], align 16
 @s_11 = internal constant [4 x i8] c"heid", align 1
 @g_v_j = internal constant [17 x i8] c"\11C\10\01\00\00\00\00\00\00\00\00\00\00\00\00\80", align 16
 @s_12 = internal constant [4 x i8] c"heid", align 1
 @s_13 = internal constant [2 x i8] c"en", align 1
-@a_4 = internal constant [6 x %struct.among] [%struct.among { i32 3, ptr @s_4_0, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_1, i32 -1, i32 2, ptr null }, %struct.among { i32 3, ptr @s_4_2, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_4_3, i32 -1, i32 3, ptr null }, %struct.among { i32 4, ptr @s_4_4, i32 -1, i32 4, ptr null }, %struct.among { i32 3, ptr @s_4_5, i32 -1, i32 5, ptr null }], align 16
 @s_14 = internal constant [2 x i8] c"ig", align 1
 @g_v_I = internal constant [20 x i8] c"\01\00\00\11A\10\01\00\00\00\00\00\00\00\00\00\00\00\00\80", align 16
-@a_5 = internal constant [4 x %struct.among] [%struct.among { i32 2, ptr @s_5_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_5_1, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_5_2, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_5_3, i32 -1, i32 -1, ptr null }], align 16
 @s_3_0 = internal constant [3 x i8] c"ene", align 1
 @s_3_1 = internal constant [2 x i8] c"se", align 1
 @s_3_2 = internal constant [2 x i8] c"en", align 1
 @s_3_3 = internal constant [5 x i8] c"heden", align 1
 @s_3_4 = internal constant [1 x i8] c"s", align 1
+@a_3 = internal constant [5 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_0, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_1, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_2, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_3, i32 2, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_3_4, i32 -1, i32 3, ptr null }], align 16
 @s_10 = internal constant [3 x i8] c"gem", align 1
 @s_4_0 = internal constant [3 x i8] c"end", align 1
 @s_4_1 = internal constant [2 x i8] c"ig", align 1
@@ -45,19 +42,21 @@ target triple = "x86_64-pc-linux-gnu"
 @s_4_3 = internal constant [4 x i8] c"lijk", align 1
 @s_4_4 = internal constant [4 x i8] c"baar", align 1
 @s_4_5 = internal constant [3 x i8] c"bar", align 1
-@a_2 = internal constant [3 x %struct.among] [%struct.among { i32 2, ptr @s_2_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_2_1, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_2_2, i32 -1, i32 -1, ptr null }], align 16
+@a_4 = internal constant [6 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_1, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_4_3, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_4_4, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_5, i32 -1, i32 5, ptr null }], align 16
 @s_2_0 = internal constant [2 x i8] c"dd", align 1
 @s_2_1 = internal constant [2 x i8] c"kk", align 1
 @s_2_2 = internal constant [2 x i8] c"tt", align 1
+@a_2 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_1, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_2, i32 -1, i32 -1, ptr null }], align 16
 @s_5_0 = internal constant [2 x i8] c"aa", align 1
 @s_5_1 = internal constant [2 x i8] c"ee", align 1
 @s_5_2 = internal constant [2 x i8] c"oo", align 1
 @s_5_3 = internal constant [2 x i8] c"uu", align 1
-@a_1 = internal constant [3 x %struct.among] [%struct.among { i32 0, ptr null, i32 -1, i32 3, ptr null }, %struct.among { i32 1, ptr @s_1_1, i32 0, i32 2, ptr null }, %struct.among { i32 1, ptr @s_1_2, i32 0, i32 1, ptr null }], align 16
+@a_5 = internal constant [4 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_5_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_5_1, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_5_2, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_5_3, i32 -1, i32 -1, ptr null }], align 16
 @s_8 = internal constant [1 x i8] c"y", align 1
 @s_9 = internal constant [1 x i8] c"i", align 1
 @s_1_1 = internal constant [1 x i8] c"I", align 1
 @s_1_2 = internal constant [1 x i8] c"Y", align 1
+@a_1 = internal constant [3 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_1_1, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_1_2, i32 0, i32 1, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dutch_UTF_8_stem(ptr noundef %0) #0 {
@@ -70,108 +69,207 @@ define hidden i32 @dutch_UTF_8_stem(ptr noundef %0) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.SN_env, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  store i32 %13, ptr %4, align 4
-  %14 = load ptr, ptr %3, align 8
-  %15 = call i32 @r_prelude(ptr noundef %14)
-  store i32 %15, ptr %5, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.SN_env, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  store i32 %14, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %15 = load ptr, ptr %3, align 8
+  %16 = call i32 @r_prelude(ptr noundef %15)
+  store i32 %16, ptr %5, align 4
+  %17 = load i32, ptr %5, align 4
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %1
-  %19 = load i32, ptr %5, align 4
-  store i32 %19, ptr %2, align 4
-  br label %72
+19:                                               ; preds = %1
+  %20 = load i32, ptr %5, align 4
+  store i32 %20, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %22
 
-20:                                               ; preds = %1
-  %21 = load i32, ptr %4, align 4
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.SN_env, ptr %22, i32 0, i32 1
-  store i32 %21, ptr %23, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.SN_env, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 8
-  store i32 %26, ptr %6, align 4
-  %27 = load ptr, ptr %3, align 8
-  %28 = call i32 @r_mark_regions(ptr noundef %27)
-  store i32 %28, ptr %7, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %33
+21:                                               ; preds = %1
+  store i32 0, ptr %6, align 4
+  br label %22
 
-31:                                               ; preds = %20
-  %32 = load i32, ptr %7, align 4
-  store i32 %32, ptr %2, align 4
-  br label %72
+22:                                               ; preds = %21, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  %23 = load i32, ptr %6, align 4
+  switch i32 %23, label %28 [
+    i32 0, label %24
+  ]
 
-33:                                               ; preds = %20
-  %34 = load i32, ptr %6, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.SN_env, ptr %35, i32 0, i32 1
-  store i32 %34, ptr %36, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.SN_env, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.SN_env, ptr %40, i32 0, i32 3
-  store i32 %39, ptr %41, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.SN_env, ptr %42, i32 0, i32 2
-  %44 = load i32, ptr %43, align 4
+24:                                               ; preds = %22
+  %25 = load i32, ptr %4, align 4
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.SN_env, ptr %26, i32 0, i32 1
+  store i32 %25, ptr %27, align 8
+  store i32 0, ptr %6, align 4
+  br label %28
+
+28:                                               ; preds = %24, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %29 = load i32, ptr %6, align 4
+  switch i32 %29, label %96 [
+    i32 0, label %30
+    i32 1, label %94
+  ]
+
+30:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.SN_env, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  store i32 %33, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %34 = load ptr, ptr %3, align 8
+  %35 = call i32 @r_mark_regions(ptr noundef %34)
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %30
+  %39 = load i32, ptr %8, align 4
+  store i32 %39, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
+
+40:                                               ; preds = %30
+  store i32 0, ptr %6, align 4
+  br label %41
+
+41:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %42 = load i32, ptr %6, align 4
+  switch i32 %42, label %47 [
+    i32 0, label %43
+  ]
+
+43:                                               ; preds = %41
+  %44 = load i32, ptr %7, align 4
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.SN_env, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.SN_env, ptr %45, i32 0, i32 1
   store i32 %44, ptr %46, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = call i32 @r_standard_suffix(ptr noundef %47)
-  store i32 %48, ptr %8, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %53
+  store i32 0, ptr %6, align 4
+  br label %47
 
-51:                                               ; preds = %33
-  %52 = load i32, ptr %8, align 4
-  store i32 %52, ptr %2, align 4
-  br label %72
+47:                                               ; preds = %43, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %48 = load i32, ptr %6, align 4
+  switch i32 %48, label %96 [
+    i32 0, label %49
+    i32 1, label %94
+  ]
 
-53:                                               ; preds = %33
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.SN_env, ptr %54, i32 0, i32 3
-  %56 = load i32, ptr %55, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.SN_env, ptr %57, i32 0, i32 1
-  store i32 %56, ptr %58, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.SN_env, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 8
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.SN_env, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.SN_env, ptr %53, i32 0, i32 3
+  store i32 %52, ptr %54, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds nuw %struct.SN_env, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 4
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.SN_env, ptr %58, i32 0, i32 1
+  store i32 %57, ptr %59, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %60 = load ptr, ptr %3, align 8
+  %61 = call i32 @r_standard_suffix(ptr noundef %60)
   store i32 %61, ptr %9, align 4
-  %62 = load ptr, ptr %3, align 8
-  %63 = call i32 @r_postlude(ptr noundef %62)
-  store i32 %63, ptr %10, align 4
-  %64 = load i32, ptr %10, align 4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %68
+  %62 = load i32, ptr %9, align 4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %66
 
-66:                                               ; preds = %53
-  %67 = load i32, ptr %10, align 4
-  store i32 %67, ptr %2, align 4
-  br label %72
+64:                                               ; preds = %49
+  %65 = load i32, ptr %9, align 4
+  store i32 %65, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %67
 
-68:                                               ; preds = %53
-  %69 = load i32, ptr %9, align 4
+66:                                               ; preds = %49
+  store i32 0, ptr %6, align 4
+  br label %67
+
+67:                                               ; preds = %66, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %68 = load i32, ptr %6, align 4
+  switch i32 %68, label %96 [
+    i32 0, label %69
+    i32 1, label %94
+  ]
+
+69:                                               ; preds = %67
   %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.SN_env, ptr %70, i32 0, i32 1
-  store i32 %69, ptr %71, align 8
-  store i32 1, ptr %2, align 4
-  br label %72
+  %71 = getelementptr inbounds nuw %struct.SN_env, ptr %70, i32 0, i32 3
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.SN_env, ptr %73, i32 0, i32 1
+  store i32 %72, ptr %74, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.SN_env, ptr %75, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  store i32 %77, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %78 = load ptr, ptr %3, align 8
+  %79 = call i32 @r_postlude(ptr noundef %78)
+  store i32 %79, ptr %11, align 4
+  %80 = load i32, ptr %11, align 4
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %84
 
-72:                                               ; preds = %68, %66, %51, %31, %18
-  %73 = load i32, ptr %2, align 4
-  ret i32 %73
+82:                                               ; preds = %69
+  %83 = load i32, ptr %11, align 4
+  store i32 %83, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %85
+
+84:                                               ; preds = %69
+  store i32 0, ptr %6, align 4
+  br label %85
+
+85:                                               ; preds = %84, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %86 = load i32, ptr %6, align 4
+  switch i32 %86, label %91 [
+    i32 0, label %87
+  ]
+
+87:                                               ; preds = %85
+  %88 = load i32, ptr %10, align 4
+  %89 = load ptr, ptr %3, align 8
+  %90 = getelementptr inbounds nuw %struct.SN_env, ptr %89, i32 0, i32 1
+  store i32 %88, ptr %90, align 8
+  store i32 0, ptr %6, align 4
+  br label %91
+
+91:                                               ; preds = %87, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %92 = load i32, ptr %6, align 4
+  switch i32 %92, label %96 [
+    i32 0, label %93
+    i32 1, label %94
+  ]
+
+93:                                               ; preds = %91
+  store i32 1, ptr %2, align 4
+  br label %94
+
+94:                                               ; preds = %93, %91, %67, %47, %28
+  %95 = load i32, ptr %2, align 4
+  ret i32 %95
+
+96:                                               ; preds = %91, %67, %47, %28
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_prelude(ptr noundef %0) #0 {
@@ -194,154 +292,172 @@ define internal i32 @r_prelude(ptr noundef %0) #0 {
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.SN_env, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %5, align 4
-  br label %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.SN_env, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  store i32 %24, ptr %5, align 4
+  br label %25
 
-24:                                               ; preds = %144, %1
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.SN_env, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %6, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.SN_env, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.SN_env, ptr %31, i32 0, i32 4
-  store i32 %30, ptr %32, align 4
+25:                                               ; preds = %169, %1
+  br label %26
+
+26:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.SN_env, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %6, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.SN_env, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.SN_env, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 8
-  %36 = add i32 %35, 1
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.SN_env, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp sge i32 %36, %39
-  br i1 %40, label %71, label %41
+  %34 = getelementptr inbounds nuw %struct.SN_env, ptr %33, i32 0, i32 4
+  store i32 %32, ptr %34, align 4
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds nuw %struct.SN_env, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = add i32 %37, 1
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.SN_env, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sge i32 %38, %41
+  br i1 %42, label %73, label %43
 
-41:                                               ; preds = %24
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.SN_env, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.SN_env, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 8
-  %48 = add i32 %47, 1
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr i8, ptr %44, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = ashr i32 %52, 5
-  %54 = icmp ne i32 %53, 5
-  br i1 %54, label %71, label %55
+43:                                               ; preds = %26
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.SN_env, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.SN_env, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8
+  %50 = add i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %46, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = ashr i32 %54, 5
+  %56 = icmp ne i32 %55, 5
+  br i1 %56, label %73, label %57
 
-55:                                               ; preds = %41
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.SN_env, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.SN_env, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 8
-  %62 = add i32 %61, 1
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr i8, ptr %58, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = and i32 %66, 31
-  %68 = ashr i32 340306450, %67
-  %69 = and i32 %68, 1
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %72, label %71
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.SN_env, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.SN_env, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 8
+  %64 = add i32 %63, 1
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %60, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = and i32 %68, 31
+  %70 = ashr i32 340306450, %69
+  %71 = and i32 %70, 1
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %74, label %73
 
-71:                                               ; preds = %55, %41, %24
+73:                                               ; preds = %57, %43, %26
   store i32 6, ptr %4, align 4
-  br label %75
+  br label %77
 
-72:                                               ; preds = %55
-  %73 = load ptr, ptr %3, align 8
-  %74 = call i32 @find_among(ptr noundef %73, ptr noundef @a_0, i32 noundef 11)
-  store i32 %74, ptr %4, align 4
-  br label %75
+74:                                               ; preds = %57
+  %75 = load ptr, ptr %3, align 8
+  %76 = call i32 @find_among(ptr noundef %75, ptr noundef @a_0, i32 noundef 11)
+  store i32 %76, ptr %4, align 4
+  br label %77
 
-75:                                               ; preds = %72, %71
-  %76 = load i32, ptr %4, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %79, label %78
+77:                                               ; preds = %74, %73
+  %78 = load i32, ptr %4, align 4
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %81, label %80
 
-78:                                               ; preds = %75
-  br label %145
+80:                                               ; preds = %77
+  br label %165
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.SN_env, ptr %80, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.SN_env, ptr %83, i32 0, i32 5
-  store i32 %82, ptr %84, align 8
-  %85 = load i32, ptr %4, align 4
-  switch i32 %85, label %144 [
-    i32 1, label %86
-    i32 2, label %94
-    i32 3, label %102
-    i32 4, label %110
-    i32 5, label %118
-    i32 6, label %126
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw %struct.SN_env, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds nuw %struct.SN_env, ptr %85, i32 0, i32 5
+  store i32 %84, ptr %86, align 8
+  %87 = load i32, ptr %4, align 4
+  switch i32 %87, label %164 [
+    i32 1, label %88
+    i32 2, label %99
+    i32 3, label %110
+    i32 4, label %121
+    i32 5, label %132
+    i32 6, label %143
   ]
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %3, align 8
-  %88 = call i32 @slice_from_s(ptr noundef %87, i32 noundef 1, ptr noundef @s_0)
-  store i32 %88, ptr %7, align 4
-  %89 = load i32, ptr %7, align 4
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %93
+88:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %89 = load ptr, ptr %3, align 8
+  %90 = call i32 @slice_from_s(ptr noundef %89, i32 noundef 1, ptr noundef @s_0)
+  store i32 %90, ptr %7, align 4
+  %91 = load i32, ptr %7, align 4
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %93, label %95
 
-91:                                               ; preds = %86
-  %92 = load i32, ptr %7, align 4
-  store i32 %92, ptr %2, align 4
-  br label %337
+93:                                               ; preds = %88
+  %94 = load i32, ptr %7, align 4
+  store i32 %94, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %96
 
-93:                                               ; preds = %86
-  br label %144
+95:                                               ; preds = %88
+  store i32 0, ptr %8, align 4
+  br label %96
 
-94:                                               ; preds = %79
-  %95 = load ptr, ptr %3, align 8
-  %96 = call i32 @slice_from_s(ptr noundef %95, i32 noundef 1, ptr noundef @s_1)
-  store i32 %96, ptr %8, align 4
+96:                                               ; preds = %95, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   %97 = load i32, ptr %8, align 4
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %99, label %101
+  switch i32 %97, label %169 [
+    i32 0, label %98
+  ]
 
-99:                                               ; preds = %94
-  %100 = load i32, ptr %8, align 4
-  store i32 %100, ptr %2, align 4
-  br label %337
+98:                                               ; preds = %96
+  br label %164
 
-101:                                              ; preds = %94
-  br label %144
+99:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %100 = load ptr, ptr %3, align 8
+  %101 = call i32 @slice_from_s(ptr noundef %100, i32 noundef 1, ptr noundef @s_1)
+  store i32 %101, ptr %9, align 4
+  %102 = load i32, ptr %9, align 4
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %79
-  %103 = load ptr, ptr %3, align 8
-  %104 = call i32 @slice_from_s(ptr noundef %103, i32 noundef 1, ptr noundef @s_2)
-  store i32 %104, ptr %9, align 4
+104:                                              ; preds = %99
   %105 = load i32, ptr %9, align 4
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %107, label %109
+  store i32 %105, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
 
-107:                                              ; preds = %102
-  %108 = load i32, ptr %9, align 4
-  store i32 %108, ptr %2, align 4
-  br label %337
+106:                                              ; preds = %99
+  store i32 0, ptr %8, align 4
+  br label %107
 
-109:                                              ; preds = %102
-  br label %144
+107:                                              ; preds = %106, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %108 = load i32, ptr %8, align 4
+  switch i32 %108, label %169 [
+    i32 0, label %109
+  ]
 
-110:                                              ; preds = %79
+109:                                              ; preds = %107
+  br label %164
+
+110:                                              ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %111 = load ptr, ptr %3, align 8
-  %112 = call i32 @slice_from_s(ptr noundef %111, i32 noundef 1, ptr noundef @s_3)
+  %112 = call i32 @slice_from_s(ptr noundef %111, i32 noundef 1, ptr noundef @s_2)
   store i32 %112, ptr %10, align 4
   %113 = load i32, ptr %10, align 4
   %114 = icmp slt i32 %113, 0
@@ -350,344 +466,550 @@ define internal i32 @r_prelude(ptr noundef %0) #0 {
 115:                                              ; preds = %110
   %116 = load i32, ptr %10, align 4
   store i32 %116, ptr %2, align 4
-  br label %337
+  store i32 1, ptr %8, align 4
+  br label %118
 
 117:                                              ; preds = %110
-  br label %144
+  store i32 0, ptr %8, align 4
+  br label %118
 
-118:                                              ; preds = %79
-  %119 = load ptr, ptr %3, align 8
-  %120 = call i32 @slice_from_s(ptr noundef %119, i32 noundef 1, ptr noundef @s_4)
-  store i32 %120, ptr %11, align 4
-  %121 = load i32, ptr %11, align 4
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %123, label %125
+118:                                              ; preds = %117, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %119 = load i32, ptr %8, align 4
+  switch i32 %119, label %169 [
+    i32 0, label %120
+  ]
 
-123:                                              ; preds = %118
+120:                                              ; preds = %118
+  br label %164
+
+121:                                              ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %122 = load ptr, ptr %3, align 8
+  %123 = call i32 @slice_from_s(ptr noundef %122, i32 noundef 1, ptr noundef @s_3)
+  store i32 %123, ptr %11, align 4
   %124 = load i32, ptr %11, align 4
-  store i32 %124, ptr %2, align 4
-  br label %337
+  %125 = icmp slt i32 %124, 0
+  br i1 %125, label %126, label %128
 
-125:                                              ; preds = %118
-  br label %144
+126:                                              ; preds = %121
+  %127 = load i32, ptr %11, align 4
+  store i32 %127, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %129
 
-126:                                              ; preds = %79
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.SN_env, ptr %127, i32 0, i32 0
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %3, align 8
-  %131 = getelementptr inbounds %struct.SN_env, ptr %130, i32 0, i32 1
-  %132 = load i32, ptr %131, align 8
+128:                                              ; preds = %121
+  store i32 0, ptr %8, align 4
+  br label %129
+
+129:                                              ; preds = %128, %126
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %130 = load i32, ptr %8, align 4
+  switch i32 %130, label %169 [
+    i32 0, label %131
+  ]
+
+131:                                              ; preds = %129
+  br label %164
+
+132:                                              ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds %struct.SN_env, ptr %133, i32 0, i32 2
-  %135 = load i32, ptr %134, align 4
-  %136 = call i32 @skip_utf8(ptr noundef %129, i32 noundef %132, i32 noundef %135, i32 noundef 1)
-  store i32 %136, ptr %12, align 4
-  %137 = load i32, ptr %12, align 4
-  %138 = icmp slt i32 %137, 0
-  br i1 %138, label %139, label %140
+  %134 = call i32 @slice_from_s(ptr noundef %133, i32 noundef 1, ptr noundef @s_4)
+  store i32 %134, ptr %12, align 4
+  %135 = load i32, ptr %12, align 4
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %137, label %139
 
-139:                                              ; preds = %126
-  br label %145
+137:                                              ; preds = %132
+  %138 = load i32, ptr %12, align 4
+  store i32 %138, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %140
 
-140:                                              ; preds = %126
-  %141 = load i32, ptr %12, align 4
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.SN_env, ptr %142, i32 0, i32 1
-  store i32 %141, ptr %143, align 8
-  br label %144
+139:                                              ; preds = %132
+  store i32 0, ptr %8, align 4
+  br label %140
 
-144:                                              ; preds = %140, %125, %117, %109, %101, %93, %79
-  br label %24
+140:                                              ; preds = %139, %137
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %141 = load i32, ptr %8, align 4
+  switch i32 %141, label %169 [
+    i32 0, label %142
+  ]
 
-145:                                              ; preds = %139, %78
-  %146 = load i32, ptr %6, align 4
+142:                                              ; preds = %140
+  br label %164
+
+143:                                              ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds nuw %struct.SN_env, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.SN_env, ptr %147, i32 0, i32 1
-  store i32 %146, ptr %148, align 8
-  br label %149
+  %148 = getelementptr inbounds nuw %struct.SN_env, ptr %147, i32 0, i32 1
+  %149 = load i32, ptr %148, align 8
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds nuw %struct.SN_env, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 4
+  %153 = call i32 @skip_utf8(ptr noundef %146, i32 noundef %149, i32 noundef %152, i32 noundef 1)
+  store i32 %153, ptr %13, align 4
+  %154 = load i32, ptr %13, align 4
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %156, label %157
 
-149:                                              ; preds = %145
-  %150 = load i32, ptr %5, align 4
-  %151 = load ptr, ptr %3, align 8
-  %152 = getelementptr inbounds %struct.SN_env, ptr %151, i32 0, i32 1
-  store i32 %150, ptr %152, align 8
-  %153 = load ptr, ptr %3, align 8
-  %154 = getelementptr inbounds %struct.SN_env, ptr %153, i32 0, i32 1
-  %155 = load i32, ptr %154, align 8
-  store i32 %155, ptr %13, align 4
-  %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds %struct.SN_env, ptr %156, i32 0, i32 1
-  %158 = load i32, ptr %157, align 8
+156:                                              ; preds = %143
+  store i32 4, ptr %8, align 4
+  br label %161
+
+157:                                              ; preds = %143
+  %158 = load i32, ptr %13, align 4
   %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds %struct.SN_env, ptr %159, i32 0, i32 4
-  store i32 %158, ptr %160, align 4
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.SN_env, ptr %161, i32 0, i32 1
-  %163 = load i32, ptr %162, align 8
-  %164 = load ptr, ptr %3, align 8
-  %165 = getelementptr inbounds %struct.SN_env, ptr %164, i32 0, i32 2
-  %166 = load i32, ptr %165, align 4
-  %167 = icmp eq i32 %163, %166
-  br i1 %167, label %180, label %168
+  %160 = getelementptr inbounds nuw %struct.SN_env, ptr %159, i32 0, i32 1
+  store i32 %158, ptr %160, align 8
+  store i32 0, ptr %8, align 4
+  br label %161
 
-168:                                              ; preds = %149
-  %169 = load ptr, ptr %3, align 8
-  %170 = getelementptr inbounds %struct.SN_env, ptr %169, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr %3, align 8
-  %173 = getelementptr inbounds %struct.SN_env, ptr %172, i32 0, i32 1
-  %174 = load i32, ptr %173, align 8
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr i8, ptr %171, i64 %175
-  %177 = load i8, ptr %176, align 1
-  %178 = zext i8 %177 to i32
-  %179 = icmp ne i32 %178, 121
-  br i1 %179, label %180, label %184
+161:                                              ; preds = %156, %157
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %162 = load i32, ptr %8, align 4
+  switch i32 %162, label %169 [
+    i32 0, label %163
+    i32 4, label %165
+  ]
 
-180:                                              ; preds = %168, %149
-  %181 = load i32, ptr %13, align 4
-  %182 = load ptr, ptr %3, align 8
-  %183 = getelementptr inbounds %struct.SN_env, ptr %182, i32 0, i32 1
-  store i32 %181, ptr %183, align 8
-  br label %201
+163:                                              ; preds = %161
+  br label %164
 
-184:                                              ; preds = %168
-  %185 = load ptr, ptr %3, align 8
-  %186 = getelementptr inbounds %struct.SN_env, ptr %185, i32 0, i32 1
-  %187 = load i32, ptr %186, align 8
-  %188 = add i32 %187, 1
-  store i32 %188, ptr %186, align 8
+164:                                              ; preds = %81, %163, %142, %131, %120, %109, %98
+  store i32 2, ptr %8, align 4
+  br label %169
+
+165:                                              ; preds = %161, %80
+  %166 = load i32, ptr %6, align 4
+  %167 = load ptr, ptr %3, align 8
+  %168 = getelementptr inbounds nuw %struct.SN_env, ptr %167, i32 0, i32 1
+  store i32 %166, ptr %168, align 8
+  store i32 3, ptr %8, align 4
+  br label %169
+
+169:                                              ; preds = %165, %164, %161, %140, %129, %118, %107, %96
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %170 = load i32, ptr %8, align 4
+  switch i32 %170, label %175 [
+    i32 2, label %25
+    i32 3, label %171
+  ]
+
+171:                                              ; preds = %169
+  %172 = load i32, ptr %5, align 4
+  %173 = load ptr, ptr %3, align 8
+  %174 = getelementptr inbounds nuw %struct.SN_env, ptr %173, i32 0, i32 1
+  store i32 %172, ptr %174, align 8
+  store i32 0, ptr %8, align 4
+  br label %175
+
+175:                                              ; preds = %171, %169
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  %176 = load i32, ptr %8, align 4
+  switch i32 %176, label %387 [
+    i32 0, label %177
+  ]
+
+177:                                              ; preds = %175
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %178 = load ptr, ptr %3, align 8
+  %179 = getelementptr inbounds nuw %struct.SN_env, ptr %178, i32 0, i32 1
+  %180 = load i32, ptr %179, align 8
+  store i32 %180, ptr %14, align 4
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds nuw %struct.SN_env, ptr %181, i32 0, i32 1
+  %183 = load i32, ptr %182, align 8
+  %184 = load ptr, ptr %3, align 8
+  %185 = getelementptr inbounds nuw %struct.SN_env, ptr %184, i32 0, i32 4
+  store i32 %183, ptr %185, align 4
+  %186 = load ptr, ptr %3, align 8
+  %187 = getelementptr inbounds nuw %struct.SN_env, ptr %186, i32 0, i32 1
+  %188 = load i32, ptr %187, align 8
   %189 = load ptr, ptr %3, align 8
-  %190 = getelementptr inbounds %struct.SN_env, ptr %189, i32 0, i32 1
-  %191 = load i32, ptr %190, align 8
-  %192 = load ptr, ptr %3, align 8
-  %193 = getelementptr inbounds %struct.SN_env, ptr %192, i32 0, i32 5
-  store i32 %191, ptr %193, align 8
+  %190 = getelementptr inbounds nuw %struct.SN_env, ptr %189, i32 0, i32 2
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp eq i32 %188, %191
+  br i1 %192, label %205, label %193
+
+193:                                              ; preds = %177
   %194 = load ptr, ptr %3, align 8
-  %195 = call i32 @slice_from_s(ptr noundef %194, i32 noundef 1, ptr noundef @s_5)
-  store i32 %195, ptr %14, align 4
-  %196 = load i32, ptr %14, align 4
-  %197 = icmp slt i32 %196, 0
-  br i1 %197, label %198, label %200
+  %195 = getelementptr inbounds nuw %struct.SN_env, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8
+  %197 = load ptr, ptr %3, align 8
+  %198 = getelementptr inbounds nuw %struct.SN_env, ptr %197, i32 0, i32 1
+  %199 = load i32, ptr %198, align 8
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds i8, ptr %196, i64 %200
+  %202 = load i8, ptr %201, align 1
+  %203 = zext i8 %202 to i32
+  %204 = icmp ne i32 %203, 121
+  br i1 %204, label %205, label %209
 
-198:                                              ; preds = %184
-  %199 = load i32, ptr %14, align 4
-  store i32 %199, ptr %2, align 4
-  br label %337
-
-200:                                              ; preds = %184
-  br label %201
-
-201:                                              ; preds = %200, %180
-  br label %202
-
-202:                                              ; preds = %331, %201
-  %203 = load ptr, ptr %3, align 8
-  %204 = getelementptr inbounds %struct.SN_env, ptr %203, i32 0, i32 1
-  %205 = load i32, ptr %204, align 8
-  store i32 %205, ptr %15, align 4
-  br label %206
-
-206:                                              ; preds = %327, %202
+205:                                              ; preds = %193, %177
+  %206 = load i32, ptr %14, align 4
   %207 = load ptr, ptr %3, align 8
-  %208 = getelementptr inbounds %struct.SN_env, ptr %207, i32 0, i32 1
-  %209 = load i32, ptr %208, align 8
-  store i32 %209, ptr %16, align 4
+  %208 = getelementptr inbounds nuw %struct.SN_env, ptr %207, i32 0, i32 1
+  store i32 %206, ptr %208, align 8
+  br label %229
+
+209:                                              ; preds = %193
   %210 = load ptr, ptr %3, align 8
-  %211 = call i32 @in_grouping_U(ptr noundef %210, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %214
+  %211 = getelementptr inbounds nuw %struct.SN_env, ptr %210, i32 0, i32 1
+  %212 = load i32, ptr %211, align 8
+  %213 = add i32 %212, 1
+  store i32 %213, ptr %211, align 8
+  %214 = load ptr, ptr %3, align 8
+  %215 = getelementptr inbounds nuw %struct.SN_env, ptr %214, i32 0, i32 1
+  %216 = load i32, ptr %215, align 8
+  %217 = load ptr, ptr %3, align 8
+  %218 = getelementptr inbounds nuw %struct.SN_env, ptr %217, i32 0, i32 5
+  store i32 %216, ptr %218, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %219 = load ptr, ptr %3, align 8
+  %220 = call i32 @slice_from_s(ptr noundef %219, i32 noundef 1, ptr noundef @s_5)
+  store i32 %220, ptr %15, align 4
+  %221 = load i32, ptr %15, align 4
+  %222 = icmp slt i32 %221, 0
+  br i1 %222, label %223, label %225
 
-213:                                              ; preds = %206
-  br label %310
+223:                                              ; preds = %209
+  %224 = load i32, ptr %15, align 4
+  store i32 %224, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %226
 
-214:                                              ; preds = %206
-  %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr inbounds %struct.SN_env, ptr %215, i32 0, i32 1
-  %217 = load i32, ptr %216, align 8
-  %218 = load ptr, ptr %3, align 8
-  %219 = getelementptr inbounds %struct.SN_env, ptr %218, i32 0, i32 4
-  store i32 %217, ptr %219, align 4
-  %220 = load ptr, ptr %3, align 8
-  %221 = getelementptr inbounds %struct.SN_env, ptr %220, i32 0, i32 1
-  %222 = load i32, ptr %221, align 8
-  store i32 %222, ptr %17, align 4
-  %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr inbounds %struct.SN_env, ptr %223, i32 0, i32 1
-  %225 = load i32, ptr %224, align 8
-  %226 = load ptr, ptr %3, align 8
-  %227 = getelementptr inbounds %struct.SN_env, ptr %226, i32 0, i32 2
-  %228 = load i32, ptr %227, align 4
-  %229 = icmp eq i32 %225, %228
-  br i1 %229, label %242, label %230
+225:                                              ; preds = %209
+  store i32 0, ptr %8, align 4
+  br label %226
 
-230:                                              ; preds = %214
-  %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.SN_env, ptr %231, i32 0, i32 0
-  %233 = load ptr, ptr %232, align 8
-  %234 = load ptr, ptr %3, align 8
-  %235 = getelementptr inbounds %struct.SN_env, ptr %234, i32 0, i32 1
-  %236 = load i32, ptr %235, align 8
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr i8, ptr %233, i64 %237
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i32
-  %241 = icmp ne i32 %240, 105
-  br i1 %241, label %242, label %243
+226:                                              ; preds = %225, %223
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  %227 = load i32, ptr %8, align 4
+  switch i32 %227, label %230 [
+    i32 0, label %228
+  ]
 
-242:                                              ; preds = %230, %214
-  br label %265
+228:                                              ; preds = %226
+  br label %229
 
-243:                                              ; preds = %230
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.SN_env, ptr %244, i32 0, i32 1
-  %246 = load i32, ptr %245, align 8
-  %247 = add i32 %246, 1
-  store i32 %247, ptr %245, align 8
+229:                                              ; preds = %228, %205
+  store i32 0, ptr %8, align 4
+  br label %230
+
+230:                                              ; preds = %229, %226
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %231 = load i32, ptr %8, align 4
+  switch i32 %231, label %387 [
+    i32 0, label %232
+  ]
+
+232:                                              ; preds = %230
+  br label %233
+
+233:                                              ; preds = %384, %232
+  br label %234
+
+234:                                              ; preds = %233
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %235 = load ptr, ptr %3, align 8
+  %236 = getelementptr inbounds nuw %struct.SN_env, ptr %235, i32 0, i32 1
+  %237 = load i32, ptr %236, align 8
+  store i32 %237, ptr %16, align 4
+  br label %238
+
+238:                                              ; preds = %378, %234
+  br label %239
+
+239:                                              ; preds = %238
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %240 = load ptr, ptr %3, align 8
+  %241 = getelementptr inbounds nuw %struct.SN_env, ptr %240, i32 0, i32 1
+  %242 = load i32, ptr %241, align 8
+  store i32 %242, ptr %17, align 4
+  %243 = load ptr, ptr %3, align 8
+  %244 = call i32 @in_grouping_U(ptr noundef %243, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %247
+
+246:                                              ; preds = %239
+  br label %352
+
+247:                                              ; preds = %239
   %248 = load ptr, ptr %3, align 8
-  %249 = getelementptr inbounds %struct.SN_env, ptr %248, i32 0, i32 1
+  %249 = getelementptr inbounds nuw %struct.SN_env, ptr %248, i32 0, i32 1
   %250 = load i32, ptr %249, align 8
   %251 = load ptr, ptr %3, align 8
-  %252 = getelementptr inbounds %struct.SN_env, ptr %251, i32 0, i32 5
-  store i32 %250, ptr %252, align 8
+  %252 = getelementptr inbounds nuw %struct.SN_env, ptr %251, i32 0, i32 4
+  store i32 %250, ptr %252, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
   %253 = load ptr, ptr %3, align 8
-  %254 = call i32 @in_grouping_U(ptr noundef %253, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %257
+  %254 = getelementptr inbounds nuw %struct.SN_env, ptr %253, i32 0, i32 1
+  %255 = load i32, ptr %254, align 8
+  store i32 %255, ptr %18, align 4
+  %256 = load ptr, ptr %3, align 8
+  %257 = getelementptr inbounds nuw %struct.SN_env, ptr %256, i32 0, i32 1
+  %258 = load i32, ptr %257, align 8
+  %259 = load ptr, ptr %3, align 8
+  %260 = getelementptr inbounds nuw %struct.SN_env, ptr %259, i32 0, i32 2
+  %261 = load i32, ptr %260, align 4
+  %262 = icmp eq i32 %258, %261
+  br i1 %262, label %275, label %263
 
-256:                                              ; preds = %243
-  br label %265
-
-257:                                              ; preds = %243
-  %258 = load ptr, ptr %3, align 8
-  %259 = call i32 @slice_from_s(ptr noundef %258, i32 noundef 1, ptr noundef @s_6)
-  store i32 %259, ptr %18, align 4
-  %260 = load i32, ptr %18, align 4
-  %261 = icmp slt i32 %260, 0
-  br i1 %261, label %262, label %264
-
-262:                                              ; preds = %257
-  %263 = load i32, ptr %18, align 4
-  store i32 %263, ptr %2, align 4
-  br label %337
-
-264:                                              ; preds = %257
-  br label %306
-
-265:                                              ; preds = %256, %242
-  %266 = load i32, ptr %17, align 4
+263:                                              ; preds = %247
+  %264 = load ptr, ptr %3, align 8
+  %265 = getelementptr inbounds nuw %struct.SN_env, ptr %264, i32 0, i32 0
+  %266 = load ptr, ptr %265, align 8
   %267 = load ptr, ptr %3, align 8
-  %268 = getelementptr inbounds %struct.SN_env, ptr %267, i32 0, i32 1
-  store i32 %266, ptr %268, align 8
-  %269 = load ptr, ptr %3, align 8
-  %270 = getelementptr inbounds %struct.SN_env, ptr %269, i32 0, i32 1
-  %271 = load i32, ptr %270, align 8
-  %272 = load ptr, ptr %3, align 8
-  %273 = getelementptr inbounds %struct.SN_env, ptr %272, i32 0, i32 2
-  %274 = load i32, ptr %273, align 4
-  %275 = icmp eq i32 %271, %274
-  br i1 %275, label %288, label %276
+  %268 = getelementptr inbounds nuw %struct.SN_env, ptr %267, i32 0, i32 1
+  %269 = load i32, ptr %268, align 8
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds i8, ptr %266, i64 %270
+  %272 = load i8, ptr %271, align 1
+  %273 = zext i8 %272 to i32
+  %274 = icmp ne i32 %273, 105
+  br i1 %274, label %275, label %276
 
-276:                                              ; preds = %265
+275:                                              ; preds = %263, %247
+  br label %301
+
+276:                                              ; preds = %263
   %277 = load ptr, ptr %3, align 8
-  %278 = getelementptr inbounds %struct.SN_env, ptr %277, i32 0, i32 0
-  %279 = load ptr, ptr %278, align 8
-  %280 = load ptr, ptr %3, align 8
-  %281 = getelementptr inbounds %struct.SN_env, ptr %280, i32 0, i32 1
-  %282 = load i32, ptr %281, align 8
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr i8, ptr %279, i64 %283
-  %285 = load i8, ptr %284, align 1
-  %286 = zext i8 %285 to i32
-  %287 = icmp ne i32 %286, 121
-  br i1 %287, label %288, label %289
-
-288:                                              ; preds = %276, %265
-  br label %310
+  %278 = getelementptr inbounds nuw %struct.SN_env, ptr %277, i32 0, i32 1
+  %279 = load i32, ptr %278, align 8
+  %280 = add i32 %279, 1
+  store i32 %280, ptr %278, align 8
+  %281 = load ptr, ptr %3, align 8
+  %282 = getelementptr inbounds nuw %struct.SN_env, ptr %281, i32 0, i32 1
+  %283 = load i32, ptr %282, align 8
+  %284 = load ptr, ptr %3, align 8
+  %285 = getelementptr inbounds nuw %struct.SN_env, ptr %284, i32 0, i32 5
+  store i32 %283, ptr %285, align 8
+  %286 = load ptr, ptr %3, align 8
+  %287 = call i32 @in_grouping_U(ptr noundef %286, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %288 = icmp ne i32 %287, 0
+  br i1 %288, label %289, label %290
 
 289:                                              ; preds = %276
-  %290 = load ptr, ptr %3, align 8
-  %291 = getelementptr inbounds %struct.SN_env, ptr %290, i32 0, i32 1
-  %292 = load i32, ptr %291, align 8
-  %293 = add i32 %292, 1
-  store i32 %293, ptr %291, align 8
-  %294 = load ptr, ptr %3, align 8
-  %295 = getelementptr inbounds %struct.SN_env, ptr %294, i32 0, i32 1
-  %296 = load i32, ptr %295, align 8
-  %297 = load ptr, ptr %3, align 8
-  %298 = getelementptr inbounds %struct.SN_env, ptr %297, i32 0, i32 5
-  store i32 %296, ptr %298, align 8
-  %299 = load ptr, ptr %3, align 8
-  %300 = call i32 @slice_from_s(ptr noundef %299, i32 noundef 1, ptr noundef @s_7)
-  store i32 %300, ptr %19, align 4
-  %301 = load i32, ptr %19, align 4
-  %302 = icmp slt i32 %301, 0
-  br i1 %302, label %303, label %305
+  br label %301
 
-303:                                              ; preds = %289
-  %304 = load i32, ptr %19, align 4
-  store i32 %304, ptr %2, align 4
-  br label %337
+290:                                              ; preds = %276
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  %291 = load ptr, ptr %3, align 8
+  %292 = call i32 @slice_from_s(ptr noundef %291, i32 noundef 1, ptr noundef @s_6)
+  store i32 %292, ptr %19, align 4
+  %293 = load i32, ptr %19, align 4
+  %294 = icmp slt i32 %293, 0
+  br i1 %294, label %295, label %297
 
-305:                                              ; preds = %289
-  br label %306
+295:                                              ; preds = %290
+  %296 = load i32, ptr %19, align 4
+  store i32 %296, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %298
 
-306:                                              ; preds = %305, %264
-  %307 = load i32, ptr %16, align 4
+297:                                              ; preds = %290
+  store i32 0, ptr %8, align 4
+  br label %298
+
+298:                                              ; preds = %297, %295
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  %299 = load i32, ptr %8, align 4
+  switch i32 %299, label %345 [
+    i32 0, label %300
+  ]
+
+300:                                              ; preds = %298
+  store i32 13, ptr %8, align 4
+  br label %345
+
+301:                                              ; preds = %289, %275
+  %302 = load i32, ptr %18, align 4
+  %303 = load ptr, ptr %3, align 8
+  %304 = getelementptr inbounds nuw %struct.SN_env, ptr %303, i32 0, i32 1
+  store i32 %302, ptr %304, align 8
+  %305 = load ptr, ptr %3, align 8
+  %306 = getelementptr inbounds nuw %struct.SN_env, ptr %305, i32 0, i32 1
+  %307 = load i32, ptr %306, align 8
   %308 = load ptr, ptr %3, align 8
-  %309 = getelementptr inbounds %struct.SN_env, ptr %308, i32 0, i32 1
-  store i32 %307, ptr %309, align 8
-  br label %331
+  %309 = getelementptr inbounds nuw %struct.SN_env, ptr %308, i32 0, i32 2
+  %310 = load i32, ptr %309, align 4
+  %311 = icmp eq i32 %307, %310
+  br i1 %311, label %324, label %312
 
-310:                                              ; preds = %288, %213
-  %311 = load i32, ptr %16, align 4
-  %312 = load ptr, ptr %3, align 8
-  %313 = getelementptr inbounds %struct.SN_env, ptr %312, i32 0, i32 1
-  store i32 %311, ptr %313, align 8
-  %314 = load ptr, ptr %3, align 8
-  %315 = getelementptr inbounds %struct.SN_env, ptr %314, i32 0, i32 0
-  %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr %3, align 8
-  %318 = getelementptr inbounds %struct.SN_env, ptr %317, i32 0, i32 1
-  %319 = load i32, ptr %318, align 8
-  %320 = load ptr, ptr %3, align 8
-  %321 = getelementptr inbounds %struct.SN_env, ptr %320, i32 0, i32 2
-  %322 = load i32, ptr %321, align 4
-  %323 = call i32 @skip_utf8(ptr noundef %316, i32 noundef %319, i32 noundef %322, i32 noundef 1)
-  store i32 %323, ptr %20, align 4
-  %324 = load i32, ptr %20, align 4
-  %325 = icmp slt i32 %324, 0
-  br i1 %325, label %326, label %327
+312:                                              ; preds = %301
+  %313 = load ptr, ptr %3, align 8
+  %314 = getelementptr inbounds nuw %struct.SN_env, ptr %313, i32 0, i32 0
+  %315 = load ptr, ptr %314, align 8
+  %316 = load ptr, ptr %3, align 8
+  %317 = getelementptr inbounds nuw %struct.SN_env, ptr %316, i32 0, i32 1
+  %318 = load i32, ptr %317, align 8
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds i8, ptr %315, i64 %319
+  %321 = load i8, ptr %320, align 1
+  %322 = zext i8 %321 to i32
+  %323 = icmp ne i32 %322, 121
+  br i1 %323, label %324, label %325
 
-326:                                              ; preds = %310
-  br label %332
+324:                                              ; preds = %312, %301
+  store i32 11, ptr %8, align 4
+  br label %345
 
-327:                                              ; preds = %310
-  %328 = load i32, ptr %20, align 4
-  %329 = load ptr, ptr %3, align 8
-  %330 = getelementptr inbounds %struct.SN_env, ptr %329, i32 0, i32 1
-  store i32 %328, ptr %330, align 8
-  br label %206
+325:                                              ; preds = %312
+  %326 = load ptr, ptr %3, align 8
+  %327 = getelementptr inbounds nuw %struct.SN_env, ptr %326, i32 0, i32 1
+  %328 = load i32, ptr %327, align 8
+  %329 = add i32 %328, 1
+  store i32 %329, ptr %327, align 8
+  %330 = load ptr, ptr %3, align 8
+  %331 = getelementptr inbounds nuw %struct.SN_env, ptr %330, i32 0, i32 1
+  %332 = load i32, ptr %331, align 8
+  %333 = load ptr, ptr %3, align 8
+  %334 = getelementptr inbounds nuw %struct.SN_env, ptr %333, i32 0, i32 5
+  store i32 %332, ptr %334, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  %335 = load ptr, ptr %3, align 8
+  %336 = call i32 @slice_from_s(ptr noundef %335, i32 noundef 1, ptr noundef @s_7)
+  store i32 %336, ptr %20, align 4
+  %337 = load i32, ptr %20, align 4
+  %338 = icmp slt i32 %337, 0
+  br i1 %338, label %339, label %341
 
-331:                                              ; preds = %306
-  br label %202
+339:                                              ; preds = %325
+  %340 = load i32, ptr %20, align 4
+  store i32 %340, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %342
 
-332:                                              ; preds = %326
-  %333 = load i32, ptr %15, align 4
-  %334 = load ptr, ptr %3, align 8
-  %335 = getelementptr inbounds %struct.SN_env, ptr %334, i32 0, i32 1
-  store i32 %333, ptr %335, align 8
-  br label %336
+341:                                              ; preds = %325
+  store i32 0, ptr %8, align 4
+  br label %342
 
-336:                                              ; preds = %332
+342:                                              ; preds = %341, %339
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  %343 = load i32, ptr %8, align 4
+  switch i32 %343, label %345 [
+    i32 0, label %344
+  ]
+
+344:                                              ; preds = %342
+  store i32 0, ptr %8, align 4
+  br label %345
+
+345:                                              ; preds = %324, %300, %344, %342, %298
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  %346 = load i32, ptr %8, align 4
+  switch i32 %346, label %376 [
+    i32 0, label %347
+    i32 13, label %348
+    i32 11, label %352
+  ]
+
+347:                                              ; preds = %345
+  br label %348
+
+348:                                              ; preds = %347, %345
+  %349 = load i32, ptr %17, align 4
+  %350 = load ptr, ptr %3, align 8
+  %351 = getelementptr inbounds nuw %struct.SN_env, ptr %350, i32 0, i32 1
+  store i32 %349, ptr %351, align 8
+  store i32 10, ptr %8, align 4
+  br label %376
+
+352:                                              ; preds = %345, %246
+  %353 = load i32, ptr %17, align 4
+  %354 = load ptr, ptr %3, align 8
+  %355 = getelementptr inbounds nuw %struct.SN_env, ptr %354, i32 0, i32 1
+  store i32 %353, ptr %355, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  %356 = load ptr, ptr %3, align 8
+  %357 = getelementptr inbounds nuw %struct.SN_env, ptr %356, i32 0, i32 0
+  %358 = load ptr, ptr %357, align 8
+  %359 = load ptr, ptr %3, align 8
+  %360 = getelementptr inbounds nuw %struct.SN_env, ptr %359, i32 0, i32 1
+  %361 = load i32, ptr %360, align 8
+  %362 = load ptr, ptr %3, align 8
+  %363 = getelementptr inbounds nuw %struct.SN_env, ptr %362, i32 0, i32 2
+  %364 = load i32, ptr %363, align 4
+  %365 = call i32 @skip_utf8(ptr noundef %358, i32 noundef %361, i32 noundef %364, i32 noundef 1)
+  store i32 %365, ptr %21, align 4
+  %366 = load i32, ptr %21, align 4
+  %367 = icmp slt i32 %366, 0
+  br i1 %367, label %368, label %369
+
+368:                                              ; preds = %352
+  store i32 14, ptr %8, align 4
+  br label %373
+
+369:                                              ; preds = %352
+  %370 = load i32, ptr %21, align 4
+  %371 = load ptr, ptr %3, align 8
+  %372 = getelementptr inbounds nuw %struct.SN_env, ptr %371, i32 0, i32 1
+  store i32 %370, ptr %372, align 8
+  store i32 0, ptr %8, align 4
+  br label %373
+
+373:                                              ; preds = %368, %369
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  %374 = load i32, ptr %8, align 4
+  switch i32 %374, label %376 [
+    i32 0, label %375
+  ]
+
+375:                                              ; preds = %373
+  store i32 0, ptr %8, align 4
+  br label %376
+
+376:                                              ; preds = %375, %373, %348, %345
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %377 = load i32, ptr %8, align 4
+  switch i32 %377, label %384 [
+    i32 0, label %378
+    i32 10, label %379
+    i32 14, label %380
+  ]
+
+378:                                              ; preds = %376
+  br label %238
+
+379:                                              ; preds = %376
+  store i32 7, ptr %8, align 4
+  br label %384
+
+380:                                              ; preds = %376
+  %381 = load i32, ptr %16, align 4
+  %382 = load ptr, ptr %3, align 8
+  %383 = getelementptr inbounds nuw %struct.SN_env, ptr %382, i32 0, i32 1
+  store i32 %381, ptr %383, align 8
+  store i32 8, ptr %8, align 4
+  br label %384
+
+384:                                              ; preds = %380, %379, %376
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %385 = load i32, ptr %8, align 4
+  switch i32 %385, label %387 [
+    i32 7, label %233
+    i32 8, label %386
+  ]
+
+386:                                              ; preds = %384
   store i32 1, ptr %2, align 4
-  br label %337
+  store i32 1, ptr %8, align 4
+  br label %387
 
-337:                                              ; preds = %336, %303, %262, %198, %123, %115, %107, %99, %91
-  %338 = load i32, ptr %2, align 4
-  ret i32 %338
+387:                                              ; preds = %386, %384, %230, %175
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %388 = load i32, ptr %2, align 4
+  ret i32 %388
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_mark_regions(ptr noundef %0) #0 {
@@ -697,137 +1019,197 @@ define internal i32 @r_mark_regions(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.SN_env, ptr %8, i32 0, i32 2
-  %10 = load i32, ptr %9, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.SN_env, ptr %11, i32 0, i32 7
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i32, ptr %13, i64 1
-  store i32 %10, ptr %14, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.SN_env, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 4
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SN_env, ptr %18, i32 0, i32 7
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i32, ptr %20, i64 0
-  store i32 %17, ptr %21, align 4
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 @out_grouping_U(ptr noundef %22, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
-  store i32 %23, ptr %4, align 4
-  %24 = load i32, ptr %4, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %93
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %10, align 4
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.SN_env, ptr %12, i32 0, i32 7
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i32, ptr %14, i64 1
+  store i32 %11, ptr %15, align 4
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 4
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.SN_env, ptr %19, i32 0, i32 7
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i32, ptr %21, i64 0
+  store i32 %18, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %23 = load ptr, ptr %3, align 8
+  %24 = call i32 @out_grouping_U(ptr noundef %23, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
+  store i32 %24, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %1
-  %28 = load i32, ptr %4, align 4
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.SN_env, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, %28
-  store i32 %32, ptr %30, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = call i32 @in_grouping_U(ptr noundef %33, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
-  store i32 %34, ptr %5, align 4
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %34
+
+28:                                               ; preds = %1
+  %29 = load i32, ptr %4, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.SN_env, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = add i32 %32, %29
+  store i32 %33, ptr %31, align 8
+  store i32 0, ptr %5, align 4
+  br label %34
+
+34:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
   %35 = load i32, ptr %5, align 4
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %38
+  switch i32 %35, label %108 [
+    i32 0, label %36
+    i32 1, label %106
+  ]
 
-37:                                               ; preds = %27
+36:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %37 = load ptr, ptr %3, align 8
+  %38 = call i32 @in_grouping_U(ptr noundef %37, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
+  store i32 %38, ptr %6, align 4
+  %39 = load i32, ptr %6, align 4
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %36
   store i32 0, ptr %2, align 4
-  br label %93
+  store i32 1, ptr %5, align 4
+  br label %48
 
-38:                                               ; preds = %27
-  %39 = load i32, ptr %5, align 4
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.SN_env, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8
-  %43 = add i32 %42, %39
-  store i32 %43, ptr %41, align 8
+42:                                               ; preds = %36
+  %43 = load i32, ptr %6, align 4
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.SN_env, ptr %44, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.SN_env, ptr %44, i32 0, i32 1
   %46 = load i32, ptr %45, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.SN_env, ptr %47, i32 0, i32 7
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i32, ptr %49, i64 1
-  store i32 %46, ptr %50, align 4
+  %47 = add i32 %46, %43
+  store i32 %47, ptr %45, align 8
+  store i32 0, ptr %5, align 4
+  br label %48
+
+48:                                               ; preds = %42, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %49 = load i32, ptr %5, align 4
+  switch i32 %49, label %108 [
+    i32 0, label %50
+    i32 1, label %106
+  ]
+
+50:                                               ; preds = %48
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.SN_env, ptr %51, i32 0, i32 7
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i32, ptr %53, i64 1
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp slt i32 %55, 3
-  br i1 %56, label %58, label %57
+  %52 = getelementptr inbounds nuw %struct.SN_env, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.SN_env, ptr %54, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i32, ptr %56, i64 1
+  store i32 %53, ptr %57, align 4
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.SN_env, ptr %58, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i32, ptr %60, i64 1
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp slt i32 %62, 3
+  br i1 %63, label %65, label %64
 
-57:                                               ; preds = %38
-  br label %63
+64:                                               ; preds = %50
+  br label %70
 
-58:                                               ; preds = %38
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.SN_env, ptr %59, i32 0, i32 7
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr i32, ptr %61, i64 1
-  store i32 3, ptr %62, align 4
-  br label %63
+65:                                               ; preds = %50
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw %struct.SN_env, ptr %66, i32 0, i32 7
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i32, ptr %68, i64 1
+  store i32 3, ptr %69, align 4
+  br label %70
 
-63:                                               ; preds = %58, %57
-  %64 = load ptr, ptr %3, align 8
-  %65 = call i32 @out_grouping_U(ptr noundef %64, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
-  store i32 %65, ptr %6, align 4
-  %66 = load i32, ptr %6, align 4
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %63
-  store i32 0, ptr %2, align 4
-  br label %93
-
-69:                                               ; preds = %63
-  %70 = load i32, ptr %6, align 4
+70:                                               ; preds = %65, %64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.SN_env, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 8
-  %74 = add i32 %73, %70
-  store i32 %74, ptr %72, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = call i32 @in_grouping_U(ptr noundef %75, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
-  store i32 %76, ptr %7, align 4
-  %77 = load i32, ptr %7, align 4
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %79, label %80
+  %72 = call i32 @out_grouping_U(ptr noundef %71, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
+  store i32 %72, ptr %7, align 4
+  %73 = load i32, ptr %7, align 4
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %75, label %76
 
-79:                                               ; preds = %69
+75:                                               ; preds = %70
   store i32 0, ptr %2, align 4
-  br label %93
+  store i32 1, ptr %5, align 4
+  br label %82
 
-80:                                               ; preds = %69
-  %81 = load i32, ptr %7, align 4
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.SN_env, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  %85 = add i32 %84, %81
-  store i32 %85, ptr %83, align 8
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.SN_env, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.SN_env, ptr %89, i32 0, i32 7
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i32, ptr %91, i64 0
-  store i32 %88, ptr %92, align 4
+76:                                               ; preds = %70
+  %77 = load i32, ptr %7, align 4
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.SN_env, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8
+  %81 = add i32 %80, %77
+  store i32 %81, ptr %79, align 8
+  store i32 0, ptr %5, align 4
+  br label %82
+
+82:                                               ; preds = %76, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %83 = load i32, ptr %5, align 4
+  switch i32 %83, label %108 [
+    i32 0, label %84
+    i32 1, label %106
+  ]
+
+84:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %85 = load ptr, ptr %3, align 8
+  %86 = call i32 @in_grouping_U(ptr noundef %85, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 1)
+  store i32 %86, ptr %8, align 4
+  %87 = load i32, ptr %8, align 4
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %90
+
+89:                                               ; preds = %84
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %96
+
+90:                                               ; preds = %84
+  %91 = load i32, ptr %8, align 4
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.SN_env, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 8
+  %95 = add i32 %94, %91
+  store i32 %95, ptr %93, align 8
+  store i32 0, ptr %5, align 4
+  br label %96
+
+96:                                               ; preds = %90, %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %97 = load i32, ptr %5, align 4
+  switch i32 %97, label %108 [
+    i32 0, label %98
+    i32 1, label %106
+  ]
+
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds nuw %struct.SN_env, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 8
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds nuw %struct.SN_env, ptr %102, i32 0, i32 7
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i32, ptr %104, i64 0
+  store i32 %101, ptr %105, align 4
   store i32 1, ptr %2, align 4
-  br label %93
+  br label %106
 
-93:                                               ; preds = %80, %79, %68, %37, %26
-  %94 = load i32, ptr %2, align 4
-  ret i32 %94
+106:                                              ; preds = %98, %96, %82, %48, %34
+  %107 = load i32, ptr %2, align 4
+  ret i32 %107
+
+108:                                              ; preds = %96, %82, %48, %34
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -870,1092 +1252,1580 @@ define internal i32 @r_standard_suffix(ptr noundef %0) #0 {
   %37 = alloca i32, align 4
   %38 = alloca i32, align 4
   %39 = alloca i32, align 4
+  %40 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.SN_env, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 4
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.SN_env, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = sub i32 %42, %45
-  store i32 %46, ptr %5, align 4
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.SN_env, ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.SN_env, ptr %50, i32 0, i32 5
-  store i32 %49, ptr %51, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.SN_env, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.SN_env, ptr %55, i32 0, i32 3
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp sle i32 %54, %57
-  br i1 %58, label %89, label %59
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.SN_env, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.SN_env, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = sub i32 %43, %46
+  store i32 %47, ptr %5, align 4
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.SN_env, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.SN_env, ptr %51, i32 0, i32 5
+  store i32 %50, ptr %52, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.SN_env, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw %struct.SN_env, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp sle i32 %55, %58
+  br i1 %59, label %90, label %60
 
-59:                                               ; preds = %1
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.SN_env, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.SN_env, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = sub i32 %65, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr i8, ptr %62, i64 %67
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = ashr i32 %70, 5
-  %72 = icmp ne i32 %71, 3
-  br i1 %72, label %89, label %73
+60:                                               ; preds = %1
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.SN_env, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.SN_env, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8
+  %67 = sub i32 %66, 1
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %63, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = ashr i32 %71, 5
+  %73 = icmp ne i32 %72, 3
+  br i1 %73, label %90, label %74
 
-73:                                               ; preds = %59
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.SN_env, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.SN_env, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 8
-  %80 = sub i32 %79, 1
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr i8, ptr %76, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = and i32 %84, 31
-  %86 = ashr i32 540704, %85
-  %87 = and i32 %86, 1
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %90, label %89
+74:                                               ; preds = %60
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.SN_env, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.SN_env, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8
+  %81 = sub i32 %80, 1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %77, i64 %82
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = and i32 %85, 31
+  %87 = ashr i32 540704, %86
+  %88 = and i32 %87, 1
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %91, label %90
 
-89:                                               ; preds = %73, %59, %1
-  br label %159
+90:                                               ; preds = %74, %60, %1
+  br label %175
 
-90:                                               ; preds = %73
-  %91 = load ptr, ptr %3, align 8
-  %92 = call i32 @find_among_b(ptr noundef %91, ptr noundef @a_3, i32 noundef 5)
-  store i32 %92, ptr %4, align 4
-  %93 = load i32, ptr %4, align 4
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %96, label %95
+91:                                               ; preds = %74
+  %92 = load ptr, ptr %3, align 8
+  %93 = call i32 @find_among_b(ptr noundef %92, ptr noundef @a_3, i32 noundef 5)
+  store i32 %93, ptr %4, align 4
+  %94 = load i32, ptr %4, align 4
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %97, label %96
 
-95:                                               ; preds = %90
-  br label %159
+96:                                               ; preds = %91
+  br label %175
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.SN_env, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.SN_env, ptr %100, i32 0, i32 4
-  store i32 %99, ptr %101, align 4
-  %102 = load i32, ptr %4, align 4
-  switch i32 %102, label %158 [
-    i32 1, label %103
-    i32 2, label %122
-    i32 3, label %134
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds nuw %struct.SN_env, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds nuw %struct.SN_env, ptr %101, i32 0, i32 4
+  store i32 %100, ptr %102, align 4
+  %103 = load i32, ptr %4, align 4
+  switch i32 %103, label %174 [
+    i32 1, label %104
+    i32 2, label %129
+    i32 3, label %144
   ]
 
-103:                                              ; preds = %96
-  %104 = load ptr, ptr %3, align 8
-  %105 = call i32 @r_R1(ptr noundef %104)
-  store i32 %105, ptr %6, align 4
-  %106 = load i32, ptr %6, align 4
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %109
+104:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %105 = load ptr, ptr %3, align 8
+  %106 = call i32 @r_R1(ptr noundef %105)
+  store i32 %106, ptr %6, align 4
+  %107 = load i32, ptr %6, align 4
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %110
 
-108:                                              ; preds = %103
-  br label %159
+109:                                              ; preds = %104
+  store i32 2, ptr %7, align 4
+  br label %116
 
-109:                                              ; preds = %103
-  %110 = load i32, ptr %6, align 4
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %114
+110:                                              ; preds = %104
+  %111 = load i32, ptr %6, align 4
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %109
-  %113 = load i32, ptr %6, align 4
-  store i32 %113, ptr %2, align 4
-  br label %750
+113:                                              ; preds = %110
+  %114 = load i32, ptr %6, align 4
+  store i32 %114, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %116
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %3, align 8
-  %116 = call i32 @slice_from_s(ptr noundef %115, i32 noundef 4, ptr noundef @s_11)
-  store i32 %116, ptr %7, align 4
+115:                                              ; preds = %110
+  store i32 0, ptr %7, align 4
+  br label %116
+
+116:                                              ; preds = %109, %115, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
   %117 = load i32, ptr %7, align 4
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %121
+  switch i32 %117, label %183 [
+    i32 0, label %118
+    i32 2, label %175
+  ]
 
-119:                                              ; preds = %114
-  %120 = load i32, ptr %7, align 4
-  store i32 %120, ptr %2, align 4
-  br label %750
+118:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %119 = load ptr, ptr %3, align 8
+  %120 = call i32 @slice_from_s(ptr noundef %119, i32 noundef 4, ptr noundef @s_11)
+  store i32 %120, ptr %8, align 4
+  %121 = load i32, ptr %8, align 4
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %123, label %125
 
-121:                                              ; preds = %114
-  br label %158
+123:                                              ; preds = %118
+  %124 = load i32, ptr %8, align 4
+  store i32 %124, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %126
 
-122:                                              ; preds = %96
-  %123 = load ptr, ptr %3, align 8
-  %124 = call i32 @r_en_ending(ptr noundef %123)
-  store i32 %124, ptr %8, align 4
-  %125 = load i32, ptr %8, align 4
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %128
+125:                                              ; preds = %118
+  store i32 0, ptr %7, align 4
+  br label %126
 
-127:                                              ; preds = %122
-  br label %159
+126:                                              ; preds = %125, %123
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %127 = load i32, ptr %7, align 4
+  switch i32 %127, label %183 [
+    i32 0, label %128
+  ]
 
-128:                                              ; preds = %122
-  %129 = load i32, ptr %8, align 4
-  %130 = icmp slt i32 %129, 0
-  br i1 %130, label %131, label %133
+128:                                              ; preds = %126
+  br label %174
 
-131:                                              ; preds = %128
-  %132 = load i32, ptr %8, align 4
-  store i32 %132, ptr %2, align 4
-  br label %750
+129:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %130 = load ptr, ptr %3, align 8
+  %131 = call i32 @r_en_ending(ptr noundef %130)
+  store i32 %131, ptr %9, align 4
+  %132 = load i32, ptr %9, align 4
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %128
-  br label %158
+134:                                              ; preds = %129
+  store i32 2, ptr %7, align 4
+  br label %141
 
-134:                                              ; preds = %96
-  %135 = load ptr, ptr %3, align 8
-  %136 = call i32 @r_R1(ptr noundef %135)
-  store i32 %136, ptr %9, align 4
-  %137 = load i32, ptr %9, align 4
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %140
+135:                                              ; preds = %129
+  %136 = load i32, ptr %9, align 4
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %138, label %140
 
-139:                                              ; preds = %134
-  br label %159
+138:                                              ; preds = %135
+  %139 = load i32, ptr %9, align 4
+  store i32 %139, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %141
 
-140:                                              ; preds = %134
-  %141 = load i32, ptr %9, align 4
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %143, label %145
+140:                                              ; preds = %135
+  store i32 0, ptr %7, align 4
+  br label %141
 
-143:                                              ; preds = %140
-  %144 = load i32, ptr %9, align 4
-  store i32 %144, ptr %2, align 4
-  br label %750
+141:                                              ; preds = %134, %140, %138
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %142 = load i32, ptr %7, align 4
+  switch i32 %142, label %183 [
+    i32 0, label %143
+    i32 2, label %175
+  ]
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %3, align 8
-  %147 = call i32 @out_grouping_b_U(ptr noundef %146, ptr noundef @g_v_j, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %148 = icmp ne i32 %147, 0
+143:                                              ; preds = %141
+  br label %174
+
+144:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %145 = load ptr, ptr %3, align 8
+  %146 = call i32 @r_R1(ptr noundef %145)
+  store i32 %146, ptr %10, align 4
+  %147 = load i32, ptr %10, align 4
+  %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %150
 
-149:                                              ; preds = %145
-  br label %159
+149:                                              ; preds = %144
+  store i32 2, ptr %7, align 4
+  br label %156
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr %3, align 8
-  %152 = call i32 @slice_del(ptr noundef %151)
-  store i32 %152, ptr %10, align 4
-  %153 = load i32, ptr %10, align 4
-  %154 = icmp slt i32 %153, 0
-  br i1 %154, label %155, label %157
+150:                                              ; preds = %144
+  %151 = load i32, ptr %10, align 4
+  %152 = icmp slt i32 %151, 0
+  br i1 %152, label %153, label %155
+
+153:                                              ; preds = %150
+  %154 = load i32, ptr %10, align 4
+  store i32 %154, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %156
 
 155:                                              ; preds = %150
-  %156 = load i32, ptr %10, align 4
-  store i32 %156, ptr %2, align 4
-  br label %750
+  store i32 0, ptr %7, align 4
+  br label %156
 
-157:                                              ; preds = %150
-  br label %158
-
-158:                                              ; preds = %157, %133, %121, %96
-  br label %159
-
-159:                                              ; preds = %158, %149, %139, %127, %108, %95, %89
-  %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds %struct.SN_env, ptr %160, i32 0, i32 2
-  %162 = load i32, ptr %161, align 4
-  %163 = load i32, ptr %5, align 4
-  %164 = sub i32 %162, %163
-  %165 = load ptr, ptr %3, align 8
-  %166 = getelementptr inbounds %struct.SN_env, ptr %165, i32 0, i32 1
-  store i32 %164, ptr %166, align 8
-  %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds %struct.SN_env, ptr %167, i32 0, i32 2
-  %169 = load i32, ptr %168, align 4
-  %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds %struct.SN_env, ptr %170, i32 0, i32 1
-  %172 = load i32, ptr %171, align 8
-  %173 = sub i32 %169, %172
-  store i32 %173, ptr %11, align 4
-  %174 = load ptr, ptr %3, align 8
-  %175 = call i32 @r_e_ending(ptr noundef %174)
-  store i32 %175, ptr %12, align 4
-  %176 = load i32, ptr %12, align 4
-  %177 = icmp slt i32 %176, 0
-  br i1 %177, label %178, label %180
-
-178:                                              ; preds = %159
-  %179 = load i32, ptr %12, align 4
-  store i32 %179, ptr %2, align 4
-  br label %750
-
-180:                                              ; preds = %159
-  %181 = load ptr, ptr %3, align 8
-  %182 = getelementptr inbounds %struct.SN_env, ptr %181, i32 0, i32 2
-  %183 = load i32, ptr %182, align 4
-  %184 = load i32, ptr %11, align 4
-  %185 = sub i32 %183, %184
-  %186 = load ptr, ptr %3, align 8
-  %187 = getelementptr inbounds %struct.SN_env, ptr %186, i32 0, i32 1
-  store i32 %185, ptr %187, align 8
-  %188 = load ptr, ptr %3, align 8
-  %189 = getelementptr inbounds %struct.SN_env, ptr %188, i32 0, i32 2
-  %190 = load i32, ptr %189, align 4
-  %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.SN_env, ptr %191, i32 0, i32 1
-  %193 = load i32, ptr %192, align 8
-  %194 = sub i32 %190, %193
-  store i32 %194, ptr %13, align 4
-  %195 = load ptr, ptr %3, align 8
-  %196 = getelementptr inbounds %struct.SN_env, ptr %195, i32 0, i32 1
-  %197 = load i32, ptr %196, align 8
-  %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds %struct.SN_env, ptr %198, i32 0, i32 5
-  store i32 %197, ptr %199, align 8
-  %200 = load ptr, ptr %3, align 8
-  %201 = call i32 @eq_s_b(ptr noundef %200, i32 noundef 4, ptr noundef @s_12)
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %204, label %203
-
-203:                                              ; preds = %180
-  br label %295
-
-204:                                              ; preds = %180
-  %205 = load ptr, ptr %3, align 8
-  %206 = getelementptr inbounds %struct.SN_env, ptr %205, i32 0, i32 1
-  %207 = load i32, ptr %206, align 8
-  %208 = load ptr, ptr %3, align 8
-  %209 = getelementptr inbounds %struct.SN_env, ptr %208, i32 0, i32 4
-  store i32 %207, ptr %209, align 4
-  %210 = load ptr, ptr %3, align 8
-  %211 = call i32 @r_R2(ptr noundef %210)
-  store i32 %211, ptr %14, align 4
-  %212 = load i32, ptr %14, align 4
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %215
-
-214:                                              ; preds = %204
-  br label %295
-
-215:                                              ; preds = %204
-  %216 = load i32, ptr %14, align 4
-  %217 = icmp slt i32 %216, 0
-  br i1 %217, label %218, label %220
-
-218:                                              ; preds = %215
-  %219 = load i32, ptr %14, align 4
-  store i32 %219, ptr %2, align 4
-  br label %750
-
-220:                                              ; preds = %215
-  %221 = load ptr, ptr %3, align 8
-  %222 = getelementptr inbounds %struct.SN_env, ptr %221, i32 0, i32 2
-  %223 = load i32, ptr %222, align 4
-  %224 = load ptr, ptr %3, align 8
-  %225 = getelementptr inbounds %struct.SN_env, ptr %224, i32 0, i32 1
-  %226 = load i32, ptr %225, align 8
-  %227 = sub i32 %223, %226
-  store i32 %227, ptr %15, align 4
-  %228 = load ptr, ptr %3, align 8
-  %229 = getelementptr inbounds %struct.SN_env, ptr %228, i32 0, i32 1
-  %230 = load i32, ptr %229, align 8
-  %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.SN_env, ptr %231, i32 0, i32 3
-  %233 = load i32, ptr %232, align 8
-  %234 = icmp sle i32 %230, %233
-  br i1 %234, label %248, label %235
-
-235:                                              ; preds = %220
-  %236 = load ptr, ptr %3, align 8
-  %237 = getelementptr inbounds %struct.SN_env, ptr %236, i32 0, i32 0
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %3, align 8
-  %240 = getelementptr inbounds %struct.SN_env, ptr %239, i32 0, i32 1
-  %241 = load i32, ptr %240, align 8
-  %242 = sub i32 %241, 1
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr i8, ptr %238, i64 %243
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i32
-  %247 = icmp ne i32 %246, 99
-  br i1 %247, label %248, label %249
-
-248:                                              ; preds = %235, %220
-  br label %254
-
-249:                                              ; preds = %235
-  %250 = load ptr, ptr %3, align 8
-  %251 = getelementptr inbounds %struct.SN_env, ptr %250, i32 0, i32 1
-  %252 = load i32, ptr %251, align 8
-  %253 = add i32 %252, -1
-  store i32 %253, ptr %251, align 8
-  br label %295
-
-254:                                              ; preds = %248
-  %255 = load ptr, ptr %3, align 8
-  %256 = getelementptr inbounds %struct.SN_env, ptr %255, i32 0, i32 2
-  %257 = load i32, ptr %256, align 4
-  %258 = load i32, ptr %15, align 4
-  %259 = sub i32 %257, %258
-  %260 = load ptr, ptr %3, align 8
-  %261 = getelementptr inbounds %struct.SN_env, ptr %260, i32 0, i32 1
-  store i32 %259, ptr %261, align 8
-  %262 = load ptr, ptr %3, align 8
-  %263 = call i32 @slice_del(ptr noundef %262)
-  store i32 %263, ptr %16, align 4
-  %264 = load i32, ptr %16, align 4
-  %265 = icmp slt i32 %264, 0
-  br i1 %265, label %266, label %268
-
-266:                                              ; preds = %254
-  %267 = load i32, ptr %16, align 4
-  store i32 %267, ptr %2, align 4
-  br label %750
-
-268:                                              ; preds = %254
-  %269 = load ptr, ptr %3, align 8
-  %270 = getelementptr inbounds %struct.SN_env, ptr %269, i32 0, i32 1
-  %271 = load i32, ptr %270, align 8
-  %272 = load ptr, ptr %3, align 8
-  %273 = getelementptr inbounds %struct.SN_env, ptr %272, i32 0, i32 5
-  store i32 %271, ptr %273, align 8
-  %274 = load ptr, ptr %3, align 8
-  %275 = call i32 @eq_s_b(ptr noundef %274, i32 noundef 2, ptr noundef @s_13)
-  %276 = icmp ne i32 %275, 0
-  br i1 %276, label %278, label %277
-
-277:                                              ; preds = %268
-  br label %295
-
-278:                                              ; preds = %268
-  %279 = load ptr, ptr %3, align 8
-  %280 = getelementptr inbounds %struct.SN_env, ptr %279, i32 0, i32 1
-  %281 = load i32, ptr %280, align 8
-  %282 = load ptr, ptr %3, align 8
-  %283 = getelementptr inbounds %struct.SN_env, ptr %282, i32 0, i32 4
-  store i32 %281, ptr %283, align 4
-  %284 = load ptr, ptr %3, align 8
-  %285 = call i32 @r_en_ending(ptr noundef %284)
-  store i32 %285, ptr %17, align 4
-  %286 = load i32, ptr %17, align 4
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %288, label %289
-
-288:                                              ; preds = %278
-  br label %295
-
-289:                                              ; preds = %278
-  %290 = load i32, ptr %17, align 4
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %292, label %294
-
-292:                                              ; preds = %289
-  %293 = load i32, ptr %17, align 4
-  store i32 %293, ptr %2, align 4
-  br label %750
-
-294:                                              ; preds = %289
-  br label %295
-
-295:                                              ; preds = %294, %288, %277, %249, %214, %203
-  %296 = load ptr, ptr %3, align 8
-  %297 = getelementptr inbounds %struct.SN_env, ptr %296, i32 0, i32 2
-  %298 = load i32, ptr %297, align 4
-  %299 = load i32, ptr %13, align 4
-  %300 = sub i32 %298, %299
-  %301 = load ptr, ptr %3, align 8
-  %302 = getelementptr inbounds %struct.SN_env, ptr %301, i32 0, i32 1
-  store i32 %300, ptr %302, align 8
-  %303 = load ptr, ptr %3, align 8
-  %304 = getelementptr inbounds %struct.SN_env, ptr %303, i32 0, i32 2
-  %305 = load i32, ptr %304, align 4
-  %306 = load ptr, ptr %3, align 8
-  %307 = getelementptr inbounds %struct.SN_env, ptr %306, i32 0, i32 1
-  %308 = load i32, ptr %307, align 8
-  %309 = sub i32 %305, %308
-  store i32 %309, ptr %18, align 4
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct.SN_env, ptr %310, i32 0, i32 1
-  %312 = load i32, ptr %311, align 8
-  %313 = load ptr, ptr %3, align 8
-  %314 = getelementptr inbounds %struct.SN_env, ptr %313, i32 0, i32 5
-  store i32 %312, ptr %314, align 8
-  %315 = load ptr, ptr %3, align 8
-  %316 = getelementptr inbounds %struct.SN_env, ptr %315, i32 0, i32 1
-  %317 = load i32, ptr %316, align 8
-  %318 = sub i32 %317, 1
-  %319 = load ptr, ptr %3, align 8
-  %320 = getelementptr inbounds %struct.SN_env, ptr %319, i32 0, i32 3
-  %321 = load i32, ptr %320, align 8
-  %322 = icmp sle i32 %318, %321
-  br i1 %322, label %353, label %323
-
-323:                                              ; preds = %295
-  %324 = load ptr, ptr %3, align 8
-  %325 = getelementptr inbounds %struct.SN_env, ptr %324, i32 0, i32 0
-  %326 = load ptr, ptr %325, align 8
-  %327 = load ptr, ptr %3, align 8
-  %328 = getelementptr inbounds %struct.SN_env, ptr %327, i32 0, i32 1
-  %329 = load i32, ptr %328, align 8
-  %330 = sub i32 %329, 1
-  %331 = sext i32 %330 to i64
-  %332 = getelementptr i8, ptr %326, i64 %331
-  %333 = load i8, ptr %332, align 1
-  %334 = zext i8 %333 to i32
-  %335 = ashr i32 %334, 5
-  %336 = icmp ne i32 %335, 3
-  br i1 %336, label %353, label %337
-
-337:                                              ; preds = %323
-  %338 = load ptr, ptr %3, align 8
-  %339 = getelementptr inbounds %struct.SN_env, ptr %338, i32 0, i32 0
-  %340 = load ptr, ptr %339, align 8
-  %341 = load ptr, ptr %3, align 8
-  %342 = getelementptr inbounds %struct.SN_env, ptr %341, i32 0, i32 1
-  %343 = load i32, ptr %342, align 8
-  %344 = sub i32 %343, 1
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr i8, ptr %340, i64 %345
-  %347 = load i8, ptr %346, align 1
-  %348 = zext i8 %347 to i32
-  %349 = and i32 %348, 31
-  %350 = ashr i32 264336, %349
-  %351 = and i32 %350, 1
-  %352 = icmp ne i32 %351, 0
-  br i1 %352, label %354, label %353
-
-353:                                              ; preds = %337, %323, %295
-  br label %624
-
-354:                                              ; preds = %337
-  %355 = load ptr, ptr %3, align 8
-  %356 = call i32 @find_among_b(ptr noundef %355, ptr noundef @a_4, i32 noundef 6)
-  store i32 %356, ptr %4, align 4
-  %357 = load i32, ptr %4, align 4
-  %358 = icmp ne i32 %357, 0
-  br i1 %358, label %360, label %359
-
-359:                                              ; preds = %354
-  br label %624
-
-360:                                              ; preds = %354
-  %361 = load ptr, ptr %3, align 8
-  %362 = getelementptr inbounds %struct.SN_env, ptr %361, i32 0, i32 1
-  %363 = load i32, ptr %362, align 8
-  %364 = load ptr, ptr %3, align 8
-  %365 = getelementptr inbounds %struct.SN_env, ptr %364, i32 0, i32 4
-  store i32 %363, ptr %365, align 4
-  %366 = load i32, ptr %4, align 4
-  switch i32 %366, label %623 [
-    i32 1, label %367
-    i32 2, label %487
-    i32 3, label %547
-    i32 4, label %577
-    i32 5, label %596
+156:                                              ; preds = %149, %155, %153
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %157 = load i32, ptr %7, align 4
+  switch i32 %157, label %183 [
+    i32 0, label %158
+    i32 2, label %175
   ]
 
-367:                                              ; preds = %360
-  %368 = load ptr, ptr %3, align 8
-  %369 = call i32 @r_R2(ptr noundef %368)
-  store i32 %369, ptr %19, align 4
-  %370 = load i32, ptr %19, align 4
-  %371 = icmp eq i32 %370, 0
-  br i1 %371, label %372, label %373
+158:                                              ; preds = %156
+  %159 = load ptr, ptr %3, align 8
+  %160 = call i32 @out_grouping_b_U(ptr noundef %159, ptr noundef @g_v_j, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %162, label %163
 
-372:                                              ; preds = %367
-  br label %624
+162:                                              ; preds = %158
+  br label %175
 
-373:                                              ; preds = %367
-  %374 = load i32, ptr %19, align 4
-  %375 = icmp slt i32 %374, 0
-  br i1 %375, label %376, label %378
+163:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %164 = load ptr, ptr %3, align 8
+  %165 = call i32 @slice_del(ptr noundef %164)
+  store i32 %165, ptr %11, align 4
+  %166 = load i32, ptr %11, align 4
+  %167 = icmp slt i32 %166, 0
+  br i1 %167, label %168, label %170
 
-376:                                              ; preds = %373
-  %377 = load i32, ptr %19, align 4
-  store i32 %377, ptr %2, align 4
-  br label %750
+168:                                              ; preds = %163
+  %169 = load i32, ptr %11, align 4
+  store i32 %169, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %171
 
-378:                                              ; preds = %373
-  %379 = load ptr, ptr %3, align 8
-  %380 = call i32 @slice_del(ptr noundef %379)
-  store i32 %380, ptr %20, align 4
-  %381 = load i32, ptr %20, align 4
-  %382 = icmp slt i32 %381, 0
-  br i1 %382, label %383, label %385
+170:                                              ; preds = %163
+  store i32 0, ptr %7, align 4
+  br label %171
 
-383:                                              ; preds = %378
-  %384 = load i32, ptr %20, align 4
-  store i32 %384, ptr %2, align 4
-  br label %750
+171:                                              ; preds = %170, %168
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %172 = load i32, ptr %7, align 4
+  switch i32 %172, label %183 [
+    i32 0, label %173
+  ]
 
-385:                                              ; preds = %378
-  %386 = load ptr, ptr %3, align 8
-  %387 = getelementptr inbounds %struct.SN_env, ptr %386, i32 0, i32 2
-  %388 = load i32, ptr %387, align 4
-  %389 = load ptr, ptr %3, align 8
-  %390 = getelementptr inbounds %struct.SN_env, ptr %389, i32 0, i32 1
-  %391 = load i32, ptr %390, align 8
-  %392 = sub i32 %388, %391
-  store i32 %392, ptr %21, align 4
-  %393 = load ptr, ptr %3, align 8
-  %394 = getelementptr inbounds %struct.SN_env, ptr %393, i32 0, i32 1
-  %395 = load i32, ptr %394, align 8
-  %396 = load ptr, ptr %3, align 8
-  %397 = getelementptr inbounds %struct.SN_env, ptr %396, i32 0, i32 5
-  store i32 %395, ptr %397, align 8
-  %398 = load ptr, ptr %3, align 8
-  %399 = call i32 @eq_s_b(ptr noundef %398, i32 noundef 2, ptr noundef @s_14)
-  %400 = icmp ne i32 %399, 0
-  br i1 %400, label %402, label %401
+173:                                              ; preds = %171
+  br label %174
 
-401:                                              ; preds = %385
-  br label %467
+174:                                              ; preds = %97, %173, %143, %128
+  br label %175
 
-402:                                              ; preds = %385
-  %403 = load ptr, ptr %3, align 8
-  %404 = getelementptr inbounds %struct.SN_env, ptr %403, i32 0, i32 1
-  %405 = load i32, ptr %404, align 8
-  %406 = load ptr, ptr %3, align 8
-  %407 = getelementptr inbounds %struct.SN_env, ptr %406, i32 0, i32 4
-  store i32 %405, ptr %407, align 4
+175:                                              ; preds = %174, %156, %141, %116, %162, %96, %90
+  %176 = load ptr, ptr %3, align 8
+  %177 = getelementptr inbounds nuw %struct.SN_env, ptr %176, i32 0, i32 2
+  %178 = load i32, ptr %177, align 4
+  %179 = load i32, ptr %5, align 4
+  %180 = sub i32 %178, %179
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds nuw %struct.SN_env, ptr %181, i32 0, i32 1
+  store i32 %180, ptr %182, align 8
+  store i32 0, ptr %7, align 4
+  br label %183
+
+183:                                              ; preds = %175, %171, %156, %141, %126, %116
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  %184 = load i32, ptr %7, align 4
+  switch i32 %184, label %856 [
+    i32 0, label %185
+  ]
+
+185:                                              ; preds = %183
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %186 = load ptr, ptr %3, align 8
+  %187 = getelementptr inbounds nuw %struct.SN_env, ptr %186, i32 0, i32 2
+  %188 = load i32, ptr %187, align 4
+  %189 = load ptr, ptr %3, align 8
+  %190 = getelementptr inbounds nuw %struct.SN_env, ptr %189, i32 0, i32 1
+  %191 = load i32, ptr %190, align 8
+  %192 = sub i32 %188, %191
+  store i32 %192, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %193 = load ptr, ptr %3, align 8
+  %194 = call i32 @r_e_ending(ptr noundef %193)
+  store i32 %194, ptr %13, align 4
+  %195 = load i32, ptr %13, align 4
+  %196 = icmp slt i32 %195, 0
+  br i1 %196, label %197, label %199
+
+197:                                              ; preds = %185
+  %198 = load i32, ptr %13, align 4
+  store i32 %198, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %200
+
+199:                                              ; preds = %185
+  store i32 0, ptr %7, align 4
+  br label %200
+
+200:                                              ; preds = %199, %197
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %201 = load i32, ptr %7, align 4
+  switch i32 %201, label %210 [
+    i32 0, label %202
+  ]
+
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %3, align 8
+  %204 = getelementptr inbounds nuw %struct.SN_env, ptr %203, i32 0, i32 2
+  %205 = load i32, ptr %204, align 4
+  %206 = load i32, ptr %12, align 4
+  %207 = sub i32 %205, %206
+  %208 = load ptr, ptr %3, align 8
+  %209 = getelementptr inbounds nuw %struct.SN_env, ptr %208, i32 0, i32 1
+  store i32 %207, ptr %209, align 8
+  store i32 0, ptr %7, align 4
+  br label %210
+
+210:                                              ; preds = %202, %200
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %211 = load i32, ptr %7, align 4
+  switch i32 %211, label %856 [
+    i32 0, label %212
+  ]
+
+212:                                              ; preds = %210
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %213 = load ptr, ptr %3, align 8
+  %214 = getelementptr inbounds nuw %struct.SN_env, ptr %213, i32 0, i32 2
+  %215 = load i32, ptr %214, align 4
+  %216 = load ptr, ptr %3, align 8
+  %217 = getelementptr inbounds nuw %struct.SN_env, ptr %216, i32 0, i32 1
+  %218 = load i32, ptr %217, align 8
+  %219 = sub i32 %215, %218
+  store i32 %219, ptr %14, align 4
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds nuw %struct.SN_env, ptr %220, i32 0, i32 1
+  %222 = load i32, ptr %221, align 8
+  %223 = load ptr, ptr %3, align 8
+  %224 = getelementptr inbounds nuw %struct.SN_env, ptr %223, i32 0, i32 5
+  store i32 %222, ptr %224, align 8
+  %225 = load ptr, ptr %3, align 8
+  %226 = call i32 @eq_s_b(ptr noundef %225, i32 noundef 4, ptr noundef @s_12)
+  %227 = icmp ne i32 %226, 0
+  br i1 %227, label %229, label %228
+
+228:                                              ; preds = %212
+  br label %332
+
+229:                                              ; preds = %212
+  %230 = load ptr, ptr %3, align 8
+  %231 = getelementptr inbounds nuw %struct.SN_env, ptr %230, i32 0, i32 1
+  %232 = load i32, ptr %231, align 8
+  %233 = load ptr, ptr %3, align 8
+  %234 = getelementptr inbounds nuw %struct.SN_env, ptr %233, i32 0, i32 4
+  store i32 %232, ptr %234, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %235 = load ptr, ptr %3, align 8
+  %236 = call i32 @r_R2(ptr noundef %235)
+  store i32 %236, ptr %15, align 4
+  %237 = load i32, ptr %15, align 4
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %240
+
+239:                                              ; preds = %229
+  store i32 4, ptr %7, align 4
+  br label %246
+
+240:                                              ; preds = %229
+  %241 = load i32, ptr %15, align 4
+  %242 = icmp slt i32 %241, 0
+  br i1 %242, label %243, label %245
+
+243:                                              ; preds = %240
+  %244 = load i32, ptr %15, align 4
+  store i32 %244, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %246
+
+245:                                              ; preds = %240
+  store i32 0, ptr %7, align 4
+  br label %246
+
+246:                                              ; preds = %239, %245, %243
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  %247 = load i32, ptr %7, align 4
+  switch i32 %247, label %340 [
+    i32 0, label %248
+    i32 4, label %332
+  ]
+
+248:                                              ; preds = %246
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %249 = load ptr, ptr %3, align 8
+  %250 = getelementptr inbounds nuw %struct.SN_env, ptr %249, i32 0, i32 2
+  %251 = load i32, ptr %250, align 4
+  %252 = load ptr, ptr %3, align 8
+  %253 = getelementptr inbounds nuw %struct.SN_env, ptr %252, i32 0, i32 1
+  %254 = load i32, ptr %253, align 8
+  %255 = sub i32 %251, %254
+  store i32 %255, ptr %16, align 4
+  %256 = load ptr, ptr %3, align 8
+  %257 = getelementptr inbounds nuw %struct.SN_env, ptr %256, i32 0, i32 1
+  %258 = load i32, ptr %257, align 8
+  %259 = load ptr, ptr %3, align 8
+  %260 = getelementptr inbounds nuw %struct.SN_env, ptr %259, i32 0, i32 3
+  %261 = load i32, ptr %260, align 8
+  %262 = icmp sle i32 %258, %261
+  br i1 %262, label %276, label %263
+
+263:                                              ; preds = %248
+  %264 = load ptr, ptr %3, align 8
+  %265 = getelementptr inbounds nuw %struct.SN_env, ptr %264, i32 0, i32 0
+  %266 = load ptr, ptr %265, align 8
+  %267 = load ptr, ptr %3, align 8
+  %268 = getelementptr inbounds nuw %struct.SN_env, ptr %267, i32 0, i32 1
+  %269 = load i32, ptr %268, align 8
+  %270 = sub i32 %269, 1
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds i8, ptr %266, i64 %271
+  %273 = load i8, ptr %272, align 1
+  %274 = zext i8 %273 to i32
+  %275 = icmp ne i32 %274, 99
+  br i1 %275, label %276, label %277
+
+276:                                              ; preds = %263, %248
+  br label %282
+
+277:                                              ; preds = %263
+  %278 = load ptr, ptr %3, align 8
+  %279 = getelementptr inbounds nuw %struct.SN_env, ptr %278, i32 0, i32 1
+  %280 = load i32, ptr %279, align 8
+  %281 = add i32 %280, -1
+  store i32 %281, ptr %279, align 8
+  store i32 4, ptr %7, align 4
+  br label %290
+
+282:                                              ; preds = %276
+  %283 = load ptr, ptr %3, align 8
+  %284 = getelementptr inbounds nuw %struct.SN_env, ptr %283, i32 0, i32 2
+  %285 = load i32, ptr %284, align 4
+  %286 = load i32, ptr %16, align 4
+  %287 = sub i32 %285, %286
+  %288 = load ptr, ptr %3, align 8
+  %289 = getelementptr inbounds nuw %struct.SN_env, ptr %288, i32 0, i32 1
+  store i32 %287, ptr %289, align 8
+  store i32 0, ptr %7, align 4
+  br label %290
+
+290:                                              ; preds = %277, %282
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %291 = load i32, ptr %7, align 4
+  switch i32 %291, label %340 [
+    i32 0, label %292
+    i32 4, label %332
+  ]
+
+292:                                              ; preds = %290
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %293 = load ptr, ptr %3, align 8
+  %294 = call i32 @slice_del(ptr noundef %293)
+  store i32 %294, ptr %17, align 4
+  %295 = load i32, ptr %17, align 4
+  %296 = icmp slt i32 %295, 0
+  br i1 %296, label %297, label %299
+
+297:                                              ; preds = %292
+  %298 = load i32, ptr %17, align 4
+  store i32 %298, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %300
+
+299:                                              ; preds = %292
+  store i32 0, ptr %7, align 4
+  br label %300
+
+300:                                              ; preds = %299, %297
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %301 = load i32, ptr %7, align 4
+  switch i32 %301, label %340 [
+    i32 0, label %302
+  ]
+
+302:                                              ; preds = %300
+  %303 = load ptr, ptr %3, align 8
+  %304 = getelementptr inbounds nuw %struct.SN_env, ptr %303, i32 0, i32 1
+  %305 = load i32, ptr %304, align 8
+  %306 = load ptr, ptr %3, align 8
+  %307 = getelementptr inbounds nuw %struct.SN_env, ptr %306, i32 0, i32 5
+  store i32 %305, ptr %307, align 8
+  %308 = load ptr, ptr %3, align 8
+  %309 = call i32 @eq_s_b(ptr noundef %308, i32 noundef 2, ptr noundef @s_13)
+  %310 = icmp ne i32 %309, 0
+  br i1 %310, label %312, label %311
+
+311:                                              ; preds = %302
+  br label %332
+
+312:                                              ; preds = %302
+  %313 = load ptr, ptr %3, align 8
+  %314 = getelementptr inbounds nuw %struct.SN_env, ptr %313, i32 0, i32 1
+  %315 = load i32, ptr %314, align 8
+  %316 = load ptr, ptr %3, align 8
+  %317 = getelementptr inbounds nuw %struct.SN_env, ptr %316, i32 0, i32 4
+  store i32 %315, ptr %317, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  %318 = load ptr, ptr %3, align 8
+  %319 = call i32 @r_en_ending(ptr noundef %318)
+  store i32 %319, ptr %18, align 4
+  %320 = load i32, ptr %18, align 4
+  %321 = icmp eq i32 %320, 0
+  br i1 %321, label %322, label %323
+
+322:                                              ; preds = %312
+  store i32 4, ptr %7, align 4
+  br label %329
+
+323:                                              ; preds = %312
+  %324 = load i32, ptr %18, align 4
+  %325 = icmp slt i32 %324, 0
+  br i1 %325, label %326, label %328
+
+326:                                              ; preds = %323
+  %327 = load i32, ptr %18, align 4
+  store i32 %327, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %329
+
+328:                                              ; preds = %323
+  store i32 0, ptr %7, align 4
+  br label %329
+
+329:                                              ; preds = %322, %328, %326
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  %330 = load i32, ptr %7, align 4
+  switch i32 %330, label %340 [
+    i32 0, label %331
+    i32 4, label %332
+  ]
+
+331:                                              ; preds = %329
+  br label %332
+
+332:                                              ; preds = %331, %329, %290, %246, %311, %228
+  %333 = load ptr, ptr %3, align 8
+  %334 = getelementptr inbounds nuw %struct.SN_env, ptr %333, i32 0, i32 2
+  %335 = load i32, ptr %334, align 4
+  %336 = load i32, ptr %14, align 4
+  %337 = sub i32 %335, %336
+  %338 = load ptr, ptr %3, align 8
+  %339 = getelementptr inbounds nuw %struct.SN_env, ptr %338, i32 0, i32 1
+  store i32 %337, ptr %339, align 8
+  store i32 0, ptr %7, align 4
+  br label %340
+
+340:                                              ; preds = %332, %329, %300, %290, %246
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %341 = load i32, ptr %7, align 4
+  switch i32 %341, label %856 [
+    i32 0, label %342
+  ]
+
+342:                                              ; preds = %340
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  %343 = load ptr, ptr %3, align 8
+  %344 = getelementptr inbounds nuw %struct.SN_env, ptr %343, i32 0, i32 2
+  %345 = load i32, ptr %344, align 4
+  %346 = load ptr, ptr %3, align 8
+  %347 = getelementptr inbounds nuw %struct.SN_env, ptr %346, i32 0, i32 1
+  %348 = load i32, ptr %347, align 8
+  %349 = sub i32 %345, %348
+  store i32 %349, ptr %19, align 4
+  %350 = load ptr, ptr %3, align 8
+  %351 = getelementptr inbounds nuw %struct.SN_env, ptr %350, i32 0, i32 1
+  %352 = load i32, ptr %351, align 8
+  %353 = load ptr, ptr %3, align 8
+  %354 = getelementptr inbounds nuw %struct.SN_env, ptr %353, i32 0, i32 5
+  store i32 %352, ptr %354, align 8
+  %355 = load ptr, ptr %3, align 8
+  %356 = getelementptr inbounds nuw %struct.SN_env, ptr %355, i32 0, i32 1
+  %357 = load i32, ptr %356, align 8
+  %358 = sub i32 %357, 1
+  %359 = load ptr, ptr %3, align 8
+  %360 = getelementptr inbounds nuw %struct.SN_env, ptr %359, i32 0, i32 3
+  %361 = load i32, ptr %360, align 8
+  %362 = icmp sle i32 %358, %361
+  br i1 %362, label %393, label %363
+
+363:                                              ; preds = %342
+  %364 = load ptr, ptr %3, align 8
+  %365 = getelementptr inbounds nuw %struct.SN_env, ptr %364, i32 0, i32 0
+  %366 = load ptr, ptr %365, align 8
+  %367 = load ptr, ptr %3, align 8
+  %368 = getelementptr inbounds nuw %struct.SN_env, ptr %367, i32 0, i32 1
+  %369 = load i32, ptr %368, align 8
+  %370 = sub i32 %369, 1
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds i8, ptr %366, i64 %371
+  %373 = load i8, ptr %372, align 1
+  %374 = zext i8 %373 to i32
+  %375 = ashr i32 %374, 5
+  %376 = icmp ne i32 %375, 3
+  br i1 %376, label %393, label %377
+
+377:                                              ; preds = %363
+  %378 = load ptr, ptr %3, align 8
+  %379 = getelementptr inbounds nuw %struct.SN_env, ptr %378, i32 0, i32 0
+  %380 = load ptr, ptr %379, align 8
+  %381 = load ptr, ptr %3, align 8
+  %382 = getelementptr inbounds nuw %struct.SN_env, ptr %381, i32 0, i32 1
+  %383 = load i32, ptr %382, align 8
+  %384 = sub i32 %383, 1
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds i8, ptr %380, i64 %385
+  %387 = load i8, ptr %386, align 1
+  %388 = zext i8 %387 to i32
+  %389 = and i32 %388, 31
+  %390 = ashr i32 264336, %389
+  %391 = and i32 %390, 1
+  %392 = icmp ne i32 %391, 0
+  br i1 %392, label %394, label %393
+
+393:                                              ; preds = %377, %363, %342
+  br label %715
+
+394:                                              ; preds = %377
+  %395 = load ptr, ptr %3, align 8
+  %396 = call i32 @find_among_b(ptr noundef %395, ptr noundef @a_4, i32 noundef 6)
+  store i32 %396, ptr %4, align 4
+  %397 = load i32, ptr %4, align 4
+  %398 = icmp ne i32 %397, 0
+  br i1 %398, label %400, label %399
+
+399:                                              ; preds = %394
+  br label %715
+
+400:                                              ; preds = %394
+  %401 = load ptr, ptr %3, align 8
+  %402 = getelementptr inbounds nuw %struct.SN_env, ptr %401, i32 0, i32 1
+  %403 = load i32, ptr %402, align 8
+  %404 = load ptr, ptr %3, align 8
+  %405 = getelementptr inbounds nuw %struct.SN_env, ptr %404, i32 0, i32 4
+  store i32 %403, ptr %405, align 4
+  %406 = load i32, ptr %4, align 4
+  switch i32 %406, label %714 [
+    i32 1, label %407
+    i32 2, label %548
+    i32 3, label %617
+    i32 4, label %656
+    i32 5, label %681
+  ]
+
+407:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
   %408 = load ptr, ptr %3, align 8
   %409 = call i32 @r_R2(ptr noundef %408)
-  store i32 %409, ptr %22, align 4
-  %410 = load i32, ptr %22, align 4
+  store i32 %409, ptr %20, align 4
+  %410 = load i32, ptr %20, align 4
   %411 = icmp eq i32 %410, 0
   br i1 %411, label %412, label %413
 
-412:                                              ; preds = %402
-  br label %467
+412:                                              ; preds = %407
+  store i32 6, ptr %7, align 4
+  br label %419
 
-413:                                              ; preds = %402
-  %414 = load i32, ptr %22, align 4
+413:                                              ; preds = %407
+  %414 = load i32, ptr %20, align 4
   %415 = icmp slt i32 %414, 0
   br i1 %415, label %416, label %418
 
 416:                                              ; preds = %413
-  %417 = load i32, ptr %22, align 4
+  %417 = load i32, ptr %20, align 4
   store i32 %417, ptr %2, align 4
-  br label %750
+  store i32 1, ptr %7, align 4
+  br label %419
 
 418:                                              ; preds = %413
-  %419 = load ptr, ptr %3, align 8
-  %420 = getelementptr inbounds %struct.SN_env, ptr %419, i32 0, i32 2
-  %421 = load i32, ptr %420, align 4
+  store i32 0, ptr %7, align 4
+  br label %419
+
+419:                                              ; preds = %412, %418, %416
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  %420 = load i32, ptr %7, align 4
+  switch i32 %420, label %723 [
+    i32 0, label %421
+    i32 6, label %715
+  ]
+
+421:                                              ; preds = %419
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
   %422 = load ptr, ptr %3, align 8
-  %423 = getelementptr inbounds %struct.SN_env, ptr %422, i32 0, i32 1
-  %424 = load i32, ptr %423, align 8
-  %425 = sub i32 %421, %424
-  store i32 %425, ptr %23, align 4
-  %426 = load ptr, ptr %3, align 8
-  %427 = getelementptr inbounds %struct.SN_env, ptr %426, i32 0, i32 1
-  %428 = load i32, ptr %427, align 8
-  %429 = load ptr, ptr %3, align 8
-  %430 = getelementptr inbounds %struct.SN_env, ptr %429, i32 0, i32 3
-  %431 = load i32, ptr %430, align 8
-  %432 = icmp sle i32 %428, %431
-  br i1 %432, label %446, label %433
+  %423 = call i32 @slice_del(ptr noundef %422)
+  store i32 %423, ptr %21, align 4
+  %424 = load i32, ptr %21, align 4
+  %425 = icmp slt i32 %424, 0
+  br i1 %425, label %426, label %428
 
-433:                                              ; preds = %418
-  %434 = load ptr, ptr %3, align 8
-  %435 = getelementptr inbounds %struct.SN_env, ptr %434, i32 0, i32 0
-  %436 = load ptr, ptr %435, align 8
-  %437 = load ptr, ptr %3, align 8
-  %438 = getelementptr inbounds %struct.SN_env, ptr %437, i32 0, i32 1
-  %439 = load i32, ptr %438, align 8
-  %440 = sub i32 %439, 1
-  %441 = sext i32 %440 to i64
-  %442 = getelementptr i8, ptr %436, i64 %441
-  %443 = load i8, ptr %442, align 1
-  %444 = zext i8 %443 to i32
-  %445 = icmp ne i32 %444, 101
-  br i1 %445, label %446, label %447
+426:                                              ; preds = %421
+  %427 = load i32, ptr %21, align 4
+  store i32 %427, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %429
 
-446:                                              ; preds = %433, %418
-  br label %452
+428:                                              ; preds = %421
+  store i32 0, ptr %7, align 4
+  br label %429
 
-447:                                              ; preds = %433
-  %448 = load ptr, ptr %3, align 8
-  %449 = getelementptr inbounds %struct.SN_env, ptr %448, i32 0, i32 1
-  %450 = load i32, ptr %449, align 8
-  %451 = add i32 %450, -1
-  store i32 %451, ptr %449, align 8
-  br label %467
+429:                                              ; preds = %428, %426
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  %430 = load i32, ptr %7, align 4
+  switch i32 %430, label %723 [
+    i32 0, label %431
+  ]
 
-452:                                              ; preds = %446
-  %453 = load ptr, ptr %3, align 8
-  %454 = getelementptr inbounds %struct.SN_env, ptr %453, i32 0, i32 2
-  %455 = load i32, ptr %454, align 4
+431:                                              ; preds = %429
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %432 = load ptr, ptr %3, align 8
+  %433 = getelementptr inbounds nuw %struct.SN_env, ptr %432, i32 0, i32 2
+  %434 = load i32, ptr %433, align 4
+  %435 = load ptr, ptr %3, align 8
+  %436 = getelementptr inbounds nuw %struct.SN_env, ptr %435, i32 0, i32 1
+  %437 = load i32, ptr %436, align 8
+  %438 = sub i32 %434, %437
+  store i32 %438, ptr %22, align 4
+  %439 = load ptr, ptr %3, align 8
+  %440 = getelementptr inbounds nuw %struct.SN_env, ptr %439, i32 0, i32 1
+  %441 = load i32, ptr %440, align 8
+  %442 = load ptr, ptr %3, align 8
+  %443 = getelementptr inbounds nuw %struct.SN_env, ptr %442, i32 0, i32 5
+  store i32 %441, ptr %443, align 8
+  %444 = load ptr, ptr %3, align 8
+  %445 = call i32 @eq_s_b(ptr noundef %444, i32 noundef 2, ptr noundef @s_14)
+  %446 = icmp ne i32 %445, 0
+  br i1 %446, label %448, label %447
+
+447:                                              ; preds = %431
+  br label %522
+
+448:                                              ; preds = %431
+  %449 = load ptr, ptr %3, align 8
+  %450 = getelementptr inbounds nuw %struct.SN_env, ptr %449, i32 0, i32 1
+  %451 = load i32, ptr %450, align 8
+  %452 = load ptr, ptr %3, align 8
+  %453 = getelementptr inbounds nuw %struct.SN_env, ptr %452, i32 0, i32 4
+  store i32 %451, ptr %453, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  %454 = load ptr, ptr %3, align 8
+  %455 = call i32 @r_R2(ptr noundef %454)
+  store i32 %455, ptr %23, align 4
   %456 = load i32, ptr %23, align 4
-  %457 = sub i32 %455, %456
-  %458 = load ptr, ptr %3, align 8
-  %459 = getelementptr inbounds %struct.SN_env, ptr %458, i32 0, i32 1
-  store i32 %457, ptr %459, align 8
-  %460 = load ptr, ptr %3, align 8
-  %461 = call i32 @slice_del(ptr noundef %460)
-  store i32 %461, ptr %24, align 4
-  %462 = load i32, ptr %24, align 4
-  %463 = icmp slt i32 %462, 0
-  br i1 %463, label %464, label %466
+  %457 = icmp eq i32 %456, 0
+  br i1 %457, label %458, label %459
 
-464:                                              ; preds = %452
-  %465 = load i32, ptr %24, align 4
-  store i32 %465, ptr %2, align 4
-  br label %750
+458:                                              ; preds = %448
+  store i32 8, ptr %7, align 4
+  br label %465
 
-466:                                              ; preds = %452
-  br label %486
+459:                                              ; preds = %448
+  %460 = load i32, ptr %23, align 4
+  %461 = icmp slt i32 %460, 0
+  br i1 %461, label %462, label %464
 
-467:                                              ; preds = %447, %412, %401
+462:                                              ; preds = %459
+  %463 = load i32, ptr %23, align 4
+  store i32 %463, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %465
+
+464:                                              ; preds = %459
+  store i32 0, ptr %7, align 4
+  br label %465
+
+465:                                              ; preds = %458, %464, %462
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  %466 = load i32, ptr %7, align 4
+  switch i32 %466, label %544 [
+    i32 0, label %467
+    i32 8, label %522
+  ]
+
+467:                                              ; preds = %465
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
   %468 = load ptr, ptr %3, align 8
-  %469 = getelementptr inbounds %struct.SN_env, ptr %468, i32 0, i32 2
+  %469 = getelementptr inbounds nuw %struct.SN_env, ptr %468, i32 0, i32 2
   %470 = load i32, ptr %469, align 4
-  %471 = load i32, ptr %21, align 4
-  %472 = sub i32 %470, %471
-  %473 = load ptr, ptr %3, align 8
-  %474 = getelementptr inbounds %struct.SN_env, ptr %473, i32 0, i32 1
-  store i32 %472, ptr %474, align 8
+  %471 = load ptr, ptr %3, align 8
+  %472 = getelementptr inbounds nuw %struct.SN_env, ptr %471, i32 0, i32 1
+  %473 = load i32, ptr %472, align 8
+  %474 = sub i32 %470, %473
+  store i32 %474, ptr %24, align 4
   %475 = load ptr, ptr %3, align 8
-  %476 = call i32 @r_undouble(ptr noundef %475)
-  store i32 %476, ptr %25, align 4
-  %477 = load i32, ptr %25, align 4
-  %478 = icmp eq i32 %477, 0
-  br i1 %478, label %479, label %480
+  %476 = getelementptr inbounds nuw %struct.SN_env, ptr %475, i32 0, i32 1
+  %477 = load i32, ptr %476, align 8
+  %478 = load ptr, ptr %3, align 8
+  %479 = getelementptr inbounds nuw %struct.SN_env, ptr %478, i32 0, i32 3
+  %480 = load i32, ptr %479, align 8
+  %481 = icmp sle i32 %477, %480
+  br i1 %481, label %495, label %482
 
-479:                                              ; preds = %467
-  br label %624
+482:                                              ; preds = %467
+  %483 = load ptr, ptr %3, align 8
+  %484 = getelementptr inbounds nuw %struct.SN_env, ptr %483, i32 0, i32 0
+  %485 = load ptr, ptr %484, align 8
+  %486 = load ptr, ptr %3, align 8
+  %487 = getelementptr inbounds nuw %struct.SN_env, ptr %486, i32 0, i32 1
+  %488 = load i32, ptr %487, align 8
+  %489 = sub i32 %488, 1
+  %490 = sext i32 %489 to i64
+  %491 = getelementptr inbounds i8, ptr %485, i64 %490
+  %492 = load i8, ptr %491, align 1
+  %493 = zext i8 %492 to i32
+  %494 = icmp ne i32 %493, 101
+  br i1 %494, label %495, label %496
 
-480:                                              ; preds = %467
-  %481 = load i32, ptr %25, align 4
-  %482 = icmp slt i32 %481, 0
-  br i1 %482, label %483, label %485
+495:                                              ; preds = %482, %467
+  br label %501
 
-483:                                              ; preds = %480
-  %484 = load i32, ptr %25, align 4
-  store i32 %484, ptr %2, align 4
-  br label %750
+496:                                              ; preds = %482
+  %497 = load ptr, ptr %3, align 8
+  %498 = getelementptr inbounds nuw %struct.SN_env, ptr %497, i32 0, i32 1
+  %499 = load i32, ptr %498, align 8
+  %500 = add i32 %499, -1
+  store i32 %500, ptr %498, align 8
+  store i32 8, ptr %7, align 4
+  br label %509
 
-485:                                              ; preds = %480
-  br label %486
-
-486:                                              ; preds = %485, %466
-  br label %623
-
-487:                                              ; preds = %360
-  %488 = load ptr, ptr %3, align 8
-  %489 = call i32 @r_R2(ptr noundef %488)
-  store i32 %489, ptr %26, align 4
-  %490 = load i32, ptr %26, align 4
-  %491 = icmp eq i32 %490, 0
-  br i1 %491, label %492, label %493
-
-492:                                              ; preds = %487
-  br label %624
-
-493:                                              ; preds = %487
-  %494 = load i32, ptr %26, align 4
-  %495 = icmp slt i32 %494, 0
-  br i1 %495, label %496, label %498
-
-496:                                              ; preds = %493
-  %497 = load i32, ptr %26, align 4
-  store i32 %497, ptr %2, align 4
-  br label %750
-
-498:                                              ; preds = %493
-  %499 = load ptr, ptr %3, align 8
-  %500 = getelementptr inbounds %struct.SN_env, ptr %499, i32 0, i32 2
-  %501 = load i32, ptr %500, align 4
+501:                                              ; preds = %495
   %502 = load ptr, ptr %3, align 8
-  %503 = getelementptr inbounds %struct.SN_env, ptr %502, i32 0, i32 1
-  %504 = load i32, ptr %503, align 8
-  %505 = sub i32 %501, %504
-  store i32 %505, ptr %27, align 4
-  %506 = load ptr, ptr %3, align 8
-  %507 = getelementptr inbounds %struct.SN_env, ptr %506, i32 0, i32 1
-  %508 = load i32, ptr %507, align 8
-  %509 = load ptr, ptr %3, align 8
-  %510 = getelementptr inbounds %struct.SN_env, ptr %509, i32 0, i32 3
-  %511 = load i32, ptr %510, align 8
-  %512 = icmp sle i32 %508, %511
-  br i1 %512, label %526, label %513
+  %503 = getelementptr inbounds nuw %struct.SN_env, ptr %502, i32 0, i32 2
+  %504 = load i32, ptr %503, align 4
+  %505 = load i32, ptr %24, align 4
+  %506 = sub i32 %504, %505
+  %507 = load ptr, ptr %3, align 8
+  %508 = getelementptr inbounds nuw %struct.SN_env, ptr %507, i32 0, i32 1
+  store i32 %506, ptr %508, align 8
+  store i32 0, ptr %7, align 4
+  br label %509
 
-513:                                              ; preds = %498
-  %514 = load ptr, ptr %3, align 8
-  %515 = getelementptr inbounds %struct.SN_env, ptr %514, i32 0, i32 0
-  %516 = load ptr, ptr %515, align 8
-  %517 = load ptr, ptr %3, align 8
-  %518 = getelementptr inbounds %struct.SN_env, ptr %517, i32 0, i32 1
-  %519 = load i32, ptr %518, align 8
-  %520 = sub i32 %519, 1
-  %521 = sext i32 %520 to i64
-  %522 = getelementptr i8, ptr %516, i64 %521
-  %523 = load i8, ptr %522, align 1
-  %524 = zext i8 %523 to i32
-  %525 = icmp ne i32 %524, 101
-  br i1 %525, label %526, label %527
+509:                                              ; preds = %496, %501
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  %510 = load i32, ptr %7, align 4
+  switch i32 %510, label %544 [
+    i32 0, label %511
+    i32 8, label %522
+  ]
 
-526:                                              ; preds = %513, %498
-  br label %532
+511:                                              ; preds = %509
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %512 = load ptr, ptr %3, align 8
+  %513 = call i32 @slice_del(ptr noundef %512)
+  store i32 %513, ptr %25, align 4
+  %514 = load i32, ptr %25, align 4
+  %515 = icmp slt i32 %514, 0
+  br i1 %515, label %516, label %518
 
-527:                                              ; preds = %513
+516:                                              ; preds = %511
+  %517 = load i32, ptr %25, align 4
+  store i32 %517, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %519
+
+518:                                              ; preds = %511
+  store i32 0, ptr %7, align 4
+  br label %519
+
+519:                                              ; preds = %518, %516
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  %520 = load i32, ptr %7, align 4
+  switch i32 %520, label %544 [
+    i32 0, label %521
+  ]
+
+521:                                              ; preds = %519
+  store i32 10, ptr %7, align 4
+  br label %544
+
+522:                                              ; preds = %509, %465, %447
+  %523 = load ptr, ptr %3, align 8
+  %524 = getelementptr inbounds nuw %struct.SN_env, ptr %523, i32 0, i32 2
+  %525 = load i32, ptr %524, align 4
+  %526 = load i32, ptr %22, align 4
+  %527 = sub i32 %525, %526
   %528 = load ptr, ptr %3, align 8
-  %529 = getelementptr inbounds %struct.SN_env, ptr %528, i32 0, i32 1
-  %530 = load i32, ptr %529, align 8
-  %531 = add i32 %530, -1
-  store i32 %531, ptr %529, align 8
-  br label %624
+  %529 = getelementptr inbounds nuw %struct.SN_env, ptr %528, i32 0, i32 1
+  store i32 %527, ptr %529, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %530 = load ptr, ptr %3, align 8
+  %531 = call i32 @r_undouble(ptr noundef %530)
+  store i32 %531, ptr %26, align 4
+  %532 = load i32, ptr %26, align 4
+  %533 = icmp eq i32 %532, 0
+  br i1 %533, label %534, label %535
 
-532:                                              ; preds = %526
-  %533 = load ptr, ptr %3, align 8
-  %534 = getelementptr inbounds %struct.SN_env, ptr %533, i32 0, i32 2
-  %535 = load i32, ptr %534, align 4
-  %536 = load i32, ptr %27, align 4
-  %537 = sub i32 %535, %536
-  %538 = load ptr, ptr %3, align 8
-  %539 = getelementptr inbounds %struct.SN_env, ptr %538, i32 0, i32 1
-  store i32 %537, ptr %539, align 8
-  %540 = load ptr, ptr %3, align 8
-  %541 = call i32 @slice_del(ptr noundef %540)
-  store i32 %541, ptr %28, align 4
-  %542 = load i32, ptr %28, align 4
-  %543 = icmp slt i32 %542, 0
-  br i1 %543, label %544, label %546
+534:                                              ; preds = %522
+  store i32 6, ptr %7, align 4
+  br label %541
 
-544:                                              ; preds = %532
-  %545 = load i32, ptr %28, align 4
-  store i32 %545, ptr %2, align 4
-  br label %750
+535:                                              ; preds = %522
+  %536 = load i32, ptr %26, align 4
+  %537 = icmp slt i32 %536, 0
+  br i1 %537, label %538, label %540
 
-546:                                              ; preds = %532
-  br label %623
+538:                                              ; preds = %535
+  %539 = load i32, ptr %26, align 4
+  store i32 %539, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %541
 
-547:                                              ; preds = %360
-  %548 = load ptr, ptr %3, align 8
-  %549 = call i32 @r_R2(ptr noundef %548)
-  store i32 %549, ptr %29, align 4
-  %550 = load i32, ptr %29, align 4
-  %551 = icmp eq i32 %550, 0
-  br i1 %551, label %552, label %553
+540:                                              ; preds = %535
+  store i32 0, ptr %7, align 4
+  br label %541
 
-552:                                              ; preds = %547
-  br label %624
+541:                                              ; preds = %534, %540, %538
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  %542 = load i32, ptr %7, align 4
+  switch i32 %542, label %544 [
+    i32 0, label %543
+  ]
 
-553:                                              ; preds = %547
-  %554 = load i32, ptr %29, align 4
-  %555 = icmp slt i32 %554, 0
-  br i1 %555, label %556, label %558
+543:                                              ; preds = %541
+  store i32 0, ptr %7, align 4
+  br label %544
 
-556:                                              ; preds = %553
-  %557 = load i32, ptr %29, align 4
-  store i32 %557, ptr %2, align 4
-  br label %750
+544:                                              ; preds = %521, %543, %541, %519, %509, %465
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  %545 = load i32, ptr %7, align 4
+  switch i32 %545, label %723 [
+    i32 0, label %546
+    i32 10, label %547
+    i32 6, label %715
+  ]
 
-558:                                              ; preds = %553
-  %559 = load ptr, ptr %3, align 8
-  %560 = call i32 @slice_del(ptr noundef %559)
-  store i32 %560, ptr %30, align 4
-  %561 = load i32, ptr %30, align 4
-  %562 = icmp slt i32 %561, 0
-  br i1 %562, label %563, label %565
+546:                                              ; preds = %544
+  br label %547
 
-563:                                              ; preds = %558
-  %564 = load i32, ptr %30, align 4
-  store i32 %564, ptr %2, align 4
-  br label %750
+547:                                              ; preds = %546, %544
+  br label %714
 
-565:                                              ; preds = %558
+548:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  %549 = load ptr, ptr %3, align 8
+  %550 = call i32 @r_R2(ptr noundef %549)
+  store i32 %550, ptr %27, align 4
+  %551 = load i32, ptr %27, align 4
+  %552 = icmp eq i32 %551, 0
+  br i1 %552, label %553, label %554
+
+553:                                              ; preds = %548
+  store i32 6, ptr %7, align 4
+  br label %560
+
+554:                                              ; preds = %548
+  %555 = load i32, ptr %27, align 4
+  %556 = icmp slt i32 %555, 0
+  br i1 %556, label %557, label %559
+
+557:                                              ; preds = %554
+  %558 = load i32, ptr %27, align 4
+  store i32 %558, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %560
+
+559:                                              ; preds = %554
+  store i32 0, ptr %7, align 4
+  br label %560
+
+560:                                              ; preds = %553, %559, %557
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  %561 = load i32, ptr %7, align 4
+  switch i32 %561, label %723 [
+    i32 0, label %562
+    i32 6, label %715
+  ]
+
+562:                                              ; preds = %560
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #3
+  %563 = load ptr, ptr %3, align 8
+  %564 = getelementptr inbounds nuw %struct.SN_env, ptr %563, i32 0, i32 2
+  %565 = load i32, ptr %564, align 4
   %566 = load ptr, ptr %3, align 8
-  %567 = call i32 @r_e_ending(ptr noundef %566)
-  store i32 %567, ptr %31, align 4
-  %568 = load i32, ptr %31, align 4
-  %569 = icmp eq i32 %568, 0
-  br i1 %569, label %570, label %571
+  %567 = getelementptr inbounds nuw %struct.SN_env, ptr %566, i32 0, i32 1
+  %568 = load i32, ptr %567, align 8
+  %569 = sub i32 %565, %568
+  store i32 %569, ptr %28, align 4
+  %570 = load ptr, ptr %3, align 8
+  %571 = getelementptr inbounds nuw %struct.SN_env, ptr %570, i32 0, i32 1
+  %572 = load i32, ptr %571, align 8
+  %573 = load ptr, ptr %3, align 8
+  %574 = getelementptr inbounds nuw %struct.SN_env, ptr %573, i32 0, i32 3
+  %575 = load i32, ptr %574, align 8
+  %576 = icmp sle i32 %572, %575
+  br i1 %576, label %590, label %577
 
-570:                                              ; preds = %565
-  br label %624
-
-571:                                              ; preds = %565
-  %572 = load i32, ptr %31, align 4
-  %573 = icmp slt i32 %572, 0
-  br i1 %573, label %574, label %576
-
-574:                                              ; preds = %571
-  %575 = load i32, ptr %31, align 4
-  store i32 %575, ptr %2, align 4
-  br label %750
-
-576:                                              ; preds = %571
-  br label %623
-
-577:                                              ; preds = %360
+577:                                              ; preds = %562
   %578 = load ptr, ptr %3, align 8
-  %579 = call i32 @r_R2(ptr noundef %578)
-  store i32 %579, ptr %32, align 4
-  %580 = load i32, ptr %32, align 4
-  %581 = icmp eq i32 %580, 0
-  br i1 %581, label %582, label %583
+  %579 = getelementptr inbounds nuw %struct.SN_env, ptr %578, i32 0, i32 0
+  %580 = load ptr, ptr %579, align 8
+  %581 = load ptr, ptr %3, align 8
+  %582 = getelementptr inbounds nuw %struct.SN_env, ptr %581, i32 0, i32 1
+  %583 = load i32, ptr %582, align 8
+  %584 = sub i32 %583, 1
+  %585 = sext i32 %584 to i64
+  %586 = getelementptr inbounds i8, ptr %580, i64 %585
+  %587 = load i8, ptr %586, align 1
+  %588 = zext i8 %587 to i32
+  %589 = icmp ne i32 %588, 101
+  br i1 %589, label %590, label %591
 
-582:                                              ; preds = %577
-  br label %624
+590:                                              ; preds = %577, %562
+  br label %596
 
-583:                                              ; preds = %577
-  %584 = load i32, ptr %32, align 4
-  %585 = icmp slt i32 %584, 0
-  br i1 %585, label %586, label %588
+591:                                              ; preds = %577
+  %592 = load ptr, ptr %3, align 8
+  %593 = getelementptr inbounds nuw %struct.SN_env, ptr %592, i32 0, i32 1
+  %594 = load i32, ptr %593, align 8
+  %595 = add i32 %594, -1
+  store i32 %595, ptr %593, align 8
+  store i32 6, ptr %7, align 4
+  br label %604
 
-586:                                              ; preds = %583
-  %587 = load i32, ptr %32, align 4
-  store i32 %587, ptr %2, align 4
-  br label %750
-
-588:                                              ; preds = %583
-  %589 = load ptr, ptr %3, align 8
-  %590 = call i32 @slice_del(ptr noundef %589)
-  store i32 %590, ptr %33, align 4
-  %591 = load i32, ptr %33, align 4
-  %592 = icmp slt i32 %591, 0
-  br i1 %592, label %593, label %595
-
-593:                                              ; preds = %588
-  %594 = load i32, ptr %33, align 4
-  store i32 %594, ptr %2, align 4
-  br label %750
-
-595:                                              ; preds = %588
-  br label %623
-
-596:                                              ; preds = %360
+596:                                              ; preds = %590
   %597 = load ptr, ptr %3, align 8
-  %598 = call i32 @r_R2(ptr noundef %597)
-  store i32 %598, ptr %34, align 4
-  %599 = load i32, ptr %34, align 4
-  %600 = icmp eq i32 %599, 0
-  br i1 %600, label %601, label %602
+  %598 = getelementptr inbounds nuw %struct.SN_env, ptr %597, i32 0, i32 2
+  %599 = load i32, ptr %598, align 4
+  %600 = load i32, ptr %28, align 4
+  %601 = sub i32 %599, %600
+  %602 = load ptr, ptr %3, align 8
+  %603 = getelementptr inbounds nuw %struct.SN_env, ptr %602, i32 0, i32 1
+  store i32 %601, ptr %603, align 8
+  store i32 0, ptr %7, align 4
+  br label %604
 
-601:                                              ; preds = %596
-  br label %624
+604:                                              ; preds = %591, %596
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #3
+  %605 = load i32, ptr %7, align 4
+  switch i32 %605, label %723 [
+    i32 0, label %606
+    i32 6, label %715
+  ]
 
-602:                                              ; preds = %596
-  %603 = load i32, ptr %34, align 4
-  %604 = icmp slt i32 %603, 0
-  br i1 %604, label %605, label %607
+606:                                              ; preds = %604
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #3
+  %607 = load ptr, ptr %3, align 8
+  %608 = call i32 @slice_del(ptr noundef %607)
+  store i32 %608, ptr %29, align 4
+  %609 = load i32, ptr %29, align 4
+  %610 = icmp slt i32 %609, 0
+  br i1 %610, label %611, label %613
 
-605:                                              ; preds = %602
-  %606 = load i32, ptr %34, align 4
-  store i32 %606, ptr %2, align 4
-  br label %750
+611:                                              ; preds = %606
+  %612 = load i32, ptr %29, align 4
+  store i32 %612, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %614
 
-607:                                              ; preds = %602
-  %608 = load ptr, ptr %3, align 8
-  %609 = getelementptr inbounds %struct.SN_env, ptr %608, i32 0, i32 7
-  %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr i32, ptr %610, i64 2
-  %612 = load i32, ptr %611, align 4
-  %613 = icmp ne i32 %612, 0
-  br i1 %613, label %615, label %614
+613:                                              ; preds = %606
+  store i32 0, ptr %7, align 4
+  br label %614
 
-614:                                              ; preds = %607
-  br label %624
+614:                                              ; preds = %613, %611
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #3
+  %615 = load i32, ptr %7, align 4
+  switch i32 %615, label %723 [
+    i32 0, label %616
+  ]
 
-615:                                              ; preds = %607
-  %616 = load ptr, ptr %3, align 8
-  %617 = call i32 @slice_del(ptr noundef %616)
-  store i32 %617, ptr %35, align 4
-  %618 = load i32, ptr %35, align 4
-  %619 = icmp slt i32 %618, 0
-  br i1 %619, label %620, label %622
+616:                                              ; preds = %614
+  br label %714
 
-620:                                              ; preds = %615
-  %621 = load i32, ptr %35, align 4
-  store i32 %621, ptr %2, align 4
-  br label %750
+617:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  %618 = load ptr, ptr %3, align 8
+  %619 = call i32 @r_R2(ptr noundef %618)
+  store i32 %619, ptr %30, align 4
+  %620 = load i32, ptr %30, align 4
+  %621 = icmp eq i32 %620, 0
+  br i1 %621, label %622, label %623
 
-622:                                              ; preds = %615
-  br label %623
+622:                                              ; preds = %617
+  store i32 6, ptr %7, align 4
+  br label %629
 
-623:                                              ; preds = %622, %595, %576, %546, %486, %360
-  br label %624
+623:                                              ; preds = %617
+  %624 = load i32, ptr %30, align 4
+  %625 = icmp slt i32 %624, 0
+  br i1 %625, label %626, label %628
 
-624:                                              ; preds = %623, %614, %601, %582, %570, %552, %527, %492, %479, %372, %359, %353
-  %625 = load ptr, ptr %3, align 8
-  %626 = getelementptr inbounds %struct.SN_env, ptr %625, i32 0, i32 2
-  %627 = load i32, ptr %626, align 4
-  %628 = load i32, ptr %18, align 4
-  %629 = sub i32 %627, %628
-  %630 = load ptr, ptr %3, align 8
-  %631 = getelementptr inbounds %struct.SN_env, ptr %630, i32 0, i32 1
-  store i32 %629, ptr %631, align 8
+626:                                              ; preds = %623
+  %627 = load i32, ptr %30, align 4
+  store i32 %627, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %629
+
+628:                                              ; preds = %623
+  store i32 0, ptr %7, align 4
+  br label %629
+
+629:                                              ; preds = %622, %628, %626
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  %630 = load i32, ptr %7, align 4
+  switch i32 %630, label %723 [
+    i32 0, label %631
+    i32 6, label %715
+  ]
+
+631:                                              ; preds = %629
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
   %632 = load ptr, ptr %3, align 8
-  %633 = getelementptr inbounds %struct.SN_env, ptr %632, i32 0, i32 2
-  %634 = load i32, ptr %633, align 4
-  %635 = load ptr, ptr %3, align 8
-  %636 = getelementptr inbounds %struct.SN_env, ptr %635, i32 0, i32 1
-  %637 = load i32, ptr %636, align 8
-  %638 = sub i32 %634, %637
-  store i32 %638, ptr %36, align 4
-  %639 = load ptr, ptr %3, align 8
-  %640 = call i32 @out_grouping_b_U(ptr noundef %639, ptr noundef @g_v_I, i32 noundef 73, i32 noundef 232, i32 noundef 0)
-  %641 = icmp ne i32 %640, 0
-  br i1 %641, label %642, label %643
+  %633 = call i32 @slice_del(ptr noundef %632)
+  store i32 %633, ptr %31, align 4
+  %634 = load i32, ptr %31, align 4
+  %635 = icmp slt i32 %634, 0
+  br i1 %635, label %636, label %638
 
-642:                                              ; preds = %624
-  br label %742
+636:                                              ; preds = %631
+  %637 = load i32, ptr %31, align 4
+  store i32 %637, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %639
 
-643:                                              ; preds = %624
-  %644 = load ptr, ptr %3, align 8
-  %645 = getelementptr inbounds %struct.SN_env, ptr %644, i32 0, i32 2
-  %646 = load i32, ptr %645, align 4
-  %647 = load ptr, ptr %3, align 8
-  %648 = getelementptr inbounds %struct.SN_env, ptr %647, i32 0, i32 1
-  %649 = load i32, ptr %648, align 8
-  %650 = sub i32 %646, %649
-  store i32 %650, ptr %37, align 4
-  %651 = load ptr, ptr %3, align 8
-  %652 = getelementptr inbounds %struct.SN_env, ptr %651, i32 0, i32 1
-  %653 = load i32, ptr %652, align 8
-  %654 = sub i32 %653, 1
-  %655 = load ptr, ptr %3, align 8
-  %656 = getelementptr inbounds %struct.SN_env, ptr %655, i32 0, i32 3
-  %657 = load i32, ptr %656, align 8
-  %658 = icmp sle i32 %654, %657
-  br i1 %658, label %689, label %659
+638:                                              ; preds = %631
+  store i32 0, ptr %7, align 4
+  br label %639
 
-659:                                              ; preds = %643
-  %660 = load ptr, ptr %3, align 8
-  %661 = getelementptr inbounds %struct.SN_env, ptr %660, i32 0, i32 0
-  %662 = load ptr, ptr %661, align 8
-  %663 = load ptr, ptr %3, align 8
-  %664 = getelementptr inbounds %struct.SN_env, ptr %663, i32 0, i32 1
-  %665 = load i32, ptr %664, align 8
-  %666 = sub i32 %665, 1
-  %667 = sext i32 %666 to i64
-  %668 = getelementptr i8, ptr %662, i64 %667
-  %669 = load i8, ptr %668, align 1
-  %670 = zext i8 %669 to i32
-  %671 = ashr i32 %670, 5
-  %672 = icmp ne i32 %671, 3
-  br i1 %672, label %689, label %673
+639:                                              ; preds = %638, %636
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  %640 = load i32, ptr %7, align 4
+  switch i32 %640, label %723 [
+    i32 0, label %641
+  ]
 
-673:                                              ; preds = %659
-  %674 = load ptr, ptr %3, align 8
-  %675 = getelementptr inbounds %struct.SN_env, ptr %674, i32 0, i32 0
-  %676 = load ptr, ptr %675, align 8
-  %677 = load ptr, ptr %3, align 8
-  %678 = getelementptr inbounds %struct.SN_env, ptr %677, i32 0, i32 1
-  %679 = load i32, ptr %678, align 8
-  %680 = sub i32 %679, 1
-  %681 = sext i32 %680 to i64
-  %682 = getelementptr i8, ptr %676, i64 %681
-  %683 = load i8, ptr %682, align 1
-  %684 = zext i8 %683 to i32
-  %685 = and i32 %684, 31
-  %686 = ashr i32 2129954, %685
-  %687 = and i32 %686, 1
-  %688 = icmp ne i32 %687, 0
-  br i1 %688, label %690, label %689
+641:                                              ; preds = %639
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #3
+  %642 = load ptr, ptr %3, align 8
+  %643 = call i32 @r_e_ending(ptr noundef %642)
+  store i32 %643, ptr %32, align 4
+  %644 = load i32, ptr %32, align 4
+  %645 = icmp eq i32 %644, 0
+  br i1 %645, label %646, label %647
 
-689:                                              ; preds = %673, %659, %643
-  br label %742
+646:                                              ; preds = %641
+  store i32 6, ptr %7, align 4
+  br label %653
 
-690:                                              ; preds = %673
-  %691 = load ptr, ptr %3, align 8
-  %692 = call i32 @find_among_b(ptr noundef %691, ptr noundef @a_5, i32 noundef 4)
-  %693 = icmp ne i32 %692, 0
-  br i1 %693, label %695, label %694
+647:                                              ; preds = %641
+  %648 = load i32, ptr %32, align 4
+  %649 = icmp slt i32 %648, 0
+  br i1 %649, label %650, label %652
 
-694:                                              ; preds = %690
-  br label %742
+650:                                              ; preds = %647
+  %651 = load i32, ptr %32, align 4
+  store i32 %651, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %653
 
-695:                                              ; preds = %690
+652:                                              ; preds = %647
+  store i32 0, ptr %7, align 4
+  br label %653
+
+653:                                              ; preds = %646, %652, %650
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #3
+  %654 = load i32, ptr %7, align 4
+  switch i32 %654, label %723 [
+    i32 0, label %655
+    i32 6, label %715
+  ]
+
+655:                                              ; preds = %653
+  br label %714
+
+656:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #3
+  %657 = load ptr, ptr %3, align 8
+  %658 = call i32 @r_R2(ptr noundef %657)
+  store i32 %658, ptr %33, align 4
+  %659 = load i32, ptr %33, align 4
+  %660 = icmp eq i32 %659, 0
+  br i1 %660, label %661, label %662
+
+661:                                              ; preds = %656
+  store i32 6, ptr %7, align 4
+  br label %668
+
+662:                                              ; preds = %656
+  %663 = load i32, ptr %33, align 4
+  %664 = icmp slt i32 %663, 0
+  br i1 %664, label %665, label %667
+
+665:                                              ; preds = %662
+  %666 = load i32, ptr %33, align 4
+  store i32 %666, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %668
+
+667:                                              ; preds = %662
+  store i32 0, ptr %7, align 4
+  br label %668
+
+668:                                              ; preds = %661, %667, %665
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #3
+  %669 = load i32, ptr %7, align 4
+  switch i32 %669, label %723 [
+    i32 0, label %670
+    i32 6, label %715
+  ]
+
+670:                                              ; preds = %668
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #3
+  %671 = load ptr, ptr %3, align 8
+  %672 = call i32 @slice_del(ptr noundef %671)
+  store i32 %672, ptr %34, align 4
+  %673 = load i32, ptr %34, align 4
+  %674 = icmp slt i32 %673, 0
+  br i1 %674, label %675, label %677
+
+675:                                              ; preds = %670
+  %676 = load i32, ptr %34, align 4
+  store i32 %676, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %678
+
+677:                                              ; preds = %670
+  store i32 0, ptr %7, align 4
+  br label %678
+
+678:                                              ; preds = %677, %675
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #3
+  %679 = load i32, ptr %7, align 4
+  switch i32 %679, label %723 [
+    i32 0, label %680
+  ]
+
+680:                                              ; preds = %678
+  br label %714
+
+681:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #3
+  %682 = load ptr, ptr %3, align 8
+  %683 = call i32 @r_R2(ptr noundef %682)
+  store i32 %683, ptr %35, align 4
+  %684 = load i32, ptr %35, align 4
+  %685 = icmp eq i32 %684, 0
+  br i1 %685, label %686, label %687
+
+686:                                              ; preds = %681
+  store i32 6, ptr %7, align 4
+  br label %693
+
+687:                                              ; preds = %681
+  %688 = load i32, ptr %35, align 4
+  %689 = icmp slt i32 %688, 0
+  br i1 %689, label %690, label %692
+
+690:                                              ; preds = %687
+  %691 = load i32, ptr %35, align 4
+  store i32 %691, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %693
+
+692:                                              ; preds = %687
+  store i32 0, ptr %7, align 4
+  br label %693
+
+693:                                              ; preds = %686, %692, %690
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #3
+  %694 = load i32, ptr %7, align 4
+  switch i32 %694, label %723 [
+    i32 0, label %695
+    i32 6, label %715
+  ]
+
+695:                                              ; preds = %693
   %696 = load ptr, ptr %3, align 8
-  %697 = call i32 @out_grouping_b_U(ptr noundef %696, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %698 = icmp ne i32 %697, 0
-  br i1 %698, label %699, label %700
+  %697 = getelementptr inbounds nuw %struct.SN_env, ptr %696, i32 0, i32 7
+  %698 = load ptr, ptr %697, align 8
+  %699 = getelementptr inbounds i32, ptr %698, i64 2
+  %700 = load i32, ptr %699, align 4
+  %701 = icmp ne i32 %700, 0
+  br i1 %701, label %703, label %702
 
-699:                                              ; preds = %695
-  br label %742
+702:                                              ; preds = %695
+  br label %715
 
-700:                                              ; preds = %695
-  %701 = load ptr, ptr %3, align 8
-  %702 = getelementptr inbounds %struct.SN_env, ptr %701, i32 0, i32 2
-  %703 = load i32, ptr %702, align 4
-  %704 = load i32, ptr %37, align 4
-  %705 = sub i32 %703, %704
-  %706 = load ptr, ptr %3, align 8
-  %707 = getelementptr inbounds %struct.SN_env, ptr %706, i32 0, i32 1
-  store i32 %705, ptr %707, align 8
-  %708 = load ptr, ptr %3, align 8
-  %709 = getelementptr inbounds %struct.SN_env, ptr %708, i32 0, i32 1
-  %710 = load i32, ptr %709, align 8
-  %711 = load ptr, ptr %3, align 8
-  %712 = getelementptr inbounds %struct.SN_env, ptr %711, i32 0, i32 5
-  store i32 %710, ptr %712, align 8
-  %713 = load ptr, ptr %3, align 8
-  %714 = getelementptr inbounds %struct.SN_env, ptr %713, i32 0, i32 0
-  %715 = load ptr, ptr %714, align 8
+703:                                              ; preds = %695
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #3
+  %704 = load ptr, ptr %3, align 8
+  %705 = call i32 @slice_del(ptr noundef %704)
+  store i32 %705, ptr %36, align 4
+  %706 = load i32, ptr %36, align 4
+  %707 = icmp slt i32 %706, 0
+  br i1 %707, label %708, label %710
+
+708:                                              ; preds = %703
+  %709 = load i32, ptr %36, align 4
+  store i32 %709, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %711
+
+710:                                              ; preds = %703
+  store i32 0, ptr %7, align 4
+  br label %711
+
+711:                                              ; preds = %710, %708
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #3
+  %712 = load i32, ptr %7, align 4
+  switch i32 %712, label %723 [
+    i32 0, label %713
+  ]
+
+713:                                              ; preds = %711
+  br label %714
+
+714:                                              ; preds = %400, %713, %680, %655, %616, %547
+  br label %715
+
+715:                                              ; preds = %714, %693, %668, %653, %629, %604, %560, %544, %419, %702, %399, %393
   %716 = load ptr, ptr %3, align 8
-  %717 = getelementptr inbounds %struct.SN_env, ptr %716, i32 0, i32 1
-  %718 = load i32, ptr %717, align 8
-  %719 = load ptr, ptr %3, align 8
-  %720 = getelementptr inbounds %struct.SN_env, ptr %719, i32 0, i32 3
-  %721 = load i32, ptr %720, align 8
-  %722 = call i32 @skip_b_utf8(ptr noundef %715, i32 noundef %718, i32 noundef %721, i32 noundef 1)
-  store i32 %722, ptr %38, align 4
-  %723 = load i32, ptr %38, align 4
-  %724 = icmp slt i32 %723, 0
-  br i1 %724, label %725, label %726
+  %717 = getelementptr inbounds nuw %struct.SN_env, ptr %716, i32 0, i32 2
+  %718 = load i32, ptr %717, align 4
+  %719 = load i32, ptr %19, align 4
+  %720 = sub i32 %718, %719
+  %721 = load ptr, ptr %3, align 8
+  %722 = getelementptr inbounds nuw %struct.SN_env, ptr %721, i32 0, i32 1
+  store i32 %720, ptr %722, align 8
+  store i32 0, ptr %7, align 4
+  br label %723
 
-725:                                              ; preds = %700
-  br label %742
+723:                                              ; preds = %715, %711, %693, %678, %668, %653, %639, %629, %614, %604, %560, %544, %429, %419
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  %724 = load i32, ptr %7, align 4
+  switch i32 %724, label %856 [
+    i32 0, label %725
+  ]
 
-726:                                              ; preds = %700
-  %727 = load i32, ptr %38, align 4
-  %728 = load ptr, ptr %3, align 8
-  %729 = getelementptr inbounds %struct.SN_env, ptr %728, i32 0, i32 1
-  store i32 %727, ptr %729, align 8
-  %730 = load ptr, ptr %3, align 8
-  %731 = getelementptr inbounds %struct.SN_env, ptr %730, i32 0, i32 1
-  %732 = load i32, ptr %731, align 8
+725:                                              ; preds = %723
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #3
+  %726 = load ptr, ptr %3, align 8
+  %727 = getelementptr inbounds nuw %struct.SN_env, ptr %726, i32 0, i32 2
+  %728 = load i32, ptr %727, align 4
+  %729 = load ptr, ptr %3, align 8
+  %730 = getelementptr inbounds nuw %struct.SN_env, ptr %729, i32 0, i32 1
+  %731 = load i32, ptr %730, align 8
+  %732 = sub i32 %728, %731
+  store i32 %732, ptr %37, align 4
   %733 = load ptr, ptr %3, align 8
-  %734 = getelementptr inbounds %struct.SN_env, ptr %733, i32 0, i32 4
-  store i32 %732, ptr %734, align 4
-  %735 = load ptr, ptr %3, align 8
-  %736 = call i32 @slice_del(ptr noundef %735)
-  store i32 %736, ptr %39, align 4
-  %737 = load i32, ptr %39, align 4
-  %738 = icmp slt i32 %737, 0
-  br i1 %738, label %739, label %741
+  %734 = call i32 @out_grouping_b_U(ptr noundef %733, ptr noundef @g_v_I, i32 noundef 73, i32 noundef 232, i32 noundef 0)
+  %735 = icmp ne i32 %734, 0
+  br i1 %735, label %736, label %737
 
-739:                                              ; preds = %726
-  %740 = load i32, ptr %39, align 4
-  store i32 %740, ptr %2, align 4
-  br label %750
+736:                                              ; preds = %725
+  br label %845
 
-741:                                              ; preds = %726
-  br label %742
+737:                                              ; preds = %725
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #3
+  %738 = load ptr, ptr %3, align 8
+  %739 = getelementptr inbounds nuw %struct.SN_env, ptr %738, i32 0, i32 2
+  %740 = load i32, ptr %739, align 4
+  %741 = load ptr, ptr %3, align 8
+  %742 = getelementptr inbounds nuw %struct.SN_env, ptr %741, i32 0, i32 1
+  %743 = load i32, ptr %742, align 8
+  %744 = sub i32 %740, %743
+  store i32 %744, ptr %38, align 4
+  %745 = load ptr, ptr %3, align 8
+  %746 = getelementptr inbounds nuw %struct.SN_env, ptr %745, i32 0, i32 1
+  %747 = load i32, ptr %746, align 8
+  %748 = sub i32 %747, 1
+  %749 = load ptr, ptr %3, align 8
+  %750 = getelementptr inbounds nuw %struct.SN_env, ptr %749, i32 0, i32 3
+  %751 = load i32, ptr %750, align 8
+  %752 = icmp sle i32 %748, %751
+  br i1 %752, label %783, label %753
 
-742:                                              ; preds = %741, %725, %699, %694, %689, %642
-  %743 = load ptr, ptr %3, align 8
-  %744 = getelementptr inbounds %struct.SN_env, ptr %743, i32 0, i32 2
-  %745 = load i32, ptr %744, align 4
-  %746 = load i32, ptr %36, align 4
-  %747 = sub i32 %745, %746
-  %748 = load ptr, ptr %3, align 8
-  %749 = getelementptr inbounds %struct.SN_env, ptr %748, i32 0, i32 1
-  store i32 %747, ptr %749, align 8
+753:                                              ; preds = %737
+  %754 = load ptr, ptr %3, align 8
+  %755 = getelementptr inbounds nuw %struct.SN_env, ptr %754, i32 0, i32 0
+  %756 = load ptr, ptr %755, align 8
+  %757 = load ptr, ptr %3, align 8
+  %758 = getelementptr inbounds nuw %struct.SN_env, ptr %757, i32 0, i32 1
+  %759 = load i32, ptr %758, align 8
+  %760 = sub i32 %759, 1
+  %761 = sext i32 %760 to i64
+  %762 = getelementptr inbounds i8, ptr %756, i64 %761
+  %763 = load i8, ptr %762, align 1
+  %764 = zext i8 %763 to i32
+  %765 = ashr i32 %764, 5
+  %766 = icmp ne i32 %765, 3
+  br i1 %766, label %783, label %767
+
+767:                                              ; preds = %753
+  %768 = load ptr, ptr %3, align 8
+  %769 = getelementptr inbounds nuw %struct.SN_env, ptr %768, i32 0, i32 0
+  %770 = load ptr, ptr %769, align 8
+  %771 = load ptr, ptr %3, align 8
+  %772 = getelementptr inbounds nuw %struct.SN_env, ptr %771, i32 0, i32 1
+  %773 = load i32, ptr %772, align 8
+  %774 = sub i32 %773, 1
+  %775 = sext i32 %774 to i64
+  %776 = getelementptr inbounds i8, ptr %770, i64 %775
+  %777 = load i8, ptr %776, align 1
+  %778 = zext i8 %777 to i32
+  %779 = and i32 %778, 31
+  %780 = ashr i32 2129954, %779
+  %781 = and i32 %780, 1
+  %782 = icmp ne i32 %781, 0
+  br i1 %782, label %784, label %783
+
+783:                                              ; preds = %767, %753, %737
+  store i32 12, ptr %7, align 4
+  br label %802
+
+784:                                              ; preds = %767
+  %785 = load ptr, ptr %3, align 8
+  %786 = call i32 @find_among_b(ptr noundef %785, ptr noundef @a_5, i32 noundef 4)
+  %787 = icmp ne i32 %786, 0
+  br i1 %787, label %789, label %788
+
+788:                                              ; preds = %784
+  store i32 12, ptr %7, align 4
+  br label %802
+
+789:                                              ; preds = %784
+  %790 = load ptr, ptr %3, align 8
+  %791 = call i32 @out_grouping_b_U(ptr noundef %790, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %792 = icmp ne i32 %791, 0
+  br i1 %792, label %793, label %794
+
+793:                                              ; preds = %789
+  store i32 12, ptr %7, align 4
+  br label %802
+
+794:                                              ; preds = %789
+  %795 = load ptr, ptr %3, align 8
+  %796 = getelementptr inbounds nuw %struct.SN_env, ptr %795, i32 0, i32 2
+  %797 = load i32, ptr %796, align 4
+  %798 = load i32, ptr %38, align 4
+  %799 = sub i32 %797, %798
+  %800 = load ptr, ptr %3, align 8
+  %801 = getelementptr inbounds nuw %struct.SN_env, ptr %800, i32 0, i32 1
+  store i32 %799, ptr %801, align 8
+  store i32 0, ptr %7, align 4
+  br label %802
+
+802:                                              ; preds = %793, %788, %783, %794
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #3
+  %803 = load i32, ptr %7, align 4
+  switch i32 %803, label %853 [
+    i32 0, label %804
+    i32 12, label %845
+  ]
+
+804:                                              ; preds = %802
+  %805 = load ptr, ptr %3, align 8
+  %806 = getelementptr inbounds nuw %struct.SN_env, ptr %805, i32 0, i32 1
+  %807 = load i32, ptr %806, align 8
+  %808 = load ptr, ptr %3, align 8
+  %809 = getelementptr inbounds nuw %struct.SN_env, ptr %808, i32 0, i32 5
+  store i32 %807, ptr %809, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #3
+  %810 = load ptr, ptr %3, align 8
+  %811 = getelementptr inbounds nuw %struct.SN_env, ptr %810, i32 0, i32 0
+  %812 = load ptr, ptr %811, align 8
+  %813 = load ptr, ptr %3, align 8
+  %814 = getelementptr inbounds nuw %struct.SN_env, ptr %813, i32 0, i32 1
+  %815 = load i32, ptr %814, align 8
+  %816 = load ptr, ptr %3, align 8
+  %817 = getelementptr inbounds nuw %struct.SN_env, ptr %816, i32 0, i32 3
+  %818 = load i32, ptr %817, align 8
+  %819 = call i32 @skip_b_utf8(ptr noundef %812, i32 noundef %815, i32 noundef %818, i32 noundef 1)
+  store i32 %819, ptr %39, align 4
+  %820 = load i32, ptr %39, align 4
+  %821 = icmp slt i32 %820, 0
+  br i1 %821, label %822, label %823
+
+822:                                              ; preds = %804
+  store i32 12, ptr %7, align 4
+  br label %827
+
+823:                                              ; preds = %804
+  %824 = load i32, ptr %39, align 4
+  %825 = load ptr, ptr %3, align 8
+  %826 = getelementptr inbounds nuw %struct.SN_env, ptr %825, i32 0, i32 1
+  store i32 %824, ptr %826, align 8
+  store i32 0, ptr %7, align 4
+  br label %827
+
+827:                                              ; preds = %822, %823
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #3
+  %828 = load i32, ptr %7, align 4
+  switch i32 %828, label %853 [
+    i32 0, label %829
+    i32 12, label %845
+  ]
+
+829:                                              ; preds = %827
+  %830 = load ptr, ptr %3, align 8
+  %831 = getelementptr inbounds nuw %struct.SN_env, ptr %830, i32 0, i32 1
+  %832 = load i32, ptr %831, align 8
+  %833 = load ptr, ptr %3, align 8
+  %834 = getelementptr inbounds nuw %struct.SN_env, ptr %833, i32 0, i32 4
+  store i32 %832, ptr %834, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #3
+  %835 = load ptr, ptr %3, align 8
+  %836 = call i32 @slice_del(ptr noundef %835)
+  store i32 %836, ptr %40, align 4
+  %837 = load i32, ptr %40, align 4
+  %838 = icmp slt i32 %837, 0
+  br i1 %838, label %839, label %841
+
+839:                                              ; preds = %829
+  %840 = load i32, ptr %40, align 4
+  store i32 %840, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %842
+
+841:                                              ; preds = %829
+  store i32 0, ptr %7, align 4
+  br label %842
+
+842:                                              ; preds = %841, %839
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #3
+  %843 = load i32, ptr %7, align 4
+  switch i32 %843, label %853 [
+    i32 0, label %844
+  ]
+
+844:                                              ; preds = %842
+  br label %845
+
+845:                                              ; preds = %844, %827, %802, %736
+  %846 = load ptr, ptr %3, align 8
+  %847 = getelementptr inbounds nuw %struct.SN_env, ptr %846, i32 0, i32 2
+  %848 = load i32, ptr %847, align 4
+  %849 = load i32, ptr %37, align 4
+  %850 = sub i32 %848, %849
+  %851 = load ptr, ptr %3, align 8
+  %852 = getelementptr inbounds nuw %struct.SN_env, ptr %851, i32 0, i32 1
+  store i32 %850, ptr %852, align 8
+  store i32 0, ptr %7, align 4
+  br label %853
+
+853:                                              ; preds = %845, %842, %827, %802
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #3
+  %854 = load i32, ptr %7, align 4
+  switch i32 %854, label %856 [
+    i32 0, label %855
+  ]
+
+855:                                              ; preds = %853
   store i32 1, ptr %2, align 4
-  br label %750
+  store i32 1, ptr %7, align 4
+  br label %856
 
-750:                                              ; preds = %742, %739, %620, %605, %593, %586, %574, %563, %556, %544, %496, %483, %464, %416, %383, %376, %292, %266, %218, %178, %155, %143, %131, %119, %112
-  %751 = load i32, ptr %2, align 4
-  ret i32 %751
+856:                                              ; preds = %855, %853, %723, %340, %210, %183
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %857 = load i32, ptr %2, align 4
+  ret i32 %857
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1967,166 +2837,224 @@ define internal i32 @r_postlude(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  br label %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  br label %10
 
-9:                                                ; preds = %100, %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.SN_env, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %5, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.SN_env, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.SN_env, ptr %16, i32 0, i32 4
-  store i32 %15, ptr %17, align 4
+10:                                               ; preds = %116, %1
+  br label %11
+
+11:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.SN_env, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  store i32 %14, ptr %5, align 4
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.SN_env, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SN_env, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.SN_env, ptr %21, i32 0, i32 2
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp sge i32 %20, %23
-  br i1 %24, label %51, label %25
+  %19 = getelementptr inbounds nuw %struct.SN_env, ptr %18, i32 0, i32 4
+  store i32 %17, ptr %19, align 4
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.SN_env, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.SN_env, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp sge i32 %22, %25
+  br i1 %26, label %53, label %27
 
-25:                                               ; preds = %9
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.SN_env, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.SN_env, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, 0
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr i8, ptr %28, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = icmp ne i32 %36, 73
-  br i1 %37, label %38, label %52
+27:                                               ; preds = %11
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.SN_env, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.SN_env, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = add i32 %33, 0
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %30, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = icmp ne i32 %38, 73
+  br i1 %39, label %40, label %54
 
-38:                                               ; preds = %25
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.SN_env, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.SN_env, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = add i32 %44, 0
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr i8, ptr %41, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = icmp ne i32 %49, 89
-  br i1 %50, label %51, label %52
+40:                                               ; preds = %27
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.SN_env, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.SN_env, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = add i32 %46, 0
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %43, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = icmp ne i32 %51, 89
+  br i1 %52, label %53, label %54
 
-51:                                               ; preds = %38, %9
+53:                                               ; preds = %40, %11
   store i32 3, ptr %4, align 4
-  br label %55
+  br label %57
 
-52:                                               ; preds = %38, %25
-  %53 = load ptr, ptr %3, align 8
-  %54 = call i32 @find_among(ptr noundef %53, ptr noundef @a_1, i32 noundef 3)
-  store i32 %54, ptr %4, align 4
-  br label %55
+54:                                               ; preds = %40, %27
+  %55 = load ptr, ptr %3, align 8
+  %56 = call i32 @find_among(ptr noundef %55, ptr noundef @a_1, i32 noundef 3)
+  store i32 %56, ptr %4, align 4
+  br label %57
 
-55:                                               ; preds = %52, %51
-  %56 = load i32, ptr %4, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %59, label %58
+57:                                               ; preds = %54, %53
+  %58 = load i32, ptr %4, align 4
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %61, label %60
 
-58:                                               ; preds = %55
-  br label %101
+60:                                               ; preds = %57
+  br label %112
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.SN_env, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.SN_env, ptr %63, i32 0, i32 5
-  store i32 %62, ptr %64, align 8
-  %65 = load i32, ptr %4, align 4
-  switch i32 %65, label %100 [
-    i32 1, label %66
-    i32 2, label %74
-    i32 3, label %82
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds nuw %struct.SN_env, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds nuw %struct.SN_env, ptr %65, i32 0, i32 5
+  store i32 %64, ptr %66, align 8
+  %67 = load i32, ptr %4, align 4
+  switch i32 %67, label %111 [
+    i32 1, label %68
+    i32 2, label %79
+    i32 3, label %90
   ]
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %3, align 8
-  %68 = call i32 @slice_from_s(ptr noundef %67, i32 noundef 1, ptr noundef @s_8)
-  store i32 %68, ptr %6, align 4
-  %69 = load i32, ptr %6, align 4
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %69 = load ptr, ptr %3, align 8
+  %70 = call i32 @slice_from_s(ptr noundef %69, i32 noundef 1, ptr noundef @s_8)
+  store i32 %70, ptr %6, align 4
+  %71 = load i32, ptr %6, align 4
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %73, label %75
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %6, align 4
-  store i32 %72, ptr %2, align 4
-  br label %106
+73:                                               ; preds = %68
+  %74 = load i32, ptr %6, align 4
+  store i32 %74, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-73:                                               ; preds = %66
-  br label %100
+75:                                               ; preds = %68
+  store i32 0, ptr %7, align 4
+  br label %76
 
-74:                                               ; preds = %59
-  %75 = load ptr, ptr %3, align 8
-  %76 = call i32 @slice_from_s(ptr noundef %75, i32 noundef 1, ptr noundef @s_9)
-  store i32 %76, ptr %7, align 4
+76:                                               ; preds = %75, %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
   %77 = load i32, ptr %7, align 4
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %79, label %81
+  switch i32 %77, label %116 [
+    i32 0, label %78
+  ]
 
-79:                                               ; preds = %74
-  %80 = load i32, ptr %7, align 4
-  store i32 %80, ptr %2, align 4
-  br label %106
+78:                                               ; preds = %76
+  br label %111
 
-81:                                               ; preds = %74
-  br label %100
+79:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %80 = load ptr, ptr %3, align 8
+  %81 = call i32 @slice_from_s(ptr noundef %80, i32 noundef 1, ptr noundef @s_9)
+  store i32 %81, ptr %8, align 4
+  %82 = load i32, ptr %8, align 4
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %86
 
-82:                                               ; preds = %59
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.SN_env, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.SN_env, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.SN_env, ptr %89, i32 0, i32 2
-  %91 = load i32, ptr %90, align 4
-  %92 = call i32 @skip_utf8(ptr noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef 1)
-  store i32 %92, ptr %8, align 4
-  %93 = load i32, ptr %8, align 4
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %95, label %96
+84:                                               ; preds = %79
+  %85 = load i32, ptr %8, align 4
+  store i32 %85, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %87
 
-95:                                               ; preds = %82
-  br label %101
+86:                                               ; preds = %79
+  store i32 0, ptr %7, align 4
+  br label %87
 
-96:                                               ; preds = %82
-  %97 = load i32, ptr %8, align 4
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.SN_env, ptr %98, i32 0, i32 1
-  store i32 %97, ptr %99, align 8
-  br label %100
+87:                                               ; preds = %86, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %88 = load i32, ptr %7, align 4
+  switch i32 %88, label %116 [
+    i32 0, label %89
+  ]
 
-100:                                              ; preds = %96, %81, %73, %59
-  br label %9
+89:                                               ; preds = %87
+  br label %111
 
-101:                                              ; preds = %95, %58
-  %102 = load i32, ptr %5, align 4
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.SN_env, ptr %103, i32 0, i32 1
-  store i32 %102, ptr %104, align 8
-  br label %105
+90:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds nuw %struct.SN_env, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds nuw %struct.SN_env, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 8
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds nuw %struct.SN_env, ptr %97, i32 0, i32 2
+  %99 = load i32, ptr %98, align 4
+  %100 = call i32 @skip_utf8(ptr noundef %93, i32 noundef %96, i32 noundef %99, i32 noundef 1)
+  store i32 %100, ptr %9, align 4
+  %101 = load i32, ptr %9, align 4
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %103, label %104
 
-105:                                              ; preds = %101
+103:                                              ; preds = %90
+  store i32 4, ptr %7, align 4
+  br label %108
+
+104:                                              ; preds = %90
+  %105 = load i32, ptr %9, align 4
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds nuw %struct.SN_env, ptr %106, i32 0, i32 1
+  store i32 %105, ptr %107, align 8
+  store i32 0, ptr %7, align 4
+  br label %108
+
+108:                                              ; preds = %103, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %109 = load i32, ptr %7, align 4
+  switch i32 %109, label %116 [
+    i32 0, label %110
+    i32 4, label %112
+  ]
+
+110:                                              ; preds = %108
+  br label %111
+
+111:                                              ; preds = %61, %110, %89, %78
+  store i32 2, ptr %7, align 4
+  br label %116
+
+112:                                              ; preds = %108, %60
+  %113 = load i32, ptr %5, align 4
+  %114 = load ptr, ptr %3, align 8
+  %115 = getelementptr inbounds nuw %struct.SN_env, ptr %114, i32 0, i32 1
+  store i32 %113, ptr %115, align 8
+  store i32 3, ptr %7, align 4
+  br label %116
+
+116:                                              ; preds = %112, %111, %108, %87, %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  %117 = load i32, ptr %7, align 4
+  switch i32 %117, label %119 [
+    i32 2, label %10
+    i32 3, label %118
+  ]
+
+118:                                              ; preds = %116
   store i32 1, ptr %2, align 4
-  br label %106
+  store i32 1, ptr %7, align 4
+  br label %119
 
-106:                                              ; preds = %105, %79, %71
-  %107 = load i32, ptr %2, align 4
-  ret i32 %107
+119:                                              ; preds = %118, %116
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %120 = load i32, ptr %2, align 4
+  ret i32 %120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2135,7 +3063,7 @@ define hidden ptr @dutch_UTF_8_create_env() #0 {
   ret ptr %1
 }
 
-declare ptr @SN_create_env(i32 noundef, i32 noundef) #1
+declare ptr @SN_create_env(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dutch_UTF_8_close_env(ptr noundef %0) #0 {
@@ -2146,19 +3074,19 @@ define hidden void @dutch_UTF_8_close_env(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @SN_close_env(ptr noundef, i32 noundef) #1
+declare void @SN_close_env(ptr noundef, i32 noundef) #2
 
-declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_R1(ptr noundef %0) #0 {
@@ -2166,12 +3094,12 @@ define internal i32 @r_R1(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.SN_env, ptr %4, i32 0, i32 7
+  %5 = getelementptr inbounds nuw %struct.SN_env, ptr %4, i32 0, i32 7
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr i32, ptr %6, i64 1
+  %7 = getelementptr inbounds i32, ptr %6, i64 1
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 8
   %12 = icmp sle i32 %8, %11
   br i1 %12, label %14, label %13
@@ -2198,112 +3126,185 @@ define internal i32 @r_en_ending(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 @r_R1(ptr noundef %9)
-  store i32 %10, ptr %4, align 4
-  %11 = load i32, ptr %4, align 4
-  %12 = icmp sle i32 %11, 0
-  br i1 %12, label %13, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %10 = load ptr, ptr %3, align 8
+  %11 = call i32 @r_R1(ptr noundef %10)
+  store i32 %11, ptr %4, align 4
+  %12 = load i32, ptr %4, align 4
+  %13 = icmp sle i32 %12, 0
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %1
-  %14 = load i32, ptr %4, align 4
-  store i32 %14, ptr %2, align 4
-  br label %69
+14:                                               ; preds = %1
+  %15 = load i32, ptr %4, align 4
+  store i32 %15, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %17
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.SN_env, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.SN_env, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
-  %22 = sub i32 %18, %21
-  store i32 %22, ptr %5, align 4
+16:                                               ; preds = %1
+  store i32 0, ptr %5, align 4
+  br label %17
+
+17:                                               ; preds = %16, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %18 = load i32, ptr %5, align 4
+  switch i32 %18, label %87 [
+    i32 0, label %19
+    i32 1, label %85
+  ]
+
+19:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.SN_env, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr %3, align 8
-  %24 = call i32 @out_grouping_b_U(ptr noundef %23, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
+  %24 = getelementptr inbounds nuw %struct.SN_env, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8
+  %26 = sub i32 %22, %25
+  store i32 %26, ptr %6, align 4
+  %27 = load ptr, ptr %3, align 8
+  %28 = call i32 @out_grouping_b_U(ptr noundef %27, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-26:                                               ; preds = %15
+30:                                               ; preds = %19
   store i32 0, ptr %2, align 4
-  br label %69
+  store i32 1, ptr %5, align 4
+  br label %62
 
-27:                                               ; preds = %15
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.SN_env, ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 4
-  %31 = load i32, ptr %5, align 4
-  %32 = sub i32 %30, %31
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.SN_env, ptr %33, i32 0, i32 1
-  store i32 %32, ptr %34, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.SN_env, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 4
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.SN_env, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = sub i32 %37, %40
-  store i32 %41, ptr %6, align 4
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.SN_env, ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 4
+  %35 = load i32, ptr %6, align 4
+  %36 = sub i32 %34, %35
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds nuw %struct.SN_env, ptr %37, i32 0, i32 1
+  store i32 %36, ptr %38, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.SN_env, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = call i32 @eq_s_b(ptr noundef %42, i32 noundef 3, ptr noundef @s_10)
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %46, label %45
+  %43 = getelementptr inbounds nuw %struct.SN_env, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = sub i32 %41, %44
+  store i32 %45, ptr %7, align 4
+  %46 = load ptr, ptr %3, align 8
+  %47 = call i32 @eq_s_b(ptr noundef %46, i32 noundef 3, ptr noundef @s_10)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %50, label %49
 
-45:                                               ; preds = %27
-  br label %47
+49:                                               ; preds = %31
+  br label %51
 
-46:                                               ; preds = %27
+50:                                               ; preds = %31
   store i32 0, ptr %2, align 4
-  br label %69
+  store i32 1, ptr %5, align 4
+  br label %59
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.SN_env, ptr %48, i32 0, i32 2
-  %50 = load i32, ptr %49, align 4
-  %51 = load i32, ptr %6, align 4
-  %52 = sub i32 %50, %51
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.SN_env, ptr %53, i32 0, i32 1
-  store i32 %52, ptr %54, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = call i32 @slice_del(ptr noundef %55)
-  store i32 %56, ptr %7, align 4
-  %57 = load i32, ptr %7, align 4
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %61
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds nuw %struct.SN_env, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 4
+  %55 = load i32, ptr %7, align 4
+  %56 = sub i32 %54, %55
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.SN_env, ptr %57, i32 0, i32 1
+  store i32 %56, ptr %58, align 8
+  store i32 0, ptr %5, align 4
+  br label %59
 
-59:                                               ; preds = %47
-  %60 = load i32, ptr %7, align 4
-  store i32 %60, ptr %2, align 4
-  br label %69
+59:                                               ; preds = %51, %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %60 = load i32, ptr %5, align 4
+  switch i32 %60, label %62 [
+    i32 0, label %61
+  ]
 
-61:                                               ; preds = %47
-  %62 = load ptr, ptr %3, align 8
-  %63 = call i32 @r_undouble(ptr noundef %62)
-  store i32 %63, ptr %8, align 4
-  %64 = load i32, ptr %8, align 4
-  %65 = icmp sle i32 %64, 0
-  br i1 %65, label %66, label %68
+61:                                               ; preds = %59
+  store i32 0, ptr %5, align 4
+  br label %62
 
-66:                                               ; preds = %61
+62:                                               ; preds = %61, %59, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %63 = load i32, ptr %5, align 4
+  switch i32 %63, label %87 [
+    i32 0, label %64
+    i32 1, label %85
+  ]
+
+64:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %65 = load ptr, ptr %3, align 8
+  %66 = call i32 @slice_del(ptr noundef %65)
+  store i32 %66, ptr %8, align 4
   %67 = load i32, ptr %8, align 4
-  store i32 %67, ptr %2, align 4
-  br label %69
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %61
+69:                                               ; preds = %64
+  %70 = load i32, ptr %8, align 4
+  store i32 %70, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %72
+
+71:                                               ; preds = %64
+  store i32 0, ptr %5, align 4
+  br label %72
+
+72:                                               ; preds = %71, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %73 = load i32, ptr %5, align 4
+  switch i32 %73, label %87 [
+    i32 0, label %74
+    i32 1, label %85
+  ]
+
+74:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %75 = load ptr, ptr %3, align 8
+  %76 = call i32 @r_undouble(ptr noundef %75)
+  store i32 %76, ptr %9, align 4
+  %77 = load i32, ptr %9, align 4
+  %78 = icmp sle i32 %77, 0
+  br i1 %78, label %79, label %81
+
+79:                                               ; preds = %74
+  %80 = load i32, ptr %9, align 4
+  store i32 %80, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %82
+
+81:                                               ; preds = %74
+  store i32 0, ptr %5, align 4
+  br label %82
+
+82:                                               ; preds = %81, %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %83 = load i32, ptr %5, align 4
+  switch i32 %83, label %87 [
+    i32 0, label %84
+    i32 1, label %85
+  ]
+
+84:                                               ; preds = %82
   store i32 1, ptr %2, align 4
-  br label %69
+  br label %85
 
-69:                                               ; preds = %68, %66, %59, %46, %26, %13
-  %70 = load i32, ptr %2, align 4
-  ret i32 %70
+85:                                               ; preds = %84, %82, %72, %62, %17
+  %86 = load i32, ptr %2, align 4
+  ret i32 %86
+
+87:                                               ; preds = %82, %72, %62, %17
+  unreachable
 }
 
-declare i32 @out_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @out_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @slice_del(ptr noundef) #1
+declare i32 @slice_del(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_e_ending(ptr noundef %0) #0 {
@@ -2313,137 +3314,197 @@ define internal i32 @r_e_ending(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.SN_env, ptr %8, i32 0, i32 7
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i32, ptr %10, i64 2
-  store i32 0, ptr %11, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SN_env, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.SN_env, ptr %15, i32 0, i32 5
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.SN_env, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SN_env, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp sle i32 %19, %22
-  br i1 %23, label %37, label %24
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 7
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i32, ptr %11, i64 2
+  store i32 0, ptr %12, align 4
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.SN_env, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 5
+  store i32 %15, ptr %17, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.SN_env, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.SN_env, ptr %21, i32 0, i32 3
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp sle i32 %20, %23
+  br i1 %24, label %38, label %25
 
-24:                                               ; preds = %1
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.SN_env, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.SN_env, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 8
-  %31 = sub i32 %30, 1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr i8, ptr %27, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = icmp ne i32 %35, 101
-  br i1 %36, label %37, label %38
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.SN_env, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.SN_env, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8
+  %32 = sub i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %28, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = icmp ne i32 %36, 101
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %24, %1
+38:                                               ; preds = %25, %1
   store i32 0, ptr %2, align 4
-  br label %92
+  br label %105
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.SN_env, ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = add i32 %41, -1
-  store i32 %42, ptr %40, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.SN_env, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.SN_env, ptr %46, i32 0, i32 4
-  store i32 %45, ptr %47, align 4
-  %48 = load ptr, ptr %3, align 8
-  %49 = call i32 @r_R1(ptr noundef %48)
-  store i32 %49, ptr %4, align 4
-  %50 = load i32, ptr %4, align 4
-  %51 = icmp sle i32 %50, 0
-  br i1 %51, label %52, label %54
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds nuw %struct.SN_env, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.SN_env, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.SN_env, ptr %47, i32 0, i32 4
+  store i32 %46, ptr %48, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %49 = load ptr, ptr %3, align 8
+  %50 = call i32 @r_R1(ptr noundef %49)
+  store i32 %50, ptr %4, align 4
+  %51 = load i32, ptr %4, align 4
+  %52 = icmp sle i32 %51, 0
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %38
-  %53 = load i32, ptr %4, align 4
-  store i32 %53, ptr %2, align 4
-  br label %92
+53:                                               ; preds = %39
+  %54 = load i32, ptr %4, align 4
+  store i32 %54, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %56
 
-54:                                               ; preds = %38
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.SN_env, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 4
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.SN_env, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8
-  %61 = sub i32 %57, %60
-  store i32 %61, ptr %5, align 4
+55:                                               ; preds = %39
+  store i32 0, ptr %5, align 4
+  br label %56
+
+56:                                               ; preds = %55, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %57 = load i32, ptr %5, align 4
+  switch i32 %57, label %107 [
+    i32 0, label %58
+    i32 1, label %105
+  ]
+
+58:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds nuw %struct.SN_env, ptr %59, i32 0, i32 2
+  %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %3, align 8
-  %63 = call i32 @out_grouping_b_U(ptr noundef %62, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %66
+  %63 = getelementptr inbounds nuw %struct.SN_env, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = sub i32 %61, %64
+  store i32 %65, ptr %6, align 4
+  %66 = load ptr, ptr %3, align 8
+  %67 = call i32 @out_grouping_b_U(ptr noundef %66, ptr noundef @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-65:                                               ; preds = %54
+69:                                               ; preds = %58
   store i32 0, ptr %2, align 4
-  br label %92
+  store i32 1, ptr %5, align 4
+  br label %78
 
-66:                                               ; preds = %54
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.SN_env, ptr %67, i32 0, i32 2
-  %69 = load i32, ptr %68, align 4
-  %70 = load i32, ptr %5, align 4
-  %71 = sub i32 %69, %70
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.SN_env, ptr %72, i32 0, i32 1
-  store i32 %71, ptr %73, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = call i32 @slice_del(ptr noundef %74)
-  store i32 %75, ptr %6, align 4
-  %76 = load i32, ptr %6, align 4
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %78, label %80
+70:                                               ; preds = %58
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.SN_env, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 4
+  %74 = load i32, ptr %6, align 4
+  %75 = sub i32 %73, %74
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds nuw %struct.SN_env, ptr %76, i32 0, i32 1
+  store i32 %75, ptr %77, align 8
+  store i32 0, ptr %5, align 4
+  br label %78
 
-78:                                               ; preds = %66
-  %79 = load i32, ptr %6, align 4
-  store i32 %79, ptr %2, align 4
-  br label %92
+78:                                               ; preds = %70, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %79 = load i32, ptr %5, align 4
+  switch i32 %79, label %107 [
+    i32 0, label %80
+    i32 1, label %105
+  ]
 
-80:                                               ; preds = %66
+80:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.SN_env, ptr %81, i32 0, i32 7
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr i32, ptr %83, i64 2
-  store i32 1, ptr %84, align 4
-  %85 = load ptr, ptr %3, align 8
-  %86 = call i32 @r_undouble(ptr noundef %85)
-  store i32 %86, ptr %7, align 4
-  %87 = load i32, ptr %7, align 4
-  %88 = icmp sle i32 %87, 0
-  br i1 %88, label %89, label %91
+  %82 = call i32 @slice_del(ptr noundef %81)
+  store i32 %82, ptr %7, align 4
+  %83 = load i32, ptr %7, align 4
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %87
 
-89:                                               ; preds = %80
-  %90 = load i32, ptr %7, align 4
-  store i32 %90, ptr %2, align 4
-  br label %92
+85:                                               ; preds = %80
+  %86 = load i32, ptr %7, align 4
+  store i32 %86, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %88
 
-91:                                               ; preds = %80
+87:                                               ; preds = %80
+  store i32 0, ptr %5, align 4
+  br label %88
+
+88:                                               ; preds = %87, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %89 = load i32, ptr %5, align 4
+  switch i32 %89, label %107 [
+    i32 0, label %90
+    i32 1, label %105
+  ]
+
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds nuw %struct.SN_env, ptr %91, i32 0, i32 7
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i32, ptr %93, i64 2
+  store i32 1, ptr %94, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %95 = load ptr, ptr %3, align 8
+  %96 = call i32 @r_undouble(ptr noundef %95)
+  store i32 %96, ptr %8, align 4
+  %97 = load i32, ptr %8, align 4
+  %98 = icmp sle i32 %97, 0
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %90
+  %100 = load i32, ptr %8, align 4
+  store i32 %100, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %102
+
+101:                                              ; preds = %90
+  store i32 0, ptr %5, align 4
+  br label %102
+
+102:                                              ; preds = %101, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %103 = load i32, ptr %5, align 4
+  switch i32 %103, label %107 [
+    i32 0, label %104
+    i32 1, label %105
+  ]
+
+104:                                              ; preds = %102
   store i32 1, ptr %2, align 4
-  br label %92
+  br label %105
 
-92:                                               ; preds = %91, %89, %78, %65, %52, %37
-  %93 = load i32, ptr %2, align 4
-  ret i32 %93
+105:                                              ; preds = %104, %102, %88, %78, %56, %38
+  %106 = load i32, ptr %2, align 4
+  ret i32 %106
+
+107:                                              ; preds = %102, %88, %78, %56
+  unreachable
 }
 
-declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_R2(ptr noundef %0) #0 {
@@ -2451,12 +3512,12 @@ define internal i32 @r_R2(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.SN_env, ptr %4, i32 0, i32 7
+  %5 = getelementptr inbounds nuw %struct.SN_env, ptr %4, i32 0, i32 7
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr i32, ptr %6, i64 0
+  %7 = getelementptr inbounds i32, ptr %6, i64 0
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 8
   %12 = icmp sle i32 %8, %11
   br i1 %12, label %14, label %13
@@ -2481,147 +3542,195 @@ define internal i32 @r_undouble(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.SN_env, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %8, align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.SN_env, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  %13 = sub i32 %9, %12
-  store i32 %13, ptr %4, align 4
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.SN_env, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = sub i32 %16, 1
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SN_env, ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sle i32 %17, %20
-  br i1 %21, label %52, label %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.SN_env, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 4
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.SN_env, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %14 = sub i32 %10, %13
+  store i32 %14, ptr %4, align 4
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.SN_env, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8
+  %18 = sub i32 %17, 1
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.SN_env, ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp sle i32 %18, %21
+  br i1 %22, label %53, label %23
 
-22:                                               ; preds = %1
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.SN_env, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.SN_env, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = sub i32 %28, 1
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr i8, ptr %25, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = ashr i32 %33, 5
-  %35 = icmp ne i32 %34, 3
-  br i1 %35, label %52, label %36
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.SN_env, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.SN_env, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = sub i32 %29, 1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %26, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = ashr i32 %34, 5
+  %36 = icmp ne i32 %35, 3
+  br i1 %36, label %53, label %37
 
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.SN_env, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.SN_env, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8
-  %43 = sub i32 %42, 1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr i8, ptr %39, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = and i32 %47, 31
-  %49 = ashr i32 1050640, %48
-  %50 = and i32 %49, 1
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %53, label %52
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.SN_env, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.SN_env, ptr %41, i32 0, i32 1
+  %43 = load i32, ptr %42, align 8
+  %44 = sub i32 %43, 1
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %40, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = and i32 %48, 31
+  %50 = ashr i32 1050640, %49
+  %51 = and i32 %50, 1
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %54, label %53
 
-52:                                               ; preds = %36, %22, %1
+53:                                               ; preds = %37, %23, %1
   store i32 0, ptr %2, align 4
-  br label %100
+  store i32 1, ptr %5, align 4
+  br label %67
 
-53:                                               ; preds = %36
-  %54 = load ptr, ptr %3, align 8
-  %55 = call i32 @find_among_b(ptr noundef %54, ptr noundef @a_2, i32 noundef 3)
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %58, label %57
+54:                                               ; preds = %37
+  %55 = load ptr, ptr %3, align 8
+  %56 = call i32 @find_among_b(ptr noundef %55, ptr noundef @a_2, i32 noundef 3)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %59, label %58
 
-57:                                               ; preds = %53
+58:                                               ; preds = %54
   store i32 0, ptr %2, align 4
-  br label %100
+  store i32 1, ptr %5, align 4
+  br label %67
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.SN_env, ptr %59, i32 0, i32 2
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr %4, align 4
-  %63 = sub i32 %61, %62
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.SN_env, ptr %64, i32 0, i32 1
-  store i32 %63, ptr %65, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.SN_env, ptr %66, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.SN_env, ptr %69, i32 0, i32 5
-  store i32 %68, ptr %70, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.SN_env, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.SN_env, ptr %74, i32 0, i32 1
-  %76 = load i32, ptr %75, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.SN_env, ptr %77, i32 0, i32 3
-  %79 = load i32, ptr %78, align 8
-  %80 = call i32 @skip_b_utf8(ptr noundef %73, i32 noundef %76, i32 noundef %79, i32 noundef 1)
-  store i32 %80, ptr %5, align 4
-  %81 = load i32, ptr %5, align 4
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %84
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.SN_env, ptr %60, i32 0, i32 2
+  %62 = load i32, ptr %61, align 4
+  %63 = load i32, ptr %4, align 4
+  %64 = sub i32 %62, %63
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds nuw %struct.SN_env, ptr %65, i32 0, i32 1
+  store i32 %64, ptr %66, align 8
+  store i32 0, ptr %5, align 4
+  br label %67
 
-83:                                               ; preds = %58
+67:                                               ; preds = %59, %58, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %68 = load i32, ptr %5, align 4
+  switch i32 %68, label %112 [
+    i32 0, label %69
+    i32 1, label %110
+  ]
+
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.SN_env, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.SN_env, ptr %73, i32 0, i32 5
+  store i32 %72, ptr %74, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.SN_env, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.SN_env, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds nuw %struct.SN_env, ptr %81, i32 0, i32 3
+  %83 = load i32, ptr %82, align 8
+  %84 = call i32 @skip_b_utf8(ptr noundef %77, i32 noundef %80, i32 noundef %83, i32 noundef 1)
+  store i32 %84, ptr %6, align 4
+  %85 = load i32, ptr %6, align 4
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %69
   store i32 0, ptr %2, align 4
-  br label %100
+  store i32 1, ptr %5, align 4
+  br label %92
 
-84:                                               ; preds = %58
-  %85 = load i32, ptr %5, align 4
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.SN_env, ptr %86, i32 0, i32 1
-  store i32 %85, ptr %87, align 8
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.SN_env, ptr %88, i32 0, i32 1
-  %90 = load i32, ptr %89, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.SN_env, ptr %91, i32 0, i32 4
-  store i32 %90, ptr %92, align 4
-  %93 = load ptr, ptr %3, align 8
-  %94 = call i32 @slice_del(ptr noundef %93)
-  store i32 %94, ptr %6, align 4
-  %95 = load i32, ptr %6, align 4
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %97, label %99
+88:                                               ; preds = %69
+  %89 = load i32, ptr %6, align 4
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds nuw %struct.SN_env, ptr %90, i32 0, i32 1
+  store i32 %89, ptr %91, align 8
+  store i32 0, ptr %5, align 4
+  br label %92
 
-97:                                               ; preds = %84
-  %98 = load i32, ptr %6, align 4
-  store i32 %98, ptr %2, align 4
-  br label %100
+92:                                               ; preds = %88, %87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %93 = load i32, ptr %5, align 4
+  switch i32 %93, label %112 [
+    i32 0, label %94
+    i32 1, label %110
+  ]
 
-99:                                               ; preds = %84
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds nuw %struct.SN_env, ptr %95, i32 0, i32 1
+  %97 = load i32, ptr %96, align 8
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds nuw %struct.SN_env, ptr %98, i32 0, i32 4
+  store i32 %97, ptr %99, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %100 = load ptr, ptr %3, align 8
+  %101 = call i32 @slice_del(ptr noundef %100)
+  store i32 %101, ptr %7, align 4
+  %102 = load i32, ptr %7, align 4
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %104, label %106
+
+104:                                              ; preds = %94
+  %105 = load i32, ptr %7, align 4
+  store i32 %105, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %107
+
+106:                                              ; preds = %94
+  store i32 0, ptr %5, align 4
+  br label %107
+
+107:                                              ; preds = %106, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %108 = load i32, ptr %5, align 4
+  switch i32 %108, label %112 [
+    i32 0, label %109
+    i32 1, label %110
+  ]
+
+109:                                              ; preds = %107
   store i32 1, ptr %2, align 4
-  br label %100
+  br label %110
 
-100:                                              ; preds = %99, %97, %83, %57, %52
-  %101 = load i32, ptr %2, align 4
-  ret i32 %101
+110:                                              ; preds = %109, %107, %92, %67
+  %111 = load i32, ptr %2, align 4
+  ret i32 %111
+
+112:                                              ; preds = %107, %92, %67
+  unreachable
 }
 
-declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

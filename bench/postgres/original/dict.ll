@@ -23,423 +23,448 @@ define dso_local i64 @ts_lexize(ptr noundef %0) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct.DictSubState, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %12, i32 0, i32 6
-  %14 = getelementptr [0 x %struct.NullableDatum], ptr %13, i64 0, i64 0
-  %15 = getelementptr inbounds %struct.NullableDatum, ptr %14, i32 0, i32 0
-  %16 = load i64, ptr %15, align 8
-  %17 = call i32 @DatumGetObjectId(i64 noundef %16)
-  store i32 %17, ptr %4, align 4
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %18, i32 0, i32 6
-  %20 = getelementptr [0 x %struct.NullableDatum], ptr %19, i64 0, i64 1
-  %21 = getelementptr inbounds %struct.NullableDatum, ptr %20, i32 0, i32 0
-  %22 = load i64, ptr %21, align 8
-  %23 = call ptr @DatumGetPointer(i64 noundef %22)
-  %24 = call ptr @pg_detoast_datum_packed(ptr noundef %23)
-  store ptr %24, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %14, i64 0, i64 0
+  %16 = getelementptr inbounds nuw %struct.NullableDatum, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8
+  %18 = call i32 @DatumGetObjectId(i64 noundef %17)
+  store i32 %18, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %20, i64 0, i64 1
+  %22 = getelementptr inbounds nuw %struct.NullableDatum, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = call ptr @DatumGetPointer(i64 noundef %23)
+  %25 = call ptr @pg_detoast_datum_packed(ptr noundef %24)
+  store ptr %25, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #5
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false)
-  %25 = load i32, ptr %4, align 4
-  %26 = call ptr @lookup_ts_dictionary_cache(i32 noundef %25)
-  store ptr %26, ptr %7, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.TSDictionaryCacheEntry, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.TSDictionaryCacheEntry, ptr %29, i32 0, i32 5
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i64 @PointerGetDatum(ptr noundef %31)
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.varattrib_1b, ptr %33, i32 0, i32 0
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 1
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %43
+  %26 = load i32, ptr %4, align 4
+  %27 = call ptr @lookup_ts_dictionary_cache(i32 noundef %26)
+  store ptr %27, ptr %7, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.TSDictionaryCacheEntry, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.TSDictionaryCacheEntry, ptr %30, i32 0, i32 5
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i64 @PointerGetDatum(ptr noundef %32)
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %34, i32 0, i32 0
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %37, 1
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %1
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.varattrib_1b, ptr %40, i32 0, i32 1
-  %42 = getelementptr inbounds [0 x i8], ptr %41, i64 0, i64 0
-  br label %47
+40:                                               ; preds = %1
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds [0 x i8], ptr %42, i64 0, i64 0
+  br label %48
 
-43:                                               ; preds = %1
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.anon, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds [0 x i8], ptr %45, i64 0, i64 0
-  br label %47
+44:                                               ; preds = %1
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.anon, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds [0 x i8], ptr %46, i64 0, i64 0
+  br label %48
 
-47:                                               ; preds = %43, %39
-  %48 = phi ptr [ %42, %39 ], [ %46, %43 ]
-  %49 = call i64 @PointerGetDatum(ptr noundef %48)
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.varattrib_1b, ptr %50, i32 0, i32 0
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %83
+48:                                               ; preds = %44, %40
+  %49 = phi ptr [ %43, %40 ], [ %47, %44 ]
+  %50 = call i64 @PointerGetDatum(ptr noundef %49)
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %51, i32 0, i32 0
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %56, label %84
 
-55:                                               ; preds = %47
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.varattrib_1b_e, ptr %56, i32 0, i32 1
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = icmp eq i32 %59, 1
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %57, i32 0, i32 1
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %55
-  br label %79
+62:                                               ; preds = %56
+  br label %80
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.varattrib_1b_e, ptr %63, i32 0, i32 1
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = and i32 %66, -2
-  %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %70
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %64, i32 0, i32 1
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = and i32 %67, -2
+  %69 = icmp eq i32 %68, 2
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %62
-  br label %77
+70:                                               ; preds = %63
+  br label %78
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.varattrib_1b_e, ptr %71, i32 0, i32 1
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp eq i32 %74, 18
-  %76 = select i1 %75, i64 16, i64 0
-  br label %77
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %72, i32 0, i32 1
+  %74 = load i8, ptr %73, align 1
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 18
+  %77 = select i1 %76, i64 16, i64 0
+  br label %78
 
-77:                                               ; preds = %70, %69
-  %78 = phi i64 [ 8, %69 ], [ %76, %70 ]
-  br label %79
+78:                                               ; preds = %71, %70
+  %79 = phi i64 [ 8, %70 ], [ %77, %71 ]
+  br label %80
 
-79:                                               ; preds = %77, %61
-  %80 = phi i64 [ 8, %61 ], [ %78, %77 ]
-  %81 = add i64 2, %80
-  %82 = sub i64 %81, 2
-  br label %109
+80:                                               ; preds = %78, %62
+  %81 = phi i64 [ 8, %62 ], [ %79, %78 ]
+  %82 = add i64 2, %81
+  %83 = sub i64 %82, 2
+  br label %110
 
-83:                                               ; preds = %47
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.varattrib_1b, ptr %84, i32 0, i32 0
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = and i32 %87, 1
-  %89 = icmp eq i32 %88, 1
-  br i1 %89, label %90, label %99
+84:                                               ; preds = %48
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %85, i32 0, i32 0
+  %87 = load i8, ptr %86, align 1
+  %88 = zext i8 %87 to i32
+  %89 = and i32 %88, 1
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %100
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.varattrib_1b, ptr %91, i32 0, i32 0
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = ashr i32 %94, 1
-  %96 = and i32 %95, 127
-  %97 = sext i32 %96 to i64
-  %98 = sub i64 %97, 1
-  br label %107
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %92, i32 0, i32 0
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = ashr i32 %95, 1
+  %97 = and i32 %96, 127
+  %98 = sext i32 %97 to i64
+  %99 = sub i64 %98, 1
+  br label %108
 
-99:                                               ; preds = %83
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds %struct.anon, ptr %100, i32 0, i32 0
-  %102 = load i32, ptr %101, align 4
-  %103 = lshr i32 %102, 2
-  %104 = and i32 %103, 1073741823
-  %105 = sub i32 %104, 4
-  %106 = zext i32 %105 to i64
-  br label %107
+100:                                              ; preds = %84
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds nuw %struct.anon, ptr %101, i32 0, i32 0
+  %103 = load i32, ptr %102, align 4
+  %104 = lshr i32 %103, 2
+  %105 = and i32 %104, 1073741823
+  %106 = sub i32 %105, 4
+  %107 = zext i32 %106 to i64
+  br label %108
 
-107:                                              ; preds = %99, %90
-  %108 = phi i64 [ %98, %90 ], [ %106, %99 ]
-  br label %109
+108:                                              ; preds = %100, %91
+  %109 = phi i64 [ %99, %91 ], [ %107, %100 ]
+  br label %110
 
-109:                                              ; preds = %107, %79
-  %110 = phi i64 [ %82, %79 ], [ %108, %107 ]
-  %111 = trunc i64 %110 to i32
-  %112 = call i64 @Int32GetDatum(i32 noundef %111)
-  %113 = call i64 @PointerGetDatum(ptr noundef %11)
-  %114 = call i64 @FunctionCall4Coll(ptr noundef %28, i32 noundef 0, i64 noundef %32, i64 noundef %49, i64 noundef %112, i64 noundef %113)
-  %115 = call ptr @DatumGetPointer(i64 noundef %114)
-  store ptr %115, ptr %8, align 8
-  %116 = getelementptr inbounds %struct.DictSubState, ptr %11, i32 0, i32 1
-  %117 = load i8, ptr %116, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %215
+110:                                              ; preds = %108, %80
+  %111 = phi i64 [ %83, %80 ], [ %109, %108 ]
+  %112 = trunc i64 %111 to i32
+  %113 = call i64 @Int32GetDatum(i32 noundef %112)
+  %114 = call i64 @PointerGetDatum(ptr noundef %11)
+  %115 = call i64 @FunctionCall4Coll(ptr noundef %29, i32 noundef 0, i64 noundef %33, i64 noundef %50, i64 noundef %113, i64 noundef %114)
+  %116 = call ptr @DatumGetPointer(i64 noundef %115)
+  store ptr %116, ptr %8, align 8
+  %117 = getelementptr inbounds nuw %struct.DictSubState, ptr %11, i32 0, i32 1
+  %118 = load i8, ptr %117, align 1, !range !4, !noundef !5
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %216
 
-119:                                              ; preds = %109
-  %120 = getelementptr inbounds %struct.DictSubState, ptr %11, i32 0, i32 0
-  store i8 1, ptr %120, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.TSDictionaryCacheEntry, ptr %121, i32 0, i32 3
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.TSDictionaryCacheEntry, ptr %123, i32 0, i32 5
-  %125 = load ptr, ptr %124, align 8
-  %126 = call i64 @PointerGetDatum(ptr noundef %125)
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds %struct.varattrib_1b, ptr %127, i32 0, i32 0
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = and i32 %130, 1
-  %132 = icmp eq i32 %131, 1
-  br i1 %132, label %133, label %137
+120:                                              ; preds = %110
+  %121 = getelementptr inbounds nuw %struct.DictSubState, ptr %11, i32 0, i32 0
+  store i8 1, ptr %121, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds nuw %struct.TSDictionaryCacheEntry, ptr %122, i32 0, i32 3
+  %124 = load ptr, ptr %7, align 8
+  %125 = getelementptr inbounds nuw %struct.TSDictionaryCacheEntry, ptr %124, i32 0, i32 5
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i64 @PointerGetDatum(ptr noundef %126)
+  %128 = load ptr, ptr %5, align 8
+  %129 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %128, i32 0, i32 0
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i32
+  %132 = and i32 %131, 1
+  %133 = icmp eq i32 %132, 1
+  br i1 %133, label %134, label %138
 
-133:                                              ; preds = %119
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.varattrib_1b, ptr %134, i32 0, i32 1
-  %136 = getelementptr inbounds [0 x i8], ptr %135, i64 0, i64 0
-  br label %141
+134:                                              ; preds = %120
+  %135 = load ptr, ptr %5, align 8
+  %136 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %135, i32 0, i32 1
+  %137 = getelementptr inbounds [0 x i8], ptr %136, i64 0, i64 0
+  br label %142
 
-137:                                              ; preds = %119
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds %struct.anon, ptr %138, i32 0, i32 1
-  %140 = getelementptr inbounds [0 x i8], ptr %139, i64 0, i64 0
-  br label %141
+138:                                              ; preds = %120
+  %139 = load ptr, ptr %5, align 8
+  %140 = getelementptr inbounds nuw %struct.anon, ptr %139, i32 0, i32 1
+  %141 = getelementptr inbounds [0 x i8], ptr %140, i64 0, i64 0
+  br label %142
 
-141:                                              ; preds = %137, %133
-  %142 = phi ptr [ %136, %133 ], [ %140, %137 ]
-  %143 = call i64 @PointerGetDatum(ptr noundef %142)
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds %struct.varattrib_1b, ptr %144, i32 0, i32 0
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i32
-  %148 = icmp eq i32 %147, 1
-  br i1 %148, label %149, label %177
+142:                                              ; preds = %138, %134
+  %143 = phi ptr [ %137, %134 ], [ %141, %138 ]
+  %144 = call i64 @PointerGetDatum(ptr noundef %143)
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %145, i32 0, i32 0
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = icmp eq i32 %148, 1
+  br i1 %149, label %150, label %178
 
-149:                                              ; preds = %141
-  %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds %struct.varattrib_1b_e, ptr %150, i32 0, i32 1
-  %152 = load i8, ptr %151, align 1
-  %153 = zext i8 %152 to i32
-  %154 = icmp eq i32 %153, 1
-  br i1 %154, label %155, label %156
+150:                                              ; preds = %142
+  %151 = load ptr, ptr %5, align 8
+  %152 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %151, i32 0, i32 1
+  %153 = load i8, ptr %152, align 1
+  %154 = zext i8 %153 to i32
+  %155 = icmp eq i32 %154, 1
+  br i1 %155, label %156, label %157
 
-155:                                              ; preds = %149
-  br label %173
+156:                                              ; preds = %150
+  br label %174
 
-156:                                              ; preds = %149
-  %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds %struct.varattrib_1b_e, ptr %157, i32 0, i32 1
-  %159 = load i8, ptr %158, align 1
-  %160 = zext i8 %159 to i32
-  %161 = and i32 %160, -2
-  %162 = icmp eq i32 %161, 2
-  br i1 %162, label %163, label %164
+157:                                              ; preds = %150
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %158, i32 0, i32 1
+  %160 = load i8, ptr %159, align 1
+  %161 = zext i8 %160 to i32
+  %162 = and i32 %161, -2
+  %163 = icmp eq i32 %162, 2
+  br i1 %163, label %164, label %165
 
-163:                                              ; preds = %156
-  br label %171
+164:                                              ; preds = %157
+  br label %172
 
-164:                                              ; preds = %156
-  %165 = load ptr, ptr %5, align 8
-  %166 = getelementptr inbounds %struct.varattrib_1b_e, ptr %165, i32 0, i32 1
-  %167 = load i8, ptr %166, align 1
-  %168 = zext i8 %167 to i32
-  %169 = icmp eq i32 %168, 18
-  %170 = select i1 %169, i64 16, i64 0
-  br label %171
+165:                                              ; preds = %157
+  %166 = load ptr, ptr %5, align 8
+  %167 = getelementptr inbounds nuw %struct.varattrib_1b_e, ptr %166, i32 0, i32 1
+  %168 = load i8, ptr %167, align 1
+  %169 = zext i8 %168 to i32
+  %170 = icmp eq i32 %169, 18
+  %171 = select i1 %170, i64 16, i64 0
+  br label %172
 
-171:                                              ; preds = %164, %163
-  %172 = phi i64 [ 8, %163 ], [ %170, %164 ]
-  br label %173
+172:                                              ; preds = %165, %164
+  %173 = phi i64 [ 8, %164 ], [ %171, %165 ]
+  br label %174
 
-173:                                              ; preds = %171, %155
-  %174 = phi i64 [ 8, %155 ], [ %172, %171 ]
-  %175 = add i64 2, %174
-  %176 = sub i64 %175, 2
-  br label %203
+174:                                              ; preds = %172, %156
+  %175 = phi i64 [ 8, %156 ], [ %173, %172 ]
+  %176 = add i64 2, %175
+  %177 = sub i64 %176, 2
+  br label %204
 
-177:                                              ; preds = %141
-  %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.varattrib_1b, ptr %178, i32 0, i32 0
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = and i32 %181, 1
-  %183 = icmp eq i32 %182, 1
-  br i1 %183, label %184, label %193
+178:                                              ; preds = %142
+  %179 = load ptr, ptr %5, align 8
+  %180 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %179, i32 0, i32 0
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = and i32 %182, 1
+  %184 = icmp eq i32 %183, 1
+  br i1 %184, label %185, label %194
 
-184:                                              ; preds = %177
-  %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds %struct.varattrib_1b, ptr %185, i32 0, i32 0
-  %187 = load i8, ptr %186, align 1
-  %188 = zext i8 %187 to i32
-  %189 = ashr i32 %188, 1
-  %190 = and i32 %189, 127
-  %191 = sext i32 %190 to i64
-  %192 = sub i64 %191, 1
-  br label %201
+185:                                              ; preds = %178
+  %186 = load ptr, ptr %5, align 8
+  %187 = getelementptr inbounds nuw %struct.varattrib_1b, ptr %186, i32 0, i32 0
+  %188 = load i8, ptr %187, align 1
+  %189 = zext i8 %188 to i32
+  %190 = ashr i32 %189, 1
+  %191 = and i32 %190, 127
+  %192 = sext i32 %191 to i64
+  %193 = sub i64 %192, 1
+  br label %202
 
-193:                                              ; preds = %177
-  %194 = load ptr, ptr %5, align 8
-  %195 = getelementptr inbounds %struct.anon, ptr %194, i32 0, i32 0
-  %196 = load i32, ptr %195, align 4
-  %197 = lshr i32 %196, 2
-  %198 = and i32 %197, 1073741823
-  %199 = sub i32 %198, 4
-  %200 = zext i32 %199 to i64
-  br label %201
+194:                                              ; preds = %178
+  %195 = load ptr, ptr %5, align 8
+  %196 = getelementptr inbounds nuw %struct.anon, ptr %195, i32 0, i32 0
+  %197 = load i32, ptr %196, align 4
+  %198 = lshr i32 %197, 2
+  %199 = and i32 %198, 1073741823
+  %200 = sub i32 %199, 4
+  %201 = zext i32 %200 to i64
+  br label %202
 
-201:                                              ; preds = %193, %184
-  %202 = phi i64 [ %192, %184 ], [ %200, %193 ]
-  br label %203
+202:                                              ; preds = %194, %185
+  %203 = phi i64 [ %193, %185 ], [ %201, %194 ]
+  br label %204
 
-203:                                              ; preds = %201, %173
-  %204 = phi i64 [ %176, %173 ], [ %202, %201 ]
-  %205 = trunc i64 %204 to i32
-  %206 = call i64 @Int32GetDatum(i32 noundef %205)
-  %207 = call i64 @PointerGetDatum(ptr noundef %11)
-  %208 = call i64 @FunctionCall4Coll(ptr noundef %122, i32 noundef 0, i64 noundef %126, i64 noundef %143, i64 noundef %206, i64 noundef %207)
-  %209 = call ptr @DatumGetPointer(i64 noundef %208)
-  store ptr %209, ptr %9, align 8
-  %210 = load ptr, ptr %9, align 8
-  %211 = icmp ne ptr %210, null
-  br i1 %211, label %212, label %214
+204:                                              ; preds = %202, %174
+  %205 = phi i64 [ %177, %174 ], [ %203, %202 ]
+  %206 = trunc i64 %205 to i32
+  %207 = call i64 @Int32GetDatum(i32 noundef %206)
+  %208 = call i64 @PointerGetDatum(ptr noundef %11)
+  %209 = call i64 @FunctionCall4Coll(ptr noundef %123, i32 noundef 0, i64 noundef %127, i64 noundef %144, i64 noundef %207, i64 noundef %208)
+  %210 = call ptr @DatumGetPointer(i64 noundef %209)
+  store ptr %210, ptr %9, align 8
+  %211 = load ptr, ptr %9, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %213, label %215
 
-212:                                              ; preds = %203
-  %213 = load ptr, ptr %9, align 8
-  store ptr %213, ptr %8, align 8
-  br label %214
-
-214:                                              ; preds = %212, %203
+213:                                              ; preds = %204
+  %214 = load ptr, ptr %9, align 8
+  store ptr %214, ptr %8, align 8
   br label %215
 
-215:                                              ; preds = %214, %109
-  %216 = load ptr, ptr %8, align 8
-  %217 = icmp ne ptr %216, null
-  br i1 %217, label %223, label %218
+215:                                              ; preds = %213, %204
+  br label %216
 
-218:                                              ; preds = %215
-  br label %219
+216:                                              ; preds = %215, %110
+  %217 = load ptr, ptr %8, align 8
+  %218 = icmp ne ptr %217, null
+  br i1 %218, label %225, label %219
 
-219:                                              ; preds = %218
-  %220 = load ptr, ptr %3, align 8
-  %221 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %220, i32 0, i32 4
-  store i8 1, ptr %221, align 4
+219:                                              ; preds = %216
+  br label %220
+
+220:                                              ; preds = %219
+  %221 = load ptr, ptr %3, align 8
+  %222 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %221, i32 0, i32 4
+  store i8 1, ptr %222, align 4
   store i64 0, ptr %2, align 8
-  br label %301
+  store i32 1, ptr %12, align 4
+  br label %303
 
-222:                                              ; No predecessors!
-  br label %223
+223:                                              ; No predecessors!
+  br label %224
 
-223:                                              ; preds = %222, %215
-  %224 = load ptr, ptr %8, align 8
-  store ptr %224, ptr %9, align 8
+224:                                              ; preds = %223
   br label %225
 
-225:                                              ; preds = %230, %223
-  %226 = load ptr, ptr %9, align 8
-  %227 = getelementptr inbounds %struct.TSLexeme, ptr %226, i32 0, i32 2
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp ne ptr %228, null
-  br i1 %229, label %230, label %233
+225:                                              ; preds = %224, %216
+  %226 = load ptr, ptr %8, align 8
+  store ptr %226, ptr %9, align 8
+  br label %227
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %9, align 8
-  %232 = getelementptr %struct.TSLexeme, ptr %231, i32 1
-  store ptr %232, ptr %9, align 8
-  br label %225, !llvm.loop !5
+227:                                              ; preds = %232, %225
+  %228 = load ptr, ptr %9, align 8
+  %229 = getelementptr inbounds nuw %struct.TSLexeme, ptr %228, i32 0, i32 2
+  %230 = load ptr, ptr %229, align 8
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %232, label %235
 
-233:                                              ; preds = %225
-  %234 = load ptr, ptr %9, align 8
-  %235 = load ptr, ptr %8, align 8
-  %236 = ptrtoint ptr %234 to i64
-  %237 = ptrtoint ptr %235 to i64
-  %238 = sub i64 %236, %237
-  %239 = sdiv exact i64 %238, 16
-  %240 = mul i64 8, %239
-  %241 = call ptr @palloc(i64 noundef %240)
-  store ptr %241, ptr %10, align 8
-  %242 = load ptr, ptr %8, align 8
-  store ptr %242, ptr %9, align 8
-  br label %243
+232:                                              ; preds = %227
+  %233 = load ptr, ptr %9, align 8
+  %234 = getelementptr inbounds nuw %struct.TSLexeme, ptr %233, i32 1
+  store ptr %234, ptr %9, align 8
+  br label %227, !llvm.loop !6
 
-243:                                              ; preds = %248, %233
-  %244 = load ptr, ptr %9, align 8
-  %245 = getelementptr inbounds %struct.TSLexeme, ptr %244, i32 0, i32 2
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp ne ptr %246, null
-  br i1 %247, label %248, label %264
+235:                                              ; preds = %227
+  %236 = load ptr, ptr %9, align 8
+  %237 = load ptr, ptr %8, align 8
+  %238 = ptrtoint ptr %236 to i64
+  %239 = ptrtoint ptr %237 to i64
+  %240 = sub i64 %238, %239
+  %241 = sdiv exact i64 %240, 16
+  %242 = mul i64 8, %241
+  %243 = call ptr @palloc(i64 noundef %242)
+  store ptr %243, ptr %10, align 8
+  %244 = load ptr, ptr %8, align 8
+  store ptr %244, ptr %9, align 8
+  br label %245
 
-248:                                              ; preds = %243
-  %249 = load ptr, ptr %9, align 8
-  %250 = getelementptr inbounds %struct.TSLexeme, ptr %249, i32 0, i32 2
-  %251 = load ptr, ptr %250, align 8
-  %252 = call ptr @cstring_to_text(ptr noundef %251)
-  %253 = call i64 @PointerGetDatum(ptr noundef %252)
-  %254 = load ptr, ptr %10, align 8
-  %255 = load ptr, ptr %9, align 8
-  %256 = load ptr, ptr %8, align 8
-  %257 = ptrtoint ptr %255 to i64
-  %258 = ptrtoint ptr %256 to i64
-  %259 = sub i64 %257, %258
-  %260 = sdiv exact i64 %259, 16
-  %261 = getelementptr i64, ptr %254, i64 %260
-  store i64 %253, ptr %261, align 8
-  %262 = load ptr, ptr %9, align 8
-  %263 = getelementptr %struct.TSLexeme, ptr %262, i32 1
-  store ptr %263, ptr %9, align 8
-  br label %243, !llvm.loop !7
+245:                                              ; preds = %250, %235
+  %246 = load ptr, ptr %9, align 8
+  %247 = getelementptr inbounds nuw %struct.TSLexeme, ptr %246, i32 0, i32 2
+  %248 = load ptr, ptr %247, align 8
+  %249 = icmp ne ptr %248, null
+  br i1 %249, label %250, label %266
 
-264:                                              ; preds = %243
-  %265 = load ptr, ptr %10, align 8
-  %266 = load ptr, ptr %9, align 8
-  %267 = load ptr, ptr %8, align 8
-  %268 = ptrtoint ptr %266 to i64
-  %269 = ptrtoint ptr %267 to i64
-  %270 = sub i64 %268, %269
-  %271 = sdiv exact i64 %270, 16
-  %272 = trunc i64 %271 to i32
-  %273 = call ptr @construct_array_builtin(ptr noundef %265, i32 noundef %272, i32 noundef 25)
-  store ptr %273, ptr %6, align 8
-  %274 = load ptr, ptr %8, align 8
-  store ptr %274, ptr %9, align 8
-  br label %275
+250:                                              ; preds = %245
+  %251 = load ptr, ptr %9, align 8
+  %252 = getelementptr inbounds nuw %struct.TSLexeme, ptr %251, i32 0, i32 2
+  %253 = load ptr, ptr %252, align 8
+  %254 = call ptr @cstring_to_text(ptr noundef %253)
+  %255 = call i64 @PointerGetDatum(ptr noundef %254)
+  %256 = load ptr, ptr %10, align 8
+  %257 = load ptr, ptr %9, align 8
+  %258 = load ptr, ptr %8, align 8
+  %259 = ptrtoint ptr %257 to i64
+  %260 = ptrtoint ptr %258 to i64
+  %261 = sub i64 %259, %260
+  %262 = sdiv exact i64 %261, 16
+  %263 = getelementptr inbounds i64, ptr %256, i64 %262
+  store i64 %255, ptr %263, align 8
+  %264 = load ptr, ptr %9, align 8
+  %265 = getelementptr inbounds nuw %struct.TSLexeme, ptr %264, i32 1
+  store ptr %265, ptr %9, align 8
+  br label %245, !llvm.loop !8
 
-275:                                              ; preds = %280, %264
-  %276 = load ptr, ptr %9, align 8
-  %277 = getelementptr inbounds %struct.TSLexeme, ptr %276, i32 0, i32 2
-  %278 = load ptr, ptr %277, align 8
-  %279 = icmp ne ptr %278, null
-  br i1 %279, label %280, label %296
+266:                                              ; preds = %245
+  %267 = load ptr, ptr %10, align 8
+  %268 = load ptr, ptr %9, align 8
+  %269 = load ptr, ptr %8, align 8
+  %270 = ptrtoint ptr %268 to i64
+  %271 = ptrtoint ptr %269 to i64
+  %272 = sub i64 %270, %271
+  %273 = sdiv exact i64 %272, 16
+  %274 = trunc i64 %273 to i32
+  %275 = call ptr @construct_array_builtin(ptr noundef %267, i32 noundef %274, i32 noundef 25)
+  store ptr %275, ptr %6, align 8
+  %276 = load ptr, ptr %8, align 8
+  store ptr %276, ptr %9, align 8
+  br label %277
 
-280:                                              ; preds = %275
-  %281 = load ptr, ptr %10, align 8
-  %282 = load ptr, ptr %9, align 8
-  %283 = load ptr, ptr %8, align 8
-  %284 = ptrtoint ptr %282 to i64
-  %285 = ptrtoint ptr %283 to i64
-  %286 = sub i64 %284, %285
-  %287 = sdiv exact i64 %286, 16
-  %288 = getelementptr i64, ptr %281, i64 %287
-  %289 = load i64, ptr %288, align 8
-  %290 = call ptr @DatumGetPointer(i64 noundef %289)
-  call void @pfree(ptr noundef %290)
-  %291 = load ptr, ptr %9, align 8
-  %292 = getelementptr inbounds %struct.TSLexeme, ptr %291, i32 0, i32 2
-  %293 = load ptr, ptr %292, align 8
-  call void @pfree(ptr noundef %293)
-  %294 = load ptr, ptr %9, align 8
-  %295 = getelementptr %struct.TSLexeme, ptr %294, i32 1
-  store ptr %295, ptr %9, align 8
-  br label %275, !llvm.loop !8
+277:                                              ; preds = %282, %266
+  %278 = load ptr, ptr %9, align 8
+  %279 = getelementptr inbounds nuw %struct.TSLexeme, ptr %278, i32 0, i32 2
+  %280 = load ptr, ptr %279, align 8
+  %281 = icmp ne ptr %280, null
+  br i1 %281, label %282, label %298
 
-296:                                              ; preds = %275
-  %297 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %297)
-  %298 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %298)
-  %299 = load ptr, ptr %6, align 8
-  %300 = call i64 @PointerGetDatum(ptr noundef %299)
-  store i64 %300, ptr %2, align 8
-  br label %301
+282:                                              ; preds = %277
+  %283 = load ptr, ptr %10, align 8
+  %284 = load ptr, ptr %9, align 8
+  %285 = load ptr, ptr %8, align 8
+  %286 = ptrtoint ptr %284 to i64
+  %287 = ptrtoint ptr %285 to i64
+  %288 = sub i64 %286, %287
+  %289 = sdiv exact i64 %288, 16
+  %290 = getelementptr inbounds i64, ptr %283, i64 %289
+  %291 = load i64, ptr %290, align 8
+  %292 = call ptr @DatumGetPointer(i64 noundef %291)
+  call void @pfree(ptr noundef %292)
+  %293 = load ptr, ptr %9, align 8
+  %294 = getelementptr inbounds nuw %struct.TSLexeme, ptr %293, i32 0, i32 2
+  %295 = load ptr, ptr %294, align 8
+  call void @pfree(ptr noundef %295)
+  %296 = load ptr, ptr %9, align 8
+  %297 = getelementptr inbounds nuw %struct.TSLexeme, ptr %296, i32 1
+  store ptr %297, ptr %9, align 8
+  br label %277, !llvm.loop !9
 
-301:                                              ; preds = %296, %219
-  %302 = load i64, ptr %2, align 8
-  ret i64 %302
+298:                                              ; preds = %277
+  %299 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %299)
+  %300 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %300)
+  %301 = load ptr, ptr %6, align 8
+  %302 = call i64 @PointerGetDatum(ptr noundef %301)
+  store i64 %302, ptr %2, align 8
+  store i32 1, ptr %12, align 4
+  br label %303
+
+303:                                              ; preds = %298, %220
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %304 = load i64, ptr %2, align 8
+  ret i64 %304
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetObjectId(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -447,10 +472,10 @@ define internal i32 @DatumGetObjectId(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) #1
+declare ptr @pg_detoast_datum_packed(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -459,14 +484,14 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @lookup_ts_dictionary_cache(i32 noundef) #1
+declare ptr @lookup_ts_dictionary_cache(i32 noundef) #3
 
-declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -474,8 +499,8 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -483,26 +508,33 @@ define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @palloc(i64 noundef) #1
+declare ptr @palloc(i64 noundef) #3
 
-declare ptr @cstring_to_text(ptr noundef) #1
+declare ptr @cstring_to_text(ptr noundef) #3
 
-declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @pfree(ptr noundef) #1
+declare void @pfree(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

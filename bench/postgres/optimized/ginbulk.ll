@@ -7,11 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BlockIdData = type { i16, i16 }
 %struct.GinEntryAccumulator = type { %struct.RBTNode, i64, i8, i16, i8, ptr, i32, i32 }
 %struct.RBTNode = type { i8, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"posting list is too long\00", align 1
-@.str.1 = private unnamed_addr constant [29 x i8] c"Reduce maintenance_work_mem.\00", align 1
+@.str.1 = private unnamed_addr constant [31 x i8] c"Reduce \22maintenance_work_mem\22.\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"ginbulk.c\00", align 1
 @__func__.ginCombineData = private unnamed_addr constant [15 x i8] c"ginCombineData\00", align 1
 
@@ -92,59 +91,58 @@ define internal void @ginCombineData(ptr noundef captures(none) %0, ptr noundef 
 
 31:                                               ; preds = %15, %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %35 = icmp eq i8 %34, 0
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %4, align 4
-  %39 = zext i32 %38 to i64
-  br i1 %35, label %40, label %._crit_edge
+  %33 = load i8, ptr %32, align 4, !range !4, !noundef !5
+  %34 = icmp eq i8 %33, 0
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %4, align 4
+  %38 = zext i32 %37 to i64
+  br i1 %34, label %39, label %._crit_edge
 
-40:                                               ; preds = %31
-  %41 = getelementptr %struct.ItemPointerData, ptr %37, i64 %39
-  %42 = getelementptr i8, ptr %41, i64 -6
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %.val.i = load i16, ptr %42, align 2
-  %45 = getelementptr i8, ptr %41, i64 -4
-  %.val5.i = load i16, ptr %45, align 2
-  %46 = zext i16 %.val.i to i64
-  %47 = zext i16 %.val5.i to i64
-  %48 = shl nuw i64 %46, 48
-  %49 = shl nuw nsw i64 %47, 32
-  %50 = or disjoint i64 %49, %48
-  %51 = getelementptr i8, ptr %41, i64 -2
-  %.val8.i = load i16, ptr %51, align 2
-  %52 = zext i16 %.val8.i to i64
-  %53 = or disjoint i64 %50, %52
-  %.val6.i = load i16, ptr %44, align 2
-  %54 = getelementptr i8, ptr %44, i64 2
-  %.val7.i = load i16, ptr %54, align 2
-  %55 = zext i16 %.val6.i to i64
-  %56 = zext i16 %.val7.i to i64
-  %57 = shl nuw i64 %55, 48
-  %58 = shl nuw nsw i64 %56, 32
-  %59 = or disjoint i64 %58, %57
-  %60 = getelementptr i8, ptr %44, i64 4
-  %.val9.i = load i16, ptr %60, align 2
-  %61 = zext i16 %.val9.i to i64
-  %62 = or disjoint i64 %59, %61
-  %63 = icmp ugt i64 %53, %62
-  br i1 %63, label %64, label %._crit_edge
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %36, i64 %38
+  %41 = getelementptr inbounds i8, ptr %40, i64 -6
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %.val.i = load i16, ptr %41, align 2
+  %44 = getelementptr i8, ptr %40, i64 -4
+  %.val5.i = load i16, ptr %44, align 2
+  %45 = zext i16 %.val.i to i64
+  %46 = zext i16 %.val5.i to i64
+  %47 = shl nuw i64 %45, 48
+  %48 = shl nuw nsw i64 %46, 32
+  %49 = or disjoint i64 %48, %47
+  %50 = getelementptr i8, ptr %40, i64 -2
+  %.val8.i = load i16, ptr %50, align 2
+  %51 = zext i16 %.val8.i to i64
+  %52 = or disjoint i64 %49, %51
+  %.val6.i = load i16, ptr %43, align 2
+  %53 = getelementptr i8, ptr %43, i64 2
+  %.val7.i = load i16, ptr %53, align 2
+  %54 = zext i16 %.val6.i to i64
+  %55 = zext i16 %.val7.i to i64
+  %56 = shl nuw i64 %54, 48
+  %57 = shl nuw nsw i64 %55, 32
+  %58 = or disjoint i64 %57, %56
+  %59 = getelementptr i8, ptr %43, i64 4
+  %.val9.i = load i16, ptr %59, align 2
+  %60 = zext i16 %.val9.i to i64
+  %61 = or disjoint i64 %58, %60
+  %62 = icmp ugt i64 %52, %61
+  br i1 %62, label %63, label %._crit_edge
 
-64:                                               ; preds = %40
+63:                                               ; preds = %39
   store i8 1, ptr %32, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %31, %40, %64
-  %65 = getelementptr %struct.ItemPointerData, ptr %37, i64 %39
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %67 = load ptr, ptr %66, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %65, ptr noundef nonnull align 2 dereferenceable(6) %67, i64 6, i1 false)
-  %68 = load i32, ptr %4, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %4, align 4
+._crit_edge:                                      ; preds = %31, %39, %63
+  %64 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %36, i64 %38
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %66 = load ptr, ptr %65, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %64, ptr noundef nonnull align 2 dereferenceable(6) %66, i64 6, i1 false)
+  %67 = load i32, ptr %4, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %4, align 4
   ret void
 }
 
@@ -177,7 +175,7 @@ define internal ptr @ginAllocEntryAccumulator(ptr noundef captures(none) %0) #0 
   %17 = phi ptr [ %.pre, %9 ], [ %3, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr %struct.GinEntryAccumulator, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw %struct.GinEntryAccumulator, ptr %17, i64 %19
   %21 = add nuw nsw i32 %16, 1
   store i32 %21, ptr %18, align 8
   ret ptr %20
@@ -228,20 +226,20 @@ define dso_local void @ginInsertBAEntries(ptr noundef captures(none) %0, ptr nou
 
 38:                                               ; preds = %.lr.ph, %ginInsertBAEntry.exit
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %ginInsertBAEntry.exit ]
-  %39 = getelementptr i64, ptr %3, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr i8, ptr %4, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
   store i16 %2, ptr %23, align 2
   store i64 %40, ptr %24, align 8
   store i8 %42, ptr %25, align 8
   store ptr %1, ptr %26, align 8
   %43 = load ptr, ptr %27, align 8
   %44 = call ptr @rbt_insert(ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
-  %45 = load i8, ptr %8, align 1
-  %46 = trunc i8 %45 to i1
+  %45 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %ginInsertBAEntry.exit
 
 47:                                               ; preds = %38
@@ -253,14 +251,14 @@ define dso_local void @ginInsertBAEntries(ptr noundef captures(none) %0, ptr nou
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %53, i64 0, i64 %29
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 86
-  %56 = load i8, ptr %55, align 2
-  %57 = trunc i8 %56 to i1
+  %54 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %53, i64 0, i64 %29
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
+  %56 = load i8, ptr %55, align 2, !range !4, !noundef !5
+  %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %getDatumCopy.exit.i, label %58
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %60 = load i16, ptr %59, align 4
   %61 = sext i16 %60 to i32
   %62 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext false, i32 noundef %61) #9
@@ -296,20 +294,26 @@ getDatumCopy.exit.i:                              ; preds = %58, %49
   br label %ginInsertBAEntry.exit
 
 ginInsertBAEntry.exit:                            ; preds = %38, %68
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #9
   %indvars.iv.next = add nuw i64 %indvars.iv, %37
   %78 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %78, label %38, label %._crit_edge, !llvm.loop !5
+  br i1 %78, label %38, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %32
   %79 = lshr i32 %.02831, 1
   %.not = icmp samesign ult i32 %.02831, 2
-  br i1 %.not, label %.loopexit, label %32, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %32, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %6
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginBeginBAScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -345,8 +349,8 @@ define dso_local ptr @ginGetBAEntry(ptr noundef %0, ptr noundef writeonly captur
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %4, align 4
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %21 = load i8, ptr %20, align 4
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 4, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
   %23 = icmp ugt i32 %19, 1
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %26
@@ -366,7 +370,7 @@ declare ptr @rbt_iterate(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val.i = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val5.i = load i16, ptr %3, align 2
@@ -398,7 +402,7 @@ define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef reado
 declare i32 @ginCompareAttEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i16 noundef zeroext, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
@@ -413,7 +417,7 @@ declare i64 @GetMemoryChunkSpace(ptr noundef) local_unnamed_addr #1
 declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -422,39 +426,34 @@ declare ptr @rbt_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.ListCell = type { ptr }
 %struct.String = type { i32, ptr }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @WalReceiverFunctions = external global ptr, align 8
 @.str = private unnamed_addr constant [32 x i8] c"libpqwalreceiver already loaded\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"libpqwalreceiver.c\00", align 1
@@ -99,21 +99,24 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [22 x i8] c" PHYSICAL RESERVE_WAL\00", align 1
 @.str.65 = private unnamed_addr constant [43 x i8] c"could not create replication slot \22%s\22: %s\00", align 1
 @__func__.libpqrcv_create_slot = private unnamed_addr constant [21 x i8] c"libpqrcv_create_slot\00", align 1
-@.str.66 = private unnamed_addr constant [42 x i8] c"ALTER_REPLICATION_SLOT %s ( FAILOVER %s )\00", align 1
-@.str.67 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.68 = private unnamed_addr constant [42 x i8] c"could not alter replication slot \22%s\22: %s\00", align 1
+@.str.66 = private unnamed_addr constant [29 x i8] c"ALTER_REPLICATION_SLOT %s ( \00", align 1
+@.str.67 = private unnamed_addr constant [12 x i8] c"FAILOVER %s\00", align 1
+@.str.68 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@.str.69 = private unnamed_addr constant [13 x i8] c"TWO_PHASE %s\00", align 1
+@.str.70 = private unnamed_addr constant [4 x i8] c" );\00", align 1
+@.str.71 = private unnamed_addr constant [42 x i8] c"could not alter replication slot \22%s\22: %s\00", align 1
 @__func__.libpqrcv_alter_slot = private unnamed_addr constant [20 x i8] c"libpqrcv_alter_slot\00", align 1
 @MyDatabaseId = external global i32, align 4
-@.str.69 = private unnamed_addr constant [51 x i8] c"the query interface requires a database connection\00", align 1
+@.str.72 = private unnamed_addr constant [51 x i8] c"the query interface requires a database connection\00", align 1
 @__func__.libpqrcv_exec = private unnamed_addr constant [14 x i8] c"libpqrcv_exec\00", align 1
-@.str.70 = private unnamed_addr constant [12 x i8] c"empty query\00", align 1
-@.str.71 = private unnamed_addr constant [25 x i8] c"unexpected pipeline mode\00", align 1
-@.str.72 = private unnamed_addr constant [23 x i8] c"invalid query response\00", align 1
-@.str.73 = private unnamed_addr constant [35 x i8] c"Expected %d fields, got %d fields.\00", align 1
+@.str.73 = private unnamed_addr constant [12 x i8] c"empty query\00", align 1
+@.str.74 = private unnamed_addr constant [25 x i8] c"unexpected pipeline mode\00", align 1
+@.str.75 = private unnamed_addr constant [23 x i8] c"invalid query response\00", align 1
+@.str.76 = private unnamed_addr constant [35 x i8] c"Expected %d fields, got %d fields.\00", align 1
 @__func__.libpqrcv_processTuples = private unnamed_addr constant [23 x i8] c"libpqrcv_processTuples\00", align 1
 @work_mem = external global i32, align 4
 @CurrentMemoryContext = external global ptr, align 8
-@.str.74 = private unnamed_addr constant [30 x i8] c"libpqrcv query result context\00", align 1
+@.str.77 = private unnamed_addr constant [30 x i8] c"libpqrcv query result context\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Pg_magic_func() #0 {
@@ -133,7 +136,7 @@ define void @_PG_init() #0 {
   br i1 true, label %5, label %7
 
 5:                                                ; preds = %4
-  %6 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %6 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %6, label %9, label %11
 
 7:                                                ; preds = %4
@@ -142,7 +145,7 @@ define void @_PG_init() #0 {
 
 9:                                                ; preds = %7, %5
   %10 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 125, ptr noundef @__func__._PG_init)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 124, ptr noundef @__func__._PG_init)
   br label %11
 
 11:                                               ; preds = %9, %7, %5
@@ -156,14 +159,17 @@ define void @_PG_init() #0 {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -182,332 +188,366 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca ptr, align 8
+  %22 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
-  %22 = zext i1 %1 to i8
-  store i8 %22, ptr %9, align 1
-  %23 = zext i1 %2 to i8
-  store i8 %23, ptr %10, align 1
-  %24 = zext i1 %3 to i8
-  store i8 %24, ptr %11, align 1
+  %23 = zext i1 %1 to i8
+  store i8 %23, ptr %9, align 1
+  %24 = zext i1 %2 to i8
+  store i8 %24, ptr %10, align 1
+  %25 = zext i1 %3 to i8
+  store i8 %25, ptr %11, align 1
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 48, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 48, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
   store i32 0, ptr %18, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i8, ptr %11, align 1
-  %27 = trunc i8 %26 to i1
-  call void @libpqrcv_check_conninfo(ptr noundef %25, i1 noundef zeroext %27)
-  %28 = load i32, ptr %18, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %29
-  store ptr @.str.2, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = load i32, ptr %18, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %33
-  store ptr %31, ptr %34, align 8
-  %35 = load i8, ptr %9, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %75
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i8, ptr %11, align 1, !range !3, !noundef !4
+  %28 = trunc i8 %27 to i1
+  call void @libpqrcv_check_conninfo(ptr noundef %26, i1 noundef zeroext %28)
+  %29 = load i32, ptr %18, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %30
+  store ptr @.str.2, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i32, ptr %18, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %34
+  store ptr %32, ptr %35, align 8
+  %36 = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %76
 
-37:                                               ; preds = %6
-  %38 = load i32, ptr %18, align 4
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %18, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %40
-  store ptr @.str.3, ptr %41, align 8
-  %42 = load i8, ptr %10, align 1
-  %43 = trunc i8 %42 to i1
-  %44 = select i1 %43, ptr @.str.4, ptr @.str.5
-  %45 = load i32, ptr %18, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %46
-  store ptr %44, ptr %47, align 8
-  %48 = load i8, ptr %10, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %66
+38:                                               ; preds = %6
+  %39 = load i32, ptr %18, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %18, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %41
+  store ptr @.str.3, ptr %42, align 8
+  %43 = load i8, ptr %10, align 1, !range !3, !noundef !4
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.4, ptr @.str.5
+  %46 = load i32, ptr %18, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %47
+  store ptr %45, ptr %48, align 8
+  %49 = load i8, ptr %10, align 1, !range !3, !noundef !4
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %67
 
-50:                                               ; preds = %37
-  %51 = load i32, ptr %18, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %18, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %53
-  store ptr @.str.6, ptr %54, align 8
-  %55 = call ptr @GetDatabaseEncodingName()
-  %56 = load i32, ptr %18, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %57
-  store ptr %55, ptr %58, align 8
-  %59 = load i32, ptr %18, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %18, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %61
-  store ptr @.str.7, ptr %62, align 8
-  %63 = load i32, ptr %18, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %64
-  store ptr @.str.8, ptr %65, align 8
-  br label %74
-
-66:                                               ; preds = %37
-  %67 = load i32, ptr %18, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %18, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %69
-  store ptr @.str.2, ptr %70, align 8
-  %71 = load i32, ptr %18, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %72
-  store ptr @.str.3, ptr %73, align 8
-  br label %74
-
-74:                                               ; preds = %66, %50
+51:                                               ; preds = %38
+  %52 = load i32, ptr %18, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %18, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %54
+  store ptr @.str.6, ptr %55, align 8
+  %56 = call ptr @GetDatabaseEncodingName()
+  %57 = load i32, ptr %18, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %58
+  store ptr %56, ptr %59, align 8
+  %60 = load i32, ptr %18, align 4
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %18, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %62
+  store ptr @.str.7, ptr %63, align 8
+  %64 = load i32, ptr %18, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %65
+  store ptr @.str.8, ptr %66, align 8
   br label %75
 
-75:                                               ; preds = %74, %6
-  %76 = load i32, ptr %18, align 4
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %18, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %78
-  store ptr @.str.9, ptr %79, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = load i32, ptr %18, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %82
-  store ptr %80, ptr %83, align 8
-  %84 = load i32, ptr %18, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %18, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr [6 x ptr], ptr %16, i64 0, i64 %86
-  store ptr null, ptr %87, align 8
-  %88 = load i32, ptr %18, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %89
-  store ptr null, ptr %90, align 8
-  %91 = call ptr @palloc0(i64 noundef 24)
-  store ptr %91, ptr %14, align 8
-  %92 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 0
-  %93 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 0
-  %94 = call ptr @PQconnectStartParams(ptr noundef %92, ptr noundef %93, i32 noundef 1)
-  %95 = load ptr, ptr %14, align 8
-  %96 = getelementptr inbounds %struct.WalReceiverConn, ptr %95, i32 0, i32 0
-  store ptr %94, ptr %96, align 8
-  %97 = load ptr, ptr %14, align 8
-  %98 = getelementptr inbounds %struct.WalReceiverConn, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = call i32 @PQstatus(ptr noundef %99)
-  %101 = icmp eq i32 %100, 1
-  br i1 %101, label %102, label %103
+67:                                               ; preds = %38
+  %68 = load i32, ptr %18, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %18, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %70
+  store ptr @.str.2, ptr %71, align 8
+  %72 = load i32, ptr %18, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %73
+  store ptr @.str.3, ptr %74, align 8
+  br label %75
 
-102:                                              ; preds = %75
-  br label %207
+75:                                               ; preds = %67, %51
+  br label %76
 
-103:                                              ; preds = %75
+76:                                               ; preds = %75, %6
+  %77 = load i32, ptr %18, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %18, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %79
+  store ptr @.str.9, ptr %80, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = load i32, ptr %18, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %83
+  store ptr %81, ptr %84, align 8
+  %85 = load i32, ptr %18, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %18, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %87
+  store ptr null, ptr %88, align 8
+  %89 = load i32, ptr %18, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %90
+  store ptr null, ptr %91, align 8
+  %92 = call ptr @palloc0(i64 noundef 24)
+  store ptr %92, ptr %14, align 8
+  %93 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 0
+  %94 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 0
+  %95 = call ptr @PQconnectStartParams(ptr noundef %93, ptr noundef %94, i32 noundef 1)
+  %96 = load ptr, ptr %14, align 8
+  %97 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %96, i32 0, i32 0
+  store ptr %95, ptr %97, align 8
+  %98 = load ptr, ptr %14, align 8
+  %99 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = call i32 @PQstatus(ptr noundef %100)
+  %102 = icmp eq i32 %101, 1
+  br i1 %102, label %103, label %104
+
+103:                                              ; preds = %76
+  br label %212
+
+104:                                              ; preds = %76
   store i32 2, ptr %15, align 4
-  br label %104
+  br label %105
 
-104:                                              ; preds = %140, %103
-  %105 = load i32, ptr %15, align 4
-  %106 = icmp eq i32 %105, 1
-  br i1 %106, label %107, label %108
+105:                                              ; preds = %141, %104
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  %106 = load i32, ptr %15, align 4
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %104
+108:                                              ; preds = %105
   store i32 2, ptr %19, align 4
-  br label %109
+  br label %110
 
-108:                                              ; preds = %104
+109:                                              ; preds = %105
   store i32 4, ptr %19, align 4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %108, %107
-  %110 = load ptr, ptr @MyLatch, align 8
-  %111 = load i32, ptr %19, align 4
-  %112 = or i32 33, %111
-  %113 = load ptr, ptr %14, align 8
-  %114 = getelementptr inbounds %struct.WalReceiverConn, ptr %113, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @PQsocket(ptr noundef %115)
-  %117 = call i32 @WaitLatchOrSocket(ptr noundef %110, i32 noundef %112, i32 noundef %116, i64 noundef 0, i32 noundef 100663299)
-  store i32 %117, ptr %20, align 4
-  %118 = load i32, ptr %20, align 4
-  %119 = and i32 %118, 1
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %123
+110:                                              ; preds = %109, %108
+  %111 = load ptr, ptr @MyLatch, align 8
+  %112 = load i32, ptr %19, align 4
+  %113 = or i32 33, %112
+  %114 = load ptr, ptr %14, align 8
+  %115 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 @PQsocket(ptr noundef %116)
+  %118 = call i32 @WaitLatchOrSocket(ptr noundef %111, i32 noundef %113, i32 noundef %117, i64 noundef 0, i32 noundef 100663299)
+  store i32 %118, ptr %20, align 4
+  %119 = load i32, ptr %20, align 4
+  %120 = and i32 %119, 1
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %124
 
-121:                                              ; preds = %109
-  %122 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %122)
+122:                                              ; preds = %110
+  %123 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %123)
   call void @ProcessWalRcvInterrupts()
-  br label %123
+  br label %124
 
-123:                                              ; preds = %121, %109
-  %124 = load i32, ptr %20, align 4
-  %125 = load i32, ptr %19, align 4
-  %126 = and i32 %124, %125
-  %127 = icmp ne i32 %126, 0
-  br i1 %127, label %128, label %133
+124:                                              ; preds = %122, %110
+  %125 = load i32, ptr %20, align 4
+  %126 = load i32, ptr %19, align 4
+  %127 = and i32 %125, %126
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %134
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %14, align 8
-  %130 = getelementptr inbounds %struct.WalReceiverConn, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = call i32 @PQconnectPoll(ptr noundef %131)
-  store i32 %132, ptr %15, align 4
-  br label %133
-
-133:                                              ; preds = %128, %123
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %14, align 8
+  %131 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  %133 = call i32 @PQconnectPoll(ptr noundef %132)
+  store i32 %133, ptr %15, align 4
   br label %134
 
-134:                                              ; preds = %133
-  %135 = load i32, ptr %15, align 4
-  %136 = icmp ne i32 %135, 3
-  br i1 %136, label %137, label %140
+134:                                              ; preds = %129, %124
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  br label %135
 
-137:                                              ; preds = %134
-  %138 = load i32, ptr %15, align 4
-  %139 = icmp ne i32 %138, 0
-  br label %140
+135:                                              ; preds = %134
+  %136 = load i32, ptr %15, align 4
+  %137 = icmp ne i32 %136, 3
+  br i1 %137, label %138, label %141
 
-140:                                              ; preds = %137, %134
-  %141 = phi i1 [ false, %134 ], [ %139, %137 ]
-  br i1 %141, label %104, label %142, !llvm.loop !4
+138:                                              ; preds = %135
+  %139 = load i32, ptr %15, align 4
+  %140 = icmp ne i32 %139, 0
+  br label %141
 
-142:                                              ; preds = %140
-  %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr inbounds %struct.WalReceiverConn, ptr %143, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  %146 = call i32 @PQstatus(ptr noundef %145)
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %148, label %149
+141:                                              ; preds = %138, %135
+  %142 = phi i1 [ false, %135 ], [ %140, %138 ]
+  br i1 %142, label %105, label %143, !llvm.loop !5
 
-148:                                              ; preds = %142
-  br label %207
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %14, align 8
+  %145 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = call i32 @PQstatus(ptr noundef %146)
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %150
 
-149:                                              ; preds = %142
-  %150 = load i8, ptr %11, align 1
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %152, label %175
+149:                                              ; preds = %143
+  br label %212
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %14, align 8
-  %154 = getelementptr inbounds %struct.WalReceiverConn, ptr %153, i32 0, i32 0
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @PQconnectionUsedPassword(ptr noundef %155)
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %175, label %158
+150:                                              ; preds = %143
+  %151 = load i8, ptr %11, align 1, !range !3, !noundef !4
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %177
 
-158:                                              ; preds = %152
-  %159 = load ptr, ptr %14, align 8
-  %160 = getelementptr inbounds %struct.WalReceiverConn, ptr %159, i32 0, i32 0
-  %161 = load ptr, ptr %160, align 8
-  call void @PQfinish(ptr noundef %161)
-  %162 = load ptr, ptr %14, align 8
-  call void @pfree(ptr noundef %162)
-  br label %163
+153:                                              ; preds = %150
+  %154 = load ptr, ptr %14, align 8
+  %155 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8
+  %157 = call i32 @PQconnectionUsedPassword(ptr noundef %156)
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %177, label %159
 
-163:                                              ; preds = %158
-  br i1 true, label %164, label %166
+159:                                              ; preds = %153
+  %160 = load ptr, ptr %14, align 8
+  %161 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %160, i32 0, i32 0
+  %162 = load ptr, ptr %161, align 8
+  call void @PQfinish(ptr noundef %162)
+  %163 = load ptr, ptr %14, align 8
+  call void @pfree(ptr noundef %163)
+  br label %164
 
-164:                                              ; preds = %163
-  %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %165, label %168, label %173
+164:                                              ; preds = %159
+  br i1 true, label %165, label %167
 
-166:                                              ; preds = %163
-  %167 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %167, label %168, label %173
+165:                                              ; preds = %164
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %166, label %169, label %174
 
-168:                                              ; preds = %166, %164
-  %169 = call i32 @errcode(i32 noundef 50333058)
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
-  %171 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.11)
-  %172 = call i32 (ptr, ...) @errhint(ptr noundef @.str.12)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 271, ptr noundef @__func__.libpqrcv_connect)
-  br label %173
+167:                                              ; preds = %164
+  %168 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %168, label %169, label %174
 
-173:                                              ; preds = %168, %166, %164
+169:                                              ; preds = %167, %165
+  %170 = call i32 @errcode(i32 noundef 50333058)
+  %171 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
+  %172 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.11)
+  %173 = call i32 (ptr, ...) @errhint(ptr noundef @.str.12)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 270, ptr noundef @__func__.libpqrcv_connect)
+  br label %174
+
+174:                                              ; preds = %169, %167, %165
   unreachable
 
-174:                                              ; No predecessors!
-  br label %175
+175:                                              ; No predecessors!
+  br label %176
 
-175:                                              ; preds = %174, %152, %149
-  %176 = load i8, ptr %9, align 1
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %178, label %181
+176:                                              ; preds = %175
+  br label %177
 
-178:                                              ; preds = %175
-  %179 = load i8, ptr %10, align 1
-  %180 = trunc i8 %179 to i1
-  br i1 %180, label %181, label %200
+177:                                              ; preds = %176, %153, %150
+  %178 = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %179 = trunc i8 %178 to i1
+  br i1 %179, label %180, label %183
 
-181:                                              ; preds = %178, %175
-  %182 = load ptr, ptr %14, align 8
-  %183 = getelementptr inbounds %struct.WalReceiverConn, ptr %182, i32 0, i32 0
-  %184 = load ptr, ptr %183, align 8
-  %185 = call ptr @libpqrcv_PQexec(ptr noundef %184, ptr noundef @.str.13)
-  store ptr %185, ptr %21, align 8
-  %186 = load ptr, ptr %21, align 8
-  %187 = call i32 @PQresultStatus(ptr noundef %186)
-  %188 = icmp ne i32 %187, 2
-  br i1 %188, label %189, label %198
+180:                                              ; preds = %177
+  %181 = load i8, ptr %10, align 1, !range !3, !noundef !4
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %183, label %205
 
-189:                                              ; preds = %181
-  %190 = load ptr, ptr %21, align 8
-  call void @PQclear(ptr noundef %190)
-  %191 = load ptr, ptr %14, align 8
-  %192 = getelementptr inbounds %struct.WalReceiverConn, ptr %191, i32 0, i32 0
-  %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @PQerrorMessage(ptr noundef %193)
-  %195 = call ptr @pchomp(ptr noundef %194)
-  %196 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.14, ptr noundef %195)
-  %197 = load ptr, ptr %13, align 8
-  store ptr %196, ptr %197, align 8
-  br label %214
+183:                                              ; preds = %180, %177
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
+  %184 = load ptr, ptr %14, align 8
+  %185 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %184, i32 0, i32 0
+  %186 = load ptr, ptr %185, align 8
+  %187 = call ptr @libpqrcv_PQexec(ptr noundef %186, ptr noundef @.str.13)
+  store ptr %187, ptr %21, align 8
+  %188 = load ptr, ptr %21, align 8
+  %189 = call i32 @PQresultStatus(ptr noundef %188)
+  %190 = icmp ne i32 %189, 2
+  br i1 %190, label %191, label %200
 
-198:                                              ; preds = %181
-  %199 = load ptr, ptr %21, align 8
-  call void @PQclear(ptr noundef %199)
-  br label %200
+191:                                              ; preds = %183
+  %192 = load ptr, ptr %21, align 8
+  call void @PQclear(ptr noundef %192)
+  %193 = load ptr, ptr %14, align 8
+  %194 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %193, i32 0, i32 0
+  %195 = load ptr, ptr %194, align 8
+  %196 = call ptr @PQerrorMessage(ptr noundef %195)
+  %197 = call ptr @pchomp(ptr noundef %196)
+  %198 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.14, ptr noundef %197)
+  %199 = load ptr, ptr %13, align 8
+  store ptr %198, ptr %199, align 8
+  store i32 7, ptr %22, align 4
+  br label %202
 
-200:                                              ; preds = %198, %178
-  %201 = load i8, ptr %10, align 1
-  %202 = trunc i8 %201 to i1
-  %203 = load ptr, ptr %14, align 8
-  %204 = getelementptr inbounds %struct.WalReceiverConn, ptr %203, i32 0, i32 1
-  %205 = zext i1 %202 to i8
-  store i8 %205, ptr %204, align 8
-  %206 = load ptr, ptr %14, align 8
-  store ptr %206, ptr %7, align 8
-  br label %219
+200:                                              ; preds = %183
+  %201 = load ptr, ptr %21, align 8
+  call void @PQclear(ptr noundef %201)
+  store i32 0, ptr %22, align 4
+  br label %202
 
-207:                                              ; preds = %148, %102
+202:                                              ; preds = %191, %200
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  %203 = load i32, ptr %22, align 4
+  switch i32 %203, label %224 [
+    i32 0, label %204
+    i32 7, label %219
+  ]
+
+204:                                              ; preds = %202
+  br label %205
+
+205:                                              ; preds = %204, %180
+  %206 = load i8, ptr %10, align 1, !range !3, !noundef !4
+  %207 = trunc i8 %206 to i1
   %208 = load ptr, ptr %14, align 8
-  %209 = getelementptr inbounds %struct.WalReceiverConn, ptr %208, i32 0, i32 0
-  %210 = load ptr, ptr %209, align 8
-  %211 = call ptr @PQerrorMessage(ptr noundef %210)
-  %212 = call ptr @pchomp(ptr noundef %211)
-  %213 = load ptr, ptr %13, align 8
-  store ptr %212, ptr %213, align 8
-  br label %214
+  %209 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %208, i32 0, i32 1
+  %210 = zext i1 %207 to i8
+  store i8 %210, ptr %209, align 8
+  %211 = load ptr, ptr %14, align 8
+  store ptr %211, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %224
 
-214:                                              ; preds = %207, %189
-  %215 = load ptr, ptr %14, align 8
-  %216 = getelementptr inbounds %struct.WalReceiverConn, ptr %215, i32 0, i32 0
-  %217 = load ptr, ptr %216, align 8
-  call void @PQfinish(ptr noundef %217)
-  %218 = load ptr, ptr %14, align 8
-  call void @pfree(ptr noundef %218)
-  store ptr null, ptr %7, align 8
+212:                                              ; preds = %149, %103
+  %213 = load ptr, ptr %14, align 8
+  %214 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %213, i32 0, i32 0
+  %215 = load ptr, ptr %214, align 8
+  %216 = call ptr @PQerrorMessage(ptr noundef %215)
+  %217 = call ptr @pchomp(ptr noundef %216)
+  %218 = load ptr, ptr %13, align 8
+  store ptr %217, ptr %218, align 8
   br label %219
 
-219:                                              ; preds = %214, %200
-  %220 = load ptr, ptr %7, align 8
-  ret ptr %220
+219:                                              ; preds = %212, %202
+  %220 = load ptr, ptr %14, align 8
+  %221 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %220, i32 0, i32 0
+  %222 = load ptr, ptr %221, align 8
+  call void @PQfinish(ptr noundef %222)
+  %223 = load ptr, ptr %14, align 8
+  call void @pfree(ptr noundef %223)
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %224
+
+224:                                              ; preds = %219, %205, %202
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  %225 = load ptr, ptr %7, align 8
+  ret ptr %225
 }
 
 ; Function Attrs: nounwind uwtable
@@ -522,16 +562,20 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
   store ptr %0, ptr %3, align 8
   %10 = zext i1 %1 to i8
   store i8 %10, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   store ptr null, ptr %7, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = call ptr @PQconninfoParse(ptr noundef %11, ptr noundef %7)
   store ptr %12, ptr %5, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %36
+  br i1 %14, label %15, label %37
 
 15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
   %16 = load ptr, ptr %7, align 8
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %21
@@ -555,7 +599,7 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
   br i1 true, label %26, label %28
 
 26:                                               ; preds = %25
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %27, label %30, label %34
 
 28:                                               ; preds = %25
@@ -566,7 +610,7 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
   %31 = call i32 @errcode(i32 noundef 16801924)
   %32 = load ptr, ptr %8, align 8
   %33 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %32)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 333, ptr noundef @__func__.libpqrcv_check_conninfo)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 332, ptr noundef @__func__.libpqrcv_check_conninfo)
   br label %34
 
 34:                                               ; preds = %30, %28, %26
@@ -575,105 +619,117 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
 35:                                               ; No predecessors!
   br label %36
 
-36:                                               ; preds = %35, %2
-  %37 = load i8, ptr %4, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %88
+36:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %37
 
-39:                                               ; preds = %36
+37:                                               ; preds = %36, %2
+  %38 = load i8, ptr %4, align 1, !range !3, !noundef !4
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %90
+
+40:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
   store i8 0, ptr %9, align 1
-  %40 = load ptr, ptr %5, align 8
-  store ptr %40, ptr %6, align 8
-  br label %41
+  %41 = load ptr, ptr %5, align 8
+  store ptr %41, ptr %6, align 8
+  br label %42
 
-41:                                               ; preds = %68, %39
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct._PQconninfoOption, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %71
+42:                                               ; preds = %69, %40
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %72
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct._PQconninfoOption, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %46
-  br label %68
+52:                                               ; preds = %47
+  br label %69
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct._PQconninfoOption, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.17) #7
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %67
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = call i32 @strcmp(ptr noundef %56, ptr noundef @.str.17) #12
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %68
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._PQconninfoOption, ptr %59, i32 0, i32 3
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr i8, ptr %61, i64 0
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %67
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 0
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   store i8 1, ptr %9, align 1
-  br label %71
+  br label %72
 
-67:                                               ; preds = %58, %52
-  br label %68
+68:                                               ; preds = %59, %53
+  br label %69
 
-68:                                               ; preds = %67, %51
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr %struct._PQconninfoOption, ptr %69, i32 1
-  store ptr %70, ptr %6, align 8
-  br label %41, !llvm.loop !6
+69:                                               ; preds = %68, %52
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %70, i32 1
+  store ptr %71, ptr %6, align 8
+  br label %42, !llvm.loop !7
 
-71:                                               ; preds = %66, %41
-  %72 = load i8, ptr %9, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %87, label %74
+72:                                               ; preds = %67, %42
+  %73 = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %89, label %75
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %5, align 8
-  call void @PQconninfoFree(ptr noundef %75)
-  br label %76
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %5, align 8
+  call void @PQconninfoFree(ptr noundef %76)
+  br label %77
 
-76:                                               ; preds = %74
-  br i1 true, label %77, label %79
+77:                                               ; preds = %75
+  br i1 true, label %78, label %80
 
-77:                                               ; preds = %76
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %78, label %81, label %85
+78:                                               ; preds = %77
+  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %79, label %82, label %86
 
-79:                                               ; preds = %76
-  %80 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %80, label %81, label %85
+80:                                               ; preds = %77
+  %81 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %81, label %82, label %86
 
-81:                                               ; preds = %79, %77
-  %82 = call i32 @errcode(i32 noundef 50333058)
-  %83 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
-  %84 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.18)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 361, ptr noundef @__func__.libpqrcv_check_conninfo)
-  br label %85
+82:                                               ; preds = %80, %78
+  %83 = call i32 @errcode(i32 noundef 50333058)
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
+  %85 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.18)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 360, ptr noundef @__func__.libpqrcv_check_conninfo)
+  br label %86
 
-85:                                               ; preds = %81, %79, %77
+86:                                               ; preds = %82, %80, %78
   unreachable
 
-86:                                               ; No predecessors!
-  br label %87
-
-87:                                               ; preds = %86, %71
+87:                                               ; No predecessors!
   br label %88
 
-88:                                               ; preds = %87, %36
-  %89 = load ptr, ptr %5, align 8
-  call void @PQconninfoFree(ptr noundef %89)
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88, %72
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  br label %90
+
+90:                                               ; preds = %89, %37
+  %91 = load ptr, ptr %5, align 8
+  call void @PQconninfoFree(ptr noundef %91)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
@@ -685,145 +741,175 @@ define internal ptr @libpqrcv_get_conninfo(ptr noundef %0) #0 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   call void @initPQExpBuffer(ptr noundef %5)
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.WalReceiverConn, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = call ptr @PQconninfo(ptr noundef %10)
-  store ptr %11, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %25
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @PQconninfo(ptr noundef %11)
+  store ptr %12, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %27
 
-14:                                               ; preds = %1
-  br label %15
-
-15:                                               ; preds = %14
-  br i1 true, label %16, label %18
+15:                                               ; preds = %1
+  br label %16
 
 16:                                               ; preds = %15
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %17, label %20, label %23
+  br i1 true, label %17, label %19
 
-18:                                               ; preds = %15
-  %19 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %19, label %20, label %23
+17:                                               ; preds = %16
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %18, label %21, label %24
 
-20:                                               ; preds = %18, %16
-  %21 = call i32 @errcode(i32 noundef 8389)
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.19, ptr noundef @.str.15)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 389, ptr noundef @__func__.libpqrcv_get_conninfo)
-  br label %23
+19:                                               ; preds = %16
+  %20 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %20, label %21, label %24
 
-23:                                               ; preds = %20, %18, %16
+21:                                               ; preds = %19, %17
+  %22 = call i32 @errcode(i32 noundef 8389)
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.19, ptr noundef @.str.15)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 388, ptr noundef @__func__.libpqrcv_get_conninfo)
+  br label %24
+
+24:                                               ; preds = %21, %19, %17
   unreachable
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %1
-  %26 = load ptr, ptr %3, align 8
-  store ptr %26, ptr %4, align 8
+26:                                               ; preds = %25
   br label %27
 
-27:                                               ; preds = %75, %25
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct._PQconninfoOption, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %78
+27:                                               ; preds = %26, %1
+  %28 = load ptr, ptr %3, align 8
+  store ptr %28, ptr %4, align 8
+  br label %29
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct._PQconninfoOption, ptr %33, i32 0, i32 5
-  %35 = load ptr, ptr %34, align 8
-  %36 = call ptr @strchr(ptr noundef %35, i32 noundef 68) #7
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %51, label %38
+29:                                               ; preds = %80, %27
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %83
 
-38:                                               ; preds = %32
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct._PQconninfoOption, ptr %39, i32 0, i32 3
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %51, label %43
+34:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #11
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %36, align 8
+  %38 = call ptr @strchr(ptr noundef %37, i32 noundef 68) #12
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %53, label %40
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct._PQconninfoOption, ptr %44, i32 0, i32 3
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1
-  %49 = sext i8 %48 to i32
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %52
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %53, label %45
 
-51:                                               ; preds = %43, %38, %32
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %46, i32 0, i32 3
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  %50 = load i8, ptr %49, align 1
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %45, %40, %34
+  store i32 6, ptr %8, align 4
+  br label %77
+
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %55, i32 0, i32 5
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @strchr(ptr noundef %57, i32 noundef 42) #12
+  %59 = icmp ne ptr %58, null
+  %60 = zext i1 %59 to i8
+  store i8 %60, ptr %7, align 1
+  %61 = getelementptr inbounds nuw %struct.PQExpBufferData, ptr %5, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp eq i64 %62, 0
+  %64 = select i1 %63, ptr @.str.21, ptr @.str.22
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i8, ptr %7, align 1, !range !3, !noundef !4
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %71
+
+70:                                               ; preds = %54
   br label %75
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct._PQconninfoOption, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr @strchr(ptr noundef %55, i32 noundef 42) #7
-  %57 = icmp ne ptr %56, null
-  %58 = zext i1 %57 to i8
-  store i8 %58, ptr %7, align 1
-  %59 = getelementptr inbounds %struct.PQExpBufferData, ptr %5, i32 0, i32 1
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp eq i64 %60, 0
-  %62 = select i1 %61, ptr @.str.21, ptr @.str.22
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct._PQconninfoOption, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i8, ptr %7, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %52
-  br label %73
-
-69:                                               ; preds = %52
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct._PQconninfoOption, ptr %70, i32 0, i32 3
-  %72 = load ptr, ptr %71, align 8
-  br label %73
-
-73:                                               ; preds = %69, %68
-  %74 = phi ptr [ @.str.23, %68 ], [ %72, %69 ]
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %5, ptr noundef @.str.20, ptr noundef %62, ptr noundef %65, ptr noundef %74)
+71:                                               ; preds = %54
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %72, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8
   br label %75
 
-75:                                               ; preds = %73, %51
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr %struct._PQconninfoOption, ptr %76, i32 1
-  store ptr %77, ptr %4, align 8
-  br label %27, !llvm.loop !7
+75:                                               ; preds = %71, %70
+  %76 = phi ptr [ @.str.23, %70 ], [ %74, %71 ]
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %5, ptr noundef @.str.20, ptr noundef %64, ptr noundef %67, ptr noundef %76)
+  store i32 0, ptr %8, align 4
+  br label %77
 
-78:                                               ; preds = %27
-  %79 = load ptr, ptr %3, align 8
-  call void @PQconninfoFree(ptr noundef %79)
-  %80 = getelementptr inbounds %struct.PQExpBufferData, ptr %5, i32 0, i32 2
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %84
+77:                                               ; preds = %75, %53
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #11
+  %78 = load i32, ptr %8, align 4
+  switch i32 %78, label %96 [
+    i32 0, label %79
+    i32 6, label %80
+  ]
 
-83:                                               ; preds = %78
-  br label %88
+79:                                               ; preds = %77
+  br label %80
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds %struct.PQExpBufferData, ptr %5, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr @pstrdup(ptr noundef %86)
-  br label %88
+80:                                               ; preds = %79, %77
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %81, i32 1
+  store ptr %82, ptr %4, align 8
+  br label %29, !llvm.loop !8
 
-88:                                               ; preds = %84, %83
-  %89 = phi ptr [ null, %83 ], [ %87, %84 ]
-  store ptr %89, ptr %6, align 8
+83:                                               ; preds = %29
+  %84 = load ptr, ptr %3, align 8
+  call void @PQconninfoFree(ptr noundef %84)
+  %85 = getelementptr inbounds nuw %struct.PQExpBufferData, ptr %5, i32 0, i32 2
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %83
+  br label %93
+
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw %struct.PQExpBufferData, ptr %5, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr @pstrdup(ptr noundef %91)
+  br label %93
+
+93:                                               ; preds = %89, %88
+  %94 = phi ptr [ null, %88 ], [ %92, %89 ]
+  store ptr %94, ptr %6, align 8
   call void @termPQExpBuffer(ptr noundef %5)
-  %90 = load ptr, ptr %6, align 8
-  ret ptr %90
+  %95 = load ptr, ptr %6, align 8
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %95
+
+96:                                               ; preds = %77
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -835,13 +921,14 @@ define internal void @libpqrcv_get_senderinfo(ptr noundef %0, ptr noundef %1, pt
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.WalReceiverConn, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @PQhost(ptr noundef %12)
   store ptr %13, ptr %7, align 8
@@ -851,7 +938,7 @@ define internal void @libpqrcv_get_senderinfo(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %7, align 8
-  %18 = call i64 @strlen(ptr noundef %17) #7
+  %18 = call i64 @strlen(ptr noundef %17) #12
   %19 = icmp ne i64 %18, 0
   br i1 %19, label %20, label %24
 
@@ -864,7 +951,7 @@ define internal void @libpqrcv_get_senderinfo(ptr noundef %0, ptr noundef %1, pt
 
 24:                                               ; preds = %20, %16, %3
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.WalReceiverConn, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @PQport(ptr noundef %27)
   store ptr %28, ptr %7, align 8
@@ -874,18 +961,19 @@ define internal void @libpqrcv_get_senderinfo(ptr noundef %0, ptr noundef %1, pt
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %7, align 8
-  %33 = call i64 @strlen(ptr noundef %32) #7
+  %33 = call i64 @strlen(ptr noundef %32) #12
   %34 = icmp ne i64 %33, 0
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8
-  %37 = call i32 @atoi(ptr noundef %36) #7
+  %37 = call i32 @atoi(ptr noundef %36) #12
   %38 = load ptr, ptr %6, align 8
   store i32 %37, ptr %38, align 4
   br label %39
 
 39:                                               ; preds = %35, %31, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
@@ -899,15 +987,17 @@ define internal ptr @libpqrcv_identify_system(ptr noundef %0, ptr noundef %1) #0
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.WalReceiverConn, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @libpqrcv_PQexec(ptr noundef %11, ptr noundef @.str.24)
   store ptr %12, ptr %5, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @PQresultStatus(ptr noundef %13)
   %15 = icmp ne i32 %14, 2
-  br i1 %15, label %16, label %33
+  br i1 %15, label %16, label %34
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %5, align 8
@@ -918,7 +1008,7 @@ define internal ptr @libpqrcv_identify_system(ptr noundef %0, ptr noundef %1) #0
   br i1 true, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %20, label %23, label %31
 
 21:                                               ; preds = %18
@@ -928,12 +1018,12 @@ define internal ptr @libpqrcv_identify_system(ptr noundef %0, ptr noundef %1) #0
 23:                                               ; preds = %21, %19
   %24 = call i32 @errcode(i32 noundef 16908800)
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.WalReceiverConn, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @PQerrorMessage(ptr noundef %27)
   %29 = call ptr @pchomp(ptr noundef %28)
   %30 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25, ptr noundef %29)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 463, ptr noundef @__func__.libpqrcv_identify_system)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 462, ptr noundef @__func__.libpqrcv_identify_system)
   br label %31
 
 31:                                               ; preds = %23, %21, %19
@@ -942,69 +1032,81 @@ define internal ptr @libpqrcv_identify_system(ptr noundef %0, ptr noundef %1) #0
 32:                                               ; No predecessors!
   br label %33
 
-33:                                               ; preds = %32, %2
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @PQnfields(ptr noundef %34)
-  %36 = icmp slt i32 %35, 3
-  br i1 %36, label %41, label %37
+33:                                               ; preds = %32
+  br label %34
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @PQntuples(ptr noundef %38)
-  %40 = icmp ne i32 %39, 1
-  br i1 %40, label %41, label %60
+34:                                               ; preds = %33, %2
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 @PQnfields(ptr noundef %35)
+  %37 = icmp slt i32 %36, 3
+  br i1 %37, label %42, label %38
 
-41:                                               ; preds = %37, %33
-  %42 = load ptr, ptr %5, align 8
-  %43 = call i32 @PQntuples(ptr noundef %42)
-  store i32 %43, ptr %7, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = call i32 @PQnfields(ptr noundef %44)
-  store i32 %45, ptr %8, align 4
-  %46 = load ptr, ptr %5, align 8
-  call void @PQclear(ptr noundef %46)
-  br label %47
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %5, align 8
+  %40 = call i32 @PQntuples(ptr noundef %39)
+  %41 = icmp ne i32 %40, 1
+  br i1 %41, label %42, label %62
 
-47:                                               ; preds = %41
-  br i1 true, label %48, label %50
+42:                                               ; preds = %38, %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %43 = load ptr, ptr %5, align 8
+  %44 = call i32 @PQntuples(ptr noundef %43)
+  store i32 %44, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %45 = load ptr, ptr %5, align 8
+  %46 = call i32 @PQnfields(ptr noundef %45)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %5, align 8
+  call void @PQclear(ptr noundef %47)
+  br label %48
 
-48:                                               ; preds = %47
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %49, label %52, label %58
+48:                                               ; preds = %42
+  br i1 true, label %49, label %51
 
-50:                                               ; preds = %47
-  %51 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %51, label %52, label %58
+49:                                               ; preds = %48
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %50, label %53, label %59
 
-52:                                               ; preds = %50, %48
-  %53 = call i32 @errcode(i32 noundef 16908800)
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26)
-  %55 = load i32, ptr %7, align 4
-  %56 = load i32, ptr %8, align 4
-  %57 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.27, i32 noundef %55, i32 noundef %56, i32 noundef 1, i32 noundef 3)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 480, ptr noundef @__func__.libpqrcv_identify_system)
-  br label %58
+51:                                               ; preds = %48
+  %52 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %52, label %53, label %59
 
-58:                                               ; preds = %52, %50, %48
+53:                                               ; preds = %51, %49
+  %54 = call i32 @errcode(i32 noundef 16908800)
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26)
+  %56 = load i32, ptr %7, align 4
+  %57 = load i32, ptr %8, align 4
+  %58 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.27, i32 noundef %56, i32 noundef %57, i32 noundef 1, i32 noundef 3)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 479, ptr noundef @__func__.libpqrcv_identify_system)
+  br label %59
+
+59:                                               ; preds = %53, %51, %49
   unreachable
 
-59:                                               ; No predecessors!
-  br label %60
+60:                                               ; No predecessors!
+  br label %61
 
-60:                                               ; preds = %59, %37
-  %61 = load ptr, ptr %5, align 8
-  %62 = call ptr @PQgetvalue(ptr noundef %61, i32 noundef 0, i32 noundef 0)
-  %63 = call ptr @pstrdup(ptr noundef %62)
-  store ptr %63, ptr %6, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = call ptr @PQgetvalue(ptr noundef %64, i32 noundef 0, i32 noundef 1)
-  %66 = call i32 @pg_strtoint32(ptr noundef %65)
-  %67 = load ptr, ptr %4, align 8
-  store i32 %66, ptr %67, align 4
-  %68 = load ptr, ptr %5, align 8
-  call void @PQclear(ptr noundef %68)
-  %69 = load ptr, ptr %6, align 8
-  ret ptr %69
+61:                                               ; preds = %60
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  br label %62
+
+62:                                               ; preds = %61, %38
+  %63 = load ptr, ptr %5, align 8
+  %64 = call ptr @PQgetvalue(ptr noundef %63, i32 noundef 0, i32 noundef 0)
+  %65 = call ptr @pstrdup(ptr noundef %64)
+  store ptr %65, ptr %6, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = call ptr @PQgetvalue(ptr noundef %66, i32 noundef 0, i32 noundef 1)
+  %68 = call i32 @pg_strtoint32(ptr noundef %67)
+  %69 = load ptr, ptr %4, align 8
+  store i32 %68, ptr %69, align 4
+  %70 = load ptr, ptr %5, align 8
+  call void @PQclear(ptr noundef %70)
+  %71 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret ptr %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1016,16 +1118,20 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   store ptr null, ptr %5, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = call ptr @PQconninfoParse(ptr noundef %8, ptr noundef %5)
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %33
+  br i1 %11, label %12, label %34
 
 12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %18
@@ -1049,7 +1155,7 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #0 {
   br i1 true, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %24, label %27, label %31
 
 25:                                               ; preds = %22
@@ -1060,7 +1166,7 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #0 {
   %28 = call i32 @errcode(i32 noundef 16801924)
   %29 = load ptr, ptr %6, align 8
   %30 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %29)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 519, ptr noundef @__func__.libpqrcv_get_dbname_from_conninfo)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 518, ptr noundef @__func__.libpqrcv_get_dbname_from_conninfo)
   br label %31
 
 31:                                               ; preds = %27, %25, %23
@@ -1069,74 +1175,86 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #0 {
 32:                                               ; No predecessors!
   br label %33
 
-33:                                               ; preds = %32, %1
-  %34 = load ptr, ptr %3, align 8
-  store ptr %34, ptr %7, align 8
-  br label %35
+33:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %34
 
-35:                                               ; preds = %69, %33
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct._PQconninfoOption, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %72
+34:                                               ; preds = %33, %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %35 = load ptr, ptr %3, align 8
+  store ptr %35, ptr %7, align 8
+  br label %36
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._PQconninfoOption, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @strcmp(ptr noundef %43, ptr noundef @.str.2) #7
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %68
+36:                                               ; preds = %71, %34
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %42, label %41
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._PQconninfoOption, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %68
+41:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %74
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._PQconninfoOption, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i8, ptr %54, align 1
-  %56 = sext i8 %55 to i32
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %68
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.2) #12
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %70
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %4, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %63
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %70
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %62)
-  br label %63
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i8, ptr %56, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %70
 
-63:                                               ; preds = %61, %58
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct._PQconninfoOption, ptr %64, i32 0, i32 3
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @pstrdup(ptr noundef %66)
-  store ptr %67, ptr %4, align 8
-  br label %68
+60:                                               ; preds = %53
+  %61 = load ptr, ptr %4, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %65
 
-68:                                               ; preds = %63, %51, %46, %40
-  br label %69
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %64)
+  br label %65
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr %struct._PQconninfoOption, ptr %70, i32 1
-  store ptr %71, ptr %7, align 8
-  br label %35, !llvm.loop !8
+65:                                               ; preds = %63, %60
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr @pstrdup(ptr noundef %68)
+  store ptr %69, ptr %4, align 8
+  br label %70
 
-72:                                               ; preds = %35
-  %73 = load ptr, ptr %3, align 8
-  call void @PQconninfoFree(ptr noundef %73)
-  %74 = load ptr, ptr %4, align 8
-  ret ptr %74
+70:                                               ; preds = %65, %53, %48, %42
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct._PQconninfoOption, ptr %72, i32 1
+  store ptr %73, ptr %7, align 8
+  br label %36, !llvm.loop !9
+
+74:                                               ; preds = %41
+  %75 = load ptr, ptr %3, align 8
+  call void @PQconninfoFree(ptr noundef %75)
+  %76 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1144,7 +1262,7 @@ define internal i32 @libpqrcv_server_version(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WalReceiverConn, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @PQserverVersion(ptr noundef %5)
   ret i32 %6
@@ -1166,11 +1284,13 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef %0, i32 nound
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 64, ptr %12) #11
   %15 = getelementptr inbounds [64 x i8], ptr %12, i64 0, i64 0
   %16 = load i32, ptr %7, align 4
   %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %15, i64 noundef 64, ptr noundef @.str.28, i32 noundef %16)
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.WalReceiverConn, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %18, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds [64 x i8], ptr %12, i64 0, i64 0
   %22 = call ptr @libpqrcv_PQexec(ptr noundef %20, ptr noundef %21)
@@ -1178,7 +1298,7 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef %0, i32 nound
   %23 = load ptr, ptr %11, align 8
   %24 = call i32 @PQresultStatus(ptr noundef %23)
   %25 = icmp ne i32 %24, 2
-  br i1 %25, label %26, label %43
+  br i1 %25, label %26, label %44
 
 26:                                               ; preds = %5
   %27 = load ptr, ptr %11, align 8
@@ -1189,7 +1309,7 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef %0, i32 nound
   br i1 true, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %28
@@ -1199,12 +1319,12 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef %0, i32 nound
 33:                                               ; preds = %31, %29
   %34 = call i32 @errcode(i32 noundef 16908800)
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.WalReceiverConn, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %35, i32 0, i32 0
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @PQerrorMessage(ptr noundef %37)
   %39 = call ptr @pchomp(ptr noundef %38)
   %40 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.29, ptr noundef %39)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 755, ptr noundef @__func__.libpqrcv_readtimelinehistoryfile)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 754, ptr noundef @__func__.libpqrcv_readtimelinehistoryfile)
   br label %41
 
 41:                                               ; preds = %33, %31, %29
@@ -1213,81 +1333,93 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef %0, i32 nound
 42:                                               ; No predecessors!
   br label %43
 
-43:                                               ; preds = %42, %5
-  %44 = load ptr, ptr %11, align 8
-  %45 = call i32 @PQnfields(ptr noundef %44)
-  %46 = icmp ne i32 %45, 2
-  br i1 %46, label %51, label %47
+43:                                               ; preds = %42
+  br label %44
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %11, align 8
-  %49 = call i32 @PQntuples(ptr noundef %48)
-  %50 = icmp ne i32 %49, 1
-  br i1 %50, label %51, label %70
+44:                                               ; preds = %43, %5
+  %45 = load ptr, ptr %11, align 8
+  %46 = call i32 @PQnfields(ptr noundef %45)
+  %47 = icmp ne i32 %46, 2
+  br i1 %47, label %52, label %48
 
-51:                                               ; preds = %47, %43
-  %52 = load ptr, ptr %11, align 8
-  %53 = call i32 @PQntuples(ptr noundef %52)
-  store i32 %53, ptr %13, align 4
-  %54 = load ptr, ptr %11, align 8
-  %55 = call i32 @PQnfields(ptr noundef %54)
-  store i32 %55, ptr %14, align 4
-  %56 = load ptr, ptr %11, align 8
-  call void @PQclear(ptr noundef %56)
-  br label %57
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %11, align 8
+  %50 = call i32 @PQntuples(ptr noundef %49)
+  %51 = icmp ne i32 %50, 1
+  br i1 %51, label %52, label %72
 
-57:                                               ; preds = %51
-  br i1 true, label %58, label %60
+52:                                               ; preds = %48, %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  %53 = load ptr, ptr %11, align 8
+  %54 = call i32 @PQntuples(ptr noundef %53)
+  store i32 %54, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %55 = load ptr, ptr %11, align 8
+  %56 = call i32 @PQnfields(ptr noundef %55)
+  store i32 %56, ptr %14, align 4
+  %57 = load ptr, ptr %11, align 8
+  call void @PQclear(ptr noundef %57)
+  br label %58
 
-58:                                               ; preds = %57
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %59, label %62, label %68
+58:                                               ; preds = %52
+  br i1 true, label %59, label %61
 
-60:                                               ; preds = %57
-  %61 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %61, label %62, label %68
+59:                                               ; preds = %58
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %60, label %63, label %69
 
-62:                                               ; preds = %60, %58
-  %63 = call i32 @errcode(i32 noundef 16908800)
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26)
-  %65 = load i32, ptr %13, align 4
-  %66 = load i32, ptr %14, align 4
-  %67 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.30, i32 noundef %65, i32 noundef %66)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 767, ptr noundef @__func__.libpqrcv_readtimelinehistoryfile)
-  br label %68
+61:                                               ; preds = %58
+  %62 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %62, label %63, label %69
 
-68:                                               ; preds = %62, %60, %58
+63:                                               ; preds = %61, %59
+  %64 = call i32 @errcode(i32 noundef 16908800)
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26)
+  %66 = load i32, ptr %13, align 4
+  %67 = load i32, ptr %14, align 4
+  %68 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.30, i32 noundef %66, i32 noundef %67)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 766, ptr noundef @__func__.libpqrcv_readtimelinehistoryfile)
+  br label %69
+
+69:                                               ; preds = %63, %61, %59
   unreachable
 
-69:                                               ; No predecessors!
-  br label %70
+70:                                               ; No predecessors!
+  br label %71
 
-70:                                               ; preds = %69, %47
-  %71 = load ptr, ptr %11, align 8
-  %72 = call ptr @PQgetvalue(ptr noundef %71, i32 noundef 0, i32 noundef 0)
-  %73 = call ptr @pstrdup(ptr noundef %72)
-  %74 = load ptr, ptr %8, align 8
-  store ptr %73, ptr %74, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = call i32 @PQgetlength(ptr noundef %75, i32 noundef 0, i32 noundef 1)
-  %77 = load ptr, ptr %10, align 8
-  store i32 %76, ptr %77, align 4
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %79 to i64
-  %81 = call ptr @palloc(i64 noundef %80)
-  %82 = load ptr, ptr %9, align 8
-  store ptr %81, ptr %82, align 8
-  %83 = load ptr, ptr %9, align 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %11, align 8
-  %86 = call ptr @PQgetvalue(ptr noundef %85, i32 noundef 0, i32 noundef 1)
-  %87 = load ptr, ptr %10, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = sext i32 %88 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %86, i64 %89, i1 false)
-  %90 = load ptr, ptr %11, align 8
-  call void @PQclear(ptr noundef %90)
+71:                                               ; preds = %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  br label %72
+
+72:                                               ; preds = %71, %48
+  %73 = load ptr, ptr %11, align 8
+  %74 = call ptr @PQgetvalue(ptr noundef %73, i32 noundef 0, i32 noundef 0)
+  %75 = call ptr @pstrdup(ptr noundef %74)
+  %76 = load ptr, ptr %8, align 8
+  store ptr %75, ptr %76, align 8
+  %77 = load ptr, ptr %11, align 8
+  %78 = call i32 @PQgetlength(ptr noundef %77, i32 noundef 0, i32 noundef 1)
+  %79 = load ptr, ptr %10, align 8
+  store i32 %78, ptr %79, align 4
+  %80 = load ptr, ptr %10, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = sext i32 %81 to i64
+  %83 = call ptr @palloc(i64 noundef %82)
+  %84 = load ptr, ptr %9, align 8
+  store ptr %83, ptr %84, align 8
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = call ptr @PQgetvalue(ptr noundef %87, i32 noundef 0, i32 noundef 1)
+  %89 = load ptr, ptr %10, align 8
+  %90 = load i32, ptr %89, align 4
+  %91 = sext i32 %90 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %88, i64 %91, i1 false)
+  %92 = load ptr, ptr %11, align 8
+  call void @PQclear(ptr noundef %92)
+  call void @llvm.lifetime.end.p0(i64 64, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret void
 }
 
@@ -1302,326 +1434,351 @@ define internal zeroext i1 @libpqrcv_startstreaming(ptr noundef %0, ptr noundef 
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   call void @initStringInfo(ptr noundef %6)
   call void @appendStringInfoString(ptr noundef %6, ptr noundef @.str.31)
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %20
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.32, ptr noundef %19)
-  br label %20
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.32, ptr noundef %20)
+  br label %21
 
-20:                                               ; preds = %16, %2
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %21, i32 0, i32 0
-  %23 = load i8, ptr %22, align 8
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %17, %2
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %22, i32 0, i32 0
+  %24 = load i8, ptr %23, align 8, !range !3, !noundef !4
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   call void @appendStringInfoString(ptr noundef %6, ptr noundef @.str.33)
-  br label %26
-
-26:                                               ; preds = %25, %20
   br label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %26, %21
   br label %28
 
 28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
   store i32 1, ptr %8, align 4
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %29, i32 0, i32 2
-  %31 = load i64, ptr %30, align 8
-  %32 = lshr i64 %31, 32
-  %33 = trunc i64 %32 to i32
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %34, i32 0, i32 2
-  %36 = load i64, ptr %35, align 8
-  %37 = trunc i64 %36 to i32
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.34, i32 noundef %33, i32 noundef %37)
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %38, i32 0, i32 0
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %158
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8
+  %34 = lshr i64 %33, 32
+  %35 = trunc i64 %34 to i32
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %36, i32 0, i32 2
+  %38 = load i64, ptr %37, align 8
+  %39 = trunc i64 %38 to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.34, i32 noundef %35, i32 noundef %39)
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %40, i32 0, i32 0
+  %42 = load i8, ptr %41, align 8, !range !3, !noundef !4
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %162
 
-42:                                               ; preds = %28
+44:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
   call void @appendStringInfoString(ptr noundef %6, ptr noundef @.str.35)
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %43, i32 0, i32 3
-  %45 = getelementptr inbounds %struct.anon.0, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.36, i32 noundef %46)
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds %struct.anon.0, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %57
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.anon.0, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.36, i32 noundef %48)
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.anon.0, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %59
 
-52:                                               ; preds = %42
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %53, i32 0, i32 3
-  %55 = getelementptr inbounds %struct.anon.0, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.37, ptr noundef %56)
-  br label %57
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %55, i32 0, i32 3
+  %57 = getelementptr inbounds nuw %struct.anon.0, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.37, ptr noundef %58)
+  br label %59
 
-57:                                               ; preds = %52, %42
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %58, i32 0, i32 3
-  %60 = getelementptr inbounds %struct.anon.0, ptr %59, i32 0, i32 4
-  %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %70
+59:                                               ; preds = %54, %44
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %60, i32 0, i32 3
+  %62 = getelementptr inbounds nuw %struct.anon.0, ptr %61, i32 0, i32 4
+  %63 = load i8, ptr %62, align 8, !range !3, !noundef !4
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %72
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.WalReceiverConn, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = call i32 @PQserverVersion(ptr noundef %66)
-  %68 = icmp sge i32 %67, 150000
-  br i1 %68, label %69, label %70
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i32 @PQserverVersion(ptr noundef %68)
+  %70 = icmp sge i32 %69, 150000
+  br i1 %70, label %71, label %72
 
-69:                                               ; preds = %63
+71:                                               ; preds = %65
   call void @appendStringInfoString(ptr noundef %6, ptr noundef @.str.38)
-  br label %70
+  br label %72
 
-70:                                               ; preds = %69, %63, %57
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %71, i32 0, i32 3
-  %73 = getelementptr inbounds %struct.anon.0, ptr %72, i32 0, i32 5
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %87
+72:                                               ; preds = %71, %65, %59
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %73, i32 0, i32 3
+  %75 = getelementptr inbounds nuw %struct.anon.0, ptr %74, i32 0, i32 5
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %89
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.WalReceiverConn, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @PQserverVersion(ptr noundef %79)
-  %81 = icmp sge i32 %80, 160000
-  br i1 %81, label %82, label %87
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 @PQserverVersion(ptr noundef %81)
+  %83 = icmp sge i32 %82, 160000
+  br i1 %83, label %84, label %89
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %83, i32 0, i32 3
-  %85 = getelementptr inbounds %struct.anon.0, ptr %84, i32 0, i32 5
-  %86 = load ptr, ptr %85, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.39, ptr noundef %86)
-  br label %87
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %85, i32 0, i32 3
+  %87 = getelementptr inbounds nuw %struct.anon.0, ptr %86, i32 0, i32 5
+  %88 = load ptr, ptr %87, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.39, ptr noundef %88)
+  br label %89
 
-87:                                               ; preds = %82, %76, %70
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %88, i32 0, i32 3
-  %90 = getelementptr inbounds %struct.anon.0, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %10, align 8
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.WalReceiverConn, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %10, align 8
-  %96 = call ptr @stringlist_to_identifierstr(ptr noundef %94, ptr noundef %95)
-  store ptr %96, ptr %9, align 8
-  %97 = load ptr, ptr %9, align 8
-  %98 = icmp ne ptr %97, null
-  br i1 %98, label %115, label %99
+89:                                               ; preds = %84, %78, %72
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %90, i32 0, i32 3
+  %92 = getelementptr inbounds nuw %struct.anon.0, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %10, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = call ptr @stringlist_to_identifierstr(ptr noundef %96, ptr noundef %97)
+  store ptr %98, ptr %9, align 8
+  %99 = load ptr, ptr %9, align 8
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %118, label %101
 
-99:                                               ; preds = %87
-  br label %100
+101:                                              ; preds = %89
+  br label %102
 
-100:                                              ; preds = %99
-  br i1 true, label %101, label %103
+102:                                              ; preds = %101
+  br i1 true, label %103, label %105
 
-101:                                              ; preds = %100
-  %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %102, label %105, label %113
+103:                                              ; preds = %102
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %104, label %107, label %115
 
-103:                                              ; preds = %100
-  %104 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %104, label %105, label %113
+105:                                              ; preds = %102
+  %106 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %106, label %107, label %115
 
-105:                                              ; preds = %103, %101
-  %106 = call i32 @errcode(i32 noundef 8389)
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.WalReceiverConn, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = call ptr @PQerrorMessage(ptr noundef %109)
-  %111 = call ptr @pchomp(ptr noundef %110)
-  %112 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %111)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 609, ptr noundef @__func__.libpqrcv_startstreaming)
-  br label %113
-
-113:                                              ; preds = %105, %103, %101
-  unreachable
-
-114:                                              ; No predecessors!
+107:                                              ; preds = %105, %103
+  %108 = call i32 @errcode(i32 noundef 8389)
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = call ptr @PQerrorMessage(ptr noundef %111)
+  %113 = call ptr @pchomp(ptr noundef %112)
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %113)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 608, ptr noundef @__func__.libpqrcv_startstreaming)
   br label %115
 
-115:                                              ; preds = %114, %87
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.WalReceiverConn, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = load ptr, ptr %9, align 8
-  %121 = call i64 @strlen(ptr noundef %120) #7
-  %122 = call ptr @PQescapeLiteral(ptr noundef %118, ptr noundef %119, i64 noundef %121)
-  store ptr %122, ptr %11, align 8
-  %123 = load ptr, ptr %11, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %141, label %125
-
-125:                                              ; preds = %115
-  br label %126
-
-126:                                              ; preds = %125
-  br i1 true, label %127, label %129
-
-127:                                              ; preds = %126
-  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %128, label %131, label %139
-
-129:                                              ; preds = %126
-  %130 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %130, label %131, label %139
-
-131:                                              ; preds = %129, %127
-  %132 = call i32 @errcode(i32 noundef 8389)
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.WalReceiverConn, ptr %133, i32 0, i32 0
-  %135 = load ptr, ptr %134, align 8
-  %136 = call ptr @PQerrorMessage(ptr noundef %135)
-  %137 = call ptr @pchomp(ptr noundef %136)
-  %138 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %137)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 616, ptr noundef @__func__.libpqrcv_startstreaming)
-  br label %139
-
-139:                                              ; preds = %131, %129, %127
+115:                                              ; preds = %107, %105, %103
   unreachable
 
-140:                                              ; No predecessors!
-  br label %141
+116:                                              ; No predecessors!
+  br label %117
 
-141:                                              ; preds = %140, %115
-  %142 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.41, ptr noundef %142)
-  %143 = load ptr, ptr %11, align 8
-  call void @PQfreemem(ptr noundef %143)
-  %144 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %144)
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %145, i32 0, i32 3
-  %147 = getelementptr inbounds %struct.anon.0, ptr %146, i32 0, i32 2
-  %148 = load i8, ptr %147, align 8
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %157
+117:                                              ; preds = %116
+  br label %118
 
-150:                                              ; preds = %141
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.WalReceiverConn, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = call i32 @PQserverVersion(ptr noundef %153)
-  %155 = icmp sge i32 %154, 140000
-  br i1 %155, label %156, label %157
+118:                                              ; preds = %117, %89
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %119, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %9, align 8
+  %123 = load ptr, ptr %9, align 8
+  %124 = call i64 @strlen(ptr noundef %123) #12
+  %125 = call ptr @PQescapeLiteral(ptr noundef %121, ptr noundef %122, i64 noundef %124)
+  store ptr %125, ptr %11, align 8
+  %126 = load ptr, ptr %11, align 8
+  %127 = icmp ne ptr %126, null
+  br i1 %127, label %145, label %128
 
-156:                                              ; preds = %150
+128:                                              ; preds = %118
+  br label %129
+
+129:                                              ; preds = %128
+  br i1 true, label %130, label %132
+
+130:                                              ; preds = %129
+  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %131, label %134, label %142
+
+132:                                              ; preds = %129
+  %133 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %133, label %134, label %142
+
+134:                                              ; preds = %132, %130
+  %135 = call i32 @errcode(i32 noundef 8389)
+  %136 = load ptr, ptr %4, align 8
+  %137 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %136, i32 0, i32 0
+  %138 = load ptr, ptr %137, align 8
+  %139 = call ptr @PQerrorMessage(ptr noundef %138)
+  %140 = call ptr @pchomp(ptr noundef %139)
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %140)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 615, ptr noundef @__func__.libpqrcv_startstreaming)
+  br label %142
+
+142:                                              ; preds = %134, %132, %130
+  unreachable
+
+143:                                              ; No predecessors!
+  br label %144
+
+144:                                              ; preds = %143
+  br label %145
+
+145:                                              ; preds = %144, %118
+  %146 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.41, ptr noundef %146)
+  %147 = load ptr, ptr %11, align 8
+  call void @PQfreemem(ptr noundef %147)
+  %148 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %148)
+  %149 = load ptr, ptr %5, align 8
+  %150 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %149, i32 0, i32 3
+  %151 = getelementptr inbounds nuw %struct.anon.0, ptr %150, i32 0, i32 2
+  %152 = load i8, ptr %151, align 8, !range !3, !noundef !4
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %161
+
+154:                                              ; preds = %145
+  %155 = load ptr, ptr %4, align 8
+  %156 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %155, i32 0, i32 0
+  %157 = load ptr, ptr %156, align 8
+  %158 = call i32 @PQserverVersion(ptr noundef %157)
+  %159 = icmp sge i32 %158, 140000
+  br i1 %159, label %160, label %161
+
+160:                                              ; preds = %154
   call void @appendStringInfoString(ptr noundef %6, ptr noundef @.str.42)
-  br label %157
+  br label %161
 
-157:                                              ; preds = %156, %150, %141
+161:                                              ; preds = %160, %154, %145
   call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 41)
-  br label %163
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %167
 
-158:                                              ; preds = %28
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds %struct.WalRcvStreamOptions, ptr %159, i32 0, i32 3
-  %161 = getelementptr inbounds %struct.anon, ptr %160, i32 0, i32 0
-  %162 = load i32, ptr %161, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.43, i32 noundef %162)
-  br label %163
+162:                                              ; preds = %30
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr inbounds nuw %struct.WalRcvStreamOptions, ptr %163, i32 0, i32 3
+  %165 = getelementptr inbounds nuw %struct.anon, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %165, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef @.str.43, i32 noundef %166)
+  br label %167
 
-163:                                              ; preds = %158, %157
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.WalReceiverConn, ptr %164, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.StringInfoData, ptr %6, i32 0, i32 0
-  %168 = load ptr, ptr %167, align 8
-  %169 = call ptr @libpqrcv_PQexec(ptr noundef %166, ptr noundef %168)
-  store ptr %169, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.StringInfoData, ptr %6, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  call void @pfree(ptr noundef %171)
-  %172 = load ptr, ptr %7, align 8
-  %173 = call i32 @PQresultStatus(ptr noundef %172)
-  %174 = icmp eq i32 %173, 1
-  br i1 %174, label %175, label %177
-
-175:                                              ; preds = %163
+167:                                              ; preds = %162, %161
+  %168 = load ptr, ptr %4, align 8
+  %169 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %168, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw %struct.StringInfoData, ptr %6, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = call ptr @libpqrcv_PQexec(ptr noundef %170, ptr noundef %172)
+  store ptr %173, ptr %7, align 8
+  %174 = getelementptr inbounds nuw %struct.StringInfoData, ptr %6, i32 0, i32 0
+  %175 = load ptr, ptr %174, align 8
+  call void @pfree(ptr noundef %175)
   %176 = load ptr, ptr %7, align 8
-  call void @PQclear(ptr noundef %176)
+  %177 = call i32 @PQresultStatus(ptr noundef %176)
+  %178 = icmp eq i32 %177, 1
+  br i1 %178, label %179, label %181
+
+179:                                              ; preds = %167
+  %180 = load ptr, ptr %7, align 8
+  call void @PQclear(ptr noundef %180)
   store i1 false, ptr %3, align 1
-  br label %201
+  store i32 1, ptr %12, align 4
+  br label %206
 
-177:                                              ; preds = %163
-  %178 = load ptr, ptr %7, align 8
-  %179 = call i32 @PQresultStatus(ptr noundef %178)
-  %180 = icmp ne i32 %179, 8
-  br i1 %180, label %181, label %198
-
-181:                                              ; preds = %177
+181:                                              ; preds = %167
   %182 = load ptr, ptr %7, align 8
-  call void @PQclear(ptr noundef %182)
-  br label %183
+  %183 = call i32 @PQresultStatus(ptr noundef %182)
+  %184 = icmp ne i32 %183, 8
+  br i1 %184, label %185, label %203
 
-183:                                              ; preds = %181
-  br i1 true, label %184, label %186
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %7, align 8
+  call void @PQclear(ptr noundef %186)
+  br label %187
 
-184:                                              ; preds = %183
-  %185 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %185, label %188, label %196
+187:                                              ; preds = %185
+  br i1 true, label %188, label %190
 
-186:                                              ; preds = %183
-  %187 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %187, label %188, label %196
+188:                                              ; preds = %187
+  %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %189, label %192, label %200
 
-188:                                              ; preds = %186, %184
-  %189 = call i32 @errcode(i32 noundef 16908800)
-  %190 = load ptr, ptr %4, align 8
-  %191 = getelementptr inbounds %struct.WalReceiverConn, ptr %190, i32 0, i32 0
-  %192 = load ptr, ptr %191, align 8
-  %193 = call ptr @PQerrorMessage(ptr noundef %192)
-  %194 = call ptr @pchomp(ptr noundef %193)
-  %195 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %194)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 646, ptr noundef @__func__.libpqrcv_startstreaming)
-  br label %196
+190:                                              ; preds = %187
+  %191 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %191, label %192, label %200
 
-196:                                              ; preds = %188, %186, %184
+192:                                              ; preds = %190, %188
+  %193 = call i32 @errcode(i32 noundef 16908800)
+  %194 = load ptr, ptr %4, align 8
+  %195 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8
+  %197 = call ptr @PQerrorMessage(ptr noundef %196)
+  %198 = call ptr @pchomp(ptr noundef %197)
+  %199 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %198)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 645, ptr noundef @__func__.libpqrcv_startstreaming)
+  br label %200
+
+200:                                              ; preds = %192, %190, %188
   unreachable
 
-197:                                              ; No predecessors!
-  br label %198
+201:                                              ; No predecessors!
+  br label %202
 
-198:                                              ; preds = %197, %177
-  br label %199
+202:                                              ; preds = %201
+  br label %203
 
-199:                                              ; preds = %198
-  %200 = load ptr, ptr %7, align 8
-  call void @PQclear(ptr noundef %200)
+203:                                              ; preds = %202, %181
+  br label %204
+
+204:                                              ; preds = %203
+  %205 = load ptr, ptr %7, align 8
+  call void @PQclear(ptr noundef %205)
   store i1 true, ptr %3, align 1
-  br label %201
+  store i32 1, ptr %12, align 4
+  br label %206
 
-201:                                              ; preds = %199, %175
-  %202 = load i1, ptr %3, align 1
-  ret i1 %202
+206:                                              ; preds = %204, %179
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #11
+  %207 = load i1, ptr %3, align 1
+  ret i1 %207
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1631,8 +1788,9 @@ define internal void @libpqrcv_endstreaming(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.WalReceiverConn, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @PQputCopyEnd(ptr noundef %8, ptr noundef null)
   %10 = icmp sle i32 %9, 0
@@ -1640,11 +1798,11 @@ define internal void @libpqrcv_endstreaming(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.WalReceiverConn, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @PQflush(ptr noundef %14)
   %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %33
+  br i1 %16, label %17, label %34
 
 17:                                               ; preds = %11, %2
   br label %18
@@ -1653,7 +1811,7 @@ define internal void @libpqrcv_endstreaming(ptr noundef %0, ptr noundef %1) #0 {
   br i1 true, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %20, label %23, label %31
 
 21:                                               ; preds = %18
@@ -1663,12 +1821,12 @@ define internal void @libpqrcv_endstreaming(ptr noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %21, %19
   %24 = call i32 @errcode(i32 noundef 100663808)
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.WalReceiverConn, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @PQerrorMessage(ptr noundef %27)
   %29 = call ptr @pchomp(ptr noundef %28)
   %30 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.44, ptr noundef %29)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 670, ptr noundef @__func__.libpqrcv_endstreaming)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 669, ptr noundef @__func__.libpqrcv_endstreaming)
   br label %31
 
 31:                                               ; preds = %23, %21, %19
@@ -1677,405 +1835,153 @@ define internal void @libpqrcv_endstreaming(ptr noundef %0, ptr noundef %1) #0 {
 32:                                               ; No predecessors!
   br label %33
 
-33:                                               ; preds = %32, %11
-  %34 = load ptr, ptr %4, align 8
-  store i32 0, ptr %34, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.WalReceiverConn, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @libpqrcv_PQgetResult(ptr noundef %37)
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = call i32 @PQresultStatus(ptr noundef %39)
-  %41 = icmp eq i32 %40, 2
-  br i1 %41, label %42, label %71
+33:                                               ; preds = %32
+  br label %34
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %5, align 8
-  %44 = call i32 @PQnfields(ptr noundef %43)
-  %45 = icmp slt i32 %44, 2
-  br i1 %45, label %50, label %46
+34:                                               ; preds = %33, %11
+  %35 = load ptr, ptr %4, align 8
+  store i32 0, ptr %35, align 4
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @libpqrcv_PQgetResult(ptr noundef %38)
+  store ptr %39, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = call i32 @PQresultStatus(ptr noundef %40)
+  %42 = icmp eq i32 %41, 2
+  br i1 %42, label %43, label %73
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %5, align 8
-  %48 = call i32 @PQntuples(ptr noundef %47)
-  %49 = icmp ne i32 %48, 1
-  br i1 %49, label %50, label %61
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %5, align 8
+  %45 = call i32 @PQnfields(ptr noundef %44)
+  %46 = icmp slt i32 %45, 2
+  br i1 %46, label %51, label %47
 
-50:                                               ; preds = %46, %42
-  br label %51
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %5, align 8
+  %49 = call i32 @PQntuples(ptr noundef %48)
+  %50 = icmp ne i32 %49, 1
+  br i1 %50, label %51, label %63
 
-51:                                               ; preds = %50
-  br i1 true, label %52, label %54
+51:                                               ; preds = %47, %43
+  br label %52
 
 52:                                               ; preds = %51
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %53, label %56, label %59
+  br i1 true, label %53, label %55
 
-54:                                               ; preds = %51
-  %55 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %55, label %56, label %59
+53:                                               ; preds = %52
+  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %54, label %57, label %60
 
-56:                                               ; preds = %54, %52
-  %57 = call i32 @errcode(i32 noundef 16908800)
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.45)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 692, ptr noundef @__func__.libpqrcv_endstreaming)
-  br label %59
+55:                                               ; preds = %52
+  %56 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %56, label %57, label %60
 
-59:                                               ; preds = %56, %54, %52
+57:                                               ; preds = %55, %53
+  %58 = call i32 @errcode(i32 noundef 16908800)
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.45)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 691, ptr noundef @__func__.libpqrcv_endstreaming)
+  br label %60
+
+60:                                               ; preds = %57, %55, %53
   unreachable
 
-60:                                               ; No predecessors!
-  br label %61
+61:                                               ; No predecessors!
+  br label %62
 
-61:                                               ; preds = %60, %46
-  %62 = load ptr, ptr %5, align 8
-  %63 = call ptr @PQgetvalue(ptr noundef %62, i32 noundef 0, i32 noundef 0)
-  %64 = call i32 @pg_strtoint32(ptr noundef %63)
-  %65 = load ptr, ptr %4, align 8
-  store i32 %64, ptr %65, align 4
-  %66 = load ptr, ptr %5, align 8
-  call void @PQclear(ptr noundef %66)
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.WalReceiverConn, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = call ptr @libpqrcv_PQgetResult(ptr noundef %69)
-  store ptr %70, ptr %5, align 8
-  br label %104
+62:                                               ; preds = %61
+  br label %63
 
-71:                                               ; preds = %33
-  %72 = load ptr, ptr %5, align 8
-  %73 = call i32 @PQresultStatus(ptr noundef %72)
-  %74 = icmp eq i32 %73, 3
-  br i1 %74, label %75, label %103
+63:                                               ; preds = %62, %47
+  %64 = load ptr, ptr %5, align 8
+  %65 = call ptr @PQgetvalue(ptr noundef %64, i32 noundef 0, i32 noundef 0)
+  %66 = call i32 @pg_strtoint32(ptr noundef %65)
+  %67 = load ptr, ptr %4, align 8
+  store i32 %66, ptr %67, align 4
+  %68 = load ptr, ptr %5, align 8
+  call void @PQclear(ptr noundef %68)
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr @libpqrcv_PQgetResult(ptr noundef %71)
+  store ptr %72, ptr %5, align 8
+  br label %107
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %5, align 8
-  call void @PQclear(ptr noundef %76)
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.WalReceiverConn, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @PQendcopy(ptr noundef %79)
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %98
+73:                                               ; preds = %34
+  %74 = load ptr, ptr %5, align 8
+  %75 = call i32 @PQresultStatus(ptr noundef %74)
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %77, label %106
 
-82:                                               ; preds = %75
-  br label %83
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %5, align 8
+  call void @PQclear(ptr noundef %78)
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 @PQendcopy(ptr noundef %81)
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %101
 
-83:                                               ; preds = %82
-  br i1 true, label %84, label %86
+84:                                               ; preds = %77
+  br label %85
 
-84:                                               ; preds = %83
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %85, label %88, label %96
+85:                                               ; preds = %84
+  br i1 true, label %86, label %88
 
-86:                                               ; preds = %83
-  %87 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %87, label %88, label %96
+86:                                               ; preds = %85
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %87, label %90, label %98
 
-88:                                               ; preds = %86, %84
-  %89 = call i32 @errcode(i32 noundef 100663808)
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.WalReceiverConn, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @PQerrorMessage(ptr noundef %92)
-  %94 = call ptr @pchomp(ptr noundef %93)
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.46, ptr noundef %94)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 708, ptr noundef @__func__.libpqrcv_endstreaming)
-  br label %96
+88:                                               ; preds = %85
+  %89 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %89, label %90, label %98
 
-96:                                               ; preds = %88, %86, %84
-  unreachable
-
-97:                                               ; No predecessors!
+90:                                               ; preds = %88, %86
+  %91 = call i32 @errcode(i32 noundef 100663808)
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = call ptr @PQerrorMessage(ptr noundef %94)
+  %96 = call ptr @pchomp(ptr noundef %95)
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.46, ptr noundef %96)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 707, ptr noundef @__func__.libpqrcv_endstreaming)
   br label %98
 
-98:                                               ; preds = %97, %75
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.WalReceiverConn, ptr %99, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @libpqrcv_PQgetResult(ptr noundef %101)
-  store ptr %102, ptr %5, align 8
-  br label %103
-
-103:                                              ; preds = %98, %71
-  br label %104
-
-104:                                              ; preds = %103, %61
-  %105 = load ptr, ptr %5, align 8
-  %106 = call i32 @PQresultStatus(ptr noundef %105)
-  %107 = icmp ne i32 %106, 1
-  br i1 %107, label %108, label %124
-
-108:                                              ; preds = %104
-  br label %109
-
-109:                                              ; preds = %108
-  br i1 true, label %110, label %112
-
-110:                                              ; preds = %109
-  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %111, label %114, label %122
-
-112:                                              ; preds = %109
-  %113 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %113, label %114, label %122
-
-114:                                              ; preds = %112, %110
-  %115 = call i32 @errcode(i32 noundef 16908800)
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds %struct.WalReceiverConn, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = call ptr @PQerrorMessage(ptr noundef %118)
-  %120 = call ptr @pchomp(ptr noundef %119)
-  %121 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.47, ptr noundef %120)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 718, ptr noundef @__func__.libpqrcv_endstreaming)
-  br label %122
-
-122:                                              ; preds = %114, %112, %110
+98:                                               ; preds = %90, %88, %86
   unreachable
 
-123:                                              ; No predecessors!
-  br label %124
+99:                                               ; No predecessors!
+  br label %100
 
-124:                                              ; preds = %123, %104
-  %125 = load ptr, ptr %5, align 8
-  call void @PQclear(ptr noundef %125)
-  %126 = load ptr, ptr %3, align 8
-  %127 = getelementptr inbounds %struct.WalReceiverConn, ptr %126, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = call ptr @libpqrcv_PQgetResult(ptr noundef %128)
-  store ptr %129, ptr %5, align 8
-  %130 = load ptr, ptr %5, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %148
-
-132:                                              ; preds = %124
-  br label %133
-
-133:                                              ; preds = %132
-  br i1 true, label %134, label %136
-
-134:                                              ; preds = %133
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %135, label %138, label %146
-
-136:                                              ; preds = %133
-  %137 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %137, label %138, label %146
-
-138:                                              ; preds = %136, %134
-  %139 = call i32 @errcode(i32 noundef 16908800)
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds %struct.WalReceiverConn, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  %143 = call ptr @PQerrorMessage(ptr noundef %142)
-  %144 = call ptr @pchomp(ptr noundef %143)
-  %145 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, ptr noundef %144)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 727, ptr noundef @__func__.libpqrcv_endstreaming)
-  br label %146
-
-146:                                              ; preds = %138, %136, %134
-  unreachable
-
-147:                                              ; No predecessors!
-  br label %148
-
-148:                                              ; preds = %147, %124
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @libpqrcv_receive(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.WalReceiverConn, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  call void @PQfreemem(ptr noundef %12)
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.WalReceiverConn, ptr %13, i32 0, i32 2
-  store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.WalReceiverConn, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.WalReceiverConn, ptr %18, i32 0, i32 2
-  %20 = call i32 @PQgetCopyData(ptr noundef %17, ptr noundef %19, i32 noundef 1)
-  store i32 %20, ptr %8, align 4
-  %21 = load i32, ptr %8, align 4
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %61
-
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.WalReceiverConn, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @PQconsumeInput(ptr noundef %26)
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %45
-
-29:                                               ; preds = %23
-  br label %30
-
-30:                                               ; preds = %29
-  br i1 true, label %31, label %33
-
-31:                                               ; preds = %30
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %32, label %35, label %43
-
-33:                                               ; preds = %30
-  %34 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %34, label %35, label %43
-
-35:                                               ; preds = %33, %31
-  %36 = call i32 @errcode(i32 noundef 100663808)
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.WalReceiverConn, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr @PQerrorMessage(ptr noundef %39)
-  %41 = call ptr @pchomp(ptr noundef %40)
-  %42 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %41)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 923, ptr noundef @__func__.libpqrcv_receive)
-  br label %43
-
-43:                                               ; preds = %35, %33, %31
-  unreachable
-
-44:                                               ; No predecessors!
-  br label %45
-
-45:                                               ; preds = %44, %23
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.WalReceiverConn, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.WalReceiverConn, ptr %49, i32 0, i32 2
-  %51 = call i32 @PQgetCopyData(ptr noundef %48, ptr noundef %50, i32 noundef 1)
-  store i32 %51, ptr %8, align 4
-  %52 = load i32, ptr %8, align 4
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %60
-
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.WalReceiverConn, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 @PQsocket(ptr noundef %57)
-  %59 = load ptr, ptr %7, align 8
-  store i32 %58, ptr %59, align 4
-  store i32 0, ptr %4, align 4
-  br label %154
-
-60:                                               ; preds = %45
-  br label %61
-
-61:                                               ; preds = %60, %3
-  %62 = load i32, ptr %8, align 4
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %64, label %129
-
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.WalReceiverConn, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr @libpqrcv_PQgetResult(ptr noundef %67)
-  store ptr %68, ptr %9, align 8
-  %69 = load ptr, ptr %9, align 8
-  %70 = call i32 @PQresultStatus(ptr noundef %69)
-  %71 = icmp eq i32 %70, 1
-  br i1 %71, label %72, label %104
-
-72:                                               ; preds = %64
-  %73 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %73)
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.WalReceiverConn, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = call ptr @libpqrcv_PQgetResult(ptr noundef %76)
-  store ptr %77, ptr %9, align 8
-  %78 = load ptr, ptr %9, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %103
-
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %81)
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.WalReceiverConn, ptr %82, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 @PQstatus(ptr noundef %84)
-  %86 = icmp eq i32 %85, 1
-  br i1 %86, label %87, label %88
-
-87:                                               ; preds = %80
-  store i32 -1, ptr %4, align 4
-  br label %154
-
-88:                                               ; preds = %80
-  br label %89
-
-89:                                               ; preds = %88
-  br i1 true, label %90, label %92
-
-90:                                               ; preds = %89
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %91, label %94, label %101
-
-92:                                               ; preds = %89
-  %93 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %93, label %94, label %101
-
-94:                                               ; preds = %92, %90
-  %95 = call i32 @errcode(i32 noundef 16908800)
-  %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds %struct.WalReceiverConn, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @PQerrorMessage(ptr noundef %98)
-  %100 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, ptr noundef %99)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 960, ptr noundef @__func__.libpqrcv_receive)
+100:                                              ; preds = %99
   br label %101
 
-101:                                              ; preds = %94, %92, %90
-  unreachable
+101:                                              ; preds = %100, %77
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = call ptr @libpqrcv_PQgetResult(ptr noundef %104)
+  store ptr %105, ptr %5, align 8
+  br label %106
 
-102:                                              ; No predecessors!
-  br label %103
+106:                                              ; preds = %101, %73
+  br label %107
 
-103:                                              ; preds = %102, %72
-  store i32 -1, ptr %4, align 4
-  br label %154
+107:                                              ; preds = %106, %63
+  %108 = load ptr, ptr %5, align 8
+  %109 = call i32 @PQresultStatus(ptr noundef %108)
+  %110 = icmp ne i32 %109, 1
+  br i1 %110, label %111, label %128
 
-104:                                              ; preds = %64
-  %105 = load ptr, ptr %9, align 8
-  %106 = call i32 @PQresultStatus(ptr noundef %105)
-  %107 = icmp eq i32 %106, 4
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %109)
-  store i32 -1, ptr %4, align 4
-  br label %154
-
-110:                                              ; preds = %104
-  %111 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %111)
+111:                                              ; preds = %107
   br label %112
 
-112:                                              ; preds = %110
+112:                                              ; preds = %111
   br i1 true, label %113, label %115
 
 113:                                              ; preds = %112
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %114, label %117, label %125
 
 115:                                              ; preds = %112
@@ -2084,13 +1990,13 @@ define internal i32 @libpqrcv_receive(ptr noundef %0, ptr noundef %1, ptr nounde
 
 117:                                              ; preds = %115, %113
   %118 = call i32 @errcode(i32 noundef 16908800)
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.WalReceiverConn, ptr %119, i32 0, i32 0
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %119, i32 0, i32 0
   %121 = load ptr, ptr %120, align 8
   %122 = call ptr @PQerrorMessage(ptr noundef %121)
   %123 = call ptr @pchomp(ptr noundef %122)
-  %124 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %123)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 976, ptr noundef @__func__.libpqrcv_receive)
+  %124 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.47, ptr noundef %123)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 717, ptr noundef @__func__.libpqrcv_endstreaming)
   br label %125
 
 125:                                              ; preds = %117, %115, %113
@@ -2102,58 +2008,358 @@ define internal i32 @libpqrcv_receive(ptr noundef %0, ptr noundef %1, ptr nounde
 127:                                              ; preds = %126
   br label %128
 
-128:                                              ; preds = %127
-  br label %129
+128:                                              ; preds = %127, %107
+  %129 = load ptr, ptr %5, align 8
+  call void @PQclear(ptr noundef %129)
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  %133 = call ptr @libpqrcv_PQgetResult(ptr noundef %132)
+  store ptr %133, ptr %5, align 8
+  %134 = load ptr, ptr %5, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %153
 
-129:                                              ; preds = %128, %61
-  %130 = load i32, ptr %8, align 4
-  %131 = icmp slt i32 %130, -1
-  br i1 %131, label %132, label %148
+136:                                              ; preds = %128
+  br label %137
 
-132:                                              ; preds = %129
-  br label %133
+137:                                              ; preds = %136
+  br i1 true, label %138, label %140
 
-133:                                              ; preds = %132
-  br i1 true, label %134, label %136
+138:                                              ; preds = %137
+  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %139, label %142, label %150
 
-134:                                              ; preds = %133
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %135, label %138, label %146
+140:                                              ; preds = %137
+  %141 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %141, label %142, label %150
 
-136:                                              ; preds = %133
-  %137 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %137, label %138, label %146
+142:                                              ; preds = %140, %138
+  %143 = call i32 @errcode(i32 noundef 16908800)
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = call ptr @PQerrorMessage(ptr noundef %146)
+  %148 = call ptr @pchomp(ptr noundef %147)
+  %149 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, ptr noundef %148)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 726, ptr noundef @__func__.libpqrcv_endstreaming)
+  br label %150
 
-138:                                              ; preds = %136, %134
-  %139 = call i32 @errcode(i32 noundef 16908800)
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr inbounds %struct.WalReceiverConn, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  %143 = call ptr @PQerrorMessage(ptr noundef %142)
-  %144 = call ptr @pchomp(ptr noundef %143)
-  %145 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %144)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 983, ptr noundef @__func__.libpqrcv_receive)
-  br label %146
-
-146:                                              ; preds = %138, %136, %134
+150:                                              ; preds = %142, %140, %138
   unreachable
 
-147:                                              ; No predecessors!
-  br label %148
+151:                                              ; No predecessors!
+  br label %152
 
-148:                                              ; preds = %147, %129
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.WalReceiverConn, ptr %149, i32 0, i32 2
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr %6, align 8
-  store ptr %151, ptr %152, align 8
-  %153 = load i32, ptr %8, align 4
-  store i32 %153, ptr %4, align 4
-  br label %154
+152:                                              ; preds = %151
+  br label %153
 
-154:                                              ; preds = %148, %108, %103, %87, %54
-  %155 = load i32, ptr %4, align 4
-  ret i32 %155
+153:                                              ; preds = %152, %128
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @libpqrcv_receive(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  call void @PQfreemem(ptr noundef %13)
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %14, i32 0, i32 2
+  store ptr null, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %19, i32 0, i32 2
+  %21 = call i32 @PQgetCopyData(ptr noundef %18, ptr noundef %20, i32 noundef 1)
+  store i32 %21, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %63
+
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @PQconsumeInput(ptr noundef %27)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %47
+
+30:                                               ; preds = %24
+  br label %31
+
+31:                                               ; preds = %30
+  br i1 true, label %32, label %34
+
+32:                                               ; preds = %31
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %33, label %36, label %44
+
+34:                                               ; preds = %31
+  %35 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %35, label %36, label %44
+
+36:                                               ; preds = %34, %32
+  %37 = call i32 @errcode(i32 noundef 100663808)
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @PQerrorMessage(ptr noundef %40)
+  %42 = call ptr @pchomp(ptr noundef %41)
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %42)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 922, ptr noundef @__func__.libpqrcv_receive)
+  br label %44
+
+44:                                               ; preds = %36, %34, %32
+  unreachable
+
+45:                                               ; No predecessors!
+  br label %46
+
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46, %24
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %51, i32 0, i32 2
+  %53 = call i32 @PQgetCopyData(ptr noundef %50, ptr noundef %52, i32 noundef 1)
+  store i32 %53, ptr %8, align 4
+  %54 = load i32, ptr %8, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %62
+
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 @PQsocket(ptr noundef %59)
+  %61 = load ptr, ptr %7, align 8
+  store i32 %60, ptr %61, align 4
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %162
+
+62:                                               ; preds = %47
+  br label %63
+
+63:                                               ; preds = %62, %3
+  %64 = load i32, ptr %8, align 4
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %66, label %136
+
+66:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @libpqrcv_PQgetResult(ptr noundef %69)
+  store ptr %70, ptr %10, align 8
+  %71 = load ptr, ptr %10, align 8
+  %72 = call i32 @PQresultStatus(ptr noundef %71)
+  %73 = icmp eq i32 %72, 1
+  br i1 %73, label %74, label %107
+
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %10, align 8
+  call void @PQclear(ptr noundef %75)
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr @libpqrcv_PQgetResult(ptr noundef %78)
+  store ptr %79, ptr %10, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %106
+
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %10, align 8
+  call void @PQclear(ptr noundef %83)
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i32 @PQstatus(ptr noundef %86)
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %89, label %90
+
+89:                                               ; preds = %82
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %133
+
+90:                                               ; preds = %82
+  br label %91
+
+91:                                               ; preds = %90
+  br i1 true, label %92, label %94
+
+92:                                               ; preds = %91
+  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %93, label %96, label %103
+
+94:                                               ; preds = %91
+  %95 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %95, label %96, label %103
+
+96:                                               ; preds = %94, %92
+  %97 = call i32 @errcode(i32 noundef 16908800)
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = call ptr @PQerrorMessage(ptr noundef %100)
+  %102 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, ptr noundef %101)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 959, ptr noundef @__func__.libpqrcv_receive)
+  br label %103
+
+103:                                              ; preds = %96, %94, %92
+  unreachable
+
+104:                                              ; No predecessors!
+  br label %105
+
+105:                                              ; preds = %104
+  br label %106
+
+106:                                              ; preds = %105, %74
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %133
+
+107:                                              ; preds = %66
+  %108 = load ptr, ptr %10, align 8
+  %109 = call i32 @PQresultStatus(ptr noundef %108)
+  %110 = icmp eq i32 %109, 4
+  br i1 %110, label %111, label %113
+
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %10, align 8
+  call void @PQclear(ptr noundef %112)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %133
+
+113:                                              ; preds = %107
+  %114 = load ptr, ptr %10, align 8
+  call void @PQclear(ptr noundef %114)
+  br label %115
+
+115:                                              ; preds = %113
+  br i1 true, label %116, label %118
+
+116:                                              ; preds = %115
+  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %117, label %120, label %128
+
+118:                                              ; preds = %115
+  %119 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %119, label %120, label %128
+
+120:                                              ; preds = %118, %116
+  %121 = call i32 @errcode(i32 noundef 16908800)
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  %125 = call ptr @PQerrorMessage(ptr noundef %124)
+  %126 = call ptr @pchomp(ptr noundef %125)
+  %127 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %126)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 975, ptr noundef @__func__.libpqrcv_receive)
+  br label %128
+
+128:                                              ; preds = %120, %118, %116
+  unreachable
+
+129:                                              ; No predecessors!
+  br label %130
+
+130:                                              ; preds = %129
+  br label %131
+
+131:                                              ; preds = %130
+  br label %132
+
+132:                                              ; preds = %131
+  store i32 0, ptr %9, align 4
+  br label %133
+
+133:                                              ; preds = %132, %111, %106, %89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %134 = load i32, ptr %9, align 4
+  switch i32 %134, label %162 [
+    i32 0, label %135
+  ]
+
+135:                                              ; preds = %133
+  br label %136
+
+136:                                              ; preds = %135, %63
+  %137 = load i32, ptr %8, align 4
+  %138 = icmp slt i32 %137, -1
+  br i1 %138, label %139, label %156
+
+139:                                              ; preds = %136
+  br label %140
+
+140:                                              ; preds = %139
+  br i1 true, label %141, label %143
+
+141:                                              ; preds = %140
+  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %142, label %145, label %153
+
+143:                                              ; preds = %140
+  %144 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %144, label %145, label %153
+
+145:                                              ; preds = %143, %141
+  %146 = call i32 @errcode(i32 noundef 16908800)
+  %147 = load ptr, ptr %5, align 8
+  %148 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %147, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8
+  %150 = call ptr @PQerrorMessage(ptr noundef %149)
+  %151 = call ptr @pchomp(ptr noundef %150)
+  %152 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.49, ptr noundef %151)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 982, ptr noundef @__func__.libpqrcv_receive)
+  br label %153
+
+153:                                              ; preds = %145, %143, %141
+  unreachable
+
+154:                                              ; No predecessors!
+  br label %155
+
+155:                                              ; preds = %154
+  br label %156
+
+156:                                              ; preds = %155, %136
+  %157 = load ptr, ptr %5, align 8
+  %158 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %157, i32 0, i32 2
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %6, align 8
+  store ptr %159, ptr %160, align 8
+  %161 = load i32, ptr %8, align 4
+  store i32 %161, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %162
+
+162:                                              ; preds = %156, %133, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %163 = load i32, ptr %4, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2165,7 +2371,7 @@ define internal void @libpqrcv_send(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.WalReceiverConn, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
@@ -2175,7 +2381,7 @@ define internal void @libpqrcv_send(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.WalReceiverConn, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %15, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @PQflush(ptr noundef %17)
   %19 = icmp ne i32 %18, 0
@@ -2188,7 +2394,7 @@ define internal void @libpqrcv_send(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 true, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %23, label %26, label %34
 
 24:                                               ; preds = %21
@@ -2198,12 +2404,12 @@ define internal void @libpqrcv_send(ptr noundef %0, ptr noundef %1, i32 noundef 
 26:                                               ; preds = %24, %22
   %27 = call i32 @errcode(i32 noundef 100663808)
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.WalReceiverConn, ptr %28, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %28, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @PQerrorMessage(ptr noundef %30)
   %32 = call ptr @pchomp(ptr noundef %31)
   %33 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.50, ptr noundef %32)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1003, ptr noundef @__func__.libpqrcv_send)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1002, ptr noundef @__func__.libpqrcv_send)
   br label %34
 
 34:                                               ; preds = %26, %24, %22
@@ -2239,8 +2445,12 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   store i8 %21, ptr %12, align 1
   store i32 %5, ptr %13, align 4
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.WalReceiverConn, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @PQserverVersion(ptr noundef %24)
   %26 = icmp sge i32 %25, 150000
@@ -2249,7 +2459,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   call void @initStringInfo(ptr noundef %16)
   %28 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %16, ptr noundef @.str.51, ptr noundef %28)
-  %29 = load i8, ptr %10, align 1
+  %29 = load i8, ptr %10, align 1, !range !3, !noundef !4
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %32
 
@@ -2259,8 +2469,8 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
 
 32:                                               ; preds = %31, %7
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.WalReceiverConn, ptr %33, i32 0, i32 1
-  %35 = load i8, ptr %34, align 8
+  %34 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %33, i32 0, i32 1
+  %35 = load i8, ptr %34, align 8, !range !3, !noundef !4
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %79
 
@@ -2275,7 +2485,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   br label %41
 
 41:                                               ; preds = %40, %37
-  %42 = load i8, ptr %11, align 1
+  %42 = load i8, ptr %11, align 1, !range !3, !noundef !4
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %50
 
@@ -2297,7 +2507,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   br label %50
 
 50:                                               ; preds = %49, %41
-  %51 = load i8, ptr %12, align 1
+  %51 = load i8, ptr %12, align 1, !range !3, !noundef !4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %59
 
@@ -2343,7 +2553,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   call void @appendStringInfoString(ptr noundef %16, ptr noundef @.str.59)
   br label %67
 
-67:                                               ; preds = %66, %65, %64, %62
+67:                                               ; preds = %62, %66, %65, %64
   br label %74
 
 68:                                               ; preds = %59
@@ -2366,7 +2576,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   call void @appendStringInfoString(ptr noundef %16, ptr noundef @.str.62)
   br label %73
 
-73:                                               ; preds = %72, %71, %70, %68
+73:                                               ; preds = %68, %72, %71, %70
   br label %74
 
 74:                                               ; preds = %73, %67
@@ -2399,19 +2609,19 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
 
 85:                                               ; preds = %84, %78
   %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.WalReceiverConn, ptr %86, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %86, i32 0, i32 0
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.StringInfoData, ptr %16, i32 0, i32 0
+  %89 = getelementptr inbounds nuw %struct.StringInfoData, ptr %16, i32 0, i32 0
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @libpqrcv_PQexec(ptr noundef %88, ptr noundef %90)
   store ptr %91, ptr %15, align 8
-  %92 = getelementptr inbounds %struct.StringInfoData, ptr %16, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %struct.StringInfoData, ptr %16, i32 0, i32 0
   %93 = load ptr, ptr %92, align 8
   call void @pfree(ptr noundef %93)
   %94 = load ptr, ptr %15, align 8
   %95 = call i32 @PQresultStatus(ptr noundef %94)
   %96 = icmp ne i32 %95, 2
-  br i1 %96, label %97, label %115
+  br i1 %96, label %97, label %116
 
 97:                                               ; preds = %85
   %98 = load ptr, ptr %15, align 8
@@ -2422,7 +2632,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 true, label %100, label %102
 
 100:                                              ; preds = %99
-  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %101, label %104, label %113
 
 102:                                              ; preds = %99
@@ -2433,12 +2643,12 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
   %105 = call i32 @errcode(i32 noundef 16908800)
   %106 = load ptr, ptr %9, align 8
   %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.WalReceiverConn, ptr %107, i32 0, i32 0
+  %108 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %107, i32 0, i32 0
   %109 = load ptr, ptr %108, align 8
   %110 = call ptr @PQerrorMessage(ptr noundef %109)
   %111 = call ptr @pchomp(ptr noundef %110)
   %112 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.65, ptr noundef %106, ptr noundef %111)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1104, ptr noundef @__func__.libpqrcv_create_slot)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1103, ptr noundef @__func__.libpqrcv_create_slot)
   br label %113
 
 113:                                              ; preds = %104, %102, %100
@@ -2447,113 +2657,166 @@ define internal ptr @libpqrcv_create_slot(ptr noundef %0, ptr noundef %1, i1 nou
 114:                                              ; No predecessors!
   br label %115
 
-115:                                              ; preds = %114, %85
-  %116 = load ptr, ptr %14, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %125
+115:                                              ; preds = %114
+  br label %116
 
-118:                                              ; preds = %115
-  %119 = load ptr, ptr %15, align 8
-  %120 = call ptr @PQgetvalue(ptr noundef %119, i32 noundef 0, i32 noundef 1)
-  %121 = call i64 @CStringGetDatum(ptr noundef %120)
-  %122 = call i64 @DirectFunctionCall1Coll(ptr noundef @pg_lsn_in, i32 noundef 0, i64 noundef %121)
-  %123 = call i64 @DatumGetLSN(i64 noundef %122)
-  %124 = load ptr, ptr %14, align 8
-  store i64 %123, ptr %124, align 8
-  br label %125
+116:                                              ; preds = %115, %85
+  %117 = load ptr, ptr %14, align 8
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %126
 
-125:                                              ; preds = %118, %115
-  %126 = load ptr, ptr %15, align 8
-  %127 = call i32 @PQgetisnull(ptr noundef %126, i32 noundef 0, i32 noundef 2)
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %133, label %129
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %15, align 8
+  %121 = call ptr @PQgetvalue(ptr noundef %120, i32 noundef 0, i32 noundef 1)
+  %122 = call i64 @CStringGetDatum(ptr noundef %121)
+  %123 = call i64 @DirectFunctionCall1Coll(ptr noundef @pg_lsn_in, i32 noundef 0, i64 noundef %122)
+  %124 = call i64 @DatumGetLSN(i64 noundef %123)
+  %125 = load ptr, ptr %14, align 8
+  store i64 %124, ptr %125, align 8
+  br label %126
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr %15, align 8
-  %131 = call ptr @PQgetvalue(ptr noundef %130, i32 noundef 0, i32 noundef 2)
-  %132 = call ptr @pstrdup(ptr noundef %131)
-  store ptr %132, ptr %17, align 8
-  br label %134
+126:                                              ; preds = %119, %116
+  %127 = load ptr, ptr %15, align 8
+  %128 = call i32 @PQgetisnull(ptr noundef %127, i32 noundef 0, i32 noundef 2)
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %134, label %130
 
-133:                                              ; preds = %125
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %15, align 8
+  %132 = call ptr @PQgetvalue(ptr noundef %131, i32 noundef 0, i32 noundef 2)
+  %133 = call ptr @pstrdup(ptr noundef %132)
+  store ptr %133, ptr %17, align 8
+  br label %135
+
+134:                                              ; preds = %126
   store ptr null, ptr %17, align 8
-  br label %134
+  br label %135
 
-134:                                              ; preds = %133, %129
-  %135 = load ptr, ptr %15, align 8
-  call void @PQclear(ptr noundef %135)
-  %136 = load ptr, ptr %17, align 8
-  ret ptr %136
+135:                                              ; preds = %134, %130
+  %136 = load ptr, ptr %15, align 8
+  call void @PQclear(ptr noundef %136)
+  %137 = load ptr, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  ret ptr %137
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_alter_slot(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
-  %4 = alloca ptr, align 8
+define internal void @libpqrcv_alter_slot(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = alloca i8, align 1
-  %7 = alloca %struct.StringInfoData, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = zext i1 %2 to i8
-  store i8 %9, ptr %6, align 1
-  call void @initStringInfo(ptr noundef %7)
-  %10 = load ptr, ptr %5, align 8
-  %11 = call ptr @quote_identifier(ptr noundef %10)
-  %12 = load i8, ptr %6, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = select i1 %13, ptr @.str.5, ptr @.str.67
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef @.str.66, ptr noundef %11, ptr noundef %14)
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.WalReceiverConn, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.StringInfoData, ptr %7, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @libpqrcv_PQexec(ptr noundef %17, ptr noundef %19)
-  store ptr %20, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.StringInfoData, ptr %7, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  call void @pfree(ptr noundef %22)
-  %23 = load ptr, ptr %8, align 8
-  %24 = call i32 @PQresultStatus(ptr noundef %23)
-  %25 = icmp ne i32 %24, 1
-  br i1 %25, label %26, label %43
+  %9 = alloca %struct.StringInfoData, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @initStringInfo(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8
+  %12 = call ptr @quote_identifier(ptr noundef %11)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.66, ptr noundef %12)
+  %13 = load ptr, ptr %7, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %20
 
-26:                                               ; preds = %3
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i8, ptr %16, align 1, !range !3, !noundef !4
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %18, ptr @.str.5, ptr @.str.68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.67, ptr noundef %19)
+  br label %20
+
+20:                                               ; preds = %15, %4
+  %21 = load ptr, ptr %7, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %27
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %8, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.55)
   br label %27
 
-27:                                               ; preds = %26
-  br i1 true, label %28, label %30
-
-28:                                               ; preds = %27
-  %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %29, label %32, label %41
+27:                                               ; preds = %26, %23, %20
+  %28 = load ptr, ptr %8, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %27
-  %31 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %31, label %32, label %41
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i8, ptr %31, align 1, !range !3, !noundef !4
+  %33 = trunc i8 %32 to i1
+  %34 = select i1 %33, ptr @.str.5, ptr @.str.68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.69, ptr noundef %34)
+  br label %35
 
-32:                                               ; preds = %30, %28
-  %33 = call i32 @errcode(i32 noundef 16908800)
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.WalReceiverConn, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @PQerrorMessage(ptr noundef %37)
-  %39 = call ptr @pchomp(ptr noundef %38)
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.68, ptr noundef %34, ptr noundef %39)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1143, ptr noundef @__func__.libpqrcv_alter_slot)
-  br label %41
+35:                                               ; preds = %30, %27
+  call void @appendStringInfoString(ptr noundef %9, ptr noundef @.str.70)
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.StringInfoData, ptr %9, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @libpqrcv_PQexec(ptr noundef %38, ptr noundef %40)
+  store ptr %41, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %struct.StringInfoData, ptr %9, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  call void @pfree(ptr noundef %43)
+  %44 = load ptr, ptr %10, align 8
+  %45 = call i32 @PQresultStatus(ptr noundef %44)
+  %46 = icmp ne i32 %45, 1
+  br i1 %46, label %47, label %65
 
-41:                                               ; preds = %32, %30, %28
+47:                                               ; preds = %35
+  br label %48
+
+48:                                               ; preds = %47
+  br i1 true, label %49, label %51
+
+49:                                               ; preds = %48
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %50, label %53, label %62
+
+51:                                               ; preds = %48
+  %52 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %52, label %53, label %62
+
+53:                                               ; preds = %51, %49
+  %54 = call i32 @errcode(i32 noundef 16908800)
+  %55 = load ptr, ptr %6, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr @PQerrorMessage(ptr noundef %58)
+  %60 = call ptr @pchomp(ptr noundef %59)
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.71, ptr noundef %55, ptr noundef %60)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1154, ptr noundef @__func__.libpqrcv_alter_slot)
+  br label %62
+
+62:                                               ; preds = %53, %51, %49
   unreachable
 
-42:                                               ; No predecessors!
-  br label %43
+63:                                               ; No predecessors!
+  br label %64
 
-43:                                               ; preds = %42, %3
-  %44 = load ptr, ptr %8, align 8
-  call void @PQclear(ptr noundef %44)
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64, %35
+  %66 = load ptr, ptr %10, align 8
+  call void @PQclear(ptr noundef %66)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #11
   ret void
 }
 
@@ -2562,7 +2825,7 @@ define internal i32 @libpqrcv_get_backend_pid(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WalReceiverConn, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @PQbackendPID(ptr noundef %5)
   ret i32 %6
@@ -2581,12 +2844,15 @@ define internal ptr @libpqrcv_exec(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
   %12 = call ptr @palloc0(i64 noundef 32)
   store ptr %12, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
   %13 = load i32, ptr @MyDatabaseId, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %26
+  br i1 %14, label %15, label %27
 
 15:                                               ; preds = %4
   br label %16
@@ -2595,7 +2861,7 @@ define internal ptr @libpqrcv_exec(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 true, label %17, label %19
 
 17:                                               ; preds = %16
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %18, label %21, label %24
 
 19:                                               ; preds = %16
@@ -2604,8 +2870,8 @@ define internal ptr @libpqrcv_exec(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 21:                                               ; preds = %19, %17
   %22 = call i32 @errcode(i32 noundef 325)
-  %23 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.69)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1247, ptr noundef @__func__.libpqrcv_exec)
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.72)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1258, ptr noundef @__func__.libpqrcv_exec)
   br label %24
 
 24:                                               ; preds = %21, %19, %17
@@ -2614,154 +2880,161 @@ define internal ptr @libpqrcv_exec(ptr noundef %0, ptr noundef %1, i32 noundef %
 25:                                               ; No predecessors!
   br label %26
 
-26:                                               ; preds = %25, %4
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.WalReceiverConn, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = call ptr @libpqrcv_PQexec(ptr noundef %29, ptr noundef %30)
-  store ptr %31, ptr %9, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = call i32 @PQresultStatus(ptr noundef %32)
-  switch i32 %33, label %119 [
-    i32 9, label %34
-    i32 2, label %34
-    i32 4, label %41
-    i32 3, label %44
-    i32 8, label %47
-    i32 1, label %50
-    i32 0, label %53
-    i32 10, label %58
-    i32 11, label %58
-    i32 6, label %63
-    i32 7, label %63
-    i32 5, label %63
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26, %4
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = call ptr @libpqrcv_PQexec(ptr noundef %30, ptr noundef %31)
+  store ptr %32, ptr %9, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = call i32 @PQresultStatus(ptr noundef %33)
+  switch i32 %34, label %120 [
+    i32 2, label %35
+    i32 9, label %35
+    i32 12, label %35
+    i32 4, label %42
+    i32 3, label %45
+    i32 8, label %48
+    i32 1, label %51
+    i32 0, label %54
+    i32 10, label %59
+    i32 11, label %59
+    i32 6, label %64
+    i32 7, label %64
+    i32 5, label %64
   ]
 
-34:                                               ; preds = %26, %26
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.WalRcvExecResult, ptr %35, i32 0, i32 0
-  store i32 2, ptr %36, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load i32, ptr %7, align 4
-  %40 = load ptr, ptr %8, align 8
-  call void @libpqrcv_processTuples(ptr noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef %40)
+35:                                               ; preds = %27, %27, %27
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %36, i32 0, i32 0
+  store i32 2, ptr %37, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %7, align 4
+  %41 = load ptr, ptr %8, align 8
+  call void @libpqrcv_processTuples(ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %41)
+  br label %120
+
+42:                                               ; preds = %27
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %43, i32 0, i32 0
+  store i32 3, ptr %44, align 8
+  br label %120
+
+45:                                               ; preds = %27
+  %46 = load ptr, ptr %10, align 8
+  %47 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %46, i32 0, i32 0
+  store i32 4, ptr %47, align 8
+  br label %120
+
+48:                                               ; preds = %27
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %49, i32 0, i32 0
+  store i32 5, ptr %50, align 8
+  br label %120
+
+51:                                               ; preds = %27
+  %52 = load ptr, ptr %10, align 8
+  %53 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %52, i32 0, i32 0
+  store i32 1, ptr %53, align 8
+  br label %120
+
+54:                                               ; preds = %27
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %55, i32 0, i32 0
+  store i32 0, ptr %56, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %57, i32 0, i32 2
+  store ptr @.str.73, ptr %58, align 8
+  br label %120
+
+59:                                               ; preds = %27, %27
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %60, i32 0, i32 0
+  store i32 0, ptr %61, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %62, i32 0, i32 2
+  store ptr @.str.74, ptr %63, align 8
+  br label %120
+
+64:                                               ; preds = %27, %27, %27
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %65, i32 0, i32 0
+  store i32 0, ptr %66, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @PQerrorMessage(ptr noundef %69)
+  %71 = call ptr @pchomp(ptr noundef %70)
+  %72 = load ptr, ptr %10, align 8
+  %73 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %72, i32 0, i32 2
+  store ptr %71, ptr %73, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = call ptr @PQresultErrorField(ptr noundef %74, i32 noundef 67)
+  store ptr %75, ptr %11, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %119
+
+78:                                               ; preds = %64
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 0
+  %81 = load i8, ptr %80, align 1
+  %82 = sext i8 %81 to i32
+  %83 = sub i32 %82, 48
+  %84 = and i32 %83, 63
+  %85 = load ptr, ptr %11, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 1
+  %87 = load i8, ptr %86, align 1
+  %88 = sext i8 %87 to i32
+  %89 = sub i32 %88, 48
+  %90 = and i32 %89, 63
+  %91 = shl i32 %90, 6
+  %92 = add i32 %84, %91
+  %93 = load ptr, ptr %11, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 2
+  %95 = load i8, ptr %94, align 1
+  %96 = sext i8 %95 to i32
+  %97 = sub i32 %96, 48
+  %98 = and i32 %97, 63
+  %99 = shl i32 %98, 12
+  %100 = add i32 %92, %99
+  %101 = load ptr, ptr %11, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 3
+  %103 = load i8, ptr %102, align 1
+  %104 = sext i8 %103 to i32
+  %105 = sub i32 %104, 48
+  %106 = and i32 %105, 63
+  %107 = shl i32 %106, 18
+  %108 = add i32 %100, %107
+  %109 = load ptr, ptr %11, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %111 = load i8, ptr %110, align 1
+  %112 = sext i8 %111 to i32
+  %113 = sub i32 %112, 48
+  %114 = and i32 %113, 63
+  %115 = shl i32 %114, 24
+  %116 = add i32 %108, %115
+  %117 = load ptr, ptr %10, align 8
+  %118 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %117, i32 0, i32 1
+  store i32 %116, ptr %118, align 4
   br label %119
 
-41:                                               ; preds = %26
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %struct.WalRcvExecResult, ptr %42, i32 0, i32 0
-  store i32 3, ptr %43, align 8
-  br label %119
+119:                                              ; preds = %78, %64
+  br label %120
 
-44:                                               ; preds = %26
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds %struct.WalRcvExecResult, ptr %45, i32 0, i32 0
-  store i32 4, ptr %46, align 8
-  br label %119
-
-47:                                               ; preds = %26
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.WalRcvExecResult, ptr %48, i32 0, i32 0
-  store i32 5, ptr %49, align 8
-  br label %119
-
-50:                                               ; preds = %26
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.WalRcvExecResult, ptr %51, i32 0, i32 0
-  store i32 1, ptr %52, align 8
-  br label %119
-
-53:                                               ; preds = %26
-  %54 = load ptr, ptr %10, align 8
-  %55 = getelementptr inbounds %struct.WalRcvExecResult, ptr %54, i32 0, i32 0
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.WalRcvExecResult, ptr %56, i32 0, i32 2
-  store ptr @.str.70, ptr %57, align 8
-  br label %119
-
-58:                                               ; preds = %26, %26
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.WalRcvExecResult, ptr %59, i32 0, i32 0
-  store i32 0, ptr %60, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds %struct.WalRcvExecResult, ptr %61, i32 0, i32 2
-  store ptr @.str.71, ptr %62, align 8
-  br label %119
-
-63:                                               ; preds = %26, %26, %26
-  %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds %struct.WalRcvExecResult, ptr %64, i32 0, i32 0
-  store i32 0, ptr %65, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.WalReceiverConn, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @PQerrorMessage(ptr noundef %68)
-  %70 = call ptr @pchomp(ptr noundef %69)
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct.WalRcvExecResult, ptr %71, i32 0, i32 2
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = call ptr @PQresultErrorField(ptr noundef %73, i32 noundef 67)
-  store ptr %74, ptr %11, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %118
-
-77:                                               ; preds = %63
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr i8, ptr %78, i64 0
-  %80 = load i8, ptr %79, align 1
-  %81 = sext i8 %80 to i32
-  %82 = sub i32 %81, 48
-  %83 = and i32 %82, 63
-  %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr i8, ptr %84, i64 1
-  %86 = load i8, ptr %85, align 1
-  %87 = sext i8 %86 to i32
-  %88 = sub i32 %87, 48
-  %89 = and i32 %88, 63
-  %90 = shl i32 %89, 6
-  %91 = add i32 %83, %90
-  %92 = load ptr, ptr %11, align 8
-  %93 = getelementptr i8, ptr %92, i64 2
-  %94 = load i8, ptr %93, align 1
-  %95 = sext i8 %94 to i32
-  %96 = sub i32 %95, 48
-  %97 = and i32 %96, 63
-  %98 = shl i32 %97, 12
-  %99 = add i32 %91, %98
-  %100 = load ptr, ptr %11, align 8
-  %101 = getelementptr i8, ptr %100, i64 3
-  %102 = load i8, ptr %101, align 1
-  %103 = sext i8 %102 to i32
-  %104 = sub i32 %103, 48
-  %105 = and i32 %104, 63
-  %106 = shl i32 %105, 18
-  %107 = add i32 %99, %106
-  %108 = load ptr, ptr %11, align 8
-  %109 = getelementptr i8, ptr %108, i64 4
-  %110 = load i8, ptr %109, align 1
-  %111 = sext i8 %110 to i32
-  %112 = sub i32 %111, 48
-  %113 = and i32 %112, 63
-  %114 = shl i32 %113, 24
-  %115 = add i32 %107, %114
-  %116 = load ptr, ptr %10, align 8
-  %117 = getelementptr inbounds %struct.WalRcvExecResult, ptr %116, i32 0, i32 1
-  store i32 %115, ptr %117, align 4
-  br label %118
-
-118:                                              ; preds = %77, %63
-  br label %119
-
-119:                                              ; preds = %118, %58, %53, %50, %47, %44, %41, %34, %26
-  %120 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %120)
-  %121 = load ptr, ptr %10, align 8
-  ret ptr %121
+120:                                              ; preds = %27, %119, %59, %54, %51, %48, %45, %42, %35
+  %121 = load ptr, ptr %9, align 8
+  call void @PQclear(ptr noundef %121)
+  %122 = load ptr, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  ret ptr %122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2769,11 +3042,11 @@ define internal void @libpqrcv_disconnect(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WalReceiverConn, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   call void @PQfinish(ptr noundef %5)
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.WalReceiverConn, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %struct.WalReceiverConn, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
   call void @PQfreemem(ptr noundef %8)
   %9 = load ptr, ptr %2, align 8
@@ -2781,37 +3054,40 @@ define internal void @libpqrcv_disconnect(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @GetDatabaseEncodingName() #2
+declare ptr @GetDatabaseEncodingName() #3
 
-declare ptr @palloc0(i64 noundef) #2
+declare ptr @palloc0(i64 noundef) #3
 
-declare ptr @PQconnectStartParams(ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @PQconnectStartParams(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @PQstatus(ptr noundef) #2
+declare i32 @PQstatus(ptr noundef) #3
 
-declare i32 @WaitLatchOrSocket(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) #2
+declare i32 @WaitLatchOrSocket(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) #3
 
-declare i32 @PQsocket(ptr noundef) #2
+declare i32 @PQsocket(ptr noundef) #3
 
-declare void @ResetLatch(ptr noundef) #2
+declare void @ResetLatch(ptr noundef) #3
 
-declare void @ProcessWalRcvInterrupts() #2
+declare void @ProcessWalRcvInterrupts() #3
 
-declare i32 @PQconnectPoll(ptr noundef) #2
+declare i32 @PQconnectPoll(ptr noundef) #3
 
-declare i32 @PQconnectionUsedPassword(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @PQfinish(ptr noundef) #2
+declare i32 @PQconnectionUsedPassword(ptr noundef) #3
 
-declare void @pfree(ptr noundef) #2
+declare void @PQfinish(ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #2
+declare void @pfree(ptr noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errdetail(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare i32 @errhint(ptr noundef, ...) #2
+declare i32 @errdetail(ptr noundef, ...) #3
+
+declare i32 @errhint(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) #0 {
@@ -2819,207 +3095,258 @@ define internal ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   store ptr null, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call i32 @PQsendQuery(ptr noundef %8, ptr noundef %9)
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %42
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call i32 @PQsendQuery(ptr noundef %9, ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  br label %14
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
 
-14:                                               ; preds = %39, %13
-  %15 = load ptr, ptr %4, align 8
-  %16 = call ptr @libpqrcv_PQgetResult(ptr noundef %15)
-  store ptr %16, ptr %7, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
+14:                                               ; preds = %2
+  br label %15
 
-19:                                               ; preds = %14
-  br label %40
+15:                                               ; preds = %43, %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %16 = load ptr, ptr %4, align 8
+  %17 = call ptr @libpqrcv_PQgetResult(ptr noundef %16)
+  store ptr %17, ptr %8, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %6, align 8
-  call void @PQclear(ptr noundef %21)
-  %22 = load ptr, ptr %7, align 8
-  store ptr %22, ptr %6, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = call i32 @PQresultStatus(ptr noundef %23)
-  %25 = icmp eq i32 %24, 4
-  br i1 %25, label %38, label %26
+20:                                               ; preds = %15
+  store i32 2, ptr %7, align 4
+  br label %41
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %6, align 8
-  %28 = call i32 @PQresultStatus(ptr noundef %27)
-  %29 = icmp eq i32 %28, 3
-  br i1 %29, label %38, label %30
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %6, align 8
+  call void @PQclear(ptr noundef %22)
+  %23 = load ptr, ptr %8, align 8
+  store ptr %23, ptr %6, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = call i32 @PQresultStatus(ptr noundef %24)
+  %26 = icmp eq i32 %25, 4
+  br i1 %26, label %39, label %27
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %6, align 8
-  %32 = call i32 @PQresultStatus(ptr noundef %31)
-  %33 = icmp eq i32 %32, 8
-  br i1 %33, label %38, label %34
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %6, align 8
+  %29 = call i32 @PQresultStatus(ptr noundef %28)
+  %30 = icmp eq i32 %29, 3
+  br i1 %30, label %39, label %31
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %4, align 8
-  %36 = call i32 @PQstatus(ptr noundef %35)
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %39
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %6, align 8
+  %33 = call i32 @PQresultStatus(ptr noundef %32)
+  %34 = icmp eq i32 %33, 8
+  br i1 %34, label %39, label %35
 
-38:                                               ; preds = %34, %30, %26, %20
-  br label %40
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %4, align 8
+  %37 = call i32 @PQstatus(ptr noundef %36)
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %40
 
-39:                                               ; preds = %34
-  br label %14
+39:                                               ; preds = %35, %31, %27, %21
+  store i32 2, ptr %7, align 4
+  br label %41
 
-40:                                               ; preds = %38, %19
-  %41 = load ptr, ptr %6, align 8
-  store ptr %41, ptr %3, align 8
-  br label %42
+40:                                               ; preds = %35
+  store i32 0, ptr %7, align 4
+  br label %41
 
-42:                                               ; preds = %40, %12
-  %43 = load ptr, ptr %3, align 8
-  ret ptr %43
+41:                                               ; preds = %40, %39, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %42 = load i32, ptr %7, align 4
+  switch i32 %42, label %48 [
+    i32 0, label %43
+    i32 2, label %44
+  ]
+
+43:                                               ; preds = %41
+  br label %15
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %6, align 8
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+46:                                               ; preds = %44, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %47 = load ptr, ptr %3, align 8
+  ret ptr %47
+
+48:                                               ; preds = %41
+  unreachable
 }
 
-declare i32 @PQresultStatus(ptr noundef) #2
+declare i32 @PQresultStatus(ptr noundef) #3
 
-declare void @PQclear(ptr noundef) #2
+declare void @PQclear(ptr noundef) #3
 
-declare ptr @psprintf(ptr noundef, ...) #2
+declare ptr @psprintf(ptr noundef, ...) #3
 
-declare ptr @pchomp(ptr noundef) #2
+declare ptr @pchomp(ptr noundef) #3
 
-declare ptr @PQerrorMessage(ptr noundef) #2
+declare ptr @PQerrorMessage(ptr noundef) #3
 
-declare i32 @PQsendQuery(ptr noundef, ptr noundef) #2
+declare i32 @PQsendQuery(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @libpqrcv_PQgetResult(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  br label %5
+  br label %6
 
-5:                                                ; preds = %24, %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = call i32 @PQisBusy(ptr noundef %6)
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %25
+6:                                                ; preds = %28, %1
+  %7 = load ptr, ptr %3, align 8
+  %8 = call i32 @PQisBusy(ptr noundef %7)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %29
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr @MyLatch, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i32 @PQsocket(ptr noundef %11)
-  %13 = call i32 @WaitLatchOrSocket(ptr noundef %10, i32 noundef 35, i32 noundef %12, i64 noundef 0, i32 noundef 100663300)
-  store i32 %13, ptr %4, align 4
-  %14 = load i32, ptr %4, align 4
-  %15 = and i32 %14, 1
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %19
+10:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %11 = load ptr, ptr @MyLatch, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = call i32 @PQsocket(ptr noundef %12)
+  %14 = call i32 @WaitLatchOrSocket(ptr noundef %11, i32 noundef 35, i32 noundef %13, i64 noundef 0, i32 noundef 100663300)
+  store i32 %14, ptr %4, align 4
+  %15 = load i32, ptr %4, align 4
+  %16 = and i32 %15, 1
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %9
-  %18 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %18)
+18:                                               ; preds = %10
+  %19 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %19)
   call void @ProcessWalRcvInterrupts()
-  br label %19
+  br label %20
 
-19:                                               ; preds = %17, %9
-  %20 = load ptr, ptr %3, align 8
-  %21 = call i32 @PQconsumeInput(ptr noundef %20)
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %24
+20:                                               ; preds = %18, %10
+  %21 = load ptr, ptr %3, align 8
+  %22 = call i32 @PQconsumeInput(ptr noundef %21)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %19
+24:                                               ; preds = %20
   store ptr null, ptr %2, align 8
-  br label %28
+  store i32 1, ptr %5, align 4
+  br label %26
 
-24:                                               ; preds = %19
-  br label %5, !llvm.loop !9
+25:                                               ; preds = %20
+  store i32 0, ptr %5, align 4
+  br label %26
 
-25:                                               ; preds = %5
-  %26 = load ptr, ptr %3, align 8
-  %27 = call ptr @PQgetResult(ptr noundef %26)
-  store ptr %27, ptr %2, align 8
-  br label %28
+26:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %27 = load i32, ptr %5, align 4
+  switch i32 %27, label %34 [
+    i32 0, label %28
+    i32 1, label %32
+  ]
 
-28:                                               ; preds = %25, %23
-  %29 = load ptr, ptr %2, align 8
-  ret ptr %29
+28:                                               ; preds = %26
+  br label %6, !llvm.loop !10
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %3, align 8
+  %31 = call ptr @PQgetResult(ptr noundef %30)
+  store ptr %31, ptr %2, align 8
+  br label %32
+
+32:                                               ; preds = %29, %26
+  %33 = load ptr, ptr %2, align 8
+  ret ptr %33
+
+34:                                               ; preds = %26
+  unreachable
 }
 
-declare i32 @PQisBusy(ptr noundef) #2
+declare i32 @PQisBusy(ptr noundef) #3
 
-declare i32 @PQconsumeInput(ptr noundef) #2
+declare i32 @PQconsumeInput(ptr noundef) #3
 
-declare ptr @PQgetResult(ptr noundef) #2
+declare ptr @PQgetResult(ptr noundef) #3
 
-declare ptr @PQconninfoParse(ptr noundef, ptr noundef) #2
+declare ptr @PQconninfoParse(ptr noundef, ptr noundef) #3
 
-declare ptr @pstrdup(ptr noundef) #2
+declare ptr @pstrdup(ptr noundef) #3
 
-declare void @PQfreemem(ptr noundef) #2
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
-
-declare void @PQconninfoFree(ptr noundef) #2
-
-declare void @initPQExpBuffer(ptr noundef) #2
-
-declare ptr @PQconninfo(ptr noundef) #2
+declare void @PQfreemem(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
-declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) #2
+declare void @PQconninfoFree(ptr noundef) #3
 
-declare void @termPQExpBuffer(ptr noundef) #2
+declare void @initPQExpBuffer(ptr noundef) #3
 
-declare ptr @PQhost(ptr noundef) #2
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
-
-declare ptr @PQport(ptr noundef) #2
+declare ptr @PQconninfo(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #3
+declare ptr @strchr(ptr noundef, i32 noundef) #4
 
-declare i32 @PQnfields(ptr noundef) #2
+declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) #3
 
-declare i32 @PQntuples(ptr noundef) #2
+declare void @termPQExpBuffer(ptr noundef) #3
 
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) #2
+declare ptr @PQhost(ptr noundef) #3
 
-declare i32 @pg_strtoint32(ptr noundef) #2
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #4
 
-declare i32 @PQserverVersion(ptr noundef) #2
+declare ptr @PQport(ptr noundef) #3
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #11
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare i32 @PQgetlength(ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #6
 
-declare ptr @palloc(i64 noundef) #2
+declare i32 @PQnfields(ptr noundef) #3
+
+declare i32 @PQntuples(ptr noundef) #3
+
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) #3
+
+declare i32 @pg_strtoint32(ptr noundef) #3
+
+declare i32 @PQserverVersion(ptr noundef) #3
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
+
+declare i32 @PQgetlength(ptr noundef, i32 noundef, i32 noundef) #3
+
+declare ptr @palloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare void @initStringInfo(ptr noundef) #2
+declare void @initStringInfo(ptr noundef) #3
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) #2
+declare void @appendStringInfoString(ptr noundef, ptr noundef) #3
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @stringlist_to_identifierstr(ptr noundef %0, ptr noundef %1) #0 {
@@ -3030,138 +3357,178 @@ define internal ptr @stringlist_to_identifierstr(ptr noundef %0, ptr noundef %1)
   %7 = alloca %struct.StringInfoData, align 8
   %8 = alloca i8, align 1
   %9 = alloca %struct.ForEachState, align 8
-  %10 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
   store i8 1, ptr %8, align 1
   call void @initStringInfo(ptr noundef %7)
-  %12 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  store i32 0, ptr %14, align 8
-  br label %15
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #11
+  %13 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 0
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 1
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr i8, ptr %9, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 4, i1 false)
+  br label %17
 
-15:                                               ; preds = %63, %2
-  %16 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %36
+17:                                               ; preds = %69, %2
+  %18 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %38
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.List, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp slt i32 %21, %25
-  br i1 %26, label %27, label %36
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.List, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp slt i32 %23, %27
+  br i1 %28, label %29, label %38
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.List, ptr %29, i32 0, i32 3
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr %union.ListCell, ptr %31, i64 %34
-  store ptr %35, ptr %6, align 8
-  br label %37
+  %32 = getelementptr inbounds nuw %struct.List, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %union.ListCell, ptr %33, i64 %36
+  store ptr %37, ptr %6, align 8
+  br label %39
 
-36:                                               ; preds = %19, %15
+38:                                               ; preds = %21, %17
   store ptr null, ptr %6, align 8
-  br label %37
+  br label %39
 
-37:                                               ; preds = %36, %27
-  %38 = phi i32 [ 1, %27 ], [ 0, %36 ]
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %67
+39:                                               ; preds = %38, %29
+  %40 = phi i32 [ 1, %29 ], [ 0, %38 ]
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %43, label %42
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.String, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %10, align 8
-  %45 = load i8, ptr %8, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  store i32 2, ptr %10, align 4
+  br label %73
 
-47:                                               ; preds = %40
+43:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw %struct.String, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %48 = load i8, ptr %8, align 1, !range !3, !noundef !4
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %43
   store i8 0, ptr %8, align 1
-  br label %49
+  br label %52
 
-48:                                               ; preds = %40
+51:                                               ; preds = %43
   call void @appendStringInfoChar(ptr noundef %7, i8 noundef signext 44)
-  br label %49
+  br label %52
 
-49:                                               ; preds = %48, %47
-  %50 = load ptr, ptr %4, align 8
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = call i64 @strlen(ptr noundef %52) #7
-  %54 = call ptr @PQescapeIdentifier(ptr noundef %50, ptr noundef %51, i64 noundef %53)
-  store ptr %54, ptr %11, align 8
+52:                                               ; preds = %51, %50
+  %53 = load ptr, ptr %4, align 8
+  %54 = load ptr, ptr %11, align 8
   %55 = load ptr, ptr %11, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %60, label %57
+  %56 = call i64 @strlen(ptr noundef %55) #12
+  %57 = call ptr @PQescapeIdentifier(ptr noundef %53, ptr noundef %54, i64 noundef %56)
+  store ptr %57, ptr %12, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %63, label %60
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds %struct.StringInfoData, ptr %7, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  call void @free(ptr noundef %59) #8
+60:                                               ; preds = %52
+  %61 = getelementptr inbounds nuw %struct.StringInfoData, ptr %7, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  call void @free(ptr noundef %62) #11
   store ptr null, ptr %3, align 8
-  br label %70
+  store i32 1, ptr %10, align 4
+  br label %66
 
-60:                                               ; preds = %49
-  %61 = load ptr, ptr %11, align 8
-  call void @appendStringInfoString(ptr noundef %7, ptr noundef %61)
-  %62 = load ptr, ptr %11, align 8
-  call void @PQfreemem(ptr noundef %62)
-  br label %63
+63:                                               ; preds = %52
+  %64 = load ptr, ptr %12, align 8
+  call void @appendStringInfoString(ptr noundef %7, ptr noundef %64)
+  %65 = load ptr, ptr %12, align 8
+  call void @PQfreemem(ptr noundef %65)
+  store i32 0, ptr %10, align 4
+  br label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %64, align 8
-  br label %15, !llvm.loop !10
+66:                                               ; preds = %63, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  %67 = load i32, ptr %10, align 4
+  switch i32 %67, label %73 [
+    i32 0, label %68
+  ]
 
-67:                                               ; preds = %37
-  %68 = getelementptr inbounds %struct.StringInfoData, ptr %7, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %3, align 8
-  br label %70
+68:                                               ; preds = %66
+  br label %69
 
-70:                                               ; preds = %67, %57
-  %71 = load ptr, ptr %3, align 8
-  ret ptr %71
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds nuw %struct.ForEachState, ptr %9, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %70, align 8
+  br label %17, !llvm.loop !11
+
+73:                                               ; preds = %66, %42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #11
+  %74 = load i32, ptr %10, align 4
+  switch i32 %74, label %78 [
+    i32 2, label %75
+  ]
+
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw %struct.StringInfoData, ptr %7, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %78
+
+78:                                               ; preds = %75, %73
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %79 = load ptr, ptr %3, align 8
+  ret ptr %79
 }
 
-declare ptr @PQescapeLiteral(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @PQescapeLiteral(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) #2
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) #3
 
-declare ptr @PQescapeIdentifier(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+declare ptr @PQescapeIdentifier(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #6
 
-declare i32 @PQputCopyEnd(ptr noundef, ptr noundef) #2
+declare i32 @PQputCopyEnd(ptr noundef, ptr noundef) #3
 
-declare i32 @PQflush(ptr noundef) #2
+declare i32 @PQflush(ptr noundef) #3
 
-declare i32 @PQendcopy(ptr noundef) #2
+declare i32 @PQendcopy(ptr noundef) #3
 
-declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetLSN(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetLSN(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -3169,12 +3536,12 @@ define internal i64 @DatumGetLSN(i64 noundef %0) #0 {
   ret i64 %4
 }
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #3
 
-declare i64 @pg_lsn_in(ptr noundef) #2
+declare i64 @pg_lsn_in(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CStringGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CStringGetDatum(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3182,18 +3549,18 @@ define internal i64 @CStringGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) #2
+declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetInt64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetInt64(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3201,9 +3568,9 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @quote_identifier(ptr noundef) #2
+declare ptr @quote_identifier(ptr noundef) #3
 
-declare i32 @PQbackendPID(ptr noundef) #2
+declare i32 @PQbackendPID(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @libpqrcv_processTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -3219,267 +3586,309 @@ define internal void @libpqrcv_processTuples(ptr noundef %0, ptr noundef %1, i32
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  %17 = alloca [1664 x ptr], align 16
+  %17 = alloca i32, align 4
+  %18 = alloca [1664 x ptr], align 16
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 @PQnfields(ptr noundef %18)
-  store i32 %19, ptr %11, align 4
-  %20 = load i32, ptr %11, align 4
-  %21 = load i32, ptr %7, align 4
-  %22 = icmp ne i32 %20, %21
-  br i1 %22, label %23, label %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %19 = load ptr, ptr %5, align 8
+  %20 = call i32 @PQnfields(ptr noundef %19)
+  store i32 %20, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %21 = load i32, ptr %11, align 4
+  %22 = load i32, ptr %7, align 4
+  %23 = icmp ne i32 %21, %22
+  br i1 %23, label %24, label %39
 
-23:                                               ; preds = %4
-  br label %24
-
-24:                                               ; preds = %23
-  br i1 true, label %25, label %27
+24:                                               ; preds = %4
+  br label %25
 
 25:                                               ; preds = %24
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %26, label %29, label %35
+  br i1 true, label %26, label %28
 
-27:                                               ; preds = %24
-  %28 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %25
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %27, label %30, label %36
 
-29:                                               ; preds = %27, %25
-  %30 = call i32 @errcode(i32 noundef 16908800)
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.72)
-  %32 = load i32, ptr %7, align 4
-  %33 = load i32, ptr %11, align 4
-  %34 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.73, i32 noundef %32, i32 noundef %33)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1178, ptr noundef @__func__.libpqrcv_processTuples)
-  br label %35
+28:                                               ; preds = %25
+  %29 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %29, label %30, label %36
 
-35:                                               ; preds = %29, %27, %25
+30:                                               ; preds = %28, %26
+  %31 = call i32 @errcode(i32 noundef 16908800)
+  %32 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.75)
+  %33 = load i32, ptr %7, align 4
+  %34 = load i32, ptr %11, align 4
+  %35 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.76, i32 noundef %33, i32 noundef %34)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1189, ptr noundef @__func__.libpqrcv_processTuples)
+  br label %36
+
+36:                                               ; preds = %30, %28, %26
   unreachable
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %4
-  %38 = load i32, ptr @work_mem, align 4
-  %39 = call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %38)
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.WalRcvExecResult, ptr %40, i32 0, i32 3
-  store ptr %39, ptr %41, align 8
-  %42 = load i32, ptr %7, align 4
-  %43 = call ptr @CreateTemplateTupleDesc(i32 noundef %42)
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.WalRcvExecResult, ptr %44, i32 0, i32 4
-  store ptr %43, ptr %45, align 8
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38, %4
+  %40 = load i32, ptr @work_mem, align 4
+  %41 = call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %40)
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %42, i32 0, i32 3
+  store ptr %41, ptr %43, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = call ptr @CreateTemplateTupleDesc(i32 noundef %44)
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %46, i32 0, i32 4
+  store ptr %45, ptr %47, align 8
   store i32 0, ptr %10, align 4
-  br label %46
+  br label %48
 
-46:                                               ; preds = %67, %37
-  %47 = load i32, ptr %10, align 4
-  %48 = load i32, ptr %7, align 4
-  %49 = icmp slt i32 %47, %48
-  br i1 %49, label %50, label %70
+48:                                               ; preds = %69, %39
+  %49 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %7, align 4
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %72
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.WalRcvExecResult, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %10, align 4
-  %55 = trunc i32 %54 to i16
-  %56 = sext i16 %55 to i32
-  %57 = add i32 %56, 1
-  %58 = trunc i32 %57 to i16
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i32, ptr %10, align 4
-  %61 = call ptr @PQfname(ptr noundef %59, i32 noundef %60)
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %10, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i32, ptr %62, i64 %64
-  %66 = load i32, ptr %65, align 4
-  call void @TupleDescInitEntry(ptr noundef %53, i16 noundef signext %58, ptr noundef %61, i32 noundef %66, i32 noundef -1, i32 noundef 0)
-  br label %67
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i32, ptr %10, align 4
+  %57 = trunc i32 %56 to i16
+  %58 = sext i16 %57 to i32
+  %59 = add i32 %58, 1
+  %60 = trunc i32 %59 to i16
+  %61 = load ptr, ptr %5, align 8
+  %62 = load i32, ptr %10, align 4
+  %63 = call ptr @PQfname(ptr noundef %61, i32 noundef %62)
+  %64 = load ptr, ptr %8, align 8
+  %65 = load i32, ptr %10, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  %68 = load i32, ptr %67, align 4
+  call void @TupleDescInitEntry(ptr noundef %55, i16 noundef signext %60, ptr noundef %63, i32 noundef %68, i32 noundef -1, i32 noundef 0)
+  br label %69
 
-67:                                               ; preds = %50
-  %68 = load i32, ptr %10, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %10, align 4
-  br label %46, !llvm.loop !11
+69:                                               ; preds = %52
+  %70 = load i32, ptr %10, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %10, align 4
+  br label %48, !llvm.loop !12
 
-70:                                               ; preds = %46
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.WalRcvExecResult, ptr %71, i32 0, i32 4
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @TupleDescGetAttInMetadata(ptr noundef %73)
-  store ptr %74, ptr %13, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = call i32 @PQntuples(ptr noundef %75)
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %79
+72:                                               ; preds = %48
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %73, i32 0, i32 4
+  %75 = load ptr, ptr %74, align 8
+  %76 = call ptr @TupleDescGetAttInMetadata(ptr noundef %75)
+  store ptr %76, ptr %13, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = call i32 @PQntuples(ptr noundef %77)
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %70
-  br label %134
-
-79:                                               ; preds = %70
-  br label %80
-
-80:                                               ; preds = %79
-  br label %81
-
-81:                                               ; preds = %80
+80:                                               ; preds = %72
   store i32 1, ptr %16, align 4
-  %82 = load ptr, ptr @CurrentMemoryContext, align 8
-  %83 = call ptr @AllocSetContextCreateInternal(ptr noundef %82, ptr noundef @.str.74, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %83, ptr %14, align 8
-  store i32 0, ptr %9, align 4
+  br label %137
+
+81:                                               ; preds = %72
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
   br label %84
 
-84:                                               ; preds = %129, %81
-  %85 = load i32, ptr %9, align 4
-  %86 = load ptr, ptr %5, align 8
-  %87 = call i32 @PQntuples(ptr noundef %86)
-  %88 = icmp slt i32 %85, %87
-  br i1 %88, label %89, label %132
+84:                                               ; preds = %83
+  store i32 1, ptr %17, align 4
+  %85 = load ptr, ptr @CurrentMemoryContext, align 8
+  %86 = call ptr @AllocSetContextCreateInternal(ptr noundef %85, ptr noundef @.str.77, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %86, ptr %14, align 8
+  store i32 0, ptr %9, align 4
+  br label %87
 
-89:                                               ; preds = %84
+87:                                               ; preds = %132, %84
+  %88 = load i32, ptr %9, align 4
+  %89 = load ptr, ptr %5, align 8
+  %90 = call i32 @PQntuples(ptr noundef %89)
+  %91 = icmp slt i32 %88, %90
+  br i1 %91, label %92, label %135
+
+92:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 13312, ptr %18) #11
   call void @ProcessWalRcvInterrupts()
-  %90 = load ptr, ptr %14, align 8
-  %91 = call ptr @MemoryContextSwitchTo(ptr noundef %90)
-  store ptr %91, ptr %15, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = call ptr @MemoryContextSwitchTo(ptr noundef %93)
+  store ptr %94, ptr %15, align 8
   store i32 0, ptr %10, align 4
-  br label %92
+  br label %95
 
-92:                                               ; preds = %115, %89
-  %93 = load i32, ptr %10, align 4
-  %94 = load i32, ptr %11, align 4
-  %95 = icmp slt i32 %93, %94
-  br i1 %95, label %96, label %118
+95:                                               ; preds = %118, %92
+  %96 = load i32, ptr %10, align 4
+  %97 = load i32, ptr %11, align 4
+  %98 = icmp slt i32 %96, %97
+  br i1 %98, label %99, label %121
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %9, align 4
-  %99 = load i32, ptr %10, align 4
-  %100 = call i32 @PQgetisnull(ptr noundef %97, i32 noundef %98, i32 noundef %99)
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %106
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i32, ptr %9, align 4
+  %102 = load i32, ptr %10, align 4
+  %103 = call i32 @PQgetisnull(ptr noundef %100, i32 noundef %101, i32 noundef %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %109
 
-102:                                              ; preds = %96
-  %103 = load i32, ptr %10, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr [1664 x ptr], ptr %17, i64 0, i64 %104
-  store ptr null, ptr %105, align 8
-  br label %114
+105:                                              ; preds = %99
+  %106 = load i32, ptr %10, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds [1664 x ptr], ptr %18, i64 0, i64 %107
+  store ptr null, ptr %108, align 8
+  br label %117
 
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %5, align 8
-  %108 = load i32, ptr %9, align 4
-  %109 = load i32, ptr %10, align 4
-  %110 = call ptr @PQgetvalue(ptr noundef %107, i32 noundef %108, i32 noundef %109)
-  %111 = load i32, ptr %10, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr [1664 x ptr], ptr %17, i64 0, i64 %112
-  store ptr %110, ptr %113, align 8
-  br label %114
+109:                                              ; preds = %99
+  %110 = load ptr, ptr %5, align 8
+  %111 = load i32, ptr %9, align 4
+  %112 = load i32, ptr %10, align 4
+  %113 = call ptr @PQgetvalue(ptr noundef %110, i32 noundef %111, i32 noundef %112)
+  %114 = load i32, ptr %10, align 4
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [1664 x ptr], ptr %18, i64 0, i64 %115
+  store ptr %113, ptr %116, align 8
+  br label %117
 
-114:                                              ; preds = %106, %102
-  br label %115
+117:                                              ; preds = %109, %105
+  br label %118
 
-115:                                              ; preds = %114
-  %116 = load i32, ptr %10, align 4
-  %117 = add i32 %116, 1
-  store i32 %117, ptr %10, align 4
-  br label %92, !llvm.loop !12
+118:                                              ; preds = %117
+  %119 = load i32, ptr %10, align 4
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %10, align 4
+  br label %95, !llvm.loop !13
 
-118:                                              ; preds = %92
-  %119 = load ptr, ptr %13, align 8
-  %120 = getelementptr inbounds [1664 x ptr], ptr %17, i64 0, i64 0
-  %121 = call ptr @BuildTupleFromCStrings(ptr noundef %119, ptr noundef %120)
-  store ptr %121, ptr %12, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.WalRcvExecResult, ptr %122, i32 0, i32 3
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %12, align 8
-  call void @tuplestore_puttuple(ptr noundef %124, ptr noundef %125)
-  %126 = load ptr, ptr %15, align 8
-  %127 = call ptr @MemoryContextSwitchTo(ptr noundef %126)
-  %128 = load ptr, ptr %14, align 8
-  call void @MemoryContextReset(ptr noundef %128)
-  br label %129
+121:                                              ; preds = %95
+  %122 = load ptr, ptr %13, align 8
+  %123 = getelementptr inbounds [1664 x ptr], ptr %18, i64 0, i64 0
+  %124 = call ptr @BuildTupleFromCStrings(ptr noundef %122, ptr noundef %123)
+  store ptr %124, ptr %12, align 8
+  %125 = load ptr, ptr %6, align 8
+  %126 = getelementptr inbounds nuw %struct.WalRcvExecResult, ptr %125, i32 0, i32 3
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %12, align 8
+  call void @tuplestore_puttuple(ptr noundef %127, ptr noundef %128)
+  %129 = load ptr, ptr %15, align 8
+  %130 = call ptr @MemoryContextSwitchTo(ptr noundef %129)
+  %131 = load ptr, ptr %14, align 8
+  call void @MemoryContextReset(ptr noundef %131)
+  call void @llvm.lifetime.end.p0(i64 13312, ptr %18) #11
+  br label %132
 
-129:                                              ; preds = %118
-  %130 = load i32, ptr %9, align 4
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %9, align 4
-  br label %84, !llvm.loop !13
+132:                                              ; preds = %121
+  %133 = load i32, ptr %9, align 4
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %9, align 4
+  br label %87, !llvm.loop !14
 
-132:                                              ; preds = %84
-  %133 = load ptr, ptr %14, align 8
-  call void @MemoryContextDelete(ptr noundef %133)
-  br label %134
+135:                                              ; preds = %87
+  %136 = load ptr, ptr %14, align 8
+  call void @MemoryContextDelete(ptr noundef %136)
+  store i32 0, ptr %16, align 4
+  br label %137
 
-134:                                              ; preds = %132, %78
+137:                                              ; preds = %135, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  %138 = load i32, ptr %16, align 4
+  switch i32 %138, label %140 [
+    i32 0, label %139
+    i32 1, label %139
+  ]
+
+139:                                              ; preds = %137, %137
   ret void
+
+140:                                              ; preds = %137
+  unreachable
 }
 
-declare ptr @PQresultErrorField(ptr noundef, i32 noundef) #2
+declare ptr @PQresultErrorField(ptr noundef, i32 noundef) #3
 
-declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) #2
+declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) #3
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) #2
+declare ptr @CreateTemplateTupleDesc(i32 noundef) #3
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @PQfname(ptr noundef, i32 noundef) #2
+declare ptr @PQfname(ptr noundef, i32 noundef) #3
 
-declare ptr @TupleDescGetAttInMetadata(ptr noundef) #2
+declare ptr @TupleDescGetAttInMetadata(ptr noundef) #3
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @MemoryContextSwitchTo(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %6
 }
 
-declare ptr @BuildTupleFromCStrings(ptr noundef, ptr noundef) #2
+declare ptr @BuildTupleFromCStrings(ptr noundef, ptr noundef) #3
 
-declare void @tuplestore_puttuple(ptr noundef, ptr noundef) #2
+declare void @tuplestore_puttuple(ptr noundef, ptr noundef) #3
 
-declare void @MemoryContextReset(ptr noundef) #2
+declare void @MemoryContextReset(ptr noundef) #3
 
-declare void @MemoryContextDelete(ptr noundef) #2
+declare void @MemoryContextDelete(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

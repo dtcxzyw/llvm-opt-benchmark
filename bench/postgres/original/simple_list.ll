@@ -15,17 +15,18 @@ define dso_local void @simple_oid_list_append(ptr noundef %0, i32 noundef %1) #0
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = call ptr @pg_malloc(i64 noundef 16)
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.SimpleOidListCell, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %7, i32 0, i32 0
   store ptr null, ptr %8, align 8
   %9 = load i32, ptr %4, align 4
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.SimpleOidListCell, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %10, i32 0, i32 1
   store i32 %9, ptr %11, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SimpleOidList, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %22
@@ -33,28 +34,35 @@ define dso_local void @simple_oid_list_append(ptr noundef %0, i32 noundef %1) #0
 16:                                               ; preds = %2
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SimpleOidList, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.SimpleOidListCell, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %20, i32 0, i32 0
   store ptr %17, ptr %21, align 8
   br label %26
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.SimpleOidList, ptr %24, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %24, i32 0, i32 0
   store ptr %23, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %22, %16
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.SimpleOidList, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %28, i32 0, i32 1
   store ptr %27, ptr %29, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-declare ptr @pg_malloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @pg_malloc(i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @simple_oid_list_member(ptr noundef %0, i32 noundef %1) #0 {
@@ -62,48 +70,53 @@ define dso_local zeroext i1 @simple_oid_list_member(ptr noundef %0, i32 noundef 
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.SimpleOidList, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %6, align 8
+  br label %11
 
-10:                                               ; preds = %21, %2
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %25
+11:                                               ; preds = %22, %2
+  %12 = load ptr, ptr %6, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %26
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.SimpleOidListCell, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = load i32, ptr %5, align 4
-  %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %20
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %13
+20:                                               ; preds = %14
   store i1 true, ptr %3, align 1
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-20:                                               ; preds = %13
-  br label %21
+21:                                               ; preds = %14
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.SimpleOidListCell, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %6, align 8
-  br label %10, !llvm.loop !5
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %6, align 8
+  br label %11, !llvm.loop !4
 
-25:                                               ; preds = %10
+26:                                               ; preds = %11
   store i1 false, ptr %3, align 1
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %25, %19
-  %27 = load i1, ptr %3, align 1
-  ret i1 %27
+27:                                               ; preds = %26, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %28 = load i1, ptr %3, align 1
+  ret i1 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -113,25 +126,26 @@ define dso_local void @simple_string_list_append(ptr noundef %0, ptr noundef %1)
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = load ptr, ptr %4, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #4
+  %7 = call i64 @strlen(ptr noundef %6) #6
   %8 = add i64 9, %7
   %9 = add i64 %8, 1
   %10 = call ptr @pg_malloc(i64 noundef %9)
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.SimpleStringListCell, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %11, i32 0, i32 0
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.SimpleStringListCell, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %13, i32 0, i32 1
   store i8 0, ptr %14, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.SimpleStringListCell, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %15, i32 0, i32 2
   %17 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 0
   %18 = load ptr, ptr %4, align 8
   %19 = call ptr @strcpy(ptr noundef %17, ptr noundef %18) #5
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SimpleStringList, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %30
@@ -139,32 +153,33 @@ define dso_local void @simple_string_list_append(ptr noundef %0, ptr noundef %1)
 24:                                               ; preds = %2
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.SimpleStringList, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.SimpleStringListCell, ptr %28, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %28, i32 0, i32 0
   store ptr %25, ptr %29, align 8
   br label %34
 
 30:                                               ; preds = %2
   %31 = load ptr, ptr %5, align 8
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.SimpleStringList, ptr %32, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %32, i32 0, i32 0
   store ptr %31, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %30, %24
   %35 = load ptr, ptr %5, align 8
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.SimpleStringList, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %36, i32 0, i32 1
   store ptr %35, ptr %37, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #3
+declare ptr @strcpy(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @simple_string_list_member(ptr noundef %0, ptr noundef %1) #0 {
@@ -172,56 +187,61 @@ define dso_local zeroext i1 @simple_string_list_member(ptr noundef %0, ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.SimpleStringList, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %6, align 8
+  br label %11
 
-10:                                               ; preds = %24, %2
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %28
+11:                                               ; preds = %25, %2
+  %12 = load ptr, ptr %6, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %29
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.SimpleStringListCell, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 0
-  %17 = load ptr, ptr %5, align 8
-  %18 = call i32 @strcmp(ptr noundef %16, ptr noundef %17) #4
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %23
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 0
+  %18 = load ptr, ptr %5, align 8
+  %19 = call i32 @strcmp(ptr noundef %17, ptr noundef %18) #6
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.SimpleStringListCell, ptr %21, i32 0, i32 1
-  store i8 1, ptr %22, align 8
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %22, i32 0, i32 1
+  store i8 1, ptr %23, align 8
   store i1 true, ptr %3, align 1
-  br label %29
+  store i32 1, ptr %7, align 4
+  br label %30
 
-23:                                               ; preds = %13
-  br label %24
+24:                                               ; preds = %14
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.SimpleStringListCell, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %6, align 8
-  br label %10, !llvm.loop !7
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %6, align 8
+  br label %11, !llvm.loop !6
 
-28:                                               ; preds = %10
+29:                                               ; preds = %11
   store i1 false, ptr %3, align 1
-  br label %29
+  store i32 1, ptr %7, align 4
+  br label %30
 
-29:                                               ; preds = %28, %20
-  %30 = load i1, ptr %3, align 1
-  ret i1 %30
+30:                                               ; preds = %29, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %31 = load i1, ptr %3, align 1
+  ret i1 %31
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @simple_oid_list_destroy(ptr noundef %0) #0 {
@@ -229,8 +249,9 @@ define dso_local void @simple_oid_list_destroy(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.SimpleOidList, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.SimpleOidList, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   br label %8
@@ -241,21 +262,24 @@ define dso_local void @simple_oid_list_destroy(ptr noundef %0) #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SimpleOidListCell, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.SimpleOidListCell, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
   call void @pg_free(ptr noundef %15)
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %3, align 8
-  br label %8, !llvm.loop !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  br label %8, !llvm.loop !7
 
 17:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
-declare void @pg_free(ptr noundef) #1
+declare void @pg_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @simple_string_list_destroy(ptr noundef %0) #0 {
@@ -263,8 +287,9 @@ define dso_local void @simple_string_list_destroy(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.SimpleStringList, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   br label %8
@@ -275,17 +300,20 @@ define dso_local void @simple_string_list_destroy(ptr noundef %0) #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SimpleStringListCell, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
   call void @pg_free(ptr noundef %15)
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %3, align 8
-  br label %8, !llvm.loop !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  br label %8, !llvm.loop !8
 
 17:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
@@ -294,49 +322,54 @@ define dso_local ptr @simple_string_list_not_touched(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.SimpleStringList, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %4, align 8
-  br label %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.SimpleStringList, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %4, align 8
+  br label %9
 
-8:                                                ; preds = %21, %1
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %25
+9:                                                ; preds = %22, %1
+  %10 = load ptr, ptr %4, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %26
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.SimpleStringListCell, ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %20, label %16
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %13, i32 0, i32 1
+  %15 = load i8, ptr %14, align 8, !range !9, !noundef !10
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %21, label %17
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.SimpleStringListCell, ptr %17, i32 0, i32 2
-  %19 = getelementptr inbounds [0 x i8], ptr %18, i64 0, i64 0
-  store ptr %19, ptr %2, align 8
-  br label %26
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %18, i32 0, i32 2
+  %20 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 0
+  store ptr %20, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %27
 
-20:                                               ; preds = %11
-  br label %21
+21:                                               ; preds = %12
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.SimpleStringListCell, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %4, align 8
-  br label %8, !llvm.loop !10
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw %struct.SimpleStringListCell, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %4, align 8
+  br label %9, !llvm.loop !11
 
-25:                                               ; preds = %8
+26:                                               ; preds = %9
   store ptr null, ptr %2, align 8
-  br label %26
+  store i32 1, ptr %5, align 4
+  br label %27
 
-26:                                               ; preds = %25, %16
-  %27 = load ptr, ptr %2, align 8
-  ret ptr %27
+27:                                               ; preds = %26, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %28 = load ptr, ptr %2, align 8
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -346,17 +379,18 @@ define dso_local void @simple_ptr_list_append(ptr noundef %0, ptr noundef %1) #0
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = call ptr @pg_malloc(i64 noundef 16)
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.SimplePtrListCell, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.SimplePtrListCell, ptr %7, i32 0, i32 0
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.SimplePtrListCell, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.SimplePtrListCell, ptr %10, i32 0, i32 1
   store ptr %9, ptr %11, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SimplePtrList, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.SimplePtrList, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %22
@@ -364,44 +398,84 @@ define dso_local void @simple_ptr_list_append(ptr noundef %0, ptr noundef %1) #0
 16:                                               ; preds = %2
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SimplePtrList, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.SimplePtrList, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.SimplePtrListCell, ptr %20, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.SimplePtrListCell, ptr %20, i32 0, i32 0
   store ptr %17, ptr %21, align 8
   br label %26
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.SimplePtrList, ptr %24, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.SimplePtrList, ptr %24, i32 0, i32 0
   store ptr %23, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %22, %16
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.SimplePtrList, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.SimplePtrList, ptr %28, i32 0, i32 1
   store ptr %27, ptr %29, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+; Function Attrs: nounwind uwtable
+define dso_local void @simple_ptr_list_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.SimplePtrList, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  br label %8
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+8:                                                ; preds = %11, %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %17
+
+11:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.SimplePtrListCell, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr %3, align 8
+  call void @pg_free(ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8
+  store ptr %16, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  br label %8, !llvm.loop !12
+
+17:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

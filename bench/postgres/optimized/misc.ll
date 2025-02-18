@@ -3,15 +3,12 @@ source_filename = "bench/postgres/original/misc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.sqlca_t = type { [8 x i8], i64, i64, %struct.anon, [8 x i8], [6 x i64], [8 x i8], [5 x i8] }
-%struct.anon = type { i32, [150 x i8] }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @ecpg_internal_regression_mode = local_unnamed_addr global i8 0, align 1
-@sqlca_init = internal unnamed_addr constant %struct.sqlca_t { [8 x i8] c"SQLCA   ", i64 256, i64 0, %struct.anon zeroinitializer, [8 x i8] c"NOT SET ", [6 x i64] zeroinitializer, [8 x i8] zeroinitializer, [5 x i8] c"00000" }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"YE001\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"08003\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
@@ -26,19 +23,20 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [18 x i8] c"rollback prepared\00", align 1
 @.str.10 = private unnamed_addr constant [18 x i8] c"begin transaction\00", align 1
 @debug_init_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
-@simple_debug = internal unnamed_addr global i32 0, align 4
+@debug_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
+@simple_debug = internal global i32 0, align 4
 @debugstream = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [22 x i8] c"ECPGdebug: set to %d\0A\00", align 1
 @.str.12 = private unnamed_addr constant [13 x i8] c"[NO_PID]: %s\00", align 1
 @.str.13 = private unnamed_addr constant [9 x i8] c"[%d]: %s\00", align 1
-@debug_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @.str.14 = private unnamed_addr constant [39 x i8] c"[NO_PID]: sqlca: code: %ld, state: %s\0A\00", align 1
 @ivlist = local_unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [25 x i8] c"out of memory on line %d\00", align 1
+@sqlca_init = internal unnamed_addr constant { [8 x i8], i64, i64, { i32, [150 x i8], [2 x i8] }, [8 x i8], [4 x i8], [6 x i64], [8 x i8], [5 x i8], [3 x i8] } { [8 x i8] c"SQLCA   ", i64 256, i64 0, { i32, [150 x i8], [2 x i8] } zeroinitializer, [8 x i8] c"NOT SET ", [4 x i8] zeroinitializer, [6 x i64] zeroinitializer, [8 x i8] zeroinitializer, [5 x i8] c"00000", [3 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ecpg_init_sqlca(ptr noundef writeonly captures(none) initializes((0, 256)) %0) local_unnamed_addr #0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   ret void
 }
 
@@ -47,37 +45,37 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_init(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
+  %4 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #17
   %5 = load i32, ptr @sqlca_key, align 4
-  %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #16
+  %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
+  %9 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %ECPGget_sqlca.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %12 = load i32, ptr @sqlca_key, align 4
-  %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #16
+  %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #17
   br label %14
 
 ECPGget_sqlca.exit:                               ; preds = %8
-  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #16
+  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #17
   br label %18
 
 14:                                               ; preds = %11, %3
   %.06.i.ph = phi ptr [ %6, %3 ], [ %9, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %15 = icmp eq ptr %0, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
   %.not = icmp eq ptr %1, null
   %17 = select i1 %.not, ptr @.str.2, ptr %1
-  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -220, ptr noundef nonnull @.str.1, ptr noundef nonnull %17) #16
+  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -220, ptr noundef nonnull @.str.1, ptr noundef nonnull %17) #17
   br label %18
 
 18:                                               ; preds = %14, %16, %ECPGget_sqlca.exit
@@ -85,23 +83,26 @@ ECPGget_sqlca.exit:                               ; preds = %8
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind uwtable
 define ptr @ECPGget_sqlca() local_unnamed_addr #2 {
-  %1 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
+  %1 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #17
   %2 = load i32, ptr @sqlca_key, align 4
-  %3 = tail call ptr @pthread_getspecific(i32 noundef %2) #16
+  %3 = tail call ptr @pthread_getspecific(i32 noundef %2) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %0
-  %6 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
+  %6 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #18
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %6, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %9 = load i32, ptr @sqlca_key, align 4
-  %10 = tail call i32 @pthread_setspecific(i32 noundef %9, ptr noundef nonnull %6) #16
+  %10 = tail call i32 @pthread_setspecific(i32 noundef %9, ptr noundef nonnull %6) #17
   br label %11
 
 11:                                               ; preds = %0, %8, %5
@@ -109,28 +110,31 @@ define ptr @ECPGget_sqlca() local_unnamed_addr #2 {
   ret ptr %.06
 }
 
-declare void @ecpg_raise(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecpg_raise(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @ecpg_sqlca_key_init() #2 {
-  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @sqlca_key, ptr noundef nonnull @ecpg_sqlca_key_destructor) #16
+  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @sqlca_key, ptr noundef nonnull @ecpg_sqlca_key_destructor) #17
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #4
+declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ECPGstatus(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @ecpg_get_connection(ptr noundef %1) #16
+  %3 = tail call ptr @ecpg_get_connection(ptr noundef %1) #17
   %4 = tail call zeroext i1 @ecpg_init(ptr noundef %3, ptr noundef %1, i32 noundef %0)
   br i1 %4, label %5, label %11
 
@@ -142,7 +146,7 @@ define noundef zeroext i1 @ECPGstatus(i32 noundef %0, ptr noundef %1) local_unna
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %3, align 8
-  tail call void @ecpg_raise(i32 noundef %0, i32 noundef -221, ptr noundef nonnull @.str.3, ptr noundef %10) #16
+  tail call void @ecpg_raise(i32 noundef %0, i32 noundef -221, ptr noundef nonnull @.str.3, ptr noundef %10) #17
   br label %11
 
 11:                                               ; preds = %5, %2, %9
@@ -150,18 +154,18 @@ define noundef zeroext i1 @ECPGstatus(i32 noundef %0, ptr noundef %1) local_unna
   ret i1 %.0
 }
 
-declare ptr @ecpg_get_connection(ptr noundef) local_unnamed_addr #3
+declare ptr @ecpg_get_connection(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @ECPGtransactionStatus(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @ecpg_get_connection(ptr noundef %0) #16
+  %2 = tail call ptr @ecpg_get_connection(ptr noundef %0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @PQtransactionStatus(ptr noundef %6) #16
+  %7 = tail call i32 @PQtransactionStatus(ptr noundef %6) #17
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -169,11 +173,11 @@ define i32 @ECPGtransactionStatus(ptr noundef %0) local_unnamed_addr #2 {
   ret i32 %.0
 }
 
-declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #3
+declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call ptr @ecpg_get_connection(ptr noundef %1) #16
+  %4 = tail call ptr @ecpg_get_connection(ptr noundef %1) #17
   %5 = tail call zeroext i1 @ecpg_init(ptr noundef %4, ptr noundef %1, i32 noundef %0)
   br i1 %5, label %6, label %38
 
@@ -190,56 +194,56 @@ define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not29, label %38, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @PQtransactionStatus(ptr noundef nonnull %10) #16
+  %12 = tail call i32 @PQtransactionStatus(ptr noundef nonnull %10) #17
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
+  %16 = load i8, ptr %15, align 8, !range !3, !noundef !4
+  %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #18
+  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #19
   %.not30 = icmp eq i32 %19, 0
   br i1 %.not30, label %32, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.7, i64 noundef 5) #18
+  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.7, i64 noundef 5) #19
   %.not31 = icmp eq i32 %21, 0
   br i1 %.not31, label %32, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(16) @.str.8, i64 noundef 15) #18
+  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(16) @.str.8, i64 noundef 15) #19
   %.not32 = icmp eq i32 %23, 0
   br i1 %.not32, label %32, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(18) @.str.9, i64 noundef 17) #18
+  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(18) @.str.9, i64 noundef 17) #19
   %.not33 = icmp eq i32 %25, 0
   br i1 %.not33, label %32, label %26
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %9, align 8
-  %28 = tail call ptr @PQexec(ptr noundef %27, ptr noundef nonnull @.str.10) #16
+  %28 = tail call ptr @PQexec(ptr noundef %27, ptr noundef nonnull @.str.10) #17
   %29 = load ptr, ptr %9, align 8
-  %30 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %28, i32 noundef %0, ptr noundef %29, i32 noundef 0) #16
+  %30 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %28, i32 noundef %0, ptr noundef %29, i32 noundef 0) #17
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %26
-  tail call void @PQclear(ptr noundef %28) #16
+  tail call void @PQclear(ptr noundef %28) #17
   br label %32
 
 32:                                               ; preds = %31, %24, %22, %20, %18, %14, %11
   %33 = load ptr, ptr %9, align 8
-  %34 = tail call ptr @PQexec(ptr noundef %33, ptr noundef %2) #16
+  %34 = tail call ptr @PQexec(ptr noundef %33, ptr noundef %2) #17
   %35 = load ptr, ptr %9, align 8
-  %36 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %34, i32 noundef %0, ptr noundef %35, i32 noundef 0) #16
+  %36 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %34, i32 noundef %0, ptr noundef %35, i32 noundef 0) #17
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %32
-  tail call void @PQclear(ptr noundef %34) #16
+  tail call void @PQclear(ptr noundef %34) #17
   br label %38
 
 .critedge:                                        ; preds = %6
@@ -254,138 +258,157 @@ define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define void @ecpg_log(ptr noundef %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  %3 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
-  %4 = load i32, ptr @sqlca_key, align 4
-  %5 = tail call ptr @pthread_getspecific(i32 noundef %4) #16
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %ECPGget_sqlca.exit
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  %3 = load volatile i32, ptr @simple_debug, align 4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %48, label %4
 
-7:                                                ; preds = %1
-  %8 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
+4:                                                ; preds = %1
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %6 = shl i64 %5, 32
+  %sext = add i64 %6, 429496729600
+  %7 = ashr exact i64 %sext, 32
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %ECPGget_sqlca.exit, label %10
+  br i1 %9, label %48, label %10
 
-10:                                               ; preds = %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %8, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
-  %11 = load i32, ptr @sqlca_key, align 4
-  %12 = tail call i32 @pthread_setspecific(i32 noundef %11, ptr noundef nonnull %8) #16
+10:                                               ; preds = %4
+  %11 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !3, !noundef !4
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %10
+  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #17
+  br label %18
+
+15:                                               ; preds = %10
+  %16 = tail call i32 @getpid() #17
+  %17 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef %7, ptr noundef nonnull @.str.13, i32 noundef %16, ptr noundef nonnull %0) #17
+  br label %18
+
+18:                                               ; preds = %15, %13
+  %19 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #17
+  %20 = load i32, ptr @sqlca_key, align 4
+  %21 = tail call ptr @pthread_getspecific(i32 noundef %20) #17
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %ECPGget_sqlca.exit
+
+23:                                               ; preds = %18
+  %24 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #18
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %ECPGget_sqlca.exit, label %26
+
+26:                                               ; preds = %23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %24, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  %27 = load i32, ptr @sqlca_key, align 4
+  %28 = tail call i32 @pthread_setspecific(i32 noundef %27, ptr noundef nonnull %24) #17
   br label %ECPGget_sqlca.exit
 
-ECPGget_sqlca.exit:                               ; preds = %1, %7, %10
-  %.06.i = phi ptr [ null, %7 ], [ %8, %10 ], [ %5, %1 ]
-  %13 = load i32, ptr @simple_debug, align 4
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %45, label %14
+ECPGget_sqlca.exit:                               ; preds = %18, %23, %26
+  %.06.i = phi ptr [ null, %23 ], [ %24, %26 ], [ %21, %18 ]
+  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @debug_mutex) #17
+  %30 = load volatile i32, ptr @simple_debug, align 4
+  %.not16 = icmp eq i32 %30, 0
+  br i1 %.not16, label %46, label %31
 
-14:                                               ; preds = %ECPGget_sqlca.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  %16 = shl i64 %15, 32
-  %sext = add i64 %16, 429496729600
-  %17 = ashr exact i64 %sext, 32
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #17
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %45, label %20
-
-20:                                               ; preds = %14
-  %21 = load i8, ptr @ecpg_internal_regression_mode, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
-
-23:                                               ; preds = %20
-  %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #16
-  br label %28
-
-25:                                               ; preds = %20
-  %26 = tail call i32 @getpid() #16
-  %27 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.13, i32 noundef %26, ptr noundef nonnull %0) #16
-  br label %28
-
-28:                                               ; preds = %25, %23
-  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @debug_mutex) #16
+31:                                               ; preds = %ECPGget_sqlca.exit
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %30 = load ptr, ptr @debugstream, align 8
-  %31 = call i32 @pg_vfprintf(ptr noundef %30, ptr noundef nonnull %18, ptr noundef nonnull %2) #16
+  %32 = load ptr, ptr @debugstream, align 8
+  %33 = call i32 @pg_vfprintf(ptr noundef %32, ptr noundef nonnull %8, ptr noundef nonnull %2) #17
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %32 = load i8, ptr @ecpg_internal_regression_mode, align 1
-  %33 = trunc i8 %32 to i1
-  %34 = icmp ne ptr %.06.i, null
-  %or.cond = and i1 %34, %33
-  br i1 %or.cond, label %35, label %41
+  %34 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !3, !noundef !4
+  %35 = trunc nuw i8 %34 to i1
+  %36 = icmp ne ptr %.06.i, null
+  %or.cond = and i1 %36, %35
+  br i1 %or.cond, label %37, label %43
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr @debugstream, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.06.i, i64 248
-  %40 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %38, ptr noundef nonnull %39) #16
-  br label %41
+37:                                               ; preds = %31
+  %38 = load ptr, ptr @debugstream, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.06.i, i64 248
+  %42 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %38, ptr noundef nonnull @.str.14, i64 noundef %40, ptr noundef nonnull %41) #17
+  br label %43
 
-41:                                               ; preds = %35, %28
-  %42 = load ptr, ptr @debugstream, align 8
-  %43 = call i32 @fflush(ptr noundef %42)
-  %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @debug_mutex) #16
-  call void @free(ptr noundef nonnull %18) #16
-  br label %45
+43:                                               ; preds = %37, %31
+  %44 = load ptr, ptr @debugstream, align 8
+  %45 = call i32 @fflush(ptr noundef %44)
+  br label %46
 
-45:                                               ; preds = %14, %ECPGget_sqlca.exit, %41
+46:                                               ; preds = %43, %ECPGget_sqlca.exit
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @debug_mutex) #17
+  call void @free(ptr noundef nonnull %8) #17
+  br label %48
+
+48:                                               ; preds = %4, %1, %46
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
-declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @ecpg_check_PQresult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @ecpg_check_PQresult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #3
+declare void @PQclear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @ECPGdebug(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @debug_init_mutex) #16
-  %4 = icmp sgt i32 %0, 100
-  br i1 %4, label %5, label %7
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @debug_init_mutex) #17
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @debug_mutex) #17
+  %5 = icmp sgt i32 %0, 100
+  br i1 %5, label %6, label %8
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   store i8 1, ptr @ecpg_internal_regression_mode, align 1
-  %6 = add nsw i32 %0, -100
-  br label %7
+  %7 = add nsw i32 %0, -100
+  br label %8
 
-7:                                                ; preds = %2, %5
-  %storemerge = phi i32 [ %6, %5 ], [ %0, %2 ]
-  store i32 %storemerge, ptr @simple_debug, align 4
+8:                                                ; preds = %2, %6
+  %.sink = phi i32 [ %7, %6 ], [ %0, %2 ]
+  store volatile i32 %.sink, ptr @simple_debug, align 4
   store ptr %1, ptr @debugstream, align 8
-  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.11, i32 noundef %storemerge)
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @debug_init_mutex) #16
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @debug_mutex) #17
+  %10 = load volatile i32, ptr @simple_debug, align 4
+  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.11, i32 noundef %10)
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @debug_init_mutex) #17
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #4
+declare i32 @getpid() local_unnamed_addr #5
 
-declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
 
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ECPGset_noind_null(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define void @ECPGset_noind_null(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #11 {
   switch i32 %0, label %19 [
     i32 1, label %3
     i32 2, label %3
@@ -472,10 +495,10 @@ define void @ECPGset_noind_null(i32 noundef %0, ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   switch i32 %0, label %49 [
     i32 1, label %3
     i32 2, label %3
@@ -531,10 +554,10 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonl
 
 19:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, -1
-  br i1 %.not.i, label %.preheader, label %_check.exit, !llvm.loop !4
+  br i1 %.not.i, label %.preheader, label %_check.exit, !llvm.loop !5
 
 .preheader26:                                     ; preds = %2, %23
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %23 ], [ 8, %2 ]
@@ -543,10 +566,10 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonl
 
 23:                                               ; preds = %.preheader26
   %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i14, -1
-  %24 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i15
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i15
   %25 = load i8, ptr %24, align 1
   %.not.i16 = icmp eq i8 %25, -1
-  br i1 %.not.i16, label %.preheader26, label %_check.exit, !llvm.loop !4
+  br i1 %.not.i16, label %.preheader26, label %_check.exit, !llvm.loop !5
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -578,10 +601,10 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonl
 
 42:                                               ; preds = %.preheader29
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
-  %43 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i19
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i19
   %44 = load i8, ptr %43, align 1
   %.not.i20 = icmp eq i8 %44, -1
-  br i1 %.not.i20, label %.preheader29, label %_check.exit, !llvm.loop !4
+  br i1 %.not.i20, label %.preheader29, label %_check.exit, !llvm.loop !5
 
 .preheader32:                                     ; preds = %2, %46
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i23, %46 ], [ 8, %2 ]
@@ -590,10 +613,10 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonl
 
 46:                                               ; preds = %.preheader32
   %indvars.iv.next.i23 = add nsw i64 %indvars.iv.i22, -1
-  %47 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i23
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i23
   %48 = load i8, ptr %47, align 1
   %.not.i24 = icmp eq i8 %48, -1
-  br i1 %.not.i24, label %.preheader32, label %_check.exit, !llvm.loop !4
+  br i1 %.not.i24, label %.preheader32, label %_check.exit, !llvm.loop !5
 
 49:                                               ; preds = %2, %37, %33, %30, %26, %15, %12, %9, %6, %3
   br label %_check.exit
@@ -605,30 +628,30 @@ _check.exit:                                      ; preds = %46, %.preheader32, 
 
 ; Function Attrs: nounwind uwtable
 define void @ECPGset_var(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
+  %4 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #17
   %5 = load i32, ptr @sqlca_key, align 4
-  %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #16
+  %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
+  %9 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %ECPGget_sqlca.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %12 = load i32, ptr @sqlca_key, align 4
-  %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #16
+  %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #17
   br label %14
 
 ECPGget_sqlca.exit:                               ; preds = %8
-  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #16
+  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #17
   br label %44
 
 14:                                               ; preds = %11, %3
   %.06.i.ph = phi ptr [ %6, %3 ], [ %9, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %.034 = load ptr, ptr @ivlist, align 8
   %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -648,33 +671,33 @@ ECPGget_sqlca.exit:                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %19, %14
-  %21 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #19
+  %21 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #20
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %22, label %41
 
 22:                                               ; preds = %._crit_edge
-  %23 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
+  %23 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #17
   %24 = load i32, ptr @sqlca_key, align 4
-  %25 = tail call ptr @pthread_getspecific(i32 noundef %24) #16
+  %25 = tail call ptr @pthread_getspecific(i32 noundef %24) #17
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %22
-  %28 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #17
+  %28 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #18
   %29 = icmp eq ptr %28, null
   br i1 %29, label %ECPGget_sqlca.exit28, label %30
 
 30:                                               ; preds = %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %28, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %28, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %31 = load i32, ptr @sqlca_key, align 4
-  %32 = tail call i32 @pthread_setspecific(i32 noundef %31, ptr noundef nonnull %28) #16
+  %32 = tail call i32 @pthread_setspecific(i32 noundef %31, ptr noundef nonnull %28) #17
   br label %33
 
 ECPGget_sqlca.exit28:                             ; preds = %27
-  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #16
+  tail call void @ecpg_raise(i32 noundef %2, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #17
   br label %44
 
 33:                                               ; preds = %30, %22
@@ -682,14 +705,14 @@ ECPGget_sqlca.exit28:                             ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 16
   store i64 -12, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 noundef 5, i1 false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 noundef 5, i1 false) #17
   %36 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 28
-  %38 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 150, ptr noundef nonnull @.str.15, i32 noundef %2) #16
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #18
+  %38 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 150, ptr noundef nonnull @.str.15, i32 noundef %2) #17
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #19
   %40 = trunc i64 %39 to i32
   store i32 %40, ptr %36, align 8
-  tail call void @ECPGfree_auto_mem() #16
+  tail call void @ECPGfree_auto_mem() #17
   br label %44
 
 41:                                               ; preds = %._crit_edge
@@ -701,17 +724,17 @@ ECPGget_sqlca.exit28:                             ; preds = %27
   store ptr %21, ptr @ivlist, align 8
   br label %44
 
-44:                                               ; preds = %41, %33, %ECPGget_sqlca.exit28, %17, %ECPGget_sqlca.exit
+44:                                               ; preds = %33, %41, %ECPGget_sqlca.exit28, %17, %ECPGget_sqlca.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
-declare void @ECPGfree_auto_mem() local_unnamed_addr #3
+declare void @ECPGfree_auto_mem() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #13 {
+define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #15 {
   %.08 = load ptr, ptr @ivlist, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %.critedge6, label %.lr.ph
@@ -726,7 +749,7 @@ define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.010, i64 8
@@ -739,48 +762,44 @@ define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #13 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @ecpg_sqlca_key_destructor(ptr noundef captures(none) %0) #14 {
-  tail call void @free(ptr noundef %0) #16
+define internal void @ecpg_sqlca_key_destructor(ptr noundef captures(none) %0) #16 {
+  tail call void @free(ptr noundef %0) #17
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0,1) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

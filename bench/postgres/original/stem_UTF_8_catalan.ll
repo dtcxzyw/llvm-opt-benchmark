@@ -1,11 +1,9 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
 %struct.SN_env = type { ptr, i32, i32, i32, i32, i32, ptr, ptr }
 
 @g_v = internal constant [20 x i8] c"\11A\10\00\00\00\00\00\00\00\00\00\00\00\00\80\81Q\06\0A", align 16
-@a_1 = internal constant [39 x %struct.among] [%struct.among { i32 2, ptr @s_1_0, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_1, i32 0, i32 1, ptr null }, %struct.among { i32 4, ptr @s_1_2, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_3, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_4, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_5, i32 4, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_6, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_7, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_8, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_9, i32 8, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_10, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_11, i32 10, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_12, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_13, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_14, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_15, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_16, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_17, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_18, i32 17, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_19, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_1_20, i32 19, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_21, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_22, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_1_23, i32 22, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_24, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_1_25, i32 24, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_26, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_27, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_28, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_29, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_30, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_31, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_1_32, i32 31, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_33, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_1_34, i32 33, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_35, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_36, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_1_37, i32 36, i32 1, ptr null }, %struct.among { i32 2, ptr @s_1_38, i32 -1, i32 1, ptr null }], align 16
 @s_1_0 = internal constant [2 x i8] c"la", align 1
 @s_1_1 = internal constant [3 x i8] c"-la", align 1
 @s_1_2 = internal constant [4 x i8] c"sela", align 1
@@ -45,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_36 = internal constant [2 x i8] c"us", align 1
 @s_1_37 = internal constant [3 x i8] c"-us", align 1
 @s_1_38 = internal constant [2 x i8] c"'t", align 1
-@a_2 = internal constant [200 x %struct.among] [%struct.among { i32 3, ptr @s_2_0, i32 -1, i32 4, ptr null }, %struct.among { i32 7, ptr @s_2_1, i32 0, i32 3, ptr null }, %struct.among { i32 4, ptr @s_2_2, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_3, i32 -1, i32 2, ptr null }, %struct.among { i32 5, ptr @s_2_4, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_5, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_6, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_7, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_8, i32 -1, i32 3, ptr null }, %struct.among { i32 4, ptr @s_2_9, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_10, i32 9, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_11, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_12, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_13, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_14, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_15, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_16, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_17, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_18, i32 17, i32 1, ptr null }, %struct.among { i32 9, ptr @s_2_19, i32 18, i32 5, ptr null }, %struct.among { i32 3, ptr @s_2_20, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_21, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_22, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_23, i32 22, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_24, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_25, i32 24, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_26, i32 25, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_27, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_28, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_29, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_30, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_31, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_32, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_33, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_34, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_35, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_36, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_37, i32 36, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_38, i32 36, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_39, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_40, i32 39, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_41, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_42, i32 -1, i32 3, ptr null }, %struct.among { i32 2, ptr @s_2_43, i32 -1, i32 4, ptr null }, %struct.among { i32 6, ptr @s_2_44, i32 43, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_45, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_46, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_47, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_48, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_49, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_50, i32 49, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_51, i32 49, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_52, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_53, i32 52, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_54, i32 52, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_55, i32 52, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_56, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_57, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_58, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_59, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_60, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_61, i32 -1, i32 3, ptr null }, %struct.among { i32 3, ptr @s_2_62, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_63, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_64, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_65, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_66, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_67, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_68, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_69, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_70, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_71, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_72, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_73, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_74, i32 73, i32 5, ptr null }, %struct.among { i32 4, ptr @s_2_75, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_76, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_77, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_78, i32 77, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_79, i32 77, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_80, i32 77, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_81, i32 77, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_82, i32 77, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_83, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_84, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_85, i32 84, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_86, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_87, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_88, i32 -1, i32 4, ptr null }, %struct.among { i32 7, ptr @s_2_89, i32 88, i32 3, ptr null }, %struct.among { i32 3, ptr @s_2_90, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_91, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_92, i32 -1, i32 2, ptr null }, %struct.among { i32 6, ptr @s_2_93, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_94, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_95, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_96, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_97, i32 -1, i32 3, ptr null }, %struct.among { i32 5, ptr @s_2_98, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_99, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_100, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_101, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_102, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_103, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_104, i32 103, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_105, i32 103, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_106, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_107, i32 106, i32 1, ptr null }, %struct.among { i32 10, ptr @s_2_108, i32 107, i32 5, ptr null }, %struct.among { i32 6, ptr @s_2_109, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_110, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_111, i32 110, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_112, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_113, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_114, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_115, i32 114, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_116, i32 115, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_117, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_118, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_119, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_120, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_121, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_122, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_123, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_124, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_125, i32 124, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_126, i32 124, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_127, i32 -1, i32 4, ptr null }, %struct.among { i32 9, ptr @s_2_128, i32 127, i32 3, ptr null }, %struct.among { i32 4, ptr @s_2_129, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_130, i32 129, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_131, i32 -1, i32 3, ptr null }, %struct.among { i32 10, ptr @s_2_132, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_133, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_134, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_135, i32 -1, i32 3, ptr null }, %struct.among { i32 4, ptr @s_2_136, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_137, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_138, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_139, i32 138, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_140, i32 138, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_141, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_142, i32 141, i32 1, ptr null }, %struct.among { i32 9, ptr @s_2_143, i32 142, i32 5, ptr null }, %struct.among { i32 4, ptr @s_2_144, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_145, i32 144, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_146, i32 145, i32 2, ptr null }, %struct.among { i32 4, ptr @s_2_147, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_148, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_149, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_150, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_151, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_152, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_153, i32 152, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_154, i32 153, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_155, i32 153, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_156, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_157, i32 156, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_158, i32 157, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_159, i32 157, i32 1, ptr null }, %struct.among { i32 9, ptr @s_2_160, i32 159, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_161, i32 156, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_162, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_163, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_164, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_165, i32 164, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_166, i32 165, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_167, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_168, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_169, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_170, i32 169, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_171, i32 169, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_172, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_173, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_174, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_175, i32 174, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_176, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_177, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_178, i32 177, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_179, i32 177, i32 1, ptr null }, %struct.among { i32 8, ptr @s_2_180, i32 179, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_181, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_182, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_183, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_184, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_185, i32 184, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_186, i32 184, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_187, i32 186, i32 1, ptr null }, %struct.among { i32 7, ptr @s_2_188, i32 187, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_189, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_190, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_191, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_192, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_193, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_194, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_195, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_2_196, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_2_197, i32 196, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_198, i32 197, i32 1, ptr null }, %struct.among { i32 5, ptr @s_2_199, i32 198, i32 1, ptr null }], align 16
+@a_1 = internal constant [39 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_1, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_2, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_5, i32 4, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_7, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_8, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_9, i32 8, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_10, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_11, i32 10, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_12, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_13, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_17, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_18, i32 17, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_19, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_20, i32 19, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_21, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_22, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_23, i32 22, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_24, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_25, i32 24, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_26, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_27, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_28, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_29, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_30, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_31, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_32, i32 31, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_33, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_34, i32 33, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_35, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_36, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_37, i32 36, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_38, i32 -1, i32 1, ptr null }], align 16
 @s_6 = internal constant [3 x i8] c"log", align 1
 @s_7 = internal constant [2 x i8] c"ic", align 1
 @s_8 = internal constant [1 x i8] c"c", align 1
@@ -249,7 +247,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_2_197 = internal constant [3 x i8] c"i\C3\B3", align 1
 @s_2_198 = internal constant [4 x i8] c"ci\C3\B3", align 1
 @s_2_199 = internal constant [5 x i8] c"aci\C3\B3", align 1
-@a_3 = internal constant [283 x %struct.among] [%struct.among { i32 3, ptr @s_3_0, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_1, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_2, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_3, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_4, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_5, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_6, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_7, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_8, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_9, i32 8, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_10, i32 8, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_11, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_12, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_13, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_14, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_15, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_16, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_17, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_18, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_19, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_20, i32 19, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_21, i32 19, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_22, i32 19, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_23, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_24, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_25, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_26, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_27, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_28, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_29, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_30, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_31, i32 30, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_32, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_33, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_34, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_35, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_36, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_37, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_38, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_39, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_40, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_41, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_42, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_43, i32 42, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_44, i32 42, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_45, i32 42, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_46, i32 42, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_47, i32 42, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_48, i32 42, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_49, i32 42, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_50, i32 42, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_51, i32 42, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_52, i32 42, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_53, i32 42, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_54, i32 42, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_55, i32 42, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_56, i32 55, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_57, i32 55, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_58, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_59, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_60, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_61, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_62, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_63, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_64, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_65, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_66, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_67, i32 66, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_68, i32 66, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_69, i32 66, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_70, i32 66, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_71, i32 66, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_72, i32 66, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_73, i32 72, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_74, i32 72, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_75, i32 72, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_76, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_77, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_78, i32 77, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_79, i32 77, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_80, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_81, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_82, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_83, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_84, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_85, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_86, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_87, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_88, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_89, i32 76, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_90, i32 76, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_91, i32 76, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_92, i32 76, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_93, i32 76, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_94, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_95, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_96, i32 76, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_97, i32 96, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_98, i32 76, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_99, i32 76, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_100, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_101, i32 100, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_102, i32 100, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_103, i32 102, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_104, i32 102, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_105, i32 102, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_106, i32 102, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_107, i32 102, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_108, i32 100, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_109, i32 100, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_110, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_111, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_112, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_113, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_114, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_115, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_116, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_117, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_118, i32 -1, i32 2, ptr null }, %struct.among { i32 5, ptr @s_3_119, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_120, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_121, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_122, i32 121, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_123, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_124, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_125, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_126, i32 125, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_127, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_128, i32 127, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_129, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_130, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_131, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_132, i32 131, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_133, i32 131, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_134, i32 131, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_135, i32 131, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_136, i32 131, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_137, i32 131, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_138, i32 137, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_139, i32 137, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_140, i32 137, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_141, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_142, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_143, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_144, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_145, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_146, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_147, i32 142, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_148, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_149, i32 148, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_150, i32 148, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_151, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_152, i32 142, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_153, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_154, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_155, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_156, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_157, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_158, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_159, i32 142, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_160, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_161, i32 142, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_162, i32 161, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_163, i32 161, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_164, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_165, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_166, i32 165, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_167, i32 142, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_168, i32 142, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_169, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_170, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_171, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_172, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_173, i32 172, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_174, i32 172, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_175, i32 172, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_176, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_177, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_178, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_179, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_180, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_181, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_182, i32 181, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_183, i32 181, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_184, i32 181, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_185, i32 181, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_186, i32 181, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_187, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_188, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_189, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_190, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_191, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_192, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_193, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_194, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_195, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_196, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_197, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_198, i32 197, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_199, i32 197, i32 1, ptr null }, %struct.among { i32 8, ptr @s_3_200, i32 197, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_201, i32 197, i32 1, ptr null }, %struct.among { i32 8, ptr @s_3_202, i32 201, i32 1, ptr null }, %struct.among { i32 8, ptr @s_3_203, i32 201, i32 1, ptr null }, %struct.among { i32 8, ptr @s_3_204, i32 201, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_205, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_206, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_207, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_208, i32 -1, i32 1, ptr null }, %struct.among { i32 8, ptr @s_3_209, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_210, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_211, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_212, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_213, i32 212, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_214, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_215, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_216, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_217, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_218, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_219, i32 218, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_220, i32 218, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_221, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_222, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_223, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_224, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_225, i32 224, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_226, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_227, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_228, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_229, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_230, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_231, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_232, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_233, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_234, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_235, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_236, i32 235, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_237, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_238, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_239, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_240, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_241, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_242, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_243, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_244, i32 -1, i32 1, ptr null }, %struct.among { i32 7, ptr @s_3_245, i32 244, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_246, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_247, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_248, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_249, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_250, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_251, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_252, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_253, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_254, i32 253, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_255, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_256, i32 255, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_257, i32 255, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_258, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_259, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_260, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_261, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_262, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_3_263, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_264, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_265, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_266, i32 265, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_267, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_268, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_269, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_270, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_271, i32 -1, i32 1, ptr null }, %struct.among { i32 5, ptr @s_3_272, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_273, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_274, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_275, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_276, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_277, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_278, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_3_279, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_3_280, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_281, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_282, i32 -1, i32 1, ptr null }], align 16
+@a_2 = internal constant [200 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_0, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_1, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_3, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_5, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_7, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_8, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_9, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_10, i32 9, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_11, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_12, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_13, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_17, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_18, i32 17, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_2_19, i32 18, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_20, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_21, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_22, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_23, i32 22, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_24, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_25, i32 24, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_26, i32 25, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_27, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_28, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_29, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_30, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_31, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_32, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_33, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_34, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_35, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_36, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_37, i32 36, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_38, i32 36, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_39, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_40, i32 39, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_41, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_42, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_43, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_44, i32 43, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_45, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_46, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_47, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_48, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_49, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_50, i32 49, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_51, i32 49, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_52, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_53, i32 52, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_54, i32 52, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_55, i32 52, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_56, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_57, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_58, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_59, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_60, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_61, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_62, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_63, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_64, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_65, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_66, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_67, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_68, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_69, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_70, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_71, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_72, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_73, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_74, i32 73, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_75, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_76, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_77, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_78, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_79, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_80, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_81, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_82, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_83, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_84, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_85, i32 84, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_86, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_87, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_88, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_89, i32 88, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_90, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_91, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_92, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_93, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_94, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_95, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_96, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_97, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_98, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_99, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_100, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_101, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_102, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_103, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_104, i32 103, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_105, i32 103, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_106, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_107, i32 106, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @s_2_108, i32 107, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_109, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_110, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_111, i32 110, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_112, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_113, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_114, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_115, i32 114, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_116, i32 115, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_117, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_118, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_119, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_120, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_121, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_122, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_123, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_124, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_125, i32 124, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_126, i32 124, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_127, i32 -1, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_2_128, i32 127, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_129, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_130, i32 129, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_131, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @s_2_132, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_133, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_134, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_135, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_136, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_137, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_138, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_139, i32 138, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_140, i32 138, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_141, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_142, i32 141, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_2_143, i32 142, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_144, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_145, i32 144, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_146, i32 145, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_147, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_148, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_149, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_150, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_151, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_152, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_153, i32 152, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_154, i32 153, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_155, i32 153, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_156, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_157, i32 156, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_158, i32 157, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_159, i32 157, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_2_160, i32 159, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_161, i32 156, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_162, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_163, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_164, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_165, i32 164, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_166, i32 165, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_167, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_168, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_169, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_170, i32 169, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_171, i32 169, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_172, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_173, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_174, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_175, i32 174, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_176, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_177, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_178, i32 177, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_179, i32 177, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_2_180, i32 179, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_181, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_182, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_183, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_184, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_185, i32 184, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_186, i32 184, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_187, i32 186, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_188, i32 187, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_189, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_190, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_191, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_192, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_193, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_194, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_195, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_2_196, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_2_197, i32 196, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_198, i32 197, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_199, i32 198, i32 1, ptr null }], align 16
 @s_3_0 = internal constant [3 x i8] c"aba", align 1
 @s_3_1 = internal constant [4 x i8] c"esca", align 1
 @s_3_2 = internal constant [4 x i8] c"isca", align 1
@@ -533,7 +531,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_3_280 = internal constant [2 x i8] c"\C3\AD", align 1
 @s_3_281 = internal constant [3 x i8] c"i\C3\AF", align 1
 @s_3_282 = internal constant [3 x i8] c"i\C3\B3", align 1
-@a_4 = internal constant [22 x %struct.among] [%struct.among { i32 1, ptr @s_4_0, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_4_1, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_4_2, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_4_3, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_4_4, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_5, i32 -1, i32 1, ptr null }, %struct.among { i32 1, ptr @s_4_6, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_7, i32 6, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_8, i32 6, i32 1, ptr null }, %struct.among { i32 3, ptr @s_4_9, i32 6, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_10, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_11, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_12, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_4_13, i32 -1, i32 2, ptr null }, %struct.among { i32 3, ptr @s_4_14, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_15, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_16, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_17, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_18, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_19, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_20, i32 -1, i32 1, ptr null }, %struct.among { i32 2, ptr @s_4_21, i32 -1, i32 1, ptr null }], align 16
+@a_3 = internal constant [283 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_5, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_7, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_8, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_9, i32 8, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_10, i32 8, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_11, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_12, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_13, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_17, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_18, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_19, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_20, i32 19, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_21, i32 19, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_22, i32 19, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_23, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_24, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_25, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_26, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_27, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_28, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_29, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_30, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_31, i32 30, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_32, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_33, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_34, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_35, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_36, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_37, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_38, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_39, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_40, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_41, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_42, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_43, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_44, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_45, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_46, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_47, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_48, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_49, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_50, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_51, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_52, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_53, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_54, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_55, i32 42, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_56, i32 55, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_57, i32 55, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_58, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_59, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_60, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_61, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_62, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_63, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_64, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_65, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_66, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_67, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_68, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_69, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_70, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_71, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_72, i32 66, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_73, i32 72, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_74, i32 72, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_75, i32 72, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_76, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_77, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_78, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_79, i32 77, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_80, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_81, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_82, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_83, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_84, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_85, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_86, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_87, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_88, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_89, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_90, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_91, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_92, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_93, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_94, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_95, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_96, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_97, i32 96, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_98, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_99, i32 76, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_100, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_101, i32 100, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_102, i32 100, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_103, i32 102, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_104, i32 102, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_105, i32 102, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_106, i32 102, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_107, i32 102, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_108, i32 100, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_109, i32 100, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_110, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_111, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_112, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_113, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_114, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_115, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_116, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_117, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_118, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_119, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_120, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_121, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_122, i32 121, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_123, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_124, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_125, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_126, i32 125, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_127, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_128, i32 127, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_129, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_130, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_131, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_132, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_133, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_134, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_135, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_136, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_137, i32 131, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_138, i32 137, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_139, i32 137, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_140, i32 137, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_141, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_142, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_143, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_144, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_145, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_146, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_147, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_148, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_149, i32 148, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_150, i32 148, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_151, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_152, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_153, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_154, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_155, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_156, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_157, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_158, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_159, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_160, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_161, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_162, i32 161, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_163, i32 161, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_164, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_165, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_166, i32 165, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_167, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_168, i32 142, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_169, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_170, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_171, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_172, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_173, i32 172, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_174, i32 172, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_175, i32 172, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_176, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_177, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_178, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_179, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_180, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_181, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_182, i32 181, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_183, i32 181, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_184, i32 181, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_185, i32 181, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_186, i32 181, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_187, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_188, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_189, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_190, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_191, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_192, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_193, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_194, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_195, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_196, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_197, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_198, i32 197, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_199, i32 197, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_3_200, i32 197, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_201, i32 197, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_3_202, i32 201, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_3_203, i32 201, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_3_204, i32 201, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_205, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_206, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_207, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_208, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @s_3_209, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_210, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_211, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_212, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_213, i32 212, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_214, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_215, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_216, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_217, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_218, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_219, i32 218, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_220, i32 218, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_221, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_222, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_223, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_224, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_225, i32 224, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_226, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_227, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_228, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_229, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_230, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_231, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_232, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_233, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_234, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_235, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_236, i32 235, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_237, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_238, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_239, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_240, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_241, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_242, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_243, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_244, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_3_245, i32 244, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_246, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_247, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_248, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_249, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_250, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_251, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_252, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_253, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_254, i32 253, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_255, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_256, i32 255, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_257, i32 255, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_258, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_259, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_260, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_261, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_262, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_3_263, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_264, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_265, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_266, i32 265, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_267, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_268, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_269, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_270, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_271, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_3_272, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_273, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_274, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_275, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_276, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_277, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_278, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_3_279, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_280, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_281, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_282, i32 -1, i32 1, ptr null }], align 16
 @s_9 = internal constant [2 x i8] c"ic", align 1
 @s_4_0 = internal constant [1 x i8] c"a", align 1
 @s_4_1 = internal constant [1 x i8] c"e", align 1
@@ -557,7 +555,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_4_19 = internal constant [2 x i8] c"\C3\AD", align 1
 @s_4_20 = internal constant [2 x i8] c"\C3\AF", align 1
 @s_4_21 = internal constant [2 x i8] c"\C3\B3", align 1
-@a_0 = internal constant [13 x %struct.among] [%struct.among { i32 0, ptr null, i32 -1, i32 7, ptr null }, %struct.among { i32 2, ptr @s_0_1, i32 0, i32 6, ptr null }, %struct.among { i32 2, ptr @s_0_2, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_3, i32 0, i32 1, ptr null }, %struct.among { i32 2, ptr @s_0_4, i32 0, i32 2, ptr null }, %struct.among { i32 2, ptr @s_0_5, i32 0, i32 2, ptr null }, %struct.among { i32 2, ptr @s_0_6, i32 0, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_7, i32 0, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_8, i32 0, i32 3, ptr null }, %struct.among { i32 2, ptr @s_0_9, i32 0, i32 4, ptr null }, %struct.among { i32 2, ptr @s_0_10, i32 0, i32 4, ptr null }, %struct.among { i32 2, ptr @s_0_11, i32 0, i32 5, ptr null }, %struct.among { i32 2, ptr @s_0_12, i32 0, i32 5, ptr null }], align 16
+@a_4 = internal constant [22 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_4_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_4_1, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_4_2, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_3, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_4_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_5, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_4_6, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_7, i32 6, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_8, i32 6, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_9, i32 6, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_10, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_11, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_12, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_13, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_4_14, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_15, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_16, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_17, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_18, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_19, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_20, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_21, i32 -1, i32 1, ptr null }], align 16
 @s_0 = internal constant [1 x i8] c"a", align 1
 @s_1 = internal constant [1 x i8] c"e", align 1
 @s_2 = internal constant [1 x i8] c"i", align 1
@@ -576,6 +574,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_0_10 = internal constant [2 x i8] c"\C3\B3", align 1
 @s_0_11 = internal constant [2 x i8] c"\C3\BA", align 1
 @s_0_12 = internal constant [2 x i8] c"\C3\BC", align 1
+@a_0 = internal constant [13 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, i32 -1, i32 7, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_1, i32 0, i32 6, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_2, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_3, i32 0, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_4, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_5, i32 0, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_6, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_7, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_8, i32 0, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_9, i32 0, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_10, i32 0, i32 4, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_11, i32 0, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_12, i32 0, i32 5, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @catalan_UTF_8_stem(ptr noundef %0) #0 {
@@ -592,207 +591,363 @@ define hidden i32 @catalan_UTF_8_stem(ptr noundef %0) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = call i32 @r_mark_regions(ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %16 = load ptr, ptr %3, align 8
+  %17 = call i32 @r_mark_regions(ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  %18 = load i32, ptr %4, align 4
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %22
 
-19:                                               ; preds = %1
-  %20 = load i32, ptr %4, align 4
-  store i32 %20, ptr %2, align 4
-  br label %145
+20:                                               ; preds = %1
+  %21 = load i32, ptr %4, align 4
+  store i32 %21, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %23
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.SN_env, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.SN_env, ptr %25, i32 0, i32 3
-  store i32 %24, ptr %26, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.SN_env, ptr %27, i32 0, i32 2
-  %29 = load i32, ptr %28, align 4
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.SN_env, ptr %30, i32 0, i32 1
-  store i32 %29, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.SN_env, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.SN_env, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = sub i32 %34, %37
-  store i32 %38, ptr %5, align 4
+22:                                               ; preds = %1
+  store i32 0, ptr %5, align 4
+  br label %23
+
+23:                                               ; preds = %22, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %24 = load i32, ptr %5, align 4
+  switch i32 %24, label %181 [
+    i32 0, label %25
+    i32 1, label %179
+  ]
+
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.SN_env, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.SN_env, ptr %29, i32 0, i32 3
+  store i32 %28, ptr %30, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.SN_env, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %32, align 4
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.SN_env, ptr %34, i32 0, i32 1
+  store i32 %33, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.SN_env, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %3, align 8
-  %40 = call i32 @r_attached_pronoun(ptr noundef %39)
-  store i32 %40, ptr %6, align 4
-  %41 = load i32, ptr %6, align 4
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %45
+  %40 = getelementptr inbounds nuw %struct.SN_env, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = sub i32 %38, %41
+  store i32 %42, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %43 = load ptr, ptr %3, align 8
+  %44 = call i32 @r_attached_pronoun(ptr noundef %43)
+  store i32 %44, ptr %7, align 4
+  %45 = load i32, ptr %7, align 4
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %49
 
-43:                                               ; preds = %21
-  %44 = load i32, ptr %6, align 4
-  store i32 %44, ptr %2, align 4
-  br label %145
+47:                                               ; preds = %25
+  %48 = load i32, ptr %7, align 4
+  store i32 %48, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %50
 
-45:                                               ; preds = %21
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.SN_env, ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 4
-  %49 = load i32, ptr %5, align 4
-  %50 = sub i32 %48, %49
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.SN_env, ptr %51, i32 0, i32 1
-  store i32 %50, ptr %52, align 8
+49:                                               ; preds = %25
+  store i32 0, ptr %5, align 4
+  br label %50
+
+50:                                               ; preds = %49, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %51 = load i32, ptr %5, align 4
+  switch i32 %51, label %60 [
+    i32 0, label %52
+  ]
+
+52:                                               ; preds = %50
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.SN_env, ptr %53, i32 0, i32 2
+  %54 = getelementptr inbounds nuw %struct.SN_env, ptr %53, i32 0, i32 2
   %55 = load i32, ptr %54, align 4
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.SN_env, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = sub i32 %55, %58
-  store i32 %59, ptr %7, align 4
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.SN_env, ptr %60, i32 0, i32 2
-  %62 = load i32, ptr %61, align 4
+  %56 = load i32, ptr %6, align 4
+  %57 = sub i32 %55, %56
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.SN_env, ptr %58, i32 0, i32 1
+  store i32 %57, ptr %59, align 8
+  store i32 0, ptr %5, align 4
+  br label %60
+
+60:                                               ; preds = %52, %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %61 = load i32, ptr %5, align 4
+  switch i32 %61, label %181 [
+    i32 0, label %62
+    i32 1, label %179
+  ]
+
+62:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.SN_env, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = sub i32 %62, %65
-  store i32 %66, ptr %8, align 4
-  %67 = load ptr, ptr %3, align 8
-  %68 = call i32 @r_standard_suffix(ptr noundef %67)
-  store i32 %68, ptr %9, align 4
-  %69 = load i32, ptr %9, align 4
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %72
+  %64 = getelementptr inbounds nuw %struct.SN_env, ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 4
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw %struct.SN_env, ptr %66, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = sub i32 %65, %68
+  store i32 %69, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.SN_env, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 4
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.SN_env, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = sub i32 %72, %75
+  store i32 %76, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %77 = load ptr, ptr %3, align 8
+  %78 = call i32 @r_standard_suffix(ptr noundef %77)
+  store i32 %78, ptr %10, align 4
+  %79 = load i32, ptr %10, align 4
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
 
-71:                                               ; preds = %45
-  br label %78
+81:                                               ; preds = %62
+  store i32 2, ptr %5, align 4
+  br label %88
 
-72:                                               ; preds = %45
-  %73 = load i32, ptr %9, align 4
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %75, label %77
+82:                                               ; preds = %62
+  %83 = load i32, ptr %10, align 4
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %87
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %9, align 4
-  store i32 %76, ptr %2, align 4
-  br label %145
+85:                                               ; preds = %82
+  %86 = load i32, ptr %10, align 4
+  store i32 %86, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %88
 
-77:                                               ; preds = %72
-  br label %97
+87:                                               ; preds = %82
+  store i32 0, ptr %5, align 4
+  br label %88
 
-78:                                               ; preds = %71
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.SN_env, ptr %79, i32 0, i32 2
-  %81 = load i32, ptr %80, align 4
-  %82 = load i32, ptr %8, align 4
-  %83 = sub i32 %81, %82
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.SN_env, ptr %84, i32 0, i32 1
-  store i32 %83, ptr %85, align 8
-  %86 = load ptr, ptr %3, align 8
-  %87 = call i32 @r_verb_suffix(ptr noundef %86)
-  store i32 %87, ptr %10, align 4
-  %88 = load i32, ptr %10, align 4
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %91
+88:                                               ; preds = %81, %87, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %89 = load i32, ptr %5, align 4
+  switch i32 %89, label %113 [
+    i32 0, label %90
+    i32 2, label %91
+  ]
 
-90:                                               ; preds = %78
-  br label %98
+90:                                               ; preds = %88
+  store i32 3, ptr %5, align 4
+  br label %113
 
-91:                                               ; preds = %78
-  %92 = load i32, ptr %10, align 4
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %94, label %96
-
-94:                                               ; preds = %91
-  %95 = load i32, ptr %10, align 4
-  store i32 %95, ptr %2, align 4
-  br label %145
-
-96:                                               ; preds = %91
-  br label %97
-
-97:                                               ; preds = %96, %77
-  br label %98
-
-98:                                               ; preds = %97, %90
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.SN_env, ptr %92, i32 0, i32 2
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %9, align 4
+  %96 = sub i32 %94, %95
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds nuw %struct.SN_env, ptr %97, i32 0, i32 1
+  store i32 %96, ptr %98, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.SN_env, ptr %99, i32 0, i32 2
-  %101 = load i32, ptr %100, align 4
-  %102 = load i32, ptr %7, align 4
-  %103 = sub i32 %101, %102
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.SN_env, ptr %104, i32 0, i32 1
-  store i32 %103, ptr %105, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.SN_env, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 4
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.SN_env, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 8
-  %112 = sub i32 %108, %111
-  store i32 %112, ptr %11, align 4
-  %113 = load ptr, ptr %3, align 8
-  %114 = call i32 @r_residual_suffix(ptr noundef %113)
-  store i32 %114, ptr %12, align 4
-  %115 = load i32, ptr %12, align 4
-  %116 = icmp slt i32 %115, 0
-  br i1 %116, label %117, label %119
+  %100 = call i32 @r_verb_suffix(ptr noundef %99)
+  store i32 %100, ptr %11, align 4
+  %101 = load i32, ptr %11, align 4
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-117:                                              ; preds = %98
-  %118 = load i32, ptr %12, align 4
-  store i32 %118, ptr %2, align 4
-  br label %145
+103:                                              ; preds = %91
+  store i32 4, ptr %5, align 4
+  br label %110
 
-119:                                              ; preds = %98
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.SN_env, ptr %120, i32 0, i32 2
-  %122 = load i32, ptr %121, align 4
-  %123 = load i32, ptr %11, align 4
-  %124 = sub i32 %122, %123
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct.SN_env, ptr %125, i32 0, i32 1
-  store i32 %124, ptr %126, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.SN_env, ptr %127, i32 0, i32 3
-  %129 = load i32, ptr %128, align 8
-  %130 = load ptr, ptr %3, align 8
-  %131 = getelementptr inbounds %struct.SN_env, ptr %130, i32 0, i32 1
-  store i32 %129, ptr %131, align 8
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.SN_env, ptr %132, i32 0, i32 1
-  %134 = load i32, ptr %133, align 8
-  store i32 %134, ptr %13, align 4
+104:                                              ; preds = %91
+  %105 = load i32, ptr %11, align 4
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %107, label %109
+
+107:                                              ; preds = %104
+  %108 = load i32, ptr %11, align 4
+  store i32 %108, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %110
+
+109:                                              ; preds = %104
+  store i32 0, ptr %5, align 4
+  br label %110
+
+110:                                              ; preds = %103, %109, %107
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %111 = load i32, ptr %5, align 4
+  switch i32 %111, label %113 [
+    i32 0, label %112
+  ]
+
+112:                                              ; preds = %110
+  store i32 0, ptr %5, align 4
+  br label %113
+
+113:                                              ; preds = %90, %112, %110, %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %114 = load i32, ptr %5, align 4
+  switch i32 %114, label %125 [
+    i32 0, label %115
+    i32 3, label %116
+    i32 4, label %117
+  ]
+
+115:                                              ; preds = %113
+  br label %116
+
+116:                                              ; preds = %115, %113
+  br label %117
+
+117:                                              ; preds = %116, %113
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds nuw %struct.SN_env, ptr %118, i32 0, i32 2
+  %120 = load i32, ptr %119, align 4
+  %121 = load i32, ptr %8, align 4
+  %122 = sub i32 %120, %121
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds nuw %struct.SN_env, ptr %123, i32 0, i32 1
+  store i32 %122, ptr %124, align 8
+  store i32 0, ptr %5, align 4
+  br label %125
+
+125:                                              ; preds = %117, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %126 = load i32, ptr %5, align 4
+  switch i32 %126, label %181 [
+    i32 0, label %127
+    i32 1, label %179
+  ]
+
+127:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %128 = load ptr, ptr %3, align 8
+  %129 = getelementptr inbounds nuw %struct.SN_env, ptr %128, i32 0, i32 2
+  %130 = load i32, ptr %129, align 4
+  %131 = load ptr, ptr %3, align 8
+  %132 = getelementptr inbounds nuw %struct.SN_env, ptr %131, i32 0, i32 1
+  %133 = load i32, ptr %132, align 8
+  %134 = sub i32 %130, %133
+  store i32 %134, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %135 = load ptr, ptr %3, align 8
-  %136 = call i32 @r_cleaning(ptr noundef %135)
-  store i32 %136, ptr %14, align 4
-  %137 = load i32, ptr %14, align 4
+  %136 = call i32 @r_residual_suffix(ptr noundef %135)
+  store i32 %136, ptr %13, align 4
+  %137 = load i32, ptr %13, align 4
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %141
 
-139:                                              ; preds = %119
-  %140 = load i32, ptr %14, align 4
+139:                                              ; preds = %127
+  %140 = load i32, ptr %13, align 4
   store i32 %140, ptr %2, align 4
-  br label %145
+  store i32 1, ptr %5, align 4
+  br label %142
 
-141:                                              ; preds = %119
-  %142 = load i32, ptr %13, align 4
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.SN_env, ptr %143, i32 0, i32 1
-  store i32 %142, ptr %144, align 8
+141:                                              ; preds = %127
+  store i32 0, ptr %5, align 4
+  br label %142
+
+142:                                              ; preds = %141, %139
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %143 = load i32, ptr %5, align 4
+  switch i32 %143, label %152 [
+    i32 0, label %144
+  ]
+
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds nuw %struct.SN_env, ptr %145, i32 0, i32 2
+  %147 = load i32, ptr %146, align 4
+  %148 = load i32, ptr %12, align 4
+  %149 = sub i32 %147, %148
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds nuw %struct.SN_env, ptr %150, i32 0, i32 1
+  store i32 %149, ptr %151, align 8
+  store i32 0, ptr %5, align 4
+  br label %152
+
+152:                                              ; preds = %144, %142
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %153 = load i32, ptr %5, align 4
+  switch i32 %153, label %181 [
+    i32 0, label %154
+    i32 1, label %179
+  ]
+
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds nuw %struct.SN_env, ptr %155, i32 0, i32 3
+  %157 = load i32, ptr %156, align 8
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds nuw %struct.SN_env, ptr %158, i32 0, i32 1
+  store i32 %157, ptr %159, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %160 = load ptr, ptr %3, align 8
+  %161 = getelementptr inbounds nuw %struct.SN_env, ptr %160, i32 0, i32 1
+  %162 = load i32, ptr %161, align 8
+  store i32 %162, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %163 = load ptr, ptr %3, align 8
+  %164 = call i32 @r_cleaning(ptr noundef %163)
+  store i32 %164, ptr %15, align 4
+  %165 = load i32, ptr %15, align 4
+  %166 = icmp slt i32 %165, 0
+  br i1 %166, label %167, label %169
+
+167:                                              ; preds = %154
+  %168 = load i32, ptr %15, align 4
+  store i32 %168, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %170
+
+169:                                              ; preds = %154
+  store i32 0, ptr %5, align 4
+  br label %170
+
+170:                                              ; preds = %169, %167
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  %171 = load i32, ptr %5, align 4
+  switch i32 %171, label %176 [
+    i32 0, label %172
+  ]
+
+172:                                              ; preds = %170
+  %173 = load i32, ptr %14, align 4
+  %174 = load ptr, ptr %3, align 8
+  %175 = getelementptr inbounds nuw %struct.SN_env, ptr %174, i32 0, i32 1
+  store i32 %173, ptr %175, align 8
+  store i32 0, ptr %5, align 4
+  br label %176
+
+176:                                              ; preds = %172, %170
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %177 = load i32, ptr %5, align 4
+  switch i32 %177, label %181 [
+    i32 0, label %178
+    i32 1, label %179
+  ]
+
+178:                                              ; preds = %176
   store i32 1, ptr %2, align 4
-  br label %145
+  br label %179
 
-145:                                              ; preds = %141, %139, %117, %94, %75, %43, %19
-  %146 = load i32, ptr %2, align 4
-  ret i32 %146
+179:                                              ; preds = %178, %176, %152, %125, %60, %23
+  %180 = load i32, ptr %2, align 4
+  ret i32 %180
+
+181:                                              ; preds = %176, %152, %125, %60, %23
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_mark_regions(ptr noundef %0) #0 {
@@ -802,120 +957,185 @@ define internal i32 @r_mark_regions(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.SN_env, ptr %8, i32 0, i32 2
-  %10 = load i32, ptr %9, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.SN_env, ptr %11, i32 0, i32 7
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i32, ptr %13, i64 1
-  store i32 %10, ptr %14, align 4
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.SN_env, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 4
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.SN_env, ptr %18, i32 0, i32 7
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i32, ptr %20, i64 0
-  store i32 %17, ptr %21, align 4
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.SN_env, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr %3, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = call i32 @out_grouping_U(ptr noundef %25, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
-  store i32 %26, ptr %4, align 4
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %1
-  br label %83
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %10, align 4
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.SN_env, ptr %12, i32 0, i32 7
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i32, ptr %14, i64 1
+  store i32 %11, ptr %15, align 4
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 4
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.SN_env, ptr %19, i32 0, i32 7
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i32, ptr %21, i64 0
+  store i32 %18, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.SN_env, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %26 = load ptr, ptr %2, align 8
+  %27 = call i32 @out_grouping_U(ptr noundef %26, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
+  store i32 %27, ptr %4, align 4
+  %28 = load i32, ptr %4, align 4
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %1
-  %31 = load i32, ptr %4, align 4
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.SN_env, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = add i32 %34, %31
-  store i32 %35, ptr %33, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = call i32 @in_grouping_U(ptr noundef %36, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
-  store i32 %37, ptr %5, align 4
+  store i32 2, ptr %5, align 4
+  br label %37
+
+31:                                               ; preds = %1
+  %32 = load i32, ptr %4, align 4
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw %struct.SN_env, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = add i32 %35, %32
+  store i32 %36, ptr %34, align 8
+  store i32 0, ptr %5, align 4
+  br label %37
+
+37:                                               ; preds = %30, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
   %38 = load i32, ptr %5, align 4
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %41
+  switch i32 %38, label %100 [
+    i32 0, label %39
+    i32 2, label %96
+  ]
 
-40:                                               ; preds = %30
-  br label %83
+39:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %40 = load ptr, ptr %2, align 8
+  %41 = call i32 @in_grouping_U(ptr noundef %40, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
+  store i32 %41, ptr %6, align 4
+  %42 = load i32, ptr %6, align 4
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %45
 
-41:                                               ; preds = %30
-  %42 = load i32, ptr %5, align 4
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.SN_env, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = add i32 %45, %42
-  store i32 %46, ptr %44, align 8
+44:                                               ; preds = %39
+  store i32 2, ptr %5, align 4
+  br label %51
+
+45:                                               ; preds = %39
+  %46 = load i32, ptr %6, align 4
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.SN_env, ptr %47, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.SN_env, ptr %47, i32 0, i32 1
   %49 = load i32, ptr %48, align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.SN_env, ptr %50, i32 0, i32 7
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr i32, ptr %52, i64 1
-  store i32 %49, ptr %53, align 4
+  %50 = add i32 %49, %46
+  store i32 %50, ptr %48, align 8
+  store i32 0, ptr %5, align 4
+  br label %51
+
+51:                                               ; preds = %44, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %52 = load i32, ptr %5, align 4
+  switch i32 %52, label %100 [
+    i32 0, label %53
+    i32 2, label %96
+  ]
+
+53:                                               ; preds = %51
   %54 = load ptr, ptr %2, align 8
-  %55 = call i32 @out_grouping_U(ptr noundef %54, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
-  store i32 %55, ptr %6, align 4
-  %56 = load i32, ptr %6, align 4
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %41
-  br label %83
-
-59:                                               ; preds = %41
-  %60 = load i32, ptr %6, align 4
+  %55 = getelementptr inbounds nuw %struct.SN_env, ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %55, align 8
+  %57 = load ptr, ptr %2, align 8
+  %58 = getelementptr inbounds nuw %struct.SN_env, ptr %57, i32 0, i32 7
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i32, ptr %59, i64 1
+  store i32 %56, ptr %60, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.SN_env, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 8
-  %64 = add i32 %63, %60
-  store i32 %64, ptr %62, align 8
-  %65 = load ptr, ptr %2, align 8
-  %66 = call i32 @in_grouping_U(ptr noundef %65, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
-  store i32 %66, ptr %7, align 4
+  %62 = call i32 @out_grouping_U(ptr noundef %61, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
+  store i32 %62, ptr %7, align 4
+  %63 = load i32, ptr %7, align 4
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %53
+  store i32 2, ptr %5, align 4
+  br label %72
+
+66:                                               ; preds = %53
   %67 = load i32, ptr %7, align 4
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %70
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw %struct.SN_env, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, %67
+  store i32 %71, ptr %69, align 8
+  store i32 0, ptr %5, align 4
+  br label %72
 
-69:                                               ; preds = %59
-  br label %83
+72:                                               ; preds = %65, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %73 = load i32, ptr %5, align 4
+  switch i32 %73, label %100 [
+    i32 0, label %74
+    i32 2, label %96
+  ]
 
-70:                                               ; preds = %59
-  %71 = load i32, ptr %7, align 4
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.SN_env, ptr %72, i32 0, i32 1
-  %74 = load i32, ptr %73, align 8
-  %75 = add i32 %74, %71
-  store i32 %75, ptr %73, align 8
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.SN_env, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.SN_env, ptr %79, i32 0, i32 7
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr i32, ptr %81, i64 0
-  store i32 %78, ptr %82, align 4
-  br label %83
+74:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %75 = load ptr, ptr %2, align 8
+  %76 = call i32 @in_grouping_U(ptr noundef %75, ptr noundef @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1)
+  store i32 %76, ptr %8, align 4
+  %77 = load i32, ptr %8, align 4
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %79, label %80
 
-83:                                               ; preds = %70, %69, %58, %40, %29
-  %84 = load i32, ptr %3, align 4
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.SN_env, ptr %85, i32 0, i32 1
-  store i32 %84, ptr %86, align 8
+79:                                               ; preds = %74
+  store i32 2, ptr %5, align 4
+  br label %86
+
+80:                                               ; preds = %74
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %2, align 8
+  %83 = getelementptr inbounds nuw %struct.SN_env, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, %81
+  store i32 %85, ptr %83, align 8
+  store i32 0, ptr %5, align 4
+  br label %86
+
+86:                                               ; preds = %79, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %87 = load i32, ptr %5, align 4
+  switch i32 %87, label %100 [
+    i32 0, label %88
+    i32 2, label %96
+  ]
+
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds nuw %struct.SN_env, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds nuw %struct.SN_env, ptr %92, i32 0, i32 7
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i32, ptr %94, i64 0
+  store i32 %91, ptr %95, align 4
+  br label %96
+
+96:                                               ; preds = %88, %86, %72, %51, %37
+  %97 = load i32, ptr %3, align 4
+  %98 = load ptr, ptr %2, align 8
+  %99 = getelementptr inbounds nuw %struct.SN_env, ptr %98, i32 0, i32 1
+  store i32 %97, ptr %99, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i32 1
+
+100:                                              ; preds = %37, %51, %72, %86
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_attached_pronoun(ptr noundef %0) #0 {
@@ -923,110 +1143,142 @@ define internal i32 @r_attached_pronoun(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.SN_env, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 5
-  store i32 %8, ptr %10, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.SN_env, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sub i32 %13, 1
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.SN_env, ptr %15, i32 0, i32 3
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp sle i32 %14, %17
-  br i1 %18, label %49, label %19
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.SN_env, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.SN_env, ptr %10, i32 0, i32 5
+  store i32 %9, ptr %11, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.SN_env, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sub i32 %14, 1
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp sle i32 %15, %18
+  br i1 %19, label %50, label %20
 
-19:                                               ; preds = %1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SN_env, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.SN_env, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 8
-  %26 = sub i32 %25, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr i8, ptr %22, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = ashr i32 %30, 5
-  %32 = icmp ne i32 %31, 3
-  br i1 %32, label %49, label %33
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.SN_env, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.SN_env, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = sub i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %23, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = ashr i32 %31, 5
+  %33 = icmp ne i32 %32, 3
+  br i1 %33, label %50, label %34
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.SN_env, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.SN_env, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = sub i32 %39, 1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr i8, ptr %36, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = and i32 %44, 31
-  %46 = ashr i32 1634850, %45
-  %47 = and i32 %46, 1
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %50, label %49
+34:                                               ; preds = %20
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds nuw %struct.SN_env, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.SN_env, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = sub i32 %40, 1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %37, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = and i32 %45, 31
+  %47 = ashr i32 1634850, %46
+  %48 = and i32 %47, 1
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %51, label %50
 
-49:                                               ; preds = %33, %19, %1
+50:                                               ; preds = %34, %20, %1
   store i32 0, ptr %2, align 4
-  br label %75
+  br label %82
 
-50:                                               ; preds = %33
-  %51 = load ptr, ptr %3, align 8
-  %52 = call i32 @find_among_b(ptr noundef %51, ptr noundef @a_1, i32 noundef 39)
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %55, label %54
+51:                                               ; preds = %34
+  %52 = load ptr, ptr %3, align 8
+  %53 = call i32 @find_among_b(ptr noundef %52, ptr noundef @a_1, i32 noundef 39)
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %56, label %55
 
-54:                                               ; preds = %50
+55:                                               ; preds = %51
   store i32 0, ptr %2, align 4
-  br label %75
+  br label %82
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.SN_env, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.SN_env, ptr %59, i32 0, i32 4
-  store i32 %58, ptr %60, align 4
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 @r_R1(ptr noundef %61)
-  store i32 %62, ptr %4, align 4
-  %63 = load i32, ptr %4, align 4
-  %64 = icmp sle i32 %63, 0
-  br i1 %64, label %65, label %67
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.SN_env, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.SN_env, ptr %60, i32 0, i32 4
+  store i32 %59, ptr %61, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %62 = load ptr, ptr %3, align 8
+  %63 = call i32 @r_R1(ptr noundef %62)
+  store i32 %63, ptr %4, align 4
+  %64 = load i32, ptr %4, align 4
+  %65 = icmp sle i32 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %55
-  %66 = load i32, ptr %4, align 4
-  store i32 %66, ptr %2, align 4
-  br label %75
+66:                                               ; preds = %56
+  %67 = load i32, ptr %4, align 4
+  store i32 %67, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %69
 
-67:                                               ; preds = %55
-  %68 = load ptr, ptr %3, align 8
-  %69 = call i32 @slice_del(ptr noundef %68)
-  store i32 %69, ptr %5, align 4
+68:                                               ; preds = %56
+  store i32 0, ptr %5, align 4
+  br label %69
+
+69:                                               ; preds = %68, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
   %70 = load i32, ptr %5, align 4
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %74
+  switch i32 %70, label %84 [
+    i32 0, label %71
+    i32 1, label %82
+  ]
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr %5, align 4
-  store i32 %73, ptr %2, align 4
-  br label %75
+71:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %72 = load ptr, ptr %3, align 8
+  %73 = call i32 @slice_del(ptr noundef %72)
+  store i32 %73, ptr %6, align 4
+  %74 = load i32, ptr %6, align 4
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %67
+76:                                               ; preds = %71
+  %77 = load i32, ptr %6, align 4
+  store i32 %77, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %79
+
+78:                                               ; preds = %71
+  store i32 0, ptr %5, align 4
+  br label %79
+
+79:                                               ; preds = %78, %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %80 = load i32, ptr %5, align 4
+  switch i32 %80, label %84 [
+    i32 0, label %81
+    i32 1, label %82
+  ]
+
+81:                                               ; preds = %79
   store i32 1, ptr %2, align 4
-  br label %75
+  br label %82
 
-75:                                               ; preds = %74, %72, %65, %54, %49
-  %76 = load i32, ptr %2, align 4
-  ret i32 %76
+82:                                               ; preds = %81, %79, %69, %55, %50
+  %83 = load i32, ptr %2, align 4
+  ret i32 %83
+
+84:                                               ; preds = %79, %69
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1044,192 +1296,327 @@ define internal i32 @r_standard_suffix(ptr noundef %0) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.SN_env, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SN_env, ptr %18, i32 0, i32 5
-  store i32 %17, ptr %19, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = call i32 @find_among_b(ptr noundef %20, ptr noundef @a_2, i32 noundef 200)
-  store i32 %21, ptr %4, align 4
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %25, label %24
-
-24:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.SN_env, ptr %19, i32 0, i32 5
+  store i32 %18, ptr %20, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = call i32 @find_among_b(ptr noundef %21, ptr noundef @a_2, i32 noundef 200)
+  store i32 %22, ptr %4, align 4
+  %23 = load i32, ptr %4, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %26, label %25
 
 25:                                               ; preds = %1
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.SN_env, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.SN_env, ptr %29, i32 0, i32 4
-  store i32 %28, ptr %30, align 4
-  %31 = load i32, ptr %4, align 4
-  switch i32 %31, label %107 [
-    i32 1, label %32
-    i32 2, label %47
-    i32 3, label %62
-    i32 4, label %77
-    i32 5, label %92
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %139
+
+26:                                               ; preds = %1
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.SN_env, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.SN_env, ptr %30, i32 0, i32 4
+  store i32 %29, ptr %31, align 4
+  %32 = load i32, ptr %4, align 4
+  switch i32 %32, label %138 [
+    i32 1, label %33
+    i32 2, label %54
+    i32 3, label %75
+    i32 4, label %96
+    i32 5, label %117
   ]
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %3, align 8
-  %34 = call i32 @r_R1(ptr noundef %33)
-  store i32 %34, ptr %5, align 4
-  %35 = load i32, ptr %5, align 4
-  %36 = icmp sle i32 %35, 0
-  br i1 %36, label %37, label %39
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %34 = load ptr, ptr %3, align 8
+  %35 = call i32 @r_R1(ptr noundef %34)
+  store i32 %35, ptr %6, align 4
+  %36 = load i32, ptr %6, align 4
+  %37 = icmp sle i32 %36, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %5, align 4
-  store i32 %38, ptr %2, align 4
-  br label %108
+38:                                               ; preds = %33
+  %39 = load i32, ptr %6, align 4
+  store i32 %39, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %41
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %3, align 8
-  %41 = call i32 @slice_del(ptr noundef %40)
-  store i32 %41, ptr %6, align 4
-  %42 = load i32, ptr %6, align 4
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %46
+40:                                               ; preds = %33
+  store i32 0, ptr %5, align 4
+  br label %41
 
-44:                                               ; preds = %39
-  %45 = load i32, ptr %6, align 4
-  store i32 %45, ptr %2, align 4
-  br label %108
+41:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %42 = load i32, ptr %5, align 4
+  switch i32 %42, label %139 [
+    i32 0, label %43
+  ]
 
-46:                                               ; preds = %39
-  br label %107
+43:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %44 = load ptr, ptr %3, align 8
+  %45 = call i32 @slice_del(ptr noundef %44)
+  store i32 %45, ptr %7, align 4
+  %46 = load i32, ptr %7, align 4
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %25
-  %48 = load ptr, ptr %3, align 8
-  %49 = call i32 @r_R2(ptr noundef %48)
-  store i32 %49, ptr %7, align 4
-  %50 = load i32, ptr %7, align 4
-  %51 = icmp sle i32 %50, 0
-  br i1 %51, label %52, label %54
+48:                                               ; preds = %43
+  %49 = load i32, ptr %7, align 4
+  store i32 %49, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %51
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %7, align 4
-  store i32 %53, ptr %2, align 4
-  br label %108
+50:                                               ; preds = %43
+  store i32 0, ptr %5, align 4
+  br label %51
 
-54:                                               ; preds = %47
+51:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %52 = load i32, ptr %5, align 4
+  switch i32 %52, label %139 [
+    i32 0, label %53
+  ]
+
+53:                                               ; preds = %51
+  br label %138
+
+54:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   %55 = load ptr, ptr %3, align 8
-  %56 = call i32 @slice_del(ptr noundef %55)
+  %56 = call i32 @r_R2(ptr noundef %55)
   store i32 %56, ptr %8, align 4
   %57 = load i32, ptr %8, align 4
-  %58 = icmp slt i32 %57, 0
+  %58 = icmp sle i32 %57, 0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %8, align 4
   store i32 %60, ptr %2, align 4
-  br label %108
+  store i32 1, ptr %5, align 4
+  br label %62
 
 61:                                               ; preds = %54
-  br label %107
+  store i32 0, ptr %5, align 4
+  br label %62
 
-62:                                               ; preds = %25
-  %63 = load ptr, ptr %3, align 8
-  %64 = call i32 @r_R2(ptr noundef %63)
-  store i32 %64, ptr %9, align 4
-  %65 = load i32, ptr %9, align 4
-  %66 = icmp sle i32 %65, 0
-  br i1 %66, label %67, label %69
+62:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %63 = load i32, ptr %5, align 4
+  switch i32 %63, label %139 [
+    i32 0, label %64
+  ]
 
-67:                                               ; preds = %62
-  %68 = load i32, ptr %9, align 4
-  store i32 %68, ptr %2, align 4
-  br label %108
+64:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %65 = load ptr, ptr %3, align 8
+  %66 = call i32 @slice_del(ptr noundef %65)
+  store i32 %66, ptr %9, align 4
+  %67 = load i32, ptr %9, align 4
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %69, label %71
 
-69:                                               ; preds = %62
-  %70 = load ptr, ptr %3, align 8
-  %71 = call i32 @slice_from_s(ptr noundef %70, i32 noundef 3, ptr noundef @s_6)
-  store i32 %71, ptr %10, align 4
-  %72 = load i32, ptr %10, align 4
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %76
+69:                                               ; preds = %64
+  %70 = load i32, ptr %9, align 4
+  store i32 %70, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %72
 
-74:                                               ; preds = %69
-  %75 = load i32, ptr %10, align 4
-  store i32 %75, ptr %2, align 4
-  br label %108
+71:                                               ; preds = %64
+  store i32 0, ptr %5, align 4
+  br label %72
 
-76:                                               ; preds = %69
-  br label %107
+72:                                               ; preds = %71, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %73 = load i32, ptr %5, align 4
+  switch i32 %73, label %139 [
+    i32 0, label %74
+  ]
 
-77:                                               ; preds = %25
-  %78 = load ptr, ptr %3, align 8
-  %79 = call i32 @r_R2(ptr noundef %78)
-  store i32 %79, ptr %11, align 4
-  %80 = load i32, ptr %11, align 4
-  %81 = icmp sle i32 %80, 0
-  br i1 %81, label %82, label %84
+74:                                               ; preds = %72
+  br label %138
 
-82:                                               ; preds = %77
-  %83 = load i32, ptr %11, align 4
-  store i32 %83, ptr %2, align 4
-  br label %108
+75:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %76 = load ptr, ptr %3, align 8
+  %77 = call i32 @r_R2(ptr noundef %76)
+  store i32 %77, ptr %10, align 4
+  %78 = load i32, ptr %10, align 4
+  %79 = icmp sle i32 %78, 0
+  br i1 %79, label %80, label %82
 
-84:                                               ; preds = %77
-  %85 = load ptr, ptr %3, align 8
-  %86 = call i32 @slice_from_s(ptr noundef %85, i32 noundef 2, ptr noundef @s_7)
-  store i32 %86, ptr %12, align 4
-  %87 = load i32, ptr %12, align 4
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %91
+80:                                               ; preds = %75
+  %81 = load i32, ptr %10, align 4
+  store i32 %81, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %83
 
-89:                                               ; preds = %84
-  %90 = load i32, ptr %12, align 4
-  store i32 %90, ptr %2, align 4
-  br label %108
+82:                                               ; preds = %75
+  store i32 0, ptr %5, align 4
+  br label %83
 
-91:                                               ; preds = %84
-  br label %107
+83:                                               ; preds = %82, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %84 = load i32, ptr %5, align 4
+  switch i32 %84, label %139 [
+    i32 0, label %85
+  ]
 
-92:                                               ; preds = %25
-  %93 = load ptr, ptr %3, align 8
-  %94 = call i32 @r_R1(ptr noundef %93)
-  store i32 %94, ptr %13, align 4
-  %95 = load i32, ptr %13, align 4
-  %96 = icmp sle i32 %95, 0
-  br i1 %96, label %97, label %99
+85:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %86 = load ptr, ptr %3, align 8
+  %87 = call i32 @slice_from_s(ptr noundef %86, i32 noundef 3, ptr noundef @s_6)
+  store i32 %87, ptr %11, align 4
+  %88 = load i32, ptr %11, align 4
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %92
 
-97:                                               ; preds = %92
-  %98 = load i32, ptr %13, align 4
-  store i32 %98, ptr %2, align 4
-  br label %108
+90:                                               ; preds = %85
+  %91 = load i32, ptr %11, align 4
+  store i32 %91, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %93
 
-99:                                               ; preds = %92
-  %100 = load ptr, ptr %3, align 8
-  %101 = call i32 @slice_from_s(ptr noundef %100, i32 noundef 1, ptr noundef @s_8)
-  store i32 %101, ptr %14, align 4
-  %102 = load i32, ptr %14, align 4
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %106
+92:                                               ; preds = %85
+  store i32 0, ptr %5, align 4
+  br label %93
 
-104:                                              ; preds = %99
-  %105 = load i32, ptr %14, align 4
-  store i32 %105, ptr %2, align 4
-  br label %108
+93:                                               ; preds = %92, %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %94 = load i32, ptr %5, align 4
+  switch i32 %94, label %139 [
+    i32 0, label %95
+  ]
 
-106:                                              ; preds = %99
-  br label %107
+95:                                               ; preds = %93
+  br label %138
 
-107:                                              ; preds = %106, %91, %76, %61, %46, %25
+96:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %97 = load ptr, ptr %3, align 8
+  %98 = call i32 @r_R2(ptr noundef %97)
+  store i32 %98, ptr %12, align 4
+  %99 = load i32, ptr %12, align 4
+  %100 = icmp sle i32 %99, 0
+  br i1 %100, label %101, label %103
+
+101:                                              ; preds = %96
+  %102 = load i32, ptr %12, align 4
+  store i32 %102, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %104
+
+103:                                              ; preds = %96
+  store i32 0, ptr %5, align 4
+  br label %104
+
+104:                                              ; preds = %103, %101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %105 = load i32, ptr %5, align 4
+  switch i32 %105, label %139 [
+    i32 0, label %106
+  ]
+
+106:                                              ; preds = %104
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %107 = load ptr, ptr %3, align 8
+  %108 = call i32 @slice_from_s(ptr noundef %107, i32 noundef 2, ptr noundef @s_7)
+  store i32 %108, ptr %13, align 4
+  %109 = load i32, ptr %13, align 4
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %111, label %113
+
+111:                                              ; preds = %106
+  %112 = load i32, ptr %13, align 4
+  store i32 %112, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %114
+
+113:                                              ; preds = %106
+  store i32 0, ptr %5, align 4
+  br label %114
+
+114:                                              ; preds = %113, %111
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %115 = load i32, ptr %5, align 4
+  switch i32 %115, label %139 [
+    i32 0, label %116
+  ]
+
+116:                                              ; preds = %114
+  br label %138
+
+117:                                              ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %118 = load ptr, ptr %3, align 8
+  %119 = call i32 @r_R1(ptr noundef %118)
+  store i32 %119, ptr %14, align 4
+  %120 = load i32, ptr %14, align 4
+  %121 = icmp sle i32 %120, 0
+  br i1 %121, label %122, label %124
+
+122:                                              ; preds = %117
+  %123 = load i32, ptr %14, align 4
+  store i32 %123, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %125
+
+124:                                              ; preds = %117
+  store i32 0, ptr %5, align 4
+  br label %125
+
+125:                                              ; preds = %124, %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %126 = load i32, ptr %5, align 4
+  switch i32 %126, label %139 [
+    i32 0, label %127
+  ]
+
+127:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %128 = load ptr, ptr %3, align 8
+  %129 = call i32 @slice_from_s(ptr noundef %128, i32 noundef 1, ptr noundef @s_8)
+  store i32 %129, ptr %15, align 4
+  %130 = load i32, ptr %15, align 4
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %134
+
+132:                                              ; preds = %127
+  %133 = load i32, ptr %15, align 4
+  store i32 %133, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %135
+
+134:                                              ; preds = %127
+  store i32 0, ptr %5, align 4
+  br label %135
+
+135:                                              ; preds = %134, %132
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  %136 = load i32, ptr %5, align 4
+  switch i32 %136, label %139 [
+    i32 0, label %137
+  ]
+
+137:                                              ; preds = %135
+  br label %138
+
+138:                                              ; preds = %26, %137, %116, %95, %74, %53
   store i32 1, ptr %2, align 4
-  br label %108
+  store i32 1, ptr %5, align 4
+  br label %139
 
-108:                                              ; preds = %107, %104, %97, %89, %82, %74, %67, %59, %52, %44, %37, %24
-  %109 = load i32, ptr %2, align 4
-  ret i32 %109
+139:                                              ; preds = %138, %135, %125, %114, %104, %93, %83, %72, %62, %51, %41, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %140 = load i32, ptr %2, align 4
+  ret i32 %140
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1241,102 +1628,159 @@ define internal i32 @r_verb_suffix(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SN_env, ptr %12, i32 0, i32 5
-  store i32 %11, ptr %13, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = call i32 @find_among_b(ptr noundef %14, ptr noundef @a_3, i32 noundef 283)
-  store i32 %15, ptr %4, align 4
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.SN_env, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.SN_env, ptr %13, i32 0, i32 5
+  store i32 %12, ptr %14, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = call i32 @find_among_b(ptr noundef %15, ptr noundef @a_3, i32 noundef 283)
+  store i32 %16, ptr %4, align 4
+  %17 = load i32, ptr %4, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SN_env, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.SN_env, ptr %23, i32 0, i32 4
-  store i32 %22, ptr %24, align 4
-  %25 = load i32, ptr %4, align 4
-  switch i32 %25, label %56 [
-    i32 1, label %26
-    i32 2, label %41
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %70
+
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.SN_env, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.SN_env, ptr %24, i32 0, i32 4
+  store i32 %23, ptr %25, align 4
+  %26 = load i32, ptr %4, align 4
+  switch i32 %26, label %69 [
+    i32 1, label %27
+    i32 2, label %48
   ]
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %3, align 8
-  %28 = call i32 @r_R1(ptr noundef %27)
-  store i32 %28, ptr %5, align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp sle i32 %29, 0
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %28 = load ptr, ptr %3, align 8
+  %29 = call i32 @r_R1(ptr noundef %28)
+  store i32 %29, ptr %6, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp sle i32 %30, 0
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %5, align 4
-  store i32 %32, ptr %2, align 4
-  br label %57
+32:                                               ; preds = %27
+  %33 = load i32, ptr %6, align 4
+  store i32 %33, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = call i32 @slice_del(ptr noundef %34)
-  store i32 %35, ptr %6, align 4
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %40
+34:                                               ; preds = %27
+  store i32 0, ptr %5, align 4
+  br label %35
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %6, align 4
-  store i32 %39, ptr %2, align 4
-  br label %57
+35:                                               ; preds = %34, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %36 = load i32, ptr %5, align 4
+  switch i32 %36, label %70 [
+    i32 0, label %37
+  ]
 
-40:                                               ; preds = %33
-  br label %56
+37:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %38 = load ptr, ptr %3, align 8
+  %39 = call i32 @slice_del(ptr noundef %38)
+  store i32 %39, ptr %7, align 4
+  %40 = load i32, ptr %7, align 4
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %19
-  %42 = load ptr, ptr %3, align 8
-  %43 = call i32 @r_R2(ptr noundef %42)
-  store i32 %43, ptr %7, align 4
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp sle i32 %44, 0
-  br i1 %45, label %46, label %48
+42:                                               ; preds = %37
+  %43 = load i32, ptr %7, align 4
+  store i32 %43, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %45
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %7, align 4
-  store i32 %47, ptr %2, align 4
-  br label %57
+44:                                               ; preds = %37
+  store i32 0, ptr %5, align 4
+  br label %45
 
-48:                                               ; preds = %41
+45:                                               ; preds = %44, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %46 = load i32, ptr %5, align 4
+  switch i32 %46, label %70 [
+    i32 0, label %47
+  ]
+
+47:                                               ; preds = %45
+  br label %69
+
+48:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   %49 = load ptr, ptr %3, align 8
-  %50 = call i32 @slice_del(ptr noundef %49)
+  %50 = call i32 @r_R2(ptr noundef %49)
   store i32 %50, ptr %8, align 4
   %51 = load i32, ptr %8, align 4
-  %52 = icmp slt i32 %51, 0
+  %52 = icmp sle i32 %51, 0
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
   %54 = load i32, ptr %8, align 4
   store i32 %54, ptr %2, align 4
-  br label %57
-
-55:                                               ; preds = %48
+  store i32 1, ptr %5, align 4
   br label %56
 
-56:                                               ; preds = %55, %40, %19
-  store i32 1, ptr %2, align 4
-  br label %57
+55:                                               ; preds = %48
+  store i32 0, ptr %5, align 4
+  br label %56
 
-57:                                               ; preds = %56, %53, %46, %38, %31, %18
-  %58 = load i32, ptr %2, align 4
-  ret i32 %58
+56:                                               ; preds = %55, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %57 = load i32, ptr %5, align 4
+  switch i32 %57, label %70 [
+    i32 0, label %58
+  ]
+
+58:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %59 = load ptr, ptr %3, align 8
+  %60 = call i32 @slice_del(ptr noundef %59)
+  store i32 %60, ptr %9, align 4
+  %61 = load i32, ptr %9, align 4
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %58
+  %64 = load i32, ptr %9, align 4
+  store i32 %64, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %66
+
+65:                                               ; preds = %58
+  store i32 0, ptr %5, align 4
+  br label %66
+
+66:                                               ; preds = %65, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %67 = load i32, ptr %5, align 4
+  switch i32 %67, label %70 [
+    i32 0, label %68
+  ]
+
+68:                                               ; preds = %66
+  br label %69
+
+69:                                               ; preds = %20, %68, %47
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %70
+
+70:                                               ; preds = %69, %66, %56, %45, %35, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %71 = load i32, ptr %2, align 4
+  ret i32 %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1348,102 +1792,159 @@ define internal i32 @r_residual_suffix(ptr noundef %0) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.SN_env, ptr %12, i32 0, i32 5
-  store i32 %11, ptr %13, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = call i32 @find_among_b(ptr noundef %14, ptr noundef @a_4, i32 noundef 22)
-  store i32 %15, ptr %4, align 4
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.SN_env, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.SN_env, ptr %13, i32 0, i32 5
+  store i32 %12, ptr %14, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = call i32 @find_among_b(ptr noundef %15, ptr noundef @a_4, i32 noundef 22)
+  store i32 %16, ptr %4, align 4
+  %17 = load i32, ptr %4, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SN_env, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.SN_env, ptr %23, i32 0, i32 4
-  store i32 %22, ptr %24, align 4
-  %25 = load i32, ptr %4, align 4
-  switch i32 %25, label %56 [
-    i32 1, label %26
-    i32 2, label %41
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %70
+
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.SN_env, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.SN_env, ptr %24, i32 0, i32 4
+  store i32 %23, ptr %25, align 4
+  %26 = load i32, ptr %4, align 4
+  switch i32 %26, label %69 [
+    i32 1, label %27
+    i32 2, label %48
   ]
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %3, align 8
-  %28 = call i32 @r_R1(ptr noundef %27)
-  store i32 %28, ptr %5, align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp sle i32 %29, 0
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %28 = load ptr, ptr %3, align 8
+  %29 = call i32 @r_R1(ptr noundef %28)
+  store i32 %29, ptr %6, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp sle i32 %30, 0
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %5, align 4
-  store i32 %32, ptr %2, align 4
-  br label %57
+32:                                               ; preds = %27
+  %33 = load i32, ptr %6, align 4
+  store i32 %33, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = call i32 @slice_del(ptr noundef %34)
-  store i32 %35, ptr %6, align 4
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %40
+34:                                               ; preds = %27
+  store i32 0, ptr %5, align 4
+  br label %35
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %6, align 4
-  store i32 %39, ptr %2, align 4
-  br label %57
+35:                                               ; preds = %34, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %36 = load i32, ptr %5, align 4
+  switch i32 %36, label %70 [
+    i32 0, label %37
+  ]
 
-40:                                               ; preds = %33
-  br label %56
+37:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %38 = load ptr, ptr %3, align 8
+  %39 = call i32 @slice_del(ptr noundef %38)
+  store i32 %39, ptr %7, align 4
+  %40 = load i32, ptr %7, align 4
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %19
-  %42 = load ptr, ptr %3, align 8
-  %43 = call i32 @r_R1(ptr noundef %42)
-  store i32 %43, ptr %7, align 4
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp sle i32 %44, 0
-  br i1 %45, label %46, label %48
+42:                                               ; preds = %37
+  %43 = load i32, ptr %7, align 4
+  store i32 %43, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %45
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %7, align 4
-  store i32 %47, ptr %2, align 4
-  br label %57
+44:                                               ; preds = %37
+  store i32 0, ptr %5, align 4
+  br label %45
 
-48:                                               ; preds = %41
+45:                                               ; preds = %44, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %46 = load i32, ptr %5, align 4
+  switch i32 %46, label %70 [
+    i32 0, label %47
+  ]
+
+47:                                               ; preds = %45
+  br label %69
+
+48:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   %49 = load ptr, ptr %3, align 8
-  %50 = call i32 @slice_from_s(ptr noundef %49, i32 noundef 2, ptr noundef @s_9)
+  %50 = call i32 @r_R1(ptr noundef %49)
   store i32 %50, ptr %8, align 4
   %51 = load i32, ptr %8, align 4
-  %52 = icmp slt i32 %51, 0
+  %52 = icmp sle i32 %51, 0
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
   %54 = load i32, ptr %8, align 4
   store i32 %54, ptr %2, align 4
-  br label %57
-
-55:                                               ; preds = %48
+  store i32 1, ptr %5, align 4
   br label %56
 
-56:                                               ; preds = %55, %40, %19
-  store i32 1, ptr %2, align 4
-  br label %57
+55:                                               ; preds = %48
+  store i32 0, ptr %5, align 4
+  br label %56
 
-57:                                               ; preds = %56, %53, %46, %38, %31, %18
-  %58 = load i32, ptr %2, align 4
-  ret i32 %58
+56:                                               ; preds = %55, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %57 = load i32, ptr %5, align 4
+  switch i32 %57, label %70 [
+    i32 0, label %58
+  ]
+
+58:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %59 = load ptr, ptr %3, align 8
+  %60 = call i32 @slice_from_s(ptr noundef %59, i32 noundef 2, ptr noundef @s_9)
+  store i32 %60, ptr %9, align 4
+  %61 = load i32, ptr %9, align 4
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %58
+  %64 = load i32, ptr %9, align 4
+  store i32 %64, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %66
+
+65:                                               ; preds = %58
+  store i32 0, ptr %5, align 4
+  br label %66
+
+66:                                               ; preds = %65, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %67 = load i32, ptr %5, align 4
+  switch i32 %67, label %70 [
+    i32 0, label %68
+  ]
+
+68:                                               ; preds = %66
+  br label %69
+
+69:                                               ; preds = %20, %68, %47
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %70
+
+70:                                               ; preds = %69, %66, %56, %45, %35, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %71 = load i32, ptr %2, align 4
+  ret i32 %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1459,151 +1960,168 @@ define internal i32 @r_cleaning(ptr noundef %0) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  br label %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  br label %14
 
-13:                                               ; preds = %141, %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.SN_env, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %5, align 4
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.SN_env, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SN_env, ptr %20, i32 0, i32 4
-  store i32 %19, ptr %21, align 4
+14:                                               ; preds = %169, %1
+  br label %15
+
+15:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.SN_env, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  store i32 %18, ptr %5, align 4
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.SN_env, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.SN_env, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  %25 = add i32 %24, 1
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.SN_env, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp sge i32 %25, %28
-  br i1 %29, label %60, label %30
+  %23 = getelementptr inbounds nuw %struct.SN_env, ptr %22, i32 0, i32 4
+  store i32 %21, ptr %23, align 4
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.SN_env, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = add i32 %26, 1
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.SN_env, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sge i32 %27, %30
+  br i1 %31, label %62, label %32
 
-30:                                               ; preds = %13
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.SN_env, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.SN_env, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 8
-  %37 = add i32 %36, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr i8, ptr %33, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = ashr i32 %41, 5
-  %43 = icmp ne i32 %42, 5
-  br i1 %43, label %60, label %44
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.SN_env, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.SN_env, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = add i32 %38, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %35, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = ashr i32 %43, 5
+  %45 = icmp ne i32 %44, 5
+  br i1 %45, label %62, label %46
 
-44:                                               ; preds = %30
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.SN_env, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.SN_env, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = add i32 %50, 1
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr i8, ptr %47, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = and i32 %55, 31
-  %57 = ashr i32 344765187, %56
-  %58 = and i32 %57, 1
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %61, label %60
+46:                                               ; preds = %32
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.SN_env, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.SN_env, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = add i32 %52, 1
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %49, i64 %54
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = and i32 %57, 31
+  %59 = ashr i32 344765187, %58
+  %60 = and i32 %59, 1
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %63, label %62
 
-60:                                               ; preds = %44, %30, %13
+62:                                               ; preds = %46, %32, %15
   store i32 7, ptr %4, align 4
-  br label %64
+  br label %66
 
-61:                                               ; preds = %44
-  %62 = load ptr, ptr %3, align 8
-  %63 = call i32 @find_among(ptr noundef %62, ptr noundef @a_0, i32 noundef 13)
-  store i32 %63, ptr %4, align 4
-  br label %64
+63:                                               ; preds = %46
+  %64 = load ptr, ptr %3, align 8
+  %65 = call i32 @find_among(ptr noundef %64, ptr noundef @a_0, i32 noundef 13)
+  store i32 %65, ptr %4, align 4
+  br label %66
 
-64:                                               ; preds = %61, %60
-  %65 = load i32, ptr %4, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %68, label %67
+66:                                               ; preds = %63, %62
+  %67 = load i32, ptr %4, align 4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %70, label %69
 
-67:                                               ; preds = %64
-  br label %142
+69:                                               ; preds = %66
+  br label %165
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.SN_env, ptr %69, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.SN_env, ptr %72, i32 0, i32 5
-  store i32 %71, ptr %73, align 8
-  %74 = load i32, ptr %4, align 4
-  switch i32 %74, label %141 [
-    i32 1, label %75
-    i32 2, label %83
-    i32 3, label %91
-    i32 4, label %99
-    i32 5, label %107
-    i32 6, label %115
-    i32 7, label %123
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.SN_env, ptr %71, i32 0, i32 1
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.SN_env, ptr %74, i32 0, i32 5
+  store i32 %73, ptr %75, align 8
+  %76 = load i32, ptr %4, align 4
+  switch i32 %76, label %164 [
+    i32 1, label %77
+    i32 2, label %88
+    i32 3, label %99
+    i32 4, label %110
+    i32 5, label %121
+    i32 6, label %132
+    i32 7, label %143
   ]
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %3, align 8
-  %77 = call i32 @slice_from_s(ptr noundef %76, i32 noundef 1, ptr noundef @s_0)
-  store i32 %77, ptr %6, align 4
-  %78 = load i32, ptr %6, align 4
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %78 = load ptr, ptr %3, align 8
+  %79 = call i32 @slice_from_s(ptr noundef %78, i32 noundef 1, ptr noundef @s_0)
+  store i32 %79, ptr %6, align 4
+  %80 = load i32, ptr %6, align 4
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %84
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %6, align 4
-  store i32 %81, ptr %2, align 4
-  br label %147
+82:                                               ; preds = %77
+  %83 = load i32, ptr %6, align 4
+  store i32 %83, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %85
 
-82:                                               ; preds = %75
-  br label %141
+84:                                               ; preds = %77
+  store i32 0, ptr %7, align 4
+  br label %85
 
-83:                                               ; preds = %68
-  %84 = load ptr, ptr %3, align 8
-  %85 = call i32 @slice_from_s(ptr noundef %84, i32 noundef 1, ptr noundef @s_1)
-  store i32 %85, ptr %7, align 4
+85:                                               ; preds = %84, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
   %86 = load i32, ptr %7, align 4
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %88, label %90
+  switch i32 %86, label %169 [
+    i32 0, label %87
+  ]
 
-88:                                               ; preds = %83
-  %89 = load i32, ptr %7, align 4
-  store i32 %89, ptr %2, align 4
-  br label %147
+87:                                               ; preds = %85
+  br label %164
 
-90:                                               ; preds = %83
-  br label %141
+88:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %89 = load ptr, ptr %3, align 8
+  %90 = call i32 @slice_from_s(ptr noundef %89, i32 noundef 1, ptr noundef @s_1)
+  store i32 %90, ptr %8, align 4
+  %91 = load i32, ptr %8, align 4
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %93, label %95
 
-91:                                               ; preds = %68
-  %92 = load ptr, ptr %3, align 8
-  %93 = call i32 @slice_from_s(ptr noundef %92, i32 noundef 1, ptr noundef @s_2)
-  store i32 %93, ptr %8, align 4
+93:                                               ; preds = %88
   %94 = load i32, ptr %8, align 4
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %98
+  store i32 %94, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %96
 
-96:                                               ; preds = %91
-  %97 = load i32, ptr %8, align 4
-  store i32 %97, ptr %2, align 4
-  br label %147
+95:                                               ; preds = %88
+  store i32 0, ptr %7, align 4
+  br label %96
 
-98:                                               ; preds = %91
-  br label %141
+96:                                               ; preds = %95, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %97 = load i32, ptr %7, align 4
+  switch i32 %97, label %169 [
+    i32 0, label %98
+  ]
 
-99:                                               ; preds = %68
+98:                                               ; preds = %96
+  br label %164
+
+99:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %100 = load ptr, ptr %3, align 8
-  %101 = call i32 @slice_from_s(ptr noundef %100, i32 noundef 1, ptr noundef @s_3)
+  %101 = call i32 @slice_from_s(ptr noundef %100, i32 noundef 1, ptr noundef @s_2)
   store i32 %101, ptr %9, align 4
   %102 = load i32, ptr %9, align 4
   %103 = icmp slt i32 %102, 0
@@ -1612,86 +2130,179 @@ define internal i32 @r_cleaning(ptr noundef %0) #0 {
 104:                                              ; preds = %99
   %105 = load i32, ptr %9, align 4
   store i32 %105, ptr %2, align 4
-  br label %147
+  store i32 1, ptr %7, align 4
+  br label %107
 
 106:                                              ; preds = %99
-  br label %141
+  store i32 0, ptr %7, align 4
+  br label %107
 
-107:                                              ; preds = %68
-  %108 = load ptr, ptr %3, align 8
-  %109 = call i32 @slice_from_s(ptr noundef %108, i32 noundef 1, ptr noundef @s_4)
-  store i32 %109, ptr %10, align 4
-  %110 = load i32, ptr %10, align 4
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %114
+107:                                              ; preds = %106, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %108 = load i32, ptr %7, align 4
+  switch i32 %108, label %169 [
+    i32 0, label %109
+  ]
 
-112:                                              ; preds = %107
+109:                                              ; preds = %107
+  br label %164
+
+110:                                              ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %111 = load ptr, ptr %3, align 8
+  %112 = call i32 @slice_from_s(ptr noundef %111, i32 noundef 1, ptr noundef @s_3)
+  store i32 %112, ptr %10, align 4
   %113 = load i32, ptr %10, align 4
-  store i32 %113, ptr %2, align 4
-  br label %147
+  %114 = icmp slt i32 %113, 0
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %107
-  br label %141
+115:                                              ; preds = %110
+  %116 = load i32, ptr %10, align 4
+  store i32 %116, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %118
 
-115:                                              ; preds = %68
-  %116 = load ptr, ptr %3, align 8
-  %117 = call i32 @slice_from_s(ptr noundef %116, i32 noundef 1, ptr noundef @s_5)
-  store i32 %117, ptr %11, align 4
-  %118 = load i32, ptr %11, align 4
-  %119 = icmp slt i32 %118, 0
-  br i1 %119, label %120, label %122
+117:                                              ; preds = %110
+  store i32 0, ptr %7, align 4
+  br label %118
 
-120:                                              ; preds = %115
-  %121 = load i32, ptr %11, align 4
-  store i32 %121, ptr %2, align 4
-  br label %147
+118:                                              ; preds = %117, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %119 = load i32, ptr %7, align 4
+  switch i32 %119, label %169 [
+    i32 0, label %120
+  ]
 
-122:                                              ; preds = %115
-  br label %141
+120:                                              ; preds = %118
+  br label %164
 
-123:                                              ; preds = %68
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.SN_env, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.SN_env, ptr %127, i32 0, i32 1
-  %129 = load i32, ptr %128, align 8
-  %130 = load ptr, ptr %3, align 8
-  %131 = getelementptr inbounds %struct.SN_env, ptr %130, i32 0, i32 2
-  %132 = load i32, ptr %131, align 4
-  %133 = call i32 @skip_utf8(ptr noundef %126, i32 noundef %129, i32 noundef %132, i32 noundef 1)
-  store i32 %133, ptr %12, align 4
-  %134 = load i32, ptr %12, align 4
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %136, label %137
+121:                                              ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %122 = load ptr, ptr %3, align 8
+  %123 = call i32 @slice_from_s(ptr noundef %122, i32 noundef 1, ptr noundef @s_4)
+  store i32 %123, ptr %11, align 4
+  %124 = load i32, ptr %11, align 4
+  %125 = icmp slt i32 %124, 0
+  br i1 %125, label %126, label %128
 
-136:                                              ; preds = %123
-  br label %142
+126:                                              ; preds = %121
+  %127 = load i32, ptr %11, align 4
+  store i32 %127, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %129
 
-137:                                              ; preds = %123
+128:                                              ; preds = %121
+  store i32 0, ptr %7, align 4
+  br label %129
+
+129:                                              ; preds = %128, %126
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %130 = load i32, ptr %7, align 4
+  switch i32 %130, label %169 [
+    i32 0, label %131
+  ]
+
+131:                                              ; preds = %129
+  br label %164
+
+132:                                              ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %133 = load ptr, ptr %3, align 8
+  %134 = call i32 @slice_from_s(ptr noundef %133, i32 noundef 1, ptr noundef @s_5)
+  store i32 %134, ptr %12, align 4
+  %135 = load i32, ptr %12, align 4
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %132
   %138 = load i32, ptr %12, align 4
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds %struct.SN_env, ptr %139, i32 0, i32 1
-  store i32 %138, ptr %140, align 8
-  br label %141
+  store i32 %138, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %140
 
-141:                                              ; preds = %137, %122, %114, %106, %98, %90, %82, %68
-  br label %13
+139:                                              ; preds = %132
+  store i32 0, ptr %7, align 4
+  br label %140
 
-142:                                              ; preds = %136, %67
-  %143 = load i32, ptr %5, align 4
+140:                                              ; preds = %139, %137
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %141 = load i32, ptr %7, align 4
+  switch i32 %141, label %169 [
+    i32 0, label %142
+  ]
+
+142:                                              ; preds = %140
+  br label %164
+
+143:                                              ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.SN_env, ptr %144, i32 0, i32 1
-  store i32 %143, ptr %145, align 8
-  br label %146
+  %145 = getelementptr inbounds nuw %struct.SN_env, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds nuw %struct.SN_env, ptr %147, i32 0, i32 1
+  %149 = load i32, ptr %148, align 8
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds nuw %struct.SN_env, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 4
+  %153 = call i32 @skip_utf8(ptr noundef %146, i32 noundef %149, i32 noundef %152, i32 noundef 1)
+  store i32 %153, ptr %13, align 4
+  %154 = load i32, ptr %13, align 4
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %156, label %157
 
-146:                                              ; preds = %142
+156:                                              ; preds = %143
+  store i32 4, ptr %7, align 4
+  br label %161
+
+157:                                              ; preds = %143
+  %158 = load i32, ptr %13, align 4
+  %159 = load ptr, ptr %3, align 8
+  %160 = getelementptr inbounds nuw %struct.SN_env, ptr %159, i32 0, i32 1
+  store i32 %158, ptr %160, align 8
+  store i32 0, ptr %7, align 4
+  br label %161
+
+161:                                              ; preds = %156, %157
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  %162 = load i32, ptr %7, align 4
+  switch i32 %162, label %169 [
+    i32 0, label %163
+    i32 4, label %165
+  ]
+
+163:                                              ; preds = %161
+  br label %164
+
+164:                                              ; preds = %70, %163, %142, %131, %120, %109, %98, %87
+  store i32 2, ptr %7, align 4
+  br label %169
+
+165:                                              ; preds = %161, %69
+  %166 = load i32, ptr %5, align 4
+  %167 = load ptr, ptr %3, align 8
+  %168 = getelementptr inbounds nuw %struct.SN_env, ptr %167, i32 0, i32 1
+  store i32 %166, ptr %168, align 8
+  store i32 3, ptr %7, align 4
+  br label %169
+
+169:                                              ; preds = %165, %164, %161, %140, %129, %118, %107, %96, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  %170 = load i32, ptr %7, align 4
+  switch i32 %170, label %172 [
+    i32 2, label %14
+    i32 3, label %171
+  ]
+
+171:                                              ; preds = %169
   store i32 1, ptr %2, align 4
-  br label %147
+  store i32 1, ptr %7, align 4
+  br label %172
 
-147:                                              ; preds = %146, %120, %112, %104, %96, %88, %80
-  %148 = load i32, ptr %2, align 4
-  ret i32 %148
+172:                                              ; preds = %171, %169
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %173 = load i32, ptr %2, align 4
+  ret i32 %173
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1700,7 +2311,7 @@ define hidden ptr @catalan_UTF_8_create_env() #0 {
   ret ptr %1
 }
 
-declare ptr @SN_create_env(i32 noundef, i32 noundef) #1
+declare ptr @SN_create_env(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @catalan_UTF_8_close_env(ptr noundef %0) #0 {
@@ -1711,13 +2322,13 @@ define hidden void @catalan_UTF_8_close_env(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @SN_close_env(ptr noundef, i32 noundef) #1
+declare void @SN_close_env(ptr noundef, i32 noundef) #2
 
-declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_R1(ptr noundef %0) #0 {
@@ -1725,12 +2336,12 @@ define internal i32 @r_R1(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.SN_env, ptr %4, i32 0, i32 7
+  %5 = getelementptr inbounds nuw %struct.SN_env, ptr %4, i32 0, i32 7
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr i32, ptr %6, i64 1
+  %7 = getelementptr inbounds i32, ptr %6, i64 1
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 8
   %12 = icmp sle i32 %8, %11
   br i1 %12, label %14, label %13
@@ -1748,7 +2359,7 @@ define internal i32 @r_R1(ptr noundef %0) #0 {
   ret i32 %16
 }
 
-declare i32 @slice_del(ptr noundef) #1
+declare i32 @slice_del(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @r_R2(ptr noundef %0) #0 {
@@ -1756,12 +2367,12 @@ define internal i32 @r_R2(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.SN_env, ptr %4, i32 0, i32 7
+  %5 = getelementptr inbounds nuw %struct.SN_env, ptr %4, i32 0, i32 7
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr i32, ptr %6, i64 0
+  %7 = getelementptr inbounds i32, ptr %6, i64 0
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SN_env, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.SN_env, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 8
   %12 = icmp sle i32 %8, %11
   br i1 %12, label %14, label %13
@@ -1779,18 +2390,19 @@ define internal i32 @r_R2(ptr noundef %0) #0 {
   ret i32 %16
 }
 
-declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -21,9 +21,9 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.in, -1
-  %7 = getelementptr i8, ptr %.02533, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
   %.025.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02533, %.lr.ph ]
@@ -52,7 +52,7 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   br i1 %.not31, label %20, label %17
 
 17:                                               ; preds = %.lr.ph40
-  %18 = getelementptr i8, ptr %.12637, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.12637, i64 1
   store i8 %16, ptr %.12637, align 1
   %19 = add i64 %.139, -1
   br label %20
@@ -60,10 +60,10 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 20:                                               ; preds = %17, %.lr.ph40
   %.227 = phi ptr [ %18, %17 ], [ %.12637, %.lr.ph40 ]
   %.2 = phi i64 [ %19, %17 ], [ 1, %.lr.ph40 ]
-  %21 = getelementptr i8, ptr %.02438, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
   %22 = load i8, ptr %21, align 1
   %.not30 = icmp eq i8 %22, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !7
+  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %20 ]
@@ -83,17 +83,16 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

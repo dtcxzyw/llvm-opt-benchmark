@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @K512 = internal constant [80 x i64] [i64 4794697086780616226, i64 8158064640168781261, i64 -5349999486874862801, i64 -1606136188198331460, i64 4131703408338449720, i64 6480981068601479193, i64 -7908458776815382629, i64 -6116909921290321640, i64 -2880145864133508542, i64 1334009975649890238, i64 2608012711638119052, i64 6128411473006802146, i64 8268148722764581231, i64 -9160688886553864527, i64 -7215885187991268811, i64 -4495734319001033068, i64 -1973867731355612462, i64 -1171420211273849373, i64 1135362057144423861, i64 2597628984639134821, i64 3308224258029322869, i64 5365058923640841347, i64 6679025012923562964, i64 8573033837759648693, i64 -7476448914759557205, i64 -6327057829258317296, i64 -5763719355590565569, i64 -4658551843659510044, i64 -4116276920077217854, i64 -3051310485924567259, i64 489312712824947311, i64 1452737877330783856, i64 2861767655752347644, i64 3322285676063803686, i64 5560940570517711597, i64 5996557281743188959, i64 7280758554555802590, i64 8532644243296465576, i64 -9096487096722542874, i64 -7894198246740708037, i64 -6719396339535248540, i64 -6333637450476146687, i64 -4446306890439682159, i64 -4076793802049405392, i64 -3345356375505022440, i64 -2983346525034927856, i64 -860691631967231958, i64 1182934255886127544, i64 1847814050463011016, i64 2177327727835720531, i64 2830643537854262169, i64 3796741975233480872, i64 4115178125766777443, i64 5681478168544905931, i64 6601373596472566643, i64 7507060721942968483, i64 8399075790359081724, i64 8693463985226723168, i64 -8878714635349349518, i64 -8302665154208450068, i64 -8016688836872298968, i64 -6606660893046293015, i64 -4685533653050689259, i64 -4147400797238176981, i64 -3880063495543823972, i64 -3348786107499101689, i64 -1523767162380948706, i64 -757361751448694408, i64 500013540394364858, i64 748580250866718886, i64 1242879168328830382, i64 1977374033974150939, i64 2944078676154940804, i64 3659926193048069267, i64 4368137639120453308, i64 4836135668995329356, i64 5532061633213252278, i64 6448918945643986474, i64 6902733635092675308, i64 7801388544844847127], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha256_init(ptr noundef %0) #0 {
+define void @pg_sha256_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -24,15 +24,15 @@ define dso_local void @pg_sha256_init(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 16 @sha256_initial_hash_value, i64 32, i1 false)
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %10, i32 0, i32 2
   %12 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 64, i1 false)
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %13, i32 0, i32 1
   store i64 0, ptr %14, align 8
   br label %15
 
@@ -41,154 +41,175 @@ define dso_local void @pg_sha256_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha256_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define void @pg_sha256_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %9 = load i64, ptr %6, align 8
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  br label %94
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load i64, ptr %6, align 8
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %13, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %16 = lshr i64 %15, 3
-  %17 = urem i64 %16, 64
-  store i64 %17, ptr %8, align 8
-  %18 = load i64, ptr %8, align 8
-  %19 = icmp ugt i64 %18, 0
-  br i1 %19, label %20, label %63
+  store i32 1, ptr %9, align 4
+  br label %95
 
-20:                                               ; preds = %12
-  %21 = load i64, ptr %8, align 8
-  %22 = sub i64 64, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %6, align 8
-  %24 = load i64, ptr %7, align 8
-  %25 = icmp uge i64 %23, %24
-  br i1 %25, label %26, label %49
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = lshr i64 %16, 3
+  %18 = urem i64 %17, 64
+  store i64 %18, ptr %8, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = icmp ugt i64 %19, 0
+  br i1 %20, label %21, label %64
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %27, i32 0, i32 2
-  %29 = load i64, ptr %8, align 8
-  %30 = getelementptr [64 x i8], ptr %28, i64 0, i64 %29
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %32, i1 false)
+21:                                               ; preds = %13
+  %22 = load i64, ptr %8, align 8
+  %23 = sub i64 64, %22
+  store i64 %23, ptr %7, align 8
+  %24 = load i64, ptr %6, align 8
+  %25 = load i64, ptr %7, align 8
+  %26 = icmp uge i64 %24, %25
+  br i1 %26, label %27, label %50
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %28, i32 0, i32 2
+  %30 = load i64, ptr %8, align 8
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 0, i64 %30
+  %32 = load ptr, ptr %5, align 8
   %33 = load i64, ptr %7, align 8
-  %34 = shl i64 %33, 3
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %35, i32 0, i32 1
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, %34
-  store i64 %38, ptr %36, align 8
-  %39 = load i64, ptr %7, align 8
-  %40 = load i64, ptr %6, align 8
-  %41 = sub i64 %40, %39
-  store i64 %41, ptr %6, align 8
-  %42 = load i64, ptr %7, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr i8, ptr %43, i64 %42
-  store ptr %44, ptr %5, align 8
-  %45 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %34 = load i64, ptr %7, align 8
+  %35 = shl i64 %34, 3
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, %35
+  store i64 %39, ptr %37, align 8
+  %40 = load i64, ptr %7, align 8
+  %41 = load i64, ptr %6, align 8
+  %42 = sub i64 %41, %40
+  store i64 %42, ptr %6, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
+  store ptr %45, ptr %5, align 8
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %46, i32 0, i32 2
-  %48 = getelementptr inbounds [64 x i8], ptr %47, i64 0, i64 0
-  call void @SHA256_Transform(ptr noundef %45, ptr noundef %48)
-  br label %62
-
-49:                                               ; preds = %20
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %50, i32 0, i32 2
-  %52 = load i64, ptr %8, align 8
-  %53 = getelementptr [64 x i8], ptr %51, i64 0, i64 %52
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i64, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %54, i64 %55, i1 false)
-  %56 = load i64, ptr %6, align 8
-  %57 = shl i64 %56, 3
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %58, i32 0, i32 1
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %57
-  store i64 %61, ptr %59, align 8
-  store i64 0, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %94
-
-62:                                               ; preds = %26
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %47, i32 0, i32 2
+  %49 = getelementptr inbounds [64 x i8], ptr %48, i64 0, i64 0
+  call void @SHA256_Transform(ptr noundef %46, ptr noundef %49)
   br label %63
 
-63:                                               ; preds = %62, %12
-  br label %64
-
-64:                                               ; preds = %67, %63
-  %65 = load i64, ptr %6, align 8
-  %66 = icmp uge i64 %65, 64
-  br i1 %66, label %67, label %78
-
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %4, align 8
-  %69 = load ptr, ptr %5, align 8
-  call void @SHA256_Transform(ptr noundef %68, ptr noundef %69)
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %70, i32 0, i32 1
-  %72 = load i64, ptr %71, align 8
-  %73 = add i64 %72, 512
-  store i64 %73, ptr %71, align 8
-  %74 = load i64, ptr %6, align 8
-  %75 = sub i64 %74, 64
-  store i64 %75, ptr %6, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr i8, ptr %76, i64 64
-  store ptr %77, ptr %5, align 8
-  br label %64, !llvm.loop !5
-
-78:                                               ; preds = %64
-  %79 = load i64, ptr %6, align 8
-  %80 = icmp ugt i64 %79, 0
-  br i1 %80, label %81, label %93
-
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %82, i32 0, i32 2
-  %84 = getelementptr inbounds [64 x i8], ptr %83, i64 0, i64 0
-  %85 = load ptr, ptr %5, align 8
-  %86 = load i64, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 1 %85, i64 %86, i1 false)
-  %87 = load i64, ptr %6, align 8
-  %88 = shl i64 %87, 3
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %89, i32 0, i32 1
-  %91 = load i64, ptr %90, align 8
-  %92 = add i64 %91, %88
-  store i64 %92, ptr %90, align 8
-  br label %93
-
-93:                                               ; preds = %81, %78
+50:                                               ; preds = %21
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %51, i32 0, i32 2
+  %53 = load i64, ptr %8, align 8
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 0, i64 %53
+  %55 = load ptr, ptr %5, align 8
+  %56 = load i64, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %55, i64 %56, i1 false)
+  %57 = load i64, ptr %6, align 8
+  %58 = shl i64 %57, 3
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %59, i32 0, i32 1
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, %58
+  store i64 %62, ptr %60, align 8
   store i64 0, ptr %7, align 8
   store i64 0, ptr %8, align 8
+  store i32 1, ptr %9, align 4
+  br label %95
+
+63:                                               ; preds = %27
+  br label %64
+
+64:                                               ; preds = %63, %13
+  br label %65
+
+65:                                               ; preds = %68, %64
+  %66 = load i64, ptr %6, align 8
+  %67 = icmp uge i64 %66, 64
+  br i1 %67, label %68, label %79
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %4, align 8
+  %70 = load ptr, ptr %5, align 8
+  call void @SHA256_Transform(ptr noundef %69, ptr noundef %70)
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %71, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  %74 = add i64 %73, 512
+  store i64 %74, ptr %72, align 8
+  %75 = load i64, ptr %6, align 8
+  %76 = sub i64 %75, 64
+  store i64 %76, ptr %6, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 64
+  store ptr %78, ptr %5, align 8
+  br label %65, !llvm.loop !3
+
+79:                                               ; preds = %65
+  %80 = load i64, ptr %6, align 8
+  %81 = icmp ugt i64 %80, 0
+  br i1 %81, label %82, label %94
+
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %83, i32 0, i32 2
+  %85 = getelementptr inbounds [64 x i8], ptr %84, i64 0, i64 0
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i64, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 1 %86, i64 %87, i1 false)
+  %88 = load i64, ptr %6, align 8
+  %89 = shl i64 %88, 3
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %90, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %92, %89
+  store i64 %93, ptr %91, align 8
   br label %94
 
-94:                                               ; preds = %93, %49, %11
+94:                                               ; preds = %82, %79
+  store i64 0, ptr %7, align 8
+  store i64 0, ptr %8, align 8
+  store i32 0, ptr %9, align 4
+  br label %95
+
+95:                                               ; preds = %94, %50, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  %96 = load i32, ptr %9, align 4
+  switch i32 %96, label %98 [
+    i32 0, label %97
+    i32 1, label %97
+  ]
+
+97:                                               ; preds = %95, %95
   ret void
+
+98:                                               ; preds = %95
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
@@ -210,48 +231,62 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %18 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %19, i32 0, i32 2
+  %20 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %19, i32 0, i32 2
   %21 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
   store ptr %21, ptr %17, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %22, i32 0, i32 0
-  %24 = getelementptr [8 x i32], ptr %23, i64 0, i64 0
+  %23 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [8 x i32], ptr %23, i64 0, i64 0
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %5, align 4
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %26, i32 0, i32 0
-  %28 = getelementptr [8 x i32], ptr %27, i64 0, i64 1
+  %27 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i32], ptr %27, i64 0, i64 1
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %30, i32 0, i32 0
-  %32 = getelementptr [8 x i32], ptr %31, i64 0, i64 2
+  %31 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [8 x i32], ptr %31, i64 0, i64 2
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %7, align 4
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %34, i32 0, i32 0
-  %36 = getelementptr [8 x i32], ptr %35, i64 0, i64 3
+  %35 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds [8 x i32], ptr %35, i64 0, i64 3
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %8, align 4
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %38, i32 0, i32 0
-  %40 = getelementptr [8 x i32], ptr %39, i64 0, i64 4
+  %39 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds [8 x i32], ptr %39, i64 0, i64 4
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %9, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %42, i32 0, i32 0
-  %44 = getelementptr [8 x i32], ptr %43, i64 0, i64 5
+  %43 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds [8 x i32], ptr %43, i64 0, i64 5
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %10, align 4
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
-  %48 = getelementptr [8 x i32], ptr %47, i64 0, i64 6
+  %47 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds [8 x i32], ptr %47, i64 0, i64 6
   %49 = load i32, ptr %48, align 8
   store i32 %49, ptr %11, align 4
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %50, i32 0, i32 0
-  %52 = getelementptr [8 x i32], ptr %51, i64 0, i64 7
+  %51 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds [8 x i32], ptr %51, i64 0, i64 7
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %12, align 4
   store i32 0, ptr %18, align 4
@@ -259,23 +294,23 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
 
 54:                                               ; preds = %165, %2
   %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr i8, ptr %55, i64 3
+  %56 = getelementptr inbounds i8, ptr %55, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr i8, ptr %59, i64 2
+  %60 = getelementptr inbounds i8, ptr %59, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = shl i32 %62, 8
   %64 = or i32 %58, %63
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr i8, ptr %65, i64 1
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl i32 %68, 16
   %70 = or i32 %64, %69
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr i8, ptr %71, i64 0
+  %72 = getelementptr inbounds i8, ptr %71, i64 0
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = shl i32 %74, 24
@@ -283,10 +318,10 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %77 = load ptr, ptr %17, align 8
   %78 = load i32, ptr %18, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr i32, ptr %77, i64 %79
+  %80 = getelementptr inbounds i32, ptr %77, i64 %79
   store i32 %76, ptr %80, align 4
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr i8, ptr %81, i64 4
+  %82 = getelementptr inbounds i8, ptr %81, i64 4
   store ptr %82, ptr %4, align 8
   %83 = load i32, ptr %12, align 4
   %84 = load i32, ptr %9, align 4
@@ -318,13 +353,13 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %110 = add i32 %101, %109
   %111 = load i32, ptr %18, align 4
   %112 = sext i32 %111 to i64
-  %113 = getelementptr [64 x i32], ptr @K256, i64 0, i64 %112
+  %113 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %110, %114
   %116 = load ptr, ptr %17, align 8
   %117 = load i32, ptr %18, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr i32, ptr %116, i64 %118
+  %119 = getelementptr inbounds i32, ptr %116, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %115, %120
   store i32 %121, ptr %15, align 4
@@ -386,7 +421,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
 165:                                              ; preds = %54
   %166 = load i32, ptr %18, align 4
   %167 = icmp slt i32 %166, 16
-  br i1 %167, label %54, label %168, !llvm.loop !7
+  br i1 %167, label %54, label %168, !llvm.loop !5
 
 168:                                              ; preds = %165
   br label %169
@@ -397,7 +432,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %172 = add i32 %171, 1
   %173 = and i32 %172, 15
   %174 = sext i32 %173 to i64
-  %175 = getelementptr i32, ptr %170, i64 %174
+  %175 = getelementptr inbounds i32, ptr %170, i64 %174
   %176 = load i32, ptr %175, align 4
   store i32 %176, ptr %13, align 4
   %177 = load i32, ptr %13, align 4
@@ -420,7 +455,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %193 = add i32 %192, 14
   %194 = and i32 %193, 15
   %195 = sext i32 %194 to i64
-  %196 = getelementptr i32, ptr %191, i64 %195
+  %196 = getelementptr inbounds i32, ptr %191, i64 %195
   %197 = load i32, ptr %196, align 4
   store i32 %197, ptr %14, align 4
   %198 = load i32, ptr %14, align 4
@@ -468,7 +503,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %239 = add i32 %230, %238
   %240 = load i32, ptr %18, align 4
   %241 = sext i32 %240 to i64
-  %242 = getelementptr [64 x i32], ptr @K256, i64 0, i64 %241
+  %242 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %241
   %243 = load i32, ptr %242, align 4
   %244 = add i32 %239, %243
   %245 = load i32, ptr %14, align 4
@@ -477,7 +512,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %248 = add i32 %247, 9
   %249 = and i32 %248, 15
   %250 = sext i32 %249 to i64
-  %251 = getelementptr i32, ptr %246, i64 %250
+  %251 = getelementptr inbounds i32, ptr %246, i64 %250
   %252 = load i32, ptr %251, align 4
   %253 = add i32 %245, %252
   %254 = load i32, ptr %13, align 4
@@ -486,7 +521,7 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %257 = load i32, ptr %18, align 4
   %258 = and i32 %257, 15
   %259 = sext i32 %258 to i64
-  %260 = getelementptr i32, ptr %256, i64 %259
+  %260 = getelementptr inbounds i32, ptr %256, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = add i32 %261, %255
   store i32 %262, ptr %260, align 4
@@ -550,62 +585,62 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
 307:                                              ; preds = %169
   %308 = load i32, ptr %18, align 4
   %309 = icmp slt i32 %308, 64
-  br i1 %309, label %169, label %310, !llvm.loop !8
+  br i1 %309, label %169, label %310, !llvm.loop !6
 
 310:                                              ; preds = %307
   %311 = load i32, ptr %5, align 4
   %312 = load ptr, ptr %3, align 8
-  %313 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %312, i32 0, i32 0
-  %314 = getelementptr [8 x i32], ptr %313, i64 0, i64 0
+  %313 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %312, i32 0, i32 0
+  %314 = getelementptr inbounds [8 x i32], ptr %313, i64 0, i64 0
   %315 = load i32, ptr %314, align 8
   %316 = add i32 %315, %311
   store i32 %316, ptr %314, align 8
   %317 = load i32, ptr %6, align 4
   %318 = load ptr, ptr %3, align 8
-  %319 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %318, i32 0, i32 0
-  %320 = getelementptr [8 x i32], ptr %319, i64 0, i64 1
+  %319 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds [8 x i32], ptr %319, i64 0, i64 1
   %321 = load i32, ptr %320, align 4
   %322 = add i32 %321, %317
   store i32 %322, ptr %320, align 4
   %323 = load i32, ptr %7, align 4
   %324 = load ptr, ptr %3, align 8
-  %325 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %324, i32 0, i32 0
-  %326 = getelementptr [8 x i32], ptr %325, i64 0, i64 2
+  %325 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %324, i32 0, i32 0
+  %326 = getelementptr inbounds [8 x i32], ptr %325, i64 0, i64 2
   %327 = load i32, ptr %326, align 8
   %328 = add i32 %327, %323
   store i32 %328, ptr %326, align 8
   %329 = load i32, ptr %8, align 4
   %330 = load ptr, ptr %3, align 8
-  %331 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %330, i32 0, i32 0
-  %332 = getelementptr [8 x i32], ptr %331, i64 0, i64 3
+  %331 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %330, i32 0, i32 0
+  %332 = getelementptr inbounds [8 x i32], ptr %331, i64 0, i64 3
   %333 = load i32, ptr %332, align 4
   %334 = add i32 %333, %329
   store i32 %334, ptr %332, align 4
   %335 = load i32, ptr %9, align 4
   %336 = load ptr, ptr %3, align 8
-  %337 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %336, i32 0, i32 0
-  %338 = getelementptr [8 x i32], ptr %337, i64 0, i64 4
+  %337 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %336, i32 0, i32 0
+  %338 = getelementptr inbounds [8 x i32], ptr %337, i64 0, i64 4
   %339 = load i32, ptr %338, align 8
   %340 = add i32 %339, %335
   store i32 %340, ptr %338, align 8
   %341 = load i32, ptr %10, align 4
   %342 = load ptr, ptr %3, align 8
-  %343 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %342, i32 0, i32 0
-  %344 = getelementptr [8 x i32], ptr %343, i64 0, i64 5
+  %343 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %342, i32 0, i32 0
+  %344 = getelementptr inbounds [8 x i32], ptr %343, i64 0, i64 5
   %345 = load i32, ptr %344, align 4
   %346 = add i32 %345, %341
   store i32 %346, ptr %344, align 4
   %347 = load i32, ptr %11, align 4
   %348 = load ptr, ptr %3, align 8
-  %349 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %348, i32 0, i32 0
-  %350 = getelementptr [8 x i32], ptr %349, i64 0, i64 6
+  %349 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %348, i32 0, i32 0
+  %350 = getelementptr inbounds [8 x i32], ptr %349, i64 0, i64 6
   %351 = load i32, ptr %350, align 8
   %352 = add i32 %351, %347
   store i32 %352, ptr %350, align 8
   %353 = load i32, ptr %12, align 4
   %354 = load ptr, ptr %3, align 8
-  %355 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %354, i32 0, i32 0
-  %356 = getelementptr [8 x i32], ptr %355, i64 0, i64 7
+  %355 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %354, i32 0, i32 0
+  %356 = getelementptr inbounds [8 x i32], ptr %355, i64 0, i64 7
   %357 = load i32, ptr %356, align 4
   %358 = add i32 %357, %353
   store i32 %358, ptr %356, align 4
@@ -619,11 +654,28 @@ define internal void @SHA256_Transform(ptr noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %7, align 4
   store i32 0, ptr %6, align 4
   store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha256_final(ptr noundef %0, ptr noundef %1) #0 {
+define void @pg_sha256_final(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -637,6 +689,7 @@ define dso_local void @pg_sha256_final(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   call void @SHA256_Last(ptr noundef %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %11
 
@@ -646,11 +699,12 @@ define dso_local void @pg_sha256_final(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %13, label %14, label %44
 
 14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %5, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [8 x i32], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds [8 x i32], ptr %16, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %6, align 4
   %21 = load i32, ptr %6, align 4
@@ -670,23 +724,25 @@ define dso_local void @pg_sha256_final(ptr noundef %0, ptr noundef %1) #0 {
   %34 = or i64 %29, %33
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %36, i32 0, i32 0
   %38 = load i32, ptr %5, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [8 x i32], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds [8 x i32], ptr %37, i64 0, i64 %39
   store i32 %35, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
   br label %41
 
 41:                                               ; preds = %14
   %42 = load i32, ptr %5, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %5, align 4
-  br label %11, !llvm.loop !9
+  br label %11, !llvm.loop !7
 
 44:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
   %48 = getelementptr inbounds [8 x i32], ptr %47, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %48, i64 32, i1 false)
   br label %49
@@ -703,15 +759,17 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 3
   %9 = urem i64 %8, 64
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %4, align 8
   %14 = load i64, ptr %4, align 8
@@ -736,20 +794,21 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
   %31 = shl i64 %30, 16
   %32 = or i64 %28, %31
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %33, i32 0, i32 1
   store i64 %32, ptr %34, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
   %35 = load i32, ptr %3, align 4
   %36 = icmp ugt i32 %35, 0
   br i1 %36, label %37, label %76
 
 37:                                               ; preds = %1
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %38, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %38, i32 0, i32 2
   %40 = load i32, ptr %3, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %3, align 4
   %42 = zext i32 %40 to i64
-  %43 = getelementptr [64 x i8], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 0, i64 %42
   store i8 -128, ptr %43, align 1
   %44 = load i32, ptr %3, align 4
   %45 = icmp ule i32 %44, 56
@@ -757,10 +816,10 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %47, i32 0, i32 2
+  %48 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %47, i32 0, i32 2
   %49 = load i32, ptr %3, align 4
   %50 = zext i32 %49 to i64
-  %51 = getelementptr [64 x i8], ptr %48, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 0, i64 %50
   %52 = load i32, ptr %3, align 4
   %53 = sub i32 56, %52
   %54 = zext i32 %53 to i64
@@ -774,10 +833,10 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %59, i32 0, i32 2
+  %60 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %59, i32 0, i32 2
   %61 = load i32, ptr %3, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr [64 x i8], ptr %60, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %60, i64 0, i64 %62
   %64 = load i32, ptr %3, align 4
   %65 = sub i32 64, %64
   %66 = zext i32 %65 to i64
@@ -787,11 +846,11 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
 67:                                               ; preds = %58, %55
   %68 = load ptr, ptr %2, align 8
   %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %69, i32 0, i32 2
+  %70 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %69, i32 0, i32 2
   %71 = getelementptr inbounds [64 x i8], ptr %70, i64 0, i64 0
   call void @SHA256_Transform(ptr noundef %68, ptr noundef %71)
   %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %72, i32 0, i32 2
+  %73 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %72, i32 0, i32 2
   %74 = getelementptr inbounds [64 x i8], ptr %73, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 56, i1 false)
   br label %75
@@ -801,33 +860,34 @@ define internal void @SHA256_Last(ptr noundef %0) #0 {
 
 76:                                               ; preds = %1
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %77, i32 0, i32 2
+  %78 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %77, i32 0, i32 2
   %79 = getelementptr inbounds [64 x i8], ptr %78, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %79, i8 0, i64 56, i1 false)
   %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %80, i32 0, i32 2
+  %81 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %80, i32 0, i32 2
   %82 = getelementptr inbounds [64 x i8], ptr %81, i64 0, i64 0
   store i8 -128, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %75
   %84 = load ptr, ptr %2, align 8
-  %85 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %84, i32 0, i32 1
+  %85 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %84, i32 0, i32 1
   %86 = load i64, ptr %85, align 8
   %87 = load ptr, ptr %2, align 8
-  %88 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %87, i32 0, i32 2
-  %89 = getelementptr [64 x i8], ptr %88, i64 0, i64 56
+  %88 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %87, i32 0, i32 2
+  %89 = getelementptr inbounds [64 x i8], ptr %88, i64 0, i64 56
   store i64 %86, ptr %89, align 8
   %90 = load ptr, ptr %2, align 8
   %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %91, i32 0, i32 2
+  %92 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %91, i32 0, i32 2
   %93 = getelementptr inbounds [64 x i8], ptr %92, i64 0, i64 0
   call void @SHA256_Transform(ptr noundef %90, ptr noundef %93)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha512_init(ptr noundef %0) #0 {
+define void @pg_sha512_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -839,20 +899,20 @@ define dso_local void @pg_sha512_init(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds [8 x i64], ptr %8, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 16 @sha512_initial_hash_value, i64 64, i1 false)
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %10, i32 0, i32 2
   %12 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 128, i1 false)
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
-  %15 = getelementptr [2 x i64], ptr %14, i64 0, i64 1
+  %14 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
   store i64 0, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %16, i32 0, i32 1
-  %18 = getelementptr [2 x i64], ptr %17, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 0
   store i64 0, ptr %18, align 8
   br label %19
 
@@ -861,226 +921,244 @@ define dso_local void @pg_sha512_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha512_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define void @pg_sha512_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %9 = load i64, ptr %6, align 8
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  br label %153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load i64, ptr %6, align 8
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
-  %15 = getelementptr [2 x i64], ptr %14, i64 0, i64 0
-  %16 = load i64, ptr %15, align 8
-  %17 = lshr i64 %16, 3
-  %18 = urem i64 %17, 128
-  store i64 %18, ptr %8, align 8
-  %19 = load i64, ptr %8, align 8
-  %20 = icmp ugt i64 %19, 0
-  br i1 %20, label %21, label %94
+  store i32 1, ptr %9, align 4
+  br label %154
 
-21:                                               ; preds = %12
-  %22 = load i64, ptr %8, align 8
-  %23 = sub i64 128, %22
-  store i64 %23, ptr %7, align 8
-  %24 = load i64, ptr %6, align 8
-  %25 = load i64, ptr %7, align 8
-  %26 = icmp uge i64 %24, %25
-  br i1 %26, label %27, label %65
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %17 = load i64, ptr %16, align 8
+  %18 = lshr i64 %17, 3
+  %19 = urem i64 %18, 128
+  store i64 %19, ptr %8, align 8
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ugt i64 %20, 0
+  br i1 %21, label %22, label %95
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %28, i32 0, i32 2
-  %30 = load i64, ptr %8, align 8
-  %31 = getelementptr [128 x i8], ptr %29, i64 0, i64 %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+22:                                               ; preds = %13
+  %23 = load i64, ptr %8, align 8
+  %24 = sub i64 128, %23
+  store i64 %24, ptr %7, align 8
+  %25 = load i64, ptr %6, align 8
+  %26 = load i64, ptr %7, align 8
+  %27 = icmp uge i64 %25, %26
+  br i1 %27, label %28, label %66
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %29, i32 0, i32 2
+  %31 = load i64, ptr %8, align 8
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %30, i64 0, i64 %31
+  %33 = load ptr, ptr %5, align 8
   %34 = load i64, ptr %7, align 8
-  %35 = shl i64 %34, 3
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %36, i32 0, i32 1
-  %38 = getelementptr [2 x i64], ptr %37, i64 0, i64 0
-  %39 = load i64, ptr %38, align 8
-  %40 = add i64 %39, %35
-  store i64 %40, ptr %38, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %41, i32 0, i32 1
-  %43 = getelementptr [2 x i64], ptr %42, i64 0, i64 0
-  %44 = load i64, ptr %43, align 8
-  %45 = load i64, ptr %7, align 8
-  %46 = shl i64 %45, 3
-  %47 = icmp ult i64 %44, %46
-  br i1 %47, label %48, label %54
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %33, i64 %34, i1 false)
+  %35 = load i64, ptr %7, align 8
+  %36 = shl i64 %35, 3
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %37, i32 0, i32 1
+  %39 = getelementptr inbounds [2 x i64], ptr %38, i64 0, i64 0
+  %40 = load i64, ptr %39, align 8
+  %41 = add i64 %40, %36
+  store i64 %41, ptr %39, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds [2 x i64], ptr %43, i64 0, i64 0
+  %45 = load i64, ptr %44, align 8
+  %46 = load i64, ptr %7, align 8
+  %47 = shl i64 %46, 3
+  %48 = icmp ult i64 %45, %47
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %27
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %49, i32 0, i32 1
-  %51 = getelementptr [2 x i64], ptr %50, i64 0, i64 1
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %51, align 8
-  br label %54
+49:                                               ; preds = %28
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [2 x i64], ptr %51, i64 0, i64 1
+  %53 = load i64, ptr %52, align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %52, align 8
+  br label %55
 
-54:                                               ; preds = %48, %27
-  %55 = load i64, ptr %7, align 8
-  %56 = load i64, ptr %6, align 8
-  %57 = sub i64 %56, %55
-  store i64 %57, ptr %6, align 8
-  %58 = load i64, ptr %7, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr i8, ptr %59, i64 %58
-  store ptr %60, ptr %5, align 8
-  %61 = load ptr, ptr %4, align 8
+55:                                               ; preds = %49, %28
+  %56 = load i64, ptr %7, align 8
+  %57 = load i64, ptr %6, align 8
+  %58 = sub i64 %57, %56
+  store i64 %58, ptr %6, align 8
+  %59 = load i64, ptr %7, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
+  store ptr %61, ptr %5, align 8
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %62, i32 0, i32 2
-  %64 = getelementptr inbounds [128 x i8], ptr %63, i64 0, i64 0
-  call void @SHA512_Transform(ptr noundef %61, ptr noundef %64)
-  br label %93
-
-65:                                               ; preds = %21
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %66, i32 0, i32 2
-  %68 = load i64, ptr %8, align 8
-  %69 = getelementptr [128 x i8], ptr %67, i64 0, i64 %68
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i64, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %70, i64 %71, i1 false)
-  %72 = load i64, ptr %6, align 8
-  %73 = shl i64 %72, 3
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %74, i32 0, i32 1
-  %76 = getelementptr [2 x i64], ptr %75, i64 0, i64 0
-  %77 = load i64, ptr %76, align 8
-  %78 = add i64 %77, %73
-  store i64 %78, ptr %76, align 8
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %79, i32 0, i32 1
-  %81 = getelementptr [2 x i64], ptr %80, i64 0, i64 0
-  %82 = load i64, ptr %81, align 8
-  %83 = load i64, ptr %6, align 8
-  %84 = shl i64 %83, 3
-  %85 = icmp ult i64 %82, %84
-  br i1 %85, label %86, label %92
-
-86:                                               ; preds = %65
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %87, i32 0, i32 1
-  %89 = getelementptr [2 x i64], ptr %88, i64 0, i64 1
-  %90 = load i64, ptr %89, align 8
-  %91 = add i64 %90, 1
-  store i64 %91, ptr %89, align 8
-  br label %92
-
-92:                                               ; preds = %86, %65
-  store i64 0, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %153
-
-93:                                               ; preds = %54
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %63, i32 0, i32 2
+  %65 = getelementptr inbounds [128 x i8], ptr %64, i64 0, i64 0
+  call void @SHA512_Transform(ptr noundef %62, ptr noundef %65)
   br label %94
 
-94:                                               ; preds = %93, %12
-  br label %95
+66:                                               ; preds = %22
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %67, i32 0, i32 2
+  %69 = load i64, ptr %8, align 8
+  %70 = getelementptr inbounds nuw [128 x i8], ptr %68, i64 0, i64 %69
+  %71 = load ptr, ptr %5, align 8
+  %72 = load i64, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %71, i64 %72, i1 false)
+  %73 = load i64, ptr %6, align 8
+  %74 = shl i64 %73, 3
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %75, i32 0, i32 1
+  %77 = getelementptr inbounds [2 x i64], ptr %76, i64 0, i64 0
+  %78 = load i64, ptr %77, align 8
+  %79 = add i64 %78, %74
+  store i64 %79, ptr %77, align 8
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %80, i32 0, i32 1
+  %82 = getelementptr inbounds [2 x i64], ptr %81, i64 0, i64 0
+  %83 = load i64, ptr %82, align 8
+  %84 = load i64, ptr %6, align 8
+  %85 = shl i64 %84, 3
+  %86 = icmp ult i64 %83, %85
+  br i1 %86, label %87, label %93
 
-95:                                               ; preds = %117, %94
-  %96 = load i64, ptr %6, align 8
-  %97 = icmp uge i64 %96, 128
-  br i1 %97, label %98, label %122
+87:                                               ; preds = %66
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %88, i32 0, i32 1
+  %90 = getelementptr inbounds [2 x i64], ptr %89, i64 0, i64 1
+  %91 = load i64, ptr %90, align 8
+  %92 = add i64 %91, 1
+  store i64 %92, ptr %90, align 8
+  br label %93
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %4, align 8
-  %100 = load ptr, ptr %5, align 8
-  call void @SHA512_Transform(ptr noundef %99, ptr noundef %100)
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %101, i32 0, i32 1
-  %103 = getelementptr [2 x i64], ptr %102, i64 0, i64 0
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, 1024
-  store i64 %105, ptr %103, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %106, i32 0, i32 1
-  %108 = getelementptr [2 x i64], ptr %107, i64 0, i64 0
-  %109 = load i64, ptr %108, align 8
-  %110 = icmp ult i64 %109, 1024
-  br i1 %110, label %111, label %117
-
-111:                                              ; preds = %98
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %112, i32 0, i32 1
-  %114 = getelementptr [2 x i64], ptr %113, i64 0, i64 1
-  %115 = load i64, ptr %114, align 8
-  %116 = add i64 %115, 1
-  store i64 %116, ptr %114, align 8
-  br label %117
-
-117:                                              ; preds = %111, %98
-  %118 = load i64, ptr %6, align 8
-  %119 = sub i64 %118, 128
-  store i64 %119, ptr %6, align 8
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr i8, ptr %120, i64 128
-  store ptr %121, ptr %5, align 8
-  br label %95, !llvm.loop !10
-
-122:                                              ; preds = %95
-  %123 = load i64, ptr %6, align 8
-  %124 = icmp ugt i64 %123, 0
-  br i1 %124, label %125, label %152
-
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %126, i32 0, i32 2
-  %128 = getelementptr inbounds [128 x i8], ptr %127, i64 0, i64 0
-  %129 = load ptr, ptr %5, align 8
-  %130 = load i64, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %128, ptr align 1 %129, i64 %130, i1 false)
-  %131 = load i64, ptr %6, align 8
-  %132 = shl i64 %131, 3
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %133, i32 0, i32 1
-  %135 = getelementptr [2 x i64], ptr %134, i64 0, i64 0
-  %136 = load i64, ptr %135, align 8
-  %137 = add i64 %136, %132
-  store i64 %137, ptr %135, align 8
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %138, i32 0, i32 1
-  %140 = getelementptr [2 x i64], ptr %139, i64 0, i64 0
-  %141 = load i64, ptr %140, align 8
-  %142 = load i64, ptr %6, align 8
-  %143 = shl i64 %142, 3
-  %144 = icmp ult i64 %141, %143
-  br i1 %144, label %145, label %151
-
-145:                                              ; preds = %125
-  %146 = load ptr, ptr %4, align 8
-  %147 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %146, i32 0, i32 1
-  %148 = getelementptr [2 x i64], ptr %147, i64 0, i64 1
-  %149 = load i64, ptr %148, align 8
-  %150 = add i64 %149, 1
-  store i64 %150, ptr %148, align 8
-  br label %151
-
-151:                                              ; preds = %145, %125
-  br label %152
-
-152:                                              ; preds = %151, %122
+93:                                               ; preds = %87, %66
   store i64 0, ptr %7, align 8
   store i64 0, ptr %8, align 8
+  store i32 1, ptr %9, align 4
+  br label %154
+
+94:                                               ; preds = %55
+  br label %95
+
+95:                                               ; preds = %94, %13
+  br label %96
+
+96:                                               ; preds = %118, %95
+  %97 = load i64, ptr %6, align 8
+  %98 = icmp uge i64 %97, 128
+  br i1 %98, label %99, label %123
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %4, align 8
+  %101 = load ptr, ptr %5, align 8
+  call void @SHA512_Transform(ptr noundef %100, ptr noundef %101)
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %102, i32 0, i32 1
+  %104 = getelementptr inbounds [2 x i64], ptr %103, i64 0, i64 0
+  %105 = load i64, ptr %104, align 8
+  %106 = add i64 %105, 1024
+  store i64 %106, ptr %104, align 8
+  %107 = load ptr, ptr %4, align 8
+  %108 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds [2 x i64], ptr %108, i64 0, i64 0
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp ult i64 %110, 1024
+  br i1 %111, label %112, label %118
+
+112:                                              ; preds = %99
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %113, i32 0, i32 1
+  %115 = getelementptr inbounds [2 x i64], ptr %114, i64 0, i64 1
+  %116 = load i64, ptr %115, align 8
+  %117 = add i64 %116, 1
+  store i64 %117, ptr %115, align 8
+  br label %118
+
+118:                                              ; preds = %112, %99
+  %119 = load i64, ptr %6, align 8
+  %120 = sub i64 %119, 128
+  store i64 %120, ptr %6, align 8
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 128
+  store ptr %122, ptr %5, align 8
+  br label %96, !llvm.loop !8
+
+123:                                              ; preds = %96
+  %124 = load i64, ptr %6, align 8
+  %125 = icmp ugt i64 %124, 0
+  br i1 %125, label %126, label %153
+
+126:                                              ; preds = %123
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %127, i32 0, i32 2
+  %129 = getelementptr inbounds [128 x i8], ptr %128, i64 0, i64 0
+  %130 = load ptr, ptr %5, align 8
+  %131 = load i64, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %129, ptr align 1 %130, i64 %131, i1 false)
+  %132 = load i64, ptr %6, align 8
+  %133 = shl i64 %132, 3
+  %134 = load ptr, ptr %4, align 8
+  %135 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %134, i32 0, i32 1
+  %136 = getelementptr inbounds [2 x i64], ptr %135, i64 0, i64 0
+  %137 = load i64, ptr %136, align 8
+  %138 = add i64 %137, %133
+  store i64 %138, ptr %136, align 8
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %139, i32 0, i32 1
+  %141 = getelementptr inbounds [2 x i64], ptr %140, i64 0, i64 0
+  %142 = load i64, ptr %141, align 8
+  %143 = load i64, ptr %6, align 8
+  %144 = shl i64 %143, 3
+  %145 = icmp ult i64 %142, %144
+  br i1 %145, label %146, label %152
+
+146:                                              ; preds = %126
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %147, i32 0, i32 1
+  %149 = getelementptr inbounds [2 x i64], ptr %148, i64 0, i64 1
+  %150 = load i64, ptr %149, align 8
+  %151 = add i64 %150, 1
+  store i64 %151, ptr %149, align 8
+  br label %152
+
+152:                                              ; preds = %146, %126
   br label %153
 
-153:                                              ; preds = %152, %92, %11
+153:                                              ; preds = %152, %123
+  store i64 0, ptr %7, align 8
+  store i64 0, ptr %8, align 8
+  store i32 0, ptr %9, align 4
+  br label %154
+
+154:                                              ; preds = %153, %93, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  %155 = load i32, ptr %9, align 4
+  switch i32 %155, label %157 [
+    i32 0, label %156
+    i32 1, label %156
+  ]
+
+156:                                              ; preds = %154, %154
   ret void
+
+157:                                              ; preds = %154
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1103,48 +1181,62 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %18 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %19, i32 0, i32 2
+  %20 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %19, i32 0, i32 2
   %21 = getelementptr inbounds [128 x i8], ptr %20, i64 0, i64 0
   store ptr %21, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %22, i32 0, i32 0
-  %24 = getelementptr [8 x i64], ptr %23, i64 0, i64 0
+  %23 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [8 x i64], ptr %23, i64 0, i64 0
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %5, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %26, i32 0, i32 0
-  %28 = getelementptr [8 x i64], ptr %27, i64 0, i64 1
+  %27 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i64], ptr %27, i64 0, i64 1
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %6, align 8
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %30, i32 0, i32 0
-  %32 = getelementptr [8 x i64], ptr %31, i64 0, i64 2
+  %31 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [8 x i64], ptr %31, i64 0, i64 2
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %7, align 8
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %34, i32 0, i32 0
-  %36 = getelementptr [8 x i64], ptr %35, i64 0, i64 3
+  %35 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds [8 x i64], ptr %35, i64 0, i64 3
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %8, align 8
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %38, i32 0, i32 0
-  %40 = getelementptr [8 x i64], ptr %39, i64 0, i64 4
+  %39 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds [8 x i64], ptr %39, i64 0, i64 4
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %9, align 8
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %42, i32 0, i32 0
-  %44 = getelementptr [8 x i64], ptr %43, i64 0, i64 5
+  %43 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds [8 x i64], ptr %43, i64 0, i64 5
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %10, align 8
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %46, i32 0, i32 0
-  %48 = getelementptr [8 x i64], ptr %47, i64 0, i64 6
+  %47 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds [8 x i64], ptr %47, i64 0, i64 6
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %11, align 8
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
-  %52 = getelementptr [8 x i64], ptr %51, i64 0, i64 7
+  %51 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds [8 x i64], ptr %51, i64 0, i64 7
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %12, align 8
   store i32 0, ptr %18, align 4
@@ -1152,47 +1244,47 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
 
 54:                                               ; preds = %189, %2
   %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr i8, ptr %55, i64 7
+  %56 = getelementptr inbounds i8, ptr %55, i64 7
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr i8, ptr %59, i64 6
+  %60 = getelementptr inbounds i8, ptr %59, i64 6
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
   %63 = shl i64 %62, 8
   %64 = or i64 %58, %63
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr i8, ptr %65, i64 5
+  %66 = getelementptr inbounds i8, ptr %65, i64 5
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i64
   %69 = shl i64 %68, 16
   %70 = or i64 %64, %69
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr i8, ptr %71, i64 4
+  %72 = getelementptr inbounds i8, ptr %71, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
   %75 = shl i64 %74, 24
   %76 = or i64 %70, %75
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr i8, ptr %77, i64 3
+  %78 = getelementptr inbounds i8, ptr %77, i64 3
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i64
   %81 = shl i64 %80, 32
   %82 = or i64 %76, %81
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr i8, ptr %83, i64 2
+  %84 = getelementptr inbounds i8, ptr %83, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
   %87 = shl i64 %86, 40
   %88 = or i64 %82, %87
   %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr i8, ptr %89, i64 1
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i64
   %93 = shl i64 %92, 48
   %94 = or i64 %88, %93
   %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr i8, ptr %95, i64 0
+  %96 = getelementptr inbounds i8, ptr %95, i64 0
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
   %99 = shl i64 %98, 56
@@ -1200,10 +1292,10 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %101 = load ptr, ptr %17, align 8
   %102 = load i32, ptr %18, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i64, ptr %101, i64 %103
+  %104 = getelementptr inbounds i64, ptr %101, i64 %103
   store i64 %100, ptr %104, align 8
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr i8, ptr %105, i64 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 8
   store ptr %106, ptr %4, align 8
   %107 = load i64, ptr %12, align 8
   %108 = load i64, ptr %9, align 8
@@ -1235,13 +1327,13 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %134 = add i64 %125, %133
   %135 = load i32, ptr %18, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr [80 x i64], ptr @K512, i64 0, i64 %136
+  %137 = getelementptr inbounds [80 x i64], ptr @K512, i64 0, i64 %136
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %134, %138
   %140 = load ptr, ptr %17, align 8
   %141 = load i32, ptr %18, align 4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr i64, ptr %140, i64 %142
+  %143 = getelementptr inbounds i64, ptr %140, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %139, %144
   store i64 %145, ptr %15, align 8
@@ -1303,7 +1395,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
 189:                                              ; preds = %54
   %190 = load i32, ptr %18, align 4
   %191 = icmp slt i32 %190, 16
-  br i1 %191, label %54, label %192, !llvm.loop !11
+  br i1 %191, label %54, label %192, !llvm.loop !9
 
 192:                                              ; preds = %189
   br label %193
@@ -1314,7 +1406,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %196 = add i32 %195, 1
   %197 = and i32 %196, 15
   %198 = sext i32 %197 to i64
-  %199 = getelementptr i64, ptr %194, i64 %198
+  %199 = getelementptr inbounds i64, ptr %194, i64 %198
   %200 = load i64, ptr %199, align 8
   store i64 %200, ptr %13, align 8
   %201 = load i64, ptr %13, align 8
@@ -1337,7 +1429,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %217 = add i32 %216, 14
   %218 = and i32 %217, 15
   %219 = sext i32 %218 to i64
-  %220 = getelementptr i64, ptr %215, i64 %219
+  %220 = getelementptr inbounds i64, ptr %215, i64 %219
   %221 = load i64, ptr %220, align 8
   store i64 %221, ptr %14, align 8
   %222 = load i64, ptr %14, align 8
@@ -1385,7 +1477,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %263 = add i64 %254, %262
   %264 = load i32, ptr %18, align 4
   %265 = sext i32 %264 to i64
-  %266 = getelementptr [80 x i64], ptr @K512, i64 0, i64 %265
+  %266 = getelementptr inbounds [80 x i64], ptr @K512, i64 0, i64 %265
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %263, %267
   %269 = load i64, ptr %14, align 8
@@ -1394,7 +1486,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %272 = add i32 %271, 9
   %273 = and i32 %272, 15
   %274 = sext i32 %273 to i64
-  %275 = getelementptr i64, ptr %270, i64 %274
+  %275 = getelementptr inbounds i64, ptr %270, i64 %274
   %276 = load i64, ptr %275, align 8
   %277 = add i64 %269, %276
   %278 = load i64, ptr %13, align 8
@@ -1403,7 +1495,7 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   %281 = load i32, ptr %18, align 4
   %282 = and i32 %281, 15
   %283 = sext i32 %282 to i64
-  %284 = getelementptr i64, ptr %280, i64 %283
+  %284 = getelementptr inbounds i64, ptr %280, i64 %283
   %285 = load i64, ptr %284, align 8
   %286 = add i64 %285, %279
   store i64 %286, ptr %284, align 8
@@ -1467,62 +1559,62 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
 331:                                              ; preds = %193
   %332 = load i32, ptr %18, align 4
   %333 = icmp slt i32 %332, 80
-  br i1 %333, label %193, label %334, !llvm.loop !12
+  br i1 %333, label %193, label %334, !llvm.loop !10
 
 334:                                              ; preds = %331
   %335 = load i64, ptr %5, align 8
   %336 = load ptr, ptr %3, align 8
-  %337 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %336, i32 0, i32 0
-  %338 = getelementptr [8 x i64], ptr %337, i64 0, i64 0
+  %337 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %336, i32 0, i32 0
+  %338 = getelementptr inbounds [8 x i64], ptr %337, i64 0, i64 0
   %339 = load i64, ptr %338, align 8
   %340 = add i64 %339, %335
   store i64 %340, ptr %338, align 8
   %341 = load i64, ptr %6, align 8
   %342 = load ptr, ptr %3, align 8
-  %343 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %342, i32 0, i32 0
-  %344 = getelementptr [8 x i64], ptr %343, i64 0, i64 1
+  %343 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %342, i32 0, i32 0
+  %344 = getelementptr inbounds [8 x i64], ptr %343, i64 0, i64 1
   %345 = load i64, ptr %344, align 8
   %346 = add i64 %345, %341
   store i64 %346, ptr %344, align 8
   %347 = load i64, ptr %7, align 8
   %348 = load ptr, ptr %3, align 8
-  %349 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %348, i32 0, i32 0
-  %350 = getelementptr [8 x i64], ptr %349, i64 0, i64 2
+  %349 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %348, i32 0, i32 0
+  %350 = getelementptr inbounds [8 x i64], ptr %349, i64 0, i64 2
   %351 = load i64, ptr %350, align 8
   %352 = add i64 %351, %347
   store i64 %352, ptr %350, align 8
   %353 = load i64, ptr %8, align 8
   %354 = load ptr, ptr %3, align 8
-  %355 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %354, i32 0, i32 0
-  %356 = getelementptr [8 x i64], ptr %355, i64 0, i64 3
+  %355 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %354, i32 0, i32 0
+  %356 = getelementptr inbounds [8 x i64], ptr %355, i64 0, i64 3
   %357 = load i64, ptr %356, align 8
   %358 = add i64 %357, %353
   store i64 %358, ptr %356, align 8
   %359 = load i64, ptr %9, align 8
   %360 = load ptr, ptr %3, align 8
-  %361 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %360, i32 0, i32 0
-  %362 = getelementptr [8 x i64], ptr %361, i64 0, i64 4
+  %361 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %360, i32 0, i32 0
+  %362 = getelementptr inbounds [8 x i64], ptr %361, i64 0, i64 4
   %363 = load i64, ptr %362, align 8
   %364 = add i64 %363, %359
   store i64 %364, ptr %362, align 8
   %365 = load i64, ptr %10, align 8
   %366 = load ptr, ptr %3, align 8
-  %367 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %366, i32 0, i32 0
-  %368 = getelementptr [8 x i64], ptr %367, i64 0, i64 5
+  %367 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %366, i32 0, i32 0
+  %368 = getelementptr inbounds [8 x i64], ptr %367, i64 0, i64 5
   %369 = load i64, ptr %368, align 8
   %370 = add i64 %369, %365
   store i64 %370, ptr %368, align 8
   %371 = load i64, ptr %11, align 8
   %372 = load ptr, ptr %3, align 8
-  %373 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %372, i32 0, i32 0
-  %374 = getelementptr [8 x i64], ptr %373, i64 0, i64 6
+  %373 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %372, i32 0, i32 0
+  %374 = getelementptr inbounds [8 x i64], ptr %373, i64 0, i64 6
   %375 = load i64, ptr %374, align 8
   %376 = add i64 %375, %371
   store i64 %376, ptr %374, align 8
   %377 = load i64, ptr %12, align 8
   %378 = load ptr, ptr %3, align 8
-  %379 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %378, i32 0, i32 0
-  %380 = getelementptr [8 x i64], ptr %379, i64 0, i64 7
+  %379 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %378, i32 0, i32 0
+  %380 = getelementptr inbounds [8 x i64], ptr %379, i64 0, i64 7
   %381 = load i64, ptr %380, align 8
   %382 = add i64 %381, %377
   store i64 %382, ptr %380, align 8
@@ -1536,11 +1628,25 @@ define internal void @SHA512_Transform(ptr noundef %0, ptr noundef %1) #0 {
   store i64 0, ptr %7, align 8
   store i64 0, ptr %6, align 8
   store i64 0, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha512_final(ptr noundef %0, ptr noundef %1) #0 {
+define void @pg_sha512_final(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1554,6 +1660,7 @@ define dso_local void @pg_sha512_final(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   call void @SHA512_Last(ptr noundef %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %11
 
@@ -1563,11 +1670,12 @@ define dso_local void @pg_sha512_final(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %13, label %14, label %48
 
 14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %5, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [8 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds [8 x i64], ptr %16, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %6, align 8
   %21 = load i64, ptr %6, align 8
@@ -1592,23 +1700,25 @@ define dso_local void @pg_sha512_final(ptr noundef %0, ptr noundef %1) #0 {
   %38 = shl i64 %37, 16
   %39 = or i64 %35, %38
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %40, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %40, i32 0, i32 0
   %42 = load i32, ptr %5, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [8 x i64], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds [8 x i64], ptr %41, i64 0, i64 %43
   store i64 %39, ptr %44, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
   br label %45
 
 45:                                               ; preds = %14
   %46 = load i32, ptr %5, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %5, align 4
-  br label %11, !llvm.loop !13
+  br label %11, !llvm.loop !11
 
 48:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   %49 = load ptr, ptr %4, align 8
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
   %52 = getelementptr inbounds [8 x i64], ptr %51, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 8 %52, i64 64, i1 false)
   br label %53
@@ -1626,17 +1736,19 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %6, i32 0, i32 1
-  %8 = getelementptr [2 x i64], ptr %7, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds [2 x i64], ptr %7, i64 0, i64 0
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 3
   %11 = urem i64 %10, 128
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
-  %15 = getelementptr [2 x i64], ptr %14, i64 0, i64 0
+  %14 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %4, align 8
   %17 = load i64, ptr %4, align 8
@@ -1661,12 +1773,14 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
   %34 = shl i64 %33, 16
   %35 = or i64 %31, %34
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %36, i32 0, i32 1
-  %38 = getelementptr [2 x i64], ptr %37, i64 0, i64 0
+  %37 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %36, i32 0, i32 1
+  %38 = getelementptr inbounds [2 x i64], ptr %37, i64 0, i64 0
   store i64 %35, ptr %38, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %39, i32 0, i32 1
-  %41 = getelementptr [2 x i64], ptr %40, i64 0, i64 1
+  %40 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds [2 x i64], ptr %40, i64 0, i64 1
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %5, align 8
   %43 = load i64, ptr %5, align 8
@@ -1691,21 +1805,22 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
   %60 = shl i64 %59, 16
   %61 = or i64 %57, %60
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %62, i32 0, i32 1
-  %64 = getelementptr [2 x i64], ptr %63, i64 0, i64 1
+  %63 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %62, i32 0, i32 1
+  %64 = getelementptr inbounds [2 x i64], ptr %63, i64 0, i64 1
   store i64 %61, ptr %64, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   %65 = load i32, ptr %3, align 4
   %66 = icmp ugt i32 %65, 0
   br i1 %66, label %67, label %106
 
 67:                                               ; preds = %1
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %68, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %68, i32 0, i32 2
   %70 = load i32, ptr %3, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %3, align 4
   %72 = zext i32 %70 to i64
-  %73 = getelementptr [128 x i8], ptr %69, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [128 x i8], ptr %69, i64 0, i64 %72
   store i8 -128, ptr %73, align 1
   %74 = load i32, ptr %3, align 4
   %75 = icmp ule i32 %74, 112
@@ -1713,10 +1828,10 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
 
 76:                                               ; preds = %67
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %77, i32 0, i32 2
+  %78 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %77, i32 0, i32 2
   %79 = load i32, ptr %3, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr [128 x i8], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [128 x i8], ptr %78, i64 0, i64 %80
   %82 = load i32, ptr %3, align 4
   %83 = sub i32 112, %82
   %84 = zext i32 %83 to i64
@@ -1730,10 +1845,10 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %89, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %89, i32 0, i32 2
   %91 = load i32, ptr %3, align 4
   %92 = zext i32 %91 to i64
-  %93 = getelementptr [128 x i8], ptr %90, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [128 x i8], ptr %90, i64 0, i64 %92
   %94 = load i32, ptr %3, align 4
   %95 = sub i32 128, %94
   %96 = zext i32 %95 to i64
@@ -1743,11 +1858,11 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
 97:                                               ; preds = %88, %85
   %98 = load ptr, ptr %2, align 8
   %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %99, i32 0, i32 2
+  %100 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %99, i32 0, i32 2
   %101 = getelementptr inbounds [128 x i8], ptr %100, i64 0, i64 0
   call void @SHA512_Transform(ptr noundef %98, ptr noundef %101)
   %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %102, i32 0, i32 2
+  %103 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %102, i32 0, i32 2
   %104 = getelementptr inbounds [128 x i8], ptr %103, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %104, i8 0, i64 126, i1 false)
   br label %105
@@ -1757,42 +1872,43 @@ define internal void @SHA512_Last(ptr noundef %0) #0 {
 
 106:                                              ; preds = %1
   %107 = load ptr, ptr %2, align 8
-  %108 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %107, i32 0, i32 2
+  %108 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %107, i32 0, i32 2
   %109 = getelementptr inbounds [128 x i8], ptr %108, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %109, i8 0, i64 112, i1 false)
   %110 = load ptr, ptr %2, align 8
-  %111 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %110, i32 0, i32 2
+  %111 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %110, i32 0, i32 2
   %112 = getelementptr inbounds [128 x i8], ptr %111, i64 0, i64 0
   store i8 -128, ptr %112, align 8
   br label %113
 
 113:                                              ; preds = %106, %105
   %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %114, i32 0, i32 1
-  %116 = getelementptr [2 x i64], ptr %115, i64 0, i64 1
+  %115 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %114, i32 0, i32 1
+  %116 = getelementptr inbounds [2 x i64], ptr %115, i64 0, i64 1
   %117 = load i64, ptr %116, align 8
   %118 = load ptr, ptr %2, align 8
-  %119 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %118, i32 0, i32 2
-  %120 = getelementptr [128 x i8], ptr %119, i64 0, i64 112
+  %119 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %118, i32 0, i32 2
+  %120 = getelementptr inbounds [128 x i8], ptr %119, i64 0, i64 112
   store i64 %117, ptr %120, align 8
   %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %121, i32 0, i32 1
-  %123 = getelementptr [2 x i64], ptr %122, i64 0, i64 0
+  %122 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %121, i32 0, i32 1
+  %123 = getelementptr inbounds [2 x i64], ptr %122, i64 0, i64 0
   %124 = load i64, ptr %123, align 8
   %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %125, i32 0, i32 2
-  %127 = getelementptr [128 x i8], ptr %126, i64 0, i64 120
+  %126 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %125, i32 0, i32 2
+  %127 = getelementptr inbounds [128 x i8], ptr %126, i64 0, i64 120
   store i64 %124, ptr %127, align 8
   %128 = load ptr, ptr %2, align 8
   %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %129, i32 0, i32 2
+  %130 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %129, i32 0, i32 2
   %131 = getelementptr inbounds [128 x i8], ptr %130, i64 0, i64 0
   call void @SHA512_Transform(ptr noundef %128, ptr noundef %131)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha384_init(ptr noundef %0) #0 {
+define void @pg_sha384_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1804,20 +1920,20 @@ define dso_local void @pg_sha384_init(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds [8 x i64], ptr %8, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 16 @sha384_initial_hash_value, i64 64, i1 false)
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %10, i32 0, i32 2
   %12 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 128, i1 false)
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
-  %15 = getelementptr [2 x i64], ptr %14, i64 0, i64 1
+  %14 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
   store i64 0, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %16, i32 0, i32 1
-  %18 = getelementptr [2 x i64], ptr %17, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 0
   store i64 0, ptr %18, align 8
   br label %19
 
@@ -1826,7 +1942,7 @@ define dso_local void @pg_sha384_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha384_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define void @pg_sha384_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1841,7 +1957,7 @@ define dso_local void @pg_sha384_update(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
+define void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1855,6 +1971,7 @@ define dso_local void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   call void @SHA512_Last(ptr noundef %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %11
 
@@ -1864,11 +1981,12 @@ define dso_local void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %13, label %14, label %48
 
 14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %5, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [8 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds [8 x i64], ptr %16, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %6, align 8
   %21 = load i64, ptr %6, align 8
@@ -1893,23 +2011,25 @@ define dso_local void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
   %38 = shl i64 %37, 16
   %39 = or i64 %35, %38
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %40, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %40, i32 0, i32 0
   %42 = load i32, ptr %5, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [8 x i64], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds [8 x i64], ptr %41, i64 0, i64 %43
   store i64 %39, ptr %44, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
   br label %45
 
 45:                                               ; preds = %14
   %46 = load i32, ptr %5, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %5, align 4
-  br label %11, !llvm.loop !14
+  br label %11, !llvm.loop !12
 
 48:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   %49 = load ptr, ptr %4, align 8
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.pg_sha512_ctx, ptr %50, i32 0, i32 0
   %52 = getelementptr inbounds [8 x i64], ptr %51, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 8 %52, i64 48, i1 false)
   br label %53
@@ -1921,7 +2041,7 @@ define dso_local void @pg_sha384_final(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha224_init(ptr noundef %0) #0 {
+define void @pg_sha224_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1933,15 +2053,15 @@ define dso_local void @pg_sha224_init(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 16 @sha224_initial_hash_value, i64 32, i1 false)
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %10, i32 0, i32 2
   %12 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 64, i1 false)
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %13, i32 0, i32 1
   store i64 0, ptr %14, align 8
   br label %15
 
@@ -1950,7 +2070,7 @@ define dso_local void @pg_sha224_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha224_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define void @pg_sha224_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1965,7 +2085,7 @@ define dso_local void @pg_sha224_update(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
+define void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1979,6 +2099,7 @@ define dso_local void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   call void @SHA256_Last(ptr noundef %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %11
 
@@ -1988,11 +2109,12 @@ define dso_local void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %13, label %14, label %44
 
 14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %5, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [8 x i32], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds [8 x i32], ptr %16, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %6, align 4
   %21 = load i32, ptr %6, align 4
@@ -2012,23 +2134,25 @@ define dso_local void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
   %34 = or i64 %29, %33
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %36, i32 0, i32 0
   %38 = load i32, ptr %5, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [8 x i32], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds [8 x i32], ptr %37, i64 0, i64 %39
   store i32 %35, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
   br label %41
 
 41:                                               ; preds = %14
   %42 = load i32, ptr %5, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %5, align 4
-  br label %11, !llvm.loop !15
+  br label %11, !llvm.loop !13
 
 44:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.pg_sha256_ctx, ptr %46, i32 0, i32 0
   %48 = getelementptr inbounds [8 x i32], ptr %47, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %48, i64 28, i1 false)
   br label %49
@@ -2039,25 +2163,25 @@ define dso_local void @pg_sha224_final(ptr noundef %0, ptr noundef %1) #0 {
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}

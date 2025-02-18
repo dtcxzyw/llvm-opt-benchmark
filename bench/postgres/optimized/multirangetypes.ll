@@ -55,22 +55,23 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @palloc(i64 noundef 64) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %15 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 0)
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 440
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr %5, align 1
-  %.not139 = icmp eq i8 %19, 0
-  br i1 %.not139, label %.critedge.thread, label %.lr.ph
+  %.not164 = icmp eq i8 %19, 0
+  br i1 %.not164, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %20 = tail call ptr @__ctype_b_loc() #12
@@ -79,31 +80,31 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 
 22:                                               ; preds = %.lr.ph, %28
   %23 = phi i8 [ %19, %.lr.ph ], [ %30, %28 ]
-  %.0108140 = phi ptr [ %5, %.lr.ph ], [ %29, %28 ]
+  %.0116165 = phi ptr [ %5, %.lr.ph ], [ %29, %28 ]
   %24 = zext i8 %23 to i64
-  %25 = getelementptr i16, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 8192
-  %.not114 = icmp eq i16 %27, 0
-  br i1 %.not114, label %.critedge, label %28
+  %.not124 = icmp eq i16 %27, 0
+  br i1 %.not124, label %.critedge, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr i8, ptr %.0108140, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
   %30 = load i8, ptr %29, align 1
   %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %.critedge.thread, label %22, !llvm.loop !5
+  br i1 %.not, label %.critedge.thread, label %22, !llvm.loop !4
 
 .critedge:                                        ; preds = %22
   %31 = icmp eq i8 %23, 123
-  br i1 %31, label %.preheader121, label %.critedge.thread
+  br i1 %31, label %.preheader146, label %.critedge.thread
 
-.preheader121:                                    ; preds = %.critedge
+.preheader146:                                    ; preds = %.critedge
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.1109149201 = getelementptr i8, ptr %.0108140, i64 1
-  %34 = load i8, ptr %.1109149201, align 1
+  %.1117174226 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
+  %34 = load i8, ptr %.1117174226, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %._crit_edge211, label %.lr.ph210
+  br i1 %35, label %._crit_edge236, label %.lr.ph235
 
 .critedge.thread:                                 ; preds = %28, %1, %.critedge
   %36 = tail call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
@@ -113,50 +114,50 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %38 = tail call i32 @errcode(i32 noundef 33685634) #11
   %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 153, ptr noundef nonnull @__func__.multirange_in) #11
+  tail call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
 .preheader:                                       ; preds = %108, %56
-  %.1109162 = getelementptr i8, ptr %.0108.pn143207, i64 2
-  %41 = load i8, ptr %.1109162, align 1
-  %.not116150 = icmp eq i8 %41, 0
-  br i1 %.not116150, label %._crit_edge, label %.lr.ph152
+  %.1117187 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 2
+  %41 = load i8, ptr %.1117187, align 1
+  %.not126175 = icmp eq i8 %41, 0
+  br i1 %.not126175, label %._crit_edge, label %.lr.ph177
 
-.lr.ph152:                                        ; preds = %.preheader
+.lr.ph177:                                        ; preds = %.preheader
   %42 = load ptr, ptr %20, align 8
   br label %122
 
-._crit_edge211:                                   ; preds = %116, %.preheader121
+._crit_edge236:                                   ; preds = %116, %.preheader146
   %43 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
   br i1 %43, label %44, label %135
 
-44:                                               ; preds = %._crit_edge211
+44:                                               ; preds = %._crit_edge236
   %45 = call i32 @errcode(i32 noundef 33685634) #11
   %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %47 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #11
-  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.multirange_in) #11
+  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
-.lr.ph210:                                        ; preds = %.preheader121, %116
-  %48 = phi i8 [ %117, %116 ], [ %34, %.preheader121 ]
-  %.1109149209 = phi ptr [ %.1109149, %116 ], [ %.1109149201, %.preheader121 ]
-  %.0111142208 = phi ptr [ %.1112, %116 ], [ null, %.preheader121 ]
-  %.0108.pn143207 = phi ptr [ %.2110, %116 ], [ %.0108140, %.preheader121 ]
-  %.0106144206 = phi i32 [ %.1107, %116 ], [ 0, %.preheader121 ]
-  %.0103145205 = phi ptr [ %.1104, %116 ], [ %14, %.preheader121 ]
-  %.0100146204 = phi i32 [ %.1101, %116 ], [ 8, %.preheader121 ]
-  %.098147203 = phi i32 [ %.199, %116 ], [ 0, %.preheader121 ]
-  %.097148202 = phi i32 [ %.1, %116 ], [ 0, %.preheader121 ]
+.lr.ph235:                                        ; preds = %.preheader146, %116
+  %48 = phi i8 [ %117, %116 ], [ %34, %.preheader146 ]
+  %.1117174234 = phi ptr [ %.1117174, %116 ], [ %.1117174226, %.preheader146 ]
+  %.0120167233 = phi ptr [ %.1121.ph, %116 ], [ null, %.preheader146 ]
+  %.0116.pn168232 = phi ptr [ %.2118.ph, %116 ], [ %.0116165, %.preheader146 ]
+  %.0113169231 = phi i32 [ %.1114.ph, %116 ], [ 0, %.preheader146 ]
+  %.0108170230 = phi ptr [ %.1109.ph, %116 ], [ %14, %.preheader146 ]
+  %.0104171229 = phi i32 [ %.1105.ph, %116 ], [ 8, %.preheader146 ]
+  %.0101172228 = phi i32 [ %.1102.ph, %116 ], [ 0, %.preheader146 ]
+  %.098173227 = phi i32 [ %.199.ph, %116 ], [ 0, %.preheader146 ]
   %49 = load ptr, ptr %20, align 8
   %50 = zext i8 %48 to i64
-  %51 = getelementptr i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
-  %.not119 = icmp eq i16 %53, 0
-  br i1 %.not119, label %54, label %116
+  %.not129 = icmp eq i16 %53, 0
+  br i1 %.not129, label %54, label %116
 
-54:                                               ; preds = %.lr.ph210
-  switch i32 %.0106144206, label %default.unreachable [
+54:                                               ; preds = %.lr.ph235
+  switch i32 %.0113169231, label %default.unreachable [
     i32 0, label %55
     i32 1, label %71
     i32 2, label %116
@@ -173,18 +174,18 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 
 56:                                               ; preds = %55
   %57 = icmp eq i8 %48, 125
-  %58 = icmp eq i32 %.097148202, 0
+  %58 = icmp eq i32 %.098173227, 0
   %or.cond4 = select i1 %57, i1 %58, i1 false
   br i1 %or.cond4, label %.preheader, label %59
 
 59:                                               ; preds = %56
-  %60 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1109149209, ptr noundef nonnull @.str.4, i64 noundef 5) #11
+  %60 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1117174234, ptr noundef nonnull @.str.4, i64 noundef 5) #11
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  %63 = add i32 %.097148202, 1
-  %64 = getelementptr i8, ptr %.0108.pn143207, i64 5
+  %63 = add i32 %.098173227, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 5
   br label %116
 
 65:                                               ; preds = %59
@@ -195,7 +196,7 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %68 = call i32 @errcode(i32 noundef 33685634) #11
   %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %70 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #11
-  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 195, ptr noundef nonnull @__func__.multirange_in) #11
+  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
 71:                                               ; preds = %54
@@ -207,27 +208,27 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   ]
 
 72:                                               ; preds = %71, %71
-  %73 = ptrtoint ptr %.1109149209 to i64
-  %74 = ptrtoint ptr %.0111142208 to i64
+  %73 = ptrtoint ptr %.1117174234 to i64
+  %74 = ptrtoint ptr %.0120167233 to i64
   %75 = sub i64 %73, %74
   %76 = shl i64 %75, 32
   %sext = add i64 %76, 4294967296
   %77 = ashr exact i64 %sext, 32
-  %78 = call ptr @pnstrdup(ptr noundef %.0111142208, i64 noundef %77) #11
-  %79 = icmp eq i32 %.0100146204, %.098147203
+  %78 = call ptr @pnstrdup(ptr noundef %.0120167233, i64 noundef %77) #11
+  %79 = icmp eq i32 %.0104171229, %.0101172228
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %72
-  %81 = shl i32 %.098147203, 1
+  %81 = shl i32 %.0101172228, 1
   %82 = sext i32 %81 to i64
   %83 = shl nsw i64 %82, 3
-  %84 = call ptr @repalloc(ptr noundef %.0103145205, i64 noundef %83) #11
+  %84 = call ptr @repalloc(ptr noundef %.0108170230, i64 noundef %83) #11
   br label %85
 
 85:                                               ; preds = %80, %72
-  %.2105 = phi ptr [ %84, %80 ], [ %.0103145205, %72 ]
-  %.2102 = phi i32 [ %81, %80 ], [ %.0100146204, %72 ]
-  %86 = add i32 %.097148202, 1
+  %.3111 = phi ptr [ %84, %80 ], [ %.0108170230, %72 ]
+  %.3107 = phi i32 [ %81, %80 ], [ %.0104171229, %72 ]
+  %86 = add i32 %.098173227, 1
   %87 = load i32, ptr %33, align 8
   %88 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %32, ptr noundef %78, i32 noundef %87, i32 noundef %11, ptr noundef %13, ptr noundef nonnull %2) #11
   br i1 %88, label %91, label %89
@@ -243,13 +244,13 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %94 = call ptr @pg_detoast_datum(ptr noundef %93) #11
   %95 = call signext i8 @range_get_flags(ptr noundef %94) #11
   %96 = and i8 %95, 1
-  %.not120 = icmp eq i8 %96, 0
-  br i1 %.not120, label %97, label %116
+  %.not130 = icmp eq i8 %96, 0
+  br i1 %.not130, label %97, label %116
 
 97:                                               ; preds = %91
-  %98 = add i32 %.098147203, 1
-  %99 = sext i32 %.098147203 to i64
-  %100 = getelementptr ptr, ptr %.2105, i64 %99
+  %98 = add i32 %.0101172228, 1
+  %99 = sext i32 %.0101172228 to i64
+  %100 = getelementptr inbounds ptr, ptr %.3111, i64 %99
   store ptr %94, ptr %100, align 8
   br label %116
 
@@ -263,11 +264,11 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   ]
 
 103:                                              ; preds = %102
-  %104 = getelementptr i8, ptr %.0108.pn143207, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 2
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 34
-  %..1109 = select i1 %106, ptr %104, ptr %.1109149209
-  %.0106. = select i1 %106, i32 3, i32 1
+  %..1117 = select i1 %106, ptr %104, ptr %.1117174234
+  %.0113. = select i1 %106, i32 3, i32 1
   br label %116
 
 107:                                              ; preds = %102
@@ -287,7 +288,7 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %112 = call i32 @errcode(i32 noundef 33685634) #11
   %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %114 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #11
-  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 269, ptr noundef nonnull @__func__.multirange_in) #11
+  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 268, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
 115:                                              ; preds = %54
@@ -299,34 +300,34 @@ default.unreachable:                              ; preds = %54
 .fold.split:                                      ; preds = %71
   br label %116
 
-116:                                              ; preds = %108, %102, %103, %54, %71, %.fold.split, %91, %97, %55, %55, %115, %62, %101, %107, %.lr.ph210
-  %.1112 = phi ptr [ %.0111142208, %.lr.ph210 ], [ %.0111142208, %115 ], [ %.0111142208, %107 ], [ %.0111142208, %101 ], [ %.0111142208, %62 ], [ %.1109149209, %55 ], [ %.1109149209, %55 ], [ %.0111142208, %97 ], [ %.0111142208, %91 ], [ %.0111142208, %71 ], [ %.0111142208, %.fold.split ], [ %.0111142208, %54 ], [ %.0111142208, %103 ], [ %.0111142208, %102 ], [ %.0111142208, %108 ]
-  %.2110 = phi ptr [ %.1109149209, %.lr.ph210 ], [ %.1109149209, %115 ], [ %.1109149209, %107 ], [ %.1109149209, %101 ], [ %64, %62 ], [ %.1109149209, %55 ], [ %.1109149209, %55 ], [ %.1109149209, %97 ], [ %.1109149209, %91 ], [ %.1109149209, %71 ], [ %.1109149209, %.fold.split ], [ %.1109149209, %54 ], [ %..1109, %103 ], [ %.1109149209, %102 ], [ %.1109149209, %108 ]
-  %.1107 = phi i32 [ %.0106144206, %.lr.ph210 ], [ 3, %115 ], [ 4, %107 ], [ 2, %101 ], [ 5, %62 ], [ 1, %55 ], [ 1, %55 ], [ 5, %97 ], [ 5, %91 ], [ 3, %71 ], [ 1, %.fold.split ], [ 1, %54 ], [ %.0106., %103 ], [ 3, %102 ], [ 0, %108 ]
-  %.1104 = phi ptr [ %.0103145205, %.lr.ph210 ], [ %.0103145205, %115 ], [ %.0103145205, %107 ], [ %.0103145205, %101 ], [ %.0103145205, %62 ], [ %.0103145205, %55 ], [ %.0103145205, %55 ], [ %.2105, %97 ], [ %.2105, %91 ], [ %.0103145205, %71 ], [ %.0103145205, %.fold.split ], [ %.0103145205, %54 ], [ %.0103145205, %103 ], [ %.0103145205, %102 ], [ %.0103145205, %108 ]
-  %.1101 = phi i32 [ %.0100146204, %.lr.ph210 ], [ %.0100146204, %115 ], [ %.0100146204, %107 ], [ %.0100146204, %101 ], [ %.0100146204, %62 ], [ %.0100146204, %55 ], [ %.0100146204, %55 ], [ %.2102, %97 ], [ %.2102, %91 ], [ %.0100146204, %71 ], [ %.0100146204, %.fold.split ], [ %.0100146204, %54 ], [ %.0100146204, %103 ], [ %.0100146204, %102 ], [ %.0100146204, %108 ]
-  %.199 = phi i32 [ %.098147203, %.lr.ph210 ], [ %.098147203, %115 ], [ %.098147203, %107 ], [ %.098147203, %101 ], [ %.098147203, %62 ], [ %.098147203, %55 ], [ %.098147203, %55 ], [ %98, %97 ], [ %.098147203, %91 ], [ %.098147203, %71 ], [ %.098147203, %.fold.split ], [ %.098147203, %54 ], [ %.098147203, %103 ], [ %.098147203, %102 ], [ %.098147203, %108 ]
-  %.1 = phi i32 [ %.097148202, %.lr.ph210 ], [ %.097148202, %115 ], [ %.097148202, %107 ], [ %.097148202, %101 ], [ %63, %62 ], [ %.097148202, %55 ], [ %.097148202, %55 ], [ %86, %97 ], [ %86, %91 ], [ %.097148202, %71 ], [ %.097148202, %.fold.split ], [ %.097148202, %54 ], [ %.097148202, %103 ], [ %.097148202, %102 ], [ %.097148202, %108 ]
-  %.1109149 = getelementptr i8, ptr %.2110, i64 1
-  %117 = load i8, ptr %.1109149, align 1
+116:                                              ; preds = %.lr.ph235, %108, %102, %103, %54, %71, %.fold.split, %91, %97, %55, %55, %107, %101, %62, %115
+  %.1121.ph = phi ptr [ %.0120167233, %108 ], [ %.0120167233, %102 ], [ %.0120167233, %103 ], [ %.0120167233, %54 ], [ %.0120167233, %.fold.split ], [ %.0120167233, %71 ], [ %.0120167233, %91 ], [ %.0120167233, %97 ], [ %.1117174234, %55 ], [ %.1117174234, %55 ], [ %.0120167233, %62 ], [ %.0120167233, %101 ], [ %.0120167233, %107 ], [ %.0120167233, %115 ], [ %.0120167233, %.lr.ph235 ]
+  %.2118.ph = phi ptr [ %.1117174234, %108 ], [ %.1117174234, %102 ], [ %..1117, %103 ], [ %.1117174234, %54 ], [ %.1117174234, %.fold.split ], [ %.1117174234, %71 ], [ %.1117174234, %91 ], [ %.1117174234, %97 ], [ %.1117174234, %55 ], [ %.1117174234, %55 ], [ %64, %62 ], [ %.1117174234, %101 ], [ %.1117174234, %107 ], [ %.1117174234, %115 ], [ %.1117174234, %.lr.ph235 ]
+  %.1114.ph = phi i32 [ 0, %108 ], [ 3, %102 ], [ %.0113., %103 ], [ 1, %54 ], [ 1, %.fold.split ], [ 3, %71 ], [ 5, %91 ], [ 5, %97 ], [ 1, %55 ], [ 1, %55 ], [ 5, %62 ], [ 2, %101 ], [ 4, %107 ], [ 3, %115 ], [ %.0113169231, %.lr.ph235 ]
+  %.1109.ph = phi ptr [ %.0108170230, %108 ], [ %.0108170230, %102 ], [ %.0108170230, %103 ], [ %.0108170230, %54 ], [ %.0108170230, %.fold.split ], [ %.0108170230, %71 ], [ %.3111, %91 ], [ %.3111, %97 ], [ %.0108170230, %55 ], [ %.0108170230, %55 ], [ %.0108170230, %62 ], [ %.0108170230, %101 ], [ %.0108170230, %107 ], [ %.0108170230, %115 ], [ %.0108170230, %.lr.ph235 ]
+  %.1105.ph = phi i32 [ %.0104171229, %108 ], [ %.0104171229, %102 ], [ %.0104171229, %103 ], [ %.0104171229, %54 ], [ %.0104171229, %.fold.split ], [ %.0104171229, %71 ], [ %.3107, %91 ], [ %.3107, %97 ], [ %.0104171229, %55 ], [ %.0104171229, %55 ], [ %.0104171229, %62 ], [ %.0104171229, %101 ], [ %.0104171229, %107 ], [ %.0104171229, %115 ], [ %.0104171229, %.lr.ph235 ]
+  %.1102.ph = phi i32 [ %.0101172228, %108 ], [ %.0101172228, %102 ], [ %.0101172228, %103 ], [ %.0101172228, %54 ], [ %.0101172228, %.fold.split ], [ %.0101172228, %71 ], [ %.0101172228, %91 ], [ %98, %97 ], [ %.0101172228, %55 ], [ %.0101172228, %55 ], [ %.0101172228, %62 ], [ %.0101172228, %101 ], [ %.0101172228, %107 ], [ %.0101172228, %115 ], [ %.0101172228, %.lr.ph235 ]
+  %.199.ph = phi i32 [ %.098173227, %108 ], [ %.098173227, %102 ], [ %.098173227, %103 ], [ %.098173227, %54 ], [ %.098173227, %.fold.split ], [ %.098173227, %71 ], [ %86, %91 ], [ %86, %97 ], [ %.098173227, %55 ], [ %.098173227, %55 ], [ %63, %62 ], [ %.098173227, %101 ], [ %.098173227, %107 ], [ %.098173227, %115 ], [ %.098173227, %.lr.ph235 ]
+  %.1117174 = getelementptr inbounds nuw i8, ptr %.2118.ph, i64 1
+  %117 = load i8, ptr %.1117174, align 1
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %._crit_edge211, label %.lr.ph210, !llvm.loop !7
+  br i1 %118, label %._crit_edge236, label %.lr.ph235, !llvm.loop !6
 
 119:                                              ; preds = %122
-  %120 = getelementptr i8, ptr %.3151, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %.4176, i64 1
   %121 = load i8, ptr %120, align 1
-  %.not116 = icmp eq i8 %121, 0
-  br i1 %.not116, label %._crit_edge, label %122, !llvm.loop !8
+  %.not126 = icmp eq i8 %121, 0
+  br i1 %.not126, label %._crit_edge, label %122, !llvm.loop !7
 
-122:                                              ; preds = %.lr.ph152, %119
-  %123 = phi i8 [ %41, %.lr.ph152 ], [ %121, %119 ]
-  %.3151 = phi ptr [ %.1109162, %.lr.ph152 ], [ %120, %119 ]
+122:                                              ; preds = %.lr.ph177, %119
+  %123 = phi i8 [ %41, %.lr.ph177 ], [ %121, %119 ]
+  %.4176 = phi ptr [ %.1117187, %.lr.ph177 ], [ %120, %119 ]
   %124 = zext i8 %123 to i64
-  %125 = getelementptr i16, ptr %42, i64 %124
+  %125 = getelementptr inbounds nuw i16, ptr %42, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = and i16 %126, 8192
-  %.not117 = icmp eq i16 %127, 0
-  br i1 %.not117, label %.critedge9, label %119
+  %.not127 = icmp eq i16 %127, 0
+  br i1 %.not127, label %.critedge9, label %119
 
 .critedge9:                                       ; preds = %122
   %128 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
@@ -336,20 +337,24 @@ default.unreachable:                              ; preds = %54
   %130 = call i32 @errcode(i32 noundef 33685634) #11
   %131 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.8) #11
-  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 293, ptr noundef nonnull @__func__.multirange_in) #11
+  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
 ._crit_edge:                                      ; preds = %119, %.preheader
-  %133 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.098147203, ptr noundef %.0103145205)
+  %133 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.0101172228, ptr noundef %.0108170230)
   %134 = ptrtoint ptr %133 to i64
   br label %135
 
-135:                                              ; preds = %129, %.critedge9, %111, %109, %67, %65, %44, %._crit_edge211, %37, %.critedge.thread, %._crit_edge, %89
-  %.0 = phi i64 [ 0, %89 ], [ %134, %._crit_edge ], [ 0, %.critedge.thread ], [ 0, %37 ], [ 0, %._crit_edge211 ], [ 0, %44 ], [ 0, %65 ], [ 0, %67 ], [ 0, %109 ], [ 0, %111 ], [ 0, %.critedge9 ], [ 0, %129 ]
+135:                                              ; preds = %89, %44, %._crit_edge236, %67, %65, %111, %109, %.critedge9, %129, %.critedge.thread, %37, %._crit_edge
+  %.0 = phi i64 [ %134, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %129 ], [ 0, %.critedge9 ], [ 0, %109 ], [ 0, %111 ], [ 0, %65 ], [ 0, %67 ], [ 0, %._crit_edge236 ], [ 0, %44 ], [ 0, %89 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %.0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
@@ -371,6 +376,11 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
   br i1 %.not, label %51, label %16
 
 16:                                               ; preds = %13, %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @MemoryContextAlloc(ptr noundef %18, i64 noundef 64) #11
@@ -385,7 +395,7 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %25)
   %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 433, ptr noundef nonnull @__func__.get_multirange_io_data) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__.get_multirange_io_data) #11
   unreachable
 
 27:                                               ; preds = %16
@@ -410,12 +420,12 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
 
 40:                                               ; preds = %31
   %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %39) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 452, ptr noundef nonnull @__func__.get_multirange_io_data) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 451, ptr noundef nonnull @__func__.get_multirange_io_data) #11
   unreachable
 
 42:                                               ; preds = %31
   %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %39) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 457, ptr noundef nonnull @__func__.get_multirange_io_data) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 456, ptr noundef nonnull @__func__.get_multirange_io_data) #11
   unreachable
 
 44:                                               ; preds = %27
@@ -427,6 +437,11 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %19, ptr %50, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   br label %51
 
 51:                                               ; preds = %44, %13
@@ -435,34 +450,37 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #2
+declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -479,7 +497,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %35 ]
   %.038.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %35 ]
   %.03436.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.135.i, %35 ]
-  %7 = getelementptr ptr, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = tail call signext i8 @range_get_flags(ptr noundef %8) #11
   %10 = and i8 %9, 1
@@ -493,7 +511,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
 13:                                               ; preds = %11
   %14 = add i32 %.038.i, 1
   %15 = sext i32 %.038.i to i64
-  %16 = getelementptr ptr, ptr %3, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %3, i64 %15
   store ptr %8, ptr %16, align 8
   br label %35
 
@@ -505,7 +523,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
   %20 = tail call ptr @range_union_internal(ptr noundef %1, ptr noundef nonnull %.03436.i, ptr noundef %8, i1 noundef zeroext false) #11
   %21 = add i32 %.038.i, -1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr ptr, ptr %3, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %3, i64 %22
   store ptr %20, ptr %23, align 8
   br label %35
 
@@ -515,7 +533,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
 
 26:                                               ; preds = %24
   %27 = sext i32 %.038.i to i64
-  %28 = getelementptr ptr, ptr %3, i64 %27
+  %28 = getelementptr inbounds ptr, ptr %3, i64 %27
   store ptr %8, ptr %28, align 8
   %29 = add i32 %.038.i, 1
   br label %35
@@ -524,7 +542,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
   %31 = tail call ptr @range_union_internal(ptr noundef %1, ptr noundef nonnull %.03436.i, ptr noundef %8, i1 noundef zeroext true) #11
   %32 = add i32 %.038.i, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr ptr, ptr %3, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %3, i64 %33
   store ptr %31, ptr %34, align 8
   br label %35
 
@@ -533,7 +551,7 @@ define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i3
   %.1.i = phi i32 [ %.038.i, %.lr.ph.i ], [ %14, %13 ], [ %.038.i, %19 ], [ %29, %26 ], [ %.038.i, %30 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %multirange_canonicalize.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %multirange_canonicalize.exit, label %.lr.ph.i, !llvm.loop !8
 
 multirange_canonicalize.exit:                     ; preds = %35, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %.1.i, %35 ]
@@ -592,7 +610,7 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.split.us.i ]
   %.0311.us.i = phi i64 [ %56, %.lr.ph.split.us.preheader.i ], [ %65, %.lr.ph.split.us.i ]
-  %58 = getelementptr ptr, ptr %3, i64 %indvars.iv29.i
+  %58 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv29.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 4
   %61 = lshr i32 %60, 2
@@ -602,12 +620,12 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %65 = add i64 %64, %.0311.us.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %exitcond33.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i18, %.lr.ph.split.split.us.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.i18 ]
   %.0311.us4.i = phi i64 [ %72, %.lr.ph.split.split.us.i ], [ %53, %.lr.ph.i18 ]
-  %66 = getelementptr ptr, ptr %3, i64 %indvars.iv19.i
+  %66 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv19.i
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 4
   %69 = lshr i32 %68, 2
@@ -616,12 +634,12 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %72 = add i64 %71, %70
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count27.i
-  br i1 %exitcond23.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us.i, !llvm.loop !10
+  br i1 %exitcond23.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us.i, !llvm.loop !9
 
 .lr.ph.split.split.us7.i:                         ; preds = %.lr.ph.i18, %.lr.ph.split.split.us7.i
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.split.split.us7.i ], [ 0, %.lr.ph.i18 ]
   %.0311.us9.i = phi i64 [ %80, %.lr.ph.split.split.us7.i ], [ %53, %.lr.ph.i18 ]
-  %73 = getelementptr ptr, ptr %3, i64 %indvars.iv.i19
+  %73 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i19
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 2
@@ -631,12 +649,12 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %80 = add i64 %79, %.0311.us9.i
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count27.i
-  br i1 %exitcond.not.i21, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us7.i, !llvm.loop !10
+  br i1 %exitcond.not.i21, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us7.i, !llvm.loop !9
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i18, %.lr.ph.split.split.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph.split.split.i ], [ 0, %.lr.ph.i18 ]
   %.0311.i = phi i64 [ %88, %.lr.ph.split.split.i ], [ %53, %.lr.ph.i18 ]
-  %81 = getelementptr ptr, ptr %3, i64 %indvars.iv24.i
+  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv24.i
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 4
   %84 = lshr i32 %83, 2
@@ -646,7 +664,7 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %88 = add i64 %87, %86
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.i, !llvm.loop !10
+  br i1 %exitcond28.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.i, !llvm.loop !9
 
 multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.split.us7.i, %.lr.ph.split.split.us.i, %.lr.ph.split.split.i, %52, %.thread.i
   %.031.lcssa.i = phi i64 [ %53, %52 ], [ %56, %.thread.i ], [ %88, %.lr.ph.split.split.i ], [ %72, %.lr.ph.split.split.us.i ], [ %80, %.lr.ph.split.split.us7.i ], [ %65, %.lr.ph.split.us.i ]
@@ -661,10 +679,10 @@ multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, 
   %.val17 = load ptr, ptr %36, align 8
   %94 = getelementptr i8, ptr %.val17, i64 11
   %.val17.val = load i8, ptr %94, align 1
-  %95 = getelementptr i8, ptr %89, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %96 = zext i32 %38 to i64
   %97 = shl nuw nsw i64 %96, 2
-  %98 = getelementptr i8, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %97
   %99 = zext i32 %.0.lcssa.i to i64
   switch i8 %.val17.val, label %107 [
     i8 105, label %.thread.i29
@@ -702,12 +720,12 @@ multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, 
   %115 = add nuw nsw i64 %97, %99
   %116 = add nuw nsw i64 %115, 15
   %117 = and i64 %116, 34359738364
-  %118 = getelementptr i8, ptr %89, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %89, i64 %117
   %119 = ptrtoint ptr %118 to i64
   br label %.lr.ph.split.us.i31
 
 .lr.ph.i22:                                       ; preds = %111
-  %120 = getelementptr i8, ptr %89, i64 %112
+  %120 = getelementptr inbounds nuw i8, ptr %89, i64 %112
   %121 = ptrtoint ptr %120 to i64
   br label %.lr.ph.split.i
 
@@ -733,29 +751,29 @@ multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, 
 
 129:                                              ; preds = %122, %.lr.ph.split.us.i31
   %.1.us.i = phi i32 [ %125, %122 ], [ %.04.us.i, %.lr.ph.split.us.i31 ]
-  %130 = getelementptr ptr, ptr %3, i64 %indvars.iv7.i
+  %130 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv7.i
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %131, align 4
   %133 = lshr i32 %132, 2
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr i8, ptr %131, i64 %134
-  %136 = getelementptr i8, ptr %135, i64 -1
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %134
+  %136 = getelementptr inbounds i8, ptr %135, i64 -1
   %137 = load i8, ptr %136, align 1
-  %138 = getelementptr i8, ptr %98, i64 %indvars.iv7.i
+  %138 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv7.i
   store i8 %137, ptr %138, align 1
   %139 = load ptr, ptr %130, align 8
   %140 = load i32, ptr %139, align 4
   %141 = lshr i32 %140, 2
   %142 = add nsw i32 %141, -9
-  %143 = getelementptr i8, ptr %139, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %144 = zext i32 %142 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0522.us.i, ptr align 1 %143, i64 %144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0522.us.i, ptr nonnull align 1 %143, i64 %144, i1 false)
   %145 = add nuw nsw i64 %144, 3
   %146 = and i64 %145, 8589934588
-  %147 = getelementptr i8, ptr %.0522.us.i, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %.0522.us.i, i64 %146
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %99
-  br i1 %exitcond11.not.i, label %write_multirange_data.exit, label %.lr.ph.split.us.i31, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %write_multirange_data.exit, label %.lr.ph.split.us.i31, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %177, %.lr.ph.i22
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %177 ]
@@ -779,23 +797,23 @@ multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, 
 
 155:                                              ; preds = %148, %.lr.ph.split.i
   %.1.i26 = phi i32 [ %151, %148 ], [ %.04.i, %.lr.ph.split.i ]
-  %156 = getelementptr ptr, ptr %3, i64 %indvars.iv.i24
+  %156 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i24
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr %157, align 4
   %159 = lshr i32 %158, 2
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr i8, ptr %157, i64 %160
-  %162 = getelementptr i8, ptr %161, i64 -1
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %160
+  %162 = getelementptr inbounds i8, ptr %161, i64 -1
   %163 = load i8, ptr %162, align 1
-  %164 = getelementptr i8, ptr %98, i64 %indvars.iv.i24
+  %164 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i24
   store i8 %163, ptr %164, align 1
   %165 = load ptr, ptr %156, align 8
   %166 = load i32, ptr %165, align 4
   %167 = lshr i32 %166, 2
   %168 = add nsw i32 %167, -9
-  %169 = getelementptr i8, ptr %165, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %170 = zext i32 %168 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0522.i, ptr align 1 %169, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0522.i, ptr nonnull align 1 %169, i64 %170, i1 false)
   switch i8 %.val17.val, label %174 [
     i8 99, label %177
     i8 100, label %171
@@ -813,10 +831,10 @@ multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, 
 
 177:                                              ; preds = %174, %171, %155
   %178 = phi i64 [ %173, %171 ], [ %176, %174 ], [ %170, %155 ]
-  %179 = getelementptr i8, ptr %.0522.i, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %.0522.i, i64 %178
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %99
-  br i1 %exitcond.not.i28, label %write_multirange_data.exit, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %exitcond.not.i28, label %write_multirange_data.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 write_multirange_data.exit:                       ; preds = %129, %177, %111, %.thread.i29
   ret ptr %89
@@ -831,6 +849,7 @@ define dso_local i64 @multirange_out(ptr noundef readonly captures(none) %0) loc
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   %9 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 1)
   call void @initStringInfo(ptr noundef nonnull %2) #11
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #11
@@ -852,11 +871,11 @@ define dso_local i64 @multirange_out(ptr noundef readonly captures(none) %0) loc
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = call ptr @multirange_get_range(ptr noundef readonly %12, ptr noundef %6, i32 noundef %20)
-  %22 = getelementptr ptr, ptr %19, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   store ptr %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -873,25 +892,26 @@ define dso_local i64 @multirange_out(ptr noundef readonly captures(none) %0) loc
   br label %26
 
 26:                                               ; preds = %25, %24
-  %27 = getelementptr ptr, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = call ptr @OutputFunctionCall(ptr noundef nonnull %23, i64 noundef %29) #11
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %30) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond18.not, label %._crit_edge, label %24, !llvm.loop !13
+  br i1 %exitcond18.not, label %._crit_edge, label %24, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %1
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #11
   %31 = load ptr, ptr %2, align 8
   %32 = ptrtoint ptr %31 to i64
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
   ret i64 %32
 }
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multirange_deserialize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -915,13 +935,13 @@ define dso_local void @multirange_deserialize(ptr noundef readonly captures(none
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call ptr @multirange_get_range(ptr noundef %0, ptr noundef %1, i32 noundef %14)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   store ptr %15, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 21:                                               ; preds = %4
   store ptr null, ptr %3, align 8
@@ -931,9 +951,9 @@ define dso_local void @multirange_deserialize(ptr noundef readonly captures(none
   ret void
 }
 
-declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -941,12 +961,13 @@ define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   %12 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 2)
   %13 = tail call i32 @pq_getmsgint(ptr noundef %5, i32 noundef 4) #11
   %14 = zext i32 %13 to i64
@@ -959,50 +980,51 @@ define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  br label %19
+  br label %25
 
-19:                                               ; preds = %.lr.ph, %19
-  %.026 = phi i32 [ 0, %.lr.ph ], [ %28, %19 ]
-  %20 = call i32 @pq_getmsgint(ptr noundef %5, i32 noundef 4) #11
-  %21 = call ptr @pq_getmsgbytes(ptr noundef %5, i32 noundef %20) #11
-  call void @resetStringInfo(ptr noundef nonnull %2) #11
-  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %21, i32 noundef %20) #11
-  %22 = load i32, ptr %18, align 8
-  %23 = call i64 @ReceiveFunctionCall(ptr noundef nonnull %17, ptr noundef nonnull %2, i32 noundef %22, i32 noundef %11) #11
-  %24 = inttoptr i64 %23 to ptr
-  %25 = call ptr @pg_detoast_datum(ptr noundef %24) #11
-  %26 = sext i32 %.026 to i64
-  %27 = getelementptr ptr, ptr %16, i64 %26
-  store ptr %25, ptr %27, align 8
-  %28 = add nuw i32 %.026, 1
-  %exitcond.not = icmp eq i32 %28, %13
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !14
-
-._crit_edge:                                      ; preds = %19, %1
-  %29 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %29) #11
+._crit_edge:                                      ; preds = %25, %1
+  %19 = load ptr, ptr %2, align 8
+  call void @pfree(ptr noundef %19) #11
   call void @pq_getmsgend(ptr noundef %5) #11
-  %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 440
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @make_multirange(i32 noundef %8, ptr noundef %32, i32 noundef %13, ptr noundef %16)
-  %34 = ptrtoint ptr %33 to i64
-  ret i64 %34
+  %20 = load ptr, ptr %12, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 440
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr @make_multirange(i32 noundef %8, ptr noundef %22, i32 noundef %13, ptr noundef %16)
+  %24 = ptrtoint ptr %23 to i64
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  ret i64 %24
+
+25:                                               ; preds = %.lr.ph, %25
+  %.026 = phi i32 [ 0, %.lr.ph ], [ %34, %25 ]
+  %26 = call i32 @pq_getmsgint(ptr noundef %5, i32 noundef 4) #11
+  %27 = call ptr @pq_getmsgbytes(ptr noundef %5, i32 noundef %26) #11
+  call void @resetStringInfo(ptr noundef nonnull %2) #11
+  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %27, i32 noundef %26) #11
+  %28 = load i32, ptr %18, align 8
+  %29 = call i64 @ReceiveFunctionCall(ptr noundef nonnull %17, ptr noundef nonnull %2, i32 noundef %28, i32 noundef %11) #11
+  %30 = inttoptr i64 %29 to ptr
+  %31 = call ptr @pg_detoast_datum(ptr noundef %30) #11
+  %32 = sext i32 %.026 to i64
+  %33 = getelementptr inbounds ptr, ptr %16, i64 %32
+  store ptr %31, ptr %33, align 8
+  %34 = add nuw i32 %.026, 1
+  %exitcond.not = icmp eq i32 %34, %13
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !13
 }
 
-declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @pq_getmsgbytes(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @pq_getmsgbytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #1
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @pq_getmsgend(ptr noundef) local_unnamed_addr #1
+declare void @pq_getmsgend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1018,16 +1040,16 @@ define dso_local i64 @multirange_send(ptr noundef readonly captures(none) %0) lo
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
   tail call void @enlargeStringInfo(ptr noundef %8, i32 noundef 4) #11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
-  %13 = load ptr, ptr %8, align 8, !alias.scope !15
+  %13 = load ptr, ptr %8, align 8, !alias.scope !14
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load i32, ptr %14, align 8, !alias.scope !15
+  %15 = load i32, ptr %14, align 8, !alias.scope !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i8, ptr %13, i64 %16
-  store i32 %12, ptr %17, align 1, !noalias !15
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  store i32 %12, ptr %17, align 1, !noalias !14
   %18 = add i32 %15, 4
-  store i32 %18, ptr %14, align 8, !alias.scope !15
+  store i32 %18, ptr %14, align 8, !alias.scope !14
   %19 = load ptr, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 440
   %21 = load ptr, ptr %20, align 8
@@ -1045,60 +1067,60 @@ define dso_local i64 @multirange_send(ptr noundef readonly captures(none) %0) lo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = tail call ptr @multirange_get_range(ptr noundef readonly %21, ptr noundef %5, i32 noundef %28)
-  %30 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %25
-  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %wide.trip.count = zext nneg i32 %22 to i64
-  br label %32
+  br label %34
 
-32:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr ptr, ptr %27, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = tail call ptr @SendFunctionCall(ptr noundef nonnull %31, i64 noundef %35) #11
-  %37 = load i32, ptr %36, align 4
-  %38 = lshr i32 %37, 2
-  %39 = add nsw i32 %38, -4
+._crit_edge:                                      ; preds = %34, %1
+  %32 = tail call ptr @pq_endtypsend(ptr noundef nonnull %8) #11
+  %33 = ptrtoint ptr %32 to i64
+  ret i64 %33
+
+34:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = tail call ptr @SendFunctionCall(ptr noundef nonnull %31, i64 noundef %37) #11
+  %39 = load i32, ptr %38, align 4
+  %40 = lshr i32 %39, 2
+  %41 = add nsw i32 %40, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %8, i32 noundef 4) #11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = load ptr, ptr %8, align 8, !alias.scope !18
-  %42 = load i32, ptr %14, align 8, !alias.scope !18
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %41, i64 %43
-  store i32 %40, ptr %44, align 1, !noalias !18
-  %45 = add i32 %42, 4
-  store i32 %45, ptr %14, align 8, !alias.scope !18
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %47 = load i32, ptr %36, align 4
-  %48 = lshr i32 %47, 2
-  %49 = add nsw i32 %48, -4
-  tail call void @pq_sendbytes(ptr noundef nonnull %8, ptr noundef nonnull %46, i32 noundef %49) #11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %42 = tail call i32 @llvm.bswap.i32(i32 %41)
+  %43 = load ptr, ptr %8, align 8, !alias.scope !17
+  %44 = load i32, ptr %14, align 8, !alias.scope !17
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %43, i64 %45
+  store i32 %42, ptr %46, align 1, !noalias !17
+  %47 = add i32 %44, 4
+  store i32 %47, ptr %14, align 8, !alias.scope !17
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %49 = load i32, ptr %38, align 4
+  %50 = lshr i32 %49, 2
+  %51 = add nsw i32 %50, -4
+  tail call void @pq_sendbytes(ptr noundef nonnull %8, ptr noundef nonnull %48, i32 noundef %51) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond25.not, label %._crit_edge, label %32, !llvm.loop !21
-
-._crit_edge:                                      ; preds = %32, %1
-  %50 = tail call ptr @pq_endtypsend(ptr noundef nonnull %8) #11
-  %51 = ptrtoint ptr %50 to i64
-  ret i64 %51
+  br i1 %exitcond25.not, label %._crit_edge, label %34, !llvm.loop !20
 }
 
-declare ptr @makeStringInfo() local_unnamed_addr #1
+declare ptr @makeStringInfo() local_unnamed_addr #2
 
-declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
+declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
+declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @multirange_get_typcache(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1124,7 +1146,7 @@ define dso_local ptr @multirange_get_typcache(ptr noundef readonly captures(none
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 17:                                               ; preds = %9
@@ -1138,9 +1160,9 @@ define dso_local ptr @multirange_get_typcache(ptr noundef readonly captures(none
   ret ptr %.0
 }
 
-declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @multirange_get_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1166,7 +1188,7 @@ define dso_local noundef ptr @multirange_get_range(ptr noundef readonly captures
   %15 = add nsw i32 %.089.i, -1
   %16 = icmp samesign ugt i32 %.089.i, 1
   %or.cond.i = and i1 %16, %.not.i
-  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
+  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !21
 
 multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
   %17 = zext i32 %14 to i64
@@ -1174,14 +1196,14 @@ multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
 
 multirange_get_bounds_offset.exit:                ; preds = %multirange_get_bounds_offset.exit.loopexit, %3
   %.1.i = phi i64 [ 0, %3 ], [ %17, %multirange_get_bounds_offset.exit.loopexit ]
-  %18 = getelementptr i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load i32, ptr %invariant.gep.i, align 4
   %20 = add i32 %19, -1
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 2
-  %23 = getelementptr i8, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
   %24 = sext i32 %2 to i64
-  %25 = getelementptr i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %9, 105
   %28 = zext i32 %19 to i64
@@ -1218,8 +1240,8 @@ multirange_get_bounds_offset.exit:                ; preds = %multirange_get_boun
 
 45:                                               ; preds = %34, %41, %37, %29
   %46 = phi i64 [ %32, %29 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ]
-  %47 = getelementptr i8, ptr %1, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 %.1.i
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i
   %49 = zext i8 %26 to i32
   %50 = and i32 %49, 41
   %.not = icmp eq i32 %50, 0
@@ -1231,7 +1253,7 @@ multirange_get_bounds_offset.exit:                ; preds = %multirange_get_boun
 
 53:                                               ; preds = %51
   %54 = zext nneg i16 %7 to i64
-  %55 = getelementptr i8, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
   br label %85
 
 56:                                               ; preds = %51
@@ -1289,7 +1311,7 @@ multirange_get_bounds_offset.exit:                ; preds = %multirange_get_boun
 
 .thread:                                          ; preds = %62, %78
   %87 = phi i64 [ %70, %62 ], [ %80, %78 ]
-  %88 = getelementptr i8, ptr %48, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %48, i64 %87
   %89 = and i32 %49, 80
   %.not8491 = icmp eq i32 %89, 0
   br i1 %.not8491, label %.thread93, label %145
@@ -1340,7 +1362,7 @@ multirange_get_bounds_offset.exit:                ; preds = %multirange_get_boun
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %108
-  %113 = getelementptr i8, ptr %110, i64 %96
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 %96
   br label %145
 
 114:                                              ; preds = %108
@@ -1390,7 +1412,7 @@ thread-pre-split:                                 ; preds = %114
 
 138:                                              ; preds = %135, %119
   %139 = phi i64 [ %127, %119 ], [ %137, %135 ]
-  %140 = getelementptr i8, ptr %116, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr %116, i64 %139
   br label %145
 
 141:                                              ; preds = %114
@@ -1413,18 +1435,18 @@ thread-pre-split:                                 ; preds = %114
   %154 = load i32, ptr %0, align 8
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 %154, ptr %155, align 4
-  %156 = getelementptr i8, ptr %152, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %156, ptr align 1 %48, i64 %148, i1 false)
-  %157 = getelementptr i8, ptr %156, i64 %148
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %156, ptr align 1 %48, i64 %148, i1 false)
+  %157 = getelementptr inbounds i8, ptr %156, i64 %148
   store i8 %26, ptr %157, align 1
   ret ptr %152
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multirange_get_bounds(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
@@ -1435,8 +1457,8 @@ define dso_local void @multirange_get_bounds(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %13 = load i8, ptr %12, align 2
-  %14 = trunc i8 %13 to i1
+  %13 = load i8, ptr %12, align 2, !range !22, !noundef !23
+  %14 = trunc nuw i8 %13 to i1
   %invariant.gep.i = getelementptr i8, ptr %1, i64 8
   %15 = icmp sgt i32 %2, 0
   %16 = zext i32 %2 to i64
@@ -1453,7 +1475,7 @@ define dso_local void @multirange_get_bounds(ptr noundef readonly captures(none)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond.i = and i1 %20, %.not.i
-  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
+  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !21
 
 multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
   %21 = zext i32 %19 to i64
@@ -1461,13 +1483,13 @@ multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
 
 multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_bounds_offset.exit.loopexit
   %.1.i = phi i64 [ %21, %multirange_get_bounds_offset.exit.loopexit ], [ 0, %5 ]
-  %22 = getelementptr i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %invariant.gep.i, align 4
   %24 = add i32 %23, -1
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 2
-  %27 = getelementptr i8, ptr %22, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 %16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %16
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %11, 105
   %31 = zext i32 %23 to i64
@@ -1504,8 +1526,8 @@ multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_
 
 48:                                               ; preds = %37, %44, %40, %32
   %49 = phi i64 [ %35, %32 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ]
-  %50 = getelementptr i8, ptr %1, i64 %49
-  %51 = getelementptr i8, ptr %50, i64 %.1.i
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.1.i
   %52 = zext i8 %29 to i32
   %53 = and i32 %52, 41
   %.not = icmp eq i32 %53, 0
@@ -1546,7 +1568,7 @@ multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %69)
   %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef range(i32 -32768, 32768) %55) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 fetch_att.exit:                                   ; preds = %54
@@ -1557,7 +1579,7 @@ fetch_att.exit:                                   ; preds = %54
 fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, %fetch_att.exit
   %.0.i97 = phi i64 [ %71, %fetch_att.exit ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %67, %66 ]
   %73 = zext nneg i32 %55 to i64
-  %74 = getelementptr i8, ptr %51, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 %73
   br label %104
 
 75:                                               ; preds = %fetch_att.exit
@@ -1621,7 +1643,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
   br i1 %.not7383, label %.thread87, label %fetch_att.exit80
 
 .thread87:                                        ; preds = %.thread
-  %108 = getelementptr i8, ptr %51, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %51, i64 %106
   br label %112
 
 109:                                              ; preds = %104
@@ -1706,7 +1728,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
   %146 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %146)
   %147 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef range(i32 -32768, 32768) %130) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 fetch_att.exit80:                                 ; preds = %143, %140, %137, %134, %129, %.thread, %104
@@ -1742,6 +1764,9 @@ define dso_local ptr @multirange_get_union_range(ptr noundef %0, ptr noundef %1)
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
   %5 = alloca %struct.RangeBound, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -1761,12 +1786,15 @@ define dso_local ptr @multirange_get_union_range(ptr noundef %0, ptr noundef %1)
 
 15:                                               ; preds = %11, %9
   %.0 = phi ptr [ %10, %9 ], [ %14, %11 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   ret ptr %.0
 }
 
-declare ptr @make_empty_range(ptr noundef) local_unnamed_addr #1
+declare ptr @make_empty_range(ptr noundef) local_unnamed_addr #2
 
-declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_empty_multirange(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1781,6 +1809,9 @@ define dso_local noundef i64 @multirange_constructor2(ptr noundef readonly captu
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @get_fn_expr_rettype(ptr noundef %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -1803,7 +1834,7 @@ define dso_local noundef i64 @multirange_constructor2(ptr noundef readonly captu
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %19)
   %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 21:                                               ; preds = %13
@@ -1827,15 +1858,15 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
 
 31:                                               ; preds = %multirange_get_typcache.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i8, ptr %32, align 8
-  %34 = trunc i8 %33 to i1
+  %33 = load i8, ptr %32, align 8, !range !22, !noundef !23
+  %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 974, ptr noundef nonnull @__func__.multirange_constructor2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 973, ptr noundef nonnull @__func__.multirange_constructor2) #11
   unreachable
 
 38:                                               ; preds = %31
@@ -1853,7 +1884,7 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   tail call void @llvm.assume(i1 %47)
   %48 = tail call i32 @errcode(i32 noundef 66) #11
   %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 982, ptr noundef nonnull @__func__.multirange_constructor2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 981, ptr noundef nonnull @__func__.multirange_constructor2) #11
   unreachable
 
 50:                                               ; preds = %38
@@ -1867,7 +1898,7 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %55)
   %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %52) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 986, ptr noundef nonnull @__func__.multirange_constructor2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 985, ptr noundef nonnull @__func__.multirange_constructor2) #11
   unreachable
 
 57:                                               ; preds = %50
@@ -1883,8 +1914,8 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   %62 = load i16, ptr %61, align 8
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 10
-  %65 = load i8, ptr %64, align 2
-  %66 = trunc i8 %65 to i1
+  %65 = load i8, ptr %64, align 2, !range !22, !noundef !23
+  %66 = trunc nuw i8 %65 to i1
   %67 = getelementptr inbounds nuw i8, ptr %25, i64 11
   %68 = load i8, ptr %67, align 1
   call void @deconstruct_array(ptr noundef nonnull %42, i32 noundef %52, i32 noundef %63, i1 noundef zeroext %66, i8 noundef signext %68, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2) #11
@@ -1899,9 +1930,9 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
 .lr.ph:                                           ; preds = %60, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %60 ]
   %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr i8, ptr %75, i64 %indvars.iv
-  %77 = load i8, ptr %76, align 1
-  %78 = trunc i8 %77 to i1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
+  %77 = load i8, ptr %76, align 1, !range !22, !noundef !23
+  %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %.lr.ph
@@ -1909,22 +1940,22 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
   call void @llvm.assume(i1 %80)
   %81 = call i32 @errcode(i32 noundef 67108994) #11
   %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.multirange_constructor2) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @__func__.multirange_constructor2) #11
   unreachable
 
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr i64, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv
   %86 = load i64, ptr %85, align 8
   %87 = inttoptr i64 %86 to ptr
   %88 = call ptr @pg_detoast_datum(ptr noundef %87) #11
-  %89 = getelementptr ptr, ptr %72, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   store ptr %88, ptr %89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i32, ptr %2, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %83, %60, %59
   %93 = phi i32 [ 0, %59 ], [ %73, %60 ], [ %90, %83 ]
@@ -1935,20 +1966,24 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
 95:                                               ; preds = %.loopexit, %29
   %.030.in = phi ptr [ %30, %29 ], [ %94, %.loopexit ]
   %.030 = ptrtoint ptr %.030.in to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   ret i64 %.030
 }
 
-declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #1
+declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_constructor1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @get_fn_expr_rettype(ptr noundef %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1971,7 +2006,7 @@ define dso_local noundef i64 @multirange_constructor1(ptr noundef readonly captu
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %17)
   %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %4) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 19:                                               ; preds = %11
@@ -1985,15 +2020,15 @@ multirange_get_typcache.exit:                     ; preds = %9, %19
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load i8, ptr %24, align 8
-  %26 = trunc i8 %25 to i1
+  %25 = load i8, ptr %24, align 8, !range !22, !noundef !23
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %multirange_get_typcache.exit
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1042, ptr noundef nonnull @__func__.multirange_constructor1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1041, ptr noundef nonnull @__func__.multirange_constructor1) #11
   unreachable
 
 30:                                               ; preds = %multirange_get_typcache.exit
@@ -2012,12 +2047,13 @@ multirange_get_typcache.exit:                     ; preds = %9, %19
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %36) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1049, ptr noundef nonnull @__func__.multirange_constructor1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1048, ptr noundef nonnull @__func__.multirange_constructor1) #11
   unreachable
 
 41:                                               ; preds = %30
   %42 = call ptr @make_multirange(i32 noundef %4, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull %2)
   %43 = ptrtoint ptr %42 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %43
 }
 
@@ -2032,7 +2068,7 @@ define dso_local noundef i64 @multirange_constructor0(ptr noundef readonly captu
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1069, ptr noundef nonnull @__func__.multirange_constructor0) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1068, ptr noundef nonnull @__func__.multirange_constructor0) #11
   unreachable
 
 7:                                                ; preds = %1
@@ -2060,7 +2096,7 @@ define dso_local noundef i64 @multirange_constructor0(ptr noundef readonly captu
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 24:                                               ; preds = %16
@@ -2084,7 +2120,7 @@ define dso_local i64 @multirange_union(ptr noundef readonly captures(none) %0) l
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -2124,7 +2160,7 @@ define dso_local i64 @multirange_union(ptr noundef readonly captures(none) %0) l
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %19) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 34:                                               ; preds = %26
@@ -2152,11 +2188,11 @@ multirange_get_typcache.exit:                     ; preds = %24, %34
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %41 ]
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %46 = tail call ptr @multirange_get_range(ptr noundef readonly %39, ptr noundef %5, i32 noundef %45)
-  %47 = getelementptr ptr, ptr %44, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
   store ptr %46, ptr %47, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %42
-  br i1 %exitcond.not, label %multirange_deserialize.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %multirange_deserialize.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 multirange_deserialize.exit.loopexit:             ; preds = %.lr.ph.i
   %.pre37 = load ptr, ptr %38, align 8
@@ -2179,11 +2215,11 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.lr.ph.i19 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   %56 = tail call ptr @multirange_get_range(ptr noundef readonly %48, ptr noundef %9, i32 noundef %55)
-  %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i20
+  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i20
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next.i21, %52
-  br i1 %exitcond36.not, label %multirange_deserialize.exit22, label %.lr.ph.i19, !llvm.loop !12
+  br i1 %exitcond36.not, label %multirange_deserialize.exit22, label %.lr.ph.i19, !llvm.loop !11
 
 multirange_deserialize.exit22:                    ; preds = %.lr.ph.i19, %multirange_deserialize.exit
   %.034 = phi ptr [ null, %multirange_deserialize.exit ], [ %54, %.lr.ph.i19 ]
@@ -2194,7 +2230,7 @@ multirange_deserialize.exit22:                    ; preds = %.lr.ph.i19, %multir
   %62 = sext i32 %37 to i64
   %63 = shl nsw i64 %62, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %.035, i64 %63, i1 false)
-  %64 = getelementptr ptr, ptr %61, i64 %62
+  %64 = getelementptr inbounds ptr, ptr %61, i64 %62
   %65 = sext i32 %49 to i64
   %66 = shl nsw i64 %65, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %.034, i64 %66, i1 false)
@@ -2215,7 +2251,7 @@ define dso_local i64 @multirange_minus(ptr noundef readonly captures(none) %0) l
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -2243,7 +2279,7 @@ define dso_local i64 @multirange_minus(ptr noundef readonly captures(none) %0) l
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -2281,11 +2317,11 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %40 ]
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %45 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %44)
-  %46 = getelementptr ptr, ptr %43, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %41
-  br i1 %exitcond.not, label %multirange_deserialize.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %multirange_deserialize.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !11
 
 multirange_deserialize.exitthread-pre-split:      ; preds = %.lr.ph.i
   %.pr = load i32, ptr %35, align 4
@@ -2309,11 +2345,11 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %.lr.ph.i15 ], [ 0, %50 ]
   %54 = trunc nuw nsw i64 %indvars.iv.i16 to i32
   %55 = tail call ptr @multirange_get_range(ptr noundef readonly %47, ptr noundef %9, i32 noundef %54)
-  %56 = getelementptr ptr, ptr %53, i64 %indvars.iv.i16
+  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i16
   store ptr %55, ptr %56, align 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next.i17, %51
-  br i1 %exitcond29.not, label %multirange_deserialize.exit18, label %.lr.ph.i15, !llvm.loop !12
+  br i1 %exitcond29.not, label %multirange_deserialize.exit18, label %.lr.ph.i15, !llvm.loop !11
 
 multirange_deserialize.exit18:                    ; preds = %.lr.ph.i15, %multirange_deserialize.exit
   %.027 = phi ptr [ null, %multirange_deserialize.exit ], [ %53, %.lr.ph.i15 ]
@@ -2329,6 +2365,7 @@ multirange_deserialize.exit18:                    ; preds = %.lr.ph.i15, %multir
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   %8 = add i32 %4, %2
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
@@ -2346,7 +2383,7 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
   %.086 = phi i32 [ 0, %.lr.ph88.preheader ], [ %.2.lcssa, %._crit_edge ]
   %.04184 = phi i32 [ 0, %.lr.ph88.preheader ], [ %49, %._crit_edge ]
   %.04483 = phi ptr [ %13, %.lr.ph88.preheader ], [ %.246.lcssa, %._crit_edge ]
-  %14 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
   %.not56 = icmp eq ptr %.04483, null
@@ -2366,10 +2403,10 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  %22 = getelementptr ptr, ptr %5, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph67:                                         ; preds = %.lr.ph, %44
   %.266 = phi i32 [ %.sink, %44 ], [ %.158, %.lr.ph ]
@@ -2377,7 +2414,7 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
   %.24664 = phi ptr [ %47, %44 ], [ %.14557, %.lr.ph ]
   %24 = load ptr, ptr %7, align 8
   %25 = sext i32 %.14265 to i64
-  %26 = getelementptr ptr, ptr %11, i64 %25
+  %26 = getelementptr inbounds ptr, ptr %11, i64 %25
   %27 = call zeroext i1 @range_split_internal(ptr noundef %1, ptr noundef %24, ptr noundef nonnull %.24664, ptr noundef %26, ptr noundef nonnull %7) #11
   br i1 %27, label %28, label %31
 
@@ -2415,10 +2452,10 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
   %.sink = phi i32 [ %30, %28 ], [ %43, %42 ]
   %.243 = phi i32 [ %29, %28 ], [ %.14265, %42 ]
   %45 = sext i32 %.sink to i64
-  %46 = getelementptr ptr, ptr %5, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %5, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not51 = icmp eq ptr %47, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph67, !llvm.loop !25
+  br i1 %.not51, label %._crit_edge, label %.lr.ph67, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %20, %42, %28, %44, %39, %34, %31, %.lr.ph88
   %.246.lcssa = phi ptr [ null, %.lr.ph88 ], [ null, %42 ], [ null, %28 ], [ %.24664, %31 ], [ %.24664, %34 ], [ %.24664, %39 ], [ null, %44 ], [ null, %20 ], [ null, %18 ]
@@ -2427,25 +2464,26 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
   %48 = load ptr, ptr %7, align 8
   %49 = add i32 %.142.lcssa, 1
   %50 = sext i32 %.142.lcssa to i64
-  %51 = getelementptr ptr, ptr %11, i64 %50
+  %51 = getelementptr inbounds ptr, ptr %11, i64 %50
   store ptr %48, ptr %51, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !27
 
 ._crit_edge89:                                    ; preds = %._crit_edge, %6
   %.041.lcssa = phi i32 [ 0, %6 ], [ %49, %._crit_edge ]
   %52 = call ptr @make_multirange(i32 noundef %0, ptr noundef %1, i32 noundef %.041.lcssa, ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   ret ptr %52
 }
 
-declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_split_internal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_split_internal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @range_minus_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @range_minus_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_intersect(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2453,7 +2491,7 @@ define dso_local noundef i64 @multirange_intersect(ptr noundef readonly captures
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -2481,7 +2519,7 @@ define dso_local noundef i64 @multirange_intersect(ptr noundef readonly captures
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -2523,11 +2561,11 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %42 ]
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   %47 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %46)
-  %48 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
   store ptr %47, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %43
-  br i1 %exitcond.not, label %multirange_deserialize.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %multirange_deserialize.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !11
 
 multirange_deserialize.exitthread-pre-split:      ; preds = %.lr.ph.i
   %.pr = load i32, ptr %35, align 4
@@ -2549,11 +2587,11 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %.lr.ph.i16 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %56 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %9, i32 noundef %55)
-  %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i17
+  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i17
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next.i18, %52
-  br i1 %exitcond30.not, label %multirange_deserialize.exit19, label %.lr.ph.i16, !llvm.loop !12
+  br i1 %exitcond30.not, label %multirange_deserialize.exit19, label %.lr.ph.i16, !llvm.loop !11
 
 multirange_deserialize.exit19:                    ; preds = %.lr.ph.i16, %multirange_deserialize.exit
   %.028 = phi ptr [ null, %multirange_deserialize.exit ], [ %54, %.lr.ph.i16 ]
@@ -2595,7 +2633,7 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
   %.081 = phi i32 [ 0, %.lr.ph82.preheader ], [ %.274, %40 ]
   %.04379 = phi i32 [ 0, %.lr.ph82.preheader ], [ %.3.ph, %40 ]
   %.04778 = phi ptr [ %17, %.lr.ph82.preheader ], [ %.24972, %40 ]
-  %18 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not64 = icmp eq ptr %.04778, null
   br i1 %.not64, label %.loopexit, label %.lr.ph
@@ -2613,10 +2651,10 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
 
 23:                                               ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr ptr, ptr %5, i64 %24
+  %25 = getelementptr inbounds ptr, ptr %5, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .lr.ph75:                                         ; preds = %.lr.ph, %36
   %.274 = phi i32 [ %35, %36 ], [ %.166, %.lr.ph ]
@@ -2629,7 +2667,7 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
   %29 = tail call ptr @range_intersect_internal(ptr noundef %1, ptr noundef %19, ptr noundef nonnull %.24972) #11
   %30 = add i32 %.24573, 1
   %31 = sext i32 %.24573 to i64
-  %32 = getelementptr ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds ptr, ptr %15, i64 %31
   store ptr %29, ptr %32, align 8
   %33 = tail call zeroext i1 @range_overleft_internal(ptr noundef %1, ptr noundef nonnull %.24972, ptr noundef %19) #11
   br i1 %33, label %34, label %40
@@ -2641,16 +2679,16 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
 
 36:                                               ; preds = %34
   %37 = sext i32 %35 to i64
-  %38 = getelementptr ptr, ptr %5, i64 %37
+  %38 = getelementptr inbounds ptr, ptr %5, i64 %37
   %39 = load ptr, ptr %38, align 8
   %.not54 = icmp eq ptr %39, null
-  br i1 %.not54, label %.loopexit, label %.lr.ph75, !llvm.loop !28
+  br i1 %.not54, label %.loopexit, label %.lr.ph75, !llvm.loop !29
 
 40:                                               ; preds = %.lr.ph75, %28
   %.3.ph = phi i32 [ %.24573, %.lr.ph75 ], [ %30, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph82, %40, %21, %23, %34, %36, %11
   %.144 = phi i32 [ 0, %11 ], [ %30, %36 ], [ %30, %34 ], [ %.04379, %23 ], [ %.04379, %21 ], [ %.04379, %.lr.ph82 ], [ %.3.ph, %40 ]
@@ -2662,13 +2700,14 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
   ret ptr %.046
 }
 
-declare ptr @range_intersect_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @range_intersect_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -2677,7 +2716,7 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %5)
   %6 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1348, ptr noundef nonnull @__func__.range_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1347, ptr noundef nonnull @__func__.range_agg_transfn) #11
   unreachable
 
 7:                                                ; preds = %1
@@ -2690,13 +2729,13 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %12)
   %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1352, ptr noundef nonnull @__func__.range_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1351, ptr noundef nonnull @__func__.range_agg_transfn) #11
   unreachable
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
+  %16 = load i8, ptr %15, align 8, !range !22, !noundef !23
+  %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
@@ -2712,13 +2751,13 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %21, %18
   %.0 = phi ptr [ %20, %18 ], [ %24, %21 ]
-  %26 = getelementptr i8, ptr %0, i64 56
-  %27 = load i8, ptr %26, align 8
-  %28 = trunc i8 %27 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load i8, ptr %26, align 8, !range !22, !noundef !23
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %2, align 8
   %33 = call ptr @accumArrayResult(ptr noundef %.0, i64 noundef %31, i1 noundef zeroext false, i32 noundef %9, ptr noundef %32) #11
@@ -2726,22 +2765,24 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %29, %25
   %35 = ptrtoint ptr %.0 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %35
 }
 
-declare i32 @AggCheckCallContext(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @AggCheckCallContext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #2
 
-declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @range_agg_finalfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -2750,13 +2791,13 @@ define dso_local noundef i64 @range_agg_finalfn(ptr noundef %0) local_unnamed_ad
   %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %5)
   %6 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1384, ptr noundef nonnull @__func__.range_agg_finalfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1383, ptr noundef nonnull @__func__.range_agg_finalfn) #11
   unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %8, align 8, !range !22, !noundef !23
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
@@ -2807,7 +2848,7 @@ define dso_local noundef i64 @range_agg_finalfn(ptr noundef %0) local_unnamed_ad
   %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %38)
   %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %25) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 40:                                               ; preds = %32
@@ -2832,15 +2873,15 @@ multirange_get_typcache.exit:                     ; preds = %30, %40
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr i64, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
   %53 = call ptr @pg_detoast_datum(ptr noundef %52) #11
-  %54 = getelementptr ptr, ptr %45, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   store ptr %53, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %48, %multirange_get_typcache.exit
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
@@ -2851,12 +2892,14 @@ multirange_get_typcache.exit:                     ; preds = %30, %40
 
 59:                                               ; preds = %._crit_edge, %21, %.thread
   %.023 = phi i64 [ 0, %.thread ], [ 0, %21 ], [ %58, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -2865,7 +2908,7 @@ define dso_local i64 @multirange_agg_transfn(ptr noundef %0) local_unnamed_addr 
   %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %5)
   %6 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1422, ptr noundef nonnull @__func__.multirange_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1421, ptr noundef nonnull @__func__.multirange_agg_transfn) #11
   unreachable
 
 7:                                                ; preds = %1
@@ -2878,7 +2921,7 @@ define dso_local i64 @multirange_agg_transfn(ptr noundef %0) local_unnamed_addr 
   %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %12)
   %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1426, ptr noundef nonnull @__func__.multirange_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1425, ptr noundef nonnull @__func__.multirange_agg_transfn) #11
   unreachable
 
 14:                                               ; preds = %7
@@ -2904,7 +2947,7 @@ define dso_local i64 @multirange_agg_transfn(ptr noundef %0) local_unnamed_addr 
   %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %27)
   %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 29:                                               ; preds = %21
@@ -2918,8 +2961,8 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
+  %35 = load i8, ptr %34, align 8, !range !22, !noundef !23
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %multirange_get_typcache.exit
@@ -2936,13 +2979,13 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
 
 45:                                               ; preds = %41, %37
   %.021 = phi ptr [ %40, %37 ], [ %44, %41 ]
-  %46 = getelementptr i8, ptr %0, i64 56
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %47 = load i8, ptr %46, align 8, !range !22, !noundef !23
+  %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr i8, ptr %0, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
   %53 = call ptr @pg_detoast_datum(ptr noundef %52) #11
@@ -2961,11 +3004,11 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
   %61 = trunc nuw nsw i64 %indvars.iv.i to i32
   %62 = call ptr @multirange_get_range(ptr noundef readonly %33, ptr noundef %53, i32 noundef %61)
-  %63 = getelementptr ptr, ptr %60, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
   store ptr %62, ptr %63, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !11
 
 multirange_deserialize.exit.thread:               ; preds = %49
   %64 = icmp eq i32 %55, 0
@@ -2985,7 +3028,7 @@ multirange_deserialize.exit.thread:               ; preds = %49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %71 = getelementptr ptr, ptr %60, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = load i32, ptr %33, align 8
@@ -2993,18 +3036,20 @@ multirange_deserialize.exit.thread:               ; preds = %49
   %76 = call ptr @accumArrayResult(ptr noundef %.021, i64 noundef %73, i1 noundef zeroext false, i32 noundef %74, ptr noundef %75) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph, %multirange_deserialize.exit.thread, %65, %45
   %77 = ptrtoint ptr %.021 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %77
 }
 
-declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_intersect_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -3013,7 +3058,7 @@ define dso_local noundef i64 @multirange_intersect_agg_transfn(ptr noundef %0) l
   %5 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %5)
   %6 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1479, ptr noundef nonnull @__func__.multirange_intersect_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1478, ptr noundef nonnull @__func__.multirange_intersect_agg_transfn) #11
   unreachable
 
 7:                                                ; preds = %1
@@ -3026,7 +3071,7 @@ define dso_local noundef i64 @multirange_intersect_agg_transfn(ptr noundef %0) l
   %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %12)
   %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1483, ptr noundef nonnull @__func__.multirange_intersect_agg_transfn) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1482, ptr noundef nonnull @__func__.multirange_intersect_agg_transfn) #11
   unreachable
 
 14:                                               ; preds = %7
@@ -3052,7 +3097,7 @@ define dso_local noundef i64 @multirange_intersect_agg_transfn(ptr noundef %0) l
   %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %27)
   %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 29:                                               ; preds = %21
@@ -3067,7 +3112,7 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %33 = load i64, ptr %32, align 8
   %34 = inttoptr i64 %33 to ptr
   %35 = call ptr @pg_detoast_datum(ptr noundef %34) #11
-  %36 = getelementptr i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = call ptr @pg_detoast_datum(ptr noundef %38) #11
@@ -3088,11 +3133,11 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %45 ]
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %50 = call ptr @multirange_get_range(ptr noundef readonly %41, ptr noundef %35, i32 noundef %49)
-  %51 = getelementptr ptr, ptr %48, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
   store ptr %50, ptr %51, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %46
-  br i1 %exitcond.not, label %multirange_deserialize.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not, label %multirange_deserialize.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 multirange_deserialize.exit.loopexit:             ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %40, align 8
@@ -3116,11 +3161,11 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.lr.ph.i13 ], [ 0, %56 ]
   %60 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %61 = call ptr @multirange_get_range(ptr noundef readonly %52, ptr noundef %39, i32 noundef %60)
-  %62 = getelementptr ptr, ptr %59, i64 %indvars.iv.i14
+  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i14
   store ptr %61, ptr %62, align 8
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next.i15, %57
-  br i1 %exitcond26.not, label %multirange_deserialize.exit16.loopexit, label %.lr.ph.i13, !llvm.loop !12
+  br i1 %exitcond26.not, label %multirange_deserialize.exit16.loopexit, label %.lr.ph.i13, !llvm.loop !11
 
 multirange_deserialize.exit16.loopexit:           ; preds = %.lr.ph.i13
   %.pre27 = load ptr, ptr %40, align 8
@@ -3131,6 +3176,7 @@ multirange_deserialize.exit16:                    ; preds = %multirange_deserial
   %.0 = phi ptr [ null, %multirange_deserialize.exit ], [ %59, %multirange_deserialize.exit16.loopexit ]
   %64 = call ptr @multirange_intersect_internal(i32 noundef %9, ptr noundef %63, i32 noundef %43, ptr noundef %.025, i32 noundef %54, ptr noundef %.0)
   %65 = ptrtoint ptr %64 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i64 %65
 }
 
@@ -3142,6 +3188,8 @@ define dso_local i64 @multirange_lower(ptr noundef captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3177,7 +3225,7 @@ define dso_local i64 @multirange_lower(ptr noundef captures(none) %0) local_unna
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 30:                                               ; preds = %22
@@ -3192,8 +3240,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %34 = load ptr, ptr %33, align 8
   call void @multirange_get_bounds(ptr noundef %34, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i8, ptr %35, align 8
-  %37 = trunc i8 %36 to i1
+  %36 = load i8, ptr %35, align 8, !range !22, !noundef !23
+  %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %multirange_get_typcache.exit
@@ -3207,6 +3255,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 42:                                               ; preds = %40, %38, %11
   %.0 = phi i64 [ 0, %11 ], [ 0, %40 ], [ %39, %38 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3218,6 +3268,8 @@ define dso_local i64 @multirange_upper(ptr noundef captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3253,7 +3305,7 @@ define dso_local i64 @multirange_upper(ptr noundef captures(none) %0) local_unna
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 30:                                               ; preds = %22
@@ -3271,8 +3323,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %36 = add i32 %33, -1
   call void @multirange_get_bounds(ptr noundef %35, ptr noundef nonnull %7, i32 noundef %36, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
+  %38 = load i8, ptr %37, align 8, !range !22, !noundef !23
+  %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %multirange_get_typcache.exit
@@ -3286,6 +3338,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 44:                                               ; preds = %42, %40, %11
   %.0 = phi i64 [ 0, %11 ], [ 0, %42 ], [ %41, %40 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3310,10 +3364,12 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inc(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %37, label %11
+  br i1 %10, label %36, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3340,7 +3396,7 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inc(ptr noundef readonly 
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %13) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 28:                                               ; preds = %20
@@ -3355,13 +3411,14 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
   %32 = load ptr, ptr %31, align 8
   call void @multirange_get_bounds(ptr noundef %32, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %36 = zext nneg i8 %35 to i64
-  br label %37
+  %34 = load i8, ptr %33, align 1, !range !22, !noundef !23
+  %35 = zext nneg i8 %34 to i64
+  br label %36
 
-37:                                               ; preds = %1, %multirange_get_typcache.exit
-  %.0 = phi i64 [ %36, %multirange_get_typcache.exit ], [ 0, %1 ]
+36:                                               ; preds = %1, %multirange_get_typcache.exit
+  %.0 = phi i64 [ %35, %multirange_get_typcache.exit ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3373,10 +3430,12 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inc(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %39, label %11
+  br i1 %10, label %38, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3403,7 +3462,7 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inc(ptr noundef readonly 
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %13) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 28:                                               ; preds = %20
@@ -3421,13 +3480,14 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
   %34 = add i32 %31, -1
   call void @multirange_get_bounds(ptr noundef %33, ptr noundef nonnull %7, i32 noundef %34, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %38 = zext nneg i8 %37 to i64
-  br label %39
+  %36 = load i8, ptr %35, align 1, !range !22, !noundef !23
+  %37 = zext nneg i8 %36 to i64
+  br label %38
 
-39:                                               ; preds = %1, %multirange_get_typcache.exit
-  %.0 = phi i64 [ %38, %multirange_get_typcache.exit ], [ 0, %1 ]
+38:                                               ; preds = %1, %multirange_get_typcache.exit
+  %.0 = phi i64 [ %37, %multirange_get_typcache.exit ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3439,10 +3499,12 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inf(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %37, label %11
+  br i1 %10, label %36, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3469,7 +3531,7 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inf(ptr noundef readonly 
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %13) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 28:                                               ; preds = %20
@@ -3484,13 +3546,14 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
   %32 = load ptr, ptr %31, align 8
   call void @multirange_get_bounds(ptr noundef %32, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %36 = zext nneg i8 %35 to i64
-  br label %37
+  %34 = load i8, ptr %33, align 8, !range !22, !noundef !23
+  %35 = zext nneg i8 %34 to i64
+  br label %36
 
-37:                                               ; preds = %1, %multirange_get_typcache.exit
-  %.0 = phi i64 [ %36, %multirange_get_typcache.exit ], [ 0, %1 ]
+36:                                               ; preds = %1, %multirange_get_typcache.exit
+  %.0 = phi i64 [ %35, %multirange_get_typcache.exit ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3502,10 +3565,12 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inf(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %39, label %11
+  br i1 %10, label %38, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3532,7 +3597,7 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inf(ptr noundef readonly 
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %13) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 28:                                               ; preds = %20
@@ -3550,13 +3615,14 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
   %34 = add i32 %31, -1
   call void @multirange_get_bounds(ptr noundef %33, ptr noundef nonnull %7, i32 noundef %34, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %38 = zext nneg i8 %37 to i64
-  br label %39
+  %36 = load i8, ptr %35, align 8, !range !22, !noundef !23
+  %37 = zext nneg i8 %36 to i64
+  br label %38
 
-39:                                               ; preds = %1, %multirange_get_typcache.exit
-  %.0 = phi i64 [ %38, %multirange_get_typcache.exit ], [ 0, %1 ]
+38:                                               ; preds = %1, %multirange_get_typcache.exit
+  %.0 = phi i64 [ %37, %multirange_get_typcache.exit ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -3566,7 +3632,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_elem(ptr noundef reado
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
@@ -3592,7 +3658,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_elem(ptr noundef reado
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 24:                                               ; preds = %16
@@ -3617,86 +3683,87 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %48, label %9
+  br i1 %8, label %multirange_bsearch_match.exit, label %.lr.ph.i.preheader
 
-9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 9
+.lr.ph.i.preheader:                               ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %multirange_elem_bsearch_comparison.exit
-  %.01520.i = phi i32 [ %.1.i, %multirange_elem_bsearch_comparison.exit ], [ 0, %9 ]
-  %.01619.i = phi i32 [ %.117.i, %multirange_elem_bsearch_comparison.exit ], [ %7, %9 ]
-  %16 = add i32 %.01619.i, %.01520.i
-  %17 = lshr i32 %16, 1
-  call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %18 = load i8, ptr %10, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %31, label %20
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %multirange_elem_bsearch_comparison.exit
+  %.01729.i = phi i32 [ %.219.i, %multirange_elem_bsearch_comparison.exit ], [ 0, %.lr.ph.i.preheader ]
+  %.02028.i = phi i32 [ %.222.i, %multirange_elem_bsearch_comparison.exit ], [ %7, %.lr.ph.i.preheader ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %15 = add i32 %.02028.i, %.01729.i
+  %16 = lshr i32 %15, 1
+  call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %17 = load i8, ptr %9, align 8, !range !22, !noundef !23
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %30, label %19
 
-20:                                               ; preds = %.lr.ph.i
-  %21 = load i32, ptr %12, align 4
-  %22 = load i64, ptr %4, align 8
-  %23 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %21, i64 noundef %22, i64 noundef %2) #11
-  %24 = trunc i64 %23 to i32
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %multirange_elem_bsearch_comparison.exit, label %26
+19:                                               ; preds = %.lr.ph.i
+  %20 = load i32, ptr %11, align 4
+  %21 = load i64, ptr %4, align 8
+  %22 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %10, i32 noundef %20, i64 noundef %21, i64 noundef %2) #11
+  %23 = trunc i64 %22 to i32
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %multirange_elem_bsearch_comparison.exit, label %25
 
-26:                                               ; preds = %20
-  %27 = icmp eq i32 %24, 0
-  br i1 %27, label %28, label %31
+25:                                               ; preds = %19
+  %26 = icmp eq i32 %23, 0
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %26
-  %29 = load i8, ptr %13, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %multirange_elem_bsearch_comparison.exit
+27:                                               ; preds = %25
+  %28 = load i8, ptr %12, align 1, !range !22, !noundef !23
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %multirange_elem_bsearch_comparison.exit
 
-31:                                               ; preds = %28, %26, %.lr.ph.i
-  %32 = load i8, ptr %14, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %multirange_bsearch_match.exit, label %34
+30:                                               ; preds = %27, %25, %.lr.ph.i
+  %31 = load i8, ptr %13, align 8, !range !22, !noundef !23
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %.thread.i, label %33
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %12, align 4
-  %36 = load i64, ptr %5, align 8
-  %37 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %35, i64 noundef %36, i64 noundef %2) #11
-  %38 = trunc i64 %37 to i32
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %45, label %40
+33:                                               ; preds = %30
+  %34 = load i32, ptr %11, align 4
+  %35 = load i64, ptr %5, align 8
+  %36 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %10, i32 noundef %34, i64 noundef %35, i64 noundef %2) #11
+  %37 = trunc i64 %36 to i32
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %44, label %39
 
-40:                                               ; preds = %34
-  %41 = icmp eq i32 %38, 0
-  br i1 %41, label %42, label %multirange_bsearch_match.exit
+39:                                               ; preds = %33
+  %40 = icmp eq i32 %37, 0
+  br i1 %40, label %41, label %.thread.i
 
-42:                                               ; preds = %40
-  %43 = load i8, ptr %15, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %multirange_bsearch_match.exit, label %45
+41:                                               ; preds = %39
+  %42 = load i8, ptr %14, align 1, !range !22, !noundef !23
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %.thread.i, label %44
 
-45:                                               ; preds = %34, %42
-  %46 = add nuw i32 %17, 1
+44:                                               ; preds = %33, %41
+  %45 = add nuw i32 %16, 1
   br label %multirange_elem_bsearch_comparison.exit
 
-multirange_elem_bsearch_comparison.exit:          ; preds = %28, %20, %45
-  %.117.i = phi i32 [ %.01619.i, %45 ], [ %17, %20 ], [ %17, %28 ]
-  %.1.i = phi i32 [ %46, %45 ], [ %.01520.i, %20 ], [ %.01520.i, %28 ]
-  %47 = icmp ult i32 %.1.i, %.117.i
-  br i1 %47, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !32
+.thread.i:                                        ; preds = %41, %39, %30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %multirange_bsearch_match.exit
 
-multirange_bsearch_match.exit:                    ; preds = %31, %40, %42, %multirange_elem_bsearch_comparison.exit
-  %.0.i = phi i1 [ false, %multirange_elem_bsearch_comparison.exit ], [ true, %42 ], [ true, %40 ], [ true, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %48
+multirange_elem_bsearch_comparison.exit:          ; preds = %27, %19, %44
+  %.222.i = phi i32 [ %.02028.i, %44 ], [ %16, %19 ], [ %16, %27 ]
+  %.219.i = phi i32 [ %45, %44 ], [ %.01729.i, %19 ], [ %.01729.i, %27 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  %46 = icmp ult i32 %.219.i, %.222.i
+  br i1 %46, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !33
 
-48:                                               ; preds = %3, %multirange_bsearch_match.exit
-  %.0 = phi i1 [ %.0.i, %multirange_bsearch_match.exit ], [ false, %3 ]
+multirange_bsearch_match.exit:                    ; preds = %multirange_elem_bsearch_comparison.exit, %.thread.i, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %.thread.i ], [ false, %multirange_elem_bsearch_comparison.exit ]
   ret i1 %.0
 }
 
@@ -3704,7 +3771,7 @@ multirange_bsearch_match.exit:                    ; preds = %31, %40, %42, %mult
 define dso_local range(i64 0, 2) i64 @elem_contained_by_multirange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
@@ -3732,7 +3799,7 @@ define dso_local range(i64 0, 2) i64 @elem_contained_by_multirange(ptr noundef r
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 24:                                               ; preds = %16
@@ -3756,7 +3823,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_range(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -3784,7 +3851,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_range(ptr noundef read
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -3808,30 +3875,32 @@ define dso_local noundef zeroext i1 @multirange_contains_range_internal(ptr noun
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca [2 x %struct.RangeBound], align 16
   %7 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
   %8 = tail call signext i8 @range_get_flags(ptr noundef %2) #11
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %34
+  br i1 %.not, label %10, label %multirange_bsearch_match.exit
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %34, label %14
+  br i1 %13, label %multirange_bsearch_match.exit, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %16 = load i32, ptr %11, align 4
-  %.not21.i = icmp eq i32 %16, 0
-  br i1 %.not21.i, label %multirange_bsearch_match.exit, label %.lr.ph.i
+  %.not30.i = icmp eq i32 %16, 0
+  br i1 %.not30.i, label %multirange_bsearch_match.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %multirange_range_contains_bsearch_comparison.exit
-  %.01520.i = phi i32 [ %.1.i, %multirange_range_contains_bsearch_comparison.exit ], [ 0, %14 ]
-  %.01619.i = phi i32 [ %.117.i, %multirange_range_contains_bsearch_comparison.exit ], [ %16, %14 ]
-  %17 = add i32 %.01619.i, %.01520.i
+  %.01729.i = phi i32 [ %.219.i, %multirange_range_contains_bsearch_comparison.exit ], [ 0, %14 ]
+  %.02028.i = phi i32 [ %.222.i, %multirange_range_contains_bsearch_comparison.exit ], [ %16, %14 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %17 = add i32 %.02028.i, %.01729.i
   %18 = lshr i32 %17, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %19 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %4) #11
@@ -3851,29 +3920,33 @@ define dso_local noundef zeroext i1 @multirange_contains_range_internal(ptr noun
 27:                                               ; preds = %24
   %28 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %15) #11
   %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %multirange_bsearch_match.exit, label %30
+  br i1 %29, label %.thread.i, label %30
 
 30:                                               ; preds = %27, %24
-  br label %multirange_bsearch_match.exit
+  br label %.thread.i
 
 31:                                               ; preds = %21
   %32 = add nuw i32 %18, 1
   br label %multirange_range_contains_bsearch_comparison.exit
 
+.thread.i:                                        ; preds = %27, %30
+  %.1.ph.ph = phi i1 [ false, %30 ], [ true, %27 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %multirange_bsearch_match.exit
+
 multirange_range_contains_bsearch_comparison.exit: ; preds = %.lr.ph.i, %31
-  %.117.i = phi i32 [ %.01619.i, %31 ], [ %18, %.lr.ph.i ]
-  %.1.i = phi i32 [ %32, %31 ], [ %.01520.i, %.lr.ph.i ]
-  %33 = icmp ult i32 %.1.i, %.117.i
-  br i1 %33, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !32
+  %.222.i = phi i32 [ %.02028.i, %31 ], [ %18, %.lr.ph.i ]
+  %.219.i = phi i32 [ %32, %31 ], [ %.01729.i, %.lr.ph.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  %33 = icmp ult i32 %.219.i, %.222.i
+  br i1 %33, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !33
 
-multirange_bsearch_match.exit:                    ; preds = %multirange_range_contains_bsearch_comparison.exit, %30, %27, %14
-  %.0.i = phi i1 [ false, %14 ], [ false, %30 ], [ true, %27 ], [ false, %multirange_range_contains_bsearch_comparison.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %34
-
-34:                                               ; preds = %10, %3, %multirange_bsearch_match.exit
-  %.0 = phi i1 [ %.0.i, %multirange_bsearch_match.exit ], [ true, %3 ], [ false, %10 ]
+multirange_bsearch_match.exit:                    ; preds = %multirange_range_contains_bsearch_comparison.exit, %.thread.i, %14, %10, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %10 ], [ %.1.ph.ph, %.thread.i ], [ false, %14 ], [ false, %multirange_range_contains_bsearch_comparison.exit ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   ret i1 %.0
 }
 
@@ -3883,7 +3956,7 @@ define dso_local range(i64 0, 2) i64 @range_contains_multirange(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -3911,7 +3984,7 @@ define dso_local range(i64 0, 2) i64 @range_contains_multirange(ptr noundef read
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -3937,6 +4010,12 @@ define dso_local noundef zeroext i1 @range_contains_multirange_internal(ptr noun
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca %struct.RangeBound, align 8
   %9 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
@@ -3968,6 +4047,12 @@ define dso_local noundef zeroext i1 @range_contains_multirange_internal(ptr noun
 
 range_bounds_contains.exit:                       ; preds = %24, %21, %13, %3
   %.0 = phi i1 [ true, %3 ], [ false, %13 ], [ false, %24 ], [ true, %21 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
@@ -3977,7 +4062,7 @@ define dso_local range(i64 0, 2) i64 @range_contained_by_multirange(ptr noundef 
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4005,7 +4090,7 @@ define dso_local range(i64 0, 2) i64 @range_contained_by_multirange(ptr noundef 
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4029,7 +4114,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contained_by_range(ptr noundef 
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4057,7 +4142,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contained_by_range(ptr noundef 
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4075,7 +4160,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   ret i64 %32
 }
 
-declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4083,6 +4168,10 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4094,7 +4183,7 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1879, ptr noundef nonnull @__func__.multirange_eq_internal) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1878, ptr noundef nonnull @__func__.multirange_eq_internal) #11
   unreachable
 
 15:                                               ; preds = %3
@@ -4112,7 +4201,7 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
 21:                                               ; preds = %24
   %22 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %22, %17
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %.022 = phi i32 [ %22, %21 ], [ 0, %.preheader ]
@@ -4129,10 +4218,14 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
 
 .loopexit:                                        ; preds = %24, %.lr.ph, %21, %.preheader, %15
   %.017 = phi i1 [ false, %15 ], [ true, %.preheader ], [ false, %24 ], [ false, %.lr.ph ], [ true, %21 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.017
 }
 
-declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4140,7 +4233,7 @@ define dso_local range(i64 0, 2) i64 @multirange_eq(ptr noundef readonly capture
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4168,7 +4261,7 @@ define dso_local range(i64 0, 2) i64 @multirange_eq(ptr noundef readonly capture
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4199,7 +4292,7 @@ define dso_local range(i64 0, 2) i64 @multirange_ne(ptr noundef readonly capture
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4227,7 +4320,7 @@ define dso_local range(i64 0, 2) i64 @multirange_ne(ptr noundef readonly capture
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4252,7 +4345,7 @@ define dso_local range(i64 0, 2) i64 @range_overlaps_multirange(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4280,7 +4373,7 @@ define dso_local range(i64 0, 2) i64 @range_overlaps_multirange(ptr noundef read
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4304,30 +4397,32 @@ define dso_local noundef zeroext i1 @range_overlaps_multirange_internal(ptr noun
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca [2 x %struct.RangeBound], align 16
   %7 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
   %8 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %27
+  br i1 %.not, label %10, label %multirange_bsearch_match.exit
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %27, label %14
+  br i1 %13, label %multirange_bsearch_match.exit, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @range_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %16 = load i32, ptr %11, align 4
-  %.not21.i = icmp eq i32 %16, 0
-  br i1 %.not21.i, label %multirange_bsearch_match.exit, label %.lr.ph.i
+  %.not30.i = icmp eq i32 %16, 0
+  br i1 %.not30.i, label %multirange_bsearch_match.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %multirange_range_overlaps_bsearch_comparison.exit
-  %.01520.i = phi i32 [ %.1.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ 0, %14 ]
-  %.01619.i = phi i32 [ %.117.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ %16, %14 ]
-  %17 = add i32 %.01619.i, %.01520.i
+  %.01729.i = phi i32 [ %.219.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ 0, %14 ]
+  %.02028.i = phi i32 [ %.222.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ %16, %14 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %17 = add i32 %.02028.i, %.01729.i
   %18 = lshr i32 %17, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %2, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %19 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %4) #11
@@ -4337,26 +4432,29 @@ define dso_local noundef zeroext i1 @range_overlaps_multirange_internal(ptr noun
 21:                                               ; preds = %.lr.ph.i
   %22 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %multirange_bsearch_match.exit
+  br i1 %23, label %24, label %.thread.i
 
 24:                                               ; preds = %21
   %25 = add nuw i32 %18, 1
   br label %multirange_range_overlaps_bsearch_comparison.exit
 
+.thread.i:                                        ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %multirange_bsearch_match.exit
+
 multirange_range_overlaps_bsearch_comparison.exit: ; preds = %.lr.ph.i, %24
-  %.117.i = phi i32 [ %.01619.i, %24 ], [ %18, %.lr.ph.i ]
-  %.1.i = phi i32 [ %25, %24 ], [ %.01520.i, %.lr.ph.i ]
-  %26 = icmp ult i32 %.1.i, %.117.i
-  br i1 %26, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !32
+  %.222.i = phi i32 [ %.02028.i, %24 ], [ %18, %.lr.ph.i ]
+  %.219.i = phi i32 [ %25, %24 ], [ %.01729.i, %.lr.ph.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  %26 = icmp ult i32 %.219.i, %.222.i
+  br i1 %26, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !33
 
-multirange_bsearch_match.exit:                    ; preds = %21, %multirange_range_overlaps_bsearch_comparison.exit, %14
-  %.0.i = phi i1 [ false, %14 ], [ true, %21 ], [ false, %multirange_range_overlaps_bsearch_comparison.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %27
-
-27:                                               ; preds = %3, %10, %multirange_bsearch_match.exit
-  %.0 = phi i1 [ %.0.i, %multirange_bsearch_match.exit ], [ false, %10 ], [ false, %3 ]
+multirange_bsearch_match.exit:                    ; preds = %multirange_range_overlaps_bsearch_comparison.exit, %.thread.i, %14, %3, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %3 ], [ true, %.thread.i ], [ false, %14 ], [ false, %multirange_range_overlaps_bsearch_comparison.exit ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   ret i1 %.0
 }
 
@@ -4366,7 +4464,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overlaps_range(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4394,7 +4492,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overlaps_range(ptr noundef read
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4418,7 +4516,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overlaps_multirange(ptr noundef
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -4446,7 +4544,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overlaps_multirange(ptr noundef
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -4470,6 +4568,10 @@ define dso_local noundef zeroext i1 @multirange_overlaps_multirange_internal(ptr
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -4504,7 +4606,7 @@ define dso_local noundef zeroext i1 @multirange_overlaps_multirange_internal(ptr
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %21 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph32
   %.1.lcssa = phi i32 [ %.02029, %.lr.ph32 ], [ %19, %20 ]
@@ -4530,10 +4632,14 @@ define dso_local noundef zeroext i1 @multirange_overlaps_multirange_internal(ptr
 range_bounds_overlaps.exit:                       ; preds = %31, %28
   %34 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %34, %13
-  br i1 %exitcond.not, label %range_bounds_overlaps.exit.thread, label %.lr.ph32, !llvm.loop !35
+  br i1 %exitcond.not, label %range_bounds_overlaps.exit.thread, label %.lr.ph32, !llvm.loop !36
 
 range_bounds_overlaps.exit.thread:                ; preds = %range_bounds_overlaps.exit, %25, %31, %.lr.ph, %15, %3, %11
   %.021 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %15 ], [ false, %.lr.ph ], [ false, %range_bounds_overlaps.exit ], [ true, %25 ], [ true, %31 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.021
 }
 
@@ -4544,6 +4650,11 @@ define dso_local zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, 
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -4566,6 +4677,11 @@ define dso_local zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, 
 
 20:                                               ; preds = %3, %11, %15
   %.0.in = phi i1 [ %19, %15 ], [ false, %11 ], [ false, %3 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0.in
 }
 
@@ -4580,7 +4696,7 @@ define dso_local range(i64 0, 2) i64 @range_overleft_multirange(ptr noundef read
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -4608,7 +4724,7 @@ define dso_local range(i64 0, 2) i64 @range_overleft_multirange(ptr noundef read
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -4621,11 +4737,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -4649,11 +4765,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_overleft_multirange_internal.exit:          ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.in.i = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.in.i
 }
 
@@ -4668,10 +4784,15 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_range(ptr noundef read
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -4708,7 +4829,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_range(ptr noundef read
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %23) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 38:                                               ; preds = %30
@@ -4734,6 +4855,11 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 50:                                               ; preds = %1, %18, %multirange_get_typcache.exit
   %.0 = phi i64 [ %49, %multirange_get_typcache.exit ], [ 0, %18 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -4747,10 +4873,14 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_multirange(ptr noundef
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -4787,7 +4917,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_multirange(ptr noundef
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %23) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 38:                                               ; preds = %30
@@ -4816,6 +4946,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 52:                                               ; preds = %1, %17, %multirange_get_typcache.exit
   %.0 = phi i64 [ %51, %multirange_get_typcache.exit ], [ 0, %17 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -4826,6 +4960,11 @@ define dso_local zeroext i1 @range_overright_multirange_internal(ptr noundef %0,
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -4846,6 +4985,11 @@ define dso_local zeroext i1 @range_overright_multirange_internal(ptr noundef %0,
 
 18:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %17, %15 ], [ false, %11 ], [ false, %3 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
@@ -4860,7 +5004,7 @@ define dso_local range(i64 0, 2) i64 @range_overright_multirange(ptr noundef rea
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -4888,7 +5032,7 @@ define dso_local range(i64 0, 2) i64 @range_overright_multirange(ptr noundef rea
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -4901,11 +5045,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -4927,11 +5071,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_overright_multirange_internal.exit:         ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i8
 }
 
@@ -4946,10 +5090,15 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_range(ptr noundef rea
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -4986,7 +5135,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_range(ptr noundef rea
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %23) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 38:                                               ; preds = %30
@@ -5010,6 +5159,11 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 48:                                               ; preds = %1, %18, %multirange_get_typcache.exit
   %.0 = phi i64 [ %47, %multirange_get_typcache.exit ], [ 0, %18 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -5023,10 +5177,14 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_multirange(ptr nounde
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -5063,7 +5221,7 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_multirange(ptr nounde
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %23) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 38:                                               ; preds = %30
@@ -5087,6 +5245,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 48:                                               ; preds = %1, %17, %multirange_get_typcache.exit
   %.0 = phi i64 [ %47, %multirange_get_typcache.exit ], [ 0, %17 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -5096,7 +5258,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_multirange(ptr noundef
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -5124,7 +5286,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contains_multirange(ptr noundef
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -5152,6 +5314,10 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %range_bounds_contains.exit, label %13
 
@@ -5167,7 +5333,7 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
 17:                                               ; preds = %27
   %18 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %18, %11
-  br i1 %exitcond.not, label %range_bounds_contains.exit, label %.lr.ph32, !llvm.loop !36
+  br i1 %exitcond.not, label %range_bounds_contains.exit, label %.lr.ph32, !llvm.loop !37
 
 .lr.ph32:                                         ; preds = %15, %17
   %.030 = phi i32 [ %18, %17 ], [ 0, %15 ]
@@ -5187,7 +5353,7 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %23 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph32
   %.1.lcssa = phi i32 [ %.02029, %.lr.ph32 ], [ %21, %22 ]
@@ -5202,6 +5368,10 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
 
 range_bounds_contains.exit:                       ; preds = %17, %._crit_edge, %27, %.lr.ph, %15, %13, %3
   %.021 = phi i1 [ true, %3 ], [ false, %13 ], [ true, %15 ], [ false, %.lr.ph ], [ true, %17 ], [ false, %._crit_edge ], [ false, %27 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.021
 }
 
@@ -5211,7 +5381,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contained_by_multirange(ptr nou
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -5239,7 +5409,7 @@ define dso_local range(i64 0, 2) i64 @multirange_contained_by_multirange(ptr nou
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -5268,7 +5438,7 @@ define dso_local range(i64 0, 2) i64 @range_before_multirange(ptr noundef readon
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -5296,7 +5466,7 @@ define dso_local range(i64 0, 2) i64 @range_before_multirange(ptr noundef readon
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -5309,11 +5479,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5335,11 +5505,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_before_multirange_internal.exit:            ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %44, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i8
 }
 
@@ -5350,6 +5520,11 @@ define dso_local zeroext i1 @range_before_multirange_internal(ptr noundef %0, pt
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -5370,6 +5545,11 @@ define dso_local zeroext i1 @range_before_multirange_internal(ptr noundef %0, pt
 
 18:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %17, %15 ], [ false, %11 ], [ false, %3 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
@@ -5384,7 +5564,7 @@ define dso_local range(i64 0, 2) i64 @multirange_before_range(ptr noundef readon
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -5412,7 +5592,7 @@ define dso_local range(i64 0, 2) i64 @multirange_before_range(ptr noundef readon
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -5425,11 +5605,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %14) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5453,11 +5633,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_after_multirange_internal.exit:             ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i8
 }
 
@@ -5468,6 +5648,11 @@ define dso_local zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -5490,6 +5675,11 @@ define dso_local zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr
 
 20:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %19, %15 ], [ false, %11 ], [ false, %3 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
@@ -5503,7 +5693,7 @@ define dso_local range(i64 0, 2) i64 @multirange_before_multirange(ptr noundef r
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
@@ -5531,7 +5721,7 @@ define dso_local range(i64 0, 2) i64 @multirange_before_multirange(ptr noundef r
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 30:                                               ; preds = %22
@@ -5544,10 +5734,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %.0.i = phi ptr [ %23, %30 ], [ %18, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
@@ -5570,10 +5760,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 multirange_before_multirange_internal.exit:       ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i7 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i7
 }
 
@@ -5583,6 +5773,10 @@ define dso_local zeroext i1 @multirange_before_multirange_internal(ptr noundef %
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -5604,6 +5798,10 @@ define dso_local zeroext i1 @multirange_before_multirange_internal(ptr noundef %
 
 19:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %18, %15 ], [ false, %11 ], [ false, %3 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
@@ -5618,7 +5816,7 @@ define dso_local range(i64 0, 2) i64 @range_after_multirange(ptr noundef readonl
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -5646,7 +5844,7 @@ define dso_local range(i64 0, 2) i64 @range_after_multirange(ptr noundef readonl
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -5659,11 +5857,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5687,11 +5885,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_after_multirange_internal.exit:             ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i8
 }
 
@@ -5706,7 +5904,7 @@ define dso_local range(i64 0, 2) i64 @multirange_after_range(ptr noundef readonl
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = getelementptr i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
@@ -5734,7 +5932,7 @@ define dso_local range(i64 0, 2) i64 @multirange_after_range(ptr noundef readonl
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %16) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 31:                                               ; preds = %23
@@ -5747,11 +5945,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   %36 = tail call signext i8 @range_get_flags(ptr noundef %14) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5773,11 +5971,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_before_multirange_internal.exit:            ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %44, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i8
 }
 
@@ -5791,7 +5989,7 @@ define dso_local range(i64 0, 2) i64 @multirange_after_multirange(ptr noundef re
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
@@ -5819,7 +6017,7 @@ define dso_local range(i64 0, 2) i64 @multirange_after_multirange(ptr noundef re
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 30:                                               ; preds = %22
@@ -5832,10 +6030,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %.0.i = phi ptr [ %23, %30 ], [ %18, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
@@ -5858,10 +6056,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 multirange_before_multirange_internal.exit:       ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i7 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0.i7
 }
 
@@ -5872,6 +6070,11 @@ define dso_local zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, 
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -5917,10 +6120,15 @@ define dso_local zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, 
 
 36:                                               ; preds = %28, %15, %3, %11
   %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %15 ], [ %35, %28 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i1 %.0
 }
 
-declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #1
+declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_adjacent_multirange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5928,7 +6136,7 @@ define dso_local range(i64 0, 2) i64 @range_adjacent_multirange(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -5956,7 +6164,7 @@ define dso_local range(i64 0, 2) i64 @range_adjacent_multirange(ptr noundef read
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -5980,7 +6188,7 @@ define dso_local range(i64 0, 2) i64 @multirange_adjacent_range(ptr noundef read
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
@@ -6020,7 +6228,7 @@ define dso_local range(i64 0, 2) i64 @multirange_adjacent_range(ptr noundef read
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %18) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 33:                                               ; preds = %25
@@ -6052,10 +6260,14 @@ define dso_local range(i64 0, 2) i64 @multirange_adjacent_multirange(ptr noundef
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -6092,7 +6304,7 @@ define dso_local range(i64 0, 2) i64 @multirange_adjacent_multirange(ptr noundef
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %23) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 38:                                               ; preds = %30
@@ -6156,6 +6368,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 73:                                               ; preds = %64, %multirange_get_typcache.exit, %1, %17
   %.0 = phi i64 [ 0, %17 ], [ 0, %1 ], [ 1, %multirange_get_typcache.exit ], [ %spec.select, %64 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i64 %.0
 }
 
@@ -6169,7 +6385,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @multirange_cmp(ptr noun
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
-  %10 = getelementptr i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
@@ -6184,7 +6400,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @multirange_cmp(ptr noun
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %19)
   %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2589, ptr noundef nonnull @__func__.multirange_cmp) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2588, ptr noundef nonnull @__func__.multirange_cmp) #11
   unreachable
 
 21:                                               ; preds = %1
@@ -6210,7 +6426,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @multirange_cmp(ptr noun
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 36:                                               ; preds = %28
@@ -6226,73 +6442,85 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @llvm.smax.i32(i32 %40, i32 %42)
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
-  %45 = icmp sgt i32 %43, 0
-  br i1 %45, label %.lr.ph.preheader, label %.thread
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %multirange_get_typcache.exit
+.lr.ph:                                           ; preds = %multirange_get_typcache.exit
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %smax = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %smax56 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
-  br label %.lr.ph
+  %smax54 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
+  br label %46
 
-46:                                               ; preds = %55
-  %47 = add nuw nsw i32 %.03547, 1
-  %exitcond58.not = icmp eq i32 %47, %43
-  br i1 %exitcond58.not, label %.thread.loopexit, label %.lr.ph, !llvm.loop !38
+46:                                               ; preds = %.lr.ph, %58
+  %.03753 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %exitcond.not = icmp eq i32 %.03753, %smax
+  br i1 %exitcond.not, label %.thread, label %47
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.03547 = phi i32 [ %47, %46 ], [ 0, %.lr.ph.preheader ]
-  %exitcond.not = icmp eq i32 %.03547, %smax
-  br i1 %exitcond.not, label %.thread.loopexit, label %48
+47:                                               ; preds = %46
+  %exitcond55.not = icmp eq i32 %.03753, %smax54
+  br i1 %exitcond55.not, label %.thread, label %48
 
-48:                                               ; preds = %.lr.ph
-  %exitcond57.not = icmp eq i32 %.03547, %smax56
-  br i1 %exitcond57.not, label %.thread.loopexit, label %49
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %45, align 8
+  call void @multirange_get_bounds(ptr noundef %49, ptr noundef %9, i32 noundef %.03753, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %50 = load ptr, ptr %45, align 8
+  call void @multirange_get_bounds(ptr noundef %50, ptr noundef %13, i32 noundef %.03753, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %51 = load ptr, ptr %45, align 8
+  %52 = call i32 @range_cmp_bounds(ptr noundef %51, ptr noundef nonnull %2, ptr noundef nonnull %4) #11
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.thread
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %44, align 8
-  call void @multirange_get_bounds(ptr noundef %50, ptr noundef %9, i32 noundef %.03547, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %51 = load ptr, ptr %44, align 8
-  call void @multirange_get_bounds(ptr noundef %51, ptr noundef %13, i32 noundef %.03547, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %52 = load ptr, ptr %44, align 8
-  %53 = call i32 @range_cmp_bounds(ptr noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %4) #11
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %.thread.loopexit
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %45, align 8
+  %56 = call i32 @range_cmp_bounds(ptr noundef %55, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
+  %.not44 = icmp eq i32 %56, 0
+  br i1 %.not44, label %58, label %.thread
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %44, align 8
-  %57 = call i32 @range_cmp_bounds(ptr noundef %56, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
-  %.not42 = icmp eq i32 %57, 0
-  br i1 %.not42, label %46, label %.thread.loopexit
+.thread:                                          ; preds = %48, %46, %47, %54
+  %.1.ph = phi i32 [ %56, %54 ], [ 1, %47 ], [ -1, %46 ], [ %52, %48 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  %57 = sext i32 %.1.ph to i64
+  br label %.loopexit
 
-.thread.loopexit:                                 ; preds = %49, %48, %.lr.ph, %46, %55
-  %.2.ph = phi i32 [ %57, %55 ], [ 0, %46 ], [ -1, %.lr.ph ], [ 1, %48 ], [ %53, %49 ]
-  %58 = sext i32 %.2.ph to i64
-  br label %.thread
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  %59 = add nuw nsw i32 %.03753, 1
+  %exitcond56.not = icmp eq i32 %59, %43
+  br i1 %exitcond56.not, label %.loopexit, label %46, !llvm.loop !39
 
-.thread:                                          ; preds = %.thread.loopexit, %multirange_get_typcache.exit
-  %.2 = phi i64 [ 0, %multirange_get_typcache.exit ], [ %58, %.thread.loopexit ]
-  %59 = load i64, ptr %6, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %.not43 = icmp eq ptr %9, %60
-  br i1 %.not43, label %62, label %61
+.loopexit:                                        ; preds = %58, %multirange_get_typcache.exit, %.thread
+  %.3 = phi i64 [ %57, %.thread ], [ 0, %multirange_get_typcache.exit ], [ 0, %58 ]
+  %60 = load i64, ptr %6, align 8
+  %61 = inttoptr i64 %60 to ptr
+  %.not45 = icmp eq ptr %9, %61
+  br i1 %.not45, label %63, label %62
 
-61:                                               ; preds = %.thread
+62:                                               ; preds = %.loopexit
   call void @pfree(ptr noundef %9) #11
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %.thread
-  %63 = load i64, ptr %10, align 8
-  %64 = inttoptr i64 %63 to ptr
-  %.not44 = icmp eq ptr %13, %64
-  br i1 %.not44, label %66, label %65
+63:                                               ; preds = %.loopexit, %62
+  %64 = load i64, ptr %10, align 8
+  %65 = inttoptr i64 %64 to ptr
+  %.not46 = icmp eq ptr %13, %65
+  br i1 %.not46, label %67, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   call void @pfree(ptr noundef %13) #11
-  br label %66
+  br label %67
 
-66:                                               ; preds = %62, %65
-  ret i64 %.2
+67:                                               ; preds = %66, %63
+  ret i64 %.3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6360,7 +6588,7 @@ define dso_local i64 @range_merge_from_multirange(ptr noundef readonly captures(
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -6373,35 +6601,47 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %.0.i = phi ptr [ %19, %26 ], [ %14, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
-  %32 = load ptr, ptr %31, align 8
-  switch i32 %30, label %37 [
-    i32 0, label %33
+  switch i32 %30, label %39 [
+    i32 0, label %31
     i32 1, label %35
   ]
 
-33:                                               ; preds = %multirange_get_typcache.exit
-  %34 = tail call ptr @make_empty_range(ptr noundef %32) #11
-  br label %43
+31:                                               ; preds = %multirange_get_typcache.exit
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @make_empty_range(ptr noundef %33) #11
+  br label %47
 
 35:                                               ; preds = %multirange_get_typcache.exit
-  %36 = tail call ptr @multirange_get_range(ptr noundef %32, ptr noundef nonnull %9, i32 noundef 0)
-  br label %43
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call ptr @multirange_get_range(ptr noundef %37, ptr noundef nonnull %9, i32 noundef 0)
+  br label %47
 
-37:                                               ; preds = %multirange_get_typcache.exit
-  call void @multirange_get_bounds(ptr noundef %32, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %38 = load ptr, ptr %31, align 8
-  %39 = load i32, ptr %29, align 4
-  %40 = add i32 %39, -1
-  call void @multirange_get_bounds(ptr noundef %38, ptr noundef nonnull %9, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %41 = load ptr, ptr %31, align 8
-  %42 = call ptr @make_range(ptr noundef %41, ptr noundef nonnull %2, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null) #11
-  br label %43
+39:                                               ; preds = %multirange_get_typcache.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
+  %41 = load ptr, ptr %40, align 8
+  call void @multirange_get_bounds(ptr noundef %41, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %42 = load ptr, ptr %40, align 8
+  %43 = load i32, ptr %29, align 4
+  %44 = add i32 %43, -1
+  call void @multirange_get_bounds(ptr noundef %42, ptr noundef nonnull %9, i32 noundef %44, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %45 = load ptr, ptr %40, align 8
+  %46 = call ptr @make_range(ptr noundef %45, ptr noundef nonnull %2, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  br label %47
 
-43:                                               ; preds = %35, %37, %33
-  %.0 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %37 ]
-  %44 = ptrtoint ptr %.0 to i64
-  ret i64 %44
+47:                                               ; preds = %35, %39, %31
+  %.0 = phi ptr [ %34, %31 ], [ %38, %35 ], [ %46, %39 ]
+  %48 = ptrtoint ptr %.0 to i64
+  ret i64 %48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6482,11 +6722,11 @@ define dso_local noundef i64 @multirange_unnest(ptr noundef %0) local_unnamed_ad
   ret i64 %.0
 }
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @hash_multirange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -6520,7 +6760,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_multirange(ptr noundef reado
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 24:                                               ; preds = %16
@@ -6555,7 +6795,7 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   %41 = load i32, ptr %35, align 8
   %42 = tail call ptr @format_type_be(i32 noundef %41) #11
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %42) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2807, ptr noundef nonnull @__func__.hash_multirange) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2806, ptr noundef nonnull @__func__.hash_multirange) #11
   unreachable
 
 44:                                               ; preds = %33, %multirange_get_typcache.exit
@@ -6566,7 +6806,7 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44
-  %48 = getelementptr i8, ptr %7, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %49 = getelementptr inbounds nuw i8, ptr %.038, i64 168
   %wide.trip.count = zext nneg i32 %46 to i64
   br label %50
@@ -6574,12 +6814,14 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
 50:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.046 = phi i32 [ 1, %.lr.ph ], [ %84, %78 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %51 = load i32, ptr %45, align 4
   %52 = add i32 %51, -1
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 2
-  %55 = getelementptr i8, ptr %48, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1
   %58 = load ptr, ptr %27, align 8
   %59 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6621,9 +6863,11 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   %82 = xor i32 %81, %.036
   %83 = mul i32 %.046, 31
   %84 = add i32 %82, %83
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %78
   %85 = zext i32 %84 to i64
@@ -6640,13 +6884,13 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   tail call void @pfree(ptr noundef nonnull %7) #11
   br label %89
 
-89:                                               ; preds = %._crit_edge, %88
+89:                                               ; preds = %88, %._crit_edge
   ret i64 %.0.lcssa
 }
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
-declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hash_multirange_extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -6656,7 +6900,7 @@ define dso_local i64 @hash_multirange_extended(ptr noundef readonly captures(non
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  %8 = getelementptr i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
@@ -6682,7 +6926,7 @@ define dso_local i64 @hash_multirange_extended(ptr noundef readonly captures(non
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 558, ptr noundef nonnull @__func__.multirange_get_typcache) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @__func__.multirange_get_typcache) #11
   unreachable
 
 26:                                               ; preds = %18
@@ -6717,7 +6961,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %43 = load i32, ptr %37, align 8
   %44 = tail call ptr @format_type_be(i32 noundef %43) #11
   %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %44) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2879, ptr noundef nonnull @__func__.hash_multirange_extended) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2878, ptr noundef nonnull @__func__.hash_multirange_extended) #11
   unreachable
 
 46:                                               ; preds = %35, %multirange_get_typcache.exit
@@ -6728,7 +6972,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %46
-  %50 = getelementptr i8, ptr %7, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %51 = getelementptr inbounds nuw i8, ptr %.043, i64 216
   %wide.trip.count = zext nneg i32 %48 to i64
   br label %52
@@ -6736,12 +6980,14 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 52:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.051 = phi i64 [ 1, %.lr.ph ], [ %88, %78 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %53 = load i32, ptr %47, align 4
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 2
-  %57 = getelementptr i8, ptr %50, i64 %56
-  %58 = getelementptr i8, ptr %57, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1
   %60 = load ptr, ptr %29, align 8
   %61 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6785,9 +7031,11 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %86 = xor i64 %85, %.041
   %87 = mul i64 %.051, 31
   %88 = add i64 %86, %87
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %78, %46
   %.0.lcssa = phi i64 [ 1, %46 ], [ %88, %78 ]
@@ -6800,109 +7048,104 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   tail call void @pfree(ptr noundef nonnull %7) #11
   br label %92
 
-92:                                               ; preds = %._crit_edge, %91
+92:                                               ; preds = %91, %._crit_edge
   ret i64 %.0.lcssa
 }
 
-declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #7
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @get_type_io_data(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @get_type_io_data(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @range_compare(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @range_compare(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @range_union_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @range_union_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #1
+declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #2
 
-declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { cold nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"pq_writeint32: argument 0"}
-!17 = distinct !{!17, !"pq_writeint32"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"pq_writeint32: argument 0"}
-!20 = distinct !{!20, !"pq_writeint32"}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
+!16 = distinct !{!16, !"pq_writeint32"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pq_writeint32: argument 0"}
+!19 = distinct !{!19, !"pq_writeint32"}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}

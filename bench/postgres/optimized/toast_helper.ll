@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/toast_helper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
 %struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
 
@@ -15,245 +15,249 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
+  %invariant.gep = getelementptr i8, ptr %4, i64 24
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %151
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv
-  %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr %struct.ToastAttrInfo, ptr %16, i64 %indvars.iv, i32 2
-  store i8 0, ptr %17, align 4
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr %struct.ToastAttrInfo, ptr %18, i64 %indvars.iv
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 89
-  %21 = load i8, ptr %20, align 1
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr %struct.ToastAttrInfo, ptr %22, i64 %indvars.iv, i32 3
-  store i8 %21, ptr %23, align 1
-  %24 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %73, label %25
+13:                                               ; preds = %.lr.ph, %153
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %153 ]
+  %14 = load i32, ptr %4, align 8
+  %15 = sext i32 %14 to i64
+  %16 = shl nsw i64 %15, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %16
+  %17 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %18, i64 %indvars.iv, i32 2
+  store i8 0, ptr %19, align 4
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %20, i64 %indvars.iv
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 85
+  %23 = load i8, ptr %22, align 1
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %24, i64 %indvars.iv, i32 3
+  store i8 %23, ptr %25, align 1
+  %26 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %75, label %27
 
-25:                                               ; preds = %14
-  %26 = getelementptr i64, ptr %24, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr i64, ptr %29, i64 %indvars.iv
-  %31 = load i64, ptr %30, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %34 = load i16, ptr %33, align 4
-  %35 = icmp eq i16 %34, -1
-  br i1 %35, label %36, label %78
+27:                                               ; preds = %13
+  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
+  %29 = load i64, ptr %28, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
+  %33 = load i64, ptr %32, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %36 = load i16, ptr %35, align 4
+  %37 = icmp eq i16 %36, -1
+  br i1 %37, label %38, label %80
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr i8, ptr %37, i64 %indvars.iv
-  %39 = load i8, ptr %38, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %78, label %41
+38:                                               ; preds = %27
+  %39 = load ptr, ptr %11, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
+  %41 = load i8, ptr %40, align 1, !range !4, !noundef !5
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %80, label %43
 
-41:                                               ; preds = %36
-  %42 = load i8, ptr %28, align 1
-  %43 = icmp eq i8 %42, 1
-  br i1 %43, label %44, label %78
+43:                                               ; preds = %38
+  %44 = load i8, ptr %30, align 1
+  %45 = icmp eq i8 %44, 1
+  br i1 %45, label %46, label %80
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 18
-  br i1 %47, label %48, label %78
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 18
+  br i1 %49, label %50, label %80
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr i8, ptr %49, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %61, label %53
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv
+  %53 = load i8, ptr %52, align 1, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %63, label %55
 
-53:                                               ; preds = %48
-  %54 = load i8, ptr %32, align 1
-  %55 = icmp eq i8 %54, 1
-  br i1 %55, label %56, label %61
+55:                                               ; preds = %50
+  %56 = load i8, ptr %34, align 1
+  %57 = icmp eq i8 %56, 1
+  br i1 %57, label %58, label %63
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %58 = load i8, ptr %57, align 1
-  %59 = icmp eq i8 %58, 18
-  br i1 %59, label %60, label %61
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 18
+  br i1 %61, label %62, label %63
 
-60:                                               ; preds = %56
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %28, ptr noundef nonnull dereferenceable(18) %32, i64 18)
+62:                                               ; preds = %58
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %30, ptr noundef nonnull dereferenceable(18) %34, i64 18)
   %.not78 = icmp eq i32 %bcmp, 0
-  br i1 %.not78, label %68, label %61
+  br i1 %.not78, label %70, label %63
 
-61:                                               ; preds = %60, %56, %53, %48
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr %struct.ToastAttrInfo, ptr %62, i64 %indvars.iv, i32 2
-  %64 = load i8, ptr %63, align 4
-  %65 = or i8 %64, 1
-  store i8 %65, ptr %63, align 4
-  %66 = load i8, ptr %6, align 8
+63:                                               ; preds = %62, %58, %55, %50
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %64, i64 %indvars.iv, i32 2
+  %66 = load i8, ptr %65, align 4
   %67 = or i8 %66, 1
-  store i8 %67, ptr %6, align 8
-  br label %78
+  store i8 %67, ptr %65, align 4
+  %68 = load i8, ptr %6, align 8
+  %69 = or i8 %68, 1
+  store i8 %69, ptr %6, align 8
+  br label %80
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr %struct.ToastAttrInfo, ptr %69, i64 %indvars.iv, i32 2
-  %71 = load i8, ptr %70, align 4
-  %72 = or i8 %71, 16
-  store i8 %72, ptr %70, align 4
-  br label %151
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %71, i64 %indvars.iv, i32 2
+  %73 = load i8, ptr %72, align 4
+  %74 = or i8 %73, 16
+  store i8 %74, ptr %72, align 4
+  br label %153
 
-73:                                               ; preds = %14
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr i64, ptr %74, i64 %indvars.iv
-  %76 = load i64, ptr %75, align 8
-  %77 = inttoptr i64 %76 to ptr
-  br label %78
+75:                                               ; preds = %13
+  %76 = load ptr, ptr %10, align 8
+  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv
+  %78 = load i64, ptr %77, align 8
+  %79 = inttoptr i64 %78 to ptr
+  br label %80
 
-78:                                               ; preds = %25, %36, %41, %44, %61, %73
-  %.0 = phi ptr [ %32, %36 ], [ %32, %61 ], [ %32, %44 ], [ %32, %41 ], [ %32, %25 ], [ %77, %73 ]
-  %79 = load ptr, ptr %13, align 8
-  %80 = getelementptr i8, ptr %79, i64 %indvars.iv
-  %81 = load i8, ptr %80, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %90
+80:                                               ; preds = %27, %38, %43, %46, %63, %75
+  %.0 = phi ptr [ %34, %38 ], [ %34, %63 ], [ %34, %46 ], [ %34, %43 ], [ %34, %27 ], [ %79, %75 ]
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv
+  %83 = load i8, ptr %82, align 1, !range !4, !noundef !5
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %85, label %92
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr %struct.ToastAttrInfo, ptr %84, i64 %indvars.iv, i32 2
-  %86 = load i8, ptr %85, align 4
-  %87 = or i8 %86, 16
-  store i8 %87, ptr %85, align 4
-  %88 = load i8, ptr %6, align 8
-  %89 = or i8 %88, 4
-  store i8 %89, ptr %6, align 8
-  br label %151
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %86, i64 %indvars.iv, i32 2
+  %88 = load i8, ptr %87, align 4
+  %89 = or i8 %88, 16
+  store i8 %89, ptr %87, align 4
+  %90 = load i8, ptr %6, align 8
+  %91 = or i8 %90, 4
+  store i8 %91, ptr %6, align 8
+  br label %153
 
-90:                                               ; preds = %78
-  %91 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %92 = load i16, ptr %91, align 4
-  %93 = icmp eq i16 %92, -1
-  br i1 %93, label %94, label %146
+92:                                               ; preds = %80
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %94 = load i16, ptr %93, align 4
+  %95 = icmp eq i16 %94, -1
+  br i1 %95, label %96, label %148
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %96 = load i8, ptr %95, align 4
-  %97 = icmp eq i8 %96, 112
-  br i1 %97, label %98, label %103
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 84
+  %98 = load i8, ptr %97, align 4
+  %99 = icmp eq i8 %98, 112
+  br i1 %99, label %100, label %105
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr %struct.ToastAttrInfo, ptr %99, i64 %indvars.iv, i32 2
-  %101 = load i8, ptr %100, align 4
-  %102 = or i8 %101, 16
-  store i8 %102, ptr %100, align 4
-  br label %103
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %8, align 8
+  %102 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %101, i64 %indvars.iv, i32 2
+  %103 = load i8, ptr %102, align 4
+  %104 = or i8 %103, 16
+  store i8 %104, ptr %102, align 4
+  br label %105
 
-103:                                              ; preds = %98, %94
-  %104 = load i8, ptr %.0, align 1
-  %105 = icmp eq i8 %104, 1
-  br i1 %105, label %106, label %.thread
+105:                                              ; preds = %100, %96
+  %106 = load i8, ptr %.0, align 1
+  %107 = icmp eq i8 %106, 1
+  br i1 %107, label %108, label %.thread
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr %struct.ToastAttrInfo, ptr %107, i64 %indvars.iv
-  store ptr %.0, ptr %108, align 8
-  %109 = load i8, ptr %95, align 4
-  %110 = icmp eq i8 %109, 112
-  br i1 %110, label %111, label %113
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %109, i64 %indvars.iv
+  store ptr %.0, ptr %110, align 8
+  %111 = load i8, ptr %97, align 4
+  %112 = icmp eq i8 %111, 112
+  br i1 %112, label %113, label %115
 
-111:                                              ; preds = %106
-  %112 = tail call ptr @detoast_attr(ptr noundef nonnull %.0) #5
-  br label %115
+113:                                              ; preds = %108
+  %114 = tail call ptr @detoast_attr(ptr noundef nonnull %.0) #5
+  br label %117
 
-113:                                              ; preds = %106
-  %114 = tail call ptr @detoast_external_attr(ptr noundef nonnull %.0) #5
-  br label %115
+115:                                              ; preds = %108
+  %116 = tail call ptr @detoast_external_attr(ptr noundef nonnull %.0) #5
+  br label %117
 
-115:                                              ; preds = %111, %113
-  %.2 = phi ptr [ %112, %111 ], [ %114, %113 ]
-  %116 = ptrtoint ptr %.2 to i64
-  %117 = load ptr, ptr %11, align 8
-  %118 = getelementptr i64, ptr %117, i64 %indvars.iv
-  store i64 %116, ptr %118, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr %struct.ToastAttrInfo, ptr %119, i64 %indvars.iv, i32 2
-  %121 = load i8, ptr %120, align 4
-  %122 = or i8 %121, 2
-  store i8 %122, ptr %120, align 4
-  %123 = load i8, ptr %6, align 8
-  %124 = or i8 %123, 10
-  store i8 %124, ptr %6, align 8
+117:                                              ; preds = %113, %115
+  %.2 = phi ptr [ %114, %113 ], [ %116, %115 ]
+  %118 = ptrtoint ptr %.2 to i64
+  %119 = load ptr, ptr %10, align 8
+  %120 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv
+  store i64 %118, ptr %120, align 8
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %121, i64 %indvars.iv, i32 2
+  %123 = load i8, ptr %122, align 4
+  %124 = or i8 %123, 2
+  store i8 %124, ptr %122, align 4
+  %125 = load i8, ptr %6, align 8
+  %126 = or i8 %125, 10
+  store i8 %126, ptr %6, align 8
   %.pr = load i8, ptr %.2, align 1
-  %125 = icmp eq i8 %.pr, 1
-  br i1 %125, label %126, label %.thread
+  %127 = icmp eq i8 %.pr, 1
+  br i1 %127, label %128, label %.thread
 
-126:                                              ; preds = %115
-  %127 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %128 = load i8, ptr %127, align 1
-  %129 = icmp eq i8 %128, 1
-  %130 = and i8 %128, -2
-  %131 = icmp eq i8 %130, 2
-  %or.cond = or i1 %129, %131
-  %132 = icmp eq i8 %128, 18
-  %133 = select i1 %132, i32 18, i32 2
-  %134 = select i1 %or.cond, i32 10, i32 %133
-  br label %142
+128:                                              ; preds = %117
+  %129 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  %130 = load i8, ptr %129, align 1
+  %131 = icmp eq i8 %130, 1
+  %132 = and i8 %130, -2
+  %133 = icmp eq i8 %132, 2
+  %or.cond = or i1 %131, %133
+  %134 = icmp eq i8 %130, 18
+  %135 = select i1 %134, i32 18, i32 2
+  %136 = select i1 %or.cond, i32 10, i32 %135
+  br label %144
 
-.thread:                                          ; preds = %103, %115
-  %.in = phi i8 [ %.pr, %115 ], [ %104, %103 ]
-  %.182 = phi ptr [ %.2, %115 ], [ %.0, %103 ]
-  %135 = zext i8 %.in to i32
-  %136 = and i32 %135, 1
-  %.not79 = icmp eq i32 %136, 0
-  br i1 %.not79, label %139, label %137
-
-137:                                              ; preds = %.thread
-  %138 = lshr i32 %135, 1
-  br label %142
+.thread:                                          ; preds = %105, %117
+  %.in = phi i8 [ %.pr, %117 ], [ %106, %105 ]
+  %.182 = phi ptr [ %.2, %117 ], [ %.0, %105 ]
+  %137 = zext i8 %.in to i32
+  %138 = and i32 %137, 1
+  %.not79 = icmp eq i32 %138, 0
+  br i1 %.not79, label %141, label %139
 
 139:                                              ; preds = %.thread
-  %140 = load i32, ptr %.182, align 4
-  %141 = lshr i32 %140, 2
-  br label %142
+  %140 = lshr i32 %137, 1
+  br label %144
 
-142:                                              ; preds = %137, %139, %126
-  %143 = phi i32 [ %134, %126 ], [ %138, %137 ], [ %141, %139 ]
-  %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr %struct.ToastAttrInfo, ptr %144, i64 %indvars.iv, i32 1
-  store i32 %143, ptr %145, align 8
-  br label %151
+141:                                              ; preds = %.thread
+  %142 = load i32, ptr %.182, align 4
+  %143 = lshr i32 %142, 2
+  br label %144
 
-146:                                              ; preds = %90
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr %struct.ToastAttrInfo, ptr %147, i64 %indvars.iv, i32 2
-  %149 = load i8, ptr %148, align 4
-  %150 = or i8 %149, 16
-  store i8 %150, ptr %148, align 4
-  br label %151
+144:                                              ; preds = %139, %141, %128
+  %145 = phi i32 [ %136, %128 ], [ %140, %139 ], [ %143, %141 ]
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %146, i64 %indvars.iv, i32 1
+  store i32 %145, ptr %147, align 8
+  br label %153
 
-151:                                              ; preds = %142, %146, %83, %68
+148:                                              ; preds = %92
+  %149 = load ptr, ptr %8, align 8
+  %150 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %149, i64 %indvars.iv, i32 2
+  %151 = load i8, ptr %150, align 4
+  %152 = or i8 %151, 16
+  store i8 %152, ptr %150, align 4
+  br label %153
+
+153:                                              ; preds = %144, %148, %85, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %151, %1
+._crit_edge:                                      ; preds = %153, %1
   ret void
 }
 
@@ -272,199 +276,202 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %invariant.gep54 = getelementptr i8, ptr %6, i64 112
-  %wide.trip.count77 = zext nneg i32 %7 to i64
+  %invariant.gep = getelementptr i8, ptr %6, i64 24
+  %9 = zext nneg i32 %7 to i64
+  %10 = shl nuw nsw i64 %9, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %invariant.gep57 = getelementptr inbounds nuw i8, ptr %gep, i64 84
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %1, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %30
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %30 ], [ 0, %.lr.ph.split.us ]
-  %.042.us.us = phi i32 [ %.1.us.us, %30 ], [ -1, %.lr.ph.split.us ]
-  %.03040.us.us = phi i32 [ %.131.us.us, %30 ], [ 24, %.lr.ph.split.us ]
-  %12 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv69, i32 2
-  %13 = load i8, ptr %12, align 4
-  %14 = zext i8 %13 to i32
-  %15 = and i32 %spec.select, %14
-  %.not.us.us = icmp eq i32 %15, 0
-  br i1 %.not.us.us, label %16, label %30
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %32
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %32 ], [ 0, %.lr.ph.split.us ]
+  %.043.us.us = phi i32 [ %.1.us.us, %32 ], [ -1, %.lr.ph.split.us ]
+  %.03041.us.us = phi i32 [ %.131.us.us, %32 ], [ 24, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv72, i32 2
+  %15 = load i8, ptr %14, align 4
+  %16 = zext i8 %15 to i32
+  %17 = and i32 %spec.select, %16
+  %.not.us.us = icmp eq i32 %17, 0
+  br i1 %.not.us.us, label %18, label %32
 
-16:                                               ; preds = %.lr.ph.split.us.split.us
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr i64, ptr %17, i64 %indvars.iv69
-  %19 = load i64, ptr %18, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 1
-  br i1 %22, label %30, label %23
+18:                                               ; preds = %.lr.ph.split.us.split.us
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv72
+  %21 = load i64, ptr %20, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 1
+  br i1 %24, label %32, label %25
 
-23:                                               ; preds = %16
-  %gep55.us = getelementptr [0 x %struct.FormData_pg_attribute], ptr %invariant.gep54, i64 0, i64 %indvars.iv69
-  %24 = load i8, ptr %gep55.us, align 4
-  %.not34.us.us = icmp eq i8 %24, 109
-  br i1 %.not34.us.us, label %25, label %30
+25:                                               ; preds = %18
+  %gep58.us = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %invariant.gep57, i64 %indvars.iv72
+  %26 = load i8, ptr %gep58.us, align 4
+  %.not35.us.us = icmp eq i8 %26, 109
+  br i1 %.not35.us.us, label %27, label %32
 
-25:                                               ; preds = %23
-  %26 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv69, i32 1
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp sgt i32 %27, %.03040.us.us
-  %spec.select37.us.us = tail call i32 @llvm.smax.i32(i32 %27, i32 %.03040.us.us)
-  %29 = trunc nuw nsw i64 %indvars.iv69 to i32
-  %spec.select38.us.us = select i1 %28, i32 %29, i32 %.042.us.us
-  br label %30
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv72, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp sgt i32 %29, %.03041.us.us
+  %spec.select38.us.us = tail call i32 @llvm.smax.i32(i32 %29, i32 %.03041.us.us)
+  %31 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %spec.select39.us.us = select i1 %30, i32 %31, i32 %.043.us.us
+  br label %32
 
-30:                                               ; preds = %25, %23, %16, %.lr.ph.split.us.split.us
-  %.131.us.us = phi i32 [ %.03040.us.us, %.lr.ph.split.us.split.us ], [ %.03040.us.us, %16 ], [ %.03040.us.us, %23 ], [ %spec.select37.us.us, %25 ]
-  %.1.us.us = phi i32 [ %.042.us.us, %.lr.ph.split.us.split.us ], [ %.042.us.us, %16 ], [ %.042.us.us, %23 ], [ %spec.select38.us.us, %25 ]
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count77
-  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !7
+32:                                               ; preds = %27, %25, %18, %.lr.ph.split.us.split.us
+  %.131.us.us = phi i32 [ %spec.select38.us.us, %27 ], [ %.03041.us.us, %.lr.ph.split.us.split.us ], [ %.03041.us.us, %18 ], [ %.03041.us.us, %25 ]
+  %.1.us.us = phi i32 [ %spec.select39.us.us, %27 ], [ %.043.us.us, %.lr.ph.split.us.split.us ], [ %.043.us.us, %18 ], [ %.043.us.us, %25 ]
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %9
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %51
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %51 ], [ 0, %.lr.ph.split.us ]
-  %.042.us = phi i32 [ %.1.us, %51 ], [ -1, %.lr.ph.split.us ]
-  %.03040.us = phi i32 [ %.131.us, %51 ], [ 24, %.lr.ph.split.us ]
-  %31 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv74, i32 2
-  %32 = load i8, ptr %31, align 4
-  %33 = zext i8 %32 to i32
-  %34 = and i32 %spec.select, %33
-  %.not.us = icmp eq i32 %34, 0
-  br i1 %.not.us, label %35, label %51
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %53
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %53 ], [ 0, %.lr.ph.split.us ]
+  %.043.us = phi i32 [ %.1.us, %53 ], [ -1, %.lr.ph.split.us ]
+  %.03041.us = phi i32 [ %.131.us, %53 ], [ 24, %.lr.ph.split.us ]
+  %33 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv77, i32 2
+  %34 = load i8, ptr %33, align 4
+  %35 = zext i8 %34 to i32
+  %36 = and i32 %spec.select, %35
+  %.not.us = icmp eq i32 %36, 0
+  br i1 %.not.us, label %37, label %53
 
-35:                                               ; preds = %.lr.ph.split.us.split
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr i64, ptr %36, i64 %indvars.iv74
-  %38 = load i64, ptr %37, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp eq i8 %40, 1
-  %42 = and i8 %40, 3
-  %43 = icmp eq i8 %42, 2
-  %or.cond = or i1 %41, %43
-  br i1 %or.cond, label %51, label %44
+37:                                               ; preds = %.lr.ph.split.us.split
+  %38 = load ptr, ptr %13, align 8
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv77
+  %40 = load i64, ptr %39, align 8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 1
+  %44 = and i8 %42, 3
+  %45 = icmp eq i8 %44, 2
+  %or.cond = or i1 %43, %45
+  br i1 %or.cond, label %53, label %46
 
-44:                                               ; preds = %35
-  %gep55 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %invariant.gep54, i64 0, i64 %indvars.iv74
-  %45 = load i8, ptr %gep55, align 4
-  %.not34.us = icmp eq i8 %45, 109
-  br i1 %.not34.us, label %46, label %51
+46:                                               ; preds = %37
+  %gep58 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %invariant.gep57, i64 %indvars.iv77
+  %47 = load i8, ptr %gep58, align 4
+  %.not35.us = icmp eq i8 %47, 109
+  br i1 %.not35.us, label %48, label %53
 
-46:                                               ; preds = %44
-  %47 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv74, i32 1
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp sgt i32 %48, %.03040.us
-  %spec.select37.us = tail call i32 @llvm.smax.i32(i32 %48, i32 %.03040.us)
-  %50 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %spec.select38.us = select i1 %49, i32 %50, i32 %.042.us
-  br label %51
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv77, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp sgt i32 %50, %.03041.us
+  %spec.select38.us = tail call i32 @llvm.smax.i32(i32 %50, i32 %.03041.us)
+  %52 = trunc nuw nsw i64 %indvars.iv77 to i32
+  %spec.select39.us = select i1 %51, i32 %52, i32 %.043.us
+  br label %53
 
-51:                                               ; preds = %46, %44, %35, %.lr.ph.split.us.split
-  %.131.us = phi i32 [ %.03040.us, %.lr.ph.split.us.split ], [ %.03040.us, %35 ], [ %.03040.us, %44 ], [ %spec.select37.us, %46 ]
-  %.1.us = phi i32 [ %.042.us, %.lr.ph.split.us.split ], [ %.042.us, %35 ], [ %.042.us, %44 ], [ %spec.select38.us, %46 ]
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !7
+53:                                               ; preds = %48, %46, %37, %.lr.ph.split.us.split
+  %.131.us = phi i32 [ %spec.select38.us, %48 ], [ %.03041.us, %.lr.ph.split.us.split ], [ %.03041.us, %37 ], [ %.03041.us, %46 ]
+  %.1.us = phi i32 [ %spec.select39.us, %48 ], [ %.043.us, %.lr.ph.split.us.split ], [ %.043.us, %37 ], [ %.043.us, %46 ]
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %9
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %1, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %69
-  %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph.split ]
-  %.042.us43 = phi i32 [ %.1.us51, %69 ], [ -1, %.lr.ph.split ]
-  %.03040.us45 = phi i32 [ %.131.us50, %69 ], [ 24, %.lr.ph.split ]
-  %52 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv, i32 2
-  %53 = load i8, ptr %52, align 4
-  %54 = zext i8 %53 to i32
-  %55 = and i32 %spec.select, %54
-  %.not.us46 = icmp eq i32 %55, 0
-  br i1 %.not.us46, label %56, label %69
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %71
+  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.lr.ph.split ]
+  %.043.us46 = phi i32 [ %.1.us54, %71 ], [ -1, %.lr.ph.split ]
+  %.03041.us48 = phi i32 [ %.131.us53, %71 ], [ 24, %.lr.ph.split ]
+  %54 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv, i32 2
+  %55 = load i8, ptr %54, align 4
+  %56 = zext i8 %55 to i32
+  %57 = and i32 %spec.select, %56
+  %.not.us49 = icmp eq i32 %57, 0
+  br i1 %.not.us49, label %58, label %71
 
-56:                                               ; preds = %.lr.ph.split.split.us
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr i64, ptr %57, i64 %indvars.iv
-  %59 = load i64, ptr %58, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = load i8, ptr %60, align 1
-  %62 = icmp eq i8 %61, 1
-  br i1 %62, label %69, label %.critedge.us
+58:                                               ; preds = %.lr.ph.split.split.us
+  %59 = load ptr, ptr %13, align 8
+  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv
+  %61 = load i64, ptr %60, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 1
+  br i1 %64, label %71, label %.critedge.us
 
-.critedge.us:                                     ; preds = %56
-  %gep.us = getelementptr [0 x %struct.FormData_pg_attribute], ptr %invariant.gep54, i64 0, i64 %indvars.iv
-  %63 = load i8, ptr %gep.us, align 4
-  switch i8 %63, label %69 [
-    i8 120, label %64
-    i8 101, label %64
+.critedge.us:                                     ; preds = %58
+  %gep45.us = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %invariant.gep57, i64 %indvars.iv
+  %65 = load i8, ptr %gep45.us, align 4
+  switch i8 %65, label %71 [
+    i8 120, label %66
+    i8 101, label %66
   ]
 
-64:                                               ; preds = %.critedge.us, %.critedge.us
-  %65 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv, i32 1
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp sgt i32 %66, %.03040.us45
-  %spec.select37.us48 = tail call i32 @llvm.smax.i32(i32 %66, i32 %.03040.us45)
-  %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select38.us49 = select i1 %67, i32 %68, i32 %.042.us43
-  br label %69
+66:                                               ; preds = %.critedge.us, %.critedge.us
+  %67 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp sgt i32 %68, %.03041.us48
+  %spec.select38.us51 = tail call i32 @llvm.smax.i32(i32 %68, i32 %.03041.us48)
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select39.us52 = select i1 %69, i32 %70, i32 %.043.us46
+  br label %71
 
-69:                                               ; preds = %64, %.critedge.us, %56, %.lr.ph.split.split.us
-  %.131.us50 = phi i32 [ %.03040.us45, %.lr.ph.split.split.us ], [ %.03040.us45, %56 ], [ %.03040.us45, %.critedge.us ], [ %spec.select37.us48, %64 ]
-  %.1.us51 = phi i32 [ %.042.us43, %.lr.ph.split.split.us ], [ %.042.us43, %56 ], [ %.042.us43, %.critedge.us ], [ %spec.select38.us49, %64 ]
+71:                                               ; preds = %66, %.critedge.us, %58, %.lr.ph.split.split.us
+  %.131.us53 = phi i32 [ %spec.select38.us51, %66 ], [ %.03041.us48, %.lr.ph.split.split.us ], [ %.03041.us48, %58 ], [ %.03041.us48, %.critedge.us ]
+  %.1.us54 = phi i32 [ %spec.select39.us52, %66 ], [ %.043.us46, %.lr.ph.split.split.us ], [ %.043.us46, %58 ], [ %.043.us46, %.critedge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !7
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %89
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %89 ], [ 0, %.lr.ph.split ]
-  %.042 = phi i32 [ %.1, %89 ], [ -1, %.lr.ph.split ]
-  %.03040 = phi i32 [ %.131, %89 ], [ 24, %.lr.ph.split ]
-  %70 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv64, i32 2
-  %71 = load i8, ptr %70, align 4
-  %72 = zext i8 %71 to i32
-  %73 = and i32 %spec.select, %72
-  %.not = icmp eq i32 %73, 0
-  br i1 %.not, label %74, label %89
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %91
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %91 ], [ 0, %.lr.ph.split ]
+  %.043 = phi i32 [ %.1, %91 ], [ -1, %.lr.ph.split ]
+  %.03041 = phi i32 [ %.131, %91 ], [ 24, %.lr.ph.split ]
+  %72 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv67, i32 2
+  %73 = load i8, ptr %72, align 4
+  %74 = zext i8 %73 to i32
+  %75 = and i32 %spec.select, %74
+  %.not = icmp eq i32 %75, 0
+  br i1 %.not, label %76, label %91
 
-74:                                               ; preds = %.lr.ph.split.split
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr i64, ptr %75, i64 %indvars.iv64
-  %77 = load i64, ptr %76, align 8
-  %78 = inttoptr i64 %77 to ptr
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 1
-  %81 = and i8 %79, 3
-  %82 = icmp eq i8 %81, 2
-  %or.cond59 = or i1 %80, %82
-  br i1 %or.cond59, label %89, label %.critedge
+76:                                               ; preds = %.lr.ph.split.split
+  %77 = load ptr, ptr %13, align 8
+  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv67
+  %79 = load i64, ptr %78, align 8
+  %80 = inttoptr i64 %79 to ptr
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 1
+  %83 = and i8 %81, 3
+  %84 = icmp eq i8 %83, 2
+  %or.cond62 = or i1 %82, %84
+  br i1 %or.cond62, label %91, label %.critedge
 
-.critedge:                                        ; preds = %74
-  %gep = getelementptr [0 x %struct.FormData_pg_attribute], ptr %invariant.gep54, i64 0, i64 %indvars.iv64
-  %83 = load i8, ptr %gep, align 4
-  switch i8 %83, label %89 [
-    i8 120, label %84
-    i8 101, label %84
+.critedge:                                        ; preds = %76
+  %gep45 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %invariant.gep57, i64 %indvars.iv67
+  %85 = load i8, ptr %gep45, align 4
+  switch i8 %85, label %91 [
+    i8 120, label %86
+    i8 101, label %86
   ]
 
-84:                                               ; preds = %.critedge, %.critedge
-  %85 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv64, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp sgt i32 %86, %.03040
-  %spec.select37 = tail call i32 @llvm.smax.i32(i32 %86, i32 %.03040)
-  %88 = trunc nuw nsw i64 %indvars.iv64 to i32
-  %spec.select38 = select i1 %87, i32 %88, i32 %.042
-  br label %89
+86:                                               ; preds = %.critedge, %.critedge
+  %87 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %12, i64 %indvars.iv67, i32 1
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp sgt i32 %88, %.03041
+  %spec.select38 = tail call i32 @llvm.smax.i32(i32 %88, i32 %.03041)
+  %90 = trunc nuw nsw i64 %indvars.iv67 to i32
+  %spec.select39 = select i1 %89, i32 %90, i32 %.043
+  br label %91
 
-89:                                               ; preds = %84, %.critedge, %74, %.lr.ph.split.split
-  %.131 = phi i32 [ %.03040, %.lr.ph.split.split ], [ %.03040, %74 ], [ %.03040, %.critedge ], [ %spec.select37, %84 ]
-  %.1 = phi i32 [ %.042, %.lr.ph.split.split ], [ %.042, %74 ], [ %.042, %.critedge ], [ %spec.select38, %84 ]
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count77
-  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
+91:                                               ; preds = %.critedge, %76, %.lr.ph.split.split, %86
+  %.131 = phi i32 [ %spec.select38, %86 ], [ %.03041, %.lr.ph.split.split ], [ %.03041, %76 ], [ %.03041, %.critedge ]
+  %.1 = phi i32 [ %spec.select39, %86 ], [ %.043, %.lr.ph.split.split ], [ %.043, %76 ], [ %.043, %.critedge ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %9
+  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %69, %89, %30, %51, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %51 ], [ %.1.us.us, %30 ], [ %.1, %89 ], [ %.1.us51, %69 ]
+._crit_edge:                                      ; preds = %71, %91, %32, %53, %3
+  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %53 ], [ %.1.us.us, %32 ], [ %.1, %91 ], [ %.1.us54, %71 ]
   ret i32 %.0.lcssa
 }
 
@@ -473,10 +480,10 @@ define dso_local void @toast_tuple_try_compression(ptr noundef captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds i64, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct.ToastAttrInfo, ptr %8, i64 %5
+  %9 = getelementptr inbounds %struct.ToastAttrInfo, ptr %8, i64 %5
   %10 = load i64, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %12 = load i8, ptr %11, align 1
@@ -532,11 +539,11 @@ define dso_local void @toast_tuple_externalize(ptr noundef captures(none) %0, i3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds i64, ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %6
+  %11 = getelementptr inbounds %struct.ToastAttrInfo, ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = or i8 %13, 16
@@ -592,7 +599,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 12:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr %struct.ToastAttrInfo, ptr %13, i64 %indvars.iv, i32 2
+  %14 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %13, i64 %indvars.iv, i32 2
   %15 = load i8, ptr %14, align 4
   %16 = and i8 %15, 2
   %.not23 = icmp eq i8 %16, 0
@@ -600,16 +607,16 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   tail call void @pfree(ptr noundef %21) #5
   br label %22
 
-22:                                               ; preds = %12, %17
+22:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !9
 
 .loopexit25.loopexit:                             ; preds = %22
   %.pre = load i8, ptr %6, align 8
@@ -631,7 +638,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 27:                                               ; preds = %.lr.ph28, %37
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %37 ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr %struct.ToastAttrInfo, ptr %28, i64 %indvars.iv31, i32 2
+  %29 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %28, i64 %indvars.iv31, i32 2
   %30 = load i8, ptr %29, align 4
   %31 = and i8 %30, 1
   %.not22 = icmp eq i8 %31, 0
@@ -640,15 +647,15 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 32:                                               ; preds = %27
   %33 = load ptr, ptr %0, align 8
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr i64, ptr %34, i64 %indvars.iv31
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv31
   %36 = load i64, ptr %35, align 8
   tail call void @toast_delete_datum(ptr noundef %33, i64 noundef %36, i1 noundef zeroext false) #5
   br label %37
 
-37:                                               ; preds = %27, %32
+37:                                               ; preds = %32, %27
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !9
+  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %.loopexit25
   ret void
@@ -665,24 +672,24 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr i8, ptr %6, i64 96
+  %9 = getelementptr i8, ptr %6, i64 28
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
   %11 = getelementptr i8, ptr %9, i64 %.idx
-  %12 = load i16, ptr %11, align 8
+  %12 = load i16, ptr %11, align 4
   %13 = icmp eq i16 %12, -1
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %10
-  %15 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr i8, ptr %2, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1
-  %19 = trunc i8 %18 to i1
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %18 = load i8, ptr %17, align 1, !range !4, !noundef !5
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %14
@@ -701,10 +708,10 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
   tail call void @toast_delete_datum(ptr noundef %0, i64 noundef %16, i1 noundef zeroext %3) #5
   br label %29
 
-29:                                               ; preds = %10, %20, %24, %28, %14
+29:                                               ; preds = %14, %20, %24, %28, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %29, %4
   ret void
@@ -716,23 +723,24 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

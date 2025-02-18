@@ -34,7 +34,7 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 4
   switch i32 %7, label %22 [
-    i32 127, label %assign_list_collations.exit
+    i32 142, label %assign_list_collations.exit
     i32 1, label %.lr.ph.i
   ]
 
@@ -51,15 +51,15 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
 .lr.ph15.i:                                       ; preds = %.lr.ph.i, %.lr.ph15.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph15.i ], [ 0, %.lr.ph.i ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
   store ptr %1, ptr %4, align 8
   store i32 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 -1, ptr %12, align 8
   %18 = call zeroext i1 @assign_collations_walker(ptr noundef %17, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr %8, align 4
   %20 = sext i32 %19 to i64
@@ -67,7 +67,7 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
   br i1 %21, label %.lr.ph15.i, label %assign_list_collations.exit
 
 22:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %1, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %23, align 8
@@ -76,7 +76,7 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %25, align 8
   %26 = call zeroext i1 @assign_collations_walker(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   br label %assign_list_collations.exit
 
 assign_list_collations.exit:                      ; preds = %.lr.ph15.i, %.lr.ph.i, %22, %6, %2
@@ -99,31 +99,35 @@ define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readon
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph15, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph15, %.lr.ph, %2
+  ret void
+
 .lr.ph15:                                         ; preds = %.lr.ph, %.lr.ph15
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph15 ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %0, ptr %3, align 8
   store i32 0, ptr %6, align 8
   store i32 0, ptr %7, align 4
   store i32 -1, ptr %8, align 8
   %14 = call zeroext i1 @assign_collations_walker(ptr noundef %13, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %4, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph15, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph15, %.lr.ph, %2
-  ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_expr_collations(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
@@ -132,8 +136,12 @@ define dso_local void @assign_expr_collations(ptr noundef %0, ptr noundef %1) lo
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %6, align 8
   %7 = call zeroext i1 @assign_collations_walker(ptr noundef %1, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -144,6 +152,7 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   %7 = alloca %struct.assign_collations_context, align 8
   %8 = alloca %struct.assign_collations_context, align 8
   %9 = alloca %struct.assign_collations_context, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #5
   %10 = icmp eq ptr %0, null
   br i1 %10, label %assign_list_collations.exit, label %11
 
@@ -162,32 +171,32 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   store i32 -1, ptr %17, align 8
   %18 = load i32, ptr %0, align 4
   switch i32 %18, label %219 [
-    i32 29, label %19
-    i32 23, label %25
-    i32 34, label %31
-    i32 35, label %48
-    i32 48, label %87
-    i32 54, label %100
-    i32 53, label %121
-    i32 55, label %121
-    i32 56, label %121
-    i32 57, label %121
-    i32 58, label %121
-    i32 98, label %121
-    i32 47, label %121
-    i32 59, label %123
+    i32 31, label %19
+    i32 25, label %25
+    i32 36, label %31
+    i32 37, label %48
+    i32 55, label %87
+    i32 62, label %100
+    i32 60, label %121
+    i32 63, label %121
+    i32 64, label %121
+    i32 65, label %121
+    i32 66, label %121
+    i32 106, label %121
+    i32 54, label %121
+    i32 67, label %123
     i32 1, label %139
     i32 6, label %144
     i32 7, label %144
     i32 8, label %144
-    i32 49, label %144
-    i32 32, label %144
-    i32 50, label %144
-    i32 51, label %144
+    i32 56, label %144
+    i32 34, label %144
+    i32 57, label %144
+    i32 58, label %144
     i32 9, label %147
     i32 11, label %166
-    i32 30, label %177
-    i32 12, label %199
+    i32 32, label %177
+    i32 14, label %199
   ]
 
 19:                                               ; preds = %11
@@ -202,8 +211,8 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   %26 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
-  %.not137 = icmp eq i32 %28, 0
-  br i1 %.not137, label %237, label %29
+  %.not143 = icmp eq i32 %28, 0
+  br i1 %.not143, label %237, label %29
 
 29:                                               ; preds = %25
   %30 = call i32 @exprLocation(ptr noundef nonnull %0) #5
@@ -214,34 +223,34 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %assign_list_collations.exit, label %.lr.ph185
+  br i1 %.not.i, label %assign_list_collations.exit, label %.lr.ph196
 
-.lr.ph185:                                        ; preds = %31
+.lr.ph196:                                        ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %39 = load i32, ptr %34, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph188, label %assign_list_collations.exit
+  br i1 %40, label %.lr.ph199, label %assign_list_collations.exit
 
-.lr.ph188:                                        ; preds = %.lr.ph185, %.lr.ph188
-  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph188 ], [ 0, %.lr.ph185 ]
+.lr.ph199:                                        ; preds = %.lr.ph196, %.lr.ph199
+  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph199 ], [ 0, %.lr.ph196 ]
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv193
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv204
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #5
   store ptr %12, ptr %8, align 8
   store i32 0, ptr %36, align 8
   store i32 0, ptr %37, align 4
   store i32 -1, ptr %38, align 8
   %44 = call zeroext i1 @assign_collations_walker(ptr noundef %43, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #5
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %45 = load i32, ptr %34, align 4
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next194, %46
-  br i1 %47, label %.lr.ph188, label %assign_list_collations.exit
+  %47 = icmp slt i64 %indvars.iv.next205, %46
+  br i1 %47, label %.lr.ph199, label %assign_list_collations.exit
 
 48:                                               ; preds = %11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -249,70 +258,70 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %.not135 = icmp eq ptr %50, null
-  %.not136 = icmp eq ptr %52, null
+  %.not141 = icmp eq ptr %50, null
+  %.not142 = icmp eq ptr %52, null
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %brmerge = select i1 %.not136, i1 true, i1 %.not135
-  br i1 %brmerge, label %.thread146, label %.split.split
+  %brmerge = select i1 %.not142, i1 true, i1 %.not141
+  br i1 %brmerge, label %.thread152, label %.split.split
 
 .split.split:                                     ; preds = %48, %select_common_collation.exit
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %select_common_collation.exit ], [ 0, %48 ]
-  %.0120 = phi ptr [ %85, %select_common_collation.exit ], [ null, %48 ]
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %select_common_collation.exit ], [ 0, %48 ]
+  %.0127 = phi ptr [ %86, %select_common_collation.exit ], [ null, %48 ]
   %60 = load i32, ptr %54, align 4
   %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv190, %61
+  %62 = icmp slt i64 %indvars.iv201, %61
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %.split.split
   %64 = load ptr, ptr %55, align 8
-  %65 = getelementptr %union.ListCell, ptr %64, i64 %indvars.iv190
+  %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv201
   br label %66
 
 66:                                               ; preds = %.split.split, %63
   %67 = phi ptr [ %65, %63 ], [ null, %.split.split ]
   %68 = load i32, ptr %53, align 4
   %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv190, %69
-  br i1 %70, label %71, label %.thread146
+  %70 = icmp slt i64 %indvars.iv201, %69
+  br i1 %70, label %71, label %.thread152
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %56, align 8
-  %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv190
-  %74 = icmp ne ptr %67, null
-  %75 = icmp ne ptr %73, null
-  %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %select_common_collation.exit, label %.thread146
+  %73 = icmp ne ptr %67, null
+  %74 = icmp ne ptr %72, null
+  %75 = select i1 %73, i1 %74, i1 false
+  br i1 %75, label %select_common_collation.exit, label %.thread152
+
+.thread152:                                       ; preds = %66, %71, %48
+  %.us-phi = phi ptr [ null, %48 ], [ %.0127, %71 ], [ %.0127, %66 ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.us-phi, ptr %76, align 8
+  br label %assign_list_collations.exit
 
 select_common_collation.exit:                     ; preds = %71
-  %77 = load ptr, ptr %67, align 8
-  %78 = load ptr, ptr %73, align 8
-  %79 = load ptr, ptr %1, align 8
-  %80 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %77, ptr %78) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  store ptr %79, ptr %7, align 8
+  %77 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv201
+  %78 = load ptr, ptr %67, align 8
+  %79 = load ptr, ptr %77, align 8
+  %80 = load ptr, ptr %1, align 8
+  %81 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %78, ptr %79) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  store ptr %80, ptr %7, align 8
   store i32 0, ptr %57, align 8
   store i32 0, ptr %58, align 4
   store i32 -1, ptr %59, align 8
-  %81 = call zeroext i1 @assign_collations_walker(ptr noundef %80, ptr noundef nonnull %7)
-  %82 = load i32, ptr %58, align 4
-  %83 = icmp eq i32 %82, 2
-  %84 = load i32, ptr %57, align 8
-  %spec.select = select i1 %83, i32 0, i32 %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %85 = tail call ptr @lappend_oid(ptr noundef %.0120, i32 noundef %spec.select) #5
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
-  br label %.split.split, !llvm.loop !5
-
-.thread146:                                       ; preds = %66, %71, %48
-  %.us-phi = phi ptr [ null, %48 ], [ %.0120, %71 ], [ %.0120, %66 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.us-phi, ptr %86, align 8
-  br label %assign_list_collations.exit
+  %82 = call zeroext i1 @assign_collations_walker(ptr noundef %81, ptr noundef nonnull %7)
+  %83 = load i32, ptr %58, align 4
+  %84 = icmp eq i32 %83, 2
+  %85 = load i32, ptr %57, align 8
+  %spec.select = select i1 %84, i32 0, i32 %85
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  %86 = tail call ptr @lappend_oid(ptr noundef %.0127, i32 noundef %spec.select) #5
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  br label %.split.split, !llvm.loop !4
 
 87:                                               ; preds = %11
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -320,30 +329,30 @@ select_common_collation.exit:                     ; preds = %71
   %90 = tail call i32 @get_typcollation(i32 noundef %89) #5
   %91 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
   switch i32 %90, label %92 [
-    i32 0, label %.thread148
+    i32 0, label %.thread154
     i32 100, label %94
   ]
 
 92:                                               ; preds = %87
   %93 = call i32 @exprLocation(ptr noundef nonnull %0) #5
-  br label %.thread148
+  br label %.thread154
 
 94:                                               ; preds = %87
   %95 = load i32, ptr %13, align 8
   %96 = load i32, ptr %14, align 4
   %97 = load i32, ptr %15, align 8
   %98 = icmp eq i32 %96, 2
-  br i1 %98, label %99, label %.thread148
+  br i1 %98, label %99, label %.thread154
 
 99:                                               ; preds = %94
   call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef 0) #5
   br label %237
 
-.thread148:                                       ; preds = %87, %92, %94
-  %.1154 = phi i32 [ %95, %94 ], [ %90, %87 ], [ %90, %92 ]
-  %.1114153 = phi i32 [ %96, %94 ], [ %90, %87 ], [ 1, %92 ]
-  %.1118152 = phi i32 [ %97, %94 ], [ -1, %87 ], [ %93, %92 ]
-  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.1154) #5
+.thread154:                                       ; preds = %87, %92, %94
+  %.2160 = phi i32 [ %95, %94 ], [ %90, %87 ], [ %90, %92 ]
+  %.2117159 = phi i32 [ %96, %94 ], [ %90, %87 ], [ 1, %92 ]
+  %.2122158 = phi i32 [ %97, %94 ], [ -1, %87 ], [ %93, %92 ]
+  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.2160) #5
   br label %237
 
 100:                                              ; preds = %11
@@ -357,8 +366,8 @@ select_common_collation.exit:                     ; preds = %71
 106:                                              ; preds = %100
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8
-  %.not133 = icmp eq i32 %108, 0
-  br i1 %.not133, label %237, label %109
+  %.not139 = icmp eq i32 %108, 0
+  br i1 %.not139, label %237, label %109
 
 109:                                              ; preds = %106
   %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -381,7 +390,7 @@ select_common_collation.exit:                     ; preds = %71
   br label %assign_list_collations.exit
 
 123:                                              ; preds = %11
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %assign_list_collations.exit, label %127
@@ -391,8 +400,8 @@ select_common_collation.exit:                     ; preds = %71
   %.val = load ptr, ptr %128, align 8
   %129 = load ptr, ptr %.val, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 42
-  %131 = load i8, ptr %130, align 2
-  %132 = trunc i8 %131 to i1
+  %131 = load i8, ptr %130, align 2, !range !6, !noundef !7
+  %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %assign_list_collations.exit, label %133
 
 133:                                              ; preds = %127
@@ -451,7 +460,7 @@ select_common_collation.exit:                     ; preds = %71
   %159 = load ptr, ptr %1, align 8
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %161 = load ptr, ptr %160, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
   store ptr %159, ptr %6, align 8
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %162, align 8
@@ -460,7 +469,7 @@ select_common_collation.exit:                     ; preds = %71
   %164 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 -1, ptr %164, align 8
   %165 = call zeroext i1 @assign_collations_walker(ptr noundef %161, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
   br label %221
 
 166:                                              ; preds = %11
@@ -470,7 +479,7 @@ select_common_collation.exit:                     ; preds = %71
   %170 = load ptr, ptr %1, align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load ptr, ptr %171, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
   store ptr %170, ptr %5, align 8
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %173, align 8
@@ -479,49 +488,49 @@ select_common_collation.exit:                     ; preds = %71
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 -1, ptr %175, align 8
   %176 = call zeroext i1 @assign_collations_walker(ptr noundef %172, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
   br label %221
 
 177:                                              ; preds = %11
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  %.not138 = icmp eq ptr %179, null
-  br i1 %.not138, label %._crit_edge, label %.lr.ph
+  %.not144 = icmp eq ptr %179, null
+  br i1 %.not144, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load i32, ptr %180, align 4
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.lr.ph173, label %._crit_edge
+  br i1 %183, label %.lr.ph184, label %._crit_edge
 
-.lr.ph173:                                        ; preds = %.lr.ph, %.lr.ph173
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph173 ], [ 0, %.lr.ph ]
-  %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr %union.ListCell, ptr %184, i64 %indvars.iv
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = call zeroext i1 @assign_collations_walker(ptr noundef %188, ptr noundef nonnull %9)
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
+._crit_edge:                                      ; preds = %.lr.ph184, %.lr.ph, %177
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %185 = load ptr, ptr %184, align 8
+  %186 = call zeroext i1 @assign_collations_walker(ptr noundef %185, ptr noundef nonnull %9)
+  br label %221
+
+.lr.ph184:                                        ; preds = %.lr.ph, %.lr.ph184
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph184 ], [ 0, %.lr.ph ]
+  %187 = load ptr, ptr %181, align 8
+  %188 = getelementptr inbounds nuw %union.ListCell, ptr %187, i64 %indvars.iv
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = call zeroext i1 @assign_collations_walker(ptr noundef %191, ptr noundef nonnull %9)
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %194 = load ptr, ptr %193, align 8
+  %195 = call zeroext i1 @assign_collations_walker(ptr noundef %194, ptr noundef nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %193 = load i32, ptr %180, align 4
-  %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next, %194
-  br i1 %195, label %.lr.ph173, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph173, %.lr.ph, %177
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %197 = load ptr, ptr %196, align 8
-  %198 = call zeroext i1 @assign_collations_walker(ptr noundef %197, ptr noundef nonnull %9)
-  br label %221
+  %196 = load i32, ptr %180, align 4
+  %197 = sext i32 %196 to i64
+  %198 = icmp slt i64 %indvars.iv.next, %197
+  br i1 %198, label %.lr.ph184, label %._crit_edge
 
 199:                                              ; preds = %11
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %201 = load ptr, ptr %200, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
   store ptr %12, ptr %4, align 8
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %202, align 8
@@ -530,11 +539,11 @@ select_common_collation.exit:                     ; preds = %71
   %204 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %204, align 8
   %205 = call zeroext i1 @assign_collations_walker(ptr noundef %201, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
   %206 = load ptr, ptr %1, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %208 = load ptr, ptr %207, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %206, ptr %3, align 8
   %209 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %209, align 8
@@ -543,7 +552,7 @@ select_common_collation.exit:                     ; preds = %71
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %211, align 8
   %212 = call zeroext i1 @assign_collations_walker(ptr noundef %208, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %214 = load ptr, ptr %213, align 8
   %215 = call zeroext i1 @assign_collations_walker(ptr noundef %214, ptr noundef nonnull %9)
@@ -559,60 +568,62 @@ select_common_collation.exit:                     ; preds = %71
 221:                                              ; preds = %219, %199, %._crit_edge, %166, %158
   %222 = call i32 @exprType(ptr noundef nonnull %0) #5
   %223 = call i32 @get_typcollation(i32 noundef %222) #5
-  %.not140 = icmp eq i32 %223, 0
-  br i1 %.not140, label %.thread160, label %224
+  %.not146 = icmp eq i32 %223, 0
+  br i1 %.not146, label %.thread171, label %224
 
 224:                                              ; preds = %221
   %225 = load i32, ptr %14, align 4
-  %.not141 = icmp eq i32 %225, 0
-  br i1 %.not141, label %226, label %228
+  %.not147 = icmp eq i32 %225, 0
+  br i1 %.not147, label %226, label %228
 
 226:                                              ; preds = %224
   %227 = call i32 @exprLocation(ptr noundef nonnull %0) #5
-  br label %.thread160
+  br label %.thread171
 
 228:                                              ; preds = %224
   %229 = load i32, ptr %13, align 8
   %230 = load i32, ptr %15, align 8
   %231 = icmp eq i32 %225, 2
-  %spec.select196 = select i1 %231, i32 0, i32 %229
-  br label %.thread160
+  %spec.select207 = select i1 %231, i32 0, i32 %229
+  br label %.thread171
 
-.thread160:                                       ; preds = %228, %226, %221
-  %.2169.sink = phi i32 [ 0, %221 ], [ %223, %226 ], [ %spec.select196, %228 ]
-  %.2168 = phi i32 [ 0, %221 ], [ %223, %226 ], [ %229, %228 ]
-  %.3166 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
-  %.2119164 = phi i32 [ -1, %221 ], [ %227, %226 ], [ %230, %228 ]
-  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.2169.sink) #5
+.thread171:                                       ; preds = %228, %226, %221
+  %.4179.sink = phi i32 [ 0, %221 ], [ %223, %226 ], [ %spec.select207, %228 ]
+  %.4180 = phi i32 [ 0, %221 ], [ %223, %226 ], [ %229, %228 ]
+  %.5177 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
+  %.4124175 = phi i32 [ -1, %221 ], [ %227, %226 ], [ %230, %228 ]
+  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.4179.sink) #5
   %232 = load i32, ptr %14, align 4
   %233 = icmp eq i32 %232, 2
   br i1 %233, label %234, label %235
 
-234:                                              ; preds = %.thread160
+234:                                              ; preds = %.thread171
   call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef 0) #5
   br label %237
 
-235:                                              ; preds = %.thread160
+235:                                              ; preds = %.thread171
   %236 = load i32, ptr %13, align 8
   call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef %236) #5
   br label %237
 
-237:                                              ; preds = %25, %234, %235, %100, %106, %99, %.thread148, %29, %144, %139, %133, %19
-  %.0117 = phi i32 [ %.2119164, %234 ], [ %.2119164, %235 ], [ %146, %144 ], [ %143, %139 ], [ %138, %133 ], [ %104, %106 ], [ %104, %100 ], [ %97, %99 ], [ %.1118152, %.thread148 ], [ %30, %29 ], [ %24, %19 ], [ -1, %25 ]
-  %.0113 = phi i32 [ %.3166, %234 ], [ %.3166, %235 ], [ %., %144 ], [ %142, %139 ], [ 1, %133 ], [ 2, %106 ], [ %103, %100 ], [ 2, %99 ], [ %.1114153, %.thread148 ], [ 1, %29 ], [ 3, %19 ], [ 0, %25 ]
-  %.0112 = phi i32 [ %.2168, %234 ], [ %.2168, %235 ], [ %145, %144 ], [ %141, %139 ], [ %136, %133 ], [ %102, %106 ], [ %102, %100 ], [ %95, %99 ], [ %.1154, %.thread148 ], [ %28, %29 ], [ %22, %19 ], [ 0, %25 ]
+237:                                              ; preds = %133, %234, %235, %99, %.thread154, %29, %25, %100, %106, %144, %139, %19
+  %.0120 = phi i32 [ %146, %144 ], [ %143, %139 ], [ %138, %133 ], [ %104, %106 ], [ %104, %100 ], [ %24, %19 ], [ %30, %29 ], [ -1, %25 ], [ %.2122158, %.thread154 ], [ %97, %99 ], [ %.4124175, %235 ], [ %.4124175, %234 ]
+  %.0115 = phi i32 [ %., %144 ], [ %142, %139 ], [ 1, %133 ], [ 2, %106 ], [ %103, %100 ], [ 3, %19 ], [ 1, %29 ], [ 0, %25 ], [ %.2117159, %.thread154 ], [ 2, %99 ], [ %.5177, %235 ], [ %.5177, %234 ]
+  %.0113 = phi i32 [ %145, %144 ], [ %141, %139 ], [ %136, %133 ], [ %102, %106 ], [ %102, %100 ], [ %22, %19 ], [ %28, %29 ], [ 0, %25 ], [ %.2160, %.thread154 ], [ %95, %99 ], [ %.4180, %235 ], [ %.4180, %234 ]
   %238 = load i32, ptr %16, align 4
   %239 = load i32, ptr %17, align 8
-  call fastcc void @merge_collation_state(i32 noundef %.0112, i32 noundef %.0113, i32 noundef %.0117, i32 noundef %238, i32 noundef %239, ptr noundef nonnull %1)
+  call fastcc void @merge_collation_state(i32 noundef %.0113, i32 noundef %.0115, i32 noundef %.0120, i32 noundef %238, i32 noundef %239, ptr noundef nonnull %1)
   br label %assign_list_collations.exit
 
-assign_list_collations.exit:                      ; preds = %.lr.ph188, %31, %.lr.ph185, %127, %123, %2, %237, %121, %.thread146
+assign_list_collations.exit:                      ; preds = %.lr.ph199, %31, %.lr.ph196, %127, %123, %2, %237, %121, %.thread152
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #5
   ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.assign_collations_context, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
@@ -652,11 +663,12 @@ define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1
 
 28:                                               ; preds = %11, %26
   %.0 = phi i32 [ %27, %26 ], [ 0, %11 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
   ret i32 %.0
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
@@ -702,40 +714,40 @@ define internal fastcc void @assign_aggregate_collations(ptr noundef nonnull rea
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph18, label %._crit_edge
 
+._crit_edge:                                      ; preds = %24, %.lr.ph, %2
+  ret void
+
 .lr.ph18:                                         ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 42
-  %17 = load i8, ptr %16, align 2
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %16, align 2, !range !6, !noundef !7
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %.lr.ph18
   %20 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %20, ptr %3, align 8
   store i32 0, ptr %8, align 8
   store i32 0, ptr %9, align 4
   store i32 -1, ptr %10, align 8
   %21 = call zeroext i1 @assign_collations_walker(ptr noundef nonnull %15, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   br label %24
 
 22:                                               ; preds = %.lr.ph18
   %23 = tail call zeroext i1 @assign_collations_walker(ptr noundef nonnull %15, ptr noundef nonnull %1)
   br label %24
 
-24:                                               ; preds = %19, %22
+24:                                               ; preds = %22, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %6, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph18, label %._crit_edge
-
-._crit_edge:                                      ; preds = %24, %.lr.ph, %2
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -785,7 +797,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 .lr.ph24:                                         ; preds = %.lr.ph.split.us.split, %.lr.ph24
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph24 ], [ 0, %.lr.ph.split.us.split ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv28
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv28
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @assign_collations_walker(ptr noundef %27, ptr noundef nonnull %1)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -797,27 +809,27 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %24, label %.lr.ph22, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph22, %.lr.ph24, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_length.exit.thread
+  ret void
+
 .lr.ph22:                                         ; preds = %.lr.ph.split.split, %.lr.ph22
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph22 ], [ 0, %.lr.ph.split.split ]
   %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   store ptr %35, ptr %3, align 8
   store i32 0, ptr %20, align 8
   store i32 0, ptr %21, align 4
   store i32 -1, ptr %22, align 8
   %36 = call zeroext i1 @assign_collations_walker(ptr noundef %34, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %18, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %.lr.ph22, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph22, %.lr.ph24, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_length.exit.thread
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -911,19 +923,20 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val = load i32, ptr %48, align 4
   %49 = getelementptr i8, ptr %47, i64 16
   %.val32 = load ptr, ptr %49, align 8
-  %50 = getelementptr i8, ptr %.049, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %51 = sext i32 %.val to i64
-  %52 = getelementptr %union.ListCell, ptr %.val32, i64 %51
+  %52 = getelementptr inbounds %union.ListCell, ptr %.val32, i64 %51
   %53 = icmp ult ptr %50, %52
   %..i = select i1 %53, ptr %50, ptr null
   %54 = icmp samesign ugt i32 %.02948, 1
-  br i1 %54, label %.lr.ph, label %.preheader, !llvm.loop !7
+  br i1 %54, label %.lr.ph, label %.preheader, !llvm.loop !8
 
 55:                                               ; preds = %.lr.ph52, %93
-  %.151 = phi ptr [ %.0.lcssa, %.lr.ph52 ], [ %97, %93 ]
-  %.02850 = phi ptr [ %23, %.lr.ph52 ], [ %104, %93 ]
+  %.151 = phi ptr [ %.0.lcssa, %.lr.ph52 ], [ %..i44, %93 ]
+  %.02850 = phi ptr [ %23, %.lr.ph52 ], [ %..i45, %93 ]
   %56 = load ptr, ptr %.151, align 8
   %57 = load ptr, ptr %.02850, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
   %58 = load ptr, ptr %1, align 8
   store ptr %58, ptr %3, align 8
   store i32 0, ptr %39, align 8
@@ -991,25 +1004,24 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val33 = load i32, ptr %95, align 4
   %96 = getelementptr i8, ptr %94, i64 16
   %.val34 = load ptr, ptr %96, align 8
-  %97 = getelementptr i8, ptr %.151, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.151, i64 8
   %98 = sext i32 %.val33 to i64
-  %99 = getelementptr %union.ListCell, ptr %.val34, i64 %98
+  %99 = getelementptr inbounds %union.ListCell, ptr %.val34, i64 %98
   %100 = icmp ult ptr %97, %99
+  %..i44 = select i1 %100, ptr %97, ptr null
   %101 = load ptr, ptr %10, align 8
   %102 = getelementptr i8, ptr %101, i64 4
   %.val35 = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %101, i64 16
   %.val36 = load ptr, ptr %103, align 8
-  %104 = getelementptr i8, ptr %.02850, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.02850, i64 8
   %105 = sext i32 %.val35 to i64
-  %106 = getelementptr %union.ListCell, ptr %.val36, i64 %105
+  %106 = getelementptr inbounds %union.ListCell, ptr %.val36, i64 %105
   %107 = icmp ult ptr %104, %106
-  %108 = icmp ne ptr %97, null
-  %109 = and i1 %100, %108
-  %110 = icmp ne ptr %104, null
-  %111 = and i1 %107, %110
-  %112 = select i1 %109, i1 %111, i1 false
-  br i1 %112, label %55, label %._crit_edge, !llvm.loop !8
+  %..i45 = select i1 %107, ptr %104, ptr null
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  %108 = select i1 %100, i1 %107, i1 false
+  br i1 %108, label %55, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %93, %.preheader
   ret void
@@ -1114,30 +1126,25 @@ declare ptr @makeRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

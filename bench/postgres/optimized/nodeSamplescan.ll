@@ -25,7 +25,7 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @palloc0(i64 noundef 280) #6
-  store i32 388, ptr %6, align 4
+  store i32 403, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -94,33 +94,39 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
   ret ptr %6
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecSampleScan(ptr noundef %0) #0 {
   %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @SampleNext, ptr noundef nonnull @SampleRecheck) #6
   ret ptr %2
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @table_slot_callbacks(ptr noundef) local_unnamed_addr #1
+declare ptr @table_slot_callbacks(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecAssignScanProjectionInfo(ptr noundef) local_unnamed_addr #1
+declare void @ExecAssignScanProjectionInfo(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitExprList(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitExprList(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #1
+declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #2
 
-declare ptr @GetTsmRoutine(i32 noundef) local_unnamed_addr #1
+declare ptr @GetTsmRoutine(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndSampleScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -143,7 +149,7 @@ define dso_local void @ExecEndSampleScan(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -168,26 +174,26 @@ define dso_local void @ExecReScanSampleScan(ptr noundef initializes((258, 259), 
   ret void
 }
 
-declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
+declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @SampleNext(ptr noundef %0) #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  %4 = load i8, ptr %3, align 2
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr %3, align 2, !range !4, !noundef !5
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %110, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -217,56 +223,56 @@ list_length.exit.i:                               ; preds = %14, %6
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph56.i, label %._crit_edge.i
 
-.lr.ph56.i:                                       ; preds = %.lr.ph.i, %41
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i ]
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv.i
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %30, ptr @CurrentMemoryContext, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i64 %33(ptr noundef %29, ptr noundef %10, ptr noundef nonnull %2) #6
-  store ptr %31, ptr @CurrentMemoryContext, align 8
-  %35 = getelementptr i64, ptr %20, i64 %indvars.iv.i
-  store i64 %34, ptr %35, align 8
-  %36 = load i8, ptr %2, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %.split.i, label %41
+._crit_edge.i:                                    ; preds = %43, %.lr.ph.i, %list_length.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %28 = load ptr, ptr %27, align 8
+  %.not46.i = icmp eq ptr %28, null
+  br i1 %.not46.i, label %63, label %47
+
+.lr.ph56.i:                                       ; preds = %.lr.ph.i, %43
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.lr.ph.i ]
+  %29 = load ptr, ptr %23, align 8
+  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv.i
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %32, ptr @CurrentMemoryContext, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i64 %35(ptr noundef %31, ptr noundef %10, ptr noundef nonnull %2) #6
+  store ptr %33, ptr @CurrentMemoryContext, align 8
+  %37 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
+  store i64 %36, ptr %37, align 8
+  %38 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %.split.i, label %43
 
 .split.i:                                         ; preds = %.lr.ph56.i
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode(i32 noundef 403177602) #6
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.tablesample_init) #6
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %40)
+  %41 = call i32 @errcode(i32 noundef 403177602) #6
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.tablesample_init) #6
   unreachable
 
-41:                                               ; preds = %.lr.ph56.i
+43:                                               ; preds = %.lr.ph56.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = load i32, ptr %22, align 4
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %.lr.ph56.i, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %41, %.lr.ph.i, %list_length.exit.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %46 = load ptr, ptr %45, align 8
-  %.not46.i = icmp eq ptr %46, null
-  br i1 %.not46.i, label %63, label %47
+  %44 = load i32, ptr %22, align 4
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next.i, %45
+  br i1 %46, label %.lr.ph56.i, label %._crit_edge.i
 
 47:                                               ; preds = %._crit_edge.i
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %49, ptr @CurrentMemoryContext, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = call i64 %52(ptr noundef nonnull %46, ptr noundef %10, ptr noundef nonnull %2) #6
+  %53 = call i64 %52(ptr noundef nonnull %28, ptr noundef %10, ptr noundef nonnull %2) #6
   store ptr %50, ptr @CurrentMemoryContext, align 8
-  %54 = load i8, ptr %2, align 1
-  %55 = trunc i8 %54 to i1
+  %54 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %47
@@ -274,7 +280,7 @@ list_length.exit.i:                               ; preds = %14, %6
   call void @llvm.assume(i1 %57)
   %58 = call i32 @errcode(i32 noundef 386400386) #6
   %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @__func__.tablesample_init) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__.tablesample_init) #6
   unreachable
 
 60:                                               ; preds = %47
@@ -322,16 +328,16 @@ list_length.exit48.i:                             ; preds = %72, %66
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = load i8, ptr %67, align 8
-  %90 = trunc i8 %89 to i1
-  %91 = load i8, ptr %68, align 1
-  %92 = trunc i8 %91 to i1
+  %89 = load i8, ptr %67, align 8, !range !4, !noundef !5
+  %90 = trunc nuw i8 %89 to i1
+  %91 = load i8, ptr %68, align 1, !range !4, !noundef !5
+  %92 = trunc nuw i8 %91 to i1
   %spec.select.i.i = select i1 %90, i32 68, i32 4
   %93 = or disjoint i32 %spec.select.i.i, 128
   %.1.i.i = select i1 %78, i32 %93, i32 %spec.select.i.i
   %94 = or disjoint i32 %.1.i.i, 256
   %.2.i.i = select i1 %92, i32 %94, i32 %.1.i.i
-  %95 = getelementptr inbounds nuw i8, ptr %84, i64 312
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 320
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
@@ -340,12 +346,12 @@ list_length.exit48.i:                             ; preds = %72, %66
   br label %tablesample_init.exit
 
 100:                                              ; preds = %list_length.exit48.i
-  %101 = load i8, ptr %67, align 8
-  %102 = trunc i8 %101 to i1
-  %103 = load i8, ptr %68, align 1
-  %104 = trunc i8 %103 to i1
+  %101 = load i8, ptr %67, align 8, !range !4, !noundef !5
+  %102 = trunc nuw i8 %101 to i1
+  %103 = load i8, ptr %68, align 1, !range !4, !noundef !5
+  %104 = trunc nuw i8 %103 to i1
   %105 = load ptr, ptr %80, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 312
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 320
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = load ptr, ptr %108, align 8
@@ -355,7 +361,7 @@ list_length.exit48.i:                             ; preds = %72, %66
 tablesample_init.exit:                            ; preds = %82, %100
   call void @pfree(ptr noundef %20) #6
   store i8 1, ptr %3, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
   br label %110
 
 110:                                              ; preds = %tablesample_init.exit, %1
@@ -369,34 +375,34 @@ tablesample_init.exit:                            ; preds = %82, %100
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef %114) #6
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 273
-  %120 = load i8, ptr %119, align 1
-  %121 = trunc i8 %120 to i1
+  %120 = load i8, ptr %119, align 1, !range !4, !noundef !5
+  %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %tablesample_getnext.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %110
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %.pre.i = load i8, ptr %122, align 8
-  %123 = trunc i8 %.pre.i to i1
+  %.pre.i = load i8, ptr %122, align 8, !range !4
+  %123 = trunc nuw i8 %.pre.i to i1
   br i1 %123, label %140, label %124
 
 124:                                              ; preds = %.critedge.i, %.preheader.i
   %125 = load i32, ptr @CheckXidAlive, align 4
   %126 = icmp eq i32 %125, 0
-  %127 = load i8, ptr @bsysscan, align 1
-  %128 = trunc i8 %127 to i1
+  %127 = load i8, ptr @bsysscan, align 1, !range !4
+  %128 = trunc nuw i8 %127 to i1
   %.not3.i.i = select i1 %126, i1 true, i1 %128
-  br i1 %.not3.i.i, label %table_scan_sample_next_block.exit.i, label %129
+  br i1 %.not3.i.i, label %table_scan_sample_next_block.exit.i, label %129, !prof !6
 
 129:                                              ; preds = %124
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %130)
   %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2018, ptr noundef nonnull @__func__.table_scan_sample_next_block) #6
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2040, ptr noundef nonnull @__func__.table_scan_sample_next_block) #6
   unreachable
 
 table_scan_sample_next_block.exit.i:              ; preds = %124
   %132 = load ptr, ptr %112, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 312
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 320
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 352
   %136 = load ptr, ptr %135, align 8
@@ -415,21 +421,21 @@ table_scan_sample_next_block.exit.i:              ; preds = %124
 140:                                              ; preds = %139, %.preheader.i
   %141 = load i32, ptr @CheckXidAlive, align 4
   %142 = icmp eq i32 %141, 0
-  %143 = load i8, ptr @bsysscan, align 1
-  %144 = trunc i8 %143 to i1
+  %143 = load i8, ptr @bsysscan, align 1, !range !4
+  %144 = trunc nuw i8 %143 to i1
   %.not4.i.i = select i1 %142, i1 true, i1 %144
-  br i1 %.not4.i.i, label %table_scan_sample_next_tuple.exit.i, label %145
+  br i1 %.not4.i.i, label %table_scan_sample_next_tuple.exit.i, label %145, !prof !6
 
 145:                                              ; preds = %140
   %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %146)
   %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2041, ptr noundef nonnull @__func__.table_scan_sample_next_tuple) #6
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2063, ptr noundef nonnull @__func__.table_scan_sample_next_tuple) #6
   unreachable
 
 table_scan_sample_next_tuple.exit.i:              ; preds = %140
   %148 = load ptr, ptr %112, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 312
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 360
   %152 = load ptr, ptr %151, align 8
@@ -453,51 +459,47 @@ tablesample_getnext.exit:                         ; preds = %110, %138, %154
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SampleRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal noundef zeroext i1 @SampleRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
   ret i1 true
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @hashfloat8(ptr noundef) #1
+declare i64 @hashfloat8(ptr noundef) #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}

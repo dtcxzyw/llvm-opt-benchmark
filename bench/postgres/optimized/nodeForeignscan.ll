@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/nodeForeignscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @TTSOpsHeapTuple = external constant %struct.TupleTableSlotOps, align 8
 @.str = private unnamed_addr constant [32 x i8] c"result relation not initialized\00", align 1
@@ -16,7 +16,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = tail call noundef ptr @palloc0(i64 noundef 264) #5
-  store i32 402, ptr %6, align 4
+  store i32 417, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -81,12 +81,12 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %42 = load i8, ptr %41, align 2
-  %43 = trunc i8 %42 to i1
+  %42 = load i8, ptr %41, align 2, !range !4, !noundef !5
+  %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = zext i1 %47 to i8
@@ -106,13 +106,13 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %.not73, label %75, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %75
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %70, label %64
@@ -120,7 +120,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 64:                                               ; preds = %60
   %65 = add i32 %55, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr ptr, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %62, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %73
@@ -129,7 +129,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %71)
   %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.ExecInitForeignScan) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.ExecInitForeignScan) #5
   unreachable
 
 73:                                               ; preds = %64
@@ -156,7 +156,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %.not75, label %.sink.split, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.sink.split, label %90
@@ -172,11 +172,14 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   ret ptr %6
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecForeignScan(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -198,34 +201,37 @@ define internal ptr @ExecForeignScan(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @GetFdwRoutineByServerId(i32 noundef) local_unnamed_addr #1
+declare ptr @GetFdwRoutineByServerId(i32 noundef) local_unnamed_addr #2
 
-declare ptr @ExecTypeFromTL(ptr noundef) local_unnamed_addr #1
+declare ptr @ExecTypeFromTL(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecAssignScanProjectionInfoWithVarno(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @ExecAssignScanProjectionInfoWithVarno(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -239,7 +245,7 @@ define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.sink.split, label %16
@@ -267,7 +273,7 @@ define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -275,7 +281,7 @@ define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -315,9 +321,9 @@ define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
+declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanEstimate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -348,7 +354,7 @@ define dso_local void @ExecForeignScanEstimate(ptr noundef %0, ptr noundef %1) l
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanInitializeDSM(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -380,9 +386,9 @@ define dso_local void @ExecForeignScanInitializeDSM(ptr noundef %0, ptr noundef 
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanReInitializeDSM(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -410,7 +416,7 @@ define dso_local void @ExecForeignScanReInitializeDSM(ptr noundef %0, ptr nounde
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanInitializeWorker(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -492,9 +498,9 @@ define dso_local void @ExecAsyncForeignScanNotify(ptr noundef %0) local_unnamed_
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ForeignNext(ptr noundef %0) #0 {
@@ -517,8 +523,8 @@ define internal ptr @ForeignNext(ptr noundef %0) #0 {
   %15 = tail call ptr %14(ptr noundef nonnull %0) #5
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
   %19 = icmp ne ptr %15, null
   %or.cond.not = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.not, label %20, label %30
@@ -567,7 +573,7 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
 15:                                               ; preds = %13, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ExecQual.exit, label %19
 
@@ -584,7 +590,7 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
 
 ExecQual.exit:                                    ; preds = %15, %19
   %.0.i = phi i1 [ %25, %19 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
   br label %26
 
 26:                                               ; preds = %13, %ExecQual.exit
@@ -592,29 +598,24 @@ ExecQual.exit:                                    ; preds = %15, %19
   ret i1 %.0
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

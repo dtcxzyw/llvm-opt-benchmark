@@ -15,34 +15,35 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [53 x i8] c"failed to initialize checksum of backup manifest: %s\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"backup_manifest.c\00", align 1
 @__func__.InitializeBackupManifest = private unnamed_addr constant [25 x i8] c"InitializeBackupManifest\00", align 1
-@.str.2 = private unnamed_addr constant [54 x i8] c"{ \22PostgreSQL-Backup-Manifest-Version\22: 1,\0A\22Files\22: [\00", align 1
-@.str.3 = private unnamed_addr constant [16 x i8] c"pg_tblspc/%u/%s\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c",\0A\00", align 1
-@.str.5 = private unnamed_addr constant [11 x i8] c"{ \22Path\22: \00", align 1
-@.str.6 = private unnamed_addr constant [3 x i8] c", \00", align 1
-@.str.7 = private unnamed_addr constant [20 x i8] c"{ \22Encoded-Path\22: \22\00", align 1
-@.str.8 = private unnamed_addr constant [4 x i8] c"\22, \00", align 1
-@.str.9 = private unnamed_addr constant [14 x i8] c"\22Size\22: %zu, \00", align 1
-@.str.10 = private unnamed_addr constant [19 x i8] c"\22Last-Modified\22: \22\00", align 1
-@.str.11 = private unnamed_addr constant [21 x i8] c"%Y-%m-%d %H:%M:%S %Z\00", align 1
-@.str.12 = private unnamed_addr constant [41 x i8] c"could not finalize checksum of file \22%s\22\00", align 1
+@.str.2 = private unnamed_addr constant [80 x i8] c"{ \22PostgreSQL-Backup-Manifest-Version\22: 2,\0A\22System-Identifier\22: %lu,\0A\22Files\22: [\00", align 1
+@.str.3 = private unnamed_addr constant [9 x i8] c"%s/%u/%s\00", align 1
+@.str.4 = private unnamed_addr constant [10 x i8] c"pg_tblspc\00", align 1
+@.str.5 = private unnamed_addr constant [3 x i8] c",\0A\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"{ \22Path\22: \00", align 1
+@.str.7 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.8 = private unnamed_addr constant [20 x i8] c"{ \22Encoded-Path\22: \22\00", align 1
+@.str.9 = private unnamed_addr constant [4 x i8] c"\22, \00", align 1
+@.str.10 = private unnamed_addr constant [14 x i8] c"\22Size\22: %zu, \00", align 1
+@.str.11 = private unnamed_addr constant [19 x i8] c"\22Last-Modified\22: \22\00", align 1
+@.str.12 = private unnamed_addr constant [21 x i8] c"%Y-%m-%d %H:%M:%S %Z\00", align 1
+@.str.13 = private unnamed_addr constant [41 x i8] c"could not finalize checksum of file \22%s\22\00", align 1
 @__func__.AddFileToBackupManifest = private unnamed_addr constant [24 x i8] c"AddFileToBackupManifest\00", align 1
-@.str.13 = private unnamed_addr constant [44 x i8] c", \22Checksum-Algorithm\22: \22%s\22, \22Checksum\22: \22\00", align 1
-@.str.14 = private unnamed_addr constant [3 x i8] c" }\00", align 1
-@.str.15 = private unnamed_addr constant [5 x i8] c"\0A],\0A\00", align 1
-@.str.16 = private unnamed_addr constant [17 x i8] c"\22WAL-Ranges\22: [\0A\00", align 1
-@.str.17 = private unnamed_addr constant [47 x i8] c"expected end timeline %u but found timeline %u\00", align 1
+@.str.14 = private unnamed_addr constant [44 x i8] c", \22Checksum-Algorithm\22: \22%s\22, \22Checksum\22: \22\00", align 1
+@.str.15 = private unnamed_addr constant [3 x i8] c" }\00", align 1
+@.str.16 = private unnamed_addr constant [5 x i8] c"\0A],\0A\00", align 1
+@.str.17 = private unnamed_addr constant [17 x i8] c"\22WAL-Ranges\22: [\0A\00", align 1
+@.str.18 = private unnamed_addr constant [47 x i8] c"expected end timeline %u but found timeline %u\00", align 1
 @__func__.AddWALInfoToBackupManifest = private unnamed_addr constant [27 x i8] c"AddWALInfoToBackupManifest\00", align 1
-@.str.18 = private unnamed_addr constant [49 x i8] c"expected start timeline %u but found timeline %u\00", align 1
-@.str.19 = private unnamed_addr constant [63 x i8] c"%s{ \22Timeline\22: %u, \22Start-LSN\22: \22%X/%X\22, \22End-LSN\22: \22%X/%X\22 }\00", align 1
-@.str.20 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.21 = private unnamed_addr constant [54 x i8] c"start timeline %u not found in history of timeline %u\00", align 1
-@.str.22 = private unnamed_addr constant [51 x i8] c"failed to finalize checksum of backup manifest: %s\00", align 1
+@.str.19 = private unnamed_addr constant [49 x i8] c"expected start timeline %u but found timeline %u\00", align 1
+@.str.20 = private unnamed_addr constant [63 x i8] c"%s{ \22Timeline\22: %u, \22Start-LSN\22: \22%X/%X\22, \22End-LSN\22: \22%X/%X\22 }\00", align 1
+@.str.21 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.22 = private unnamed_addr constant [54 x i8] c"start timeline %u not found in history of timeline %u\00", align 1
+@.str.23 = private unnamed_addr constant [51 x i8] c"failed to finalize checksum of backup manifest: %s\00", align 1
 @__func__.SendBackupManifest = private unnamed_addr constant [19 x i8] c"SendBackupManifest\00", align 1
-@.str.23 = private unnamed_addr constant [23 x i8] c"\22Manifest-Checksum\22: \22\00", align 1
-@.str.24 = private unnamed_addr constant [4 x i8] c"\22}\0A\00", align 1
-@.str.25 = private unnamed_addr constant [32 x i8] c"could not rewind temporary file\00", align 1
-@.str.26 = private unnamed_addr constant [49 x i8] c"failed to update checksum of backup manifest: %s\00", align 1
+@.str.24 = private unnamed_addr constant [23 x i8] c"\22Manifest-Checksum\22: \22\00", align 1
+@.str.25 = private unnamed_addr constant [4 x i8] c"\22}\0A\00", align 1
+@.str.26 = private unnamed_addr constant [32 x i8] c"could not rewind temporary file\00", align 1
+@.str.27 = private unnamed_addr constant [49 x i8] c"failed to update checksum of backup manifest: %s\00", align 1
 @__func__.AppendStringToManifest = private unnamed_addr constant [23 x i8] c"AppendStringToManifest\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -58,7 +59,7 @@ define dso_local void @InitializeBackupManifest(ptr noundef %0, i32 noundef %1, 
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 40, i1 false)
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.backup_manifest_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %10, i32 0, i32 1
   store i32 %9, ptr %11, align 8
   %12 = load i32, ptr %5, align 4
   %13 = icmp eq i32 %12, 1
@@ -66,21 +67,21 @@ define dso_local void @InitializeBackupManifest(ptr noundef %0, i32 noundef %1, 
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.backup_manifest_info, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %15, i32 0, i32 0
   store ptr null, ptr %16, align 8
   br label %44
 
 17:                                               ; preds = %3
   %18 = call ptr @BufFileCreateTemp(i1 noundef zeroext false)
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.backup_manifest_info, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %19, i32 0, i32 0
   store ptr %18, ptr %20, align 8
   %21 = call ptr @pg_cryptohash_create(i32 noundef 3)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.backup_manifest_info, ptr %22, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %22, i32 0, i32 2
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.backup_manifest_info, ptr %24, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %24, i32 0, i32 2
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @pg_cryptohash_init(ptr noundef %26)
   %28 = icmp slt i32 %27, 0
@@ -93,7 +94,7 @@ define dso_local void @InitializeBackupManifest(ptr noundef %0, i32 noundef %1, 
   br i1 true, label %31, label %33
 
 31:                                               ; preds = %30
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %32, label %35, label %41
 
 33:                                               ; preds = %30
@@ -102,7 +103,7 @@ define dso_local void @InitializeBackupManifest(ptr noundef %0, i32 noundef %1, 
 
 35:                                               ; preds = %33, %31
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.backup_manifest_info, ptr %36, i32 0, i32 2
+  %37 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %36, i32 0, i32 2
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @pg_cryptohash_error(ptr noundef %38)
   %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str, ptr noundef %39)
@@ -120,40 +121,43 @@ define dso_local void @InitializeBackupManifest(ptr noundef %0, i32 noundef %1, 
 
 44:                                               ; preds = %43, %14
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.backup_manifest_info, ptr %45, i32 0, i32 3
+  %46 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %45, i32 0, i32 3
   store i64 0, ptr %46, align 8
   %47 = load i32, ptr %5, align 4
   %48 = icmp eq i32 %47, 2
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.backup_manifest_info, ptr %49, i32 0, i32 4
+  %50 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %49, i32 0, i32 4
   %51 = zext i1 %48 to i8
   store i8 %51, ptr %50, align 8
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.backup_manifest_info, ptr %52, i32 0, i32 5
+  %53 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %52, i32 0, i32 5
   store i8 1, ptr %53, align 1
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.backup_manifest_info, ptr %54, i32 0, i32 6
+  %55 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %54, i32 0, i32 6
   store i8 1, ptr %55, align 2
   %56 = load i32, ptr %5, align 4
   %57 = icmp ne i32 %56, 1
-  br i1 %57, label %58, label %63
+  br i1 %57, label %58, label %64
 
 58:                                               ; preds = %44
-  %59 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.2)
-  store ptr %59, ptr %7, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %7, align 8
-  call void @AppendStringToManifest(ptr noundef %60, ptr noundef %61)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %59 = call i64 @GetSystemIdentifier()
+  %60 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.2, i64 noundef %59)
+  store ptr %60, ptr %7, align 8
+  %61 = load ptr, ptr %4, align 8
   %62 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %62)
-  br label %63
+  call void @AppendStringToManifest(ptr noundef %61, ptr noundef %62)
+  %63 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %64
 
-63:                                               ; preds = %58, %44
+64:                                               ; preds = %58, %44
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @BufFileCreateTemp(i1 noundef zeroext) #2
 
@@ -161,8 +165,11 @@ declare ptr @pg_cryptohash_create(i32 noundef) #2
 
 declare i32 @pg_cryptohash_init(ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #4
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
 
@@ -174,6 +181,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
 
 declare ptr @psprintf(ptr noundef, ...) #2
 
+declare i64 @GetSystemIdentifier() #2
+
 ; Function Attrs: nounwind uwtable
 define internal void @AppendStringToManifest(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
@@ -181,26 +190,27 @@ define internal void @AppendStringToManifest(ptr noundef %0, ptr noundef %1) #0 
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
   %6 = load ptr, ptr %4, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #6
+  %7 = call i64 @strlen(ptr noundef %6) #9
   %8 = trunc i64 %7 to i32
   store i32 %8, ptr %5, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.backup_manifest_info, ptr %9, i32 0, i32 6
-  %11 = load i8, ptr %10, align 2
+  %10 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %9, i32 0, i32 6
+  %11 = load i8, ptr %10, align 2, !range !4, !noundef !5
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %37
+  br i1 %12, label %13, label %38
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.backup_manifest_info, ptr %14, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %14, i32 0, i32 2
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load i32, ptr %5, align 4
   %19 = sext i32 %18 to i64
   %20 = call i32 @pg_cryptohash_update(ptr noundef %16, ptr noundef %17, i64 noundef %19)
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %36
+  br i1 %21, label %22, label %37
 
 22:                                               ; preds = %13
   br label %23
@@ -209,7 +219,7 @@ define internal void @AppendStringToManifest(ptr noundef %0, ptr noundef %1) #0 
   br i1 true, label %24, label %26
 
 24:                                               ; preds = %23
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   br i1 %25, label %28, label %34
 
 26:                                               ; preds = %23
@@ -218,11 +228,11 @@ define internal void @AppendStringToManifest(ptr noundef %0, ptr noundef %1) #0 
 
 28:                                               ; preds = %26, %24
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.backup_manifest_info, ptr %29, i32 0, i32 2
+  %30 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %29, i32 0, i32 2
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @pg_cryptohash_error(ptr noundef %31)
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.26, ptr noundef %32)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 391, ptr noundef @__func__.AppendStringToManifest)
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.27, ptr noundef %32)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 393, ptr noundef @__func__.AppendStringToManifest)
   br label %34
 
 34:                                               ; preds = %28, %26, %24
@@ -231,39 +241,46 @@ define internal void @AppendStringToManifest(ptr noundef %0, ptr noundef %1) #0 
 35:                                               ; No predecessors!
   br label %36
 
-36:                                               ; preds = %35, %13
+36:                                               ; preds = %35
   br label %37
 
-37:                                               ; preds = %36, %2
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.backup_manifest_info, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = load i32, ptr %5, align 4
-  %43 = sext i32 %42 to i64
-  call void @BufFileWrite(ptr noundef %40, ptr noundef %41, i64 noundef %43)
-  %44 = load i32, ptr %5, align 4
-  %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.backup_manifest_info, ptr %46, i32 0, i32 3
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, %45
-  store i64 %49, ptr %47, align 8
+37:                                               ; preds = %36, %13
+  br label %38
+
+38:                                               ; preds = %37, %2
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = load i32, ptr %5, align 4
+  %44 = sext i32 %43 to i64
+  call void @BufFileWrite(ptr noundef %41, ptr noundef %42, i64 noundef %44)
+  %45 = load i32, ptr %5, align 4
+  %46 = sext i32 %45 to i64
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %47, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %46
+  store i64 %50, ptr %48, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 declare void @pfree(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeBackupManifest(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.backup_manifest_info, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
   call void @pg_cryptohash_free(ptr noundef %5)
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.backup_manifest_info, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %6, i32 0, i32 2
   store ptr null, ptr %7, align 8
   ret void
 }
@@ -281,212 +298,239 @@ define dso_local void @AddFileToBackupManifest(ptr noundef %0, i32 noundef %1, p
   %13 = alloca [1024 x i8], align 16
   %14 = alloca i32, align 4
   %15 = alloca %struct.StringInfoData, align 8
-  %16 = alloca [64 x i8], align 16
-  %17 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca [64 x i8], align 16
+  %18 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store i32 %1, ptr %8, align 4
   store ptr %2, ptr %9, align 8
   store i64 %3, ptr %10, align 8
   store i64 %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = call zeroext i1 @IsManifestEnabled(ptr noundef %18)
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %6
-  br label %135
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %15) #8
+  %19 = load ptr, ptr %7, align 8
+  %20 = call zeroext i1 @IsManifestEnabled(ptr noundef %19)
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %6
-  %22 = load i32, ptr %8, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %30
+  store i32 1, ptr %16, align 4
+  br label %138
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %26 = load i32, ptr %8, align 4
-  %27 = load ptr, ptr %9, align 8
-  %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %25, i64 noundef 1024, ptr noundef @.str.3, i32 noundef %26, ptr noundef %27)
-  %29 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  store ptr %29, ptr %9, align 8
-  br label %30
+22:                                               ; preds = %6
+  %23 = load i32, ptr %8, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %31
 
-30:                                               ; preds = %24, %21
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %26, i64 noundef 1024, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef %27, ptr noundef %28)
+  %30 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  store ptr %30, ptr %9, align 8
+  br label %31
+
+31:                                               ; preds = %25, %22
   call void @initStringInfo(ptr noundef %15)
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.backup_manifest_info, ptr %31, i32 0, i32 5
-  %33 = load i8, ptr %32, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %38
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %32, i32 0, i32 5
+  %34 = load i8, ptr %33, align 1, !range !4, !noundef !5
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %30
+36:                                               ; preds = %31
   call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 10)
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.backup_manifest_info, ptr %36, i32 0, i32 5
-  store i8 0, ptr %37, align 1
-  br label %39
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %37, i32 0, i32 5
+  store i8 0, ptr %38, align 1
+  br label %40
 
-38:                                               ; preds = %30
-  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.4)
-  br label %39
-
-39:                                               ; preds = %38, %35
-  %40 = load ptr, ptr %9, align 8
-  %41 = call i64 @strlen(ptr noundef %40) #6
-  %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %14, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct.backup_manifest_info, ptr %43, i32 0, i32 4
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %53, label %47
-
-47:                                               ; preds = %39
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr %14, align 4
-  %50 = call zeroext i1 @pg_verify_mbstr(i32 noundef 6, ptr noundef %48, i32 noundef %49, i1 noundef zeroext true)
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %47
+39:                                               ; preds = %31
   call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.5)
-  %52 = load ptr, ptr %9, align 8
-  call void @escape_json(ptr noundef %15, ptr noundef %52)
+  br label %40
+
+40:                                               ; preds = %39, %36
+  %41 = load ptr, ptr %9, align 8
+  %42 = call i64 @strlen(ptr noundef %41) #9
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %14, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %44, i32 0, i32 4
+  %46 = load i8, ptr %45, align 8, !range !4, !noundef !5
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %55, label %48
+
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %14, align 4
+  %51 = call zeroext i1 @pg_verify_mbstr(i32 noundef 6, ptr noundef %49, i32 noundef %50, i1 noundef zeroext true)
+  br i1 %51, label %52, label %55
+
+52:                                               ; preds = %48
   call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.6)
-  br label %71
-
-53:                                               ; preds = %47, %39
-  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.7)
+  %53 = load ptr, ptr %9, align 8
   %54 = load i32, ptr %14, align 4
-  %55 = mul i32 2, %54
-  call void @enlargeStringInfo(ptr noundef %15, i32 noundef %55)
-  %56 = load ptr, ptr %9, align 8
-  %57 = load i32, ptr %14, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr i8, ptr %60, i64 %63
-  %65 = call i64 @hex_encode(ptr noundef %56, i64 noundef %58, ptr noundef %64)
-  %66 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %67 = load i32, ptr %66, align 8
-  %68 = sext i32 %67 to i64
-  %69 = add i64 %68, %65
-  %70 = trunc i64 %69 to i32
-  store i32 %70, ptr %66, align 8
+  call void @escape_json_with_len(ptr noundef %15, ptr noundef %53, i32 noundef %54)
+  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.7)
+  br label %73
+
+55:                                               ; preds = %48, %40
   call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.8)
-  br label %71
+  %56 = load i32, ptr %14, align 4
+  %57 = mul i32 2, %56
+  call void @enlargeStringInfo(ptr noundef %15, i32 noundef %57)
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i32, ptr %14, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %62, i64 %65
+  %67 = call i64 @hex_encode(ptr noundef %58, i64 noundef %60, ptr noundef %66)
+  %68 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8
+  %70 = sext i32 %69 to i64
+  %71 = add i64 %70, %67
+  %72 = trunc i64 %71 to i32
+  store i32 %72, ptr %68, align 8
+  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.9)
+  br label %73
 
-71:                                               ; preds = %53, %51
-  %72 = load i64, ptr %10, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %15, ptr noundef @.str.9, i64 noundef %72)
-  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.10)
+73:                                               ; preds = %55, %52
+  %74 = load i64, ptr %10, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %15, ptr noundef @.str.10, i64 noundef %74)
+  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.11)
   call void @enlargeStringInfo(ptr noundef %15, i32 noundef 128)
-  %73 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %76 = load i32, ptr %75, align 8
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %74, i64 %77
-  %79 = call ptr @pg_gmtime(ptr noundef %11)
-  %80 = call i64 @pg_strftime(ptr noundef %78, i64 noundef 128, ptr noundef @.str.11, ptr noundef %79)
-  %81 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  %83 = sext i32 %82 to i64
-  %84 = add i64 %83, %80
-  %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %81, align 8
+  %75 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %78 = load i32, ptr %77, align 8
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %76, i64 %79
+  %81 = call ptr @pg_gmtime(ptr noundef %11)
+  %82 = call i64 @pg_strftime(ptr noundef %80, i64 noundef 128, ptr noundef @.str.12, ptr noundef %81)
+  %83 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = sext i32 %84 to i64
+  %86 = add i64 %85, %82
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %83, align 8
   call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 34)
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %struct.pg_checksum_context, ptr %86, i32 0, i32 0
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %129
+  %88 = load ptr, ptr %12, align 8
+  %89 = getelementptr inbounds nuw %struct.pg_checksum_context, ptr %88, i32 0, i32 0
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %132
 
-90:                                               ; preds = %71
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %93 = call i32 @pg_checksum_final(ptr noundef %91, ptr noundef %92)
-  store i32 %93, ptr %17, align 4
-  %94 = load i32, ptr %17, align 4
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %107
+92:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 64, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %93 = load ptr, ptr %12, align 8
+  %94 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 0
+  %95 = call i32 @pg_checksum_final(ptr noundef %93, ptr noundef %94)
+  store i32 %95, ptr %18, align 4
+  %96 = load i32, ptr %18, align 4
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %98, label %110
 
-96:                                               ; preds = %90
-  br label %97
+98:                                               ; preds = %92
+  br label %99
 
-97:                                               ; preds = %96
-  br i1 true, label %98, label %100
+99:                                               ; preds = %98
+  br i1 true, label %100, label %102
 
-98:                                               ; preds = %97
-  %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %99, label %102, label %105
+100:                                              ; preds = %99
+  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %101, label %104, label %107
 
-100:                                              ; preds = %97
-  %101 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %101, label %102, label %105
+102:                                              ; preds = %99
+  %103 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %103, label %104, label %107
 
-102:                                              ; preds = %100, %98
-  %103 = load ptr, ptr %9, align 8
-  %104 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.12, ptr noundef %103)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 185, ptr noundef @__func__.AddFileToBackupManifest)
-  br label %105
-
-105:                                              ; preds = %102, %100, %98
-  unreachable
-
-106:                                              ; No predecessors!
+104:                                              ; preds = %102, %100
+  %105 = load ptr, ptr %9, align 8
+  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.13, ptr noundef %105)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 187, ptr noundef @__func__.AddFileToBackupManifest)
   br label %107
 
-107:                                              ; preds = %106, %90
-  %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds %struct.pg_checksum_context, ptr %108, i32 0, i32 0
-  %110 = load i32, ptr %109, align 8
-  %111 = call ptr @pg_checksum_type_name(i32 noundef %110)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %15, ptr noundef @.str.13, ptr noundef %111)
-  %112 = load i32, ptr %17, align 4
-  %113 = mul i32 2, %112
-  call void @enlargeStringInfo(ptr noundef %15, i32 noundef %113)
-  %114 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %115 = load i32, ptr %17, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %120 = load i32, ptr %119, align 8
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr i8, ptr %118, i64 %121
-  %123 = call i64 @hex_encode(ptr noundef %114, i64 noundef %116, ptr noundef %122)
-  %124 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 1
-  %125 = load i32, ptr %124, align 8
-  %126 = sext i32 %125 to i64
-  %127 = add i64 %126, %123
-  %128 = trunc i64 %127 to i32
-  store i32 %128, ptr %124, align 8
+107:                                              ; preds = %104, %102, %100
+  unreachable
+
+108:                                              ; No predecessors!
+  br label %109
+
+109:                                              ; preds = %108
+  br label %110
+
+110:                                              ; preds = %109, %92
+  %111 = load ptr, ptr %12, align 8
+  %112 = getelementptr inbounds nuw %struct.pg_checksum_context, ptr %111, i32 0, i32 0
+  %113 = load i32, ptr %112, align 8
+  %114 = call ptr @pg_checksum_type_name(i32 noundef %113)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %15, ptr noundef @.str.14, ptr noundef %114)
+  %115 = load i32, ptr %18, align 4
+  %116 = mul i32 2, %115
+  call void @enlargeStringInfo(ptr noundef %15, i32 noundef %116)
+  %117 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 0
+  %118 = load i32, ptr %18, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %123 = load i32, ptr %122, align 8
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr %121, i64 %124
+  %126 = call i64 @hex_encode(ptr noundef %117, i64 noundef %119, ptr noundef %125)
+  %127 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 1
+  %128 = load i32, ptr %127, align 8
+  %129 = sext i32 %128 to i64
+  %130 = add i64 %129, %126
+  %131 = trunc i64 %130 to i32
+  store i32 %131, ptr %127, align 8
   call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 34)
-  br label %129
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %17) #8
+  br label %132
 
-129:                                              ; preds = %107, %71
-  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.14)
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 0
-  %132 = load ptr, ptr %131, align 8
-  call void @AppendStringToManifest(ptr noundef %130, ptr noundef %132)
-  %133 = getelementptr inbounds %struct.StringInfoData, ptr %15, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  call void @pfree(ptr noundef %134)
-  br label %135
+132:                                              ; preds = %110, %73
+  call void @appendStringInfoString(ptr noundef %15, ptr noundef @.str.15)
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8
+  call void @AppendStringToManifest(ptr noundef %133, ptr noundef %135)
+  %136 = getelementptr inbounds nuw %struct.StringInfoData, ptr %15, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8
+  call void @pfree(ptr noundef %137)
+  store i32 0, ptr %16, align 4
+  br label %138
 
-135:                                              ; preds = %129, %20
+138:                                              ; preds = %132, %21
+  call void @llvm.lifetime.end.p0(i64 24, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %13) #8
+  %139 = load i32, ptr %16, align 4
+  switch i32 %139, label %141 [
+    i32 0, label %140
+    i32 1, label %140
+  ]
+
+140:                                              ; preds = %138, %138
   ret void
+
+141:                                              ; preds = %138
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @IsManifestEnabled(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @IsManifestEnabled(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.backup_manifest_info, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   ret i1 %6
@@ -501,11 +545,11 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) #2
 declare void @appendStringInfoString(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #6
 
 declare zeroext i1 @pg_verify_mbstr(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare void @escape_json(ptr noundef, ptr noundef) #2
+declare void @escape_json_with_len(ptr noundef, ptr noundef, i32 noundef) #2
 
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) #2
 
@@ -532,300 +576,366 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef %0, i64 noundef %1
   %12 = alloca ptr, align 8
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1
-  %15 = alloca %struct.ForEachState, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca i64, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca %struct.ForEachState, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i64 %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i64 %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #8
   store i8 1, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #8
   store i8 0, ptr %14, align 1
-  %21 = load ptr, ptr %6, align 8
-  %22 = call zeroext i1 @IsManifestEnabled(ptr noundef %21)
-  br i1 %22, label %24, label %23
-
-23:                                               ; preds = %5
-  br label %181
+  %22 = load ptr, ptr %6, align 8
+  %23 = call zeroext i1 @IsManifestEnabled(ptr noundef %22)
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %5
-  %25 = load ptr, ptr %6, align 8
-  call void @AppendStringToManifest(ptr noundef %25, ptr noundef @.str.15)
-  %26 = load i32, ptr %10, align 4
-  %27 = call ptr @readTimeLineHistory(i32 noundef %26)
-  store ptr %27, ptr %11, align 8
-  %28 = load ptr, ptr %6, align 8
-  call void @AppendStringToManifest(ptr noundef %28, ptr noundef @.str.16)
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %11, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 1
-  store i32 0, ptr %31, align 8
-  br label %32
+  store i32 1, ptr %15, align 4
+  br label %193
 
-32:                                               ; preds = %160, %24
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %53
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %6, align 8
+  call void @AppendStringToManifest(ptr noundef %26, ptr noundef @.str.16)
+  %27 = load i32, ptr %10, align 4
+  %28 = call ptr @readTimeLineHistory(i32 noundef %27)
+  store ptr %28, ptr %11, align 8
+  %29 = load ptr, ptr %6, align 8
+  call void @AppendStringToManifest(ptr noundef %29, ptr noundef @.str.17)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #8
+  %30 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %31 = load ptr, ptr %11, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  store i32 0, ptr %32, align 8
+  %33 = getelementptr i8, ptr %16, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 4, i1 false)
+  br label %34
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.List, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp slt i32 %38, %42
-  br i1 %43, label %44, label %53
+34:                                               ; preds = %170, %25
+  %35 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %55
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.List, ptr %46, i32 0, i32 3
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.List, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp slt i32 %40, %44
+  br i1 %45, label %46, label %55
+
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 0
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr %union.ListCell, ptr %48, i64 %51
-  store ptr %52, ptr %12, align 8
-  br label %54
+  %49 = getelementptr inbounds nuw %struct.List, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %union.ListCell, ptr %50, i64 %53
+  store ptr %54, ptr %12, align 8
+  br label %56
 
-53:                                               ; preds = %36, %32
+55:                                               ; preds = %38, %34
   store ptr null, ptr %12, align 8
-  br label %54
+  br label %56
 
-54:                                               ; preds = %53, %44
-  %55 = phi i32 [ 1, %44 ], [ 0, %53 ]
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %164
+56:                                               ; preds = %55, %46
+  %57 = phi i32 [ 1, %46 ], [ 0, %55 ]
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %60, label %59
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %12, align 8
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %16, align 8
-  %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %60, i32 0, i32 2
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %71, label %64
+59:                                               ; preds = %56
+  store i32 2, ptr %15, align 4
+  br label %174
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %16, align 8
-  %66 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %65, i32 0, i32 2
-  %67 = load i64, ptr %66, align 8
-  %68 = load i64, ptr %7, align 8
-  %69 = icmp ult i64 %67, %68
-  br i1 %69, label %70, label %71
+60:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %63 = load ptr, ptr %17, align 8
+  %64 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %63, i32 0, i32 2
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %74, label %67
 
-70:                                               ; preds = %64
-  br label %160
+67:                                               ; preds = %60
+  %68 = load ptr, ptr %17, align 8
+  %69 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %68, i32 0, i32 2
+  %70 = load i64, ptr %69, align 8
+  %71 = load i64, ptr %7, align 8
+  %72 = icmp ult i64 %70, %71
+  br i1 %72, label %73, label %74
 
-71:                                               ; preds = %64, %57
-  %72 = load i8, ptr %13, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %94
+73:                                               ; preds = %67
+  store i32 4, ptr %15, align 4
+  br label %167
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %10, align 4
-  %76 = load ptr, ptr %16, align 8
-  %77 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %76, i32 0, i32 0
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp ne i32 %75, %78
-  br i1 %79, label %80, label %94
+74:                                               ; preds = %67, %60
+  %75 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %98
 
-80:                                               ; preds = %74
-  br label %81
+77:                                               ; preds = %74
+  %78 = load i32, ptr %10, align 4
+  %79 = load ptr, ptr %17, align 8
+  %80 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ne i32 %78, %81
+  br i1 %82, label %83, label %98
 
-81:                                               ; preds = %80
-  br i1 true, label %82, label %84
+83:                                               ; preds = %77
+  br label %84
 
-82:                                               ; preds = %81
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %83, label %86, label %92
+84:                                               ; preds = %83
+  br i1 true, label %85, label %87
 
-84:                                               ; preds = %81
-  %85 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %85, label %86, label %92
+85:                                               ; preds = %84
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %86, label %89, label %95
 
-86:                                               ; preds = %84, %82
-  %87 = load i32, ptr %8, align 4
-  %88 = load ptr, ptr %16, align 8
-  %89 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %88, i32 0, i32 0
-  %90 = load i32, ptr %89, align 8
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17, i32 noundef %87, i32 noundef %90)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 254, ptr noundef @__func__.AddWALInfoToBackupManifest)
-  br label %92
+87:                                               ; preds = %84
+  %88 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %88, label %89, label %95
 
-92:                                               ; preds = %86, %84, %82
+89:                                               ; preds = %87, %85
+  %90 = load i32, ptr %8, align 4
+  %91 = load ptr, ptr %17, align 8
+  %92 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.18, i32 noundef %90, i32 noundef %93)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 256, ptr noundef @__func__.AddWALInfoToBackupManifest)
+  br label %95
+
+95:                                               ; preds = %89, %87, %85
   unreachable
 
-93:                                               ; No predecessors!
-  br label %94
+96:                                               ; No predecessors!
+  br label %97
 
-94:                                               ; preds = %93, %74, %71
-  %95 = load i32, ptr %8, align 4
-  %96 = load ptr, ptr %16, align 8
-  %97 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %96, i32 0, i32 0
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %95, %98
-  br i1 %99, label %100, label %102
+97:                                               ; preds = %96
+  br label %98
 
-100:                                              ; preds = %94
-  %101 = load i64, ptr %7, align 8
-  store i64 %101, ptr %17, align 8
-  br label %125
+98:                                               ; preds = %97, %77, %74
+  %99 = load i32, ptr %8, align 4
+  %100 = load ptr, ptr %17, align 8
+  %101 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp eq i32 %99, %102
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr %16, align 8
-  %104 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %103, i32 0, i32 1
-  %105 = load i64, ptr %104, align 8
-  store i64 %105, ptr %17, align 8
-  %106 = load ptr, ptr %16, align 8
-  %107 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %106, i32 0, i32 1
-  %108 = load i64, ptr %107, align 8
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %124
+104:                                              ; preds = %98
+  %105 = load i64, ptr %7, align 8
+  store i64 %105, ptr %18, align 8
+  br label %130
 
-110:                                              ; preds = %102
-  br label %111
+106:                                              ; preds = %98
+  %107 = load ptr, ptr %17, align 8
+  %108 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %107, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  store i64 %109, ptr %18, align 8
+  %110 = load ptr, ptr %17, align 8
+  %111 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %110, i32 0, i32 1
+  %112 = load i64, ptr %111, align 8
+  %113 = icmp eq i64 %112, 0
+  br i1 %113, label %114, label %129
 
-111:                                              ; preds = %110
-  br i1 true, label %112, label %114
+114:                                              ; preds = %106
+  br label %115
 
-112:                                              ; preds = %111
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %113, label %116, label %122
+115:                                              ; preds = %114
+  br i1 true, label %116, label %118
 
-114:                                              ; preds = %111
-  %115 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %115, label %116, label %122
+116:                                              ; preds = %115
+  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %117, label %120, label %126
 
-116:                                              ; preds = %114, %112
-  %117 = load i32, ptr %8, align 4
-  %118 = load ptr, ptr %16, align 8
-  %119 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %118, i32 0, i32 0
-  %120 = load i32, ptr %119, align 8
-  %121 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.18, i32 noundef %117, i32 noundef %120)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 278, ptr noundef @__func__.AddWALInfoToBackupManifest)
-  br label %122
+118:                                              ; preds = %115
+  %119 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %119, label %120, label %126
 
-122:                                              ; preds = %116, %114, %112
+120:                                              ; preds = %118, %116
+  %121 = load i32, ptr %8, align 4
+  %122 = load ptr, ptr %17, align 8
+  %123 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %122, i32 0, i32 0
+  %124 = load i32, ptr %123, align 8
+  %125 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.19, i32 noundef %121, i32 noundef %124)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 280, ptr noundef @__func__.AddWALInfoToBackupManifest)
+  br label %126
+
+126:                                              ; preds = %120, %118, %116
   unreachable
 
-123:                                              ; No predecessors!
-  br label %124
+127:                                              ; No predecessors!
+  br label %128
 
-124:                                              ; preds = %123, %102
-  br label %125
+128:                                              ; preds = %127
+  br label %129
 
-125:                                              ; preds = %124, %100
-  %126 = load i8, ptr %13, align 1
-  %127 = trunc i8 %126 to i1
-  %128 = select i1 %127, ptr @.str.20, ptr @.str.4
-  %129 = load ptr, ptr %16, align 8
-  %130 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %129, i32 0, i32 0
-  %131 = load i32, ptr %130, align 8
-  br label %132
+129:                                              ; preds = %128, %106
+  br label %130
 
-132:                                              ; preds = %125
-  br label %133
+130:                                              ; preds = %129, %104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %131 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %132 = trunc i8 %131 to i1
+  %133 = select i1 %132, ptr @.str.21, ptr @.str.5
+  %134 = load ptr, ptr %17, align 8
+  %135 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %134, i32 0, i32 0
+  %136 = load i32, ptr %135, align 8
+  br label %137
 
-133:                                              ; preds = %132
-  store i32 1, ptr %19, align 4
-  %134 = load i64, ptr %17, align 8
-  %135 = lshr i64 %134, 32
-  %136 = trunc i64 %135 to i32
-  %137 = load i64, ptr %17, align 8
-  %138 = trunc i64 %137 to i32
+137:                                              ; preds = %130
+  br label %138
+
+138:                                              ; preds = %137
   br label %139
 
-139:                                              ; preds = %133
-  br label %140
-
-140:                                              ; preds = %139
+139:                                              ; preds = %138
   store i32 1, ptr %20, align 4
-  %141 = load i64, ptr %9, align 8
-  %142 = lshr i64 %141, 32
-  %143 = trunc i64 %142 to i32
-  %144 = load i64, ptr %9, align 8
-  %145 = trunc i64 %144 to i32
-  %146 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.19, ptr noundef %128, i32 noundef %131, i32 noundef %136, i32 noundef %138, i32 noundef %143, i32 noundef %145)
-  store ptr %146, ptr %18, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = load ptr, ptr %18, align 8
-  call void @AppendStringToManifest(ptr noundef %147, ptr noundef %148)
-  %149 = load ptr, ptr %18, align 8
-  call void @pfree(ptr noundef %149)
-  %150 = load i32, ptr %8, align 4
-  %151 = load ptr, ptr %16, align 8
-  %152 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %151, i32 0, i32 0
-  %153 = load i32, ptr %152, align 8
-  %154 = icmp eq i32 %150, %153
-  br i1 %154, label %155, label %156
+  %140 = load i64, ptr %18, align 8
+  %141 = lshr i64 %140, 32
+  %142 = trunc i64 %141 to i32
+  %143 = load i64, ptr %18, align 8
+  %144 = trunc i64 %143 to i32
+  br label %145
 
-155:                                              ; preds = %140
+145:                                              ; preds = %139
+  br label %146
+
+146:                                              ; preds = %145
+  br label %147
+
+147:                                              ; preds = %146
+  store i32 1, ptr %21, align 4
+  %148 = load i64, ptr %9, align 8
+  %149 = lshr i64 %148, 32
+  %150 = trunc i64 %149 to i32
+  %151 = load i64, ptr %9, align 8
+  %152 = trunc i64 %151 to i32
+  %153 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.20, ptr noundef %133, i32 noundef %136, i32 noundef %142, i32 noundef %144, i32 noundef %150, i32 noundef %152)
+  store ptr %153, ptr %19, align 8
+  %154 = load ptr, ptr %6, align 8
+  %155 = load ptr, ptr %19, align 8
+  call void @AppendStringToManifest(ptr noundef %154, ptr noundef %155)
+  %156 = load ptr, ptr %19, align 8
+  call void @pfree(ptr noundef %156)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  %157 = load i32, ptr %8, align 4
+  %158 = load ptr, ptr %17, align 8
+  %159 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %158, i32 0, i32 0
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp eq i32 %157, %160
+  br i1 %161, label %162, label %163
+
+162:                                              ; preds = %147
   store i8 1, ptr %14, align 1
-  br label %164
+  store i32 2, ptr %15, align 4
+  br label %167
 
-156:                                              ; preds = %140
-  %157 = load ptr, ptr %16, align 8
-  %158 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %157, i32 0, i32 1
-  %159 = load i64, ptr %158, align 8
-  store i64 %159, ptr %9, align 8
+163:                                              ; preds = %147
+  %164 = load ptr, ptr %17, align 8
+  %165 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %164, i32 0, i32 1
+  %166 = load i64, ptr %165, align 8
+  store i64 %166, ptr %9, align 8
   store i8 0, ptr %13, align 1
-  br label %160
+  store i32 0, ptr %15, align 4
+  br label %167
 
-160:                                              ; preds = %156, %70
-  %161 = getelementptr inbounds %struct.ForEachState, ptr %15, i32 0, i32 1
-  %162 = load i32, ptr %161, align 8
-  %163 = add i32 %162, 1
-  store i32 %163, ptr %161, align 8
-  br label %32, !llvm.loop !5
+167:                                              ; preds = %163, %162, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  %168 = load i32, ptr %15, align 4
+  switch i32 %168, label %174 [
+    i32 0, label %169
+    i32 4, label %170
+  ]
 
-164:                                              ; preds = %155, %54
-  %165 = load i8, ptr %14, align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %179, label %167
+169:                                              ; preds = %167
+  br label %170
 
-167:                                              ; preds = %164
-  br label %168
+170:                                              ; preds = %169, %167
+  %171 = getelementptr inbounds nuw %struct.ForEachState, ptr %16, i32 0, i32 1
+  %172 = load i32, ptr %171, align 8
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %171, align 8
+  br label %34, !llvm.loop !6
 
-168:                                              ; preds = %167
-  br i1 true, label %169, label %171
+174:                                              ; preds = %167, %59
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #8
+  br label %175
 
-169:                                              ; preds = %168
-  %170 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %170, label %173, label %177
+175:                                              ; preds = %174
+  %176 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %191, label %178
 
-171:                                              ; preds = %168
-  %172 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %172, label %173, label %177
-
-173:                                              ; preds = %171, %169
-  %174 = load i32, ptr %8, align 4
-  %175 = load i32, ptr %10, align 4
-  %176 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.21, i32 noundef %174, i32 noundef %175)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 305, ptr noundef @__func__.AddWALInfoToBackupManifest)
-  br label %177
-
-177:                                              ; preds = %173, %171, %169
-  unreachable
-
-178:                                              ; No predecessors!
+178:                                              ; preds = %175
   br label %179
 
-179:                                              ; preds = %178, %164
-  %180 = load ptr, ptr %6, align 8
-  call void @AppendStringToManifest(ptr noundef %180, ptr noundef @.str.15)
-  br label %181
+179:                                              ; preds = %178
+  br i1 true, label %180, label %182
 
-181:                                              ; preds = %179, %23
+180:                                              ; preds = %179
+  %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %181, label %184, label %188
+
+182:                                              ; preds = %179
+  %183 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %183, label %184, label %188
+
+184:                                              ; preds = %182, %180
+  %185 = load i32, ptr %8, align 4
+  %186 = load i32, ptr %10, align 4
+  %187 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.22, i32 noundef %185, i32 noundef %186)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 307, ptr noundef @__func__.AddWALInfoToBackupManifest)
+  br label %188
+
+188:                                              ; preds = %184, %182, %180
+  unreachable
+
+189:                                              ; No predecessors!
+  br label %190
+
+190:                                              ; preds = %189
+  br label %191
+
+191:                                              ; preds = %190, %175
+  %192 = load ptr, ptr %6, align 8
+  call void @AppendStringToManifest(ptr noundef %192, ptr noundef @.str.16)
+  store i32 0, ptr %15, align 4
+  br label %193
+
+193:                                              ; preds = %191, %24
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %194 = load i32, ptr %15, align 4
+  switch i32 %194, label %196 [
+    i32 0, label %195
+    i32 1, label %195
+  ]
+
+195:                                              ; preds = %193, %193
   ret void
+
+196:                                              ; preds = %193
+  unreachable
 }
 
 declare ptr @readTimeLineHistory(i32 noundef) #2
@@ -839,174 +949,201 @@ define dso_local void @SendBackupManifest(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [65 x i8], align 16
   %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 65, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   store i64 0, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call zeroext i1 @IsManifestEnabled(ptr noundef %9)
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %2
-  br label %107
+  %10 = load ptr, ptr %3, align 8
+  %11 = call zeroext i1 @IsManifestEnabled(ptr noundef %10)
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.backup_manifest_info, ptr %13, i32 0, i32 6
-  store i8 0, ptr %14, align 2
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.backup_manifest_info, ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  %19 = call i32 @pg_cryptohash_final(ptr noundef %17, ptr noundef %18, i64 noundef 32)
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %35
+  store i32 1, ptr %8, align 4
+  br label %110
 
-21:                                               ; preds = %12
-  br label %22
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %14, i32 0, i32 6
+  store i8 0, ptr %15, align 2
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %20 = call i32 @pg_cryptohash_final(ptr noundef %18, ptr noundef %19, i64 noundef 32)
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %37
 
-22:                                               ; preds = %21
-  br i1 true, label %23, label %25
+22:                                               ; preds = %13
+  br label %23
 
 23:                                               ; preds = %22
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %24, label %27, label %33
+  br i1 true, label %24, label %26
 
-25:                                               ; preds = %22
-  %26 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %26, label %27, label %33
+24:                                               ; preds = %23
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %25, label %28, label %34
 
-27:                                               ; preds = %25, %23
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.backup_manifest_info, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @pg_cryptohash_error(ptr noundef %30)
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.22, ptr noundef %31)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 339, ptr noundef @__func__.SendBackupManifest)
-  br label %33
+26:                                               ; preds = %23
+  %27 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %27, label %28, label %34
 
-33:                                               ; preds = %27, %25, %23
+28:                                               ; preds = %26, %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @pg_cryptohash_error(ptr noundef %31)
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.23, ptr noundef %32)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 341, ptr noundef @__func__.SendBackupManifest)
+  br label %34
+
+34:                                               ; preds = %28, %26, %24
   unreachable
 
-34:                                               ; No predecessors!
-  br label %35
+35:                                               ; No predecessors!
+  br label %36
 
-35:                                               ; preds = %34, %12
-  %36 = load ptr, ptr %3, align 8
-  call void @AppendStringToManifest(ptr noundef %36, ptr noundef @.str.23)
-  %37 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  %38 = getelementptr inbounds [65 x i8], ptr %6, i64 0, i64 0
-  %39 = call i64 @hex_encode(ptr noundef %37, i64 noundef 32, ptr noundef %38)
-  %40 = getelementptr [65 x i8], ptr %6, i64 0, i64 64
-  store i8 0, ptr %40, align 16
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds [65 x i8], ptr %6, i64 0, i64 0
-  call void @AppendStringToManifest(ptr noundef %41, ptr noundef %42)
+36:                                               ; preds = %35
+  br label %37
+
+37:                                               ; preds = %36, %13
+  %38 = load ptr, ptr %3, align 8
+  call void @AppendStringToManifest(ptr noundef %38, ptr noundef @.str.24)
+  %39 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %40 = getelementptr inbounds [65 x i8], ptr %6, i64 0, i64 0
+  %41 = call i64 @hex_encode(ptr noundef %39, i64 noundef 32, ptr noundef %40)
+  %42 = getelementptr inbounds [65 x i8], ptr %6, i64 0, i64 64
+  store i8 0, ptr %42, align 16
   %43 = load ptr, ptr %3, align 8
-  call void @AppendStringToManifest(ptr noundef %43, ptr noundef @.str.24)
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.backup_manifest_info, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 @BufFileSeek(ptr noundef %46, i32 noundef 0, i64 noundef 0, i32 noundef 0)
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %60
+  %44 = getelementptr inbounds [65 x i8], ptr %6, i64 0, i64 0
+  call void @AppendStringToManifest(ptr noundef %43, ptr noundef %44)
+  %45 = load ptr, ptr %3, align 8
+  call void @AppendStringToManifest(ptr noundef %45, ptr noundef @.str.25)
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i32 @BufFileSeek(ptr noundef %48, i32 noundef 0, i64 noundef 0, i32 noundef 0)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %63
 
-49:                                               ; preds = %35
-  br label %50
+51:                                               ; preds = %37
+  br label %52
 
-50:                                               ; preds = %49
-  br i1 true, label %51, label %53
+52:                                               ; preds = %51
+  br i1 true, label %53, label %55
 
-51:                                               ; preds = %50
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %52, label %55, label %58
+53:                                               ; preds = %52
+  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %54, label %57, label %60
 
-53:                                               ; preds = %50
-  %54 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %54, label %55, label %58
+55:                                               ; preds = %52
+  %56 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %56, label %57, label %60
 
-55:                                               ; preds = %53, %51
-  %56 = call i32 @errcode_for_file_access()
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 355, ptr noundef @__func__.SendBackupManifest)
-  br label %58
-
-58:                                               ; preds = %55, %53, %51
-  unreachable
-
-59:                                               ; No predecessors!
+57:                                               ; preds = %55, %53
+  %58 = call i32 @errcode_for_file_access()
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 357, ptr noundef @__func__.SendBackupManifest)
   br label %60
 
-60:                                               ; preds = %59, %35
-  %61 = load ptr, ptr %4, align 8
-  call void @bbsink_begin_manifest(ptr noundef %61)
+60:                                               ; preds = %57, %55, %53
+  unreachable
+
+61:                                               ; No predecessors!
   br label %62
 
-62:                                               ; preds = %88, %60
-  %63 = load i64, ptr %7, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.backup_manifest_info, ptr %64, i32 0, i32 3
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp ult i64 %63, %66
-  br i1 %67, label %68, label %102
+62:                                               ; preds = %61
+  br label %63
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.bbsink, ptr %69, i32 0, i32 2
-  %71 = load i64, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.backup_manifest_info, ptr %72, i32 0, i32 3
+63:                                               ; preds = %62, %37
+  %64 = load ptr, ptr %4, align 8
+  call void @bbsink_begin_manifest(ptr noundef %64)
+  br label %65
+
+65:                                               ; preds = %91, %63
+  %66 = load i64, ptr %7, align 8
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %67, i32 0, i32 3
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp ult i64 %66, %69
+  br i1 %70, label %71, label %105
+
+71:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct.bbsink, ptr %72, i32 0, i32 2
   %74 = load i64, ptr %73, align 8
-  %75 = load i64, ptr %7, align 8
-  %76 = sub i64 %74, %75
-  %77 = icmp ult i64 %71, %76
-  br i1 %77, label %78, label %82
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %75, i32 0, i32 3
+  %77 = load i64, ptr %76, align 8
+  %78 = load i64, ptr %7, align 8
+  %79 = sub i64 %77, %78
+  %80 = icmp ult i64 %74, %79
+  br i1 %80, label %81, label %85
 
-78:                                               ; preds = %68
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.bbsink, ptr %79, i32 0, i32 2
-  %81 = load i64, ptr %80, align 8
-  br label %88
+81:                                               ; preds = %71
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw %struct.bbsink, ptr %82, i32 0, i32 2
+  %84 = load i64, ptr %83, align 8
+  br label %91
 
-82:                                               ; preds = %68
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.backup_manifest_info, ptr %83, i32 0, i32 3
-  %85 = load i64, ptr %84, align 8
-  %86 = load i64, ptr %7, align 8
-  %87 = sub i64 %85, %86
-  br label %88
+85:                                               ; preds = %71
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %86, i32 0, i32 3
+  %88 = load i64, ptr %87, align 8
+  %89 = load i64, ptr %7, align 8
+  %90 = sub i64 %88, %89
+  br label %91
 
-88:                                               ; preds = %82, %78
-  %89 = phi i64 [ %81, %78 ], [ %87, %82 ]
-  store i64 %89, ptr %8, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.backup_manifest_info, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.bbsink, ptr %93, i32 0, i32 1
+91:                                               ; preds = %85, %81
+  %92 = phi i64 [ %84, %81 ], [ %90, %85 ]
+  store i64 %92, ptr %9, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %93, i32 0, i32 0
   %95 = load ptr, ptr %94, align 8
-  %96 = load i64, ptr %8, align 8
-  call void @BufFileReadExact(ptr noundef %92, ptr noundef %95, i64 noundef %96)
-  %97 = load ptr, ptr %4, align 8
-  %98 = load i64, ptr %8, align 8
-  call void @bbsink_manifest_contents(ptr noundef %97, i64 noundef %98)
-  %99 = load i64, ptr %8, align 8
-  %100 = load i64, ptr %7, align 8
-  %101 = add i64 %100, %99
-  store i64 %101, ptr %7, align 8
-  br label %62, !llvm.loop !7
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds nuw %struct.bbsink, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i64, ptr %9, align 8
+  call void @BufFileReadExact(ptr noundef %95, ptr noundef %98, i64 noundef %99)
+  %100 = load ptr, ptr %4, align 8
+  %101 = load i64, ptr %9, align 8
+  call void @bbsink_manifest_contents(ptr noundef %100, i64 noundef %101)
+  %102 = load i64, ptr %9, align 8
+  %103 = load i64, ptr %7, align 8
+  %104 = add i64 %103, %102
+  store i64 %104, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %65, !llvm.loop !8
 
-102:                                              ; preds = %62
-  %103 = load ptr, ptr %4, align 8
-  call void @bbsink_end_manifest(ptr noundef %103)
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.backup_manifest_info, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  call void @BufFileClose(ptr noundef %106)
-  br label %107
+105:                                              ; preds = %65
+  %106 = load ptr, ptr %4, align 8
+  call void @bbsink_end_manifest(ptr noundef %106)
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds nuw %struct.backup_manifest_info, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  call void @BufFileClose(ptr noundef %109)
+  store i32 0, ptr %8, align 4
+  br label %110
 
-107:                                              ; preds = %102, %11
+110:                                              ; preds = %105, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 65, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #8
+  %111 = load i32, ptr %8, align 4
+  switch i32 %111, label %113 [
+    i32 0, label %112
+    i32 1, label %112
+  ]
+
+112:                                              ; preds = %110, %110
   ret void
+
+113:                                              ; preds = %110
+  unreachable
 }
 
 declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) #2
@@ -1015,14 +1152,14 @@ declare i32 @BufFileSeek(ptr noundef, i32 noundef, i64 noundef, i32 noundef) #2
 
 declare i32 @errcode_for_file_access() #2
 
-; Function Attrs: nounwind uwtable
-define internal void @bbsink_begin_manifest(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @bbsink_begin_manifest(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.bbsink, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.bbsink, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.bbsink_ops, ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds nuw %struct.bbsink_ops, ptr %5, i32 0, i32 4
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   call void %7(ptr noundef %8)
@@ -1031,16 +1168,16 @@ define internal void @bbsink_begin_manifest(ptr noundef %0) #0 {
 
 declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @bbsink_manifest_contents(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @bbsink_manifest_contents(ptr noundef %0, i64 noundef %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.bbsink, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.bbsink, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.bbsink_ops, ptr %7, i32 0, i32 5
+  %8 = getelementptr inbounds nuw %struct.bbsink_ops, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = load i64, ptr %4, align 8
@@ -1048,14 +1185,14 @@ define internal void @bbsink_manifest_contents(ptr noundef %0, i64 noundef %1) #
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @bbsink_end_manifest(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @bbsink_end_manifest(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.bbsink, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.bbsink, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.bbsink_ops, ptr %5, i32 0, i32 6
+  %6 = getelementptr inbounds nuw %struct.bbsink_ops, ptr %5, i32 0, i32 6
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   call void %7(ptr noundef %8)
@@ -1068,21 +1205,25 @@ declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) #2
 
 declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

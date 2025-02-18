@@ -41,36 +41,28 @@ define dso_local noundef ptr @pg_malloc0(i64 noundef %0) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %pg_malloc_internal.exit.sink.split
+  br i1 %10, label %11, label %pg_malloc_internal.exit
 
 11:                                               ; preds = %7
   %12 = and i64 %spec.store.select.i, 7
   %13 = icmp eq i64 %12, 0
   %14 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %14, %13
-  br i1 %or.cond3.i, label %15, label %pg_malloc_internal.exit.sink.split
+  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
 
-15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %2, i64 %spec.store.select.i
-  %17 = icmp ult ptr %2, %16
-  br i1 %17, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
-
-.lr.ph.preheader.i:                               ; preds = %15
-  %18 = add i64 %spec.store.select.i, %8
-  %19 = add i64 %8, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %19)
-  %20 = xor i64 %8, -1
-  %21 = add i64 %umax.i, %20
-  %22 = and i64 %21, -8
-  %23 = add i64 %22, 8
-  br label %pg_malloc_internal.exit.sink.split
-
-pg_malloc_internal.exit.sink.split:               ; preds = %7, %11, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %23, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
+.lr.ph.preheader.i:                               ; preds = %11
+  %15 = add i64 %spec.store.select.i, %8
+  %16 = add i64 %8, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
+  %17 = xor i64 %8, -1
+  %18 = add i64 %umax.i, %17
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, 8
   br label %pg_malloc_internal.exit
 
-pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %15
+pg_malloc_internal.exit:                          ; preds = %7, %11, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %20, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
   ret ptr %2
 }
 
@@ -108,29 +100,24 @@ define dso_local noundef ptr @pg_malloc_extended(i64 noundef %0, i32 noundef %1)
   %19 = icmp eq i64 %18, 0
   %20 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %20, %19
-  br i1 %or.cond3.i, label %21, label %pg_malloc_internal.exit.sink.split
+  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit.sink.split
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %3, i64 %spec.store.select.i
-  %23 = icmp ult ptr %3, %22
-  br i1 %23, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
-
-.lr.ph.preheader.i:                               ; preds = %21
-  %24 = add i64 %spec.store.select.i, %14
-  %25 = add i64 %14, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %25)
-  %26 = xor i64 %14, -1
-  %27 = add i64 %umax.i, %26
-  %28 = and i64 %27, -8
-  %29 = add i64 %28, 8
+.lr.ph.preheader.i:                               ; preds = %17
+  %21 = add i64 %spec.store.select.i, %14
+  %22 = add i64 %14, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %21, i64 %22)
+  %23 = xor i64 %14, -1
+  %24 = add i64 %umax.i, %23
+  %25 = and i64 %24, -8
+  %26 = add i64 %25, 8
   br label %pg_malloc_internal.exit.sink.split
 
 pg_malloc_internal.exit.sink.split:               ; preds = %13, %17, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %29, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
+  %.sink = phi i64 [ %26, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11, %21
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11
   ret ptr %3
 }
 
@@ -234,36 +221,28 @@ define dso_local noundef ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %pg_malloc_internal.exit.sink.split
+  br i1 %10, label %11, label %pg_malloc_internal.exit
 
 11:                                               ; preds = %7
   %12 = and i64 %spec.store.select.i, 7
   %13 = icmp eq i64 %12, 0
   %14 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %14, %13
-  br i1 %or.cond3.i, label %15, label %pg_malloc_internal.exit.sink.split
+  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
 
-15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %2, i64 %spec.store.select.i
-  %17 = icmp ult ptr %2, %16
-  br i1 %17, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
-
-.lr.ph.preheader.i:                               ; preds = %15
-  %18 = add i64 %spec.store.select.i, %8
-  %19 = add i64 %8, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %19)
-  %20 = xor i64 %8, -1
-  %21 = add i64 %umax.i, %20
-  %22 = and i64 %21, -8
-  %23 = add i64 %22, 8
-  br label %pg_malloc_internal.exit.sink.split
-
-pg_malloc_internal.exit.sink.split:               ; preds = %7, %11, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %23, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
+.lr.ph.preheader.i:                               ; preds = %11
+  %15 = add i64 %spec.store.select.i, %8
+  %16 = add i64 %8, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
+  %17 = xor i64 %8, -1
+  %18 = add i64 %umax.i, %17
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, 8
   br label %pg_malloc_internal.exit
 
-pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %15
+pg_malloc_internal.exit:                          ; preds = %7, %11, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %20, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
   ret ptr %2
 }
 
@@ -301,29 +280,24 @@ define dso_local noundef ptr @palloc_extended(i64 noundef %0, i32 noundef %1) lo
   %19 = icmp eq i64 %18, 0
   %20 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %20, %19
-  br i1 %or.cond3.i, label %21, label %pg_malloc_internal.exit.sink.split
+  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit.sink.split
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %3, i64 %spec.store.select.i
-  %23 = icmp ult ptr %3, %22
-  br i1 %23, label %.lr.ph.preheader.i, label %pg_malloc_internal.exit
-
-.lr.ph.preheader.i:                               ; preds = %21
-  %24 = add i64 %spec.store.select.i, %14
-  %25 = add i64 %14, 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %25)
-  %26 = xor i64 %14, -1
-  %27 = add i64 %umax.i, %26
-  %28 = and i64 %27, -8
-  %29 = add i64 %28, 8
+.lr.ph.preheader.i:                               ; preds = %17
+  %21 = add i64 %spec.store.select.i, %14
+  %22 = add i64 %14, 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %21, i64 %22)
+  %23 = xor i64 %14, -1
+  %24 = add i64 %umax.i, %23
+  %25 = and i64 %24, -8
+  %26 = add i64 %25, 8
   br label %pg_malloc_internal.exit.sink.split
 
 pg_malloc_internal.exit.sink.split:               ; preds = %13, %17, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %29, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
+  %.sink = phi i64 [ %26, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11, %21
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11
   ret ptr %3
 }
 
@@ -388,7 +362,7 @@ define dso_local noalias nonnull ptr @pnstrdup(ptr noundef readonly captures(add
 15:                                               ; preds = %6
   %16 = ashr exact i64 %8, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %0, i64 %16, i1 false)
-  %17 = getelementptr i8, ptr %10, i64 %16
+  %17 = getelementptr inbounds i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1
   ret ptr %10
 }
@@ -428,15 +402,15 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -446,10 +420,9 @@ attributes #14 = { cold noreturn nounwind }
 attributes #15 = { nounwind allocsize(1) }
 attributes #16 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

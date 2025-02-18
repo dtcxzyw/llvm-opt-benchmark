@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/nodeValuesscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitValuesScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 256) #3
-  store i32 397, ptr %4, align 4
+  store i32 412, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -72,19 +72,22 @@ list_length.exit:                                 ; preds = %3, %22
 
 .lr.ph:                                           ; preds = %list_length.exit
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %41 = load i32, ptr %37, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph59, label %._crit_edge
 
+._crit_edge:                                      ; preds = %56, %.lr.ph, %list_length.exit
+  ret ptr %4
+
 .lr.ph59:                                         ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %30, align 8
-  %47 = getelementptr ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %39, align 8
   %.not51 = icmp eq ptr %48, null
@@ -99,7 +102,7 @@ list_length.exit:                                 ; preds = %3, %22
   store i32 0, ptr %40, align 8
   %53 = tail call ptr @ExecInitExprList(ptr noundef %45, ptr noundef nonnull %4) #3
   %54 = load ptr, ptr %35, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   store ptr %53, ptr %55, align 8
   store i32 %52, ptr %40, align 8
   br label %56
@@ -110,9 +113,6 @@ list_length.exit:                                 ; preds = %3, %22
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
   br i1 %59, label %.lr.ph59, label %._crit_edge
-
-._crit_edge:                                      ; preds = %56, %.lr.ph, %list_length.exit
-  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -219,11 +219,11 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %26 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %35
   %41 = load ptr, ptr %40, align 8
   tail call void @ReScanExprContext(ptr noundef %9) #3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -251,47 +251,47 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph66, label %._crit_edge
 
-.lr.ph66:                                         ; preds = %.lr.ph, %72
-  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.lr.ph ]
-  %55 = load ptr, ptr %51, align 8
-  %56 = getelementptr %union.ListCell, ptr %55, i64 %indvars.iv
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr i8, ptr %49, i64 %indvars.iv
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call i64 %61(ptr noundef %57, ptr noundef %9, ptr noundef %59) #3
-  %63 = getelementptr i64, ptr %48, i64 %indvars.iv
-  store i64 %62, ptr %63, align 8
-  %64 = load i8, ptr %59, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %72, label %66
-
-66:                                               ; preds = %.lr.ph66
-  %.idx = mul nuw nsw i64 %indvars.iv, 104
-  %67 = getelementptr i8, ptr %58, i64 96
-  %68 = getelementptr i8, ptr %67, i64 %.idx
-  %69 = load i16, ptr %68, align 4
-  %.not58 = icmp eq i16 %69, -1
-  br i1 %.not58, label %70, label %72
-
-70:                                               ; preds = %66
-  %71 = tail call i64 @MakeExpandedObjectReadOnlyInternal(i64 noundef %62) #3
-  br label %72
-
-72:                                               ; preds = %.lr.ph66, %66, %70
-  %73 = phi i64 [ %71, %70 ], [ %62, %66 ], [ %62, %.lr.ph66 ]
-  store i64 %73, ptr %63, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = load i32, ptr %50, align 4
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph66, label %._crit_edge
-
-._crit_edge:                                      ; preds = %72, %.lr.ph, %46
+._crit_edge:                                      ; preds = %73, %.lr.ph, %46
   store ptr %44, ptr @CurrentMemoryContext, align 8
-  %77 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %7) #3
+  %55 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %7) #3
   br label %78
+
+.lr.ph66:                                         ; preds = %.lr.ph, %73
+  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
+  %56 = load ptr, ptr %51, align 8
+  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %52, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call i64 %62(ptr noundef %58, ptr noundef %9, ptr noundef %60) #3
+  %64 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  store i64 %63, ptr %64, align 8
+  %65 = load i8, ptr %60, align 1, !range !4, !noundef !5
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %73, label %67
+
+67:                                               ; preds = %.lr.ph66
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %68 = getelementptr i8, ptr %59, i64 28
+  %69 = getelementptr i8, ptr %68, i64 %.idx
+  %70 = load i16, ptr %69, align 4
+  %.not58 = icmp eq i16 %70, -1
+  br i1 %.not58, label %71, label %73
+
+71:                                               ; preds = %67
+  %72 = tail call i64 @MakeExpandedObjectReadOnlyInternal(i64 noundef %63) #3
+  br label %73
+
+73:                                               ; preds = %.lr.ph66, %67, %71
+  %74 = phi i64 [ %72, %71 ], [ %63, %67 ], [ %63, %.lr.ph66 ]
+  store i64 %74, ptr %64, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %75 = load i32, ptr %50, align 4
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph66, label %._crit_edge
 
 78:                                               ; preds = %._crit_edge, %28, %20
   ret ptr %7
@@ -308,15 +308,16 @@ declare i64 @MakeExpandedObjectReadOnlyInternal(i64 noundef) local_unnamed_addr 
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

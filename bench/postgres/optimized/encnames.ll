@@ -3,8 +3,8 @@ source_filename = "bench/postgres/original/encnames.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pg_enc2name = type { ptr, i32 }
 %struct.pg_encname = type { ptr, i32 }
+%struct.pg_enc2name = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"SQL_ASCII\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"EUC_JP\00", align 1
@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
 @.str.40 = private unnamed_addr constant [6 x i8] c"JOHAB\00", align 1
 @.str.41 = private unnamed_addr constant [15 x i8] c"SHIFT_JIS_2004\00", align 1
-@pg_enc2name_tbl = dso_local local_unnamed_addr constant [42 x %struct.pg_enc2name] [%struct.pg_enc2name { ptr @.str, i32 0 }, %struct.pg_enc2name { ptr @.str.1, i32 1 }, %struct.pg_enc2name { ptr @.str.2, i32 2 }, %struct.pg_enc2name { ptr @.str.3, i32 3 }, %struct.pg_enc2name { ptr @.str.4, i32 4 }, %struct.pg_enc2name { ptr @.str.5, i32 5 }, %struct.pg_enc2name { ptr @.str.6, i32 6 }, %struct.pg_enc2name { ptr @.str.7, i32 7 }, %struct.pg_enc2name { ptr @.str.8, i32 8 }, %struct.pg_enc2name { ptr @.str.9, i32 9 }, %struct.pg_enc2name { ptr @.str.10, i32 10 }, %struct.pg_enc2name { ptr @.str.11, i32 11 }, %struct.pg_enc2name { ptr @.str.12, i32 12 }, %struct.pg_enc2name { ptr @.str.13, i32 13 }, %struct.pg_enc2name { ptr @.str.14, i32 14 }, %struct.pg_enc2name { ptr @.str.15, i32 15 }, %struct.pg_enc2name { ptr @.str.16, i32 16 }, %struct.pg_enc2name { ptr @.str.17, i32 17 }, %struct.pg_enc2name { ptr @.str.18, i32 18 }, %struct.pg_enc2name { ptr @.str.19, i32 19 }, %struct.pg_enc2name { ptr @.str.20, i32 20 }, %struct.pg_enc2name { ptr @.str.21, i32 21 }, %struct.pg_enc2name { ptr @.str.22, i32 22 }, %struct.pg_enc2name { ptr @.str.23, i32 23 }, %struct.pg_enc2name { ptr @.str.24, i32 24 }, %struct.pg_enc2name { ptr @.str.25, i32 25 }, %struct.pg_enc2name { ptr @.str.26, i32 26 }, %struct.pg_enc2name { ptr @.str.27, i32 27 }, %struct.pg_enc2name { ptr @.str.28, i32 28 }, %struct.pg_enc2name { ptr @.str.29, i32 29 }, %struct.pg_enc2name { ptr @.str.30, i32 30 }, %struct.pg_enc2name { ptr @.str.31, i32 31 }, %struct.pg_enc2name { ptr @.str.32, i32 32 }, %struct.pg_enc2name { ptr @.str.33, i32 33 }, %struct.pg_enc2name { ptr @.str.34, i32 34 }, %struct.pg_enc2name { ptr @.str.35, i32 35 }, %struct.pg_enc2name { ptr @.str.36, i32 36 }, %struct.pg_enc2name { ptr @.str.37, i32 37 }, %struct.pg_enc2name { ptr @.str.38, i32 38 }, %struct.pg_enc2name { ptr @.str.39, i32 39 }, %struct.pg_enc2name { ptr @.str.40, i32 40 }, %struct.pg_enc2name { ptr @.str.41, i32 41 }], align 16
+@pg_enc2name_tbl = dso_local local_unnamed_addr constant [42 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.2, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.3, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.4, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.5, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.6, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.7, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.8, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.9, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.10, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.11, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.12, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.13, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.14, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.15, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.16, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.17, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.18, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.19, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.20, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.21, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.22, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.23, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.24, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.25, i32 25, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.26, i32 26, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.27, i32 27, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.28, i32 28, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.29, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.30, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.31, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.32, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.33, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.34, i32 34, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.35, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.36, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.37, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.38, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.39, i32 39, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.40, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.41, i32 41, [4 x i8] zeroinitializer }], align 16
 @.str.42 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
 @.str.43 = private unnamed_addr constant [7 x i8] c"EUC-JP\00", align 1
 @.str.44 = private unnamed_addr constant [7 x i8] c"EUC-CN\00", align 1
@@ -77,7 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [15 x i8] c"SHIFT_JISX0213\00", align 1
 @pg_enc2gettext_tbl = dso_local local_unnamed_addr global [42 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.43, ptr @.str.47, ptr null, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.48, ptr @.str.17, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.67], align 16
 @pg_enc2icu_tbl = internal unnamed_addr constant [35 x ptr] [ptr null, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr null, ptr @.str.47, ptr null, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr null, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr null, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.78, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65], align 16
-@pg_encname_tbl = internal constant [81 x %struct.pg_encname] [%struct.pg_encname { ptr @.str.79, i32 19 }, %struct.pg_encname { ptr @.str.80, i32 20 }, %struct.pg_encname { ptr @.str.81, i32 36 }, %struct.pg_encname { ptr @.str.82, i32 2 }, %struct.pg_encname { ptr @.str.83, i32 5 }, %struct.pg_encname { ptr @.str.84, i32 1 }, %struct.pg_encname { ptr @.str.85, i32 3 }, %struct.pg_encname { ptr @.str.86, i32 4 }, %struct.pg_encname { ptr @.str.87, i32 39 }, %struct.pg_encname { ptr @.str.88, i32 37 }, %struct.pg_encname { ptr @.str.89, i32 8 }, %struct.pg_encname { ptr @.str.90, i32 13 }, %struct.pg_encname { ptr @.str.91, i32 14 }, %struct.pg_encname { ptr @.str.92, i32 15 }, %struct.pg_encname { ptr @.str.93, i32 16 }, %struct.pg_encname { ptr @.str.94, i32 17 }, %struct.pg_encname { ptr @.str.95, i32 9 }, %struct.pg_encname { ptr @.str.96, i32 10 }, %struct.pg_encname { ptr @.str.97, i32 11 }, %struct.pg_encname { ptr @.str.98, i32 25 }, %struct.pg_encname { ptr @.str.99, i32 26 }, %struct.pg_encname { ptr @.str.100, i32 27 }, %struct.pg_encname { ptr @.str.101, i32 28 }, %struct.pg_encname { ptr @.str.102, i32 12 }, %struct.pg_encname { ptr @.str.103, i32 40 }, %struct.pg_encname { ptr @.str.104, i32 22 }, %struct.pg_encname { ptr @.str.105, i32 22 }, %struct.pg_encname { ptr @.str.106, i32 34 }, %struct.pg_encname { ptr @.str.107, i32 8 }, %struct.pg_encname { ptr @.str.108, i32 17 }, %struct.pg_encname { ptr @.str.109, i32 9 }, %struct.pg_encname { ptr @.str.110, i32 10 }, %struct.pg_encname { ptr @.str.111, i32 11 }, %struct.pg_encname { ptr @.str.112, i32 12 }, %struct.pg_encname { ptr @.str.113, i32 13 }, %struct.pg_encname { ptr @.str.114, i32 14 }, %struct.pg_encname { ptr @.str.115, i32 15 }, %struct.pg_encname { ptr @.str.116, i32 16 }, %struct.pg_encname { ptr @.str.117, i32 35 }, %struct.pg_encname { ptr @.str.118, i32 7 }, %struct.pg_encname { ptr @.str.119, i32 35 }, %struct.pg_encname { ptr @.str.120, i32 41 }, %struct.pg_encname { ptr @.str.121, i32 35 }, %struct.pg_encname { ptr @.str.122, i32 0 }, %struct.pg_encname { ptr @.str.123, i32 19 }, %struct.pg_encname { ptr @.str.124, i32 19 }, %struct.pg_encname { ptr @.str.125, i32 38 }, %struct.pg_encname { ptr @.str.126, i32 6 }, %struct.pg_encname { ptr @.str.127, i32 6 }, %struct.pg_encname { ptr @.str.128, i32 19 }, %struct.pg_encname { ptr @.str.129, i32 23 }, %struct.pg_encname { ptr @.str.130, i32 29 }, %struct.pg_encname { ptr @.str.131, i32 23 }, %struct.pg_encname { ptr @.str.132, i32 24 }, %struct.pg_encname { ptr @.str.133, i32 30 }, %struct.pg_encname { ptr @.str.134, i32 31 }, %struct.pg_encname { ptr @.str.135, i32 32 }, %struct.pg_encname { ptr @.str.136, i32 18 }, %struct.pg_encname { ptr @.str.137, i32 33 }, %struct.pg_encname { ptr @.str.138, i32 19 }, %struct.pg_encname { ptr @.str.139, i32 20 }, %struct.pg_encname { ptr @.str.140, i32 21 }, %struct.pg_encname { ptr @.str.141, i32 35 }, %struct.pg_encname { ptr @.str.142, i32 37 }, %struct.pg_encname { ptr @.str.143, i32 38 }, %struct.pg_encname { ptr @.str.144, i32 36 }, %struct.pg_encname { ptr @.str.145, i32 29 }, %struct.pg_encname { ptr @.str.146, i32 23 }, %struct.pg_encname { ptr @.str.147, i32 24 }, %struct.pg_encname { ptr @.str.148, i32 30 }, %struct.pg_encname { ptr @.str.149, i32 31 }, %struct.pg_encname { ptr @.str.150, i32 32 }, %struct.pg_encname { ptr @.str.151, i32 18 }, %struct.pg_encname { ptr @.str.152, i32 33 }, %struct.pg_encname { ptr @.str.153, i32 19 }, %struct.pg_encname { ptr @.str.154, i32 20 }, %struct.pg_encname { ptr @.str.155, i32 21 }, %struct.pg_encname { ptr @.str.156, i32 35 }, %struct.pg_encname { ptr @.str.157, i32 37 }, %struct.pg_encname { ptr @.str.158, i32 38 }, %struct.pg_encname { ptr @.str.159, i32 36 }], align 16
 @.str.68 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.69 = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
 @.str.70 = private unnamed_addr constant [11 x i8] c"ISO-8859-2\00", align 1
@@ -170,6 +169,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.157 = private unnamed_addr constant [11 x i8] c"windows936\00", align 1
 @.str.158 = private unnamed_addr constant [11 x i8] c"windows949\00", align 1
 @.str.159 = private unnamed_addr constant [11 x i8] c"windows950\00", align 1
+@pg_encname_tbl = internal constant [81 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str.79, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.80, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.81, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.82, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.83, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.84, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.85, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.86, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.87, i32 39, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.88, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.89, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.90, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.91, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.92, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.93, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.94, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.95, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.96, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.97, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.98, i32 25, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.99, i32 26, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.100, i32 27, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.101, i32 28, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.102, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.103, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.104, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.105, i32 22, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.106, i32 34, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.107, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.108, i32 17, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.109, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.110, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.111, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.112, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.113, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.114, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.115, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.116, i32 16, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.117, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.118, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.119, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.120, i32 41, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.121, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.122, i32 0, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.123, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.124, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.125, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.126, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.127, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.128, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.129, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.130, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.131, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.132, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.133, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.134, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.135, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.136, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.137, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.138, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.139, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.140, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.141, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.142, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.143, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.144, i32 36, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.145, i32 29, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.146, i32 23, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.147, i32 24, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.148, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.149, i32 31, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.150, i32 32, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.151, i32 18, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.152, i32 33, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.153, i32 19, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.154, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.155, i32 21, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.156, i32 35, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.157, i32 37, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.158, i32 38, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.159, i32 36, [4 x i8] zeroinitializer }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @is_encoding_supported_by_icu(i32 noundef %0) local_unnamed_addr #0 {
@@ -189,7 +189,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_ad
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -206,9 +206,13 @@ define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef rea
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -218,12 +222,12 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %9 = icmp ugt i64 %8, 63
   br i1 %9, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
-  %10 = tail call ptr @__ctype_b_loc() #5
+  %10 = tail call ptr @__ctype_b_loc() #7
   br label %11
 
 11:                                               ; preds = %21, %.lr.ph.i
@@ -232,7 +236,7 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(
   %.01317.i = phi ptr [ %0, %.lr.ph.i ], [ %22, %21 ]
   %13 = load ptr, ptr %10, align 8
   %14 = zext i8 %12 to i64
-  %15 = getelementptr i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not15.i = icmp eq i16 %17, 0
@@ -243,16 +247,16 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(
   %or.cond.i = icmp ult i8 %18, 26
   %19 = or disjoint i8 %12, 32
   %.sink.i = select i1 %or.cond.i, i8 %19, i8 %12
-  %20 = getelementptr i8, ptr %.018.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   store i8 %.sink.i, ptr %.018.i, align 1
   br label %21
 
 21:                                               ; preds = %.sink.split.i, %11
   %.1.i = phi ptr [ %.018.i, %11 ], [ %20, %.sink.split.i ]
-  %22 = getelementptr i8, ptr %.01317.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 1
   %23 = load i8, ptr %22, align 1
   %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %clean_encoding_name.exit, label %11, !llvm.loop !5
+  br i1 %.not.i, label %clean_encoding_name.exit, label %11, !llvm.loop !4
 
 clean_encoding_name.exit:                         ; preds = %21
   store i8 0, ptr %.1.i, align 1
@@ -267,7 +271,7 @@ clean_encoding_name.exit:                         ; preds = %21
   %28 = ptrtoint ptr %.02229 to i64
   %29 = sub i64 %27, %28
   %30 = ashr i64 %29, 5
-  %31 = getelementptr %struct.pg_encname, ptr %.02229, i64 %30
+  %31 = getelementptr inbounds %struct.pg_encname, ptr %.02229, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
@@ -276,7 +280,7 @@ clean_encoding_name.exit:                         ; preds = %21
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %26
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %32) #4
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %32) #6
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %43
 
@@ -288,17 +292,21 @@ clean_encoding_name.exit:                         ; preds = %21
 43:                                               ; preds = %37, %26
   %.021 = phi i32 [ %38, %37 ], [ %35, %26 ]
   %44 = icmp slt i32 %.021, 0
-  %45 = getelementptr i8, ptr %31, i64 -16
-  %46 = getelementptr i8, ptr %31, i64 16
+  %45 = getelementptr inbounds i8, ptr %31, i64 -16
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.124 = select i1 %44, ptr %45, ptr %.02328
   %.1 = select i1 %44, ptr %.02229, ptr %46
   %.not = icmp ult ptr %.124, %.1
-  br i1 %.not, label %.loopexit, label %26, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %26, !llvm.loop !6
 
 .loopexit:                                        ; preds = %43, %7, %1, %4, %40
   %.0 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 35) i32 @pg_valid_server_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
@@ -316,10 +324,10 @@ define dso_local range(i32 0, 2) i32 @pg_valid_server_encoding_id_private(i32 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_addr #0 {
@@ -328,7 +336,7 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [42 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [42 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 16
   br label %6
 
@@ -338,22 +346,23 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

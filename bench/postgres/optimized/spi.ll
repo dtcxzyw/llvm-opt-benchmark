@@ -16,8 +16,9 @@ target triple = "x86_64-pc-linux-gnu"
 %union.ListCell = type { ptr }
 %struct.QueryCompletion = type { i32, i64 }
 %struct.ParamExternData = type { i64, i8, i16, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @SPI_processed = dso_local local_unnamed_addr global i64 0, align 8
 @SPI_tuptable = dso_local local_unnamed_addr global ptr null, align 8
@@ -87,46 +88,47 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [22 x i8] c"SPI_OK_REL_UNREGISTER\00", align 1
 @.str.44 = private unnamed_addr constant [19 x i8] c"SPI_OK_TD_REGISTER\00", align 1
 @.str.45 = private unnamed_addr constant [13 x i8] c"SPI_OK_MERGE\00", align 1
-@.str.46 = private unnamed_addr constant [25 x i8] c"Unrecognized SPI code %d\00", align 1
+@.str.46 = private unnamed_addr constant [23 x i8] c"SPI_OK_MERGE_RETURNING\00", align 1
+@.str.47 = private unnamed_addr constant [25 x i8] c"Unrecognized SPI code %d\00", align 1
 @error_context_stack = external local_unnamed_addr global ptr, align 8
 @CurrentResourceOwner = external local_unnamed_addr global ptr, align 8
-@.str.47 = private unnamed_addr constant [51 x i8] c"spi_dest_startup called while not connected to SPI\00", align 1
+@.str.48 = private unnamed_addr constant [51 x i8] c"spi_dest_startup called while not connected to SPI\00", align 1
 @__func__.spi_dest_startup = private unnamed_addr constant [17 x i8] c"spi_dest_startup\00", align 1
-@.str.48 = private unnamed_addr constant [34 x i8] c"improper call to spi_dest_startup\00", align 1
+@.str.49 = private unnamed_addr constant [34 x i8] c"improper call to spi_dest_startup\00", align 1
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
-@.str.49 = private unnamed_addr constant [13 x i8] c"SPI TupTable\00", align 1
-@.str.50 = private unnamed_addr constant [47 x i8] c"spi_printtup called while not connected to SPI\00", align 1
+@.str.50 = private unnamed_addr constant [13 x i8] c"SPI TupTable\00", align 1
+@.str.51 = private unnamed_addr constant [47 x i8] c"spi_printtup called while not connected to SPI\00", align 1
 @__func__.spi_printtup = private unnamed_addr constant [13 x i8] c"spi_printtup\00", align 1
-@.str.51 = private unnamed_addr constant [30 x i8] c"improper call to spi_printtup\00", align 1
-@.str.52 = private unnamed_addr constant [32 x i8] c"invalid transaction termination\00", align 1
+@.str.52 = private unnamed_addr constant [30 x i8] c"improper call to spi_printtup\00", align 1
+@.str.53 = private unnamed_addr constant [32 x i8] c"invalid transaction termination\00", align 1
 @__func__._SPI_commit = private unnamed_addr constant [12 x i8] c"_SPI_commit\00", align 1
-@.str.53 = private unnamed_addr constant [47 x i8] c"cannot commit while a subtransaction is active\00", align 1
+@.str.54 = private unnamed_addr constant [47 x i8] c"cannot commit while a subtransaction is active\00", align 1
 @PG_exception_stack = external local_unnamed_addr global ptr, align 8
 @__func__._SPI_rollback = private unnamed_addr constant [14 x i8] c"_SPI_rollback\00", align 1
-@.str.54 = private unnamed_addr constant [50 x i8] c"cannot roll back while a subtransaction is active\00", align 1
-@.str.55 = private unnamed_addr constant [29 x i8] c"unsupported byval length: %d\00", align 1
-@.str.56 = private unnamed_addr constant [38 x i8] c"../../../src/include/access/tupmacs.h\00", align 1
+@.str.55 = private unnamed_addr constant [50 x i8] c"cannot roll back while a subtransaction is active\00", align 1
+@.str.56 = private unnamed_addr constant [29 x i8] c"unsupported byval length: %d\00", align 1
+@.str.57 = private unnamed_addr constant [38 x i8] c"../../../src/include/access/tupmacs.h\00", align 1
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
-@.str.57 = private unnamed_addr constant [39 x i8] c"cannot open multi-query plan as cursor\00", align 1
+@.str.58 = private unnamed_addr constant [39 x i8] c"cannot open multi-query plan as cursor\00", align 1
 @__func__.SPI_cursor_open_internal = private unnamed_addr constant [25 x i8] c"SPI_cursor_open_internal\00", align 1
-@.str.58 = private unnamed_addr constant [12 x i8] c"SELECT INTO\00", align 1
-@.str.59 = private unnamed_addr constant [31 x i8] c"cannot open %s query as cursor\00", align 1
-@.str.60 = private unnamed_addr constant [43 x i8] c"SPI_cursor_open called while not connected\00", align 1
-@.str.61 = private unnamed_addr constant [60 x i8] c"DECLARE SCROLL CURSOR ... FOR UPDATE/SHARE is not supported\00", align 1
-@.str.62 = private unnamed_addr constant [38 x i8] c"Scrollable cursors must be READ ONLY.\00", align 1
-@.str.63 = private unnamed_addr constant [45 x i8] c"%s is not allowed in a non-volatile function\00", align 1
-@.str.64 = private unnamed_addr constant [35 x i8] c"empty query does not return tuples\00", align 1
+@.str.59 = private unnamed_addr constant [12 x i8] c"SELECT INTO\00", align 1
+@.str.60 = private unnamed_addr constant [31 x i8] c"cannot open %s query as cursor\00", align 1
+@.str.61 = private unnamed_addr constant [43 x i8] c"SPI_cursor_open called while not connected\00", align 1
+@.str.62 = private unnamed_addr constant [60 x i8] c"DECLARE SCROLL CURSOR ... FOR UPDATE/SHARE is not supported\00", align 1
+@.str.63 = private unnamed_addr constant [38 x i8] c"Scrollable cursors must be READ ONLY.\00", align 1
+@.str.64 = private unnamed_addr constant [45 x i8] c"%s is not allowed in a non-volatile function\00", align 1
+@.str.65 = private unnamed_addr constant [35 x i8] c"empty query does not return tuples\00", align 1
 @__func__._SPI_execute_plan = private unnamed_addr constant [18 x i8] c"_SPI_execute_plan\00", align 1
-@.str.65 = private unnamed_addr constant [32 x i8] c"%s query does not return tuples\00", align 1
-@.str.66 = private unnamed_addr constant [44 x i8] c"consistency check on SPI tuple count failed\00", align 1
+@.str.66 = private unnamed_addr constant [32 x i8] c"%s query does not return tuples\00", align 1
+@.str.67 = private unnamed_addr constant [44 x i8] c"consistency check on SPI tuple count failed\00", align 1
 @__func__._SPI_pquery = private unnamed_addr constant [12 x i8] c"_SPI_pquery\00", align 1
-@.str.67 = private unnamed_addr constant [20 x i8] c"SQL expression \22%s\22\00", align 1
-@.str.68 = private unnamed_addr constant [25 x i8] c"PL/pgSQL assignment \22%s\22\00", align 1
-@.str.69 = private unnamed_addr constant [19 x i8] c"SQL statement \22%s\22\00", align 1
+@.str.68 = private unnamed_addr constant [25 x i8] c"PL/pgSQL expression \22%s\22\00", align 1
+@.str.69 = private unnamed_addr constant [25 x i8] c"PL/pgSQL assignment \22%s\22\00", align 1
+@.str.70 = private unnamed_addr constant [19 x i8] c"SQL statement \22%s\22\00", align 1
 @__func__._SPI_cursor_operation = private unnamed_addr constant [22 x i8] c"_SPI_cursor_operation\00", align 1
-@.str.70 = private unnamed_addr constant [48 x i8] c"SPI cursor operation called while not connected\00", align 1
-@.str.71 = private unnamed_addr constant [9 x i8] c"SPI Plan\00", align 1
-@switch.table.SPI_result_code_string = private unnamed_addr constant [32 x ptr] [ptr @.str.27, ptr @.str.26, ptr @.str.25, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.21, ptr @.str.20, ptr poison, ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr poison, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
+@.str.71 = private unnamed_addr constant [48 x i8] c"SPI cursor operation called while not connected\00", align 1
+@.str.72 = private unnamed_addr constant [9 x i8] c"SPI Plan\00", align 1
+@switch.table.SPI_result_code_string = private unnamed_addr constant [33 x ptr] [ptr @.str.27, ptr @.str.26, ptr @.str.25, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.21, ptr @.str.20, ptr poison, ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr poison, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @SPI_connect() local_unnamed_addr #0 {
@@ -152,7 +154,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__func__.SPI_connect_ext) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.SPI_connect_ext) #15
   unreachable
 
 12:                                               ; preds = %4
@@ -174,7 +176,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.SPI_connect_ext) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.SPI_connect_ext) #15
   unreachable
 
 23:                                               ; preds = %18
@@ -202,7 +204,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %34 = add i32 %33, 1
   store i32 %34, ptr @_SPI_connected, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct._SPI_connection, ptr %32, i64 %35
+  %36 = getelementptr inbounds %struct._SPI_connection, ptr %32, i64 %35
   store ptr %36, ptr @_SPI_current, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false)
@@ -238,8 +240,8 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %56, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %60 = load i8, ptr %59, align 8
-  %61 = trunc i8 %60 to i1
+  %60 = load i8, ptr %59, align 8, !range !4, !noundef !5
+  %61 = trunc nuw i8 %60 to i1
   %TopTransactionContext.val = load ptr, ptr @TopTransactionContext, align 8
   %62 = select i1 %61, ptr %TopTransactionContext.val, ptr %56
   %63 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %62, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
@@ -258,22 +260,28 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   ret i32 1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #2
+declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #3
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
@@ -312,7 +320,7 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   %21 = icmp slt i32 %20, 0
   %22 = load ptr, ptr @_SPI_stack, align 8
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr %struct._SPI_connection, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw %struct._SPI_connection, ptr %22, i64 %23
   %storemerge = select i1 %21, ptr null, ptr %24
   store ptr %storemerge, ptr @_SPI_current, align 8
   br label %25
@@ -322,10 +330,10 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @SPI_start_transaction() local_unnamed_addr #3 {
+define dso_local void @SPI_start_transaction() local_unnamed_addr #4 {
   ret void
 }
 
@@ -340,18 +348,19 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %2 = alloca %struct.SavedTransactionCharacteristics, align 4
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   %5 = load ptr, ptr @_SPI_current, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %6, align 8, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
   %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %10)
   %11 = call i32 @errcode(i32 noundef 1282) #15
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__._SPI_commit) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__._SPI_commit) #15
   unreachable
 
 13:                                               ; preds = %1
@@ -362,8 +371,8 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %16)
   %17 = call i32 @errcode(i32 noundef 1282) #15
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__._SPI_commit) #15
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__._SPI_commit) #15
   unreachable
 
 19:                                               ; preds = %13
@@ -376,6 +385,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
   %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
@@ -402,6 +412,8 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   ret void
 
 33:                                               ; preds = %21
@@ -444,18 +456,19 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %2 = alloca %struct.SavedTransactionCharacteristics, align 4
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   %5 = load ptr, ptr @_SPI_current, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %6, align 8, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
   %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %10)
   %11 = call i32 @errcode(i32 noundef 1282) #15
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__._SPI_rollback) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__._SPI_rollback) #15
   unreachable
 
 13:                                               ; preds = %1
@@ -466,8 +479,8 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %16)
   %17 = call i32 @errcode(i32 noundef 1282) #15
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__._SPI_rollback) #15
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__._SPI_rollback) #15
   unreachable
 
 19:                                               ; preds = %13
@@ -480,6 +493,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
   %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
@@ -506,6 +520,8 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   ret void
 
 33:                                               ; preds = %21
@@ -541,27 +557,27 @@ define dso_local void @SPI_rollback_and_chain() local_unnamed_addr #0 {
 define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %_SPI_connected.promoted = load i32, ptr @_SPI_connected, align 4
   %2 = icmp sgt i32 %_SPI_connected.promoted, -1
-  br i1 %2, label %.lr.ph, label %._crit_edge.thread
+  br i1 %2, label %.lr.ph, label %.thread.thread
 
 .lr.ph:                                           ; preds = %1
   %3 = load ptr, ptr @_SPI_stack, align 8
   %4 = zext nneg i32 %_SPI_connected.promoted to i64
-  %5 = getelementptr %struct._SPI_connection, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
-  %7 = load i8, ptr %6, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %._crit_edge, label %.lr.ph13
+  %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %.thread, label %.lr.ph19
 
-9:                                                ; preds = %.lr.ph13
-  %10 = getelementptr %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
+9:                                                ; preds = %.lr.ph19
+  %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 73
-  %12 = load i8, ptr %11, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %._crit_edge.loopexit, label %.lr.ph13, !llvm.loop !5
+  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %.thread.loopexit, label %.lr.ph19
 
-.lr.ph13:                                         ; preds = %.lr.ph, %9
+.lr.ph19:                                         ; preds = %.lr.ph, %9
   %14 = phi ptr [ %10, %9 ], [ %5, %.lr.ph ]
-  %indvars.iv12 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
+  %indvars.iv18 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr @SPI_processed, align 8
@@ -571,81 +587,81 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @SPI_result, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv12, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv18, -1
   %21 = trunc nsw i64 %indvars.iv.next to i32
-  %22 = icmp eq i64 %indvars.iv12, 0
-  %23 = getelementptr %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
+  %22 = icmp eq i64 %indvars.iv18, 0
+  %23 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %storemerge = select i1 %22, ptr null, ptr %23
-  %24 = icmp sgt i64 %indvars.iv12, 0
-  br i1 %24, label %9, label %._crit_edge.loopexit, !llvm.loop !5
+  %24 = icmp sgt i64 %indvars.iv18, 0
+  br i1 %24, label %9, label %.thread.loopexit
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph13, %9
+.thread.loopexit:                                 ; preds = %.lr.ph19, %9
   store i32 %21, ptr @_SPI_connected, align 4
   store ptr %storemerge, ptr @_SPI_current, align 8
-  br label %._crit_edge
+  br label %.thread
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph
-  %.0.not.not.lcssa = xor i1 %8, true
-  %brmerge.not = and i1 %0, %.0.not.not.lcssa
-  br i1 %brmerge.not, label %25, label %._crit_edge.thread
+.thread:                                          ; preds = %.thread.loopexit, %.lr.ph
+  %.not.not.lcssa = xor i1 %8, true
+  %brmerge.not = and i1 %0, %.not.not.lcssa
+  br i1 %brmerge.not, label %25, label %.thread.thread
 
-25:                                               ; preds = %._crit_edge
+25:                                               ; preds = %.thread
   %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %26, label %27, label %._crit_edge.thread
+  br i1 %26, label %27, label %.thread.thread
 
 27:                                               ; preds = %25
   %28 = tail call i32 @errcode(i32 noundef 64) #15
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
   %30 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.AtEOXact_SPI) #15
-  br label %._crit_edge.thread
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__func__.AtEOXact_SPI) #15
+  br label %.thread.thread
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge, %27, %25
+.thread.thread:                                   ; preds = %1, %.thread, %25, %27
   ret void
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @_SPI_connected, align 4
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %4, label %.lr.ph.preheader, label %.thread.thread
 
 .lr.ph.preheader:                                 ; preds = %2
   %.pre = load ptr, ptr @_SPI_stack, align 8
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr %struct._SPI_connection, ptr %.pre, i64 %5
+  %6 = getelementptr inbounds nuw %struct._SPI_connection, ptr %.pre, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
-  %.not57 = icmp eq i32 %8, %1
-  br i1 %.not57, label %.lr.ph59, label %._crit_edge
+  %.not62 = icmp eq i32 %8, %1
+  br i1 %.not62, label %.lr.ph64, label %.thread
 
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
-  %10 = getelementptr %struct._SPI_connection, ptr %35, i64 %9
+  %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %35, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
-  br i1 %.not, label %.lr.ph59, label %._crit_edge, !llvm.loop !7
+  br i1 %.not, label %.lr.ph64, label %.thread
 
-.lr.ph59:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.0.not.not4258 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
+  %.not38.not4763 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 73
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %._crit_edge, label %17
+  %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %.lr.ph59
+17:                                               ; preds = %.lr.ph64
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
-  %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %21, label %20
+  %.not29 = icmp eq ptr %19, null
+  br i1 %.not29, label %21, label %20
 
 20:                                               ; preds = %17
   tail call void @MemoryContextDelete(ptr noundef nonnull %19) #15
@@ -655,15 +671,15 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 21:                                               ; preds = %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %23 = load ptr, ptr %22, align 8
-  %.not29 = icmp eq ptr %23, null
-  br i1 %.not29, label %25, label %24
+  %.not30 = icmp eq ptr %23, null
+  br i1 %.not30, label %25, label %24
 
 24:                                               ; preds = %21
   tail call void @MemoryContextDelete(ptr noundef nonnull %23) #15
   store ptr null, ptr %22, align 8
   br label %25
 
-25:                                               ; preds = %24, %21
+25:                                               ; preds = %21, %24
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr @SPI_processed, align 8
@@ -679,67 +695,67 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %34 = icmp slt i32 %33, 0
   %35 = load ptr, ptr @_SPI_stack, align 8
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr %struct._SPI_connection, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw %struct._SPI_connection, ptr %35, i64 %36
   %storemerge = select i1 %34, ptr null, ptr %37
   store ptr %storemerge, ptr @_SPI_current, align 8
   %38 = icmp sgt i32 %33, -1
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %38, label %.lr.ph, label %.thread
 
-._crit_edge:                                      ; preds = %.lr.ph59, %.lr.ph, %25, %.lr.ph.preheader
-  %.0.not.not.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.0.not.not4258, %.lr.ph59 ], [ true, %.lr.ph ], [ true, %25 ]
-  %brmerge.not = and i1 %0, %.0.not.not.lcssa
-  br i1 %brmerge.not, label %39, label %._crit_edge.thread
+.thread:                                          ; preds = %.lr.ph64, %.lr.ph, %25, %.lr.ph.preheader
+  %.not38.not.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.not38.not4763, %.lr.ph64 ], [ true, %.lr.ph ], [ true, %25 ]
+  %brmerge.not = and i1 %0, %.not38.not.lcssa
+  br i1 %brmerge.not, label %39, label %.thread.thread
 
-39:                                               ; preds = %._crit_edge
+39:                                               ; preds = %.thread
   %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %40, label %41, label %._crit_edge.thread
+  br i1 %40, label %41, label %.thread.thread
 
 41:                                               ; preds = %39
   %42 = tail call i32 @errcode(i32 noundef 64) #15
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #15
   %44 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #15
-  br label %._crit_edge.thread
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #15
+  br label %.thread.thread
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %41, %39
+.thread.thread:                                   ; preds = %2, %.thread, %39, %41
   %45 = load ptr, ptr @_SPI_current, align 8
-  %.not30 = icmp eq ptr %45, null
-  %brmerge38 = or i1 %0, %.not30
-  br i1 %brmerge38, label %.loopexit, label %46
+  %.not31 = icmp eq ptr %45, null
+  %brmerge40 = or i1 %0, %.not31
+  br i1 %brmerge40, label %.loopexit, label %46
 
-46:                                               ; preds = %._crit_edge.thread
+46:                                               ; preds = %.thread.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %47, align 8
-  %.not31 = icmp ult i32 %48, %1
-  br i1 %.not31, label %52, label %49
+  %.not32 = icmp ult i32 %48, %1
+  br i1 %.not32, label %52, label %49
 
 49:                                               ; preds = %46
   store i32 0, ptr %47, align 8
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %51 = load ptr, ptr %50, align 8
   tail call void @MemoryContextReset(ptr noundef %51) #15
-  %.pre53 = load ptr, ptr @_SPI_current, align 8
+  %.pre57 = load ptr, ptr @_SPI_current, align 8
   br label %52
 
-52:                                               ; preds = %49, %46
-  %53 = phi ptr [ %.pre53, %49 ], [ %45, %46 ]
+52:                                               ; preds = %46, %49
+  %53 = phi ptr [ %45, %46 ], [ %.pre57, %49 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
-  %.not32 = icmp eq ptr %55, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph52
+  %.not33 = icmp eq ptr %55, null
+  br i1 %.not33, label %.loopexit, label %.lr.ph56
 
-.lr.ph52:                                         ; preds = %52, %73
-  %storemerge3350.sink = phi ptr [ %56, %73 ], [ %55, %52 ]
-  %.sroa.8.048 = phi ptr [ %.sroa.0.1, %73 ], [ %54, %52 ]
-  %56 = load ptr, ptr %storemerge3350.sink, align 8
-  %57 = getelementptr i8, ptr %storemerge3350.sink, i64 -40
-  %58 = getelementptr i8, ptr %storemerge3350.sink, i64 8
+.lr.ph56:                                         ; preds = %52, %73
+  %storemerge3455.sink = phi ptr [ %56, %73 ], [ %55, %52 ]
+  %.sroa.10.053 = phi ptr [ %.sroa.0.1, %73 ], [ %54, %52 ]
+  %56 = load ptr, ptr %storemerge3455.sink, align 8
+  %57 = getelementptr inbounds i8, ptr %storemerge3455.sink, i64 -40
+  %58 = getelementptr inbounds nuw i8, ptr %storemerge3455.sink, i64 8
   %59 = load i32, ptr %58, align 8
-  %.not35 = icmp ult i32 %59, %1
-  br i1 %.not35, label %73, label %60
+  %.not36 = icmp ult i32 %59, %1
+  br i1 %.not36, label %73, label %60
 
-60:                                               ; preds = %.lr.ph52
-  store ptr %56, ptr %.sroa.8.048, align 8
+60:                                               ; preds = %.lr.ph56
+  store ptr %56, ptr %.sroa.10.053, align 8
   %61 = load ptr, ptr @_SPI_current, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -760,47 +776,55 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br label %70
 
 70:                                               ; preds = %69, %66
-  %71 = getelementptr i8, ptr %storemerge3350.sink, i64 -8
+  %71 = getelementptr inbounds i8, ptr %storemerge3455.sink, i64 -8
   %72 = load ptr, ptr %71, align 8
   tail call void @MemoryContextDelete(ptr noundef %72) #15
   br label %73
 
-73:                                               ; preds = %.lr.ph52, %70
-  %.sroa.0.1 = phi ptr [ %storemerge3350.sink, %.lr.ph52 ], [ %.sroa.8.048, %70 ]
-  %.not36 = icmp eq ptr %56, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph52, !llvm.loop !8
+73:                                               ; preds = %70, %.lr.ph56
+  %.sroa.0.1 = phi ptr [ %storemerge3455.sink, %.lr.ph56 ], [ %.sroa.10.053, %70 ]
+  %.not37 = icmp eq ptr %56, null
+  br i1 %.not37, label %.loopexit, label %.lr.ph56, !llvm.loop !6
 
-.loopexit:                                        ; preds = %73, %52, %._crit_edge.thread
+.loopexit:                                        ; preds = %73, %52, %.thread.thread
   ret void
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #4 {
+; Function Attrs: nounwind uwtable
+define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #0 {
   %1 = load ptr, ptr @_SPI_current, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %7, label %3
+  br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  %not. = xor i1 %6, true
-  br label %7
+  %5 = load i8, ptr %4, align 8, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %9, label %7
 
-7:                                                ; preds = %3, %0
-  %.0 = phi i1 [ false, %0 ], [ %not., %3 ]
+7:                                                ; preds = %3
+  %8 = tail call zeroext i1 @IsSubTransaction() #15
+  %not. = xor i1 %8, true
+  br label %9
+
+9:                                                ; preds = %7, %3, %0
+  %.0 = phi i1 [ false, %0 ], [ false, %3 ], [ %not., %7 ]
   ret i1 %.0
 }
 
+declare zeroext i1 @IsSubTransaction() local_unnamed_addr #3
+
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SPICallbackArg, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = alloca %struct._SPI_plan, align 8
   %7 = alloca %struct.SPIExecuteOptions, align 8
   %8 = zext i1 %1 to i8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #15
   %9 = icmp eq ptr %0, null
   %10 = icmp slt i64 %2, 0
   %or.cond = or i1 %9, %10
@@ -823,8 +847,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   store i32 569278163, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 2048, ptr %18, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   store ptr %0, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
@@ -850,7 +874,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph30.i ], [ 0, %.lr.ph.i ]
   %.02428.i = phi ptr [ %35, %.lr.ph30.i ], [ null, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr %union.ListCell, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -871,8 +895,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_b
   store i8 1, ptr %40, align 1
   %41 = load ptr, ptr %5, align 8
   store ptr %41, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %8, ptr %42, align 8
@@ -892,6 +916,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_b
 
 _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %44, %_SPI_prepare_oneshot_plan.exit ], [ -6, %3 ], [ -4, %11 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   ret i32 %.0
 }
 
@@ -899,612 +925,763 @@ _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepa
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.SPICallbackArg, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = alloca %struct.QueryCompletion, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %22
+
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @_SPI_current, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %22, label %19
+
+19:                                               ; preds = %14
+  %20 = tail call zeroext i1 @IsSubTransaction() #15
+  %21 = xor i1 %20, true
+  br label %22
+
+22:                                               ; preds = %19, %14, %5
+  %23 = phi i1 [ false, %14 ], [ false, %5 ], [ %21, %19 ]
   store ptr null, ptr %6, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @_SPI_error_callback, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %15, align 8
-  %16 = load ptr, ptr @error_context_stack, align 8
-  store ptr %16, ptr %7, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %25, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @_SPI_error_callback, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %6, ptr %28, align 8
+  %29 = load ptr, ptr @error_context_stack, align 8
+  store ptr %29, ptr %7, align 8
   store ptr %7, ptr @error_context_stack, align 8
   %.not = icmp ne ptr %2, null
-  br i1 %.not, label %17, label %23
+  br i1 %.not, label %30, label %36
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i8, ptr %18, align 8
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %22
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i8, ptr %31, align 8, !range !4, !noundef !5
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %35
 
-21:                                               ; preds = %17
+34:                                               ; preds = %30
   call void @PushActiveSnapshot(ptr noundef nonnull %2) #15
-  br label %23
+  br label %36
 
-22:                                               ; preds = %17
+35:                                               ; preds = %30
   call void @PushCopiedSnapshot(ptr noundef nonnull %2) #15
-  br label %23
+  br label %36
 
-23:                                               ; preds = %21, %22, %5
-  %.0124 = phi i8 [ 1, %21 ], [ 1, %22 ], [ 0, %5 ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i8, ptr %24, align 4
-  %26 = trunc i8 %25 to i1
-  %27 = icmp eq ptr %10, null
-  %28 = load ptr, ptr @CurrentResourceOwner, align 8
-  %spec.select = select i1 %27, ptr %28, ptr %10
-  %.0128 = select i1 %26, ptr %spec.select, ptr null
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %30 = load i8, ptr %29, align 2
-  %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %31, label %35, label %40
+36:                                               ; preds = %34, %35, %22
+  %.0142 = phi i8 [ 1, %34 ], [ 1, %35 ], [ 0, %22 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %38 = load i8, ptr %37, align 4, !range !4, !noundef !5
+  %39 = trunc nuw i8 %38 to i1
+  %40 = icmp eq ptr %10, null
+  %41 = load ptr, ptr @CurrentResourceOwner, align 8
+  %spec.select = select i1 %40, ptr %41, ptr %10
+  %.0146 = select i1 %39, ptr %spec.select, ptr null
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %43 = load i8, ptr %42, align 2, !range !4, !noundef !5
+  %44 = trunc nuw i8 %43 to i1
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %44, label %48, label %53
 
-35:                                               ; preds = %23
-  br i1 %34, label %36, label %.lr.ph220
+48:                                               ; preds = %36
+  br i1 %47, label %49, label %.lr.ph322
 
-36:                                               ; preds = %35
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %37)
-  %38 = call i32 @errcode(i32 noundef 16801924) #15
-  %39 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2474, ptr noundef nonnull @__func__._SPI_execute_plan) #15
+49:                                               ; preds = %48
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %50)
+  %51 = call i32 @errcode(i32 noundef 16801924) #15
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2496, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
-40:                                               ; preds = %23
-  br i1 %34, label %.thread, label %.lr.ph220
+53:                                               ; preds = %36
+  br i1 %47, label %.thread243, label %.lr.ph322
 
-.lr.ph220:                                        ; preds = %35, %40
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.24.i = select i1 %4, i32 0, i32 32
-  %54 = load i32, ptr %41, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph340, label %.thread
+.lr.ph322:                                        ; preds = %48, %53
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.182 = select i1 %23, i32 2, i32 1
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.26.i = select i1 %4, i32 0, i32 32
+  %66 = load i32, ptr %54, align 4
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.lr.ph460, label %.thread243
 
-.lr.ph340:                                        ; preds = %.lr.ph220, %293
-  %.1125215339 = phi i8 [ %.2126255, %293 ], [ %.0124, %.lr.ph220 ]
-  %.0118216338 = phi ptr [ %.1119.lcssa, %293 ], [ null, %.lr.ph220 ]
-  %.0114217337 = phi i64 [ %.1115.lcssa, %293 ], [ 0, %.lr.ph220 ]
-  %.0218336 = phi i32 [ %.1.lcssa, %293 ], [ 0, %.lr.ph220 ]
-  %indvars.iv246335 = phi i64 [ %indvars.iv.next247, %293 ], [ 0, %.lr.ph220 ]
-  %56 = load ptr, ptr %42, align 8
-  %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv246335
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %6, align 8
-  %61 = load i8, ptr %43, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %88
+.lr.ph460:                                        ; preds = %.lr.ph322, %351
+  %.1143317459 = phi i8 [ %.3145363, %351 ], [ %.0142, %.lr.ph322 ]
+  %.0133318458 = phi ptr [ %.2135.lcssa, %351 ], [ null, %.lr.ph322 ]
+  %.0126319457 = phi i64 [ %.2128.lcssa, %351 ], [ 0, %.lr.ph322 ]
+  %.0125320456 = phi i32 [ %.2.lcssa, %351 ], [ 0, %.lr.ph322 ]
+  %indvars.iv355455 = phi i64 [ %indvars.iv.next356, %351 ], [ 0, %.lr.ph322 ]
+  %68 = load ptr, ptr %55, align 8
+  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv355455
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load ptr, ptr %71, align 8
+  store ptr %72, ptr %6, align 8
+  %73 = load i8, ptr %56, align 1, !range !4, !noundef !5
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %100
 
-63:                                               ; preds = %.lr.ph340
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %82, label %67
+75:                                               ; preds = %.lr.ph460
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %94, label %79
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %44, align 8
-  %.not149 = icmp eq ptr %68, null
-  br i1 %.not149, label %75, label %69
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %57, align 8
+  %.not173 = icmp eq ptr %80, null
+  br i1 %.not173, label %87, label %81
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %45, align 8
-  %71 = load ptr, ptr @_SPI_current, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %65, ptr noundef %60, ptr noundef nonnull %68, ptr noundef %70, ptr noundef %73) #15
-  br label %82
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %58, align 8
+  %83 = load ptr, ptr @_SPI_current, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
+  %85 = load ptr, ptr %84, align 8
+  %86 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %77, ptr noundef %72, ptr noundef nonnull %80, ptr noundef %82, ptr noundef %85) #15
+  br label %94
 
-75:                                               ; preds = %67
-  %76 = load ptr, ptr %46, align 8
-  %77 = load i32, ptr %47, align 8
-  %78 = load ptr, ptr @_SPI_current, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %65, ptr noundef %60, ptr noundef %76, i32 noundef %77, ptr noundef %80) #15
-  br label %82
+87:                                               ; preds = %79
+  %88 = load ptr, ptr %59, align 8
+  %89 = load i32, ptr %60, align 8
+  %90 = load ptr, ptr @_SPI_current, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %77, ptr noundef %72, ptr noundef %88, i32 noundef %89, ptr noundef %92) #15
+  br label %94
 
-82:                                               ; preds = %63, %69, %75
-  %.0130 = phi ptr [ %74, %69 ], [ %81, %75 ], [ null, %63 ]
-  %83 = load ptr, ptr %46, align 8
-  %84 = load i32, ptr %47, align 8
-  %85 = load ptr, ptr %44, align 8
-  %86 = load ptr, ptr %45, align 8
-  %87 = load i32, ptr %48, align 4
-  call void @CompleteCachedPlan(ptr noundef nonnull %58, ptr noundef %.0130, ptr noundef null, ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, i1 noundef zeroext false) #15
-  br label %88
-
-88:                                               ; preds = %82, %.lr.ph340
-  %89 = load i8, ptr %29, align 2
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %104
-
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  %93 = load ptr, ptr %92, align 8
-  %.not150 = icmp eq ptr %93, null
-  br i1 %.not150, label %94, label %104
-
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 179
-  br i1 %97, label %100, label %98
-
-98:                                               ; preds = %94
-  %99 = call ptr @GetCommandTagName(i32 noundef %96) #15
+94:                                               ; preds = %75, %81, %87
+  %.0148 = phi ptr [ %86, %81 ], [ %93, %87 ], [ null, %75 ]
+  %95 = load ptr, ptr %59, align 8
+  %96 = load i32, ptr %60, align 8
+  %97 = load ptr, ptr %57, align 8
+  %98 = load ptr, ptr %58, align 8
+  %99 = load i32, ptr %61, align 4
+  call void @CompleteCachedPlan(ptr noundef nonnull %70, ptr noundef %.0148, ptr noundef null, ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext false) #15
   br label %100
 
-100:                                              ; preds = %94, %98
-  %.0129 = phi ptr [ %99, %98 ], [ @.str.58, %94 ]
-  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %101)
-  %102 = call i32 @errcode(i32 noundef 16801924) #15
-  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, ptr noundef %.0129) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2548, ptr noundef nonnull @__func__._SPI_execute_plan) #15
+100:                                              ; preds = %94, %.lr.ph460
+  %101 = load i8, ptr %42, align 2, !range !4, !noundef !5
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %103, label %116
+
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %105 = load ptr, ptr %104, align 8
+  %.not174 = icmp eq ptr %105, null
+  br i1 %.not174, label %106, label %116
+
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp eq i32 %108, 179
+  br i1 %109, label %112, label %110
+
+110:                                              ; preds = %106
+  %111 = call ptr @GetCommandTagName(i32 noundef %108) #15
+  br label %112
+
+112:                                              ; preds = %106, %110
+  %.0147 = phi ptr [ %111, %110 ], [ @.str.59, %106 ]
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %113)
+  %114 = call i32 @errcode(i32 noundef 16801924) #15
+  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %.0147) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2570, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
-104:                                              ; preds = %91, %88
-  %105 = load ptr, ptr %1, align 8
-  %106 = load ptr, ptr @_SPI_current, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 64
-  %108 = load ptr, ptr %107, align 8
-  %109 = call ptr @GetCachedPlan(ptr noundef nonnull %58, ptr noundef %105, ptr noundef %.0128, ptr noundef %108) #15
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %.not.i = icmp eq ptr %111, null
+116:                                              ; preds = %103, %100
+  %117 = load ptr, ptr %1, align 8
+  %118 = load ptr, ptr @_SPI_current, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
+  %120 = load ptr, ptr %119, align 8
+  %121 = call ptr @GetCachedPlan(ptr noundef nonnull %70, ptr noundef %117, ptr noundef %.0146, ptr noundef %120) #15
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %.not.i = icmp eq ptr %123, null
   %or.cond = select i1 %.not, i1 true, i1 %.not.i
-  br i1 %or.cond, label %list_length.exit160.thread, label %list_length.exit
+  br i1 %or.cond, label %list_length.exit186.thread, label %list_length.exit
 
-list_length.exit:                                 ; preds = %104
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp sgt i32 %113, 1
-  br i1 %114, label %120, label %list_length.exit160
+list_length.exit:                                 ; preds = %116
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp sgt i32 %125, 1
+  br i1 %126, label %132, label %list_length.exit186
 
-list_length.exit160:                              ; preds = %list_length.exit
-  %115 = icmp eq i32 %113, 1
-  br i1 %115, label %116, label %.lr.ph
+list_length.exit186:                              ; preds = %list_length.exit
+  %127 = icmp eq i32 %125, 1
+  br i1 %127, label %128, label %.lr.ph308
 
-116:                                              ; preds = %list_length.exit160
-  %117 = getelementptr i8, ptr %111, i64 16
-  %.val = load ptr, ptr %117, align 8
-  %118 = load ptr, ptr %.val, align 8
-  %119 = call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %118) #15
-  br i1 %119, label %120, label %.lr.ph
+128:                                              ; preds = %list_length.exit186
+  %129 = getelementptr i8, ptr %123, i64 16
+  %.val = load ptr, ptr %129, align 8
+  %130 = load ptr, ptr %.val, align 8
+  %131 = call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %130) #15
+  br i1 %131, label %132, label %.lr.ph308
 
-120:                                              ; preds = %116, %list_length.exit
+132:                                              ; preds = %128, %list_length.exit
   call void @EnsurePortalSnapshotExists() #15
-  %121 = load i8, ptr %49, align 8
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %.lr.ph, label %123
+  %133 = load i8, ptr %62, align 8, !range !4, !noundef !5
+  %134 = trunc nuw i8 %133 to i1
+  %brmerge = select i1 %134, i1 true, i1 %23
+  br i1 %brmerge, label %.lr.ph308, label %135
 
-123:                                              ; preds = %120
-  %124 = load i8, ptr %50, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %.lr.ph, label %126
+135:                                              ; preds = %132
+  %136 = trunc nuw i8 %.1143317459 to i1
+  br i1 %136, label %137, label %138
 
-126:                                              ; preds = %123
-  %127 = trunc nuw i8 %.1125215339 to i1
-  br i1 %127, label %128, label %129
-
-128:                                              ; preds = %126
+137:                                              ; preds = %135
   call void @PopActiveSnapshot() #15
-  br label %129
+  br label %138
 
-129:                                              ; preds = %128, %126
-  %130 = call ptr @GetTransactionSnapshot() #15
-  call void @PushActiveSnapshot(ptr noundef %130) #15
-  br label %.lr.ph
+138:                                              ; preds = %137, %135
+  %139 = call ptr @GetTransactionSnapshot() #15
+  call void @PushActiveSnapshot(ptr noundef %139) #15
+  br label %.lr.ph308
 
-list_length.exit160.thread:                       ; preds = %104
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+list_length.exit186.thread:                       ; preds = %116
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph308
 
-.lr.ph:                                           ; preds = %list_length.exit160, %116, %129, %123, %120, %list_length.exit160.thread
-  %.2126254 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.1125215339, %list_length.exit160 ], [ %.1125215339, %116 ], [ 1, %129 ], [ %.1125215339, %123 ], [ %.1125215339, %120 ]
-  %131 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %132 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %133 = trunc nuw i8 %.2126254 to i1
-  %.not230 = xor i1 %133, true
-  %134 = load i32, ptr %131, align 4
-  %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %.lr.ph332, label %._crit_edge
+.lr.ph308:                                        ; preds = %list_length.exit186, %128, %138, %132, %list_length.exit186.thread
+  %.3145362 = phi i8 [ %.1143317459, %list_length.exit186.thread ], [ %.1143317459, %list_length.exit186 ], [ %.1143317459, %128 ], [ 1, %138 ], [ %.1143317459, %132 ]
+  %140 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %142 = trunc nuw i8 %.3145362 to i1
+  %.not332 = xor i1 %142, true
+  %143 = load i32, ptr %140, align 4
+  %144 = icmp sgt i32 %143, 0
+  br i1 %144, label %.lr.ph452, label %._crit_edge
 
-136:                                              ; preds = %288
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv328, 1
-  %137 = load i32, ptr %131, align 4
-  %138 = sext i32 %137 to i64
-  %139 = icmp slt i64 %indvars.iv.next, %138
-  br i1 %139, label %.lr.ph332, label %._crit_edge
+145:                                              ; preds = %.thread211
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv448, 1
+  %146 = load i32, ptr %140, align 4
+  %147 = sext i32 %146 to i64
+  %148 = icmp slt i64 %indvars.iv.next, %147
+  br i1 %148, label %.lr.ph452, label %._crit_edge
 
-.lr.ph332:                                        ; preds = %.lr.ph, %136
-  %.1119205331 = phi ptr [ %.3121, %136 ], [ %.0118216338, %.lr.ph ]
-  %.1115206330 = phi i64 [ %.3117, %136 ], [ %.0114217337, %.lr.ph ]
-  %.1207329 = phi i32 [ %.3, %136 ], [ %.0218336, %.lr.ph ]
-  %indvars.iv328 = phi i64 [ %indvars.iv.next, %136 ], [ 0, %.lr.ph ]
-  %140 = load ptr, ptr %132, align 8
-  %141 = getelementptr %union.ListCell, ptr %140, i64 %indvars.iv328
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 18
-  %144 = load i8, ptr %143, align 2
-  %145 = trunc i8 %144 to i1
-  %146 = load ptr, ptr @_SPI_current, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %142, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
-  %148 = load ptr, ptr %147, align 8
-  %.not153 = icmp eq ptr %148, null
-  br i1 %.not153, label %155, label %149
+.lr.ph452:                                        ; preds = %.lr.ph308, %145
+  %.2135305451 = phi ptr [ %.5138, %145 ], [ %.0133318458, %.lr.ph308 ]
+  %.2128306450 = phi i64 [ %.5131, %145 ], [ %.0126319457, %.lr.ph308 ]
+  %.2307449 = phi i32 [ %.7, %145 ], [ %.0125320456, %.lr.ph308 ]
+  %indvars.iv448 = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph308 ]
+  %149 = load ptr, ptr %141, align 8
+  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv448
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 18
+  %153 = load i8, ptr %152, align 2, !range !4, !noundef !5
+  %154 = trunc nuw i8 %153 to i1
+  %155 = load ptr, ptr @_SPI_current, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
+  %157 = load ptr, ptr %156, align 8
+  %.not177 = icmp eq ptr %157, null
+  br i1 %.not177, label %163, label %158
 
-149:                                              ; preds = %.lr.ph332
-  %150 = load i32, ptr %148, align 4
-  switch i32 %150, label %155 [
-    i32 141, label %151
-    i32 209, label %.thread
+158:                                              ; preds = %.lr.ph452
+  %159 = load i32, ptr %157, align 4
+  switch i32 %159, label %163 [
+    i32 156, label %160
+    i32 224, label %.thread243
   ]
-
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread, label %155
-
-155:                                              ; preds = %149, %151, %.lr.ph332
-  %156 = load i8, ptr %49, align 8
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %165
-
-158:                                              ; preds = %155
-  %159 = call zeroext i1 @CommandIsReadOnly(ptr noundef nonnull %142) #15
-  br i1 %159, label %._crit_edge249, label %160
-
-._crit_edge249:                                   ; preds = %158
-  %.pre250 = load i8, ptr %49, align 8
-  br label %165
 
 160:                                              ; preds = %158
-  %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %161)
-  %162 = call i32 @errcode(i32 noundef 1088) #15
-  %163 = call fastcc ptr @CreateCommandName(ptr noundef nonnull %142)
-  %164 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef %163) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2636, ptr noundef nonnull @__func__._SPI_execute_plan) #15
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 40
+  %162 = load ptr, ptr %161, align 8
+  %.not178 = icmp eq ptr %162, null
+  br i1 %.not178, label %.thread243, label %163
+
+163:                                              ; preds = %158, %160, %.lr.ph452
+  %164 = load i8, ptr %62, align 8, !range !4, !noundef !5
+  %165 = trunc nuw i8 %164 to i1
+  br i1 %165, label %166, label %175
+
+166:                                              ; preds = %163
+  %167 = call zeroext i1 @CommandIsReadOnly(ptr noundef nonnull %151) #15
+  br i1 %167, label %._crit_edge358, label %170
+
+._crit_edge358:                                   ; preds = %166
+  %.pre359 = load i8, ptr %62, align 8, !range !4
+  %168 = trunc nuw i8 %.pre359 to i1
+  %169 = select i1 %168, i1 true, i1 %.not332
+  br label %175
+
+170:                                              ; preds = %166
+  %171 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %171)
+  %172 = call i32 @errcode(i32 noundef 1088) #15
+  %173 = call fastcc ptr @CreateCommandName(ptr noundef nonnull %151)
+  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %173) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
-165:                                              ; preds = %._crit_edge249, %155
-  %166 = phi i8 [ %.pre250, %._crit_edge249 ], [ %156, %155 ]
-  %167 = trunc i8 %166 to i1
-  %brmerge = select i1 %167, i1 true, i1 %.not230
-  br i1 %brmerge, label %169, label %168
+175:                                              ; preds = %._crit_edge358, %163
+  %brmerge333 = phi i1 [ %169, %._crit_edge358 ], [ %.not332, %163 ]
+  br i1 %brmerge333, label %177, label %176
 
-168:                                              ; preds = %165
+176:                                              ; preds = %175
   call void @CommandCounterIncrement() #15
   call void @UpdateActiveSnapshotCommandId() #15
-  br label %169
+  br label %177
 
-169:                                              ; preds = %165, %168
-  br i1 %145, label %170, label %.sink.split
+177:                                              ; preds = %175, %176
+  br i1 %154, label %178, label %.sink.split
 
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %51, align 8
-  %.not154 = icmp eq ptr %171, null
-  br i1 %.not154, label %.sink.split, label %173
+178:                                              ; preds = %177
+  %179 = load ptr, ptr %63, align 8
+  %.not179 = icmp eq ptr %179, null
+  br i1 %.not179, label %.sink.split, label %181
 
-.sink.split:                                      ; preds = %170, %169
-  %.sink = phi i32 [ 0, %169 ], [ 5, %170 ]
-  %172 = call ptr @CreateDestReceiver(i32 noundef %.sink) #15
-  br label %173
+.sink.split:                                      ; preds = %178, %177
+  %.sink = phi i32 [ 0, %177 ], [ 5, %178 ]
+  %180 = call ptr @CreateDestReceiver(i32 noundef %.sink) #15
+  br label %181
 
-173:                                              ; preds = %.sink.split, %170
-  %.0122 = phi ptr [ %171, %170 ], [ %172, %.sink.split ]
-  %174 = load ptr, ptr %147, align 8
-  %175 = icmp eq ptr %174, null
-  br i1 %175, label %176, label %244
+181:                                              ; preds = %.sink.split, %178
+  %.0132 = phi ptr [ %179, %178 ], [ %180, %.sink.split ]
+  %182 = load ptr, ptr %156, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %184, label %258
 
-176:                                              ; preds = %173
-  %177 = call zeroext i1 @ActiveSnapshotSet() #15
-  br i1 %177, label %178, label %180
+184:                                              ; preds = %181
+  %185 = call zeroext i1 @ActiveSnapshotSet() #15
+  br i1 %185, label %186, label %188
 
-178:                                              ; preds = %176
-  %179 = call ptr @GetActiveSnapshot() #15
-  br label %180
+186:                                              ; preds = %184
+  %187 = call ptr @GetActiveSnapshot() #15
+  br label %188
 
-180:                                              ; preds = %176, %178
-  %.0113 = phi ptr [ %179, %178 ], [ null, %176 ]
-  %181 = load ptr, ptr %59, align 8
-  %182 = load ptr, ptr %1, align 8
-  %183 = load ptr, ptr @_SPI_current, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
-  %185 = load ptr, ptr %184, align 8
-  %186 = call ptr @CreateQueryDesc(ptr noundef nonnull %142, ptr noundef %181, ptr noundef %.0113, ptr noundef %3, ptr noundef %.0122, ptr noundef %182, ptr noundef %185, i32 noundef 0) #15
-  br i1 %145, label %187, label %189
+188:                                              ; preds = %184, %186
+  %.0124 = phi ptr [ %187, %186 ], [ null, %184 ]
+  %189 = load ptr, ptr %71, align 8
+  %190 = load ptr, ptr %1, align 8
+  %191 = load ptr, ptr @_SPI_current, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
+  %193 = load ptr, ptr %192, align 8
+  %194 = call ptr @CreateQueryDesc(ptr noundef nonnull %151, ptr noundef %189, ptr noundef %.0124, ptr noundef %3, ptr noundef %.0132, ptr noundef %190, ptr noundef %193, i32 noundef 0) #15
+  br i1 %154, label %195, label %197
 
-187:                                              ; preds = %180
-  %188 = load i64, ptr %53, align 8
-  br label %189
+195:                                              ; preds = %188
+  %196 = load i64, ptr %65, align 8
+  br label %197
 
-189:                                              ; preds = %180, %187
-  %190 = phi i64 [ %188, %187 ], [ 0, %180 ]
-  %191 = load i32, ptr %186, align 8
-  switch i32 %191, label %_SPI_pquery.exit [
-    i32 1, label %192
-    i32 3, label %198
-    i32 4, label %204
-    i32 2, label %210
-    i32 5, label %216
+197:                                              ; preds = %188, %195
+  %198 = phi i64 [ %196, %195 ], [ 0, %188 ]
+  %199 = load i32, ptr %194, align 8
+  switch i32 %199, label %_SPI_pquery.exit [
+    i32 1, label %200
+    i32 3, label %206
+    i32 4, label %212
+    i32 2, label %218
+    i32 5, label %224
   ]
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i8, ptr %186, i64 40
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp ne i32 %196, 0
-  %.20.i = select i1 %197, i32 5, i32 4
-  br label %216
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds nuw i8, ptr %194, i64 40
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp ne i32 %204, 0
+  %.21.i = select i1 %205, i32 5, i32 4
+  br label %230
 
-198:                                              ; preds = %189
-  %199 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %202 = load i8, ptr %201, align 8
-  %203 = trunc i8 %202 to i1
-  %.21.i = select i1 %203, i32 11, i32 7
-  br label %216
+206:                                              ; preds = %197
+  %207 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load i8, ptr %209, align 8, !range !4, !noundef !5
+  %211 = trunc nuw i8 %210 to i1
+  %.22.i = select i1 %211, i32 11, i32 7
+  br label %230
 
-204:                                              ; preds = %189
-  %205 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %208 = load i8, ptr %207, align 8
-  %209 = trunc i8 %208 to i1
-  %.22.i = select i1 %209, i32 12, i32 8
-  br label %216
+212:                                              ; preds = %197
+  %213 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  %216 = load i8, ptr %215, align 8, !range !4, !noundef !5
+  %217 = trunc nuw i8 %216 to i1
+  %.23.i = select i1 %217, i32 12, i32 8
+  br label %230
 
-210:                                              ; preds = %189
-  %211 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = load i8, ptr %213, align 8
-  %215 = trunc i8 %214 to i1
-  %.23.i = select i1 %215, i32 13, i32 9
-  br label %216
+218:                                              ; preds = %197
+  %219 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %222 = load i8, ptr %221, align 8, !range !4, !noundef !5
+  %223 = trunc nuw i8 %222 to i1
+  %.24.i = select i1 %223, i32 13, i32 9
+  br label %230
 
-216:                                              ; preds = %210, %204, %198, %192, %189
-  %217 = phi i1 [ %197, %192 ], [ false, %198 ], [ false, %204 ], [ false, %210 ], [ false, %189 ]
-  %.0.i = phi i32 [ %.20.i, %192 ], [ %.21.i, %198 ], [ %.22.i, %204 ], [ %.23.i, %210 ], [ 18, %189 ]
-  call void @ExecutorStart(ptr noundef nonnull %186, i32 noundef %.24.i) #15
-  call void @ExecutorRun(ptr noundef nonnull %186, i32 noundef 1, i64 noundef %190, i1 noundef zeroext true) #15
-  %218 = getelementptr inbounds nuw i8, ptr %186, i64 80
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 176
-  %221 = load i64, ptr %220, align 8
-  %222 = load ptr, ptr @_SPI_current, align 8
-  store i64 %221, ptr %222, align 8
-  br i1 %217, label %229, label %223
+224:                                              ; preds = %197
+  %225 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  %228 = load i8, ptr %227, align 8, !range !4, !noundef !5
+  %229 = trunc nuw i8 %228 to i1
+  %.25.i = select i1 %229, i32 19, i32 18
+  br label %230
 
-223:                                              ; preds = %216
-  %224 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  %227 = load i8, ptr %226, align 8
-  %228 = trunc i8 %227 to i1
-  br i1 %228, label %229, label %243
+230:                                              ; preds = %224, %218, %212, %206, %200
+  %231 = phi i1 [ %205, %200 ], [ false, %206 ], [ false, %212 ], [ false, %218 ], [ false, %224 ]
+  %.0.i = phi i32 [ %.21.i, %200 ], [ %.22.i, %206 ], [ %.23.i, %212 ], [ %.24.i, %218 ], [ %.25.i, %224 ]
+  call void @ExecutorStart(ptr noundef nonnull %194, i32 noundef %.26.i) #15
+  call void @ExecutorRun(ptr noundef nonnull %194, i32 noundef 1, i64 noundef %198) #15
+  %232 = getelementptr inbounds nuw i8, ptr %194, i64 80
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 208
+  %235 = load i64, ptr %234, align 8
+  %236 = load ptr, ptr @_SPI_current, align 8
+  store i64 %235, ptr %236, align 8
+  br i1 %231, label %243, label %237
 
-229:                                              ; preds = %223, %216
-  %230 = getelementptr inbounds nuw i8, ptr %186, i64 40
-  %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
-  %233 = load i32, ptr %232, align 8
-  %234 = icmp eq i32 %233, 5
-  br i1 %234, label %235, label %243
+237:                                              ; preds = %230
+  %238 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
+  %241 = load i8, ptr %240, align 8, !range !4, !noundef !5
+  %242 = trunc nuw i8 %241 to i1
+  br i1 %242, label %243, label %257
 
-235:                                              ; preds = %229
-  %236 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %_SPI_checktuples.exit.thread.i, label %_SPI_checktuples.exit.i
+243:                                              ; preds = %237, %230
+  %244 = getelementptr inbounds nuw i8, ptr %194, i64 40
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
+  %247 = load i32, ptr %246, align 8
+  %248 = icmp eq i32 %247, 5
+  br i1 %248, label %249, label %257
 
-_SPI_checktuples.exit.i:                          ; preds = %235
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %240 = load i64, ptr %239, align 8
-  %.not.i.not.i = icmp eq i64 %221, %240
-  br i1 %.not.i.not.i, label %243, label %_SPI_checktuples.exit.thread.i
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %_SPI_checktuples.exit.thread.i, label %_SPI_checktuples.exit.i
 
-_SPI_checktuples.exit.thread.i:                   ; preds = %_SPI_checktuples.exit.i, %235
-  %241 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %241)
-  %242 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2916, ptr noundef nonnull @__func__._SPI_pquery) #15
+_SPI_checktuples.exit.i:                          ; preds = %249
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 16
+  %254 = load i64, ptr %253, align 8
+  %.not.i.not.i = icmp eq i64 %235, %254
+  br i1 %.not.i.not.i, label %257, label %_SPI_checktuples.exit.thread.i
+
+_SPI_checktuples.exit.thread.i:                   ; preds = %_SPI_checktuples.exit.i, %249
+  %255 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %255)
+  %256 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2940, ptr noundef nonnull @__func__._SPI_pquery) #15
   unreachable
 
-243:                                              ; preds = %_SPI_checktuples.exit.i, %229, %223
-  call void @ExecutorFinish(ptr noundef nonnull %186) #15
-  call void @ExecutorEnd(ptr noundef nonnull %186) #15
+257:                                              ; preds = %_SPI_checktuples.exit.i, %243, %237
+  call void @ExecutorFinish(ptr noundef nonnull %194) #15
+  call void @ExecutorEnd(ptr noundef nonnull %194) #15
   br label %_SPI_pquery.exit
 
-_SPI_pquery.exit:                                 ; preds = %189, %243
-  %.019.i = phi i32 [ %.0.i, %243 ], [ -3, %189 ]
-  call void @FreeQueryDesc(ptr noundef nonnull %186) #15
-  br label %276
+_SPI_pquery.exit:                                 ; preds = %197, %257
+  %.020.i = phi i32 [ %.0.i, %257 ], [ -3, %197 ]
+  call void @FreeQueryDesc(ptr noundef nonnull %194) #15
+  br label %283
 
-244:                                              ; preds = %173
-  %245 = load ptr, ptr @_SPI_current, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 72
-  %247 = load i8, ptr %246, align 8
-  %248 = trunc i8 %247 to i1
-  br i1 %248, label %252, label %249
-
-249:                                              ; preds = %244
-  %250 = load i8, ptr %50, align 1
-  %251 = trunc i8 %250 to i1
-  %spec.select158 = select i1 %251, i32 2, i32 1
-  br label %252
-
-252:                                              ; preds = %249, %244
-  %.0112 = phi i32 [ 1, %244 ], [ %spec.select158, %249 ]
+258:                                              ; preds = %181
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
   call void @InitializeQueryCompletion(ptr noundef nonnull %8) #15
-  %253 = load ptr, ptr %59, align 8
-  %254 = load ptr, ptr %1, align 8
-  %255 = load ptr, ptr @_SPI_current, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 64
-  %257 = load ptr, ptr %256, align 8
-  call void @ProcessUtility(ptr noundef nonnull %142, ptr noundef %253, i1 noundef zeroext true, i32 noundef %.0112, ptr noundef %254, ptr noundef %257, ptr noundef %.0122, ptr noundef nonnull %8) #15
-  %258 = load ptr, ptr @_SPI_current, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %.not155 = icmp eq ptr %260, null
-  br i1 %.not155, label %264, label %261
+  %259 = load ptr, ptr %71, align 8
+  %260 = load ptr, ptr %1, align 8
+  %261 = load ptr, ptr @_SPI_current, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 64
+  %263 = load ptr, ptr %262, align 8
+  call void @ProcessUtility(ptr noundef nonnull %151, ptr noundef %259, i1 noundef zeroext true, i32 noundef %.182, ptr noundef %260, ptr noundef %263, ptr noundef %.0132, ptr noundef nonnull %8) #15
+  %264 = load ptr, ptr @_SPI_current, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %266 = load ptr, ptr %265, align 8
+  %.not180 = icmp eq ptr %266, null
+  br i1 %.not180, label %270, label %267
 
-261:                                              ; preds = %252
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  %263 = load i64, ptr %262, align 8
-  store i64 %263, ptr %258, align 8
-  br label %264
+267:                                              ; preds = %258
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %269 = load i64, ptr %268, align 8
+  store i64 %269, ptr %264, align 8
+  br label %270
 
-264:                                              ; preds = %261, %252
-  %265 = load ptr, ptr %147, align 8
-  %266 = load i32, ptr %265, align 4
-  switch i32 %266, label %276 [
-    i32 226, label %267
-    i32 141, label %274
+270:                                              ; preds = %267, %258
+  %271 = load ptr, ptr %156, align 8
+  %272 = load i32, ptr %271, align 4
+  switch i32 %272, label %282 [
+    i32 241, label %273
+    i32 156, label %280
   ]
 
-267:                                              ; preds = %264
-  %268 = load i32, ptr %8, align 8
-  %269 = icmp eq i32 %268, 179
-  %270 = load i64, ptr %52, align 8
-  %storemerge = select i1 %269, i64 %270, i64 0
-  store i64 %storemerge, ptr %258, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %265, i64 28
-  %272 = load i8, ptr %271, align 4
-  %273 = trunc i8 %272 to i1
-  %spec.select157 = select i1 %273, i32 6, i32 4
-  br label %276
+273:                                              ; preds = %270
+  %274 = load i32, ptr %8, align 8
+  %275 = icmp eq i32 %274, 179
+  %276 = load i64, ptr %64, align 8
+  %storemerge = select i1 %275, i64 %276, i64 0
+  store i64 %storemerge, ptr %264, align 8
+  %277 = getelementptr inbounds nuw i8, ptr %271, i64 28
+  %278 = load i8, ptr %277, align 4, !range !4, !noundef !5
+  %279 = trunc nuw i8 %278 to i1
+  %spec.select183 = select i1 %279, i32 6, i32 4
+  br label %282
 
-274:                                              ; preds = %264
-  %275 = load i64, ptr %52, align 8
-  store i64 %275, ptr %258, align 8
-  br label %276
+280:                                              ; preds = %270
+  %281 = load i64, ptr %64, align 8
+  store i64 %281, ptr %264, align 8
+  br label %282
 
-276:                                              ; preds = %267, %264, %274, %_SPI_pquery.exit
-  %.0123 = phi i32 [ %.019.i, %_SPI_pquery.exit ], [ 4, %274 ], [ %spec.select157, %267 ], [ 4, %264 ]
-  %277 = load ptr, ptr @_SPI_current, align 8
-  br i1 %145, label %278, label %283
+282:                                              ; preds = %270, %280, %273
+  %.2141 = phi i32 [ %spec.select183, %273 ], [ 4, %280 ], [ 4, %270 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  br label %283
 
-278:                                              ; preds = %276
-  %279 = load i64, ptr %277, align 8
-  call void @SPI_freetuptable(ptr noundef %.1119205331)
-  %280 = load ptr, ptr @_SPI_current, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = load ptr, ptr %281, align 8
-  br label %288
+283:                                              ; preds = %282, %_SPI_pquery.exit
+  %.0139 = phi i32 [ %.020.i, %_SPI_pquery.exit ], [ %.2141, %282 ]
+  %284 = load ptr, ptr @_SPI_current, align 8
+  br i1 %154, label %285, label %316
 
-283:                                              ; preds = %276
-  %284 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %285 = load ptr, ptr %284, align 8
-  call void @SPI_freetuptable(ptr noundef %285)
-  %286 = load ptr, ptr @_SPI_current, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store ptr null, ptr %287, align 8
-  br label %288
+285:                                              ; preds = %283
+  %286 = load i64, ptr %284, align 8
+  %287 = icmp eq ptr %.2135305451, null
+  br i1 %287, label %SPI_freetuptable.exit, label %288
 
-288:                                              ; preds = %283, %278
-  %.3121 = phi ptr [ %282, %278 ], [ %.1119205331, %283 ]
-  %.3117 = phi i64 [ %279, %278 ], [ %.1115206330, %283 ]
-  %.3 = phi i32 [ %.0123, %278 ], [ %.1207329, %283 ]
-  %289 = icmp slt i32 %.0123, 0
-  br i1 %289, label %.thread, label %136
+288:                                              ; preds = %285
+  %289 = getelementptr inbounds nuw i8, ptr %284, i64 24
+  %290 = load ptr, ptr %289, align 8
+  %.not13.i = icmp eq ptr %290, null
+  br i1 %.not13.i, label %.critedge.i, label %.lr.ph.i.preheader
 
-._crit_edge:                                      ; preds = %136, %.lr.ph, %list_length.exit160.thread
-  %.2126255 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.2126254, %.lr.ph ], [ %.2126254, %136 ]
-  %.1119.lcssa = phi ptr [ %.0118216338, %list_length.exit160.thread ], [ %.0118216338, %.lr.ph ], [ %.3121, %136 ]
-  %.1115.lcssa = phi i64 [ %.0114217337, %list_length.exit160.thread ], [ %.0114217337, %.lr.ph ], [ %.3117, %136 ]
-  %.1.lcssa = phi i32 [ %.0218336, %list_length.exit160.thread ], [ %.0218336, %.lr.ph ], [ %.3, %136 ]
-  call void @ReleaseCachedPlan(ptr noundef %109, ptr noundef %.0128) #15
-  %290 = load i8, ptr %49, align 8
-  %291 = trunc i8 %290 to i1
-  br i1 %291, label %293, label %292
+.lr.ph.i.preheader:                               ; preds = %288
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds i8, ptr %290, i64 -40
+  %293 = icmp eq ptr %292, %.2135305451
+  br i1 %293, label %.thread25.i, label %.lr.ph301
 
-292:                                              ; preds = %._crit_edge
+.lr.ph.i:                                         ; preds = %.lr.ph301
+  %294 = load ptr, ptr %301, align 8
+  %295 = getelementptr inbounds i8, ptr %301, i64 -40
+  %296 = icmp eq ptr %295, %.2135305451
+  br i1 %296, label %.thread25.i, label %.lr.ph301, !llvm.loop !8
+
+.thread25.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader
+  %.sroa.10.030.i.lcssa = phi ptr [ %289, %.lr.ph.i.preheader ], [ %storemerge32.sink.i300, %.lr.ph.i ]
+  %.lcssa258 = phi ptr [ %291, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ]
+  store ptr %.lcssa258, ptr %.sroa.10.030.i.lcssa, align 8
+  %297 = load ptr, ptr @_SPI_current, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %299 = load ptr, ptr %298, align 8
+  %300 = icmp eq ptr %.2135305451, %299
+  br i1 %300, label %305, label %306
+
+.lr.ph301:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %301 = phi ptr [ %294, %.lr.ph.i ], [ %291, %.lr.ph.i.preheader ]
+  %storemerge32.sink.i300 = phi ptr [ %301, %.lr.ph.i ], [ %290, %.lr.ph.i.preheader ]
+  %.not15.i = icmp eq ptr %301, null
+  br i1 %.not15.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
+
+.critedge.i:                                      ; preds = %.lr.ph301, %288
+  %302 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %302, label %303, label %SPI_freetuptable.exit
+
+303:                                              ; preds = %.critedge.i
+  %304 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %.2135305451) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
+  br label %SPI_freetuptable.exit
+
+305:                                              ; preds = %.thread25.i
+  store ptr null, ptr %298, align 8
+  br label %306
+
+306:                                              ; preds = %305, %.thread25.i
+  %307 = load ptr, ptr @SPI_tuptable, align 8
+  %308 = icmp eq ptr %.2135305451, %307
+  br i1 %308, label %309, label %310
+
+309:                                              ; preds = %306
+  store ptr null, ptr @SPI_tuptable, align 8
+  br label %310
+
+310:                                              ; preds = %309, %306
+  %311 = getelementptr inbounds nuw i8, ptr %.2135305451, i64 32
+  %312 = load ptr, ptr %311, align 8
+  call void @MemoryContextDelete(ptr noundef %312) #15
+  br label %SPI_freetuptable.exit
+
+SPI_freetuptable.exit:                            ; preds = %285, %.critedge.i, %303, %310
+  %313 = load ptr, ptr @_SPI_current, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load ptr, ptr %314, align 8
+  br label %.thread211
+
+316:                                              ; preds = %283
+  %317 = getelementptr inbounds nuw i8, ptr %284, i64 8
+  %318 = load ptr, ptr %317, align 8
+  %319 = icmp eq ptr %318, null
+  br i1 %319, label %SPI_freetuptable.exit196, label %320
+
+320:                                              ; preds = %316
+  %321 = getelementptr inbounds nuw i8, ptr %284, i64 24
+  %322 = load ptr, ptr %321, align 8
+  %.not13.i189 = icmp eq ptr %322, null
+  br i1 %.not13.i189, label %.critedge.i194, label %.lr.ph.i190.preheader
+
+.lr.ph.i190.preheader:                            ; preds = %320
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds i8, ptr %322, i64 -40
+  %325 = icmp eq ptr %324, %318
+  br i1 %325, label %.thread25.i195, label %.lr.ph
+
+.lr.ph.i190:                                      ; preds = %.lr.ph
+  %326 = load ptr, ptr %333, align 8
+  %327 = getelementptr inbounds i8, ptr %333, i64 -40
+  %328 = icmp eq ptr %327, %318
+  br i1 %328, label %.thread25.i195, label %.lr.ph, !llvm.loop !8
+
+.thread25.i195:                                   ; preds = %.lr.ph.i190, %.lr.ph.i190.preheader
+  %.sroa.10.030.i192.lcssa = phi ptr [ %321, %.lr.ph.i190.preheader ], [ %storemerge32.sink.i191298, %.lr.ph.i190 ]
+  %.lcssa = phi ptr [ %323, %.lr.ph.i190.preheader ], [ %326, %.lr.ph.i190 ]
+  store ptr %.lcssa, ptr %.sroa.10.030.i192.lcssa, align 8
+  %329 = load ptr, ptr @_SPI_current, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  %331 = load ptr, ptr %330, align 8
+  %332 = icmp eq ptr %318, %331
+  br i1 %332, label %337, label %338
+
+.lr.ph:                                           ; preds = %.lr.ph.i190.preheader, %.lr.ph.i190
+  %333 = phi ptr [ %326, %.lr.ph.i190 ], [ %323, %.lr.ph.i190.preheader ]
+  %storemerge32.sink.i191298 = phi ptr [ %333, %.lr.ph.i190 ], [ %322, %.lr.ph.i190.preheader ]
+  %.not15.i193 = icmp eq ptr %333, null
+  br i1 %.not15.i193, label %.critedge.i194, label %.lr.ph.i190, !llvm.loop !8
+
+.critedge.i194:                                   ; preds = %.lr.ph, %320
+  %334 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %334, label %335, label %SPI_freetuptable.exit196
+
+335:                                              ; preds = %.critedge.i194
+  %336 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %318) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
+  br label %SPI_freetuptable.exit196
+
+337:                                              ; preds = %.thread25.i195
+  store ptr null, ptr %330, align 8
+  br label %338
+
+338:                                              ; preds = %337, %.thread25.i195
+  %339 = load ptr, ptr @SPI_tuptable, align 8
+  %340 = icmp eq ptr %318, %339
+  br i1 %340, label %341, label %342
+
+341:                                              ; preds = %338
+  store ptr null, ptr @SPI_tuptable, align 8
+  br label %342
+
+342:                                              ; preds = %341, %338
+  %343 = getelementptr inbounds nuw i8, ptr %318, i64 32
+  %344 = load ptr, ptr %343, align 8
+  call void @MemoryContextDelete(ptr noundef %344) #15
+  br label %SPI_freetuptable.exit196
+
+SPI_freetuptable.exit196:                         ; preds = %316, %.critedge.i194, %335, %342
+  %345 = load ptr, ptr @_SPI_current, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
+  store ptr null, ptr %346, align 8
+  br label %.thread211
+
+.thread211:                                       ; preds = %SPI_freetuptable.exit196, %SPI_freetuptable.exit
+  %.5138 = phi ptr [ %315, %SPI_freetuptable.exit ], [ %.2135305451, %SPI_freetuptable.exit196 ]
+  %.5131 = phi i64 [ %286, %SPI_freetuptable.exit ], [ %.2128306450, %SPI_freetuptable.exit196 ]
+  %.7 = phi i32 [ %.0139, %SPI_freetuptable.exit ], [ %.2307449, %SPI_freetuptable.exit196 ]
+  %347 = icmp slt i32 %.0139, 0
+  br i1 %347, label %.thread243, label %145
+
+._crit_edge:                                      ; preds = %145, %.lr.ph308, %list_length.exit186.thread
+  %.3145363 = phi i8 [ %.1143317459, %list_length.exit186.thread ], [ %.3145362, %.lr.ph308 ], [ %.3145362, %145 ]
+  %.2135.lcssa = phi ptr [ %.0133318458, %list_length.exit186.thread ], [ %.0133318458, %.lr.ph308 ], [ %.5138, %145 ]
+  %.2128.lcssa = phi i64 [ %.0126319457, %list_length.exit186.thread ], [ %.0126319457, %.lr.ph308 ], [ %.5131, %145 ]
+  %.2.lcssa = phi i32 [ %.0125320456, %list_length.exit186.thread ], [ %.0125320456, %.lr.ph308 ], [ %.7, %145 ]
+  call void @ReleaseCachedPlan(ptr noundef %121, ptr noundef %.0146) #15
+  %348 = load i8, ptr %62, align 8, !range !4, !noundef !5
+  %349 = trunc nuw i8 %348 to i1
+  br i1 %349, label %351, label %350
+
+350:                                              ; preds = %._crit_edge
   call void @CommandCounterIncrement() #15
-  br label %293
+  br label %351
 
-293:                                              ; preds = %._crit_edge, %292
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246335, 1
-  %294 = load i32, ptr %41, align 4
-  %295 = sext i32 %294 to i64
-  %296 = icmp slt i64 %indvars.iv.next247, %295
-  br i1 %296, label %.lr.ph340, label %.thread
+351:                                              ; preds = %350, %._crit_edge
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355455, 1
+  %352 = load i32, ptr %54, align 4
+  %353 = sext i32 %352 to i64
+  %354 = icmp slt i64 %indvars.iv.next356, %353
+  br i1 %354, label %.lr.ph460, label %.thread243
 
-.thread:                                          ; preds = %293, %288, %149, %151, %.lr.ph220, %40
-  %.1132 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %109, %151 ], [ %109, %149 ], [ %109, %288 ], [ null, %293 ]
-  %.3127 = phi i8 [ %.0124, %40 ], [ %.0124, %.lr.ph220 ], [ %.2126254, %151 ], [ %.2126254, %149 ], [ %.2126254, %288 ], [ %.2126255, %293 ]
-  %.2120 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.3121, %288 ], [ %.1119205331, %149 ], [ %.1119205331, %151 ], [ %.1119.lcssa, %293 ]
-  %.2116 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.3117, %288 ], [ %.1115206330, %149 ], [ %.1115206330, %151 ], [ %.1115.lcssa, %293 ]
-  %.2 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0123, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
-  %297 = trunc nuw i8 %.3127 to i1
-  br i1 %297, label %298, label %299
+.thread243:                                       ; preds = %351, %160, %.thread211, %158, %.lr.ph322, %53
+  %.1254 = phi i32 [ 0, %53 ], [ 0, %.lr.ph322 ], [ -2, %160 ], [ %.0139, %.thread211 ], [ -8, %158 ], [ %.2.lcssa, %351 ]
+  %.1127253 = phi i64 [ 0, %53 ], [ 0, %.lr.ph322 ], [ %.2128306450, %160 ], [ %.5131, %.thread211 ], [ %.2128306450, %158 ], [ %.2128.lcssa, %351 ]
+  %.1134252 = phi ptr [ null, %53 ], [ null, %.lr.ph322 ], [ %.2135305451, %160 ], [ %.5138, %.thread211 ], [ %.2135305451, %158 ], [ %.2135.lcssa, %351 ]
+  %.2144251 = phi i8 [ %.0142, %53 ], [ %.0142, %.lr.ph322 ], [ %.3145362, %158 ], [ %.3145362, %.thread211 ], [ %.3145362, %160 ], [ %.3145363, %351 ]
+  %.1150250 = phi ptr [ null, %53 ], [ null, %.lr.ph322 ], [ %121, %158 ], [ %121, %.thread211 ], [ %121, %160 ], [ null, %351 ]
+  %355 = trunc nuw i8 %.2144251 to i1
+  br i1 %355, label %356, label %357
 
-298:                                              ; preds = %.thread
+356:                                              ; preds = %.thread243
   call void @PopActiveSnapshot() #15
-  br label %299
+  br label %357
 
-299:                                              ; preds = %298, %.thread
-  %.not156 = icmp eq ptr %.1132, null
-  br i1 %.not156, label %301, label %300
+357:                                              ; preds = %356, %.thread243
+  %.not181 = icmp eq ptr %.1150250, null
+  br i1 %.not181, label %359, label %358
 
-300:                                              ; preds = %299
-  call void @ReleaseCachedPlan(ptr noundef nonnull %.1132, ptr noundef %.0128) #15
-  br label %301
+358:                                              ; preds = %357
+  call void @ReleaseCachedPlan(ptr noundef nonnull %.1150250, ptr noundef %.0146) #15
+  br label %359
 
-301:                                              ; preds = %300, %299
-  %302 = load ptr, ptr %7, align 8
-  store ptr %302, ptr @error_context_stack, align 8
-  store i64 %.2116, ptr @SPI_processed, align 8
-  store ptr %.2120, ptr @SPI_tuptable, align 8
-  %303 = load ptr, ptr @_SPI_current, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store ptr null, ptr %304, align 8
-  %305 = icmp eq i32 %.2, 0
-  %spec.store.select = select i1 %305, i32 14, i32 %.2
+359:                                              ; preds = %358, %357
+  %360 = load ptr, ptr %7, align 8
+  store ptr %360, ptr @error_context_stack, align 8
+  store i64 %.1127253, ptr @SPI_processed, align 8
+  store ptr %.1134252, ptr @SPI_tuptable, align 8
+  %361 = load ptr, ptr @_SPI_current, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  store ptr null, ptr %362, align 8
+  %363 = icmp eq i32 %.1254, 0
+  %spec.store.select = select i1 %363, i32 14, i32 %.1254
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   ret i32 %spec.store.select
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_exec(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @SPI_exec(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext false, i64 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1543,8 +1720,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   br label %24
 
 24:                                               ; preds = %17, %_SPI_begin_call.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   store ptr %0, ptr %3, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %25, align 8
@@ -1570,7 +1747,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph30.i ], [ 0, %.lr.ph.i ]
   %.02428.i = phi ptr [ %41, %.lr.ph30.i ], [ null, %.lr.ph.i ]
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -1591,8 +1768,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %24, %.
   store i8 1, ptr %46, align 1
   %47 = load ptr, ptr %4, align 8
   store ptr %47, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   %48 = call fastcc i32 @_SPI_execute_plan(ptr noundef %5, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %49 = load ptr, ptr @_SPI_current, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -1607,13 +1784,15 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %24, %.
 
 _SPI_begin_call.exit:                             ; preds = %8, %2, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %48, %_SPI_prepare_oneshot_plan.exit ], [ -6, %2 ], [ -4, %8 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_plan(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SPIExecuteOptions, align 8
   %7 = zext i1 %3 to i8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
   %8 = icmp eq ptr %0, null
   br i1 %8, label %_SPI_begin_call.exit, label %9
 
@@ -1662,15 +1841,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
 
 .split.us.i:                                      ; preds = %30, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %30 ]
-  %33 = getelementptr [0 x %struct.ParamExternData], ptr %32, i64 0, i64 %indvars.iv24.i
-  %34 = getelementptr i64, ptr %1, i64 %indvars.iv24.i
+  %33 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %32, i64 0, i64 %indvars.iv24.i
+  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv24.i
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i16 1, ptr %37, align 2
-  %38 = getelementptr i32, ptr %28, i64 %indvars.iv24.i
+  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv24.i
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %39, ptr %40, align 4
@@ -1680,11 +1859,11 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
 
 .split.i:                                         ; preds = %30, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %30 ]
-  %41 = getelementptr [0 x %struct.ParamExternData], ptr %32, i64 0, i64 %indvars.iv.i
-  %42 = getelementptr i64, ptr %1, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %32, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr i8, ptr %2, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 110
   %47 = zext i1 %46 to i8
@@ -1692,7 +1871,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   store i8 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i16 1, ptr %49, align 2
-  %50 = getelementptr i32, ptr %28, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %51, ptr %52, align 4
@@ -1721,17 +1900,18 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 
 _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_SPI_convert_params.exit
   %.0 = phi i32 [ %55, %_SPI_convert_params.exit ], [ -6, %9 ], [ -6, %5 ], [ -7, %13 ], [ -4, %18 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @SPI_execute_plan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i64 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_extended(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_plan_extended(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_SPI_begin_call.exit, label %4
 
@@ -1773,9 +1953,10 @@ _SPI_begin_call.exit:                             ; preds = %8, %2, %4, %_SPI_be
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SPIExecuteOptions, align 8
   %6 = zext i1 %2 to i8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #15
   %7 = icmp eq ptr %0, null
   br i1 %7, label %_SPI_begin_call.exit, label %8
 
@@ -1820,13 +2001,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
 
 _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_begin_call.exit.thread
   %.0 = phi i32 [ %22, %_SPI_begin_call.exit.thread ], [ -6, %8 ], [ -6, %4 ], [ -4, %12 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_snapshot(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 noundef %7) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_snapshot(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.SPIExecuteOptions, align 8
   %10 = zext i1 %5 to i8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
   %11 = icmp eq ptr %0, null
   br i1 %11, label %_SPI_begin_call.exit, label %12
 
@@ -1875,15 +2058,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
 
 .split.us.i:                                      ; preds = %33, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %33 ]
-  %36 = getelementptr [0 x %struct.ParamExternData], ptr %35, i64 0, i64 %indvars.iv24.i
-  %37 = getelementptr i64, ptr %1, i64 %indvars.iv24.i
+  %36 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %35, i64 0, i64 %indvars.iv24.i
+  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv24.i
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 10
   store i16 1, ptr %40, align 2
-  %41 = getelementptr i32, ptr %31, i64 %indvars.iv24.i
+  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv24.i
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 %42, ptr %43, align 4
@@ -1893,11 +2076,11 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
 
 .split.i:                                         ; preds = %33, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %33 ]
-  %44 = getelementptr [0 x %struct.ParamExternData], ptr %35, i64 0, i64 %indvars.iv.i
-  %45 = getelementptr i64, ptr %1, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %35, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %44, align 8
-  %47 = getelementptr i8, ptr %2, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 110
   %50 = zext i1 %49 to i8
@@ -1905,7 +2088,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 10
   store i16 1, ptr %52, align 2
-  %53 = getelementptr i32, ptr %31, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %54, ptr %55, align 4
@@ -1934,16 +2117,19 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 
 _SPI_begin_call.exit:                             ; preds = %21, %16, %8, %12, %_SPI_convert_params.exit
   %.0 = phi i32 [ %58, %_SPI_convert_params.exit ], [ -6, %12 ], [ -6, %8 ], [ -7, %16 ], [ -4, %21 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.SPICallbackArg, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = alloca %struct._SPI_plan, align 8
   %11 = alloca %struct.SPIExecuteOptions, align 8
   %12 = zext i1 %5 to i8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
   %13 = icmp eq ptr %0, null
   %14 = icmp slt i32 %1, 0
   %or.cond = or i1 %13, %14
@@ -1995,15 +2181,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 .split.us.i:                                      ; preds = %31, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %31 ]
-  %34 = getelementptr [0 x %struct.ParamExternData], ptr %33, i64 0, i64 %indvars.iv24.i
-  %35 = getelementptr i64, ptr %3, i64 %indvars.iv24.i
+  %34 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %33, i64 0, i64 %indvars.iv24.i
+  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv24.i
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 10
   store i16 1, ptr %38, align 2
-  %39 = getelementptr i32, ptr %2, i64 %indvars.iv24.i
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv24.i
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %40, ptr %41, align 4
@@ -2013,11 +2199,11 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 .split.i:                                         ; preds = %31, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %31 ]
-  %42 = getelementptr [0 x %struct.ParamExternData], ptr %33, i64 0, i64 %indvars.iv.i
-  %43 = getelementptr i64, ptr %3, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %33, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %42, align 8
-  %45 = getelementptr i8, ptr %4, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 110
   %48 = zext i1 %47 to i8
@@ -2025,7 +2211,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   store i8 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 10
   store i16 1, ptr %50, align 2
-  %51 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %52, ptr %53, align 4
@@ -2035,8 +2221,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i28 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %32, %.split.us.i ], [ %32, %.split.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
   store ptr %0, ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %54, align 8
@@ -2062,7 +2248,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph30.i ], [ 0, %.lr.ph.i ]
   %.02428.i = phi ptr [ %70, %.lr.ph30.i ], [ null, %.lr.ph.i ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv.i30
+  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv.i30
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -2083,8 +2269,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_c
   store i8 1, ptr %75, align 1
   %76 = load ptr, ptr %9, align 8
   store ptr %76, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
   store ptr %.0.i28, ptr %11, align 8
@@ -2106,13 +2292,15 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_c
 
 _SPI_begin_call.exit:                             ; preds = %20, %17, %7, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %80, %_SPI_prepare_oneshot_plan.exit ], [ -6, %7 ], [ -7, %17 ], [ -4, %20 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 0
   %or.cond.i = or i1 %5, %6
@@ -2169,13 +2357,14 @@ _SPI_begin_call.exit.i:                           ; preds = %11
 
 SPI_prepare_cursor.exit:                          ; preds = %10, %_SPI_begin_call.exit.thread.i, %_SPI_begin_call.exit.i
   %.0.i = phi ptr [ null, %10 ], [ %21, %_SPI_begin_call.exit.thread.i ], [ null, %_SPI_begin_call.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_cursor(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   %6 = icmp eq ptr %0, null
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %7
@@ -2234,6 +2423,7 @@ _SPI_begin_call.exit:                             ; preds = %12
 
 30:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %11
   %.0 = phi ptr [ null, %11 ], [ %23, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   ret ptr %.0
 }
 
@@ -2241,6 +2431,8 @@ _SPI_begin_call.exit:                             ; preds = %12
 define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2269,61 +2461,63 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph49, label %._crit_edge
 
-.lr.ph49:                                         ; preds = %.lr.ph, %42
-  %.04348 = phi ptr [ %48, %42 ], [ null, %.lr.ph ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv47
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @CreateCommandTag(ptr noundef %25) #15
-  %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %26) #15
-  %28 = load ptr, ptr %14, align 8
-  %.not39 = icmp eq ptr %28, null
-  br i1 %.not39, label %35, label %29
-
-29:                                               ; preds = %.lr.ph49
-  %30 = load ptr, ptr %15, align 8
-  %31 = load ptr, ptr @_SPI_current, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %33) #15
-  br label %42
-
-35:                                               ; preds = %.lr.ph49
-  %36 = load ptr, ptr %16, align 8
-  %37 = load i32, ptr %17, align 8
-  %38 = load ptr, ptr @_SPI_current, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %36, i32 noundef %37, ptr noundef %40) #15
-  br label %42
-
-42:                                               ; preds = %35, %29
-  %.034 = phi ptr [ %34, %29 ], [ %41, %35 ]
-  %43 = load ptr, ptr %16, align 8
-  %44 = load i32, ptr %17, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = load ptr, ptr %15, align 8
-  %47 = load i32, ptr %18, align 4
-  call void @CompleteCachedPlan(ptr noundef %27, ptr noundef %.034, ptr noundef null, ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i1 noundef zeroext false) #15
-  %48 = call ptr @lappend(ptr noundef %.04348, ptr noundef %27) #15
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv47, 1
-  %49 = load i32, ptr %12, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph49, label %._crit_edge
-
-._crit_edge:                                      ; preds = %42, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %48, %42 ]
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.0.lcssa, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 0, ptr %53, align 1
-  %54 = load ptr, ptr %4, align 8
-  store ptr %54, ptr @error_context_stack, align 8
+._crit_edge:                                      ; preds = %45, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %51, %45 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %.0.lcssa, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  store i8 0, ptr %22, align 1
+  %23 = load ptr, ptr %4, align 8
+  store ptr %23, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   ret void
+
+.lr.ph49:                                         ; preds = %.lr.ph, %45
+  %.04348 = phi ptr [ %51, %45 ], [ null, %.lr.ph ]
+  %indvars.iv47 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
+  %24 = load ptr, ptr %13, align 8
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv47
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 @CreateCommandTag(ptr noundef %28) #15
+  %30 = call ptr @CreateCachedPlan(ptr noundef %26, ptr noundef nonnull %0, i32 noundef %29) #15
+  %31 = load ptr, ptr %14, align 8
+  %.not39 = icmp eq ptr %31, null
+  br i1 %.not39, label %38, label %32
+
+32:                                               ; preds = %.lr.ph49
+  %33 = load ptr, ptr %15, align 8
+  %34 = load ptr, ptr @_SPI_current, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %26, ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %33, ptr noundef %36) #15
+  br label %45
+
+38:                                               ; preds = %.lr.ph49
+  %39 = load ptr, ptr %16, align 8
+  %40 = load i32, ptr %17, align 8
+  %41 = load ptr, ptr @_SPI_current, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %26, ptr noundef nonnull %0, ptr noundef %39, i32 noundef %40, ptr noundef %43) #15
+  br label %45
+
+45:                                               ; preds = %38, %32
+  %.034 = phi ptr [ %37, %32 ], [ %44, %38 ]
+  %46 = load ptr, ptr %16, align 8
+  %47 = load i32, ptr %17, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load i32, ptr %18, align 4
+  call void @CompleteCachedPlan(ptr noundef %30, ptr noundef %.034, ptr noundef null, ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, i1 noundef zeroext false) #15
+  %51 = call ptr @lappend(ptr noundef %.04348, ptr noundef %30) #15
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv47, 1
+  %52 = load i32, ptr %12, align 4
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph49, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2331,7 +2525,7 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
   %2 = load ptr, ptr @_SPI_current, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.71, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
+  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = tail call ptr @palloc0(i64 noundef 64) #15
@@ -2394,10 +2588,15 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph44, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph44, %.lr.ph, %31
+  store ptr %6, ptr @CurrentMemoryContext, align 8
+  store ptr null, ptr %38, align 8
+  ret ptr %7
+
 .lr.ph44:                                         ; preds = %.lr.ph, %.lr.ph44
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph44 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   tail call void @CachedPlanSetParentContext(ptr noundef %47, ptr noundef %4) #15
   %48 = load ptr, ptr %42, align 8
@@ -2408,16 +2607,12 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %.lr.ph44, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph44, %.lr.ph, %31
-  store ptr %6, ptr @CurrentMemoryContext, align 8
-  store ptr null, ptr %38, align 8
-  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -2479,12 +2674,14 @@ _SPI_begin_call.exit:                             ; preds = %7
 
 33:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %6
   %.0 = phi ptr [ null, %6 ], [ %26, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -2535,6 +2732,7 @@ _SPI_begin_call.exit:                             ; preds = %8
 
 26:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %7
   %.0 = phi ptr [ null, %7 ], [ %19, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   ret ptr %.0
 }
 
@@ -2550,14 +2748,14 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i8, ptr %6, align 4
-  %8 = trunc i8 %7 to i1
+  %7 = load i8, ptr %6, align 4, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %11 = load i8, ptr %10, align 1
-  %12 = trunc i8 %11 to i1
+  %11 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
@@ -2581,7 +2779,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
 .lr.ph23:                                         ; preds = %.lr.ph, %.lr.ph23
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   tail call void @SaveCachedPlan(ptr noundef %25) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2595,9 +2793,9 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   ret i32 %.0
 }
 
-declare void @MemoryContextSetParent(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextSetParent(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #2
+declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -2618,7 +2816,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
-  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.71, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
+  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = tail call ptr @palloc0(i64 noundef 64) #15
@@ -2679,57 +2877,57 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %47 = load i32, ptr %44, align 4
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph59.i, label %._crit_edge.i
+  br i1 %48, label %.lr.ph60.i, label %._crit_edge.i
 
-.lr.ph59.i:                                       ; preds = %.lr.ph.i, %.lr.ph59.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph59.i ], [ 0, %.lr.ph.i ]
-  %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @CopyCachedPlan(ptr noundef %51) #15
-  %53 = load ptr, ptr %46, align 8
-  %54 = tail call ptr @lappend(ptr noundef %53, ptr noundef %52) #15
-  store ptr %54, ptr %46, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = load i32, ptr %44, align 4
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next.i, %56
-  br i1 %57, label %.lr.ph59.i, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph59.i, %.lr.ph.i, %35
+._crit_edge.i:                                    ; preds = %.lr.ph60.i, %.lr.ph.i, %35
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i8 1, ptr %58, align 4
-  %59 = load ptr, ptr %12, align 8
-  %60 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @MemoryContextSetParent(ptr noundef %59, ptr noundef %60) #15
-  %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %.not48.i = icmp eq ptr %62, null
-  br i1 %.not48.i, label %.sink.split, label %.lr.ph62.i
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i8 1, ptr %49, align 4
+  %50 = load ptr, ptr %12, align 8
+  %51 = load ptr, ptr @CacheMemoryContext, align 8
+  tail call void @MemoryContextSetParent(ptr noundef %50, ptr noundef %51) #15
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %.not49.i = icmp eq ptr %53, null
+  br i1 %.not49.i, label %.sink.split, label %.lr.ph63.i
 
-.lr.ph62.i:                                       ; preds = %._crit_edge.i
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %65 = load i32, ptr %63, align 4
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph66.i, label %.sink.split
+.lr.ph63.i:                                       ; preds = %._crit_edge.i
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %56 = load i32, ptr %54, align 4
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph67.i, label %.sink.split
 
-.lr.ph66.i:                                       ; preds = %.lr.ph62.i, %.lr.ph66.i
-  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %.lr.ph66.i ], [ 0, %.lr.ph62.i ]
-  %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr %union.ListCell, ptr %67, i64 %indvars.iv68.i
+.lr.ph60.i:                                       ; preds = %.lr.ph.i, %.lr.ph60.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph60.i ], [ 0, %.lr.ph.i ]
+  %58 = load ptr, ptr %45, align 8
+  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv.i
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call ptr @CopyCachedPlan(ptr noundef %60) #15
+  %62 = load ptr, ptr %46, align 8
+  %63 = tail call ptr @lappend(ptr noundef %62, ptr noundef %61) #15
+  store ptr %63, ptr %46, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %64 = load i32, ptr %44, align 4
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next.i, %65
+  br i1 %66, label %.lr.ph60.i, label %._crit_edge.i
+
+.lr.ph67.i:                                       ; preds = %.lr.ph63.i, %.lr.ph67.i
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.lr.ph67.i ], [ 0, %.lr.ph63.i ]
+  %67 = load ptr, ptr %55, align 8
+  %68 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv69.i
   %69 = load ptr, ptr %68, align 8
   tail call void @SaveCachedPlan(ptr noundef %69) #15
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %70 = load i32, ptr %63, align 4
+  %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
+  %70 = load i32, ptr %54, align 4
   %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next69.i, %71
-  br i1 %72, label %.lr.ph66.i, label %.sink.split
+  %72 = icmp slt i64 %indvars.iv.next70.i, %71
+  br i1 %72, label %.lr.ph67.i, label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph66.i, %.lr.ph62.i, %._crit_edge.i, %1, %3
-  %.sink = phi i32 [ -6, %3 ], [ -6, %1 ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph62.i ], [ 0, %.lr.ph66.i ]
-  %.0.ph = phi ptr [ null, %3 ], [ null, %1 ], [ %11, %._crit_edge.i ], [ %11, %.lr.ph62.i ], [ %11, %.lr.ph66.i ]
+.sink.split:                                      ; preds = %.lr.ph67.i, %.lr.ph63.i, %._crit_edge.i, %1, %3
+  %.sink = phi i32 [ -6, %3 ], [ -6, %1 ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph63.i ], [ 0, %.lr.ph67.i ]
+  %.0.ph = phi ptr [ null, %3 ], [ null, %1 ], [ %11, %._crit_edge.i ], [ %11, %.lr.ph63.i ], [ %11, %.lr.ph67.i ]
   store i32 %.sink, ptr @SPI_result, align 4
   br label %73
 
@@ -2761,30 +2959,30 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly capture
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph20, label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph20, %.lr.ph, %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  tail call void @MemoryContextDelete(ptr noundef %13) #15
+  br label %20
+
 .lr.ph20:                                         ; preds = %.lr.ph, %.lr.ph20
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph20 ], [ 0, %.lr.ph ]
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8
-  tail call void @DropCachedPlan(ptr noundef %14) #15
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8
+  tail call void @DropCachedPlan(ptr noundef %16) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr %8, align 4
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph20, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph20, %.lr.ph, %5
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
-  tail call void @MemoryContextDelete(ptr noundef %19) #15
-  br label %20
+  %17 = load i32, ptr %8, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph20, label %._crit_edge
 
 20:                                               ; preds = %1, %3, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -6, %3 ], [ -6, %1 ]
   ret i32 %.0
 }
 
-declare void @DropCachedPlan(ptr noundef) local_unnamed_addr #2
+declare void @DropCachedPlan(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
@@ -2818,7 +3016,7 @@ define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2874,11 +3072,11 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
   ret ptr %.0
 }
 
-declare void @assign_record_type_typmod(ptr noundef) local_unnamed_addr #2
+declare void @assign_record_type_typmod(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 
-declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -2932,7 +3130,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %33 ], [ 0, %.lr.ph ]
-  %29 = getelementptr i32, ptr %3, i64 %indvars.iv70
+  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv70
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %30, 1
   %32 = icmp sgt i32 %30, %23
@@ -2940,7 +3138,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   br i1 %or.cond62.us, label %._crit_edge.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph.split.us
-  %34 = getelementptr i64, ptr %4, i64 %indvars.iv70
+  %34 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv70
   %35 = load i64, ptr %34, align 8
   %36 = zext nneg i32 %30 to i64
   %gep.us = getelementptr i64, ptr %invariant.gep, i64 %36
@@ -2948,7 +3146,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   %37 = load i32, ptr %29, align 4
   %38 = add i32 %37, -1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr i8, ptr %27, i64 %39
+  %40 = getelementptr inbounds i8, ptr %27, i64 %39
   store i8 0, ptr %40, align 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
@@ -2956,7 +3154,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
-  %41 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %42, 1
   %44 = icmp sgt i32 %42, %23
@@ -2964,19 +3162,19 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   br i1 %or.cond62, label %._crit_edge.loopexit76, label %45
 
 45:                                               ; preds = %.lr.ph.split
-  %46 = getelementptr i64, ptr %4, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8
   %48 = zext nneg i32 %42 to i64
   %gep = getelementptr i64, ptr %invariant.gep, i64 %48
   store i64 %47, ptr %gep, align 8
-  %49 = getelementptr i8, ptr %5, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 110
   %52 = zext i1 %51 to i8
   %53 = load i32, ptr %41, align 4
   %54 = add i32 %53, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr i8, ptr %27, i64 %55
+  %56 = getelementptr inbounds i8, ptr %27, i64 %55
   store i8 %52, ptr %56, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
@@ -3030,72 +3228,73 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   ret ptr %.053
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %invariant.gep = getelementptr i8, ptr %0, i64 24
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %6
+.lr.ph:                                           ; preds = %2, %.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %2 ]
+  %5 = phi i32 [ %16, %.thread ], [ %3, %2 ]
+  %6 = sext i32 %5 to i64
+  %7 = shl nsw i64 %6, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
+  %8 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = tail call i32 @namestrcmp(ptr noundef nonnull %9, ptr noundef %1) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %.thread
 
-6:                                                ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %7 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %5, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = tail call i32 @namestrcmp(ptr noundef nonnull %8, ptr noundef %1) #15
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %18
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 91
+  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %.thread, label %.loopexit
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 95
-  %13 = load i8, ptr %12, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %18, label %15
-
-15:                                               ; preds = %11
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %17 = add nuw nsw i32 %16, 1
-  br label %27
-
-18:                                               ; preds = %6, %11
+.thread:                                          ; preds = %.lr.ph, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %0, align 8
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %6, label %._crit_edge, !llvm.loop !11
+  %16 = load i32, ptr %0, align 8
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %18, %2
-  %22 = tail call ptr @SystemAttributeByName(ptr noundef %1) #15
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %27, label %23
+._crit_edge:                                      ; preds = %.thread, %2
+  %19 = tail call ptr @SystemAttributeByName(ptr noundef %1) #15
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %26, label %20
 
-23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 74
-  %25 = load i16, ptr %24, align 2
-  %26 = sext i16 %25 to i32
-  br label %27
+20:                                               ; preds = %._crit_edge
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %22 = load i16, ptr %21, align 2
+  %23 = sext i16 %22 to i32
+  br label %26
 
-27:                                               ; preds = %._crit_edge, %23, %15
-  %.0 = phi i32 [ %17, %15 ], [ %26, %23 ], [ -9, %._crit_edge ]
-  ret i32 %.0
+.loopexit:                                        ; preds = %12
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  %25 = add nuw nsw i32 %24, 1
+  br label %26
+
+26:                                               ; preds = %.loopexit, %._crit_edge, %20
+  %.2 = phi i32 [ %23, %20 ], [ -9, %._crit_edge ], [ %25, %.loopexit ]
+  ret i32 %.2
 }
 
-declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @SystemAttributeByName(ptr noundef) local_unnamed_addr #2
+declare ptr @SystemAttributeByName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3110,44 +3309,50 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 7:                                                ; preds = %2
   store i32 -9, ptr @SPI_result, align 4
-  br label %21
+  br label %24
 
 8:                                                ; preds = %2
   %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = add nsw i32 %1, -1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %13
-  br label %18
-
-15:                                               ; preds = %8
-  %16 = trunc i32 %1 to i16
-  %17 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %16) #15
-  br label %18
-
-18:                                               ; preds = %15, %10
-  %.0 = phi ptr [ %14, %10 ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %20 = tail call ptr @pstrdup(ptr noundef nonnull %19) #15
+  %11 = sext i32 %3 to i64
+  %12 = shl nsw i64 %11, 4
+  %13 = getelementptr i8, ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 24
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr %struct.FormData_pg_attribute, ptr %14, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -100
   br label %21
 
-21:                                               ; preds = %18, %7
-  %.012 = phi ptr [ null, %7 ], [ %20, %18 ]
+18:                                               ; preds = %8
+  %19 = trunc i32 %1 to i16
+  %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #15
+  br label %21
+
+21:                                               ; preds = %18, %10
+  %.0 = phi ptr [ %17, %10 ], [ %20, %18 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %23 = tail call ptr @pstrdup(ptr noundef nonnull %22) #15
+  br label %24
+
+24:                                               ; preds = %21, %7
+  %.012 = phi ptr [ null, %7 ], [ %23, %21 ]
   ret ptr %.012
 }
 
-declare ptr @SystemAttributeDefinition(i16 noundef signext) local_unnamed_addr #2
+declare ptr @SystemAttributeDefinition(i16 noundef signext) local_unnamed_addr #3
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
   store i32 0, ptr @SPI_result, align 4
   %7 = load i32, ptr %1, align 8
   %8 = icmp sgt i32 %2, %7
@@ -3159,49 +3364,55 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 11:                                               ; preds = %3
   store i32 -9, ptr @SPI_result, align 4
-  br label %30
+  br label %33
 
 12:                                               ; preds = %3
   %13 = call fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4)
-  %14 = load i8, ptr %4, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %30, label %16
+  %14 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %33, label %16
 
 16:                                               ; preds = %12
   %17 = icmp sgt i32 %2, 0
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %27
 
 18:                                               ; preds = %16
-  %19 = add nsw i32 %2, -1
-  %20 = zext nneg i32 %19 to i64
-  %.idx = mul nuw nsw i64 %20, 104
-  %21 = getelementptr i8, ptr %1, i64 92
-  %22 = getelementptr i8, ptr %21, i64 %.idx
-  br label %27
-
-23:                                               ; preds = %16
-  %24 = trunc i32 %2 to i16
-  %25 = call ptr @SystemAttributeDefinition(i16 noundef signext %24) #15
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 68
-  br label %27
-
-27:                                               ; preds = %23, %18
-  %.0.in = phi ptr [ %22, %18 ], [ %26, %23 ]
-  %.0 = load i32, ptr %.0.in, align 4
-  call void @getTypeOutputInfo(i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
-  %28 = load i32, ptr %5, align 4
-  %29 = call ptr @OidOutputFunctionCall(i32 noundef %28, i64 noundef %13) #15
+  %19 = load i32, ptr %1, align 8
+  %20 = sext i32 %19 to i64
+  %21 = shl nsw i64 %20, 4
+  %22 = getelementptr i8, ptr %1, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 24
+  %24 = zext nneg i32 %2 to i64
+  %25 = getelementptr %struct.FormData_pg_attribute, ptr %23, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -100
   br label %30
 
-30:                                               ; preds = %12, %27, %11
-  %.016 = phi ptr [ null, %11 ], [ %29, %27 ], [ null, %12 ]
+27:                                               ; preds = %16
+  %28 = trunc i32 %2 to i16
+  %29 = call ptr @SystemAttributeDefinition(i16 noundef signext %28) #15
+  br label %30
+
+30:                                               ; preds = %27, %18
+  %.pn = phi ptr [ %26, %18 ], [ %29, %27 ]
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 68
+  %.0 = load i32, ptr %.0.in, align 4
+  call void @getTypeOutputInfo(i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  %31 = load i32, ptr %5, align 4
+  %32 = call ptr @OidOutputFunctionCall(i32 noundef %31, i64 noundef %13) #15
+  br label %33
+
+33:                                               ; preds = %12, %30, %11
+  %.016 = phi ptr [ null, %11 ], [ %32, %30 ], [ null, %12 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
   ret ptr %.016
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %75
+  br i1 %5, label %6, label %71
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3219,114 +3430,112 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
 
 16:                                               ; preds = %6
   store i8 0, ptr %3, align 1
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %19 = load i16, ptr %18, align 4
-  %20 = and i16 %19, 1
-  %.not.i = icmp eq i16 %20, 0
-  br i1 %.not.i, label %21, label %61
+  %.val.i = load ptr, ptr %7, align 8
+  %17 = getelementptr i8, ptr %.val.i, i64 20
+  %.val.val.i = load i16, ptr %17, align 4
+  %18 = and i16 %.val.val.i, 1
+  %.not.i.i = icmp eq i16 %18, 0
+  %19 = add nsw i32 %1, -1
+  br i1 %.not.i.i, label %20, label %58
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = add nsw i32 %1, -1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %29, label %59
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %22 = zext nneg i32 %19 to i64
+  %23 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %21, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %26, label %56
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 22
-  %31 = load i8, ptr %30, align 2
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr i8, ptr %17, i64 %32
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 86
-  %37 = load i8, ptr %36, align 2
-  %38 = trunc i8 %37 to i1
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %40 = load i16, ptr %39, align 4
-  br i1 %38, label %41, label %57
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
+  %28 = load i8, ptr %27, align 2
+  %29 = zext i8 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %29
+  %31 = zext nneg i32 %24 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
+  %34 = load i8, ptr %33, align 2, !range !4, !noundef !5
+  %35 = trunc nuw i8 %34 to i1
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %37 = load i16, ptr %36, align 4
+  br i1 %35, label %38, label %54
 
-41:                                               ; preds = %29
-  switch i16 %40, label %53 [
-    i16 1, label %42
-    i16 2, label %45
-    i16 4, label %48
-    i16 8, label %51
+38:                                               ; preds = %26
+  switch i16 %37, label %50 [
+    i16 1, label %39
+    i16 2, label %42
+    i16 4, label %45
+    i16 8, label %48
   ]
 
-42:                                               ; preds = %41
-  %43 = load i8, ptr %35, align 1
-  %44 = sext i8 %43 to i64
+39:                                               ; preds = %38
+  %40 = load i8, ptr %32, align 1
+  %41 = sext i8 %40 to i64
   br label %fastgetattr.exit
 
-45:                                               ; preds = %41
-  %46 = load i16, ptr %35, align 2
-  %47 = sext i16 %46 to i64
+42:                                               ; preds = %38
+  %43 = load i16, ptr %32, align 2
+  %44 = sext i16 %43 to i64
   br label %fastgetattr.exit
 
-48:                                               ; preds = %41
-  %49 = load i32, ptr %35, align 4
-  %50 = sext i32 %49 to i64
+45:                                               ; preds = %38
+  %46 = load i32, ptr %32, align 4
+  %47 = sext i32 %46 to i64
   br label %fastgetattr.exit
 
-51:                                               ; preds = %41
-  %52 = load i64, ptr %35, align 8
+48:                                               ; preds = %38
+  %49 = load i64, ptr %32, align 8
   br label %fastgetattr.exit
 
-53:                                               ; preds = %41
-  %54 = sext i16 %40 to i32
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, i32 noundef range(i32 -32768, 32768) %54) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.56, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #15
+50:                                               ; preds = %38
+  %51 = sext i16 %37 to i32
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef range(i32 -32768, 32768) %51) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.57, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
-57:                                               ; preds = %29
-  %58 = ptrtoint ptr %35 to i64
+54:                                               ; preds = %26
+  %55 = ptrtoint ptr %32 to i64
   br label %fastgetattr.exit
 
-59:                                               ; preds = %21
-  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #15
+56:                                               ; preds = %20
+  %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #15
   br label %fastgetattr.exit
 
-61:                                               ; preds = %16
-  %62 = add nsw i32 %1, -1
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 23
-  %64 = lshr i32 %62, 3
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr i8, ptr %63, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = and i32 %62, 7
-  %70 = shl nuw nsw i32 1, %69
-  %71 = and i32 %70, %68
-  %.not.i.i = icmp eq i32 %71, 0
-  br i1 %.not.i.i, label %72, label %73
+58:                                               ; preds = %16
+  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %60 = lshr i32 %19, 3
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = and i32 %19, 7
+  %66 = shl nuw nsw i32 1, %65
+  %67 = and i32 %66, %64
+  %.not.i20.i = icmp eq i32 %67, 0
+  br i1 %.not.i20.i, label %68, label %69
 
-72:                                               ; preds = %61
+68:                                               ; preds = %58
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-73:                                               ; preds = %61
-  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #15
+69:                                               ; preds = %58
+  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #15
   br label %fastgetattr.exit
 
-75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #15
+71:                                               ; preds = %4
+  %72 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #15
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
-  %.0 = phi i64 [ %15, %14 ], [ %76, %75 ], [ 0, %72 ], [ %74, %73 ], [ %60, %59 ], [ %52, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %58, %57 ]
+fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ]
   ret i64 %.0
 }
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @SPI_getbinval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3366,58 +3575,60 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
 
 7:                                                ; preds = %2
   store i32 -9, ptr @SPI_result, align 4
-  br label %32
+  br label %33
 
 8:                                                ; preds = %2
   %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %8
-  %11 = add nsw i32 %1, -1
-  %12 = zext nneg i32 %11 to i64
-  %.idx = mul nuw nsw i64 %12, 104
-  %13 = getelementptr i8, ptr %0, i64 92
-  %14 = getelementptr i8, ptr %13, i64 %.idx
-  br label %19
+  %11 = sext i32 %3 to i64
+  %12 = shl nsw i64 %11, 4
+  %13 = getelementptr i8, ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 24
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr %struct.FormData_pg_attribute, ptr %14, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -100
+  br label %21
 
-15:                                               ; preds = %8
-  %16 = trunc i32 %1 to i16
-  %17 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %16) #15
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 68
-  br label %19
+18:                                               ; preds = %8
+  %19 = trunc i32 %1 to i16
+  %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #15
+  br label %21
 
-19:                                               ; preds = %15, %10
-  %.017.in = phi ptr [ %14, %10 ], [ %18, %15 ]
-  %.017 = load i32, ptr %.017.in, align 4
-  %20 = zext i32 %.017 to i64
-  %21 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %20) #15
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %22, label %23
+21:                                               ; preds = %18, %10
+  %.pn = phi ptr [ %17, %10 ], [ %20, %18 ]
+  %.016.in = getelementptr inbounds nuw i8, ptr %.pn, i64 68
+  %.016 = load i32, ptr %.016.in, align 4
+  %22 = zext i32 %.016 to i64
+  %23 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %22) #15
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %24, label %25
 
-22:                                               ; preds = %19
+24:                                               ; preds = %21
   store i32 -11, ptr @SPI_result, align 4
-  br label %32
+  br label %33
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 22
-  %27 = load i8, ptr %26, align 2
-  %28 = zext i8 %27 to i64
-  %29 = getelementptr i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = tail call ptr @pstrdup(ptr noundef nonnull %30) #15
-  tail call void @ReleaseSysCache(ptr noundef nonnull %21) #15
-  br label %32
+25:                                               ; preds = %21
+  %26 = getelementptr i8, ptr %23, i64 16
+  %.val = load ptr, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %28 = load i8, ptr %27, align 2
+  %29 = zext i8 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %32 = tail call ptr @pstrdup(ptr noundef nonnull %31) #15
+  tail call void @ReleaseSysCache(ptr noundef nonnull %23) #15
+  br label %33
 
-32:                                               ; preds = %23, %22, %7
-  %.0 = phi ptr [ null, %7 ], [ %31, %23 ], [ null, %22 ]
+33:                                               ; preds = %25, %24, %7
+  %.0 = phi ptr [ null, %7 ], [ %32, %25 ], [ null, %24 ]
   ret ptr %.0
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3432,30 +3643,32 @@ define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 
 
 7:                                                ; preds = %2
   store i32 -9, ptr @SPI_result, align 4
-  br label %21
+  br label %24
 
 8:                                                ; preds = %2
   %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %10, label %16
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %8
-  %11 = add nsw i32 %1, -1
-  %12 = zext nneg i32 %11 to i64
-  %.idx = mul nuw nsw i64 %12, 104
-  %13 = getelementptr i8, ptr %0, i64 92
-  %14 = getelementptr i8, ptr %13, i64 %.idx
-  %15 = load i32, ptr %14, align 4
-  br label %21
+  %11 = sext i32 %3 to i64
+  %12 = shl nsw i64 %11, 4
+  %13 = getelementptr i8, ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 24
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr %struct.FormData_pg_attribute, ptr %14, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -32
+  %18 = load i32, ptr %17, align 4
+  br label %24
 
-16:                                               ; preds = %8
-  %17 = trunc i32 %1 to i16
-  %18 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %17) #15
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %20 = load i32, ptr %19, align 4
-  br label %21
+19:                                               ; preds = %8
+  %20 = trunc i32 %1 to i16
+  %21 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %20) #15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  %23 = load i32, ptr %22, align 4
+  br label %24
 
-21:                                               ; preds = %16, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ %15, %10 ], [ %20, %16 ]
+24:                                               ; preds = %19, %10, %7
+  %.0 = phi i32 [ 0, %7 ], [ %18, %10 ], [ %23, %19 ]
   ret i32 %.0
 }
 
@@ -3478,7 +3691,7 @@ define dso_local ptr @SPI_getnspname(ptr noundef readonly captures(none) %0) loc
   ret ptr %6
 }
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_palloc(i64 noundef %0) local_unnamed_addr #0 {
@@ -3490,7 +3703,7 @@ define dso_local ptr @SPI_palloc(i64 noundef %0) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1339, ptr noundef nonnull @__func__.SPI_palloc) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1341, ptr noundef nonnull @__func__.SPI_palloc) #15
   unreachable
 
 7:                                                ; preds = %1
@@ -3522,7 +3735,7 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1365, ptr noundef nonnull @__func__.SPI_datumTransfer) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1367, ptr noundef nonnull @__func__.SPI_datumTransfer) #15
   unreachable
 
 9:                                                ; preds = %3
@@ -3535,7 +3748,7 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   ret i64 %13
 }
 
-declare i64 @datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_freetuple(ptr noundef %0) local_unnamed_addr #0 {
@@ -3543,7 +3756,7 @@ define dso_local void @SPI_freetuple(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
@@ -3553,56 +3766,56 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_SPI_current, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.loopexit, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
-  %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %.loopexit, label %.lr.ph.preheader
+  %.not13 = icmp eq ptr %7, null
+  br i1 %.not13, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %7, i64 -40
+  %9 = getelementptr inbounds i8, ptr %7, i64 -40
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.critedge, label %.lr.ph31
+  br i1 %10, label %.thread25, label %.lr.ph41
 
-.lr.ph:                                           ; preds = %.lr.ph31
+.lr.ph:                                           ; preds = %.lr.ph41
   %11 = load ptr, ptr %18, align 8
-  %12 = getelementptr i8, ptr %18, i64 -40
+  %12 = getelementptr inbounds i8, ptr %18, i64 -40
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %.critedge, label %.lr.ph31, !llvm.loop !12
+  br i1 %13, label %.thread25, label %.lr.ph41, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.sroa.7.020.lcssa = phi ptr [ %6, %.lr.ph.preheader ], [ %storemerge22.sink30, %.lr.ph ]
+.thread25:                                        ; preds = %.lr.ph, %.lr.ph.preheader
+  %.sroa.10.030.lcssa = phi ptr [ %6, %.lr.ph.preheader ], [ %storemerge32.sink40, %.lr.ph ]
   %.lcssa = phi ptr [ %8, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  store ptr %.lcssa, ptr %.sroa.7.020.lcssa, align 8
+  store ptr %.lcssa, ptr %.sroa.10.030.lcssa, align 8
   %14 = load ptr, ptr @_SPI_current, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %22, label %23
 
-.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph41:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %18 = phi ptr [ %11, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %storemerge22.sink30 = phi ptr [ %18, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.not14 = icmp eq ptr %18, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  %storemerge32.sink40 = phi ptr [ %18, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.not15 = icmp eq ptr %18, null
+  br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph31, %5, %3
+.critedge:                                        ; preds = %.lr.ph41, %5, %3
   %19 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %19, label %20, label %30
 
-20:                                               ; preds = %.loopexit
+20:                                               ; preds = %.critedge
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1422, ptr noundef nonnull @__func__.SPI_freetuptable) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
   br label %30
 
-22:                                               ; preds = %.critedge
+22:                                               ; preds = %.thread25
   store ptr null, ptr %15, align 8
   br label %23
 
-23:                                               ; preds = %22, %.critedge
+23:                                               ; preds = %22, %.thread25
   %24 = load ptr, ptr @SPI_tuptable, align 8
   %25 = icmp eq ptr %0, %24
   br i1 %25, label %26, label %27
@@ -3617,7 +3830,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @MemoryContextDelete(ptr noundef %29) #15
   br label %30
 
-30:                                               ; preds = %20, %.loopexit, %1, %27
+30:                                               ; preds = %.critedge, %20, %1, %27
   ret void
 }
 
@@ -3639,15 +3852,15 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef captures(addre
 
 .split.us.i:                                      ; preds = %11, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %11 ]
-  %14 = getelementptr [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv24.i
-  %15 = getelementptr i64, ptr %2, i64 %indvars.iv24.i
+  %14 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv24.i
+  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv24.i
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %18, align 2
-  %19 = getelementptr i32, ptr %9, i64 %indvars.iv24.i
+  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv24.i
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %20, ptr %21, align 4
@@ -3657,11 +3870,11 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef captures(addre
 
 .split.i:                                         ; preds = %11, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %11 ]
-  %22 = getelementptr [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv.i
-  %23 = getelementptr i64, ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr i8, ptr %3, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 110
   %28 = zext i1 %27 to i8
@@ -3669,7 +3882,7 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef captures(addre
   store i8 %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i16 1, ptr %30, align 2
-  %31 = getelementptr i32, ptr %9, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %32, ptr %33, align 4
@@ -3695,6 +3908,8 @@ _SPI_convert_params.exit:                         ; preds = %5
 define internal fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.SPICallbackArg, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   %7 = icmp eq ptr %1, null
   br i1 %7, label %10, label %8
 
@@ -3751,8 +3966,8 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 @errcode(i32 noundef 17170564) #15
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1600, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1602, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 27:                                               ; preds = %list_length.exit
@@ -3769,12 +3984,12 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   br label %35
 
 35:                                               ; preds = %27, %33
-  %.059 = phi ptr [ %34, %33 ], [ @.str.58, %27 ]
+  %.060 = phi ptr [ %34, %33 ], [ @.str.59, %27 ]
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 17170564) #15
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef %.059) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1610, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef %.060) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1612, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 39:                                               ; preds = %SPI_is_cursor_plan.exit
@@ -3799,8 +4014,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %39
 _SPI_begin_call.exit:                             ; preds = %39
   %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1618, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1620, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 49:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -3817,8 +4032,8 @@ _SPI_begin_call.exit:                             ; preds = %39
   br label %56
 
 56:                                               ; preds = %54, %52
-  %.060 = phi ptr [ %53, %52 ], [ %55, %54 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.060, i64 16
+  %.061 = phi ptr [ %53, %52 ], [ %55, %54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %60 = load ptr, ptr %59, align 8
@@ -3843,8 +4058,8 @@ _SPI_begin_call.exit:                             ; preds = %39
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %76 = load i8, ptr %75, align 4
-  %77 = trunc i8 %76 to i1
+  %76 = load i8, ptr %75, align 4, !range !4, !noundef !5
+  %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %56
@@ -3858,13 +4073,13 @@ _SPI_begin_call.exit:                             ; preds = %39
 
 82:                                               ; preds = %78, %56
   %.063 = phi ptr [ %74, %56 ], [ %81, %78 ]
-  %.062 = phi ptr [ %72, %56 ], [ null, %78 ]
+  %.058 = phi ptr [ %72, %56 ], [ null, %78 ]
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %84 = load i32, ptr %83, align 8
-  call void @PortalDefineQuery(ptr noundef nonnull %.060, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.062) #15
+  call void @PortalDefineQuery(ptr noundef nonnull %.061, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.058) #15
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.060, i64 124
+  %87 = getelementptr inbounds nuw i8, ptr %.061, i64 124
   store i32 %86, ptr %87, align 4
   %88 = and i32 %86, 6
   %.not67 = icmp eq i32 %88, 0
@@ -3890,7 +4105,7 @@ list_length.exit83:                               ; preds = %89
   br i1 %.not68, label %list_length.exit83.thread, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 104
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %list_length.exit83.thread
@@ -3940,7 +4155,7 @@ list_length.exit85:                               ; preds = %110
   br i1 %.not70, label %list_length.exit85.thread, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 104
   %123 = load ptr, ptr %122, align 8
   %.not71 = icmp eq ptr %123, null
   br i1 %.not71, label %list_length.exit85.thread, label %124
@@ -3949,16 +4164,16 @@ list_length.exit85:                               ; preds = %110
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %125)
   %126 = call i32 @errcode(i32 noundef 1088) #15
-  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #15
-  %128 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1717, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
+  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62) #15
+  %128 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.63) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 list_length.exit85.thread:                        ; preds = %list_length.exit85, %116, %121, %110
   %129 = load ptr, ptr @_SPI_current, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.060, i64 112
+  %132 = getelementptr inbounds nuw i8, ptr %.061, i64 112
   store ptr %131, ptr %132, align 8
   br i1 %3, label %.preheader, label %.critedge
 
@@ -3982,7 +4197,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
 .lr.ph95:                                         ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
   %141 = load ptr, ptr %134, align 8
-  %142 = getelementptr %union.ListCell, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw %union.ListCell, ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
   %144 = call zeroext i1 @CommandIsReadOnly(ptr noundef %143) #15
   br i1 %144, label %137, label %.split
@@ -3992,8 +4207,8 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   call void @llvm.assume(i1 %145)
   %146 = call i32 @errcode(i32 noundef 1088) #15
   %147 = call fastcc ptr @CreateCommandName(ptr noundef %143)
-  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef %147) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1743, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
+  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %147) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1745, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 ._crit_edge93:                                    ; preds = %137, %.lr.ph, %.preheader
@@ -4006,7 +4221,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br label %151
 
 151:                                              ; preds = %.critedge, %._crit_edge93
-  %.061 = phi ptr [ %149, %._crit_edge93 ], [ %150, %.critedge ]
+  %.062 = phi ptr [ %149, %._crit_edge93 ], [ %150, %.critedge ]
   %.not74 = icmp eq ptr %2, null
   br i1 %.not74, label %156, label %152
 
@@ -4020,7 +4235,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
 
 156:                                              ; preds = %152, %151
   %.0 = phi ptr [ %155, %152 ], [ null, %151 ]
-  call void @PortalStart(ptr noundef nonnull %.060, ptr noundef %.0, i32 noundef 0, ptr noundef %.061) #15
+  call void @PortalStart(ptr noundef nonnull %.061, ptr noundef %.0, i32 noundef 0, ptr noundef %.062) #15
   %157 = load ptr, ptr %6, align 8
   store ptr %157, ptr @error_context_stack, align 8
   %158 = load ptr, ptr @_SPI_current, align 8
@@ -4032,12 +4247,15 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 40
   %163 = load ptr, ptr %162, align 8
   call void @MemoryContextReset(ptr noundef %163) #15
-  ret ptr %.060
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  ret ptr %.061
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
   %10 = icmp eq ptr %1, null
   %11 = icmp slt i32 %2, 0
   %or.cond = or i1 %10, %11
@@ -4047,7 +4265,7 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1481, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1483, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 15:                                               ; preds = %8
@@ -4064,7 +4282,7 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1484, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1486, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 22:                                               ; preds = %16, %15
@@ -4098,7 +4316,7 @@ _SPI_begin_call.exit:                             ; preds = %22
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1488, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1490, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 35:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -4110,15 +4328,15 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 .split.us.i:                                      ; preds = %35, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %35 ]
-  %38 = getelementptr [0 x %struct.ParamExternData], ptr %37, i64 0, i64 %indvars.iv24.i
-  %39 = getelementptr i64, ptr %4, i64 %indvars.iv24.i
+  %38 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %37, i64 0, i64 %indvars.iv24.i
+  %39 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv24.i
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 10
   store i16 1, ptr %42, align 2
-  %43 = getelementptr i32, ptr %3, i64 %indvars.iv24.i
+  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv24.i
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %44, ptr %45, align 4
@@ -4128,11 +4346,11 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 .split.i:                                         ; preds = %35, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %35 ]
-  %46 = getelementptr [0 x %struct.ParamExternData], ptr %37, i64 0, i64 %indvars.iv.i
-  %47 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %37, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %46, align 8
-  %49 = getelementptr i8, ptr %5, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 110
   %52 = zext i1 %51 to i8
@@ -4140,7 +4358,7 @@ _SPI_begin_call.exit:                             ; preds = %22
   store i8 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 10
   store i16 1, ptr %54, align 2
-  %55 = getelementptr i32, ptr %3, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 %56, ptr %57, align 4
@@ -4161,6 +4379,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
   call void @MemoryContextReset(ptr noundef %64) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
   ret ptr %58
 }
 
@@ -4173,6 +4392,7 @@ define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._SPI_plan, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -4182,7 +4402,7 @@ define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr 
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1539, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1541, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
   unreachable
 
 10:                                               ; preds = %3
@@ -4214,7 +4434,7 @@ _SPI_begin_call.exit:                             ; preds = %10
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1543, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1545, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
   unreachable
 
 23:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -4232,8 +4452,8 @@ _SPI_begin_call.exit:                             ; preds = %10
   call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef %4)
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %33 = load i8, ptr %32, align 4
-  %34 = trunc i8 %33 to i1
+  %33 = load i8, ptr %32, align 4, !range !4, !noundef !5
+  %34 = trunc nuw i8 %33 to i1
   %35 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %31, i1 noundef zeroext %34)
   %36 = load ptr, ptr @_SPI_current, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -4244,6 +4464,7 @@ _SPI_begin_call.exit:                             ; preds = %10
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load ptr, ptr %40, align 8
   call void @MemoryContextReset(ptr noundef %41) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
   ret ptr %35
 }
 
@@ -4253,7 +4474,7 @@ define dso_local ptr @SPI_cursor_find(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #2
+declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_cursor_fetch(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -4273,7 +4494,7 @@ define internal fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2990, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3014, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 8:                                                ; preds = %4
@@ -4305,8 +4526,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
 _SPI_begin_call.exit:                             ; preds = %8
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2994, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3018, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 24:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -4322,8 +4543,8 @@ _SPI_checktuples.exit:                            ; preds = %24
 _SPI_checktuples.exit.thread:                     ; preds = %24, %_SPI_checktuples.exit
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3019, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3043, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exit.thread, %_SPI_checktuples.exit
@@ -4342,7 +4563,7 @@ _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exi
   ret void
 }
 
-declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #2
+declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_cursor_move(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -4376,7 +4597,7 @@ define dso_local void @SPI_cursor_close(ptr noundef %0) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1863, ptr noundef nonnull @__func__.SPI_cursor_close) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1865, ptr noundef nonnull @__func__.SPI_cursor_close) #15
   unreachable
 
 5:                                                ; preds = %1
@@ -4384,10 +4605,10 @@ define dso_local void @SPI_cursor_close(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @PortalDrop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @PortalDrop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %11, label %4
 
@@ -4412,7 +4633,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -4422,7 +4643,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4446,7 +4667,7 @@ define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4496,54 +4717,55 @@ define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly capt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph22, label %.thread
+  br i1 %7, label %.lr.ph26, label %.critedge
 
-8:                                                ; preds = %.lr.ph22
+8:                                                ; preds = %.lr.ph26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %4, align 4
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph22, label %.thread
+  br i1 %11, label %.lr.ph26, label %.critedge
 
-.lr.ph22:                                         ; preds = %.lr.ph, %8
+.lr.ph26:                                         ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @CachedPlanIsValid(ptr noundef %14) #15
-  br i1 %15, label %8, label %.thread
+  br i1 %15, label %8, label %.critedge
 
-.thread:                                          ; preds = %.lr.ph22, %8, %.lr.ph, %1
-  %.not1013 = phi i1 [ true, %1 ], [ true, %.lr.ph ], [ %15, %8 ], [ %15, %.lr.ph22 ]
-  ret i1 %.not1013
+.critedge:                                        ; preds = %.lr.ph26, %8, %.lr.ph, %1
+  %.not1417 = phi i1 [ true, %1 ], [ true, %.lr.ph ], [ %15, %8 ], [ %15, %.lr.ph26 ]
+  ret i1 %.not1417
 }
 
-declare zeroext i1 @CachedPlanIsValid(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @CachedPlanIsValid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef nonnull ptr @SPI_result_code_string(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, 13
-  %2 = icmp ult i32 %switch.tableidx, 32
+  %2 = icmp ult i32 %switch.tableidx, 33
   br i1 %2, label %switch.hole_check, label %3
 
 3:                                                ; preds = %switch.hole_check, %1
-  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.46, i32 noundef %0) #15
+  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.47, i32 noundef %0) #15
   br label %6
 
 switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i32 -8449, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 8589926143, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.SPI_result_code_string, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [33 x ptr], ptr @switch.table.SPI_result_code_string, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -4552,10 +4774,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ret ptr %.0
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -4565,9 +4787,11 @@ define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(no
 define dso_local ptr @SPI_plan_get_cached_plan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SPICallbackArg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %5 = load i8, ptr %4, align 1
-  %6 = trunc i8 %5 to i1
+  %5 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %list_length.exit.thread, label %7
 
 7:                                                ; preds = %1
@@ -4601,8 +4825,8 @@ list_length.exit:                                 ; preds = %7
   store ptr %22, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %24 = load i8, ptr %23, align 4
-  %25 = trunc i8 %24 to i1
+  %24 = load i8, ptr %23, align 4, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
   %26 = load ptr, ptr @CurrentResourceOwner, align 8
   %27 = select i1 %25, ptr %26, ptr null
   %28 = load ptr, ptr @_SPI_current, align 8
@@ -4615,6 +4839,8 @@ list_length.exit:                                 ; preds = %7
 
 list_length.exit.thread:                          ; preds = %7, %list_length.exit, %1, %12
   %.0 = phi ptr [ %31, %12 ], [ null, %1 ], [ null, %list_length.exit ], [ null, %7 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
   ret ptr %.0
 }
 
@@ -4647,24 +4873,24 @@ define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0
 
 14:                                               ; preds = %11
   %15 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
-  %16 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.67, ptr noundef nonnull %2) #15
+  %16 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.68, ptr noundef nonnull %2) #15
   br label %23
 
 17:                                               ; preds = %11, %11, %11
   %18 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
-  %19 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.68, ptr noundef nonnull %2) #15
+  %19 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #15
   br label %23
 
 20:                                               ; preds = %11
   %21 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
-  %22 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #15
+  %22 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.70, ptr noundef nonnull %2) #15
   br label %23
 
-23:                                               ; preds = %14, %17, %20, %1, %7
+23:                                               ; preds = %7, %20, %17, %14, %1
   ret void
 }
 
-declare ptr @GetCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @GetCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4675,8 +4901,8 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
 6:                                                ; preds = %3
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2124, ptr noundef nonnull @__func__.spi_dest_startup) #15
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2130, ptr noundef nonnull @__func__.spi_dest_startup) #15
   unreachable
 
 9:                                                ; preds = %3
@@ -4688,8 +4914,8 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2127, ptr noundef nonnull @__func__.spi_dest_startup) #15
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2133, ptr noundef nonnull @__func__.spi_dest_startup) #15
   unreachable
 
 15:                                               ; preds = %9
@@ -4697,7 +4923,7 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef nonnull @.str.49, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
+  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef nonnull @.str.50, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   store ptr %19, ptr @CurrentMemoryContext, align 8
   %20 = tail call ptr @palloc0(i64 noundef 56) #15
   %21 = load ptr, ptr @_SPI_current, align 8
@@ -4727,9 +4953,9 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -4740,8 +4966,8 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2171, ptr noundef nonnull @__func__.spi_printtup) #15
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2177, ptr noundef nonnull @__func__.spi_printtup) #15
   unreachable
 
 8:                                                ; preds = %2
@@ -4753,8 +4979,8 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
 12:                                               ; preds = %8
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2175, ptr noundef nonnull @__func__.spi_printtup) #15
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.52) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2181, ptr noundef nonnull @__func__.spi_printtup) #15
   unreachable
 
 15:                                               ; preds = %8
@@ -4782,13 +5008,13 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
 29:                                               ; preds = %23, %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i64, ptr %19, align 8
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
   store ptr %34, ptr %38, align 8
   %39 = load i64, ptr %19, align 8
   %40 = add i64 %39, 1
@@ -4797,7 +5023,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   ret i1 true
 }
 
-declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -12, 16) i32 @SPI_register_relation(ptr noundef %0) local_unnamed_addr #0 {
@@ -4849,9 +5075,9 @@ _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_b
   ret i32 %.08
 }
 
-declare ptr @create_queryEnv() local_unnamed_addr #2
+declare ptr @create_queryEnv() local_unnamed_addr #3
 
-declare void @register_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @register_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -13, 17) i32 @SPI_unregister_relation(ptr noundef %0) local_unnamed_addr #0 {
@@ -4887,7 +5113,7 @@ _SPI_find_ENR_by_name.exit.thread:                ; preds = %5, %10, %_SPI_find_
   ret i32 %.07
 }
 
-declare void @unregister_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @unregister_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -4967,8 +5193,8 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
 39:                                               ; preds = %SPI_register_relation.exit, %3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8
-  %.not33 = icmp eq ptr %41, null
-  br i1 %.not33, label %SPI_register_relation.exit.thread, label %42
+  %.not36 = icmp eq ptr %41, null
+  br i1 %.not36, label %SPI_register_relation.exit.thread, label %42
 
 42:                                               ; preds = %39
   %43 = tail call ptr @palloc(i64 noundef 48) #15
@@ -5001,223 +5227,214 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
 
 63:                                               ; preds = %42
   %64 = load ptr, ptr @_SPI_current, align 8
-  %.not13.i35 = icmp eq ptr %64, null
-  br i1 %.not13.i35, label %SPI_register_relation.exit.thread, label %65
+  %.not13.i40 = icmp eq ptr %64, null
+  br i1 %.not13.i40, label %SPI_register_relation.exit.thread, label %65
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %_SPI_find_ENR_by_name.exit.i36
+  br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i48, label %_SPI_find_ENR_by_name.exit.i41
 
-_SPI_find_ENR_by_name.exit.i36:                   ; preds = %65
+_SPI_find_ENR_by_name.exit.i41:                   ; preds = %65
   %69 = tail call ptr @get_ENR(ptr noundef nonnull %67, ptr noundef nonnull %61) #15
-  %.not.i37 = icmp eq ptr %69, null
-  br i1 %.not.i37, label %_SPI_find_ENR_by_name.exit.thread.i39, label %SPI_register_relation.exit.thread
+  %.not.i42 = icmp eq ptr %69, null
+  br i1 %.not.i42, label %_SPI_find_ENR_by_name.exit.thread.i44, label %SPI_register_relation.exit.thread
 
-_SPI_find_ENR_by_name.exit.thread.i39:            ; preds = %_SPI_find_ENR_by_name.exit.i36
-  %.pre.i40 = load ptr, ptr @_SPI_current, align 8
-  %.phi.trans.insert.i41 = getelementptr inbounds nuw i8, ptr %.pre.i40, i64 64
-  %.pre14.i42 = load ptr, ptr %.phi.trans.insert.i41, align 8
-  %70 = icmp eq ptr %.pre14.i42, null
-  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %SPI_register_relation.exit44
+_SPI_find_ENR_by_name.exit.thread.i44:            ; preds = %_SPI_find_ENR_by_name.exit.i41
+  %.pre.i45 = load ptr, ptr @_SPI_current, align 8
+  %.phi.trans.insert.i46 = getelementptr inbounds nuw i8, ptr %.pre.i45, i64 64
+  %.pre14.i47 = load ptr, ptr %.phi.trans.insert.i46, align 8
+  %70 = icmp eq ptr %.pre14.i47, null
+  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i48, label %SPI_register_relation.exit49
 
-_SPI_find_ENR_by_name.exit.thread.thread.i43:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %65
+_SPI_find_ENR_by_name.exit.thread.thread.i48:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i44, %65
   %71 = tail call ptr @create_queryEnv() #15
   %72 = load ptr, ptr @_SPI_current, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
-  br label %SPI_register_relation.exit44
+  br label %SPI_register_relation.exit49
 
-SPI_register_relation.exit44:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %_SPI_find_ENR_by_name.exit.thread.thread.i43
-  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i43 ], [ %.pre14.i42, %_SPI_find_ENR_by_name.exit.thread.i39 ]
+SPI_register_relation.exit49:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i44, %_SPI_find_ENR_by_name.exit.thread.thread.i48
+  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i48 ], [ %.pre14.i47, %_SPI_find_ENR_by_name.exit.thread.i44 ]
   tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #15
   br label %SPI_register_relation.exit.thread
 
-SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i36, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit44, %1
-  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit44 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i36 ], [ -4, %63 ], [ -6, %42 ]
+SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i41, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit49, %1
+  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit49 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i41 ], [ -4, %63 ], [ -6, %42 ]
   ret i32 %.0
 }
 
-declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #2
+declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @IsSubTransaction() local_unnamed_addr #2
-
-declare void @SaveTransactionCharacteristics(ptr noundef) local_unnamed_addr #2
+declare void @SaveTransactionCharacteristics(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #11
 
-declare void @HoldPinnedPortals() local_unnamed_addr #2
+declare void @HoldPinnedPortals() local_unnamed_addr #3
 
-declare void @ForgetPortalSnapshots() local_unnamed_addr #2
+declare void @ForgetPortalSnapshots() local_unnamed_addr #3
 
-declare void @CommitTransactionCommand() local_unnamed_addr #2
+declare void @CommitTransactionCommand() local_unnamed_addr #3
 
-declare void @StartTransactionCommand() local_unnamed_addr #2
+declare void @StartTransactionCommand() local_unnamed_addr #3
 
-declare void @RestoreTransactionCharacteristics(ptr noundef) local_unnamed_addr #2
+declare void @RestoreTransactionCharacteristics(ptr noundef) local_unnamed_addr #3
 
-declare ptr @CopyErrorData() local_unnamed_addr #2
+declare ptr @CopyErrorData() local_unnamed_addr #3
 
-declare void @FlushErrorState() local_unnamed_addr #2
+declare void @FlushErrorState() local_unnamed_addr #3
 
-declare void @AbortCurrentTransaction() local_unnamed_addr #2
+declare void @AbortCurrentTransaction() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @ReThrowError(ptr noundef) local_unnamed_addr #11
+declare void @ReThrowError(ptr noundef) local_unnamed_addr #12
 
-declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #2
+declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #3
 
-declare ptr @CreateNewPortal() local_unnamed_addr #2
+declare ptr @CreateNewPortal() local_unnamed_addr #3
 
-declare ptr @CreatePortal(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @CreatePortal(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
 
-declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @PortalDefineQuery(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PortalDefineQuery(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @ExecSupportsBackwardScan(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecSupportsBackwardScan(ptr noundef) local_unnamed_addr #3
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
 
-declare zeroext i1 @CommandIsReadOnly(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @CommandIsReadOnly(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CreateCommandName(ptr noundef %0) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @CreateCommandName(ptr noundef %0) unnamed_addr #7 {
   %2 = tail call i32 @CreateCommandTag(ptr noundef %0) #15
   %3 = tail call ptr @GetCommandTagName(i32 noundef %2) #15
   ret ptr %3
 }
 
-declare ptr @GetActiveSnapshot() local_unnamed_addr #2
+declare ptr @GetActiveSnapshot() local_unnamed_addr #3
 
-declare void @CommandCounterIncrement() local_unnamed_addr #2
+declare void @CommandCounterIncrement() local_unnamed_addr #3
 
-declare ptr @GetTransactionSnapshot() local_unnamed_addr #2
+declare ptr @GetTransactionSnapshot() local_unnamed_addr #3
 
-declare ptr @copyParamList(ptr noundef) local_unnamed_addr #2
+declare ptr @copyParamList(ptr noundef) local_unnamed_addr #3
 
-declare void @PortalStart(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @PortalStart(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @CreateCommandTag(ptr noundef) local_unnamed_addr #2
+declare i32 @CreateCommandTag(ptr noundef) local_unnamed_addr #3
 
-declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @CreateCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @pg_analyze_and_rewrite_withcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pg_analyze_and_rewrite_withcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @CompleteCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @CompleteCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @CreateOneShotCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateOneShotCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #2
+declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #3
 
-declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #2
+declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef) local_unnamed_addr #3
 
-declare void @EnsurePortalSnapshotExists() local_unnamed_addr #2
+declare void @EnsurePortalSnapshotExists() local_unnamed_addr #3
 
-declare void @PopActiveSnapshot() local_unnamed_addr #2
+declare void @PopActiveSnapshot() local_unnamed_addr #3
 
-declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #2
+declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #3
 
-declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #2
+declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #3
 
-declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #2
+declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #3
 
-declare void @InitializeQueryCompletion(ptr noundef) local_unnamed_addr #2
+declare void @InitializeQueryCompletion(ptr noundef) local_unnamed_addr #3
 
-declare void @ProcessUtility(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ProcessUtility(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #2
+declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #3
 
-declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #2
+declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #3
 
-declare ptr @makeParamList(i32 noundef) local_unnamed_addr #2
+declare ptr @makeParamList(i32 noundef) local_unnamed_addr #3
 
-declare i32 @geterrposition() local_unnamed_addr #2
+declare i32 @geterrposition() local_unnamed_addr #3
 
-declare i32 @errposition(i32 noundef) local_unnamed_addr #2
+declare i32 @errposition(i32 noundef) local_unnamed_addr #3
 
-declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #2
+declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #3
 
-declare i32 @internalerrquery(ptr noundef) local_unnamed_addr #2
+declare i32 @internalerrquery(ptr noundef) local_unnamed_addr #3
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @PortalRunFetch(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PortalRunFetch(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @CachedPlanSetParentContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CachedPlanSetParentContext(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @CopyCachedPlan(ptr noundef) local_unnamed_addr #2
+declare ptr @CopyCachedPlan(ptr noundef) local_unnamed_addr #3
 
-declare ptr @get_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @get_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { cold nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind returns_twice }
 attributes #17 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

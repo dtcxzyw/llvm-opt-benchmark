@@ -3,10 +3,7 @@ source_filename = "bench/postgres/original/stem_UTF_8_lithuanian.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
-
 @g_v = internal constant [35 x i8] c"\11A\10\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\10\00@\01\00@\00\00\00\00\00\00\00\04\04", align 16
-@a_2 = internal constant [11 x %struct.among] [%struct.among { i32 5, ptr @s_2_0, i32 -1, i32 7, ptr null }, %struct.among { i32 6, ptr @s_2_1, i32 -1, i32 3, ptr null }, %struct.among { i32 5, ptr @s_2_2, i32 -1, i32 6, ptr null }, %struct.among { i32 5, ptr @s_2_3, i32 -1, i32 8, ptr null }, %struct.among { i32 4, ptr @s_2_4, i32 -1, i32 1, ptr null }, %struct.among { i32 4, ptr @s_2_5, i32 -1, i32 2, ptr null }, %struct.among { i32 5, ptr @s_2_6, i32 -1, i32 5, ptr null }, %struct.among { i32 7, ptr @s_2_7, i32 -1, i32 8, ptr null }, %struct.among { i32 6, ptr @s_2_8, i32 -1, i32 1, ptr null }, %struct.among { i32 6, ptr @s_2_9, i32 -1, i32 2, ptr null }, %struct.among { i32 4, ptr @s_2_10, i32 -1, i32 4, ptr null }], align 16
 @s_0 = internal constant [5 x i8] c"ait\C4\97", align 1
 @s_1 = internal constant [5 x i8] c"uot\C4\97", align 1
 @s_2 = internal constant [7 x i8] c"\C4\97jimas", align 1
@@ -26,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_2_8 = internal constant [6 x i8] c"ait\C4\97s", align 1
 @s_2_9 = internal constant [6 x i8] c"uot\C4\97s", align 1
 @s_2_10 = internal constant [4 x i8] c"esiu", align 1
-@a_0 = internal constant [204 x %struct.among] [%struct.among { i32 1, ptr @s_0_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_1, i32 0, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_2, i32 1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_3, i32 0, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_4, i32 3, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_5, i32 3, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_6, i32 5, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_7, i32 0, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_8, i32 0, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_9, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_10, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_11, i32 10, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_12, i32 10, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_13, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_14, i32 13, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_15, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_16, i32 15, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_17, i32 9, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_18, i32 17, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_19, i32 17, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_20, i32 9, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_21, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_22, i32 21, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_23, i32 9, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_24, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_25, i32 9, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_26, i32 25, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_27, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_28, i32 27, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_29, i32 27, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_30, i32 29, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_31, i32 9, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_32, i32 31, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_33, i32 31, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_34, i32 9, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_35, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_36, i32 35, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_37, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_38, i32 37, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_39, i32 37, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_40, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_41, i32 9, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_42, i32 9, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_43, i32 42, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_44, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_45, i32 44, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_46, i32 45, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_47, i32 46, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_48, i32 44, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_49, i32 48, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_50, i32 44, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_51, i32 44, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_52, i32 51, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_53, i32 44, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_54, i32 53, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_55, i32 44, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_56, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_57, i32 56, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_58, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_59, i32 58, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_60, i32 59, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_61, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_62, i32 61, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_63, i32 61, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_64, i32 63, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_65, i32 61, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_66, i32 55, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_67, i32 66, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_68, i32 66, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_69, i32 68, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_70, i32 69, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_71, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_72, i32 71, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_73, i32 72, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_74, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_75, i32 55, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_76, i32 55, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_77, i32 76, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_78, i32 44, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_79, i32 78, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_80, i32 78, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_81, i32 78, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_82, i32 81, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_83, i32 81, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_84, i32 83, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_85, i32 78, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_86, i32 85, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_87, i32 78, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_88, i32 78, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_89, i32 88, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_90, i32 88, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_0_91, i32 88, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_92, i32 44, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_93, i32 92, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_94, i32 93, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_95, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_96, i32 -1, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_97, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_98, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_99, i32 98, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_100, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_101, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_102, i32 101, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_103, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_104, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_105, i32 -1, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_106, i32 105, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_107, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_108, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_109, i32 108, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_110, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_111, i32 110, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_112, i32 -1, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_113, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_114, i32 113, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_115, i32 114, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_116, i32 113, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_117, i32 113, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_118, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_119, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_120, i32 119, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_121, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_122, i32 121, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_123, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_124, i32 123, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_125, i32 124, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_126, i32 123, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_127, i32 123, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_128, i32 127, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_129, i32 123, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_130, i32 129, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_131, i32 123, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_132, i32 123, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_133, i32 123, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_134, i32 123, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_135, i32 123, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_136, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_137, i32 136, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_138, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_139, i32 118, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_140, i32 139, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_141, i32 139, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_142, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_143, i32 142, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_144, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_145, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_146, i32 118, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_147, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_148, i32 147, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_149, i32 147, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_150, i32 149, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_151, i32 118, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_152, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_153, i32 152, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_154, i32 153, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_155, i32 152, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_156, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_157, i32 156, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_158, i32 156, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_159, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_160, i32 159, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_161, i32 118, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_162, i32 161, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_163, i32 162, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_164, i32 161, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_165, i32 164, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_166, i32 164, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_167, i32 161, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_168, i32 161, i32 -1, ptr null }, %struct.among { i32 9, ptr @s_0_169, i32 168, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_170, i32 161, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_171, i32 170, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_172, i32 161, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_173, i32 161, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_174, i32 161, i32 -1, ptr null }, %struct.among { i32 9, ptr @s_0_175, i32 174, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_176, i32 118, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_177, i32 118, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_178, i32 118, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_179, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_180, i32 179, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_181, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_182, i32 181, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_183, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_184, i32 -1, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_0_185, i32 184, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_186, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_187, i32 186, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_188, i32 187, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_0_189, i32 188, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_190, i32 186, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_191, i32 190, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_192, i32 190, i32 -1, ptr null }, %struct.among { i32 1, ptr @s_0_193, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_194, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_195, i32 194, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_196, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_197, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_198, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_199, i32 198, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_200, i32 198, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_0_201, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_0_202, i32 201, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_0_203, i32 201, i32 -1, ptr null }], align 16
+@a_2 = internal constant [11 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_0, i32 -1, i32 7, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_1, i32 -1, i32 3, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_2, i32 -1, i32 6, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_3, i32 -1, i32 8, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_4, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_5, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_2_6, i32 -1, i32 5, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_2_7, i32 -1, i32 8, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_8, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_2_9, i32 -1, i32 2, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_2_10, i32 -1, i32 4, ptr null }], align 16
 @s_0_0 = internal constant [1 x i8] c"a", align 1
 @s_0_1 = internal constant [2 x i8] c"ia", align 1
 @s_0_2 = internal constant [4 x i8] c"eria", align 1
@@ -231,12 +228,12 @@ target triple = "x86_64-pc-linux-gnu"
 @s_0_201 = internal constant [2 x i8] c"\C5\B3", align 1
 @s_0_202 = internal constant [3 x i8] c"i\C5\B3", align 1
 @s_0_203 = internal constant [4 x i8] c"er\C5\B3", align 1
-@a_3 = internal constant [2 x %struct.among] [%struct.among { i32 2, ptr @s_3_0, i32 -1, i32 1, ptr null }, %struct.among { i32 3, ptr @s_3_1, i32 -1, i32 2, ptr null }], align 16
+@a_0 = internal constant [204 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_1, i32 0, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_2, i32 1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_3, i32 0, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_4, i32 3, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_5, i32 3, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_6, i32 5, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_7, i32 0, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_8, i32 0, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_9, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_10, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_11, i32 10, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_12, i32 10, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_13, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_14, i32 13, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_15, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_16, i32 15, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_17, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_18, i32 17, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_19, i32 17, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_20, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_21, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_22, i32 21, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_23, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_24, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_25, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_26, i32 25, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_27, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_28, i32 27, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_29, i32 27, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_30, i32 29, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_31, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_32, i32 31, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_33, i32 31, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_34, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_35, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_36, i32 35, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_37, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_38, i32 37, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_39, i32 37, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_40, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_41, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_42, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_43, i32 42, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_44, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_45, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_46, i32 45, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_47, i32 46, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_48, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_49, i32 48, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_50, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_51, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_52, i32 51, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_53, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_54, i32 53, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_55, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_56, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_57, i32 56, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_58, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_59, i32 58, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_60, i32 59, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_61, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_62, i32 61, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_63, i32 61, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_64, i32 63, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_65, i32 61, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_66, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_67, i32 66, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_68, i32 66, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_69, i32 68, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_70, i32 69, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_71, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_72, i32 71, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_73, i32 72, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_74, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_75, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_76, i32 55, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_77, i32 76, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_78, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_79, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_80, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_81, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_82, i32 81, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_83, i32 81, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_84, i32 83, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_85, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_86, i32 85, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_87, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_88, i32 78, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_89, i32 88, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_90, i32 88, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_0_91, i32 88, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_92, i32 44, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_93, i32 92, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_94, i32 93, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_95, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_96, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_97, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_98, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_99, i32 98, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_100, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_101, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_102, i32 101, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_103, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_104, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_105, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_106, i32 105, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_107, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_108, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_109, i32 108, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_110, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_111, i32 110, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_112, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_113, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_114, i32 113, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_115, i32 114, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_116, i32 113, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_117, i32 113, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_118, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_119, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_120, i32 119, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_121, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_122, i32 121, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_123, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_124, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_125, i32 124, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_126, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_127, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_128, i32 127, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_129, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_130, i32 129, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_131, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_132, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_133, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_134, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_135, i32 123, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_136, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_137, i32 136, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_138, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_139, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_140, i32 139, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_141, i32 139, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_142, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_143, i32 142, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_144, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_145, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_146, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_147, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_148, i32 147, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_149, i32 147, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_150, i32 149, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_151, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_152, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_153, i32 152, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_154, i32 153, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_155, i32 152, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_156, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_157, i32 156, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_158, i32 156, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_159, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_160, i32 159, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_161, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_162, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_163, i32 162, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_164, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_165, i32 164, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_166, i32 164, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_167, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_168, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_0_169, i32 168, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_170, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_171, i32 170, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_172, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_173, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_174, i32 161, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @s_0_175, i32 174, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_176, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_177, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_178, i32 118, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_179, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_180, i32 179, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_181, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_182, i32 181, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_183, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_184, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_0_185, i32 184, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_186, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_187, i32 186, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_188, i32 187, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_0_189, i32 188, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_190, i32 186, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_191, i32 190, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_192, i32 190, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @s_0_193, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_194, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_195, i32 194, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_196, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_197, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_198, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_199, i32 198, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_200, i32 198, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_0_201, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_0_202, i32 201, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_0_203, i32 201, i32 -1, ptr null }], align 16
 @s_8 = internal constant [1 x i8] c"t", align 1
 @s_9 = internal constant [1 x i8] c"d", align 1
 @s_3_0 = internal constant [2 x i8] c"\C4\8D", align 1
 @s_3_1 = internal constant [3 x i8] c"d\C5\BE", align 1
-@a_1 = internal constant [62 x %struct.among] [%struct.among { i32 3, ptr @s_1_0, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_1, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_2, i32 1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_3, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_4, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_5, i32 4, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_6, i32 4, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_7, i32 6, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_8, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_9, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_10, i32 9, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_11, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_12, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_13, i32 12, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_14, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_15, i32 14, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_16, i32 -1, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_1_17, i32 16, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_1_18, i32 16, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_19, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_20, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_21, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_22, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_23, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_24, i32 23, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_25, i32 23, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_26, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_27, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_28, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_29, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_30, i32 29, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_31, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_32, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_33, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_34, i32 33, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_35, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_36, i32 35, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_37, i32 35, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_38, i32 37, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_39, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_40, i32 39, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_41, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_42, i32 41, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_43, i32 -1, i32 -1, ptr null }, %struct.among { i32 7, ptr @s_1_44, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_45, i32 -1, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_46, i32 45, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_1_47, i32 46, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_48, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_49, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_50, i32 49, i32 -1, ptr null }, %struct.among { i32 4, ptr @s_1_51, i32 50, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_52, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_53, i32 -1, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_1_54, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_55, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_56, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_57, i32 -1, i32 -1, ptr null }, %struct.among { i32 3, ptr @s_1_58, i32 -1, i32 -1, ptr null }, %struct.among { i32 6, ptr @s_1_59, i32 -1, i32 -1, ptr null }, %struct.among { i32 2, ptr @s_1_60, i32 -1, i32 -1, ptr null }, %struct.among { i32 5, ptr @s_1_61, i32 60, i32 -1, ptr null }], align 16
+@a_3 = internal constant [2 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_3_0, i32 -1, i32 1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_3_1, i32 -1, i32 2, ptr null }], align 16
 @s_1_0 = internal constant [3 x i8] c"ing", align 1
 @s_1_1 = internal constant [2 x i8] c"aj", align 1
 @s_1_2 = internal constant [3 x i8] c"iaj", align 1
@@ -299,9 +296,10 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_59 = internal constant [6 x i8] c"yk\C5\A1\C4\8D", align 1
 @s_1_60 = internal constant [2 x i8] c"\C4\99", align 1
 @s_1_61 = internal constant [5 x i8] c"\C4\97j\C4\99", align 1
-@a_4 = internal constant [1 x %struct.among] [%struct.among { i32 2, ptr @s_4_0, i32 -1, i32 1, ptr null }], align 16
+@a_1 = internal constant [62 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_0, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_1, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_2, i32 1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_3, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_4, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_5, i32 4, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_6, i32 4, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_7, i32 6, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_8, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_9, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_10, i32 9, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_11, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_12, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_13, i32 12, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_14, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_15, i32 14, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_16, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_17, i32 16, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_1_18, i32 16, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_19, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_20, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_21, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_22, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_23, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_24, i32 23, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_25, i32 23, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_26, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_27, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_28, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_29, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_30, i32 29, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_31, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_32, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_33, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_34, i32 33, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_35, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_36, i32 35, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_37, i32 35, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_38, i32 37, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_39, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_40, i32 39, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_41, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_42, i32 41, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_43, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @s_1_44, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_45, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_46, i32 45, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_47, i32 46, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_48, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_49, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_50, i32 49, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @s_1_51, i32 50, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_52, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_53, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_54, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_55, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_56, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_57, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @s_1_58, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @s_1_59, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_1_60, i32 -1, i32 -1, ptr null }, { i32, [4 x i8], ptr, i32, i32, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @s_1_61, i32 60, i32 -1, ptr null }], align 16
 @s_10 = internal constant [1 x i8] c"g", align 1
 @s_4_0 = internal constant [2 x i8] c"gd", align 1
+@a_4 = internal constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @s_4_0, i32 -1, i32 1, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
@@ -313,20 +311,20 @@ define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %3
-  br i1 %8, label %23, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
   %11 = sext i32 %7 to i64
-  %12 = getelementptr i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 97
-  br i1 %.not, label %14, label %23
+  br i1 %.not, label %14, label %.thread
 
 14:                                               ; preds = %9
   %15 = tail call i32 @len_utf8(ptr noundef nonnull %10) #2
   %16 = icmp sgt i32 %15, 6
-  br i1 %16, label %17, label %.sink.split
+  br i1 %16, label %17, label %.thread.sink.split
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8
@@ -335,315 +333,315 @@ define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %
   %21 = tail call i32 @skip_utf8(ptr noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef 1) #2
   %22 = icmp slt i32 %21, 0
   %. = select i1 %22, i32 %7, i32 %21
-  br label %.sink.split
+  br label %.thread.sink.split
 
-.sink.split:                                      ; preds = %17, %14
-  %.sink = phi i32 [ %7, %14 ], [ %., %17 ]
-  store i32 %.sink, ptr %6, align 8
-  br label %23
+.thread.sink.split:                               ; preds = %14, %17
+  %..sink = phi i32 [ %., %17 ], [ %7, %14 ]
+  store i32 %..sink, ptr %6, align 8
+  br label %.thread
 
-23:                                               ; preds = %.sink.split, %1, %9
-  %24 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 371, i32 noundef 1) #2
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %35, label %26
+.thread:                                          ; preds = %.thread.sink.split, %9, %1
+  %23 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 371, i32 noundef 1) #2
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %34, label %25
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %6, align 8
-  %28 = add i32 %27, %24
-  store i32 %28, ptr %6, align 8
-  %29 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 371, i32 noundef 1) #2
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %35, label %31
+25:                                               ; preds = %.thread
+  %26 = load i32, ptr %6, align 8
+  %27 = add i32 %26, %23
+  store i32 %27, ptr %6, align 8
+  %28 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 371, i32 noundef 1) #2
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %34, label %30
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %6, align 8
-  %33 = add i32 %32, %29
-  %34 = load ptr, ptr %4, align 8
-  store i32 %33, ptr %34, align 4
-  br label %35
+30:                                               ; preds = %25
+  %31 = load i32, ptr %6, align 8
+  %32 = add i32 %31, %28
+  %33 = load ptr, ptr %4, align 8
+  store i32 %32, ptr %33, align 4
+  br label %34
 
-35:                                               ; preds = %26, %23, %31
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %7, ptr %36, align 8
-  %37 = load i32, ptr %2, align 4
-  store i32 %37, ptr %6, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %37, ptr %38, align 8
-  %39 = add i32 %37, -3
-  %.not.i = icmp sgt i32 %39, %7
-  br i1 %.not.i, label %40, label %r_fix_conflicts.exit
+34:                                               ; preds = %25, %.thread, %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %7, ptr %35, align 8
+  %36 = load i32, ptr %2, align 4
+  store i32 %36, ptr %6, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %36, ptr %37, align 8
+  %38 = add i32 %36, -3
+  %.not.i = icmp sgt i32 %38, %7
+  br i1 %.not.i, label %39, label %79
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %0, align 8
-  %42 = add i32 %37, -1
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %.mask.i = and i32 %46, 224
-  %.not46.i = icmp eq i32 %.mask.i, 96
-  br i1 %.not46.i, label %47, label %r_fix_conflicts.exit
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %0, align 8
+  %41 = add i32 %36, -1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %.mask.i = and i32 %45, 224
+  %.not61.i = icmp eq i32 %.mask.i, 96
+  br i1 %.not61.i, label %46, label %79
 
-47:                                               ; preds = %40
-  %48 = and i32 %46, 31
-  %49 = shl nuw i32 1, %48
-  %50 = and i32 %49, 2621472
-  %.not47.i = icmp eq i32 %50, 0
-  br i1 %.not47.i, label %r_fix_conflicts.exit, label %51
+46:                                               ; preds = %39
+  %47 = and i32 %45, 31
+  %48 = shl nuw i32 1, %47
+  %49 = and i32 %48, 2621472
+  %.not62.i = icmp eq i32 %49, 0
+  br i1 %.not62.i, label %79, label %50
 
-51:                                               ; preds = %47
-  %52 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 11) #2
-  %.not48.i = icmp eq i32 %52, 0
-  br i1 %.not48.i, label %r_fix_conflicts.exit, label %53
+50:                                               ; preds = %46
+  %51 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 11) #2
+  %.not63.i = icmp eq i32 %51, 0
+  br i1 %.not63.i, label %79, label %52
 
-53:                                               ; preds = %51
-  %54 = load i32, ptr %6, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %54, ptr %55, align 4
-  switch i32 %52, label %r_fix_conflicts.exit [
-    i32 1, label %56
-    i32 2, label %59
-    i32 3, label %62
-    i32 4, label %65
-    i32 5, label %68
-    i32 6, label %71
-    i32 7, label %74
-    i32 8, label %77
+52:                                               ; preds = %50
+  %53 = load i32, ptr %6, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %53, ptr %54, align 4
+  switch i32 %51, label %79 [
+    i32 1, label %55
+    i32 2, label %58
+    i32 3, label %61
+    i32 4, label %64
+    i32 5, label %67
+    i32 6, label %70
+    i32 7, label %73
+    i32 8, label %76
   ]
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @s_0) #2
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %r_step1.exit, label %r_fix_conflicts.exit
+55:                                               ; preds = %52
+  %56 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @s_0) #2
+  %57 = icmp sgt i32 %56, -1
+  br i1 %57, label %79, label %r_step1.exit
 
-59:                                               ; preds = %53
-  %60 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @s_1) #2
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %r_step1.exit, label %r_fix_conflicts.exit
+58:                                               ; preds = %52
+  %59 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @s_1) #2
+  %60 = icmp sgt i32 %59, -1
+  br i1 %60, label %79, label %r_step1.exit
 
-62:                                               ; preds = %53
-  %63 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @s_2) #2
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %r_step1.exit, label %r_fix_conflicts.exit
+61:                                               ; preds = %52
+  %62 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @s_2) #2
+  %63 = icmp sgt i32 %62, -1
+  br i1 %63, label %79, label %r_step1.exit
 
-65:                                               ; preds = %53
-  %66 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_3) #2
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %r_step1.exit, label %r_fix_conflicts.exit
+64:                                               ; preds = %52
+  %65 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_3) #2
+  %66 = icmp sgt i32 %65, -1
+  br i1 %66, label %79, label %r_step1.exit
 
-68:                                               ; preds = %53
-  %69 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_4) #2
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %r_step1.exit, label %r_fix_conflicts.exit
+67:                                               ; preds = %52
+  %68 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_4) #2
+  %69 = icmp sgt i32 %68, -1
+  br i1 %69, label %79, label %r_step1.exit
 
-71:                                               ; preds = %53
-  %72 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_5) #2
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %r_step1.exit, label %r_fix_conflicts.exit
+70:                                               ; preds = %52
+  %71 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_5) #2
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %79, label %r_step1.exit
 
-74:                                               ; preds = %53
-  %75 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_6) #2
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %r_step1.exit, label %r_fix_conflicts.exit
+73:                                               ; preds = %52
+  %74 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_6) #2
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %79, label %r_step1.exit
 
-77:                                               ; preds = %53
-  %78 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_7) #2
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %r_step1.exit, label %r_fix_conflicts.exit
+76:                                               ; preds = %52
+  %77 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_7) #2
+  %78 = icmp sgt i32 %77, -1
+  br i1 %78, label %79, label %r_step1.exit
 
-r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, %65, %68, %71, %74, %77, %51, %47, %40, %35
+79:                                               ; preds = %52, %55, %58, %61, %64, %67, %70, %73, %76, %34, %39, %46, %50
   %80 = load i32, ptr %2, align 4
   store i32 %80, ptr %6, align 8
   %81 = load ptr, ptr %4, align 8
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %80, %82
-  %.pre137 = load i32, ptr %36, align 8
-  br i1 %83, label %93, label %84
+  %.pre227 = load i32, ptr %35, align 8
+  br i1 %83, label %r_step1.exit.thread, label %84
 
-84:                                               ; preds = %r_fix_conflicts.exit
-  store i32 %82, ptr %36, align 8
-  store i32 %80, ptr %38, align 8
+84:                                               ; preds = %79
+  store i32 %82, ptr %35, align 8
+  store i32 %80, ptr %37, align 8
   %85 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 204) #2
-  %.not.i101 = icmp eq i32 %85, 0
-  br i1 %.not.i101, label %86, label %87
+  %.not.i147 = icmp eq i32 %85, 0
+  br i1 %.not.i147, label %86, label %87
 
 86:                                               ; preds = %84
-  store i32 %.pre137, ptr %36, align 8
-  br label %93
+  store i32 %.pre227, ptr %35, align 8
+  br label %r_step1.exit.thread
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %6, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %88, ptr %89, align 4
-  store i32 %.pre137, ptr %36, align 8
-  %.val24.i = load ptr, ptr %4, align 8
-  %.val24.val.i = load i32, ptr %.val24.i, align 4
-  %.not.i.not.i = icmp sgt i32 %.val24.val.i, %88
-  br i1 %.not.i.not.i, label %93, label %90
+  store i32 %.pre227, ptr %35, align 8
+  %.val32.i = load ptr, ptr %4, align 8
+  %.val32.val.i = load i32, ptr %.val32.i, align 4
+  %.not.i.not.not.i = icmp sgt i32 %.val32.val.i, %88
+  br i1 %.not.i.not.not.i, label %r_step1.exit.thread, label %90
 
 90:                                               ; preds = %87
   %91 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %r_step1.exit, label %._crit_edge
+  %92 = icmp sgt i32 %91, -1
+  br i1 %92, label %.r_step1.exit.thread_crit_edge, label %r_step1.exit
 
-._crit_edge:                                      ; preds = %90
-  %.pre = load i32, ptr %36, align 8
-  br label %93
+.r_step1.exit.thread_crit_edge:                   ; preds = %90
+  %.pre = load i32, ptr %35, align 8
+  br label %r_step1.exit.thread
 
-93:                                               ; preds = %._crit_edge, %86, %r_fix_conflicts.exit, %87
-  %94 = phi i32 [ %.pre, %._crit_edge ], [ %.pre137, %86 ], [ %.pre137, %r_fix_conflicts.exit ], [ %.pre137, %87 ]
-  %95 = load i32, ptr %2, align 4
-  store i32 %95, ptr %6, align 8
-  store i32 %95, ptr %38, align 8
-  %96 = add i32 %95, -1
-  %.not.i103 = icmp sgt i32 %96, %94
-  br i1 %.not.i103, label %97, label %113
+r_step1.exit.thread:                              ; preds = %.r_step1.exit.thread_crit_edge, %79, %86, %87
+  %93 = phi i32 [ %.pre, %.r_step1.exit.thread_crit_edge ], [ %.pre227, %79 ], [ %.pre227, %86 ], [ %.pre227, %87 ]
+  %94 = load i32, ptr %2, align 4
+  store i32 %94, ptr %6, align 8
+  store i32 %94, ptr %37, align 8
+  %95 = add i32 %94, -1
+  %.not.i148 = icmp sgt i32 %95, %93
+  br i1 %.not.i148, label %96, label %112
 
-97:                                               ; preds = %93
-  %98 = load ptr, ptr %0, align 8
-  %99 = sext i32 %96 to i64
-  %100 = getelementptr i8, ptr %98, i64 %99
-  %101 = load i8, ptr %100, align 1
-  switch i8 %101, label %113 [
-    i8 -115, label %102
-    i8 -66, label %102
+96:                                               ; preds = %r_step1.exit.thread
+  %97 = load ptr, ptr %0, align 8
+  %98 = sext i32 %95 to i64
+  %99 = getelementptr inbounds i8, ptr %97, i64 %98
+  %100 = load i8, ptr %99, align 1
+  switch i8 %100, label %112 [
+    i8 -115, label %101
+    i8 -66, label %101
   ]
 
-102:                                              ; preds = %97, %97
-  %103 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
-  %.not26.i = icmp eq i32 %103, 0
-  br i1 %.not26.i, label %113, label %104
+101:                                              ; preds = %96, %96
+  %102 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
+  %.not29.i = icmp eq i32 %102, 0
+  br i1 %.not29.i, label %112, label %103
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr %6, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %105, ptr %106, align 4
-  switch i32 %103, label %113 [
-    i32 1, label %107
-    i32 2, label %110
+103:                                              ; preds = %101
+  %104 = load i32, ptr %6, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %104, ptr %105, align 4
+  switch i32 %102, label %112 [
+    i32 1, label %106
+    i32 2, label %109
   ]
 
-107:                                              ; preds = %104
-  %108 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %r_step1.exit, label %113
+106:                                              ; preds = %103
+  %107 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
+  %108 = icmp sgt i32 %107, -1
+  br i1 %108, label %112, label %r_step1.exit
 
-110:                                              ; preds = %104
-  %111 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %r_step1.exit, label %113
+109:                                              ; preds = %103
+  %110 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
+  %111 = icmp sgt i32 %110, -1
+  br i1 %111, label %112, label %r_step1.exit
 
-113:                                              ; preds = %104, %107, %110, %97, %93, %102
-  %114 = load i32, ptr %2, align 4
-  store i32 %114, ptr %6, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  br label %116
+112:                                              ; preds = %103, %106, %109, %101, %r_step1.exit.thread, %96
+  %113 = load i32, ptr %2, align 4
+  store i32 %113, ptr %6, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  br label %115
 
-116:                                              ; preds = %124, %113
-  %117 = load i32, ptr %6, align 8
-  %118 = load ptr, ptr %4, align 8
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp slt i32 %117, %119
-  %.pre138 = load i32, ptr %36, align 8
-  br i1 %120, label %.loopexit, label %121
+115:                                              ; preds = %123, %112
+  %116 = load i32, ptr %6, align 8
+  %117 = load ptr, ptr %4, align 8
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp slt i32 %116, %118
+  %.pre228 = load i32, ptr %35, align 8
+  br i1 %119, label %.loopexit, label %120
 
-121:                                              ; preds = %116
-  store i32 %119, ptr %36, align 8
-  store i32 %117, ptr %38, align 8
-  %122 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 62) #2
-  %.not.i105 = icmp eq i32 %122, 0
-  br i1 %.not.i105, label %123, label %124
+120:                                              ; preds = %115
+  store i32 %118, ptr %35, align 8
+  store i32 %116, ptr %37, align 8
+  %121 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 62) #2
+  %.not.i150 = icmp eq i32 %121, 0
+  br i1 %.not.i150, label %122, label %123
 
-123:                                              ; preds = %121
-  store i32 %.pre138, ptr %36, align 8
+122:                                              ; preds = %120
+  store i32 %.pre228, ptr %35, align 8
   br label %.loopexit
 
-124:                                              ; preds = %121
-  %125 = load i32, ptr %6, align 8
-  store i32 %125, ptr %115, align 4
-  store i32 %.pre138, ptr %36, align 8
-  %126 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %r_step1.exit, label %116
+123:                                              ; preds = %120
+  %124 = load i32, ptr %6, align 8
+  store i32 %124, ptr %114, align 4
+  store i32 %.pre228, ptr %35, align 8
+  %125 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %126 = icmp sgt i32 %125, -1
+  br i1 %126, label %115, label %r_step1.exit
 
-.loopexit:                                        ; preds = %116, %123
-  %128 = load i32, ptr %2, align 4
-  store i32 %128, ptr %6, align 8
-  store i32 %128, ptr %38, align 8
-  %129 = add i32 %128, -1
-  %.not.i107 = icmp sgt i32 %129, %.pre138
-  br i1 %.not.i107, label %130, label %145
+.loopexit:                                        ; preds = %115, %122
+  %127 = load i32, ptr %2, align 4
+  store i32 %127, ptr %6, align 8
+  store i32 %127, ptr %37, align 8
+  %128 = add i32 %127, -1
+  %.not.i151 = icmp sgt i32 %128, %.pre228
+  br i1 %.not.i151, label %129, label %144
 
-130:                                              ; preds = %.loopexit
-  %131 = load ptr, ptr %0, align 8
-  %132 = sext i32 %129 to i64
-  %133 = getelementptr i8, ptr %131, i64 %132
-  %134 = load i8, ptr %133, align 1
-  switch i8 %134, label %145 [
-    i8 -115, label %135
-    i8 -66, label %135
+129:                                              ; preds = %.loopexit
+  %130 = load ptr, ptr %0, align 8
+  %131 = sext i32 %128 to i64
+  %132 = getelementptr inbounds i8, ptr %130, i64 %131
+  %133 = load i8, ptr %132, align 1
+  switch i8 %133, label %144 [
+    i8 -115, label %134
+    i8 -66, label %134
   ]
 
-135:                                              ; preds = %130, %130
-  %136 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
-  %.not26.i109 = icmp eq i32 %136, 0
-  br i1 %.not26.i109, label %145, label %137
+134:                                              ; preds = %129, %129
+  %135 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
+  %.not29.i153 = icmp eq i32 %135, 0
+  br i1 %.not29.i153, label %144, label %136
 
-137:                                              ; preds = %135
-  %138 = load i32, ptr %6, align 8
-  store i32 %138, ptr %115, align 4
-  switch i32 %136, label %145 [
-    i32 1, label %139
-    i32 2, label %142
+136:                                              ; preds = %134
+  %137 = load i32, ptr %6, align 8
+  store i32 %137, ptr %114, align 4
+  switch i32 %135, label %144 [
+    i32 1, label %138
+    i32 2, label %141
   ]
 
-139:                                              ; preds = %137
-  %140 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
-  %141 = icmp slt i32 %140, 0
-  br i1 %141, label %r_step1.exit, label %145
+138:                                              ; preds = %136
+  %139 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
+  %140 = icmp sgt i32 %139, -1
+  br i1 %140, label %144, label %r_step1.exit
 
-142:                                              ; preds = %137
-  %143 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %r_step1.exit, label %145
+141:                                              ; preds = %136
+  %142 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
+  %143 = icmp sgt i32 %142, -1
+  br i1 %143, label %144, label %r_step1.exit
 
-145:                                              ; preds = %137, %139, %142, %130, %.loopexit, %135
-  %146 = load i32, ptr %2, align 4
-  store i32 %146, ptr %6, align 8
-  store i32 %146, ptr %38, align 8
-  %147 = add i32 %146, -1
-  %148 = load i32, ptr %36, align 8
-  %.not.i111 = icmp sgt i32 %147, %148
-  br i1 %.not.i111, label %149, label %160
+144:                                              ; preds = %136, %138, %141, %134, %.loopexit, %129
+  %145 = load i32, ptr %2, align 4
+  store i32 %145, ptr %6, align 8
+  store i32 %145, ptr %37, align 8
+  %146 = add i32 %145, -1
+  %147 = load i32, ptr %35, align 8
+  %.not.i155 = icmp sgt i32 %146, %147
+  br i1 %.not.i155, label %148, label %select.unfold203
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %0, align 8
-  %151 = sext i32 %147 to i64
-  %152 = getelementptr i8, ptr %150, i64 %151
-  %153 = load i8, ptr %152, align 1
-  %.not14.i = icmp eq i8 %153, 100
-  br i1 %.not14.i, label %154, label %160
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %0, align 8
+  %150 = sext i32 %146 to i64
+  %151 = getelementptr inbounds i8, ptr %149, i64 %150
+  %152 = load i8, ptr %151, align 1
+  %.not15.i = icmp eq i8 %152, 100
+  br i1 %.not15.i, label %153, label %select.unfold203
 
-154:                                              ; preds = %149
-  %155 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 1) #2
-  %.not15.i = icmp eq i32 %155, 0
-  br i1 %.not15.i, label %160, label %156
+153:                                              ; preds = %148
+  %154 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 1) #2
+  %.not16.i = icmp eq i32 %154, 0
+  br i1 %.not16.i, label %select.unfold203, label %155
 
-156:                                              ; preds = %154
-  %157 = load i32, ptr %6, align 8
-  store i32 %157, ptr %115, align 4
-  %158 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
-  %159 = icmp slt i32 %158, 0
-  br i1 %159, label %r_step1.exit, label %160
+155:                                              ; preds = %153
+  %156 = load i32, ptr %6, align 8
+  store i32 %156, ptr %114, align 4
+  %157 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
+  %158 = icmp sgt i32 %157, -1
+  br i1 %158, label %select.unfold203, label %r_step1.exit
 
-160:                                              ; preds = %149, %145, %154, %156
-  %161 = load i32, ptr %36, align 8
-  store i32 %161, ptr %6, align 8
+select.unfold203:                                 ; preds = %155, %153, %144, %148
+  %159 = load i32, ptr %35, align 8
+  store i32 %159, ptr %6, align 8
   br label %r_step1.exit
 
-r_step1.exit:                                     ; preds = %124, %77, %74, %71, %68, %65, %62, %59, %56, %156, %142, %139, %110, %107, %90, %160
-  %.0 = phi i32 [ 1, %160 ], [ %91, %90 ], [ %108, %107 ], [ %111, %110 ], [ %140, %139 ], [ %143, %142 ], [ %158, %156 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %126, %124 ]
-  ret i32 %.0
+r_step1.exit:                                     ; preds = %123, %155, %138, %141, %106, %109, %90, %55, %58, %61, %64, %67, %70, %73, %76, %select.unfold203
+  %.1 = phi i32 [ 1, %select.unfold203 ], [ %56, %55 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %91, %90 ], [ %110, %109 ], [ %107, %106 ], [ %142, %141 ], [ %139, %138 ], [ %157, %155 ], [ %125, %123 ]
+  ret i32 %.1
 }
 
 declare i32 @len_utf8(ptr noundef) local_unnamed_addr #1
@@ -676,13 +674,12 @@ declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

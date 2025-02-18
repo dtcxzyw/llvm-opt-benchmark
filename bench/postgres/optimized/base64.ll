@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 @b64lookup = internal unnamed_addr constant [128 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF>\FF\FF\FF?456789:;<=\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\FF\FF\FF\FF\FF\FF\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\FF\FF\FF\FF\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ult ptr %0, %6
+  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -29,7 +29,7 @@ define dso_local i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i
   %14 = shl nuw nsw i32 %12, %13
   %15 = or i32 %14, %.053
   %16 = add nsw i32 %.03952, -1
-  %17 = getelementptr i8, ptr %.04251, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.04251, i64 1
   %18 = icmp slt i32 %.03952, 1
   br i1 %18, label %19, label %47
 
@@ -44,29 +44,29 @@ define dso_local i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i
   %24 = lshr i32 %15, 18
   %25 = and i32 %24, 63
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr i8, ptr %.04350, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.04350, i64 1
   store i8 %28, ptr %.04350, align 1
   %30 = lshr i32 %15, 12
   %31 = and i32 %30, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr i8, ptr %.04350, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.04350, i64 2
   store i8 %34, ptr %29, align 1
   %36 = lshr i32 %15, 6
   %37 = and i32 %36, 63
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr i8, ptr %.04350, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.04350, i64 3
   store i8 %40, ptr %35, align 1
   %42 = and i32 %15, 63
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr i8, ptr %.04350, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.04350, i64 4
   store i8 %45, ptr %41, align 1
   br label %47
 
@@ -74,76 +74,76 @@ define dso_local i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i
   %.144 = phi ptr [ %46, %23 ], [ %.04350, %10 ]
   %.140 = phi i32 [ 2, %23 ], [ %16, %10 ]
   %.1 = phi i32 [ 0, %23 ], [ %15, %10 ]
-  %exitcond.not = icmp eq ptr %17, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !5
+  %48 = icmp ult ptr %17, %6
+  br i1 %48, label %10, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %47
   %.not = icmp eq i32 %.140, 2
-  br i1 %.not, label %._crit_edge._crit_edge, label %48
+  br i1 %.not, label %._crit_edge._crit_edge, label %49
 
 ._crit_edge._crit_edge:                           ; preds = %4, %._crit_edge
   %.043.lcssa62 = phi ptr [ %.144, %._crit_edge ], [ %2, %4 ]
   %.pre = ptrtoint ptr %2 to i64
-  br label %78
+  br label %79
 
-48:                                               ; preds = %._crit_edge
-  %49 = ptrtoint ptr %.144 to i64
-  %50 = ptrtoint ptr %2 to i64
-  %reass.sub56 = sub i64 %49, %50
-  %51 = add i64 %reass.sub56, 4
-  %52 = sext i32 %3 to i64
-  %53 = icmp sgt i64 %51, %52
-  br i1 %53, label %.loopexit, label %54
+49:                                               ; preds = %._crit_edge
+  %50 = ptrtoint ptr %.144 to i64
+  %51 = ptrtoint ptr %2 to i64
+  %reass.sub56 = sub i64 %50, %51
+  %52 = add i64 %reass.sub56, 4
+  %53 = sext i32 %3 to i64
+  %54 = icmp sgt i64 %52, %53
+  br i1 %54, label %.loopexit, label %55
 
-54:                                               ; preds = %48
-  %55 = lshr i32 %.1, 18
-  %56 = and i32 %55, 63
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr i8, ptr %.144, i64 1
-  store i8 %59, ptr %.144, align 1
-  %61 = lshr i32 %.1, 12
-  %62 = and i32 %61, 63
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = getelementptr i8, ptr %.144, i64 2
-  store i8 %65, ptr %60, align 1
-  %67 = icmp eq i32 %.140, 0
-  br i1 %67, label %68, label %74
+55:                                               ; preds = %49
+  %56 = lshr i32 %.1, 18
+  %57 = and i32 %56, 63
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %.144, i64 1
+  store i8 %60, ptr %.144, align 1
+  %62 = lshr i32 %.1, 12
+  %63 = and i32 %62, 63
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %.144, i64 2
+  store i8 %66, ptr %61, align 1
+  %68 = icmp eq i32 %.140, 0
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %54
-  %69 = lshr i32 %.1, 6
-  %70 = and i32 %69, 63
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
-  br label %74
+69:                                               ; preds = %55
+  %70 = lshr i32 %.1, 6
+  %71 = and i32 %70, 63
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %72
+  %74 = load i8, ptr %73, align 1
+  br label %75
 
-74:                                               ; preds = %54, %68
-  %75 = phi i8 [ %73, %68 ], [ 61, %54 ]
-  %76 = getelementptr i8, ptr %.144, i64 3
-  store i8 %75, ptr %66, align 1
-  %77 = getelementptr i8, ptr %.144, i64 4
-  store i8 61, ptr %76, align 1
-  br label %78
+75:                                               ; preds = %55, %69
+  %76 = phi i8 [ %74, %69 ], [ 61, %55 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.144, i64 3
+  store i8 %76, ptr %67, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %.144, i64 4
+  store i8 61, ptr %77, align 1
+  br label %79
 
-78:                                               ; preds = %._crit_edge._crit_edge, %74
-  %.pre-phi57 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %50, %74 ]
-  %.2 = phi ptr [ %.043.lcssa62, %._crit_edge._crit_edge ], [ %77, %74 ]
-  %79 = ptrtoint ptr %.2 to i64
-  %80 = sub i64 %79, %.pre-phi57
-  %81 = trunc i64 %80 to i32
-  br label %82
+79:                                               ; preds = %._crit_edge._crit_edge, %75
+  %.pre-phi57 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %51, %75 ]
+  %.2 = phi ptr [ %.043.lcssa62, %._crit_edge._crit_edge ], [ %78, %75 ]
+  %80 = ptrtoint ptr %.2 to i64
+  %81 = sub i64 %80, %.pre-phi57
+  %82 = trunc i64 %81 to i32
+  br label %83
 
-.loopexit:                                        ; preds = %19, %48
-  %.pre-phi = phi i64 [ %52, %48 ], [ %9, %19 ]
+.loopexit:                                        ; preds = %19, %49
+  %.pre-phi = phi i64 [ %53, %49 ], [ %9, %19 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %.pre-phi, i1 false)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %.loopexit, %78
-  %.041 = phi i32 [ -1, %.loopexit ], [ %81, %78 ]
+83:                                               ; preds = %.loopexit, %79
+  %.041 = phi i32 [ -1, %.loopexit ], [ %82, %79 ]
   ret i32 %.041
 }
 
@@ -151,10 +151,10 @@ define dso_local i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ult ptr %0, %6
+  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %4
@@ -173,9 +173,9 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 10:                                               ; preds = %.outer, %.thread99
   %.092 = phi i32 [ 1, %.thread99 ], [ %.092.ph, %.outer ]
   %.06291 = phi i32 [ 3, %.thread99 ], [ %.06291.ph, %.outer ]
-  %.06490 = phi i32 [ %57, %.thread99 ], [ %.06490.ph, %.outer ]
+  %.06490 = phi i32 [ %58, %.thread99 ], [ %.06490.ph, %.outer ]
   %.07288 = phi ptr [ %11, %.thread99 ], [ %.07288.ph, %.outer ]
-  %11 = getelementptr i8, ptr %.07288, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.07288, i64 1
   %12 = load i8, ptr %.07288, align 1
   switch i8 %12, label %16 [
     i8 32, label %.thread
@@ -206,7 +206,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 
 18:                                               ; preds = %16
   %19 = zext nneg i8 %12 to i64
-  %20 = getelementptr [128 x i8], ptr @b64lookup, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [128 x i8], ptr @b64lookup, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext nneg i8 %21 to i32
   %23 = icmp slt i8 %21, 0
@@ -232,7 +232,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 33:                                               ; preds = %28
   %34 = lshr i32 %29, 16
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr i8, ptr %.06989.ph, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.06989.ph, i64 1
   store i8 %35, ptr %.06989.ph, align 1
   %37 = icmp eq i32 %.281, 0
   %38 = icmp sgt i32 %.281, 1
@@ -249,7 +249,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 43:                                               ; preds = %39
   %44 = lshr i32 %29, 8
   %45 = trunc i32 %44 to i8
-  %46 = getelementptr i8, ptr %.06989.ph, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.06989.ph, i64 2
   store i8 %45, ptr %36, align 1
   br label %47
 
@@ -268,7 +268,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 
 53:                                               ; preds = %49
   %54 = trunc i32 %29 to i8
-  %55 = getelementptr i8, ptr %.271, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.271, i64 1
   store i8 %54, ptr %.271, align 1
   br label %56
 
@@ -277,17 +277,17 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
   %.170 = phi ptr [ %.06989.ph, %.loopexit ], [ %55, %53 ], [ %.271, %47 ]
   %.165 = phi i32 [ %25, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
   %.163 = phi i32 [ %26, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
-  %exitcond.not = icmp eq ptr %11, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.outer, !llvm.loop !7
+  %57 = icmp ult ptr %11, %6
+  br i1 %57, label %.outer, label %._crit_edge, !llvm.loop !5
 
 .thread99:                                        ; preds = %14
-  %57 = shl i32 %.06490, 6
-  %exitcond.not104 = icmp eq ptr %11, %6
-  br i1 %exitcond.not104, label %._crit_edge..thread_crit_edge, label %10, !llvm.loop !7
+  %58 = shl i32 %.06490, 6
+  %59 = icmp ult ptr %11, %6
+  br i1 %59, label %10, label %._crit_edge..thread_crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %56
-  %58 = icmp eq i32 %.163, 0
-  br i1 %58, label %._crit_edge.thread, label %._crit_edge..thread_crit_edge
+  %60 = icmp eq i32 %.163, 0
+  br i1 %60, label %._crit_edge.thread, label %._crit_edge..thread_crit_edge
 
 ._crit_edge..thread_crit_edge:                    ; preds = %.thread99, %._crit_edge
   %.pre = sext i32 %3 to i64
@@ -295,24 +295,24 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %.069.lcssa98 = phi ptr [ %.170, %._crit_edge ], [ %2, %4 ]
-  %59 = ptrtoint ptr %.069.lcssa98 to i64
-  %60 = ptrtoint ptr %2 to i64
-  %61 = sub i64 %59, %60
-  %62 = trunc i64 %61 to i32
-  br label %63
+  %61 = ptrtoint ptr %.069.lcssa98 to i64
+  %62 = ptrtoint ptr %2 to i64
+  %63 = sub i64 %61, %62
+  %64 = trunc i64 %63 to i32
+  br label %65
 
 .thread:                                          ; preds = %16, %49, %39, %28, %18, %14, %10, %10, %10, %10, %._crit_edge..thread_crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge..thread_crit_edge ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %14 ], [ %9, %18 ], [ %9, %28 ], [ %9, %39 ], [ %9, %49 ], [ %9, %16 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %.pre-phi, i1 false)
-  br label %63
+  br label %65
 
-63:                                               ; preds = %.thread, %._crit_edge.thread
-  %.068 = phi i32 [ -1, %.thread ], [ %62, %._crit_edge.thread ]
+65:                                               ; preds = %.thread, %._crit_edge.thread
+  %.068 = phi i32 [ -1, %.thread ], [ %64, %._crit_edge.thread ]
   ret i32 %.068
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, -3) i32 @pg_b64_enc_len(i32 noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 0, -3) i32 @pg_b64_enc_len(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add i32 %0, 2
   %3 = sdiv i32 %2, 3
   %4 = shl i32 %3, 2
@@ -320,23 +320,21 @@ define dso_local noundef range(i32 0, -3) i32 @pg_b64_enc_len(i32 noundef %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 -536870912, 536870912) i32 @pg_b64_dec_len(i32 noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 -536870912, 536870912) i32 @pg_b64_dec_len(i32 noundef %0) local_unnamed_addr #2 {
   %2 = mul i32 %0, 3
   %3 = ashr i32 %2, 2
   ret i32 %3
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}

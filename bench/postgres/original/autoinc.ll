@@ -8,12 +8,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Node = type { i32 }
 %struct.TriggerData = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.Trigger = type { i32, ptr, i32, i16, i8, i8, i8, i32, i32, i32, i8, i8, i16, i16, ptr, ptr, ptr, ptr, ptr }
-%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
+%struct.RelationData = type { %struct.RelFileLocator, ptr, i32, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, ptr, ptr, i32, %struct.LockInfoData, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i8, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LockInfoData = type { %struct.LockRelId }
 %struct.LockRelId = type { i32, i32 }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_autoinc.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @.str = private unnamed_addr constant [29 x i8] c"not fired by trigger manager\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"autoinc.c\00", align 1
@@ -55,513 +55,588 @@ define i64 @autoinc(ptr noundef %0) #0 {
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
+  %20 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   store ptr null, ptr %13, align 8
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %35
 
-27:                                               ; preds = %1
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.Node, ptr %30, i32 0, i32 0
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 426
-  br i1 %33, label %44, label %34
+28:                                               ; preds = %1
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.Node, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 441
+  br i1 %34, label %46, label %35
 
-34:                                               ; preds = %27, %1
-  br label %35
-
-35:                                               ; preds = %34
-  br i1 true, label %36, label %38
+35:                                               ; preds = %28, %1
+  br label %36
 
 36:                                               ; preds = %35
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %37, label %40, label %42
+  br i1 true, label %37, label %39
 
-38:                                               ; preds = %35
-  %39 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %39, label %40, label %42
+37:                                               ; preds = %36
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %38, label %41, label %43
 
-40:                                               ; preds = %38, %36
-  %41 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
+39:                                               ; preds = %36
+  %40 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %39, %37
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 38, ptr noundef @__func__.autoinc)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %40, %38, %36
+43:                                               ; preds = %41, %39, %37
   unreachable
 
-43:                                               ; No predecessors!
-  br label %44
+44:                                               ; No predecessors!
+  br label %45
 
-44:                                               ; preds = %43, %27
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.TriggerData, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 4
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %60, label %50
+45:                                               ; preds = %44
+  br label %46
 
-50:                                               ; preds = %44
-  br label %51
+46:                                               ; preds = %45, %28
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.TriggerData, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 4
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %63, label %52
 
-51:                                               ; preds = %50
-  br i1 true, label %52, label %54
+52:                                               ; preds = %46
+  br label %53
 
-52:                                               ; preds = %51
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %53, label %56, label %58
+53:                                               ; preds = %52
+  br i1 true, label %54, label %56
 
-54:                                               ; preds = %51
-  %55 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %55, label %56, label %58
+54:                                               ; preds = %53
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %55, label %58, label %60
 
-56:                                               ; preds = %54, %52
-  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
+56:                                               ; preds = %53
+  %57 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %56, %54
+  %59 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.2)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 41, ptr noundef @__func__.autoinc)
-  br label %58
-
-58:                                               ; preds = %56, %54, %52
-  unreachable
-
-59:                                               ; No predecessors!
   br label %60
 
-60:                                               ; preds = %59, %44
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.TriggerData, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 24
-  %65 = icmp eq i32 %64, 8
-  br i1 %65, label %76, label %66
+60:                                               ; preds = %58, %56, %54
+  unreachable
 
-66:                                               ; preds = %60
-  br label %67
+61:                                               ; No predecessors!
+  br label %62
 
-67:                                               ; preds = %66
-  br i1 true, label %68, label %70
+62:                                               ; preds = %61
+  br label %63
 
-68:                                               ; preds = %67
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %69, label %72, label %74
+63:                                               ; preds = %62, %46
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.TriggerData, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 24
+  %68 = icmp eq i32 %67, 8
+  br i1 %68, label %80, label %69
 
-70:                                               ; preds = %67
-  %71 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %63
+  br label %70
 
-72:                                               ; preds = %70, %68
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
+70:                                               ; preds = %69
+  br i1 true, label %71, label %73
+
+71:                                               ; preds = %70
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %72, label %75, label %77
+
+73:                                               ; preds = %70
+  %74 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %73, %71
+  %76 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.3)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 44, ptr noundef @__func__.autoinc)
-  br label %74
+  br label %77
 
-74:                                               ; preds = %72, %70, %68
+77:                                               ; preds = %75, %73, %71
   unreachable
 
-75:                                               ; No predecessors!
-  br label %76
+78:                                               ; No predecessors!
+  br label %79
 
-76:                                               ; preds = %75, %60
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.TriggerData, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 4
-  %80 = and i32 %79, 3
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %86
+79:                                               ; preds = %78
+  br label %80
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.TriggerData, ptr %83, i32 0, i32 3
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %13, align 8
-  br label %107
+80:                                               ; preds = %79, %63
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds nuw %struct.TriggerData, ptr %81, i32 0, i32 1
+  %83 = load i32, ptr %82, align 4
+  %84 = and i32 %83, 3
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %90
 
-86:                                               ; preds = %76
+86:                                               ; preds = %80
   %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.TriggerData, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 4
-  %90 = and i32 %89, 3
-  %91 = icmp eq i32 %90, 2
-  br i1 %91, label %92, label %96
+  %88 = getelementptr inbounds nuw %struct.TriggerData, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %13, align 8
+  br label %112
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.TriggerData, ptr %93, i32 0, i32 4
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %13, align 8
-  br label %106
+90:                                               ; preds = %80
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds nuw %struct.TriggerData, ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %92, align 4
+  %94 = and i32 %93, 3
+  %95 = icmp eq i32 %94, 2
+  br i1 %95, label %96, label %100
 
-96:                                               ; preds = %86
-  br label %97
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds nuw %struct.TriggerData, ptr %97, i32 0, i32 4
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %13, align 8
+  br label %111
 
-97:                                               ; preds = %96
-  br i1 true, label %98, label %100
+100:                                              ; preds = %90
+  br label %101
 
-98:                                               ; preds = %97
-  %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %99, label %102, label %104
+101:                                              ; preds = %100
+  br i1 true, label %102, label %104
 
-100:                                              ; preds = %97
-  %101 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %101, label %102, label %104
+102:                                              ; preds = %101
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %103, label %106, label %108
 
-102:                                              ; preds = %100, %98
-  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4)
+104:                                              ; preds = %101
+  %105 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %105, label %106, label %108
+
+106:                                              ; preds = %104, %102
+  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.4)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 52, ptr noundef @__func__.autoinc)
-  br label %104
+  br label %108
 
-104:                                              ; preds = %102, %100, %98
+108:                                              ; preds = %106, %104, %102
   unreachable
 
-105:                                              ; No predecessors!
-  br label %106
+109:                                              ; No predecessors!
+  br label %110
 
-106:                                              ; preds = %105, %92
-  br label %107
+110:                                              ; preds = %109
+  br label %111
 
-107:                                              ; preds = %106, %82
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.TriggerData, ptr %108, i32 0, i32 2
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %12, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = call ptr @SPI_getrelname(ptr noundef %111)
-  store ptr %112, ptr %11, align 8
+111:                                              ; preds = %110, %96
+  br label %112
+
+112:                                              ; preds = %111, %86
   %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds %struct.TriggerData, ptr %113, i32 0, i32 5
+  %114 = getelementptr inbounds nuw %struct.TriggerData, ptr %113, i32 0, i32 2
   %115 = load ptr, ptr %114, align 8
-  store ptr %115, ptr %4, align 8
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.Trigger, ptr %116, i32 0, i32 12
-  %118 = load i16, ptr %117, align 2
-  %119 = sext i16 %118 to i32
-  store i32 %119, ptr %5, align 4
-  %120 = load i32, ptr %5, align 4
-  %121 = icmp sle i32 %120, 0
-  br i1 %121, label %126, label %122
+  store ptr %115, ptr %12, align 8
+  %116 = load ptr, ptr %12, align 8
+  %117 = call ptr @SPI_getrelname(ptr noundef %116)
+  store ptr %117, ptr %11, align 8
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds nuw %struct.TriggerData, ptr %118, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %4, align 8
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds nuw %struct.Trigger, ptr %121, i32 0, i32 12
+  %123 = load i16, ptr %122, align 2
+  %124 = sext i16 %123 to i32
+  store i32 %124, ptr %5, align 4
+  %125 = load i32, ptr %5, align 4
+  %126 = icmp sle i32 %125, 0
+  br i1 %126, label %131, label %127
 
-122:                                              ; preds = %107
-  %123 = load i32, ptr %5, align 4
-  %124 = srem i32 %123, 2
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %137
+127:                                              ; preds = %112
+  %128 = load i32, ptr %5, align 4
+  %129 = srem i32 %128, 2
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %143
 
-126:                                              ; preds = %122, %107
-  br label %127
+131:                                              ; preds = %127, %112
+  br label %132
 
-127:                                              ; preds = %126
-  br i1 true, label %128, label %130
+132:                                              ; preds = %131
+  br i1 true, label %133, label %135
 
-128:                                              ; preds = %127
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %129, label %132, label %135
+133:                                              ; preds = %132
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %134, label %137, label %140
 
-130:                                              ; preds = %127
-  %131 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %131, label %132, label %135
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %136, label %137, label %140
 
-132:                                              ; preds = %130, %128
-  %133 = load ptr, ptr %11, align 8
-  %134 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, ptr noundef %133)
+137:                                              ; preds = %135, %133
+  %138 = load ptr, ptr %11, align 8
+  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, ptr noundef %138)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 62, ptr noundef @__func__.autoinc)
-  br label %135
+  br label %140
 
-135:                                              ; preds = %132, %130, %128
+140:                                              ; preds = %137, %135, %133
   unreachable
 
-136:                                              ; No predecessors!
-  br label %137
+141:                                              ; No predecessors!
+  br label %142
 
-137:                                              ; preds = %136, %122
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.Trigger, ptr %138, i32 0, i32 15
-  %140 = load ptr, ptr %139, align 8
-  store ptr %140, ptr %10, align 8
-  %141 = load ptr, ptr %12, align 8
-  %142 = getelementptr inbounds %struct.RelationData, ptr %141, i32 0, i32 14
-  %143 = load ptr, ptr %142, align 8
-  store ptr %143, ptr %14, align 8
-  %144 = load i32, ptr %5, align 4
-  %145 = sdiv i32 %144, 2
-  %146 = sext i32 %145 to i64
-  %147 = mul i64 %146, 4
-  %148 = call ptr @palloc(i64 noundef %147)
-  store ptr %148, ptr %6, align 8
-  %149 = load i32, ptr %5, align 4
-  %150 = sdiv i32 %149, 2
-  %151 = sext i32 %150 to i64
-  %152 = mul i64 %151, 8
-  %153 = call ptr @palloc(i64 noundef %152)
-  store ptr %153, ptr %8, align 8
-  %154 = load i32, ptr %5, align 4
-  %155 = sdiv i32 %154, 2
-  %156 = sext i32 %155 to i64
-  %157 = mul i64 %156, 1
-  %158 = call ptr @palloc(i64 noundef %157)
-  store ptr %158, ptr %9, align 8
+142:                                              ; preds = %141
+  br label %143
+
+143:                                              ; preds = %142, %127
+  %144 = load ptr, ptr %4, align 8
+  %145 = getelementptr inbounds nuw %struct.Trigger, ptr %144, i32 0, i32 15
+  %146 = load ptr, ptr %145, align 8
+  store ptr %146, ptr %10, align 8
+  %147 = load ptr, ptr %12, align 8
+  %148 = getelementptr inbounds nuw %struct.RelationData, ptr %147, i32 0, i32 14
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %14, align 8
+  %150 = load i32, ptr %5, align 4
+  %151 = sdiv i32 %150, 2
+  %152 = sext i32 %151 to i64
+  %153 = mul i64 %152, 4
+  %154 = call ptr @palloc(i64 noundef %153)
+  store ptr %154, ptr %6, align 8
+  %155 = load i32, ptr %5, align 4
+  %156 = sdiv i32 %155, 2
+  %157 = sext i32 %156 to i64
+  %158 = mul i64 %157, 8
+  %159 = call ptr @palloc(i64 noundef %158)
+  store ptr %159, ptr %8, align 8
+  %160 = load i32, ptr %5, align 4
+  %161 = sdiv i32 %160, 2
+  %162 = sext i32 %161 to i64
+  %163 = mul i64 %162, 1
+  %164 = call ptr @palloc(i64 noundef %163)
+  store ptr %164, ptr %9, align 8
   store i32 0, ptr %16, align 4
-  br label %159
+  br label %165
 
-159:                                              ; preds = %285, %223, %137
-  %160 = load i32, ptr %16, align 4
-  %161 = load i32, ptr %5, align 4
-  %162 = icmp slt i32 %160, %161
-  br i1 %162, label %163, label %297
-
-163:                                              ; preds = %159
-  %164 = load ptr, ptr %14, align 8
-  %165 = load ptr, ptr %10, align 8
+165:                                              ; preds = %307, %305, %143
   %166 = load i32, ptr %16, align 4
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr ptr, ptr %165, i64 %167
-  %169 = load ptr, ptr %168, align 8
-  %170 = call i32 @SPI_fnumber(ptr noundef %164, ptr noundef %169)
-  store i32 %170, ptr %17, align 4
-  %171 = load i32, ptr %17, align 4
-  %172 = icmp sle i32 %171, 0
-  br i1 %172, label %173, label %190
+  %167 = load i32, ptr %5, align 4
+  %168 = icmp slt i32 %166, %167
+  br i1 %168, label %169, label %308
 
-173:                                              ; preds = %163
-  br label %174
+169:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %170 = load ptr, ptr %14, align 8
+  %171 = load ptr, ptr %10, align 8
+  %172 = load i32, ptr %16, align 4
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds ptr, ptr %171, i64 %173
+  %175 = load ptr, ptr %174, align 8
+  %176 = call i32 @SPI_fnumber(ptr noundef %170, ptr noundef %175)
+  store i32 %176, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %177 = load i32, ptr %17, align 4
+  %178 = icmp sle i32 %177, 0
+  br i1 %178, label %179, label %197
 
-174:                                              ; preds = %173
-  br i1 true, label %175, label %177
+179:                                              ; preds = %169
+  br label %180
 
-175:                                              ; preds = %174
-  %176 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %176, label %179, label %188
+180:                                              ; preds = %179
+  br i1 true, label %181, label %183
 
-177:                                              ; preds = %174
-  %178 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %178, label %179, label %188
+181:                                              ; preds = %180
+  %182 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %182, label %185, label %194
 
-179:                                              ; preds = %177, %175
-  %180 = call i32 @errcode(i32 noundef 576)
-  %181 = load ptr, ptr %11, align 8
-  %182 = load ptr, ptr %10, align 8
-  %183 = load i32, ptr %16, align 4
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr ptr, ptr %182, i64 %184
-  %186 = load ptr, ptr %185, align 8
-  %187 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6, ptr noundef %181, ptr noundef %186)
+183:                                              ; preds = %180
+  %184 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %184, label %185, label %194
+
+185:                                              ; preds = %183, %181
+  %186 = call i32 @errcode(i32 noundef 576)
+  %187 = load ptr, ptr %11, align 8
+  %188 = load ptr, ptr %10, align 8
+  %189 = load i32, ptr %16, align 4
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds ptr, ptr %188, i64 %190
+  %192 = load ptr, ptr %191, align 8
+  %193 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6, ptr noundef %187, ptr noundef %192)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 81, ptr noundef @__func__.autoinc)
-  br label %188
+  br label %194
 
-188:                                              ; preds = %179, %177, %175
+194:                                              ; preds = %185, %183, %181
   unreachable
 
-189:                                              ; No predecessors!
-  br label %190
-
-190:                                              ; preds = %189, %163
-  %191 = load ptr, ptr %14, align 8
-  %192 = load i32, ptr %17, align 4
-  %193 = call i32 @SPI_gettypeid(ptr noundef %191, i32 noundef %192)
-  %194 = icmp ne i32 %193, 23
-  br i1 %194, label %195, label %212
-
-195:                                              ; preds = %190
+195:                                              ; No predecessors!
   br label %196
 
 196:                                              ; preds = %195
-  br i1 true, label %197, label %199
+  br label %197
 
-197:                                              ; preds = %196
-  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
-  br i1 %198, label %201, label %210
+197:                                              ; preds = %196, %169
+  %198 = load ptr, ptr %14, align 8
+  %199 = load i32, ptr %17, align 4
+  %200 = call i32 @SPI_gettypeid(ptr noundef %198, i32 noundef %199)
+  %201 = icmp ne i32 %200, 23
+  br i1 %201, label %202, label %220
 
-199:                                              ; preds = %196
-  %200 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %200, label %201, label %210
+202:                                              ; preds = %197
+  br label %203
 
-201:                                              ; preds = %199, %197
-  %202 = call i32 @errcode(i32 noundef 576)
-  %203 = load ptr, ptr %10, align 8
-  %204 = load i32, ptr %16, align 4
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr ptr, ptr %203, i64 %205
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %207, ptr noundef %208)
+203:                                              ; preds = %202
+  br i1 true, label %204, label %206
+
+204:                                              ; preds = %203
+  %205 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %205, label %208, label %217
+
+206:                                              ; preds = %203
+  %207 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %207, label %208, label %217
+
+208:                                              ; preds = %206, %204
+  %209 = call i32 @errcode(i32 noundef 576)
+  %210 = load ptr, ptr %10, align 8
+  %211 = load i32, ptr %16, align 4
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds ptr, ptr %210, i64 %212
+  %214 = load ptr, ptr %213, align 8
+  %215 = load ptr, ptr %11, align 8
+  %216 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef %214, ptr noundef %215)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 87, ptr noundef @__func__.autoinc)
-  br label %210
+  br label %217
 
-210:                                              ; preds = %201, %199, %197
+217:                                              ; preds = %208, %206, %204
   unreachable
 
-211:                                              ; No predecessors!
-  br label %212
+218:                                              ; No predecessors!
+  br label %219
 
-212:                                              ; preds = %211, %190
-  %213 = load ptr, ptr %13, align 8
-  %214 = load ptr, ptr %14, align 8
-  %215 = load i32, ptr %17, align 4
-  %216 = call i64 @SPI_getbinval(ptr noundef %213, ptr noundef %214, i32 noundef %215, ptr noundef %15)
-  %217 = call i32 @DatumGetInt32(i64 noundef %216)
-  store i32 %217, ptr %18, align 4
-  %218 = load i8, ptr %15, align 1
-  %219 = trunc i8 %218 to i1
-  br i1 %219, label %226, label %220
+219:                                              ; preds = %218
+  br label %220
 
-220:                                              ; preds = %212
-  %221 = load i32, ptr %18, align 4
-  %222 = icmp ne i32 %221, 0
-  br i1 %222, label %223, label %226
+220:                                              ; preds = %219, %197
+  %221 = load ptr, ptr %13, align 8
+  %222 = load ptr, ptr %14, align 8
+  %223 = load i32, ptr %17, align 4
+  %224 = call i64 @SPI_getbinval(ptr noundef %221, ptr noundef %222, i32 noundef %223, ptr noundef %15)
+  %225 = call i32 @DatumGetInt32(i64 noundef %224)
+  store i32 %225, ptr %18, align 4
+  %226 = load i8, ptr %15, align 1, !range !3, !noundef !4
+  %227 = trunc i8 %226 to i1
+  br i1 %227, label %234, label %228
 
-223:                                              ; preds = %220
-  %224 = load i32, ptr %16, align 4
-  %225 = add i32 %224, 2
-  store i32 %225, ptr %16, align 4
-  br label %159, !llvm.loop !4
+228:                                              ; preds = %220
+  %229 = load i32, ptr %18, align 4
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %231, label %234
 
-226:                                              ; preds = %220, %212
-  %227 = load i32, ptr %16, align 4
-  %228 = add i32 %227, 1
-  store i32 %228, ptr %16, align 4
-  %229 = load i32, ptr %17, align 4
-  %230 = load ptr, ptr %6, align 8
-  %231 = load i32, ptr %7, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr i32, ptr %230, i64 %232
-  store i32 %229, ptr %233, align 4
-  %234 = load ptr, ptr %10, align 8
+231:                                              ; preds = %228
+  %232 = load i32, ptr %16, align 4
+  %233 = add i32 %232, 2
+  store i32 %233, ptr %16, align 4
+  store i32 13, ptr %20, align 4
+  br label %305, !llvm.loop !5
+
+234:                                              ; preds = %228, %220
   %235 = load i32, ptr %16, align 4
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr ptr, ptr %234, i64 %236
-  %238 = load ptr, ptr %237, align 8
-  %239 = call ptr @cstring_to_text(ptr noundef %238)
-  %240 = call i64 @PointerGetDatum(ptr noundef %239)
-  store i64 %240, ptr %19, align 8
-  %241 = load i64, ptr %19, align 8
-  %242 = call i64 @DirectFunctionCall1Coll(ptr noundef @nextval, i32 noundef 0, i64 noundef %241)
-  %243 = load ptr, ptr %8, align 8
-  %244 = load i32, ptr %7, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr i64, ptr %243, i64 %245
-  store i64 %242, ptr %246, align 8
-  %247 = load ptr, ptr %8, align 8
-  %248 = load i32, ptr %7, align 4
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr i64, ptr %247, i64 %249
-  %251 = load i64, ptr %250, align 8
-  %252 = call i64 @DatumGetInt64(i64 noundef %251)
-  %253 = trunc i64 %252 to i32
-  %254 = call i64 @Int32GetDatum(i32 noundef %253)
+  %236 = add i32 %235, 1
+  store i32 %236, ptr %16, align 4
+  %237 = load i32, ptr %17, align 4
+  %238 = load ptr, ptr %6, align 8
+  %239 = load i32, ptr %7, align 4
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i32, ptr %238, i64 %240
+  store i32 %237, ptr %241, align 4
+  %242 = load ptr, ptr %10, align 8
+  %243 = load i32, ptr %16, align 4
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds ptr, ptr %242, i64 %244
+  %246 = load ptr, ptr %245, align 8
+  %247 = call ptr @cstring_to_text(ptr noundef %246)
+  %248 = call i64 @PointerGetDatum(ptr noundef %247)
+  store i64 %248, ptr %19, align 8
+  %249 = load i64, ptr %19, align 8
+  %250 = call i64 @DirectFunctionCall1Coll(ptr noundef @nextval, i32 noundef 0, i64 noundef %249)
+  %251 = load ptr, ptr %8, align 8
+  %252 = load i32, ptr %7, align 4
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds i64, ptr %251, i64 %253
+  store i64 %250, ptr %254, align 8
   %255 = load ptr, ptr %8, align 8
   %256 = load i32, ptr %7, align 4
   %257 = sext i32 %256 to i64
-  %258 = getelementptr i64, ptr %255, i64 %257
-  store i64 %254, ptr %258, align 8
-  %259 = load ptr, ptr %8, align 8
-  %260 = load i32, ptr %7, align 4
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr i64, ptr %259, i64 %261
-  %263 = load i64, ptr %262, align 8
-  %264 = call i32 @DatumGetInt32(i64 noundef %263)
-  %265 = icmp eq i32 %264, 0
-  br i1 %265, label %266, label %285
+  %258 = getelementptr inbounds i64, ptr %255, i64 %257
+  %259 = load i64, ptr %258, align 8
+  %260 = call i64 @DatumGetInt64(i64 noundef %259)
+  %261 = trunc i64 %260 to i32
+  %262 = call i64 @Int32GetDatum(i32 noundef %261)
+  %263 = load ptr, ptr %8, align 8
+  %264 = load i32, ptr %7, align 4
+  %265 = sext i32 %264 to i64
+  %266 = getelementptr inbounds i64, ptr %263, i64 %265
+  store i64 %262, ptr %266, align 8
+  %267 = load ptr, ptr %8, align 8
+  %268 = load i32, ptr %7, align 4
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds i64, ptr %267, i64 %269
+  %271 = load i64, ptr %270, align 8
+  %272 = call i32 @DatumGetInt32(i64 noundef %271)
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %293
 
-266:                                              ; preds = %226
-  %267 = load i64, ptr %19, align 8
-  %268 = call i64 @DirectFunctionCall1Coll(ptr noundef @nextval, i32 noundef 0, i64 noundef %267)
-  %269 = load ptr, ptr %8, align 8
-  %270 = load i32, ptr %7, align 4
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr i64, ptr %269, i64 %271
-  store i64 %268, ptr %272, align 8
-  %273 = load ptr, ptr %8, align 8
-  %274 = load i32, ptr %7, align 4
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr i64, ptr %273, i64 %275
-  %277 = load i64, ptr %276, align 8
-  %278 = call i64 @DatumGetInt64(i64 noundef %277)
-  %279 = trunc i64 %278 to i32
-  %280 = call i64 @Int32GetDatum(i32 noundef %279)
+274:                                              ; preds = %234
+  %275 = load i64, ptr %19, align 8
+  %276 = call i64 @DirectFunctionCall1Coll(ptr noundef @nextval, i32 noundef 0, i64 noundef %275)
+  %277 = load ptr, ptr %8, align 8
+  %278 = load i32, ptr %7, align 4
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds i64, ptr %277, i64 %279
+  store i64 %276, ptr %280, align 8
   %281 = load ptr, ptr %8, align 8
   %282 = load i32, ptr %7, align 4
   %283 = sext i32 %282 to i64
-  %284 = getelementptr i64, ptr %281, i64 %283
-  store i64 %280, ptr %284, align 8
-  br label %285
+  %284 = getelementptr inbounds i64, ptr %281, i64 %283
+  %285 = load i64, ptr %284, align 8
+  %286 = call i64 @DatumGetInt64(i64 noundef %285)
+  %287 = trunc i64 %286 to i32
+  %288 = call i64 @Int32GetDatum(i32 noundef %287)
+  %289 = load ptr, ptr %8, align 8
+  %290 = load i32, ptr %7, align 4
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds i64, ptr %289, i64 %291
+  store i64 %288, ptr %292, align 8
+  br label %293
 
-285:                                              ; preds = %266, %226
-  %286 = load ptr, ptr %9, align 8
-  %287 = load i32, ptr %7, align 4
-  %288 = sext i32 %287 to i64
-  %289 = getelementptr i8, ptr %286, i64 %288
-  store i8 0, ptr %289, align 1
-  %290 = load i64, ptr %19, align 8
-  %291 = call ptr @DatumGetPointer(i64 noundef %290)
-  %292 = call ptr @pg_detoast_datum_packed(ptr noundef %291)
-  call void @pfree(ptr noundef %292)
-  %293 = load i32, ptr %7, align 4
-  %294 = add i32 %293, 1
-  store i32 %294, ptr %7, align 4
-  %295 = load i32, ptr %16, align 4
-  %296 = add i32 %295, 1
-  store i32 %296, ptr %16, align 4
-  br label %159, !llvm.loop !4
+293:                                              ; preds = %274, %234
+  %294 = load ptr, ptr %9, align 8
+  %295 = load i32, ptr %7, align 4
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds i8, ptr %294, i64 %296
+  store i8 0, ptr %297, align 1
+  %298 = load i64, ptr %19, align 8
+  %299 = call ptr @DatumGetPointer(i64 noundef %298)
+  %300 = call ptr @pg_detoast_datum_packed(ptr noundef %299)
+  call void @pfree(ptr noundef %300)
+  %301 = load i32, ptr %7, align 4
+  %302 = add i32 %301, 1
+  store i32 %302, ptr %7, align 4
+  %303 = load i32, ptr %16, align 4
+  %304 = add i32 %303, 1
+  store i32 %304, ptr %16, align 4
+  store i32 0, ptr %20, align 4
+  br label %305
 
-297:                                              ; preds = %159
-  %298 = load i32, ptr %7, align 4
-  %299 = icmp sgt i32 %298, 0
-  br i1 %299, label %300, label %308
+305:                                              ; preds = %293, %231
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  %306 = load i32, ptr %20, align 4
+  switch i32 %306, label %326 [
+    i32 0, label %307
+    i32 13, label %165
+  ]
 
-300:                                              ; preds = %297
-  %301 = load ptr, ptr %13, align 8
-  %302 = load ptr, ptr %14, align 8
-  %303 = load i32, ptr %7, align 4
-  %304 = load ptr, ptr %6, align 8
-  %305 = load ptr, ptr %8, align 8
-  %306 = load ptr, ptr %9, align 8
-  %307 = call ptr @heap_modify_tuple_by_cols(ptr noundef %301, ptr noundef %302, i32 noundef %303, ptr noundef %304, ptr noundef %305, ptr noundef %306)
-  store ptr %307, ptr %13, align 8
-  br label %308
+307:                                              ; preds = %305
+  br label %165, !llvm.loop !5
 
-308:                                              ; preds = %300, %297
-  %309 = load ptr, ptr %11, align 8
-  call void @pfree(ptr noundef %309)
-  %310 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %310)
-  %311 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %311)
-  %312 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %312)
-  %313 = load ptr, ptr %13, align 8
-  %314 = call i64 @PointerGetDatum(ptr noundef %313)
-  ret i64 %314
+308:                                              ; preds = %165
+  %309 = load i32, ptr %7, align 4
+  %310 = icmp sgt i32 %309, 0
+  br i1 %310, label %311, label %319
+
+311:                                              ; preds = %308
+  %312 = load ptr, ptr %13, align 8
+  %313 = load ptr, ptr %14, align 8
+  %314 = load i32, ptr %7, align 4
+  %315 = load ptr, ptr %6, align 8
+  %316 = load ptr, ptr %8, align 8
+  %317 = load ptr, ptr %9, align 8
+  %318 = call ptr @heap_modify_tuple_by_cols(ptr noundef %312, ptr noundef %313, i32 noundef %314, ptr noundef %315, ptr noundef %316, ptr noundef %317)
+  store ptr %318, ptr %13, align 8
+  br label %319
+
+319:                                              ; preds = %311, %308
+  %320 = load ptr, ptr %11, align 8
+  call void @pfree(ptr noundef %320)
+  %321 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %321)
+  %322 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %322)
+  %323 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %323)
+  %324 = load ptr, ptr %13, align 8
+  %325 = call i64 @PointerGetDatum(ptr noundef %324)
+  store i32 1, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %325
+
+326:                                              ; preds = %305
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) #2
+declare i32 @errmsg_internal(ptr noundef, ...) #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @SPI_getrelname(ptr noundef) #2
+declare ptr @SPI_getrelname(ptr noundef) #3
 
-declare ptr @palloc(i64 noundef) #2
+declare ptr @palloc(i64 noundef) #3
 
-declare i32 @SPI_fnumber(ptr noundef, ptr noundef) #2
+declare i32 @SPI_fnumber(ptr noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare i32 @SPI_gettypeid(ptr noundef, i32 noundef) #2
+declare i32 @SPI_gettypeid(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -569,10 +644,10 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -580,14 +655,14 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @cstring_to_text(ptr noundef) #2
+declare ptr @cstring_to_text(ptr noundef) #3
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #3
 
-declare i64 @nextval(ptr noundef) #2
+declare i64 @nextval(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -595,20 +670,20 @@ define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @DatumGetInt64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @DatumGetInt64(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-declare void @pfree(ptr noundef) #2
+declare void @pfree(ptr noundef) #3
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -616,18 +691,25 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-declare ptr @heap_modify_tuple_by_cols(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold }
+declare ptr @heap_modify_tuple_by_cols(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { cold }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

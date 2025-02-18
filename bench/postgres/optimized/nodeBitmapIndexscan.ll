@@ -26,8 +26,8 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %9 = load i8, ptr %8, align 4
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %5
@@ -44,8 +44,8 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
 
 17:                                               ; preds = %14, %11
   tail call void @ExecReScan(ptr noundef nonnull %0) #6
-  %18 = load i8, ptr %8, align 4
-  %19 = trunc i8 %18 to i1
+  %18 = load i8, ptr %8, align 4, !range !4, !noundef !5
+  %19 = trunc nuw i8 %18 to i1
   br label %20
 
 20:                                               ; preds = %5, %14, %17
@@ -66,14 +66,14 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 116
-  %31 = load i8, ptr %30, align 4
-  %32 = trunc i8 %31 to i1
+  %31 = load i8, ptr %30, align 4, !range !4, !noundef !5
+  %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 296
   %37 = load ptr, ptr %36, align 8
   br label %38
 
@@ -100,13 +100,13 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %49 = fadd double %.02636, %48
   %50 = load volatile i32, ptr @InterruptPending, align 4
   %.not35 = icmp eq i32 %50, 0
-  br i1 %.not35, label %52, label %51
+  br i1 %.not35, label %52, label %51, !prof !6
 
 51:                                               ; preds = %46
   tail call void @ProcessInterrupts() #6
   br label %52
 
-52:                                               ; preds = %46, %51
+52:                                               ; preds = %51, %46
   %53 = load ptr, ptr %42, align 8
   %54 = load i32, ptr %43, align 8
   %55 = tail call zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef %53, i32 noundef %54) #6
@@ -117,7 +117,7 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %58 = load ptr, ptr %44, align 8
   %59 = load i32, ptr %45, align 8
   tail call void @index_rescan(ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef null, i32 noundef 0) #6
-  br label %46, !llvm.loop !5
+  br label %46, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %52, %41
   %.026.lcssa = phi double [ 0.000000e+00, %41 ], [ %49, %52 ]
@@ -246,7 +246,7 @@ declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 304) #6
-  store i32 391, ptr %4, align 4
+  store i32 406, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -270,10 +270,10 @@ define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr nounde
   %.val.val = load ptr, ptr %15, align 8
   %16 = add i32 %13, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %union.ListCell, ptr %.val.val, i64 %17
+  %18 = getelementptr inbounds %union.ListCell, ptr %.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i32, ptr %20, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 36
+  %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8
   %24 = tail call ptr @index_open(i32 noundef %23, i32 noundef %21) #6
@@ -348,7 +348,7 @@ define internal noalias noundef nonnull ptr @ExecBitmapIndexScan(ptr readnone ca
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__func__.ExecBitmapIndexScan) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 40, ptr noundef nonnull @__func__.ExecBitmapIndexScan) #6
   unreachable
 }
 
@@ -375,21 +375,23 @@ declare void @llvm.assume(i1 noundef) #4
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

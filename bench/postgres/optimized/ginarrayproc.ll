@@ -24,20 +24,26 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
-  %12 = getelementptr i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
   call void @get_typlenbyvalalign(i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %20 = load i32, ptr %18, align 4
   %21 = load i16, ptr %2, align 2
   %22 = sext i16 %21 to i32
-  %23 = load i8, ptr %3, align 1
-  %24 = trunc i8 %23 to i1
+  %23 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
   %25 = load i8, ptr %4, align 1
   call void @deconstruct_array(ptr noundef %11, i32 noundef %20, i32 noundef %22, i1 noundef zeroext %24, i8 noundef signext %25, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %26 = load i32, ptr %7, align 4
@@ -46,14 +52,26 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   store ptr %27, ptr %17, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = ptrtoint ptr %28 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
   ret i64 %29
 }
 
-declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #2
 
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -76,30 +94,30 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   unreachable
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum_copy(ptr noundef %17) #5
-  %19 = getelementptr i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
   call void @get_typlenbyvalalign(i32 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %27 = load i32, ptr %25, align 4
   %28 = load i16, ptr %2, align 2
   %29 = sext i16 %28 to i32
-  %30 = load i8, ptr %3, align 1
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %31 = trunc nuw i8 %30 to i1
   %32 = load i8, ptr %4, align 1
   call void @deconstruct_array(ptr noundef %18, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %31, i8 noundef signext %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %33 = load i32, ptr %7, align 4
@@ -108,21 +126,21 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   store ptr %34, ptr %24, align 8
   %35 = load ptr, ptr %5, align 8
   %36 = ptrtoint ptr %35 to i64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
   ret i64 %36
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -136,25 +154,31 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
-  %12 = getelementptr i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i16
-  %18 = getelementptr i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = load i64, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %24 = load i32, ptr %23, align 4
   call void @get_typlenbyvalalign(i32 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %25 = load i32, ptr %23, align 4
   %26 = load i16, ptr %2, align 2
   %27 = sext i16 %26 to i32
-  %28 = load i8, ptr %3, align 1
-  %29 = trunc i8 %28 to i1
+  %28 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %29 = trunc nuw i8 %28 to i1
   %30 = load i8, ptr %4, align 1
   call void @deconstruct_array(ptr noundef %11, i32 noundef %25, i32 noundef %27, i1 noundef zeroext %29, i8 noundef signext %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %31 = load i32, ptr %7, align 4
@@ -196,6 +220,12 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   store i32 %.sink, ptr %44, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = ptrtoint ptr %45 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
   ret i64 %46
 }
 
@@ -204,16 +234,16 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
-  %8 = getelementptr i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr i8, ptr %0, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   switch i16 %7, label %44 [
@@ -234,21 +264,21 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %26
   %indvars.iv60 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next61, %26 ]
-  %19 = getelementptr i8, ptr %4, i64 %indvars.iv60
-  %20 = load i8, ptr %19, align 1
-  %21 = trunc i8 %20 to i1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv60
+  %20 = load i8, ptr %19, align 1, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %.lr.ph46
-  %23 = getelementptr i8, ptr %16, i64 %indvars.iv60
-  %24 = load i8, ptr %23, align 1
-  %25 = trunc i8 %24 to i1
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv60
+  %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %.lr.ph46, %22
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph46, !llvm.loop !5
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph46, !llvm.loop !6
 
 27:                                               ; preds = %1
   store i8 0, ptr %13, align 1
@@ -262,19 +292,19 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 29:                                               ; preds = %33
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph39, !llvm.loop !7
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph39, !llvm.loop !8
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %29
   %indvars.iv55 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next56, %29 ]
-  %30 = getelementptr i8, ptr %4, i64 %indvars.iv55
-  %31 = load i8, ptr %30, align 1
-  %32 = trunc i8 %31 to i1
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv55
+  %31 = load i8, ptr %30, align 1, !range !4, !noundef !5
+  %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %.lr.ph39
-  %34 = getelementptr i8, ptr %16, i64 %indvars.iv55
-  %35 = load i8, ptr %34, align 1
-  %36 = trunc i8 %35 to i1
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv55
+  %35 = load i8, ptr %34, align 1, !range !4, !noundef !5
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %.loopexit, label %29
 
 37:                                               ; preds = %1
@@ -293,13 +323,13 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 40:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr i8, ptr %4, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1
-  %43 = trunc i8 %42 to i1
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
+  %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %40, label %.loopexit
 
 44:                                               ; preds = %1
@@ -321,13 +351,13 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
-  %8 = getelementptr i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   switch i16 %7, label %41 [
@@ -364,13 +394,13 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %27
   %indvars.iv69 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next70, %27 ]
   %.03254 = phi i8 [ 0, %.lr.ph56.preheader ], [ %.133, %27 ]
-  %17 = getelementptr i8, ptr %13, i64 %indvars.iv69
-  %18 = load i8, ptr %17, align 1
-  %19 = trunc i8 %18 to i1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv69
+  %18 = load i8, ptr %17, align 1, !range !4, !noundef !5
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %.lr.ph56
-  %21 = getelementptr i8, ptr %4, i64 %indvars.iv69
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv69
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %.loopexit, label %24
@@ -386,20 +416,20 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   %.133 = phi i8 [ %.03254, %.lr.ph56 ], [ %spec.store.select, %24 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count71
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph56, !llvm.loop !9
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph56, !llvm.loop !10
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %35
   %indvars.iv65 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next66, %35 ]
   %.346 = phi i8 [ 1, %.lr.ph48.preheader ], [ %spec.select, %35 ]
-  %28 = getelementptr i8, ptr %4, i64 %indvars.iv65
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv65
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph48
-  %32 = getelementptr i8, ptr %13, i64 %indvars.iv65
-  %33 = load i8, ptr %32, align 1
-  %34 = trunc i8 %33 to i1
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv65
+  %33 = load i8, ptr %32, align 1, !range !4, !noundef !5
+  %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %31
@@ -407,16 +437,16 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   %spec.select = select i1 %36, i8 2, i8 %.346
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !10
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !11
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr i8, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.loopexit, label %37
@@ -437,33 +467,28 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

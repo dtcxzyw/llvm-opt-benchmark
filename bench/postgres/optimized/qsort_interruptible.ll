@@ -8,509 +8,426 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = sub i64 0, %2
-  %.not.i227 = icmp eq i64 %2, 0
+  %.not.i224 = icmp eq i64 %2, 0
   br label %.outer
 
-.outer:                                           ; preds = %205, %5
-  %.0186.ph = phi ptr [ %207, %205 ], [ %0, %5 ]
-  %.0.ph = phi i64 [ %208, %205 ], [ %1, %5 ]
-  %7 = getelementptr i8, ptr %.0186.ph, i64 %2
+.outer:                                           ; preds = %143, %5
+  %.0186.ph = phi ptr [ %145, %143 ], [ %0, %5 ]
+  %.0.ph = phi i64 [ %146, %143 ], [ %1, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %2
   %8 = ptrtoint ptr %.0186.ph to i64
   br label %9
 
-9:                                                ; preds = %.outer, %217
-  %.0 = phi i64 [ %218, %217 ], [ %.0.ph, %.outer ]
+9:                                                ; preds = %.outer, %155
+  %.0 = phi i64 [ %156, %155 ], [ %.0.ph, %.outer ]
   %10 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %12, label %11
+  br i1 %.not, label %12, label %11, !prof !4
 
 11:                                               ; preds = %9
-  tail call void @ProcessInterrupts() #3
+  tail call void @ProcessInterrupts() #4
   br label %12
 
-12:                                               ; preds = %9, %11
+12:                                               ; preds = %11, %9
   %13 = icmp ult i64 %.0, 7
   %14 = mul i64 %.0, %2
-  %15 = getelementptr i8, ptr %.0186.ph, i64 %14
-  %16 = icmp ult ptr %7, %15
-  br i1 %13, label %.preheader258, label %33
+  %15 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %14
+  %.not394 = icmp samesign ult i64 %2, %14
+  br i1 %13, label %.preheader255, label %27
 
-.preheader258:                                    ; preds = %12
-  br i1 %16, label %.preheader.lr.ph, label %.critedge223
+.preheader255:                                    ; preds = %12
+  br i1 %.not394, label %.preheader, label %.critedge223
 
-.preheader.lr.ph:                                 ; preds = %.preheader258
-  br i1 %.not.i227, label %.preheader.us.preheader, label %.preheader
+.preheader:                                       ; preds = %.preheader255, %.critedge
+  %.0188301 = phi ptr [ %.0188, %.critedge ], [ %7, %.preheader255 ]
+  %16 = icmp ugt ptr %.0188301, %.0186.ph
+  br i1 %16, label %.lr.ph298, label %.critedge
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %17 = icmp ugt ptr %7, %.0186.ph
-  br label %.preheader.us
+.lr.ph298:                                        ; preds = %.preheader, %qsort_interruptible_swapn.exit.loopexit
+  %.0189297 = phi ptr [ %17, %qsort_interruptible_swapn.exit.loopexit ], [ %.0188301, %.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.0189297, i64 %6
+  %18 = tail call i32 %3(ptr noundef nonnull %17, ptr noundef nonnull %.0189297, ptr noundef %4) #4
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph.i, label %.critedge
 
-.preheader.us:                                    ; preds = %.preheader.us, %.preheader.us.preheader
-  br i1 %17, label %.lr.ph301.us, label %.preheader.us
-
-.lr.ph301.us:                                     ; preds = %.preheader.us, %.lr.ph301.us
-  %.0189300.us.us = phi ptr [ %.mux, %.lr.ph301.us ], [ %7, %.preheader.us ]
-  %18 = getelementptr i8, ptr %.0189300.us.us, i64 %6
-  %19 = tail call i32 %3(ptr noundef %18, ptr noundef nonnull %.0189300.us.us, ptr noundef %4) #3
-  %20 = icmp sgt i32 %19, 0
-  %21 = icmp ugt ptr %18, %.0186.ph
-  %or.cond = and i1 %20, %21
-  %.mux = select i1 %or.cond, ptr %18, ptr %7
-  br label %.lr.ph301.us, !llvm.loop !5
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %.0188304 = phi ptr [ %.0188, %.critedge ], [ %7, %.preheader.lr.ph ]
-  %22 = icmp ugt ptr %.0188304, %.0186.ph
-  br i1 %22, label %.lr.ph301, label %.critedge
-
-.lr.ph301:                                        ; preds = %.preheader, %qsort_interruptible_swapn.exit.loopexit
-  %.0189300 = phi ptr [ %23, %qsort_interruptible_swapn.exit.loopexit ], [ %.0188304, %.preheader ]
-  %23 = getelementptr i8, ptr %.0189300, i64 %6
-  %24 = tail call i32 %3(ptr noundef %23, ptr noundef nonnull %.0189300, ptr noundef %4) #3
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i, label %.critedge
-
-.lr.ph.i:                                         ; preds = %.lr.ph301, %.lr.ph.i
-  %.06.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.lr.ph301 ]
-  %26 = getelementptr i8, ptr %.0189300, i64 %.06.i
-  %27 = getelementptr i8, ptr %23, i64 %.06.i
-  %28 = load i8, ptr %26, align 1
-  %29 = load i8, ptr %27, align 1
-  store i8 %29, ptr %26, align 1
-  store i8 %28, ptr %27, align 1
-  %30 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %30, %2
-  br i1 %exitcond.not.i, label %qsort_interruptible_swapn.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+.lr.ph.i:                                         ; preds = %.lr.ph298, %.lr.ph.i
+  %.06.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %.lr.ph298 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0189297, i64 %.06.i
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.06.i
+  %22 = load i8, ptr %20, align 1
+  %23 = load i8, ptr %21, align 1
+  store i8 %23, ptr %20, align 1
+  store i8 %22, ptr %21, align 1
+  %24 = add nuw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %24, %2
+  br i1 %exitcond.not.i, label %qsort_interruptible_swapn.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
 
 qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
-  %31 = icmp ugt ptr %23, %.0186.ph
-  br i1 %31, label %.lr.ph301, label %.critedge, !llvm.loop !5
+  %25 = icmp ugt ptr %17, %.0186.ph
+  br i1 %25, label %.lr.ph298, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %qsort_interruptible_swapn.exit.loopexit, %.lr.ph301, %.preheader
-  %.0188 = getelementptr i8, ptr %.0188304, i64 %2
-  %32 = icmp ult ptr %.0188, %15
-  br i1 %32, label %.preheader, label %.critedge223, !llvm.loop !8
+.critedge:                                        ; preds = %qsort_interruptible_swapn.exit.loopexit, %.lr.ph298, %.preheader
+  %.0188 = getelementptr inbounds nuw i8, ptr %.0188301, i64 %2
+  %26 = icmp ult ptr %.0188, %15
+  br i1 %26, label %.preheader, label %.critedge223, !llvm.loop !8
 
-33:                                               ; preds = %12
-  br i1 %16, label %.lr.ph, label %.critedge223
+27:                                               ; preds = %12
+  br i1 %.not394, label %.lr.ph, label %.critedge223
 
-.lr.ph:                                           ; preds = %33, %40
-  %.1276 = phi ptr [ %41, %40 ], [ %7, %33 ]
-  %34 = load volatile i32, ptr @InterruptPending, align 4
-  %.not214 = icmp eq i32 %34, 0
-  br i1 %.not214, label %36, label %35
+.lr.ph:                                           ; preds = %27, %34
+  %.1273 = phi ptr [ %35, %34 ], [ %7, %27 ]
+  %28 = load volatile i32, ptr @InterruptPending, align 4
+  %.not214 = icmp eq i32 %28, 0
+  br i1 %.not214, label %30, label %29, !prof !4
 
-35:                                               ; preds = %.lr.ph
-  tail call void @ProcessInterrupts() #3
-  br label %36
+29:                                               ; preds = %.lr.ph
+  tail call void @ProcessInterrupts() #4
+  br label %30
 
-36:                                               ; preds = %.lr.ph, %35
-  %37 = getelementptr i8, ptr %.1276, i64 %6
-  %38 = tail call i32 %3(ptr noundef %37, ptr noundef %.1276, ptr noundef %4) #3
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %43, label %40
+30:                                               ; preds = %29, %.lr.ph
+  %31 = getelementptr inbounds i8, ptr %.1273, i64 %6
+  %32 = tail call i32 %3(ptr noundef %31, ptr noundef %.1273, ptr noundef %4) #4
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %37, label %34
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %.1276, i64 %2
-  %42 = icmp ult ptr %41, %15
-  br i1 %42, label %.lr.ph, label %.critedge223, !llvm.loop !9
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %.1273, i64 %2
+  %36 = icmp ult ptr %35, %15
+  br i1 %36, label %.lr.ph, label %.critedge223, !llvm.loop !9
 
-43:                                               ; preds = %36
-  %44 = lshr i64 %.0, 1
-  %45 = mul i64 %44, %2
-  %46 = getelementptr i8, ptr %.0186.ph, i64 %45
+37:                                               ; preds = %30
+  %38 = lshr i64 %.0, 1
+  %39 = mul i64 %38, %2
+  %40 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %39
   %.not216 = icmp eq i64 %.0, 7
-  br i1 %.not216, label %qsort_interruptible_med3.exit226, label %47
+  br i1 %.not216, label %63, label %41
 
-47:                                               ; preds = %43
-  %48 = add i64 %.0, -1
-  %49 = mul i64 %48, %2
-  %50 = getelementptr i8, ptr %.0186.ph, i64 %49
-  %51 = icmp ugt i64 %.0, 40
-  br i1 %51, label %52, label %qsort_interruptible_med3.exit225
+41:                                               ; preds = %37
+  %42 = add i64 %.0, -1
+  %43 = mul i64 %42, %2
+  %44 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %43
+  %45 = icmp ugt i64 %.0, 40
+  br i1 %45, label %46, label %61
 
-52:                                               ; preds = %47
-  %53 = lshr i64 %.0, 3
-  %54 = mul i64 %53, %2
-  %55 = getelementptr i8, ptr %.0186.ph, i64 %54
-  %56 = shl i64 %54, 1
-  %57 = getelementptr i8, ptr %.0186.ph, i64 %56
-  %58 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %55, ptr noundef %4) #3
-  %59 = icmp slt i32 %58, 0
-  %60 = tail call i32 %3(ptr noundef %55, ptr noundef %57, ptr noundef %4) #3
-  br i1 %59, label %61, label %67
+46:                                               ; preds = %41
+  %47 = lshr i64 %.0, 3
+  %48 = mul i64 %47, %2
+  %49 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %48
+  %50 = shl i64 %48, 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %50
+  %52 = tail call fastcc ptr @qsort_interruptible_med3(ptr noundef %.0186.ph, ptr noundef %49, ptr noundef %51, ptr noundef %3, ptr noundef %4)
+  %53 = sub i64 0, %48
+  %54 = getelementptr inbounds i8, ptr %40, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 %48
+  %56 = tail call fastcc ptr @qsort_interruptible_med3(ptr noundef %54, ptr noundef %40, ptr noundef %55, ptr noundef %3, ptr noundef %4)
+  %57 = sub i64 0, %50
+  %58 = getelementptr inbounds i8, ptr %44, i64 %57
+  %59 = getelementptr inbounds i8, ptr %44, i64 %53
+  %60 = tail call fastcc ptr @qsort_interruptible_med3(ptr noundef %58, ptr noundef %59, ptr noundef %44, ptr noundef %3, ptr noundef %4)
+  br label %61
 
-61:                                               ; preds = %52
-  %62 = icmp slt i32 %60, 0
-  br i1 %62, label %qsort_interruptible_med3.exit, label %63
+61:                                               ; preds = %46, %41
+  %.1190 = phi ptr [ %52, %46 ], [ %.0186.ph, %41 ]
+  %.3 = phi ptr [ %56, %46 ], [ %40, %41 ]
+  %.0187 = phi ptr [ %60, %46 ], [ %44, %41 ]
+  %62 = tail call fastcc ptr @qsort_interruptible_med3(ptr noundef %.1190, ptr noundef %.3, ptr noundef %.0187, ptr noundef %3, ptr noundef %4)
+  br label %63
 
-63:                                               ; preds = %61
-  %64 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %57, ptr noundef %4) #3
-  %65 = icmp slt i32 %64, 0
-  %66 = select i1 %65, ptr %57, ptr %.0186.ph
-  br label %qsort_interruptible_med3.exit
+63:                                               ; preds = %61, %37
+  %.2 = phi ptr [ %62, %61 ], [ %40, %37 ]
+  br i1 %.not.i224, label %qsort_interruptible_swapn.exit228, label %.lr.ph.i225
 
-67:                                               ; preds = %52
-  %68 = icmp sgt i32 %60, 0
-  br i1 %68, label %qsort_interruptible_med3.exit, label %69
+.lr.ph.i225:                                      ; preds = %63, %.lr.ph.i225
+  %.06.i226 = phi i64 [ %68, %.lr.ph.i225 ], [ 0, %63 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %.06.i226
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 %.06.i226
+  %66 = load i8, ptr %64, align 1
+  %67 = load i8, ptr %65, align 1
+  store i8 %67, ptr %64, align 1
+  store i8 %66, ptr %65, align 1
+  %68 = add nuw i64 %.06.i226, 1
+  %exitcond.not.i227 = icmp eq i64 %68, %2
+  br i1 %exitcond.not.i227, label %qsort_interruptible_swapn.exit228, label %.lr.ph.i225, !llvm.loop !5
 
-69:                                               ; preds = %67
-  %70 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %57, ptr noundef %4) #3
-  %71 = icmp slt i32 %70, 0
-  %72 = select i1 %71, ptr %.0186.ph, ptr %57
-  br label %qsort_interruptible_med3.exit
+qsort_interruptible_swapn.exit228:                ; preds = %.lr.ph.i225, %63
+  %69 = add i64 %.0, -1
+  %70 = mul i64 %69, %2
+  %71 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %70
+  br label %72
 
-qsort_interruptible_med3.exit:                    ; preds = %61, %63, %67, %69
-  %73 = phi ptr [ %66, %63 ], [ %72, %69 ], [ %55, %61 ], [ %55, %67 ]
-  %74 = sub i64 0, %54
-  %75 = getelementptr i8, ptr %46, i64 %74
-  %76 = getelementptr i8, ptr %46, i64 %54
-  %77 = tail call i32 %3(ptr noundef %75, ptr noundef %46, ptr noundef %4) #3
-  %78 = icmp slt i32 %77, 0
-  %79 = tail call i32 %3(ptr noundef %46, ptr noundef %76, ptr noundef %4) #3
-  br i1 %78, label %80, label %86
+72:                                               ; preds = %qsort_interruptible_swapn.exit243, %qsort_interruptible_swapn.exit228
+  %.0198 = phi ptr [ %7, %qsort_interruptible_swapn.exit228 ], [ %.1199.lcssa, %qsort_interruptible_swapn.exit243 ]
+  %.0196 = phi ptr [ %7, %qsort_interruptible_swapn.exit228 ], [ %110, %qsort_interruptible_swapn.exit243 ]
+  %.0194 = phi ptr [ %71, %qsort_interruptible_swapn.exit228 ], [ %111, %qsort_interruptible_swapn.exit243 ]
+  %.0191 = phi ptr [ %71, %qsort_interruptible_swapn.exit228 ], [ %.1192287, %qsort_interruptible_swapn.exit243 ]
+  %.not217275 = icmp ugt ptr %.0196, %.0194
+  br i1 %.not217275, label %.critedge2, label %.lr.ph279
 
-80:                                               ; preds = %qsort_interruptible_med3.exit
-  %81 = icmp slt i32 %79, 0
-  br i1 %81, label %qsort_interruptible_med3.exit224, label %82
+.lr.ph279:                                        ; preds = %72, %88
+  %.1197277 = phi ptr [ %85, %88 ], [ %.0196, %72 ]
+  %.1199276 = phi ptr [ %.2200, %88 ], [ %.0198, %72 ]
+  %73 = tail call i32 %3(ptr noundef %.1197277, ptr noundef %.0186.ph, ptr noundef %4) #4
+  %74 = icmp slt i32 %73, 1
+  br i1 %74, label %75, label %.critedge2
 
-82:                                               ; preds = %80
-  %83 = tail call i32 %3(ptr noundef %75, ptr noundef %76, ptr noundef %4) #3
-  %84 = icmp slt i32 %83, 0
-  %85 = select i1 %84, ptr %76, ptr %75
-  br label %qsort_interruptible_med3.exit224
+75:                                               ; preds = %.lr.ph279
+  %76 = icmp eq i32 %73, 0
+  br i1 %76, label %77, label %84
 
-86:                                               ; preds = %qsort_interruptible_med3.exit
-  %87 = icmp sgt i32 %79, 0
-  br i1 %87, label %qsort_interruptible_med3.exit224, label %88
+77:                                               ; preds = %75
+  br i1 %.not.i224, label %qsort_interruptible_swapn.exit233, label %.lr.ph.i230
 
-88:                                               ; preds = %86
-  %89 = tail call i32 %3(ptr noundef %75, ptr noundef %76, ptr noundef %4) #3
-  %90 = icmp slt i32 %89, 0
-  %91 = select i1 %90, ptr %75, ptr %76
-  br label %qsort_interruptible_med3.exit224
+.lr.ph.i230:                                      ; preds = %77, %.lr.ph.i230
+  %.06.i231 = phi i64 [ %82, %.lr.ph.i230 ], [ 0, %77 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.1199276, i64 %.06.i231
+  %79 = getelementptr inbounds nuw i8, ptr %.1197277, i64 %.06.i231
+  %80 = load i8, ptr %78, align 1
+  %81 = load i8, ptr %79, align 1
+  store i8 %81, ptr %78, align 1
+  store i8 %80, ptr %79, align 1
+  %82 = add nuw i64 %.06.i231, 1
+  %exitcond.not.i232 = icmp eq i64 %82, %2
+  br i1 %exitcond.not.i232, label %qsort_interruptible_swapn.exit233, label %.lr.ph.i230, !llvm.loop !5
 
-qsort_interruptible_med3.exit224:                 ; preds = %80, %82, %86, %88
-  %92 = phi ptr [ %85, %82 ], [ %91, %88 ], [ %46, %80 ], [ %46, %86 ]
-  %93 = sub i64 0, %56
-  %94 = getelementptr i8, ptr %50, i64 %93
-  %95 = getelementptr i8, ptr %50, i64 %74
-  %96 = tail call i32 %3(ptr noundef %94, ptr noundef %95, ptr noundef %4) #3
-  %97 = icmp slt i32 %96, 0
-  %98 = tail call i32 %3(ptr noundef %95, ptr noundef %50, ptr noundef %4) #3
-  br i1 %97, label %99, label %105
+qsort_interruptible_swapn.exit233:                ; preds = %.lr.ph.i230, %77
+  %83 = getelementptr inbounds nuw i8, ptr %.1199276, i64 %2
+  br label %84
 
-99:                                               ; preds = %qsort_interruptible_med3.exit224
-  %100 = icmp slt i32 %98, 0
-  br i1 %100, label %qsort_interruptible_med3.exit225, label %101
+84:                                               ; preds = %qsort_interruptible_swapn.exit233, %75
+  %.2200 = phi ptr [ %83, %qsort_interruptible_swapn.exit233 ], [ %.1199276, %75 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.1197277, i64 %2
+  %86 = load volatile i32, ptr @InterruptPending, align 4
+  %.not221 = icmp eq i32 %86, 0
+  br i1 %.not221, label %88, label %87, !prof !4
 
-101:                                              ; preds = %99
-  %102 = tail call i32 %3(ptr noundef %94, ptr noundef %50, ptr noundef %4) #3
-  %103 = icmp slt i32 %102, 0
-  %104 = select i1 %103, ptr %50, ptr %94
-  br label %qsort_interruptible_med3.exit225
+87:                                               ; preds = %84
+  tail call void @ProcessInterrupts() #4
+  br label %88
 
-105:                                              ; preds = %qsort_interruptible_med3.exit224
-  %106 = icmp sgt i32 %98, 0
-  br i1 %106, label %qsort_interruptible_med3.exit225, label %107
+88:                                               ; preds = %87, %84
+  %.not217 = icmp ugt ptr %85, %.0194
+  br i1 %.not217, label %.critedge2, label %.lr.ph279, !llvm.loop !10
 
-107:                                              ; preds = %105
-  %108 = tail call i32 %3(ptr noundef %94, ptr noundef %50, ptr noundef %4) #3
-  %109 = icmp slt i32 %108, 0
-  %110 = select i1 %109, ptr %94, ptr %50
-  br label %qsort_interruptible_med3.exit225
+.critedge2:                                       ; preds = %.lr.ph279, %88, %72
+  %.1199.lcssa = phi ptr [ %.0198, %72 ], [ %.2200, %88 ], [ %.1199276, %.lr.ph279 ]
+  %.1197.lcssa = phi ptr [ %.0196, %72 ], [ %85, %88 ], [ %.1197277, %.lr.ph279 ]
+  %.not218284 = icmp ugt ptr %.1197.lcssa, %.0194
+  br i1 %.not218284, label %.critedge2._crit_edge, label %.lr.ph288
 
-qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %99, %47
-  %.1190 = phi ptr [ %.0186.ph, %47 ], [ %73, %99 ], [ %73, %101 ], [ %73, %105 ], [ %73, %107 ]
-  %.3 = phi ptr [ %46, %47 ], [ %92, %99 ], [ %92, %101 ], [ %92, %105 ], [ %92, %107 ]
-  %.0187 = phi ptr [ %50, %47 ], [ %95, %99 ], [ %104, %101 ], [ %95, %105 ], [ %110, %107 ]
-  %111 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.3, ptr noundef %4) #3
-  %112 = icmp slt i32 %111, 0
-  %113 = tail call i32 %3(ptr noundef %.3, ptr noundef %.0187, ptr noundef %4) #3
-  br i1 %112, label %114, label %120
+.lr.ph288:                                        ; preds = %.critedge2, %104
+  %.1192287 = phi ptr [ %.2193, %104 ], [ %.0191, %.critedge2 ]
+  %.1195285 = phi ptr [ %101, %104 ], [ %.0194, %.critedge2 ]
+  %89 = tail call i32 %3(ptr noundef %.1195285, ptr noundef %.0186.ph, ptr noundef %4) #4
+  %90 = icmp sgt i32 %89, -1
+  br i1 %90, label %91, label %.critedge4
 
-114:                                              ; preds = %qsort_interruptible_med3.exit225
-  %115 = icmp slt i32 %113, 0
-  br i1 %115, label %qsort_interruptible_med3.exit226, label %116
+91:                                               ; preds = %.lr.ph288
+  %92 = icmp eq i32 %89, 0
+  br i1 %92, label %93, label %100
 
-116:                                              ; preds = %114
-  %117 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.0187, ptr noundef %4) #3
-  %118 = icmp slt i32 %117, 0
-  %119 = select i1 %118, ptr %.0187, ptr %.1190
-  br label %qsort_interruptible_med3.exit226
+93:                                               ; preds = %91
+  br i1 %.not.i224, label %qsort_interruptible_swapn.exit238, label %.lr.ph.i235
 
-120:                                              ; preds = %qsort_interruptible_med3.exit225
-  %121 = icmp sgt i32 %113, 0
-  br i1 %121, label %qsort_interruptible_med3.exit226, label %122
+.lr.ph.i235:                                      ; preds = %93, %.lr.ph.i235
+  %.06.i236 = phi i64 [ %98, %.lr.ph.i235 ], [ 0, %93 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.1195285, i64 %.06.i236
+  %95 = getelementptr inbounds nuw i8, ptr %.1192287, i64 %.06.i236
+  %96 = load i8, ptr %94, align 1
+  %97 = load i8, ptr %95, align 1
+  store i8 %97, ptr %94, align 1
+  store i8 %96, ptr %95, align 1
+  %98 = add nuw i64 %.06.i236, 1
+  %exitcond.not.i237 = icmp eq i64 %98, %2
+  br i1 %exitcond.not.i237, label %qsort_interruptible_swapn.exit238, label %.lr.ph.i235, !llvm.loop !5
 
-122:                                              ; preds = %120
-  %123 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.0187, ptr noundef %4) #3
-  %124 = icmp slt i32 %123, 0
-  %125 = select i1 %124, ptr %.1190, ptr %.0187
-  br label %qsort_interruptible_med3.exit226
+qsort_interruptible_swapn.exit238:                ; preds = %.lr.ph.i235, %93
+  %99 = getelementptr inbounds i8, ptr %.1192287, i64 %6
+  br label %100
 
-qsort_interruptible_med3.exit226:                 ; preds = %122, %120, %116, %114, %43
-  %.2 = phi ptr [ %46, %43 ], [ %119, %116 ], [ %125, %122 ], [ %.3, %114 ], [ %.3, %120 ]
-  br i1 %.not.i227, label %qsort_interruptible_swapn.exit231, label %.lr.ph.i228
+100:                                              ; preds = %qsort_interruptible_swapn.exit238, %91
+  %.2193 = phi ptr [ %99, %qsort_interruptible_swapn.exit238 ], [ %.1192287, %91 ]
+  %101 = getelementptr inbounds i8, ptr %.1195285, i64 %6
+  %102 = load volatile i32, ptr @InterruptPending, align 4
+  %.not220 = icmp eq i32 %102, 0
+  br i1 %.not220, label %104, label %103, !prof !4
 
-.lr.ph.i228:                                      ; preds = %qsort_interruptible_med3.exit226, %.lr.ph.i228
-  %.06.i229 = phi i64 [ %130, %.lr.ph.i228 ], [ 0, %qsort_interruptible_med3.exit226 ]
-  %126 = getelementptr i8, ptr %.0186.ph, i64 %.06.i229
-  %127 = getelementptr i8, ptr %.2, i64 %.06.i229
-  %128 = load i8, ptr %126, align 1
-  %129 = load i8, ptr %127, align 1
-  store i8 %129, ptr %126, align 1
-  store i8 %128, ptr %127, align 1
-  %130 = add nuw i64 %.06.i229, 1
-  %exitcond.not.i230 = icmp eq i64 %130, %2
-  br i1 %exitcond.not.i230, label %qsort_interruptible_swapn.exit231, label %.lr.ph.i228, !llvm.loop !7
+103:                                              ; preds = %100
+  tail call void @ProcessInterrupts() #4
+  br label %104
 
-qsort_interruptible_swapn.exit231:                ; preds = %.lr.ph.i228, %qsort_interruptible_med3.exit226
-  %131 = add i64 %.0, -1
-  %132 = mul i64 %131, %2
-  %133 = getelementptr i8, ptr %.0186.ph, i64 %132
-  br label %134
+104:                                              ; preds = %103, %100
+  %.not218 = icmp ugt ptr %.1197.lcssa, %101
+  br i1 %.not218, label %.critedge2._crit_edge, label %.lr.ph288, !llvm.loop !11
 
-134:                                              ; preds = %qsort_interruptible_swapn.exit246, %qsort_interruptible_swapn.exit231
-  %.0198 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %.1199.lcssa, %qsort_interruptible_swapn.exit246 ]
-  %.0196 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %172, %qsort_interruptible_swapn.exit246 ]
-  %.0194 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %173, %qsort_interruptible_swapn.exit246 ]
-  %.0191 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %.1192290, %qsort_interruptible_swapn.exit246 ]
-  %.not217278 = icmp ugt ptr %.0196, %.0194
-  br i1 %.not217278, label %.critedge2, label %.lr.ph282
+.critedge4:                                       ; preds = %.lr.ph288
+  br i1 %.not.i224, label %qsort_interruptible_swapn.exit243, label %.lr.ph.i240
 
-.lr.ph282:                                        ; preds = %134, %150
-  %.1197280 = phi ptr [ %147, %150 ], [ %.0196, %134 ]
-  %.1199279 = phi ptr [ %.2200, %150 ], [ %.0198, %134 ]
-  %135 = tail call i32 %3(ptr noundef %.1197280, ptr noundef %.0186.ph, ptr noundef %4) #3
-  %136 = icmp slt i32 %135, 1
-  br i1 %136, label %137, label %.critedge2
+.lr.ph.i240:                                      ; preds = %.critedge4, %.lr.ph.i240
+  %.06.i241 = phi i64 [ %109, %.lr.ph.i240 ], [ 0, %.critedge4 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.1197.lcssa, i64 %.06.i241
+  %106 = getelementptr inbounds nuw i8, ptr %.1195285, i64 %.06.i241
+  %107 = load i8, ptr %105, align 1
+  %108 = load i8, ptr %106, align 1
+  store i8 %108, ptr %105, align 1
+  store i8 %107, ptr %106, align 1
+  %109 = add nuw i64 %.06.i241, 1
+  %exitcond.not.i242 = icmp eq i64 %109, %2
+  br i1 %exitcond.not.i242, label %qsort_interruptible_swapn.exit243, label %.lr.ph.i240, !llvm.loop !5
 
-137:                                              ; preds = %.lr.ph282
-  %138 = icmp eq i32 %135, 0
-  br i1 %138, label %139, label %146
+qsort_interruptible_swapn.exit243:                ; preds = %.lr.ph.i240, %.critedge4
+  %110 = getelementptr inbounds nuw i8, ptr %.1197.lcssa, i64 %2
+  %111 = getelementptr inbounds i8, ptr %.1195285, i64 %6
+  br label %72
+
+.critedge2._crit_edge:                            ; preds = %.critedge2, %104
+  %.1195.lcssa = phi ptr [ %101, %104 ], [ %.0194, %.critedge2 ]
+  %.1192.lcssa = phi ptr [ %.2193, %104 ], [ %.0191, %.critedge2 ]
+  %112 = ptrtoint ptr %.1199.lcssa to i64
+  %113 = sub i64 %112, %8
+  %114 = ptrtoint ptr %.1197.lcssa to i64
+  %115 = sub i64 %114, %112
+  %. = tail call i64 @llvm.smin.i64(i64 %113, i64 %115)
+  %116 = sub i64 0, %.
+  %117 = getelementptr inbounds i8, ptr %.1197.lcssa, i64 %116
+  %.not.i244 = icmp eq i64 %., 0
+  br i1 %.not.i244, label %qsort_interruptible_swapn.exit248, label %.lr.ph.i245
+
+.lr.ph.i245:                                      ; preds = %.critedge2._crit_edge, %.lr.ph.i245
+  %.06.i246 = phi i64 [ %122, %.lr.ph.i245 ], [ 0, %.critedge2._crit_edge ]
+  %118 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %.06.i246
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %.06.i246
+  %120 = load i8, ptr %118, align 1
+  %121 = load i8, ptr %119, align 1
+  store i8 %121, ptr %118, align 1
+  store i8 %120, ptr %119, align 1
+  %122 = add nuw i64 %.06.i246, 1
+  %exitcond.not.i247 = icmp eq i64 %122, %.
+  br i1 %exitcond.not.i247, label %qsort_interruptible_swapn.exit248, label %.lr.ph.i245, !llvm.loop !5
+
+qsort_interruptible_swapn.exit248:                ; preds = %.lr.ph.i245, %.critedge2._crit_edge
+  %123 = ptrtoint ptr %.1192.lcssa to i64
+  %124 = ptrtoint ptr %.1195.lcssa to i64
+  %125 = sub i64 %123, %124
+  %126 = ptrtoint ptr %15 to i64
+  %127 = add i64 %2, %123
+  %128 = sub i64 %126, %127
+  %129 = tail call i64 @llvm.umin.i64(i64 %125, i64 %128)
+  %130 = sub i64 0, %129
+  %131 = getelementptr inbounds i8, ptr %15, i64 %130
+  %.not.i249 = icmp eq i64 %129, 0
+  br i1 %.not.i249, label %qsort_interruptible_swapn.exit253, label %.lr.ph.i250
+
+.lr.ph.i250:                                      ; preds = %qsort_interruptible_swapn.exit248, %.lr.ph.i250
+  %.06.i251 = phi i64 [ %136, %.lr.ph.i250 ], [ 0, %qsort_interruptible_swapn.exit248 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.1197.lcssa, i64 %.06.i251
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 %.06.i251
+  %134 = load i8, ptr %132, align 1
+  %135 = load i8, ptr %133, align 1
+  store i8 %135, ptr %132, align 1
+  store i8 %134, ptr %133, align 1
+  %136 = add nuw i64 %.06.i251, 1
+  %exitcond.not.i252 = icmp eq i64 %136, %129
+  br i1 %exitcond.not.i252, label %qsort_interruptible_swapn.exit253, label %.lr.ph.i250, !llvm.loop !5
+
+qsort_interruptible_swapn.exit253:                ; preds = %.lr.ph.i250, %qsort_interruptible_swapn.exit248
+  %.not219 = icmp ugt i64 %115, %125
+  br i1 %.not219, label %147, label %137
+
+137:                                              ; preds = %qsort_interruptible_swapn.exit253
+  %138 = icmp ugt i64 %115, %2
+  br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
-  br i1 %.not.i227, label %qsort_interruptible_swapn.exit236, label %.lr.ph.i233
+  %140 = udiv i64 %115, %2
+  tail call void @qsort_interruptible(ptr noundef %.0186.ph, i64 noundef %140, i64 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %141
 
-.lr.ph.i233:                                      ; preds = %139, %.lr.ph.i233
-  %.06.i234 = phi i64 [ %144, %.lr.ph.i233 ], [ 0, %139 ]
-  %140 = getelementptr i8, ptr %.1199279, i64 %.06.i234
-  %141 = getelementptr i8, ptr %.1197280, i64 %.06.i234
-  %142 = load i8, ptr %140, align 1
-  %143 = load i8, ptr %141, align 1
-  store i8 %143, ptr %140, align 1
-  store i8 %142, ptr %141, align 1
-  %144 = add nuw i64 %.06.i234, 1
-  %exitcond.not.i235 = icmp eq i64 %144, %2
-  br i1 %exitcond.not.i235, label %qsort_interruptible_swapn.exit236, label %.lr.ph.i233, !llvm.loop !7
+141:                                              ; preds = %139, %137
+  %142 = icmp ugt i64 %125, %2
+  br i1 %142, label %143, label %.critedge223
 
-qsort_interruptible_swapn.exit236:                ; preds = %.lr.ph.i233, %139
-  %145 = getelementptr i8, ptr %.1199279, i64 %2
-  br label %146
-
-146:                                              ; preds = %qsort_interruptible_swapn.exit236, %137
-  %.2200 = phi ptr [ %145, %qsort_interruptible_swapn.exit236 ], [ %.1199279, %137 ]
-  %147 = getelementptr i8, ptr %.1197280, i64 %2
-  %148 = load volatile i32, ptr @InterruptPending, align 4
-  %.not221 = icmp eq i32 %148, 0
-  br i1 %.not221, label %150, label %149
-
-149:                                              ; preds = %146
-  tail call void @ProcessInterrupts() #3
-  br label %150
-
-150:                                              ; preds = %146, %149
-  %.not217 = icmp ugt ptr %147, %.0194
-  br i1 %.not217, label %.critedge2, label %.lr.ph282, !llvm.loop !10
-
-.critedge2:                                       ; preds = %.lr.ph282, %150, %134
-  %.1199.lcssa = phi ptr [ %.0198, %134 ], [ %.2200, %150 ], [ %.1199279, %.lr.ph282 ]
-  %.1197.lcssa = phi ptr [ %.0196, %134 ], [ %147, %150 ], [ %.1197280, %.lr.ph282 ]
-  %.not218287 = icmp ugt ptr %.1197.lcssa, %.0194
-  br i1 %.not218287, label %.critedge2._crit_edge, label %.lr.ph291
-
-.lr.ph291:                                        ; preds = %.critedge2, %166
-  %.1192290 = phi ptr [ %.2193, %166 ], [ %.0191, %.critedge2 ]
-  %.1195288 = phi ptr [ %163, %166 ], [ %.0194, %.critedge2 ]
-  %151 = tail call i32 %3(ptr noundef %.1195288, ptr noundef %.0186.ph, ptr noundef %4) #3
-  %152 = icmp sgt i32 %151, -1
-  br i1 %152, label %153, label %.critedge4
-
-153:                                              ; preds = %.lr.ph291
-  %154 = icmp eq i32 %151, 0
-  br i1 %154, label %155, label %162
-
-155:                                              ; preds = %153
-  br i1 %.not.i227, label %qsort_interruptible_swapn.exit241, label %.lr.ph.i238
-
-.lr.ph.i238:                                      ; preds = %155, %.lr.ph.i238
-  %.06.i239 = phi i64 [ %160, %.lr.ph.i238 ], [ 0, %155 ]
-  %156 = getelementptr i8, ptr %.1195288, i64 %.06.i239
-  %157 = getelementptr i8, ptr %.1192290, i64 %.06.i239
-  %158 = load i8, ptr %156, align 1
-  %159 = load i8, ptr %157, align 1
-  store i8 %159, ptr %156, align 1
-  store i8 %158, ptr %157, align 1
-  %160 = add nuw i64 %.06.i239, 1
-  %exitcond.not.i240 = icmp eq i64 %160, %2
-  br i1 %exitcond.not.i240, label %qsort_interruptible_swapn.exit241, label %.lr.ph.i238, !llvm.loop !7
-
-qsort_interruptible_swapn.exit241:                ; preds = %.lr.ph.i238, %155
-  %161 = getelementptr i8, ptr %.1192290, i64 %6
-  br label %162
-
-162:                                              ; preds = %qsort_interruptible_swapn.exit241, %153
-  %.2193 = phi ptr [ %161, %qsort_interruptible_swapn.exit241 ], [ %.1192290, %153 ]
-  %163 = getelementptr i8, ptr %.1195288, i64 %6
-  %164 = load volatile i32, ptr @InterruptPending, align 4
-  %.not220 = icmp eq i32 %164, 0
-  br i1 %.not220, label %166, label %165
-
-165:                                              ; preds = %162
-  tail call void @ProcessInterrupts() #3
-  br label %166
-
-166:                                              ; preds = %162, %165
-  %.not218 = icmp ugt ptr %.1197.lcssa, %163
-  br i1 %.not218, label %.critedge2._crit_edge, label %.lr.ph291, !llvm.loop !11
-
-.critedge4:                                       ; preds = %.lr.ph291
-  br i1 %.not.i227, label %qsort_interruptible_swapn.exit246, label %.lr.ph.i243
-
-.lr.ph.i243:                                      ; preds = %.critedge4, %.lr.ph.i243
-  %.06.i244 = phi i64 [ %171, %.lr.ph.i243 ], [ 0, %.critedge4 ]
-  %167 = getelementptr i8, ptr %.1197.lcssa, i64 %.06.i244
-  %168 = getelementptr i8, ptr %.1195288, i64 %.06.i244
-  %169 = load i8, ptr %167, align 1
-  %170 = load i8, ptr %168, align 1
-  store i8 %170, ptr %167, align 1
-  store i8 %169, ptr %168, align 1
-  %171 = add nuw i64 %.06.i244, 1
-  %exitcond.not.i245 = icmp eq i64 %171, %2
-  br i1 %exitcond.not.i245, label %qsort_interruptible_swapn.exit246, label %.lr.ph.i243, !llvm.loop !7
-
-qsort_interruptible_swapn.exit246:                ; preds = %.lr.ph.i243, %.critedge4
-  %172 = getelementptr i8, ptr %.1197.lcssa, i64 %2
-  %173 = getelementptr i8, ptr %.1195288, i64 %6
-  br label %134
-
-.critedge2._crit_edge:                            ; preds = %.critedge2, %166
-  %.1195.lcssa = phi ptr [ %163, %166 ], [ %.0194, %.critedge2 ]
-  %.1192.lcssa = phi ptr [ %.2193, %166 ], [ %.0191, %.critedge2 ]
-  %174 = ptrtoint ptr %.1199.lcssa to i64
-  %175 = sub i64 %174, %8
-  %176 = ptrtoint ptr %.1197.lcssa to i64
-  %177 = sub i64 %176, %174
-  %. = tail call i64 @llvm.smin.i64(i64 %175, i64 %177)
-  %178 = sub i64 0, %.
-  %179 = getelementptr i8, ptr %.1197.lcssa, i64 %178
-  %.not.i247 = icmp eq i64 %., 0
-  br i1 %.not.i247, label %qsort_interruptible_swapn.exit251, label %.lr.ph.i248
-
-.lr.ph.i248:                                      ; preds = %.critedge2._crit_edge, %.lr.ph.i248
-  %.06.i249 = phi i64 [ %184, %.lr.ph.i248 ], [ 0, %.critedge2._crit_edge ]
-  %180 = getelementptr i8, ptr %.0186.ph, i64 %.06.i249
-  %181 = getelementptr i8, ptr %179, i64 %.06.i249
-  %182 = load i8, ptr %180, align 1
-  %183 = load i8, ptr %181, align 1
-  store i8 %183, ptr %180, align 1
-  store i8 %182, ptr %181, align 1
-  %184 = add nuw i64 %.06.i249, 1
-  %exitcond.not.i250 = icmp eq i64 %184, %.
-  br i1 %exitcond.not.i250, label %qsort_interruptible_swapn.exit251, label %.lr.ph.i248, !llvm.loop !7
-
-qsort_interruptible_swapn.exit251:                ; preds = %.lr.ph.i248, %.critedge2._crit_edge
-  %185 = ptrtoint ptr %.1192.lcssa to i64
-  %186 = ptrtoint ptr %.1195.lcssa to i64
-  %187 = sub i64 %185, %186
-  %188 = ptrtoint ptr %15 to i64
-  %189 = add i64 %2, %185
-  %190 = sub i64 %188, %189
-  %191 = tail call i64 @llvm.umin.i64(i64 %187, i64 %190)
-  %192 = sub i64 0, %191
-  %193 = getelementptr i8, ptr %15, i64 %192
-  %.not.i252 = icmp eq i64 %191, 0
-  br i1 %.not.i252, label %qsort_interruptible_swapn.exit256, label %.lr.ph.i253
-
-.lr.ph.i253:                                      ; preds = %qsort_interruptible_swapn.exit251, %.lr.ph.i253
-  %.06.i254 = phi i64 [ %198, %.lr.ph.i253 ], [ 0, %qsort_interruptible_swapn.exit251 ]
-  %194 = getelementptr i8, ptr %.1197.lcssa, i64 %.06.i254
-  %195 = getelementptr i8, ptr %193, i64 %.06.i254
-  %196 = load i8, ptr %194, align 1
-  %197 = load i8, ptr %195, align 1
-  store i8 %197, ptr %194, align 1
-  store i8 %196, ptr %195, align 1
-  %198 = add nuw i64 %.06.i254, 1
-  %exitcond.not.i255 = icmp eq i64 %198, %191
-  br i1 %exitcond.not.i255, label %qsort_interruptible_swapn.exit256, label %.lr.ph.i253, !llvm.loop !7
-
-qsort_interruptible_swapn.exit256:                ; preds = %.lr.ph.i253, %qsort_interruptible_swapn.exit251
-  %.not219 = icmp ugt i64 %177, %187
-  br i1 %.not219, label %209, label %199
-
-199:                                              ; preds = %qsort_interruptible_swapn.exit256
-  %200 = icmp ugt i64 %177, %2
-  br i1 %200, label %201, label %203
-
-201:                                              ; preds = %199
-  %202 = udiv i64 %177, %2
-  tail call void @qsort_interruptible(ptr noundef %.0186.ph, i64 noundef %202, i64 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %203
-
-203:                                              ; preds = %201, %199
-  %204 = icmp ugt i64 %187, %2
-  br i1 %204, label %205, label %.critedge223
-
-205:                                              ; preds = %203
-  %206 = sub i64 0, %187
-  %207 = getelementptr i8, ptr %15, i64 %206
-  %208 = udiv i64 %187, %2
+143:                                              ; preds = %141
+  %144 = sub i64 0, %125
+  %145 = getelementptr inbounds i8, ptr %15, i64 %144
+  %146 = udiv i64 %125, %2
   br label %.outer
 
-209:                                              ; preds = %qsort_interruptible_swapn.exit256
-  %210 = icmp ugt i64 %187, %2
-  br i1 %210, label %211, label %215
+147:                                              ; preds = %qsort_interruptible_swapn.exit253
+  %148 = icmp ugt i64 %125, %2
+  br i1 %148, label %149, label %153
 
-211:                                              ; preds = %209
-  %212 = sub i64 0, %187
-  %213 = getelementptr i8, ptr %15, i64 %212
-  %214 = udiv i64 %187, %2
-  tail call void @qsort_interruptible(ptr noundef %213, i64 noundef %214, i64 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %215
+149:                                              ; preds = %147
+  %150 = sub i64 0, %125
+  %151 = getelementptr inbounds i8, ptr %15, i64 %150
+  %152 = udiv i64 %125, %2
+  tail call void @qsort_interruptible(ptr noundef nonnull %151, i64 noundef %152, i64 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %153
 
-215:                                              ; preds = %211, %209
-  %216 = icmp ugt i64 %177, %2
-  br i1 %216, label %217, label %.critedge223
+153:                                              ; preds = %149, %147
+  %154 = icmp ugt i64 %115, %2
+  br i1 %154, label %155, label %.critedge223
 
-217:                                              ; preds = %215
-  %218 = udiv i64 %177, %2
+155:                                              ; preds = %153
+  %156 = udiv i64 %115, %2
   br label %9
 
-.critedge223:                                     ; preds = %203, %215, %33, %40, %.critedge, %.preheader258
+.critedge223:                                     ; preds = %141, %153, %27, %34, %.critedge, %.preheader255
   ret void
 }
 
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #2
+; Function Attrs: noinline nounwind uwtable
+define internal fastcc ptr @qsort_interruptible_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #2 {
+  %6 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %4) #4
+  %7 = icmp slt i32 %6, 0
+  %8 = tail call i32 %3(ptr noundef %1, ptr noundef %2, ptr noundef %4) #4
+  br i1 %7, label %9, label %15
+
+9:                                                ; preds = %5
+  %10 = icmp slt i32 %8, 0
+  br i1 %10, label %21, label %11
+
+11:                                               ; preds = %9
+  %12 = tail call i32 %3(ptr noundef %0, ptr noundef %2, ptr noundef %4) #4
+  %13 = icmp slt i32 %12, 0
+  %14 = select i1 %13, ptr %2, ptr %0
+  br label %21
+
+15:                                               ; preds = %5
+  %16 = icmp sgt i32 %8, 0
+  br i1 %16, label %21, label %17
+
+17:                                               ; preds = %15
+  %18 = tail call i32 %3(ptr noundef %0, ptr noundef %2, ptr noundef %4) #4
+  %19 = icmp slt i32 %18, 0
+  %20 = select i1 %19, ptr %0, ptr %2
+  br label %21
+
+21:                                               ; preds = %15, %9, %17, %11
+  %22 = phi ptr [ %14, %11 ], [ %20, %17 ], [ %1, %9 ], [ %1, %15 ]
+  ret ptr %22
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #2
+declare i64 @llvm.smin.i64(i64, i64) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__sigset_t = type { [16 x i64] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, i64, [16 x i32], i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
+%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
 %struct.Latch = type { i32, i32, i8, i32 }
 %struct.anon = type { i32, i32 }
 %struct.proclist_node = type { i32, i32 }
@@ -18,16 +18,22 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.proclist_head = type { i32, i32 }
 %struct.dlist_head = type { %struct.dlist_node }
 %struct.dlist_node = type { ptr, ptr }
+%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @XLogArchiveLibrary = dso_local local_unnamed_addr global ptr @.str, align 8
 @.str.1 = private unnamed_addr constant [14 x i8] c"Archiver Data\00", align 1
 @PgArch = internal unnamed_addr global ptr null, align 8
 @PgArchCanRestart.last_pgarch_start_time = internal unnamed_addr global i64 0, align 8
+@MyBackendType = external local_unnamed_addr global i32, align 4
 @UnBlockSig = external global %struct.__sigset_t, align 8
 @MyProcNumber = external local_unnamed_addr global i32, align 4
 @arch_files = internal unnamed_addr global ptr null, align 8
+@TopMemoryContext = external local_unnamed_addr global ptr, align 8
+@.str.2 = private unnamed_addr constant [9 x i8] c"archiver\00", align 1
+@archive_context = internal unnamed_addr global ptr null, align 8
 @ProcGlobal = external local_unnamed_addr global ptr, align 8
+@arch_module_check_errdetail_string = dso_local local_unnamed_addr global ptr null, align 8
 @ready_to_stop = internal global i32 0, align 4
 @MyLatch = external local_unnamed_addr global ptr, align 8
 @ShutdownRequestPending = external global i32, align 4
@@ -36,59 +42,72 @@ target triple = "x86_64-pc-linux-gnu"
 @LogMemoryContextPending = external global i32, align 4
 @ConfigReloadPending = external global i32, align 4
 @XLogArchiveCommand = external local_unnamed_addr global ptr, align 8
-@.str.2 = private unnamed_addr constant [45 x i8] c"both archive_command and archive_library set\00", align 1
-@.str.3 = private unnamed_addr constant [57 x i8] c"Only one of archive_command, archive_library may be set.\00", align 1
-@.str.4 = private unnamed_addr constant [9 x i8] c"pgarch.c\00", align 1
+@.str.3 = private unnamed_addr constant [49 x i8] c"both \22archive_command\22 and \22archive_library\22 set\00", align 1
+@.str.4 = private unnamed_addr constant [61 x i8] c"Only one of \22archive_command\22, \22archive_library\22 may be set.\00", align 1
+@.str.5 = private unnamed_addr constant [9 x i8] c"pgarch.c\00", align 1
 @__func__.HandlePgArchInterrupts = private unnamed_addr constant [23 x i8] c"HandlePgArchInterrupts\00", align 1
-@.str.5 = private unnamed_addr constant [73 x i8] c"restarting archiver process because value of archive_library was changed\00", align 1
+@.str.6 = private unnamed_addr constant [75 x i8] c"restarting archiver process because value of \22archive_library\22 was changed\00", align 1
 @ArchiveCallbacks = internal unnamed_addr global ptr null, align 8
 @archive_module_state = internal unnamed_addr global ptr null, align 8
-@.str.6 = private unnamed_addr constant [54 x i8] c"archive_mode enabled, yet archiving is not configured\00", align 1
+@.str.7 = private unnamed_addr constant [56 x i8] c"\22archive_mode\22 enabled, yet archiving is not configured\00", align 1
+@.str.8 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @__func__.pgarch_ArchiverCopyLoop = private unnamed_addr constant [24 x i8] c"pgarch_ArchiverCopyLoop\00", align 1
-@.str.7 = private unnamed_addr constant [10 x i8] c"pg_wal/%s\00", align 1
-@.str.8 = private unnamed_addr constant [7 x i8] c".ready\00", align 1
-@.str.9 = private unnamed_addr constant [40 x i8] c"removed orphan archive status file \22%s\22\00", align 1
-@.str.10 = private unnamed_addr constant [87 x i8] c"removal of orphan archive status file \22%s\22 failed too many times, will try again later\00", align 1
-@.str.11 = private unnamed_addr constant [80 x i8] c"archiving write-ahead log file \22%s\22 failed too many times, will try again later\00", align 1
-@.str.12 = private unnamed_addr constant [29 x i8] c"could not stat file \22%s\22: %m\00", align 1
+@.str.9 = private unnamed_addr constant [10 x i8] c"pg_wal/%s\00", align 1
+@.str.10 = private unnamed_addr constant [7 x i8] c".ready\00", align 1
+@.str.11 = private unnamed_addr constant [40 x i8] c"removed orphan archive status file \22%s\22\00", align 1
+@.str.12 = private unnamed_addr constant [87 x i8] c"removal of orphan archive status file \22%s\22 failed too many times, will try again later\00", align 1
+@.str.13 = private unnamed_addr constant [80 x i8] c"archiving write-ahead log file \22%s\22 failed too many times, will try again later\00", align 1
+@.str.14 = private unnamed_addr constant [29 x i8] c"could not stat file \22%s\22: %m\00", align 1
 @__func__.pgarch_readyXlog = private unnamed_addr constant [17 x i8] c"pgarch_readyXlog\00", align 1
-@.str.13 = private unnamed_addr constant [22 x i8] c"pg_wal/archive_status\00", align 1
-@.str.14 = private unnamed_addr constant [40 x i8] c"0123456789ABCDEF.history.backup.partial\00", align 1
+@.str.15 = private unnamed_addr constant [22 x i8] c"pg_wal/archive_status\00", align 1
+@.str.16 = private unnamed_addr constant [40 x i8] c"0123456789ABCDEF.history.backup.partial\00", align 1
 @postmaster_possibly_dead = external global i32, align 4
-@.str.15 = private unnamed_addr constant [27 x i8] c"pg_wal/archive_status/%s%s\00", align 1
-@.str.16 = private unnamed_addr constant [13 x i8] c"archiving %s\00", align 1
-@.str.17 = private unnamed_addr constant [12 x i8] c"last was %s\00", align 1
-@.str.18 = private unnamed_addr constant [13 x i8] c"failed on %s\00", align 1
-@.str.19 = private unnamed_addr constant [6 x i8] c".done\00", align 1
-@.str.20 = private unnamed_addr constant [39 x i8] c"could not rename file \22%s\22 to \22%s\22: %m\00", align 1
+@.str.17 = private unnamed_addr constant [27 x i8] c"pg_wal/archive_status/%s%s\00", align 1
+@.str.18 = private unnamed_addr constant [13 x i8] c"archiving %s\00", align 1
+@error_context_stack = external local_unnamed_addr global ptr, align 8
+@InterruptHoldoffCount = external global i32, align 4
+@PG_exception_stack = external local_unnamed_addr global ptr, align 8
+@.str.19 = private unnamed_addr constant [12 x i8] c"last was %s\00", align 1
+@.str.20 = private unnamed_addr constant [13 x i8] c"failed on %s\00", align 1
+@CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
+@my_wait_event_info = external local_unnamed_addr global ptr, align 8
+@.str.21 = private unnamed_addr constant [6 x i8] c".done\00", align 1
+@.str.22 = private unnamed_addr constant [39 x i8] c"could not rename file \22%s\22 to \22%s\22: %m\00", align 1
 @__func__.pgarch_archiveDone = private unnamed_addr constant [19 x i8] c"pgarch_archiveDone\00", align 1
-@.str.21 = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
-@.str.22 = private unnamed_addr constant [9 x i8] c".history\00", align 1
+@.str.23 = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
+@.str.24 = private unnamed_addr constant [9 x i8] c".history\00", align 1
 @__func__.LoadArchiveLibrary = private unnamed_addr constant [19 x i8] c"LoadArchiveLibrary\00", align 1
-@.str.23 = private unnamed_addr constant [24 x i8] c"_PG_archive_module_init\00", align 1
-@.str.24 = private unnamed_addr constant [45 x i8] c"archive modules have to define the symbol %s\00", align 1
-@.str.25 = private unnamed_addr constant [50 x i8] c"archive modules must register an archive callback\00", align 1
+@.str.25 = private unnamed_addr constant [24 x i8] c"_PG_archive_module_init\00", align 1
+@.str.26 = private unnamed_addr constant [45 x i8] c"archive modules have to define the symbol %s\00", align 1
+@.str.27 = private unnamed_addr constant [50 x i8] c"archive modules must register an archive callback\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @PgArchShmemSize() local_unnamed_addr #0 {
-  %1 = tail call i64 @add_size(i64 noundef 0, i64 noundef 8) #18
+  %1 = tail call i64 @add_size(i64 noundef 0, i64 noundef 8) #19
   ret i64 %1
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PgArchShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
-  %2 = tail call i64 @add_size(i64 noundef 0, i64 noundef 8) #18
-  %3 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.1, i64 noundef %2, ptr noundef nonnull %1) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #19
+  %2 = tail call i64 @add_size(i64 noundef 0, i64 noundef 8) #19
+  %3 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.1, i64 noundef %2, ptr noundef nonnull %1) #19
   store ptr %3, ptr @PgArch, align 8
-  %4 = load i8, ptr %1, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %26, label %6
+  %4 = load i8, ptr %1, align 1, !range !4, !noundef !5
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %24, label %6
 
 6:                                                ; preds = %0
-  %7 = call i64 @add_size(i64 noundef 0, i64 noundef 8) #18
+  %7 = call i64 @add_size(i64 noundef 0, i64 noundef 8) #19
   %8 = ptrtoint ptr %3 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
@@ -102,44 +121,44 @@ define dso_local void @PgArchShmemInit() local_unnamed_addr #0 {
   br i1 %or.cond3, label %15, label %.loopexit.sink.split
 
 15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %3, i64 %7
-  %17 = icmp ult ptr %3, %16
-  br i1 %17, label %.lr.ph.preheader, label %.loopexit
+  %.not = icmp eq i64 %7, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
-  %18 = add i64 %7, %8
-  %19 = add i64 %8, 8
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 %19)
-  %20 = xor i64 %8, -1
-  %21 = add i64 %umax, %20
-  %22 = and i64 %21, -8
-  %23 = add i64 %22, 8
+  %16 = add i64 %7, %8
+  %17 = add i64 %8, 8
+  %umax = call i64 @llvm.umax.i64(i64 %16, i64 %17)
+  %18 = xor i64 %8, -1
+  %19 = add i64 %umax, %18
+  %20 = and i64 %19, -8
+  %21 = add i64 %20, 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %6, %11, %.lr.ph.preheader
-  %.sink = phi i64 [ %23, %.lr.ph.preheader ], [ %7, %11 ], [ %7, %6 ]
+  %.sink = phi i64 [ %21, %.lr.ph.preheader ], [ %7, %11 ], [ %7, %6 ]
   call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %15
-  %24 = load ptr, ptr @PgArch, align 8
-  store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store volatile i32 0, ptr %25, align 4
-  br label %26
+  %22 = load ptr, ptr @PgArch, align 8
+  store i32 -1, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store volatile i32 0, ptr %23, align 4
+  br label %24
 
-26:                                               ; preds = %.loopexit, %0
+24:                                               ; preds = %.loopexit, %0
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #19
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @PgArchCanRestart() local_unnamed_addr #0 {
-  %1 = tail call i64 @time(ptr noundef null) #18
+  %1 = tail call i64 @time(ptr noundef null) #19
   %2 = load i64, ptr @PgArchCanRestart.last_pgarch_start_time, align 8
   %3 = sub i64 %1, %2
   %4 = trunc i64 %3 to i32
@@ -155,95 +174,102 @@ define dso_local noundef zeroext i1 @PgArchCanRestart() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #3
+declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @PgArchiverMain() local_unnamed_addr #4 {
-  %1 = tail call ptr @pqsignal(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #18
-  %2 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  %3 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @SignalHandlerForShutdownRequest) #18
-  %4 = tail call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  %5 = tail call ptr @pqsignal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  %6 = tail call ptr @pqsignal(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #18
-  %7 = tail call ptr @pqsignal(i32 noundef 12, ptr noundef nonnull @pgarch_waken_stop) #18
-  %8 = tail call ptr @pqsignal(i32 noundef 17, ptr noundef null) #18
-  %9 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #18
-  tail call void @on_shmem_exit(ptr noundef nonnull @pgarch_die, i64 noundef 0) #18
-  %10 = load i32, ptr @MyProcNumber, align 4
-  %11 = load ptr, ptr @PgArch, align 8
-  store i32 %10, ptr %11, align 4
-  %12 = tail call ptr @palloc(i64 noundef 3152) #18
-  store ptr %12, ptr @arch_files, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %13, align 8
-  %14 = tail call ptr @binaryheap_allocate(i32 noundef 64, ptr noundef nonnull @ready_file_comparator, ptr noundef null) #18
-  %15 = load ptr, ptr @arch_files, align 8
-  store ptr %14, ptr %15, align 8
+define dso_local void @PgArchiverMain(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+  store i32 9, ptr @MyBackendType, align 4
+  tail call void @AuxiliaryProcessMainCommon() #19
+  tail call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #19
+  tail call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #19
+  tail call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @SignalHandlerForShutdownRequest) #19
+  tail call void @pqsignal_be(i32 noundef 14, ptr noundef nonnull inttoptr (i64 1 to ptr)) #19
+  tail call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #19
+  tail call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #19
+  tail call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull @pgarch_waken_stop) #19
+  tail call void @pqsignal_be(i32 noundef 17, ptr noundef null) #19
+  %3 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #19
+  tail call void @on_shmem_exit(ptr noundef nonnull @pgarch_die, i64 noundef 0) #19
+  %4 = load i32, ptr @MyProcNumber, align 4
+  %5 = load ptr, ptr @PgArch, align 8
+  store i32 %4, ptr %5, align 4
+  %6 = tail call ptr @palloc(i64 noundef 3152) #19
+  store ptr %6, ptr @arch_files, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %7, align 8
+  %8 = tail call ptr @binaryheap_allocate(i32 noundef 64, ptr noundef nonnull @ready_file_comparator, ptr noundef null) #19
+  %9 = load ptr, ptr @arch_files, align 8
+  store ptr %8, ptr %9, align 8
+  %10 = load ptr, ptr @TopMemoryContext, align 8
+  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %10, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #19
+  store ptr %11, ptr @archive_context, align 8
   tail call fastcc void @LoadArchiveLibrary()
   tail call fastcc void @pgarch_MainLoop()
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #20
   unreachable
 }
 
-declare ptr @pqsignal(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @AuxiliaryProcessMainCommon() local_unnamed_addr #2
 
-declare void @SignalHandlerForConfigReload(i32 noundef) #1
+declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SignalHandlerForShutdownRequest(i32 noundef) #1
+declare void @SignalHandlerForConfigReload(i32 noundef) #2
 
-declare void @procsignal_sigusr1_handler(i32 noundef) #1
+declare void @SignalHandlerForShutdownRequest(i32 noundef) #2
+
+declare void @procsignal_sigusr1_handler(i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @pgarch_waken_stop(i32 %0) #0 {
   store volatile i32 1, ptr @ready_to_stop, align 4
   %2 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %2) #18
+  tail call void @SetLatch(ptr noundef %2) #19
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal void @pgarch_die(i32 %0, i64 %1) #5 {
+define internal void @pgarch_die(i32 %0, i64 %1) #6 {
   %3 = load ptr, ptr @PgArch, align 8
   store i32 -1, ptr %3, align 4
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
+define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #7 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #20
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #21
   %7 = icmp eq i64 %6, 16
   br i1 %7, label %8, label %IsTLHistoryFileName.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strspn(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.21) #20
+  %9 = tail call i64 @strspn(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.23) #21
   %10 = icmp eq i64 %9, 8
   br i1 %10, label %11, label %IsTLHistoryFileName.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr i8, ptr %4, i64 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.22) #20
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.24) #21
   %14 = icmp eq i32 %13, 0
   br label %IsTLHistoryFileName.exit
 
 IsTLHistoryFileName.exit:                         ; preds = %3, %8, %11
   %15 = phi i1 [ false, %8 ], [ false, %3 ], [ %14, %11 ]
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #21
   %17 = icmp eq i64 %16, 16
   br i1 %17, label %18, label %IsTLHistoryFileName.exit9.thr_comm
 
 18:                                               ; preds = %IsTLHistoryFileName.exit
-  %19 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21) #20
+  %19 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.23) #21
   %20 = icmp eq i64 %19, 8
   br i1 %20, label %IsTLHistoryFileName.exit9, label %IsTLHistoryFileName.exit9.thr_comm
 
@@ -251,8 +277,8 @@ IsTLHistoryFileName.exit9.thr_comm:               ; preds = %IsTLHistoryFileName
   br i1 %15, label %25, label %27
 
 IsTLHistoryFileName.exit9:                        ; preds = %18
-  %21 = getelementptr i8, ptr %5, i64 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.22) #20
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.24) #21
   %23 = icmp eq i32 %22, 0
   %24 = xor i1 %15, %23
   br i1 %24, label %25, label %27
@@ -262,13 +288,15 @@ IsTLHistoryFileName.exit9:                        ; preds = %18
   br label %29
 
 27:                                               ; preds = %IsTLHistoryFileName.exit9.thr_comm, %IsTLHistoryFileName.exit9
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #20
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #21
   br label %29
 
 29:                                               ; preds = %27, %25
   %.0 = phi i32 [ %26, %25 ], [ %28, %27 ]
   ret i32 %.0
 }
+
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @LoadArchiveLibrary() unnamed_addr #0 {
@@ -284,29 +312,29 @@ define internal fastcc void @LoadArchiveLibrary() unnamed_addr #0 {
   br i1 %.not3, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 50856066) #18
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #18
-  %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 816, ptr noundef nonnull @__func__.LoadArchiveLibrary) #18
+  %8 = tail call i32 @errcode(i32 noundef 50856066) #19
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #19
+  %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #19
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 919, ptr noundef nonnull @__func__.LoadArchiveLibrary) #19
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @load_external_function(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i1 noundef zeroext false, ptr noundef null) #18
+  %12 = tail call ptr @load_external_function(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i1 noundef zeroext false, ptr noundef null) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.thread5
 
 14:                                               ; preds = %11
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
   tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 831, ptr noundef nonnull @__func__.LoadArchiveLibrary) #18
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25) #19
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 934, ptr noundef nonnull @__func__.LoadArchiveLibrary) #19
   unreachable
 
 .thread5:                                         ; preds = %0, %11
   %.07 = phi ptr [ %12, %11 ], [ @shell_archive_init, %0 ]
-  %17 = tail call ptr %.07() #18
+  %17 = tail call ptr %.07() #19
   store ptr %17, ptr @ArchiveCallbacks, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -314,14 +342,14 @@ define internal fastcc void @LoadArchiveLibrary() unnamed_addr #0 {
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %.thread5
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 837, ptr noundef nonnull @__func__.LoadArchiveLibrary) #18
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #19
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 940, ptr noundef nonnull @__func__.LoadArchiveLibrary) #19
   unreachable
 
 24:                                               ; preds = %.thread5
-  %25 = tail call ptr @palloc0(i64 noundef 8) #18
+  %25 = tail call ptr @palloc0(i64 noundef 8) #19
   store ptr %25, ptr @archive_module_state, align 8
   %26 = load ptr, ptr @ArchiveCallbacks, align 8
   %27 = load ptr, ptr %26, align 8
@@ -329,11 +357,11 @@ define internal fastcc void @LoadArchiveLibrary() unnamed_addr #0 {
   br i1 %.not4, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef %25) #18
+  tail call void %27(ptr noundef %25) #19
   br label %29
 
 29:                                               ; preds = %28, %24
-  tail call void @before_shmem_exit(ptr noundef nonnull @pgarch_call_module_shutdown_cb, i64 noundef 0) #18
+  tail call void @before_shmem_exit(ptr noundef nonnull @pgarch_call_module_shutdown_cb, i64 noundef 0) #19
   ret void
 }
 
@@ -342,440 +370,457 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
-  %4 = alloca [80 x i8], align 16
+  %4 = alloca %struct.stat, align 8
   %5 = alloca [1024 x i8], align 16
-  %6 = alloca %struct.stat, align 8
-  %7 = alloca [1024 x i8], align 16
-  %8 = alloca [41 x i8], align 16
-  %9 = alloca [41 x i8], align 16
-  %10 = alloca %struct.stat, align 8
-  %11 = alloca [1024 x i8], align 16
-  %12 = alloca [1024 x i8], align 16
-  %13 = ptrtoint ptr %8 to i64
-  br label %14
+  %6 = alloca [41 x i8], align 16
+  %7 = alloca [41 x i8], align 16
+  %8 = alloca %struct.stat, align 8
+  %9 = alloca [1024 x i8], align 16
+  %10 = alloca [1024 x i8], align 16
+  %11 = ptrtoint ptr %6 to i64
+  br label %12
 
-14:                                               ; preds = %202, %0
-  %15 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %15) #18
-  %16 = load volatile i32, ptr @ready_to_stop, align 4
-  %.not8 = icmp eq i32 %16, 0
+12:                                               ; preds = %195, %0
+  %13 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %13) #19
+  %14 = load volatile i32, ptr @ready_to_stop, align 4
+  %.not13 = icmp eq i32 %14, 0
   call fastcc void @HandlePgArchInterrupts()
-  %17 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %27, label %18
+  %15 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %.thread, label %16
 
-18:                                               ; preds = %14
-  %19 = call i64 @time(ptr noundef null) #18
-  %20 = load i64, ptr @last_sigterm_time, align 8
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %23
+16:                                               ; preds = %12
+  %17 = call i64 @time(ptr noundef null) #19
+  %18 = load i64, ptr @last_sigterm_time, align 8
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %21
 
-22:                                               ; preds = %18
-  store i64 %19, ptr @last_sigterm_time, align 8
+20:                                               ; preds = %16
+  store i64 %17, ptr @last_sigterm_time, align 8
+  br label %.thread
+
+21:                                               ; preds = %16
+  %22 = sub i64 %17, %18
+  %23 = trunc i64 %22 to i32
+  %24 = icmp ugt i32 %23, 59
+  br i1 %24, label %.thread11, label %.thread
+
+.thread:                                          ; preds = %21, %20, %12
+  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %7) #19
+  %25 = load ptr, ptr @arch_files, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 0, ptr %26, align 8
   br label %27
 
-23:                                               ; preds = %18
-  %24 = sub i64 %19, %20
-  %25 = trunc i64 %24 to i32
-  %26 = icmp ugt i32 %25, 59
-  br i1 %26, label %.thread, label %27
-
-27:                                               ; preds = %22, %23, %14
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
-  %28 = load ptr, ptr @arch_files, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 0, ptr %29, align 8
-  br label %30
-
-30:                                               ; preds = %.backedge, %27
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %8)
-  %31 = load ptr, ptr @PgArch, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = atomicrmw volatile xchg ptr %32, i32 0 seq_cst, align 4
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %35, label %.preheader
-
-35:                                               ; preds = %30
-  %36 = load ptr, ptr @arch_files, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 0, ptr %37, align 8
-  br label %.preheader
-
-.preheader:                                       ; preds = %35, %30
-  br label %38
-
-38:                                               ; preds = %.preheader, %52
-  %39 = load ptr, ptr @arch_files, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %43, label %59
-
-43:                                               ; preds = %38
-  %44 = add nsw i32 %41, -1
-  store i32 %44, ptr %40, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr [64 x ptr], ptr %45, i64 0, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %48, ptr noundef nonnull @.str.8) #18
-  %50 = call i32 @stat(ptr noundef nonnull %7, ptr noundef nonnull %6) #18
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %pgarch_readyXlog.exit.i, label %52
-
-52:                                               ; preds = %43
-  %53 = tail call ptr @__errno_location() #22
-  %54 = load i32, ptr %53, align 4
-  %.not33.i.i = icmp eq i32 %54, 2
-  br i1 %.not33.i.i, label %38, label %55, !llvm.loop !5
-
-55:                                               ; preds = %52
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 @errcode_for_file_access() #18
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %7) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 577, ptr noundef nonnull @__func__.pgarch_readyXlog) #18
-  unreachable
-
-59:                                               ; preds = %38
-  %60 = load ptr, ptr %39, align 8
-  call void @binaryheap_reset(ptr noundef %60) #18
-  %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.13) #18
-  %62 = call ptr @AllocateDir(ptr noundef nonnull %5) #18
-  %63 = call ptr @ReadDir(ptr noundef %62, ptr noundef nonnull %5) #18
-  %.not41.i.i = icmp eq ptr %63, null
-  br i1 %.not41.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %59, %.backedge.i.i
-  %64 = phi ptr [ %107, %.backedge.i.i ], [ %63, %59 ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 19
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #20
-  %67 = trunc i64 %66 to i32
-  %68 = add i32 %67, -47
-  %or.cond.i.i = icmp ult i32 %68, -25
-  br i1 %or.cond.i.i, label %.backedge.i.i, label %69
-
-69:                                               ; preds = %.lr.ph.i.i
-  %70 = add i64 %66, 4294967290
-  %71 = call i64 @strspn(ptr noundef nonnull %65, ptr noundef nonnull @.str.14) #20
-  %72 = and i64 %70, 4294967295
-  %73 = icmp ult i64 %71, %72
-  br i1 %73, label %.backedge.i.i, label %74
-
-74:                                               ; preds = %69
-  %75 = getelementptr i8, ptr %65, i64 %72
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(7) @.str.8) #20
-  %.not32.i.i = icmp eq i32 %76, 0
-  br i1 %.not32.i.i, label %77, label %.backedge.i.i
-
-77:                                               ; preds = %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %65, i64 %72, i1 false)
-  %78 = getelementptr [41 x i8], ptr %8, i64 0, i64 %72
-  store i8 0, ptr %78, align 1
-  %79 = load ptr, ptr @arch_files, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp slt i32 %81, 64
-  br i1 %82, label %83, label %95
-
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 528
-  %85 = sext i32 %81 to i64
-  %86 = getelementptr [64 x [41 x i8]], ptr %84, i64 0, i64 %85
-  %87 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %8) #18
-  %88 = load ptr, ptr %79, align 8
-  %89 = ptrtoint ptr %86 to i64
-  call void @binaryheap_add_unordered(ptr noundef %88, i64 noundef %89) #18
-  %90 = load ptr, ptr @arch_files, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %91, align 8
-  %93 = icmp eq i32 %92, 64
-  br i1 %93, label %94, label %.backedge.i.i
-
-94:                                               ; preds = %83
-  call void @binaryheap_build(ptr noundef nonnull %91) #18
-  br label %.backedge.i.i
-
-95:                                               ; preds = %77
-  %96 = call i64 @binaryheap_first(ptr noundef nonnull %80) #18
-  %97 = call i32 @ready_file_comparator(i64 noundef %96, i64 noundef %13, ptr poison)
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %99, label %.backedge.i.i
-
-99:                                               ; preds = %95
-  %100 = load ptr, ptr @arch_files, align 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i64 @binaryheap_remove_first(ptr noundef %101) #18
-  %103 = inttoptr i64 %102 to ptr
-  %104 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %8) #18
-  %105 = load ptr, ptr @arch_files, align 8
-  %106 = load ptr, ptr %105, align 8
-  call void @binaryheap_add(ptr noundef %106, i64 noundef %102) #18
-  br label %.backedge.i.i
-
-.backedge.i.i:                                    ; preds = %99, %95, %94, %83, %74, %69, %.lr.ph.i.i
-  %107 = call ptr @ReadDir(ptr noundef %62, ptr noundef nonnull %5) #18
-  %.not.i.i = icmp eq ptr %107, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
-
-._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %59
-  %108 = call i32 @FreeDir(ptr noundef %62) #18
-  %109 = load ptr, ptr @arch_files, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %pgarch_readyXlog.exit.thread.i, label %113
-
-pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %8)
-  br label %pgarch_ArchiverCopyLoop.exit
-
-113:                                              ; preds = %._crit_edge.i.i
-  %114 = icmp slt i32 %111, 64
-  br i1 %114, label %116, label %.thread.i.i
-
-.thread.i.i:                                      ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store i32 %111, ptr %115, align 8
-  br label %.lr.ph45.i.i.preheader
-
-116:                                              ; preds = %113
-  call void @binaryheap_build(ptr noundef nonnull %110) #18
+27:                                               ; preds = %.loopexit31.i, %.thread
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #19
+  %28 = load ptr, ptr @PgArch, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = atomicrmw volatile xchg ptr %29, i32 0 seq_cst, align 4
+  %31 = icmp eq i32 %30, 1
   %.pre.i.i = load ptr, ptr @arch_files, align 8
-  %.pre57.i.i = load ptr, ptr %.pre.i.i, align 8
-  %.pre58.i.i = load i32, ptr %.pre57.i.i, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  store i32 %.pre58.i.i, ptr %117, align 8
-  %118 = icmp sgt i32 %.pre58.i.i, 0
-  br i1 %118, label %.lr.ph45.i.i.preheader, label %._crit_edge46.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
+  br i1 %31, label %.thread67.i.i, label %33
 
-.lr.ph45.i.i.preheader:                           ; preds = %116, %.thread.i.i
-  %.ph = phi ptr [ %109, %.thread.i.i ], [ %.pre.i.i, %116 ]
-  br label %.lr.ph45.i.i
+.thread67.i.i:                                    ; preds = %27
+  store i32 0, ptr %32, align 8
+  br label %._crit_edge.i.i
 
-.lr.ph45.i.i:                                     ; preds = %.lr.ph45.i.i.preheader, %.lr.ph45.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph45.i.i ], [ 0, %.lr.ph45.i.i.preheader ]
-  %119 = phi ptr [ %123, %.lr.ph45.i.i ], [ %.ph, %.lr.ph45.i.i.preheader ]
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i64 @binaryheap_remove_first(ptr noundef %120) #18
-  %122 = inttoptr i64 %121 to ptr
-  %123 = load ptr, ptr @arch_files, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = getelementptr [64 x ptr], ptr %124, i64 0, i64 %indvars.iv.i.i
-  store ptr %122, ptr %125, align 8
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = sext i32 %127 to i64
-  %129 = icmp slt i64 %indvars.iv.next.i.i, %128
-  br i1 %129, label %.lr.ph45.i.i, label %._crit_edge46.i.i, !llvm.loop !8
+33:                                               ; preds = %27
+  %.pre63.i.i = load i32, ptr %32, align 8
+  %34 = icmp sgt i32 %.pre63.i.i, 0
+  br i1 %34, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge46.i.i:                                ; preds = %.lr.ph45.i.i, %116
-  %.lcssa42.i.i = phi ptr [ %.pre.i.i, %116 ], [ %123, %.lr.ph45.i.i ]
-  %.lcssa.i.i = phi i32 [ %.pre58.i.i, %116 ], [ %127, %.lr.ph45.i.i ]
-  %130 = getelementptr inbounds nuw i8, ptr %.lcssa42.i.i, i64 8
-  %131 = add i32 %.lcssa.i.i, -1
-  store i32 %131, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.lcssa42.i.i, i64 16
-  %133 = sext i32 %131 to i64
-  %134 = getelementptr [64 x ptr], ptr %132, i64 0, i64 %133
-  %135 = load ptr, ptr %134, align 8
+.lr.ph.i.i:                                       ; preds = %33, %53
+  %35 = phi i32 [ %56, %53 ], [ %.pre63.i.i, %33 ]
+  %36 = phi ptr [ %55, %53 ], [ %32, %33 ]
+  %37 = phi ptr [ %54, %53 ], [ %.pre.i.i, %33 ]
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #19
+  %38 = add nsw i32 %35, -1
+  store i32 %38, ptr %36, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = zext nneg i32 %38 to i64
+  %41 = getelementptr inbounds nuw [64 x ptr], ptr %39, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %42, ptr noundef nonnull @.str.10) #19
+  %44 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #19
+  %.not35.i.i = icmp eq i32 %44, 0
+  br i1 %.not35.i.i, label %.thread.i.i, label %46
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
+  %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %42) #19
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #19
   br label %pgarch_readyXlog.exit.i
 
-pgarch_readyXlog.exit.i:                          ; preds = %43, %._crit_edge46.i.i
-  %.sink.i.i = phi ptr [ %135, %._crit_edge46.i.i ], [ %48, %43 ]
-  %136 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.sink.i.i) #18
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %8)
-  %137 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not2123.i = icmp eq i32 %137, 0
-  br i1 %.not2123.i, label %.lr.ph.i, label %pgarch_ArchiverCopyLoop.exit
+46:                                               ; preds = %.lr.ph.i.i
+  %47 = tail call ptr @__errno_location() #23
+  %48 = load i32, ptr %47, align 4
+  %.not34.i.i = icmp eq i32 %48, 2
+  br i1 %.not34.i.i, label %53, label %49
 
-.lr.ph.i:                                         ; preds = %pgarch_readyXlog.exit.i, %.outer.i
-  %.0.ph25.i = phi i32 [ %.022.i, %.outer.i ], [ 0, %pgarch_readyXlog.exit.i ]
-  %.02.ph24.i = phi i32 [ %200, %.outer.i ], [ 0, %pgarch_readyXlog.exit.i ]
-  %smax.i = call i32 @llvm.smax.i32(i32 %.0.ph25.i, i32 2)
-  br label %138
+49:                                               ; preds = %46
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
+  call void @llvm.assume(i1 %50)
+  %51 = call i32 @errcode_for_file_access() #19
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #19
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 680, ptr noundef nonnull @__func__.pgarch_readyXlog) #19
+  unreachable
 
-138:                                              ; preds = %171, %.lr.ph.i
-  %.022.i = phi i32 [ %.0.ph25.i, %.lr.ph.i ], [ %172, %171 ]
-  %139 = load volatile i32, ptr @postmaster_possibly_dead, align 4
-  %.not.i8.i = icmp eq i32 %139, 0
-  br i1 %.not.i8.i, label %PostmasterIsAlive.exit.thread.i, label %PostmasterIsAlive.exit.i
+53:                                               ; preds = %46
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #19
+  %54 = load ptr, ptr @arch_files, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
-PostmasterIsAlive.exit.i:                         ; preds = %138
-  %140 = call zeroext i1 @PostmasterIsAliveInternal() #18
-  br i1 %140, label %PostmasterIsAlive.exit.thread.i, label %pgarch_ArchiverCopyLoop.exit
+._crit_edge.i.i:                                  ; preds = %53, %33, %.thread67.i.i
+  %.lcssa38.i.i = phi ptr [ %.pre.i.i, %33 ], [ %.pre.i.i, %.thread67.i.i ], [ %54, %53 ]
+  %58 = load ptr, ptr %.lcssa38.i.i, align 8
+  call void @binaryheap_reset(ptr noundef %58) #19
+  %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.15) #19
+  %60 = call ptr @AllocateDir(ptr noundef nonnull %3) #19
+  %61 = call ptr @ReadDir(ptr noundef %60, ptr noundef nonnull %3) #19
+  %.not43.i.i = icmp eq ptr %61, null
+  br i1 %.not43.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i
 
-PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.exit.i, %138
+.lr.ph45.i.i:                                     ; preds = %._crit_edge.i.i, %105
+  %62 = phi ptr [ %106, %105 ], [ %61, %._crit_edge.i.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 19
+  %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #21
+  %65 = trunc i64 %64 to i32
+  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %6) #19
+  %66 = add i32 %65, -47
+  %or.cond.i.i = icmp ult i32 %66, -25
+  br i1 %or.cond.i.i, label %105, label %67, !llvm.loop !8
+
+67:                                               ; preds = %.lr.ph45.i.i
+  %68 = add i64 %64, 4294967290
+  %69 = call i64 @strspn(ptr noundef nonnull %63, ptr noundef nonnull @.str.16) #21
+  %70 = and i64 %68, 4294967295
+  %71 = icmp ult i64 %69, %70
+  br i1 %71, label %105, label %72, !llvm.loop !8
+
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %70
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(7) @.str.10) #21
+  %.not33.i.i = icmp eq i32 %74, 0
+  br i1 %.not33.i.i, label %75, label %105, !llvm.loop !8
+
+75:                                               ; preds = %72
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %63, i64 %70, i1 false)
+  %76 = getelementptr inbounds nuw [41 x i8], ptr %6, i64 0, i64 %70
+  store i8 0, ptr %76, align 1
+  %77 = load ptr, ptr @arch_files, align 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp slt i32 %79, 64
+  br i1 %80, label %81, label %93
+
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 528
+  %83 = sext i32 %79 to i64
+  %84 = getelementptr inbounds [64 x [41 x i8]], ptr %82, i64 0, i64 %83
+  %85 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %6) #19
+  %86 = load ptr, ptr %77, align 8
+  %87 = ptrtoint ptr %84 to i64
+  call void @binaryheap_add_unordered(ptr noundef %86, i64 noundef %87) #19
+  %88 = load ptr, ptr @arch_files, align 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, 64
+  br i1 %91, label %92, label %105
+
+92:                                               ; preds = %81
+  call void @binaryheap_build(ptr noundef nonnull %89) #19
+  br label %105
+
+93:                                               ; preds = %75
+  %94 = call i64 @binaryheap_first(ptr noundef nonnull %78) #19
+  %95 = call i32 @ready_file_comparator(i64 noundef %94, i64 noundef %11, ptr poison)
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %97, label %105
+
+97:                                               ; preds = %93
+  %98 = load ptr, ptr @arch_files, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = call i64 @binaryheap_remove_first(ptr noundef %99) #19
+  %101 = inttoptr i64 %100 to ptr
+  %102 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %6) #19
+  %103 = load ptr, ptr @arch_files, align 8
+  %104 = load ptr, ptr %103, align 8
+  call void @binaryheap_add(ptr noundef %104, i64 noundef %100) #19
+  br label %105
+
+105:                                              ; preds = %97, %93, %92, %81, %72, %67, %.lr.ph45.i.i
+  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %6) #19
+  %106 = call ptr @ReadDir(ptr noundef %60, ptr noundef nonnull %3) #19
+  %.not.i.i = icmp eq ptr %106, null
+  br i1 %.not.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i
+
+._crit_edge46.i.i:                                ; preds = %105, %._crit_edge.i.i
+  %107 = call i32 @FreeDir(ptr noundef %60) #19
+  %108 = load ptr, ptr @arch_files, align 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %pgarch_readyXlog.exit.thread.i, label %112
+
+pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
+  br label %pgarch_ArchiverCopyLoop.exit
+
+112:                                              ; preds = %._crit_edge46.i.i
+  %113 = icmp slt i32 %110, 64
+  br i1 %113, label %115, label %.thread68.i.i
+
+.thread68.i.i:                                    ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store i32 %110, ptr %114, align 8
+  br label %.lr.ph50.i.i.preheader
+
+.lr.ph50.i.i.preheader:                           ; preds = %115, %.thread68.i.i
+  %.ph = phi ptr [ %108, %.thread68.i.i ], [ %.pre64.i.i, %115 ]
+  br label %.lr.ph50.i.i
+
+115:                                              ; preds = %112
+  call void @binaryheap_build(ptr noundef nonnull %109) #19
+  %.pre64.i.i = load ptr, ptr @arch_files, align 8
+  %.pre65.i.i = load ptr, ptr %.pre64.i.i, align 8
+  %.pre66.i.i = load i32, ptr %.pre65.i.i, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %.pre64.i.i, i64 8
+  store i32 %.pre66.i.i, ptr %116, align 8
+  %117 = icmp sgt i32 %.pre66.i.i, 0
+  br i1 %117, label %.lr.ph50.i.i.preheader, label %._crit_edge51.i.i
+
+._crit_edge51.i.i:                                ; preds = %.lr.ph50.i.i, %115
+  %.lcssa47.i.i = phi ptr [ %.pre64.i.i, %115 ], [ %129, %.lr.ph50.i.i ]
+  %.lcssa.i.i = phi i32 [ %.pre66.i.i, %115 ], [ %133, %.lr.ph50.i.i ]
+  %118 = getelementptr inbounds nuw i8, ptr %.lcssa47.i.i, i64 8
+  %119 = add i32 %.lcssa.i.i, -1
+  store i32 %119, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %.lcssa47.i.i, i64 16
+  %121 = sext i32 %119 to i64
+  %122 = getelementptr inbounds [64 x ptr], ptr %120, i64 0, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %123) #19
+  br label %pgarch_readyXlog.exit.i
+
+.lr.ph50.i.i:                                     ; preds = %.lr.ph50.i.i.preheader, %.lr.ph50.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph50.i.i ], [ 0, %.lr.ph50.i.i.preheader ]
+  %125 = phi ptr [ %129, %.lr.ph50.i.i ], [ %.ph, %.lr.ph50.i.i.preheader ]
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i64 @binaryheap_remove_first(ptr noundef %126) #19
+  %128 = inttoptr i64 %127 to ptr
+  %129 = load ptr, ptr @arch_files, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %131 = getelementptr inbounds nuw [64 x ptr], ptr %130, i64 0, i64 %indvars.iv.i.i
+  store ptr %128, ptr %131, align 8
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %133 = load i32, ptr %132, align 8
+  %134 = sext i32 %133 to i64
+  %135 = icmp slt i64 %indvars.iv.next.i.i, %134
+  br i1 %135, label %.lr.ph50.i.i, label %._crit_edge51.i.i, !llvm.loop !9
+
+pgarch_readyXlog.exit.i:                          ; preds = %._crit_edge51.i.i, %.thread.i.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #19
+  %136 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not39.i = icmp eq i32 %136, 0
+  br i1 %.not39.i, label %.lr.ph.i, label %.thread28.i
+
+.lr.ph.i:                                         ; preds = %pgarch_readyXlog.exit.i, %.backedge.i
+  %.0441.i = phi i32 [ %.1553.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
+  %.0740.i = phi i32 [ %.1852.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
+  %137 = load volatile i32, ptr @postmaster_possibly_dead, align 4
+  %.not.i18.i = icmp eq i32 %137, 0
+  br i1 %.not.i18.i, label %PostmasterIsAlive.exit.thread.i, label %PostmasterIsAlive.exit.i, !prof !10
+
+PostmasterIsAlive.exit.i:                         ; preds = %.lr.ph.i
+  %138 = call zeroext i1 @PostmasterIsAliveInternal() #19
+  br i1 %138, label %PostmasterIsAlive.exit.thread.i, label %.thread28.i
+
+PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.exit.i, %.lr.ph.i
   call fastcc void @HandlePgArchInterrupts()
-  %141 = load ptr, ptr @ArchiveCallbacks, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %.not6.i = icmp eq ptr %143, null
-  br i1 %.not6.i, label %151, label %144
+  store ptr null, ptr @arch_module_check_errdetail_string, align 8
+  %139 = load ptr, ptr @ArchiveCallbacks, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %.not15.i = icmp eq ptr %141, null
+  br i1 %.not15.i, label %152, label %142
 
-144:                                              ; preds = %PostmasterIsAlive.exit.thread.i
-  %145 = load ptr, ptr @archive_module_state, align 8
-  %146 = call zeroext i1 %143(ptr noundef %145) #18
-  br i1 %146, label %151, label %147
+142:                                              ; preds = %PostmasterIsAlive.exit.thread.i
+  %143 = load ptr, ptr @archive_module_state, align 8
+  %144 = call zeroext i1 %141(ptr noundef %143) #19
+  br i1 %144, label %152, label %145
 
-147:                                              ; preds = %144
-  %148 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %148, label %149, label %pgarch_ArchiverCopyLoop.exit
+145:                                              ; preds = %142
+  %146 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %146, label %147, label %.thread28.i
 
-149:                                              ; preds = %147
-  %150 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 409, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #18
+147:                                              ; preds = %145
+  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #19
+  %149 = load ptr, ptr @arch_module_check_errdetail_string, align 8
+  %.not16.i = icmp eq ptr %149, null
+  br i1 %.not16.i, label %.thread28.sink.split.i, label %150
+
+150:                                              ; preds = %147
+  %151 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %149) #19
+  br label %.thread28.sink.split.i
+
+152:                                              ; preds = %142, %PostmasterIsAlive.exit.thread.i
+  %153 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef nonnull %7) #19
+  %154 = call i32 @stat(ptr noundef nonnull %9, ptr noundef nonnull %8) #19
+  %.not17.i = icmp eq i32 %154, 0
+  br i1 %.not17.i, label %174, label %155
+
+155:                                              ; preds = %152
+  %156 = tail call ptr @__errno_location() #23
+  %157 = load i32, ptr %156, align 4
+  %158 = icmp eq i32 %157, 2
+  br i1 %158, label %159, label %174
+
+159:                                              ; preds = %155
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #19
+  %160 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #19
+  %161 = call i32 @unlink(ptr noundef nonnull %10) #19
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %167
+
+163:                                              ; preds = %159
+  %164 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %164, label %165, label %.loopexit31.loopexit.i
+
+165:                                              ; preds = %163
+  %166 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %10) #19
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 453, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #19
+  br label %.loopexit31.loopexit.i
+
+167:                                              ; preds = %159
+  %168 = add i32 %.0441.i, 1
+  %169 = icmp sgt i32 %168, 2
+  br i1 %169, label %170, label %193
+
+170:                                              ; preds = %167
+  %171 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %171, label %172, label %.loopexit.i
+
+172:                                              ; preds = %170
+  %173 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #19
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 463, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #19
+  br label %.loopexit.i
+
+174:                                              ; preds = %155, %152
+  %175 = call fastcc zeroext i1 @pgarch_archiveXlog(ptr noundef %7)
+  br i1 %175, label %176, label %186
+
+176:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #19
+  %177 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #19
+  %178 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.21) #19
+  %179 = call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %181, label %.thread24.i
+
+181:                                              ; preds = %176
+  %182 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %182, label %183, label %.thread24.i
+
+183:                                              ; preds = %181
+  %184 = call i32 @errcode_for_file_access() #19
+  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 835, ptr noundef nonnull @__func__.pgarch_archiveDone) #19
+  br label %.thread24.i
+
+.thread24.i:                                      ; preds = %183, %181, %176
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #19
+  call void @pgstat_report_archiver(ptr noundef nonnull %7, i1 noundef zeroext false) #19
+  br label %.loopexit31.i
+
+186:                                              ; preds = %174
+  call void @pgstat_report_archiver(ptr noundef nonnull %7, i1 noundef zeroext true) #19
+  %187 = add i32 %.0740.i, 1
+  %188 = icmp sgt i32 %187, 2
+  br i1 %188, label %189, label %.thread.i
+
+189:                                              ; preds = %186
+  %190 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %190, label %191, label %.thread28.i
+
+191:                                              ; preds = %189
+  %192 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #19
+  br label %.thread28.sink.split.i
+
+.thread.i:                                        ; preds = %186
+  call void @pg_usleep(i64 noundef 1000000) #19
+  br label %.backedge.i
+
+.thread28.sink.split.i:                           ; preds = %191, %150, %147
+  %.sink.i = phi i32 [ 499, %191 ], [ 430, %147 ], [ 430, %150 ]
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef %.sink.i, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #19
+  br label %.thread28.i
+
+.thread28.i:                                      ; preds = %pgarch_readyXlog.exit.i, %.backedge.i, %PostmasterIsAlive.exit.i, %.thread28.sink.split.i, %189, %145
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
   br label %pgarch_ArchiverCopyLoop.exit
 
-151:                                              ; preds = %144, %PostmasterIsAlive.exit.thread.i
-  %152 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef nonnull %9) #18
-  %153 = call i32 @stat(ptr noundef nonnull %11, ptr noundef nonnull %10) #18
-  %.not7.i = icmp eq i32 %153, 0
-  br i1 %.not7.i, label %174, label %154
+193:                                              ; preds = %167
+  call void @pg_usleep(i64 noundef 1000000) #19
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #19
+  br label %.backedge.i
 
-154:                                              ; preds = %151
-  %155 = tail call ptr @__errno_location() #22
-  %156 = load i32, ptr %155, align 4
-  %157 = icmp eq i32 %156, 2
-  br i1 %157, label %158, label %174
+.backedge.i:                                      ; preds = %193, %.thread.i
+  %.1553.i = phi i32 [ %.0441.i, %.thread.i ], [ %168, %193 ]
+  %.1852.i = phi i32 [ %187, %.thread.i ], [ %.0740.i, %193 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #19
+  %194 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not.i = icmp eq i32 %194, 0
+  br i1 %.not.i, label %.lr.ph.i, label %.thread28.i
 
-158:                                              ; preds = %154
-  %159 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef nonnull %9, ptr noundef nonnull @.str.8) #18
-  %160 = call i32 @unlink(ptr noundef nonnull %12) #18
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %166
+.loopexit.i:                                      ; preds = %172, %170
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
+  br label %pgarch_ArchiverCopyLoop.exit, !llvm.loop !11
 
-162:                                              ; preds = %158
-  %163 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %163, label %164, label %.backedge
+.loopexit31.loopexit.i:                           ; preds = %165, %163
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #19
+  br label %.loopexit31.i
 
-164:                                              ; preds = %162
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %12) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 432, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #18
-  br label %.backedge
+.loopexit31.i:                                    ; preds = %.loopexit31.loopexit.i, %.thread24.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
+  br label %27, !llvm.loop !11
 
-166:                                              ; preds = %158
-  %exitcond.i = icmp eq i32 %.022.i, %smax.i
-  br i1 %exitcond.i, label %167, label %171
+pgarch_ArchiverCopyLoop.exit:                     ; preds = %pgarch_readyXlog.exit.thread.i, %.thread28.i, %.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %7) #19
+  br i1 %.not13, label %195, label %.thread11
 
-167:                                              ; preds = %166
-  %168 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %168, label %169, label %pgarch_ArchiverCopyLoop.exit
+195:                                              ; preds = %pgarch_ArchiverCopyLoop.exit
+  %196 = load ptr, ptr @MyLatch, align 8
+  %197 = call i32 @WaitLatch(ptr noundef %196, i32 noundef 25, i64 noundef 60000, i32 noundef 83886080) #19
+  %198 = and i32 %197, 16
+  %.not8.not = icmp eq i32 %198, 0
+  br i1 %.not8.not, label %12, label %.thread11, !llvm.loop !12
 
-169:                                              ; preds = %167
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %12) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 442, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #18
-  br label %pgarch_ArchiverCopyLoop.exit
-
-171:                                              ; preds = %166
-  %172 = add i32 %.022.i, 1
-  call void @pg_usleep(i64 noundef 1000000) #18
-  %173 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not.i = icmp eq i32 %173, 0
-  br i1 %.not.i, label %138, label %pgarch_ArchiverCopyLoop.exit
-
-174:                                              ; preds = %154, %151
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  %175 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef nonnull %9) #18
-  %176 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #18
-  %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %177) #18
-  %178 = load ptr, ptr @ArchiveCallbacks, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr @archive_module_state, align 8
-  %182 = call zeroext i1 %180(ptr noundef %181, ptr noundef nonnull %9, ptr noundef nonnull %3) #18
-  %.str.17..str.18.i.i = select i1 %182, ptr @.str.17, ptr @.str.18
-  %183 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %.str.17..str.18.i.i, ptr noundef nonnull %9) #18
-  %184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %184) #18
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  br i1 %182, label %185, label %195
-
-185:                                              ; preds = %174
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
-  %186 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef nonnull %9, ptr noundef nonnull @.str.8) #18
-  %187 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef nonnull %9, ptr noundef nonnull @.str.19) #18
-  %188 = call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %2) #18
-  %189 = icmp slt i32 %188, 0
-  br i1 %189, label %190, label %pgarch_archiveDone.exit.i
-
-190:                                              ; preds = %185
-  %191 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %191, label %192, label %pgarch_archiveDone.exit.i
-
-192:                                              ; preds = %190
-  %193 = call i32 @errcode_for_file_access() #18
-  %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %1, ptr noundef nonnull %2) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 732, ptr noundef nonnull @__func__.pgarch_archiveDone) #18
-  br label %pgarch_archiveDone.exit.i
-
-pgarch_archiveDone.exit.i:                        ; preds = %192, %190, %185
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
-  call void @pgstat_report_archiver(ptr noundef nonnull %9, i1 noundef zeroext false) #18
-  br label %.backedge
-
-.backedge:                                        ; preds = %pgarch_archiveDone.exit.i, %164, %162
-  br label %30, !llvm.loop !9
-
-195:                                              ; preds = %174
-  call void @pgstat_report_archiver(ptr noundef nonnull %9, i1 noundef zeroext true) #18
-  %exitcond38.i = icmp eq i32 %.02.ph24.i, 2
-  br i1 %exitcond38.i, label %196, label %.outer.i
-
-196:                                              ; preds = %195
-  %197 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %197, label %198, label %pgarch_ArchiverCopyLoop.exit
-
-198:                                              ; preds = %196
-  %199 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %9) #18
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 478, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #18
-  br label %pgarch_ArchiverCopyLoop.exit
-
-.outer.i:                                         ; preds = %195
-  %200 = add nuw nsw i32 %.02.ph24.i, 1
-  call void @pg_usleep(i64 noundef 1000000) #18
-  %201 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not21.i = icmp eq i32 %201, 0
-  br i1 %.not21.i, label %.lr.ph.i, label %pgarch_ArchiverCopyLoop.exit
-
-pgarch_ArchiverCopyLoop.exit:                     ; preds = %pgarch_readyXlog.exit.i, %.outer.i, %PostmasterIsAlive.exit.i, %171, %pgarch_readyXlog.exit.thread.i, %147, %149, %167, %169, %196, %198
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
-  br i1 %.not8, label %202, label %.thread
-
-202:                                              ; preds = %pgarch_ArchiverCopyLoop.exit
-  %203 = load ptr, ptr @MyLatch, align 8
-  %204 = call i32 @WaitLatch(ptr noundef %203, i32 noundef 25, i64 noundef 60000, i32 noundef 83886080) #18
-  %205 = and i32 %204, 16
-  %.not6.not = icmp eq i32 %205, 0
-  br i1 %.not6.not, label %14, label %.thread, !llvm.loop !10
-
-.thread:                                          ; preds = %pgarch_ArchiverCopyLoop.exit, %23, %202
+.thread11:                                        ; preds = %pgarch_ArchiverCopyLoop.exit, %21, %195
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #7
+declare void @proc_exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PgArchWakeup() local_unnamed_addr #0 {
@@ -788,25 +833,25 @@ define dso_local void @PgArchWakeup() local_unnamed_addr #0 {
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.PGPROC, ptr %5, i64 %6, i32 4
-  tail call void @SetLatch(ptr noundef %7) #18
+  %7 = getelementptr inbounds %struct.PGPROC, ptr %5, i64 %6, i32 4
+  tail call void @SetLatch(ptr noundef nonnull %7) #19
   br label %8
 
 8:                                                ; preds = %3, %0
   ret void
 }
 
-declare void @SetLatch(ptr noundef) local_unnamed_addr #1
+declare void @SetLatch(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @PgArchForceDirScan() local_unnamed_addr #8 {
+define dso_local void @PgArchForceDirScan() local_unnamed_addr #9 {
   %1 = load ptr, ptr @PgArch, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = atomicrmw volatile xchg ptr %2, i32 1 seq_cst, align 4
   ret void
 }
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
@@ -815,7 +860,7 @@ define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @ProcessProcSignalBarrier() #18
+  tail call void @ProcessProcSignalBarrier() #19
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -824,7 +869,7 @@ define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
   br i1 %.not2, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @ProcessLogMemoryContextInterrupt() #18
+  tail call void @ProcessLogMemoryContextInterrupt() #19
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -834,9 +879,9 @@ define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @XLogArchiveLibrary, align 8
-  %10 = tail call ptr @pstrdup(ptr noundef %9) #18
+  %10 = tail call ptr @pstrdup(ptr noundef %9) #19
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  tail call void @ProcessConfigFile(i32 noundef 2) #18
+  tail call void @ProcessConfigFile(i32 noundef 2) #19
   %11 = load ptr, ptr @XLogArchiveLibrary, align 8
   %12 = load i8, ptr %11, align 1
   %.not4 = icmp eq i8 %12, 0
@@ -849,126 +894,220 @@ define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
   br i1 %.not5, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #18
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #18
-  %20 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 777, ptr noundef nonnull @__func__.HandlePgArchInterrupts) #18
+  %18 = tail call i32 @errcode(i32 noundef 50856066) #19
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #19
+  %20 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #19
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 880, ptr noundef nonnull @__func__.HandlePgArchInterrupts) #19
   unreachable
 
 21:                                               ; preds = %13, %8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %10) #20
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %10) #21
   %.not6 = icmp eq i32 %22, 0
-  tail call void @pfree(ptr noundef nonnull %10) #18
+  tail call void @pfree(ptr noundef nonnull %10) #19
   br i1 %.not6, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
+  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #19
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 795, ptr noundef nonnull @__func__.HandlePgArchInterrupts) #18
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #19
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 898, ptr noundef nonnull @__func__.HandlePgArchInterrupts) #19
   br label %27
 
-27:                                               ; preds = %23, %25
-  tail call void @proc_exit(i32 noundef 0) #19
+27:                                               ; preds = %25, %23
+  tail call void @proc_exit(i32 noundef 0) #20
   unreachable
 
 28:                                               ; preds = %21, %6
   ret void
 }
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ProcessProcSignalBarrier() local_unnamed_addr #1
+declare void @ProcessProcSignalBarrier() local_unnamed_addr #2
 
-declare void @ProcessLogMemoryContextInterrupt() local_unnamed_addr #1
+declare void @ProcessLogMemoryContextInterrupt() local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #1
+declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #12
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
 
-declare void @pgstat_report_archiver(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef zeroext i1 @pgarch_archiveXlog(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
+  %3 = alloca [1024 x i8], align 16
+  %4 = alloca [80 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #19
+  %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #19
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.18, ptr noundef nonnull %0) #19
+  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %7) #19
+  %8 = load ptr, ptr @archive_context, align 8
+  %9 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %8, ptr @CurrentMemoryContext, align 8
+  %10 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 1) #24
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %18, label %.thread
+
+.thread:                                          ; preds = %1
+  store ptr null, ptr @error_context_stack, align 8
+  %11 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %12 = add i32 %11, 1
+  store volatile i32 %12, ptr @InterruptHoldoffCount, align 4
+  call void @EmitErrorReport() #19
+  call void @disable_all_timeouts(i1 noundef zeroext false) #19
+  call void @LWLockReleaseAll() #19
+  %13 = call zeroext i1 @ConditionVariableCancelSleep() #19
+  %14 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %14, align 4
+  call void @ReleaseAuxProcessResources(i1 noundef zeroext false) #19
+  call void @AtEOXact_Files(i1 noundef zeroext false) #19
+  call void @AtEOXact_HashTables(i1 noundef zeroext false) #19
+  store ptr %9, ptr @CurrentMemoryContext, align 8
+  call void @FlushErrorState() #19
+  %15 = load ptr, ptr @archive_context, align 8
+  call void @MemoryContextReset(ptr noundef %15) #19
+  store ptr null, ptr @PG_exception_stack, align 8
+  %16 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %17 = add i32 %16, -1
+  store volatile i32 %17, ptr @InterruptHoldoffCount, align 4
+  br label %25
+
+18:                                               ; preds = %1
+  store ptr %2, ptr @PG_exception_stack, align 8
+  %19 = load ptr, ptr @ArchiveCallbacks, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr @archive_module_state, align 8
+  %23 = call zeroext i1 %21(ptr noundef %22, ptr noundef nonnull %0, ptr noundef nonnull %3) #19
+  store ptr null, ptr @PG_exception_stack, align 8
+  store ptr %9, ptr @CurrentMemoryContext, align 8
+  %24 = load ptr, ptr @archive_context, align 8
+  call void @MemoryContextReset(ptr noundef %24) #19
+  br i1 %23, label %26, label %25
+
+25:                                               ; preds = %.thread, %18
+  br label %26
+
+26:                                               ; preds = %18, %25
+  %.str.20.sink = phi ptr [ @.str.20, %25 ], [ @.str.19, %18 ]
+  %.09 = phi i1 [ false, %25 ], [ true, %18 ]
+  %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %.str.20.sink, ptr noundef nonnull %0) #19
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %28) #19
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #19
+  ret i1 %.09
+}
+
+declare void @pgstat_report_archiver(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #1
+declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
-declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #1
+declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #2
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
-declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @binaryheap_build(ptr noundef) local_unnamed_addr #1
+declare void @binaryheap_build(ptr noundef) local_unnamed_addr #2
 
-declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #1
+declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #2
 
-declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #1
+declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #2
 
-declare void @binaryheap_add(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @binaryheap_add(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #1
+declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #2
 
-declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: nounwind returns_twice
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #16
+
+declare void @EmitErrorReport() local_unnamed_addr #2
+
+declare void @disable_all_timeouts(i1 noundef zeroext) local_unnamed_addr #2
+
+declare void @LWLockReleaseAll() local_unnamed_addr #2
+
+declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #2
+
+declare void @ReleaseAuxProcessResources(i1 noundef zeroext) local_unnamed_addr #2
+
+declare void @AtEOXact_Files(i1 noundef zeroext) local_unnamed_addr #2
+
+declare void @AtEOXact_HashTables(i1 noundef zeroext) local_unnamed_addr #2
+
+declare void @FlushErrorState() local_unnamed_addr #2
+
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+
+declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
-declare ptr @shell_archive_init() local_unnamed_addr #1
+declare ptr @shell_archive_init() local_unnamed_addr #2
 
-declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @pgarch_call_module_shutdown_cb(i32 %0, i64 %1) #0 {
@@ -980,7 +1119,7 @@ define internal void @pgarch_call_module_shutdown_cb(i32 %0, i64 %1) #0 {
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @archive_module_state, align 8
-  tail call void %5(ptr noundef %7) #18
+  tail call void %5(ptr noundef %7) #19
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -988,54 +1127,49 @@ define internal void @pgarch_call_module_shutdown_cb(i32 %0, i64 %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { cold nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind returns_twice }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { cold nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

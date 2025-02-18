@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ForEachState = type { ptr, i32 }
-%struct.PlannerInfo = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, i32, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i32, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
+%struct.PlannerInfo = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, i32, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, i32, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
 %struct.RelOptInfo = type { i32, i32, ptr, double, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, double, ptr, ptr, ptr, i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.QualCost, i32, ptr, i8, i8, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.QualCost = type { double, double }
 %struct.List = type { i32, i32, i32, ptr, [0 x %union.ListCell] }
@@ -19,154 +19,195 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca %struct.ForEachState, align 8
-  %7 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.ForEachState, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
   store i32 1, ptr %3, align 4
-  br label %9
+  br label %10
 
-9:                                                ; preds = %90, %1
-  %10 = load i32, ptr %3, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.PlannerInfo, ptr %11, i32 0, i32 8
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ult i32 %10, %13
-  br i1 %14, label %15, label %93
+10:                                               ; preds = %96, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %12, i32 0, i32 8
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ult i32 %11, %14
+  br i1 %15, label %16, label %99
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.PlannerInfo, ptr %16, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %3, align 4
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %18, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %4, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+16:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds nuw %struct.PlannerInfo, ptr %17, i32 0, i32 7
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %3, align 4
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %24 = load ptr, ptr %4, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %15
-  br label %90
+26:                                               ; preds = %16
+  store i32 4, ptr %6, align 4
+  br label %93
 
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.RelOptInfo, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %32
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %26
-  br label %90
+32:                                               ; preds = %27
+  store i32 4, ptr %6, align 4
+  br label %93
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.RelOptInfo, ptr %34, i32 0, i32 48
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %33, align 8
-  %37 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  store i32 0, ptr %37, align 8
-  br label %38
+33:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #5
+  %34 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %35, i32 0, i32 48
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr i8, ptr %7, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 4, i1 false)
+  br label %40
 
-38:                                               ; preds = %85, %32
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %59
+40:                                               ; preds = %88, %33
+  %41 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %61
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.List, ptr %46, i32 0, i32 1
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp slt i32 %44, %48
-  br i1 %49, label %50, label %59
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw %struct.List, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %46, %50
+  br i1 %51, label %52, label %61
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.List, ptr %52, i32 0, i32 3
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 0
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr %union.ListCell, ptr %54, i64 %57
-  store ptr %58, ptr %5, align 8
-  br label %60
+  %55 = getelementptr inbounds nuw %struct.List, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %union.ListCell, ptr %56, i64 %59
+  store ptr %60, ptr %5, align 8
+  br label %62
 
-59:                                               ; preds = %42, %38
+61:                                               ; preds = %44, %40
   store ptr null, ptr %5, align 8
-  br label %60
+  br label %62
 
-60:                                               ; preds = %59, %50
-  %61 = phi i32 [ 1, %50 ], [ 0, %59 ]
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %89
+62:                                               ; preds = %61, %52
+  %63 = phi i32 [ 1, %52 ], [ 0, %61 ]
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %66, label %65
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %7, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = call zeroext i1 @restriction_is_or_clause(ptr noundef %66)
-  br i1 %67, label %68, label %84
+65:                                               ; preds = %62
+  store i32 5, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #5
+  br label %92
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = call zeroext i1 @join_clause_is_movable_to(ptr noundef %69, ptr noundef %70)
-  br i1 %71, label %72, label %84
+66:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %8, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = call zeroext i1 @restriction_is_or_clause(ptr noundef %69)
+  br i1 %70, label %71, label %87
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %4, align 8
-  %75 = call ptr @extract_or_clause(ptr noundef %73, ptr noundef %74)
-  store ptr %75, ptr %8, align 8
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %8, align 8
+  %73 = load ptr, ptr %4, align 8
+  %74 = call zeroext i1 @join_clause_is_movable_to(ptr noundef %72, ptr noundef %73)
+  br i1 %74, label %75, label %87
+
+75:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %76 = load ptr, ptr %8, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %83
+  %77 = load ptr, ptr %4, align 8
+  %78 = call ptr @extract_or_clause(ptr noundef %76, ptr noundef %77)
+  store ptr %78, ptr %9, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %86
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %2, align 8
-  %80 = load ptr, ptr %4, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %7, align 8
-  call void @consider_new_or_clause(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82)
-  br label %83
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %2, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %8, align 8
+  call void @consider_new_or_clause(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85)
+  br label %86
 
-83:                                               ; preds = %78, %72
-  br label %84
+86:                                               ; preds = %81, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %87
 
-84:                                               ; preds = %83, %68, %63
-  br label %85
+87:                                               ; preds = %86, %71, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %88
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %86, align 8
-  br label %38, !llvm.loop !5
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw %struct.ForEachState, ptr %7, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  br label %40, !llvm.loop !4
 
-89:                                               ; preds = %60
-  br label %90
+92:                                               ; preds = %65
+  store i32 0, ptr %6, align 4
+  br label %93
 
-90:                                               ; preds = %89, %31, %25
-  %91 = load i32, ptr %3, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %3, align 4
-  br label %9, !llvm.loop !7
+93:                                               ; preds = %92, %32, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %94 = load i32, ptr %6, align 4
+  switch i32 %94, label %100 [
+    i32 0, label %95
+    i32 4, label %96
+  ]
 
-93:                                               ; preds = %9
+95:                                               ; preds = %93
+  br label %96
+
+96:                                               ; preds = %95, %93
+  %97 = load i32, ptr %3, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %3, align 4
+  br label %10, !llvm.loop !6
+
+99:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret void
+
+100:                                              ; preds = %93
+  unreachable
 }
 
-declare zeroext i1 @restriction_is_or_clause(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+declare zeroext i1 @restriction_is_or_clause(ptr noundef) #3
+
+declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @extract_or_clause(ptr noundef %0, ptr noundef %1) #0 {
@@ -176,263 +217,319 @@ define internal ptr @extract_or_clause(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.ForEachState, align 8
-  %9 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = alloca %struct.ForEachState, align 8
-  %15 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct.ForEachState, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   store ptr null, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.RestrictInfo, ptr %19, i32 0, i32 17
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.BoolExpr, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %18, align 8
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  store i32 0, ptr %24, align 8
-  br label %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #5
+  %19 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %20, i32 0, i32 17
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.BoolExpr, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %19, align 8
+  %25 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr i8, ptr %8, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 4, i1 false)
+  br label %27
 
-25:                                               ; preds = %152, %2
-  %26 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %46
+27:                                               ; preds = %160, %2
+  %28 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %48
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.List, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp slt i32 %31, %35
-  br i1 %36, label %37, label %46
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.List, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp slt i32 %33, %37
+  br i1 %38, label %39, label %48
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.List, ptr %39, i32 0, i32 3
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr %union.ListCell, ptr %41, i64 %44
-  store ptr %45, ptr %7, align 8
-  br label %47
+  %42 = getelementptr inbounds nuw %struct.List, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %union.ListCell, ptr %43, i64 %46
+  store ptr %47, ptr %7, align 8
+  br label %49
 
-46:                                               ; preds = %29, %25
+48:                                               ; preds = %31, %27
   store ptr null, ptr %7, align 8
-  br label %47
+  br label %49
 
-47:                                               ; preds = %46, %37
-  %48 = phi i32 [ 1, %37 ], [ 0, %46 ]
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %156
+49:                                               ; preds = %48, %39
+  %50 = phi i32 [ 1, %39 ], [ 0, %48 ]
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %53, label %52
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = call zeroext i1 @is_andclause(ptr noundef %53)
-  br i1 %54, label %55, label %120
+52:                                               ; preds = %49
+  store i32 2, ptr %9, align 4
+  br label %164
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct.BoolExpr, ptr %56, i32 0, i32 2
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %12, align 8
-  %59 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %60 = load ptr, ptr %12, align 8
-  store ptr %60, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  store i32 0, ptr %61, align 8
-  br label %62
+53:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %54 = load ptr, ptr %7, align 8
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %56 = load ptr, ptr %10, align 8
+  %57 = call zeroext i1 @is_andclause(ptr noundef %56)
+  br i1 %57, label %58, label %125
 
-62:                                               ; preds = %115, %55
-  %63 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %83
+58:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds nuw %struct.BoolExpr, ptr %59, i32 0, i32 2
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #5
+  %62 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %63 = load ptr, ptr %13, align 8
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr i8, ptr %15, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %65, i8 0, i64 4, i1 false)
+  br label %66
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.List, ptr %70, i32 0, i32 1
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp slt i32 %68, %72
-  br i1 %73, label %74, label %83
+66:                                               ; preds = %120, %58
+  %67 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %87
 
-74:                                               ; preds = %66
-  %75 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.List, ptr %76, i32 0, i32 3
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %80 = load i32, ptr %79, align 8
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr %union.ListCell, ptr %78, i64 %81
-  store ptr %82, ptr %13, align 8
-  br label %84
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw %struct.List, ptr %74, i32 0, i32 1
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp slt i32 %72, %76
+  br i1 %77, label %78, label %87
 
-83:                                               ; preds = %66, %62
-  store ptr null, ptr %13, align 8
-  br label %84
+78:                                               ; preds = %70
+  %79 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw %struct.List, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %union.ListCell, ptr %82, i64 %85
+  store ptr %86, ptr %14, align 8
+  br label %88
 
-84:                                               ; preds = %83, %74
-  %85 = phi i32 [ 1, %74 ], [ 0, %83 ]
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %119
+87:                                               ; preds = %70, %66
+  store ptr null, ptr %14, align 8
+  br label %88
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %13, align 8
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %15, align 8
-  %90 = load ptr, ptr %15, align 8
-  %91 = call zeroext i1 @restriction_is_or_clause(ptr noundef %90)
-  br i1 %91, label %92, label %103
+88:                                               ; preds = %87, %78
+  %89 = phi i32 [ 1, %78 ], [ 0, %87 ]
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %92, label %91
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %15, align 8
-  %94 = load ptr, ptr %5, align 8
-  %95 = call ptr @extract_or_clause(ptr noundef %93, ptr noundef %94)
-  store ptr %95, ptr %16, align 8
-  %96 = load ptr, ptr %16, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %102
+91:                                               ; preds = %88
+  store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #5
+  br label %124
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %10, align 8
-  %100 = load ptr, ptr %16, align 8
-  %101 = call ptr @lappend(ptr noundef %99, ptr noundef %100)
-  store ptr %101, ptr %10, align 8
-  br label %102
+92:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %93 = load ptr, ptr %14, align 8
+  %94 = load ptr, ptr %93, align 8
+  store ptr %94, ptr %16, align 8
+  %95 = load ptr, ptr %16, align 8
+  %96 = call zeroext i1 @restriction_is_or_clause(ptr noundef %95)
+  br i1 %96, label %97, label %108
 
-102:                                              ; preds = %98, %92
-  br label %114
+97:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %98 = load ptr, ptr %16, align 8
+  %99 = load ptr, ptr %5, align 8
+  %100 = call ptr @extract_or_clause(ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %17, align 8
+  %101 = load ptr, ptr %17, align 8
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %107
 
-103:                                              ; preds = %87
-  %104 = load ptr, ptr %15, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = call zeroext i1 @is_safe_restriction_clause_for(ptr noundef %104, ptr noundef %105)
-  br i1 %106, label %107, label %113
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %11, align 8
+  %105 = load ptr, ptr %17, align 8
+  %106 = call ptr @lappend(ptr noundef %104, ptr noundef %105)
+  store ptr %106, ptr %11, align 8
+  br label %107
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %10, align 8
-  %109 = load ptr, ptr %15, align 8
-  %110 = getelementptr inbounds %struct.RestrictInfo, ptr %109, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  %112 = call ptr @lappend(ptr noundef %108, ptr noundef %111)
-  store ptr %112, ptr %10, align 8
-  br label %113
+107:                                              ; preds = %103, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  br label %119
 
-113:                                              ; preds = %107, %103
-  br label %114
+108:                                              ; preds = %92
+  %109 = load ptr, ptr %16, align 8
+  %110 = load ptr, ptr %5, align 8
+  %111 = call zeroext i1 @is_safe_restriction_clause_for(ptr noundef %109, ptr noundef %110)
+  br i1 %111, label %112, label %118
 
-114:                                              ; preds = %113, %102
-  br label %115
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %11, align 8
+  %114 = load ptr, ptr %16, align 8
+  %115 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8
+  %117 = call ptr @lappend(ptr noundef %113, ptr noundef %116)
+  store ptr %117, ptr %11, align 8
+  br label %118
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds %struct.ForEachState, ptr %14, i32 0, i32 1
-  %117 = load i32, ptr %116, align 8
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 8
-  br label %62, !llvm.loop !8
+118:                                              ; preds = %112, %108
+  br label %119
 
-119:                                              ; preds = %84
-  br label %132
+119:                                              ; preds = %118, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  br label %120
 
-120:                                              ; preds = %50
-  %121 = load ptr, ptr %9, align 8
-  store ptr %121, ptr %17, align 8
-  %122 = load ptr, ptr %17, align 8
-  %123 = load ptr, ptr %5, align 8
-  %124 = call zeroext i1 @is_safe_restriction_clause_for(ptr noundef %122, ptr noundef %123)
-  br i1 %124, label %125, label %131
+120:                                              ; preds = %119
+  %121 = getelementptr inbounds nuw %struct.ForEachState, ptr %15, i32 0, i32 1
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, 1
+  store i32 %123, ptr %121, align 8
+  br label %66, !llvm.loop !7
 
-125:                                              ; preds = %120
+124:                                              ; preds = %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %137
+
+125:                                              ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   %126 = load ptr, ptr %10, align 8
-  %127 = load ptr, ptr %17, align 8
-  %128 = getelementptr inbounds %struct.RestrictInfo, ptr %127, i32 0, i32 1
-  %129 = load ptr, ptr %128, align 8
-  %130 = call ptr @lappend(ptr noundef %126, ptr noundef %129)
-  store ptr %130, ptr %10, align 8
-  br label %131
+  store ptr %126, ptr %18, align 8
+  %127 = load ptr, ptr %18, align 8
+  %128 = load ptr, ptr %5, align 8
+  %129 = call zeroext i1 @is_safe_restriction_clause_for(ptr noundef %127, ptr noundef %128)
+  br i1 %129, label %130, label %136
 
-131:                                              ; preds = %125, %120
-  br label %132
+130:                                              ; preds = %125
+  %131 = load ptr, ptr %11, align 8
+  %132 = load ptr, ptr %18, align 8
+  %133 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8
+  %135 = call ptr @lappend(ptr noundef %131, ptr noundef %134)
+  store ptr %135, ptr %11, align 8
+  br label %136
 
-132:                                              ; preds = %131, %119
-  %133 = load ptr, ptr %10, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %136
+136:                                              ; preds = %130, %125
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  br label %137
 
-135:                                              ; preds = %132
+137:                                              ; preds = %136, %124
+  %138 = load ptr, ptr %11, align 8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %137
   store ptr null, ptr %3, align 8
-  br label %163
+  store i32 1, ptr %9, align 4
+  br label %157
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %10, align 8
-  %138 = call ptr @make_ands_explicit(ptr noundef %137)
-  store ptr %138, ptr %11, align 8
-  %139 = load ptr, ptr %11, align 8
-  %140 = call zeroext i1 @is_orclause(ptr noundef %139)
-  br i1 %140, label %141, label %147
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %11, align 8
+  %143 = call ptr @make_ands_explicit(ptr noundef %142)
+  store ptr %143, ptr %12, align 8
+  %144 = load ptr, ptr %12, align 8
+  %145 = call zeroext i1 @is_orclause(ptr noundef %144)
+  br i1 %145, label %146, label %152
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %6, align 8
-  %143 = load ptr, ptr %11, align 8
-  %144 = getelementptr inbounds %struct.BoolExpr, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  %146 = call ptr @list_concat(ptr noundef %142, ptr noundef %145)
-  store ptr %146, ptr %6, align 8
-  br label %151
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %6, align 8
+  %148 = load ptr, ptr %12, align 8
+  %149 = getelementptr inbounds nuw %struct.BoolExpr, ptr %148, i32 0, i32 2
+  %150 = load ptr, ptr %149, align 8
+  %151 = call ptr @list_concat(ptr noundef %147, ptr noundef %150)
+  store ptr %151, ptr %6, align 8
+  br label %156
 
-147:                                              ; preds = %136
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %11, align 8
-  %150 = call ptr @lappend(ptr noundef %148, ptr noundef %149)
-  store ptr %150, ptr %6, align 8
-  br label %151
+152:                                              ; preds = %141
+  %153 = load ptr, ptr %6, align 8
+  %154 = load ptr, ptr %12, align 8
+  %155 = call ptr @lappend(ptr noundef %153, ptr noundef %154)
+  store ptr %155, ptr %6, align 8
+  br label %156
 
-151:                                              ; preds = %147, %141
-  br label %152
+156:                                              ; preds = %152, %146
+  store i32 0, ptr %9, align 4
+  br label %157
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds %struct.ForEachState, ptr %8, i32 0, i32 1
-  %154 = load i32, ptr %153, align 8
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %153, align 8
-  br label %25, !llvm.loop !9
+157:                                              ; preds = %156, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %158 = load i32, ptr %9, align 4
+  switch i32 %158, label %164 [
+    i32 0, label %159
+  ]
 
-156:                                              ; preds = %47
-  %157 = load ptr, ptr %6, align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %162
+159:                                              ; preds = %157
+  br label %160
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %6, align 8
-  %161 = call ptr @make_orclause(ptr noundef %160)
-  store ptr %161, ptr %3, align 8
-  br label %163
+160:                                              ; preds = %159
+  %161 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %162 = load i32, ptr %161, align 8
+  %163 = add i32 %162, 1
+  store i32 %163, ptr %161, align 8
+  br label %27, !llvm.loop !8
 
-162:                                              ; preds = %156
+164:                                              ; preds = %157, %52
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #5
+  %165 = load i32, ptr %9, align 4
+  switch i32 %165, label %173 [
+    i32 2, label %166
+  ]
+
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %6, align 8
+  %168 = icmp ne ptr %167, null
+  br i1 %168, label %169, label %172
+
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %6, align 8
+  %171 = call ptr @make_orclause(ptr noundef %170)
+  store ptr %171, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %173
+
+172:                                              ; preds = %166
   store ptr null, ptr %3, align 8
-  br label %163
+  store i32 1, ptr %9, align 4
+  br label %173
 
-163:                                              ; preds = %162, %159, %135
-  %164 = load ptr, ptr %3, align 8
-  ret ptr %164
+173:                                              ; preds = %172, %169, %164
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %174 = load ptr, ptr %3, align 8
+  ret ptr %174
 }
 
 ; Function Attrs: nounwind uwtable
@@ -444,146 +541,138 @@ define internal void @consider_new_or_clause(ptr noundef %0, ptr noundef %1, ptr
   %9 = alloca ptr, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
-  %12 = alloca %struct.SpecialJoinInfo, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %struct.SpecialJoinInfo, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.RestrictInfo, ptr %15, i32 0, i32 9
-  %17 = load i32, ptr %16, align 4
-  %18 = call ptr @make_restrictinfo(ptr noundef %13, ptr noundef %14, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %17, ptr noundef null, ptr noundef null, ptr noundef null)
-  store ptr %18, ptr %9, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = call double @clause_selectivity(ptr noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  store double %21, ptr %10, align 8
-  %22 = load double, ptr %10, align 8
-  %23 = fcmp ogt double %22, 9.000000e-01
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %4
-  br label %101
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %16, i32 0, i32 9
+  %18 = load i32, ptr %17, align 4
+  %19 = call ptr @make_restrictinfo(ptr noundef %14, ptr noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %18, ptr noundef null, ptr noundef null, ptr noundef null)
+  store ptr %19, ptr %9, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = call double @clause_selectivity(ptr noundef %20, ptr noundef %21, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  store double %22, ptr %10, align 8
+  %23 = load double, ptr %10, align 8
+  %24 = fcmp ogt double %23, 9.000000e-01
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %4
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.RelOptInfo, ptr %26, i32 0, i32 45
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = call ptr @lappend(ptr noundef %28, ptr noundef %29)
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.RelOptInfo, ptr %31, i32 0, i32 45
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.RelOptInfo, ptr %33, i32 0, i32 47
-  %35 = load i32, ptr %34, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %struct.RestrictInfo, ptr %36, i32 0, i32 9
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %35, %38
-  br i1 %39, label %40, label %44
+  store i32 1, ptr %12, align 4
+  br label %83
 
-40:                                               ; preds = %25
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.RelOptInfo, ptr %41, i32 0, i32 47
-  %43 = load i32, ptr %42, align 8
-  br label %48
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %27, i32 0, i32 45
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = call ptr @lappend(ptr noundef %29, ptr noundef %30)
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %32, i32 0, i32 45
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %34, i32 0, i32 47
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %37, i32 0, i32 9
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %36, %39
+  br i1 %40, label %41, label %45
 
-44:                                               ; preds = %25
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.RestrictInfo, ptr %45, i32 0, i32 9
-  %47 = load i32, ptr %46, align 4
-  br label %48
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %42, i32 0, i32 47
+  %44 = load i32, ptr %43, align 8
+  br label %49
 
-48:                                               ; preds = %44, %40
-  %49 = phi i32 [ %43, %40 ], [ %47, %44 ]
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.RelOptInfo, ptr %50, i32 0, i32 47
-  store i32 %49, ptr %51, align 8
-  %52 = load double, ptr %10, align 8
-  %53 = fcmp ogt double %52, 0.000000e+00
-  br i1 %53, label %54, label %101
+45:                                               ; preds = %26
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %46, i32 0, i32 9
+  %48 = load i32, ptr %47, align 4
+  br label %49
 
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 0
-  store i32 304, ptr %55, align 8
+49:                                               ; preds = %45, %41
+  %50 = phi i32 [ %44, %41 ], [ %48, %45 ]
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %51, i32 0, i32 47
+  store i32 %50, ptr %52, align 8
+  %53 = load double, ptr %10, align 8
+  %54 = fcmp ogt double %53, 0.000000e+00
+  br i1 %54, label %55, label %82
+
+55:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 104, ptr %13) #5
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.RestrictInfo, ptr %56, i32 0, i32 11
+  %57 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %56, i32 0, i32 11
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.RelOptInfo, ptr %59, i32 0, i32 2
+  %60 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %59, i32 0, i32 2
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @bms_difference(ptr noundef %58, ptr noundef %61)
-  %63 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 1
-  store ptr %62, ptr %63, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.RelOptInfo, ptr %64, i32 0, i32 2
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 2
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 3
-  store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 4
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 5
-  store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 6
-  store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 7
-  store ptr null, ptr %76, align 8
-  %77 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 8
-  store ptr null, ptr %77, align 8
-  %78 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 9
-  store ptr null, ptr %78, align 8
-  %79 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 10
-  store ptr null, ptr %79, align 8
-  %80 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 11
-  store i8 0, ptr %80, align 8
-  %81 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 12
-  store i8 0, ptr %81, align 1
-  %82 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 13
-  store i8 0, ptr %82, align 2
-  %83 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 14
-  store ptr null, ptr %83, align 8
-  %84 = getelementptr inbounds %struct.SpecialJoinInfo, ptr %12, i32 0, i32 15
-  store ptr null, ptr %84, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = call double @clause_selectivity(ptr noundef %85, ptr noundef %86, i32 noundef 0, i32 noundef 0, ptr noundef %12)
-  store double %87, ptr %11, align 8
-  %88 = load double, ptr %11, align 8
-  %89 = load double, ptr %10, align 8
-  %90 = fdiv double %88, %89
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.RestrictInfo, ptr %91, i32 0, i32 21
-  store double %90, ptr %92, align 8
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.RestrictInfo, ptr %93, i32 0, i32 21
-  %95 = load double, ptr %94, align 8
-  %96 = fcmp ogt double %95, 1.000000e+00
-  br i1 %96, label %97, label %100
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8
+  call void @init_dummy_sjinfo(ptr noundef %13, ptr noundef %62, ptr noundef %65)
+  %66 = load ptr, ptr %5, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = call double @clause_selectivity(ptr noundef %66, ptr noundef %67, i32 noundef 0, i32 noundef 0, ptr noundef %13)
+  store double %68, ptr %11, align 8
+  %69 = load double, ptr %11, align 8
+  %70 = load double, ptr %10, align 8
+  %71 = fdiv double %69, %70
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %72, i32 0, i32 21
+  store double %71, ptr %73, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %74, i32 0, i32 21
+  %76 = load double, ptr %75, align 8
+  %77 = fcmp ogt double %76, 1.000000e+00
+  br i1 %77, label %78, label %81
 
-97:                                               ; preds = %54
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.RestrictInfo, ptr %98, i32 0, i32 21
-  store double 1.000000e+00, ptr %99, align 8
-  br label %100
+78:                                               ; preds = %55
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %79, i32 0, i32 21
+  store double 1.000000e+00, ptr %80, align 8
+  br label %81
 
-100:                                              ; preds = %97, %54
-  br label %101
+81:                                               ; preds = %78, %55
+  call void @llvm.lifetime.end.p0(i64 104, ptr %13) #5
+  br label %82
 
-101:                                              ; preds = %100, %48, %24
+82:                                               ; preds = %81, %49
+  store i32 0, ptr %12, align 4
+  br label %83
+
+83:                                               ; preds = %82, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %84 = load i32, ptr %12, align 4
+  switch i32 %84, label %86 [
+    i32 0, label %85
+    i32 1, label %85
+  ]
+
+85:                                               ; preds = %83, %83
   ret void
+
+86:                                               ; preds = %83
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @is_andclause(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @is_andclause(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -592,14 +681,14 @@ define internal zeroext i1 @is_andclause(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Node, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.Node, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, 19
+  %9 = icmp eq i32 %8, 21
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.BoolExpr, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.BoolExpr, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br label %15
@@ -609,7 +698,7 @@ define internal zeroext i1 @is_andclause(ptr noundef %0) #0 {
   ret i1 %16
 }
 
-declare ptr @lappend(ptr noundef, ptr noundef) #1
+declare ptr @lappend(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @is_safe_restriction_clause_for(ptr noundef %0, ptr noundef %1) #0 {
@@ -619,8 +708,8 @@ define internal zeroext i1 @is_safe_restriction_clause_for(ptr noundef %0, ptr n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.RestrictInfo, ptr %6, i32 0, i32 4
-  %8 = load i8, ptr %7, align 2
+  %7 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %6, i32 0, i32 4
+  %8 = load i8, ptr %7, align 2, !range !9, !noundef !10
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -630,10 +719,10 @@ define internal zeroext i1 @is_safe_restriction_clause_for(ptr noundef %0, ptr n
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.RestrictInfo, ptr %12, i32 0, i32 11
+  %13 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %12, i32 0, i32 11
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.RelOptInfo, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.RelOptInfo, ptr %15, i32 0, i32 2
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i1 @bms_equal(ptr noundef %14, ptr noundef %17)
   br i1 %18, label %20, label %19
@@ -644,7 +733,7 @@ define internal zeroext i1 @is_safe_restriction_clause_for(ptr noundef %0, ptr n
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.RestrictInfo, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.RestrictInfo, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i1 @contain_volatile_functions(ptr noundef %23)
   br i1 %24, label %25, label %26
@@ -662,10 +751,10 @@ define internal zeroext i1 @is_safe_restriction_clause_for(ptr noundef %0, ptr n
   ret i1 %28
 }
 
-declare ptr @make_ands_explicit(ptr noundef) #1
+declare ptr @make_ands_explicit(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @is_orclause(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @is_orclause(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -674,14 +763,14 @@ define internal zeroext i1 @is_orclause(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Node, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.Node, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, 19
+  %9 = icmp eq i32 %8, 21
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.BoolExpr, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.BoolExpr, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1
   br label %15
@@ -691,32 +780,39 @@ define internal zeroext i1 @is_orclause(ptr noundef %0) #0 {
   ret i1 %16
 }
 
-declare ptr @list_concat(ptr noundef, ptr noundef) #1
+declare ptr @list_concat(ptr noundef, ptr noundef) #3
 
-declare ptr @make_orclause(ptr noundef) #1
+declare ptr @make_orclause(ptr noundef) #3
 
-declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) #1
+declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @contain_volatile_functions(ptr noundef) #1
+declare zeroext i1 @contain_volatile_functions(ptr noundef) #3
 
-declare ptr @make_restrictinfo(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @make_restrictinfo(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare double @clause_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare double @clause_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @bms_difference(ptr noundef, ptr noundef) #1
+declare void @init_dummy_sjinfo(ptr noundef, ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare ptr @bms_difference(ptr noundef, ptr noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}

@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.regex_t = type { i32, i64, i64, i32, ptr, i32, ptr, ptr }
+%struct.pg_regex_t = type { i32, i64, i64, i32, ptr, i32, ptr, ptr }
 %struct.guts = type { i32, i32, i64, i64, ptr, %struct.cnfa, i32, %struct.colormap, ptr, ptr, i32 }
 %struct.cnfa = type { i32, i32, i32, i32, i32, [2 x i16], [2 x i16], ptr, ptr, ptr, i32, i32 }
 %struct.colormap = type { i32, ptr, i64, i64, i16, ptr, ptr, [14 x i32], i32, ptr, ptr, i32, i32, i32, [10 x %struct.colordesc] }
@@ -14,30 +14,40 @@ define dso_local i32 @pg_reg_getnumstates(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.regex_t, ptr %4, i32 0, i32 6
+  %5 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %4, i32 0, i32 6
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.guts, ptr %6, i32 0, i32 5
+  %7 = getelementptr inbounds nuw %struct.guts, ptr %6, i32 0, i32 5
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cnfa, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.cnfa, ptr %8, i32 0, i32 0
   %10 = load i32, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i32 %10
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_reg_getinitialstate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.regex_t, ptr %4, i32 0, i32 6
+  %5 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %4, i32 0, i32 6
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.guts, ptr %6, i32 0, i32 5
+  %7 = getelementptr inbounds nuw %struct.guts, ptr %6, i32 0, i32 5
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cnfa, ptr %8, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %struct.cnfa, ptr %8, i32 0, i32 3
   %10 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i32 %10
 }
 
@@ -46,14 +56,16 @@ define dso_local i32 @pg_reg_getfinalstate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.regex_t, ptr %4, i32 0, i32 6
+  %5 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %4, i32 0, i32 6
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.guts, ptr %6, i32 0, i32 5
+  %7 = getelementptr inbounds nuw %struct.guts, ptr %6, i32 0, i32 5
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cnfa, ptr %8, i32 0, i32 4
+  %9 = getelementptr inbounds nuw %struct.cnfa, ptr %8, i32 0, i32 4
   %10 = load i32, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i32 %10
 }
 
@@ -64,41 +76,48 @@ define dso_local i32 @pg_reg_getnumoutarcs(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.regex_t, ptr %8, i32 0, i32 6
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.guts, ptr %10, i32 0, i32 5
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %20, label %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %struct.guts, ptr %11, i32 0, i32 5
+  store ptr %12, ptr %6, align 8
+  %13 = load i32, ptr %5, align 4
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %21, label %15
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.cnfa, ptr %16, i32 0, i32 0
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp sge i32 %15, %18
-  br i1 %19, label %20, label %21
+15:                                               ; preds = %2
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.cnfa, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp sge i32 %16, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %14, %2
+21:                                               ; preds = %15, %2
   store i32 0, ptr %3, align 4
-  br label %25
+  store i32 1, ptr %8, align 4
+  br label %26
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   store i32 0, ptr %7, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %5, align 4
-  call void @traverse_lacons(ptr noundef %22, i32 noundef %23, ptr noundef %7, ptr noundef null, i32 noundef 0)
-  %24 = load i32, ptr %7, align 4
-  store i32 %24, ptr %3, align 4
-  br label %25
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i32, ptr %5, align 4
+  call void @traverse_lacons(ptr noundef %23, i32 noundef %24, ptr noundef %7, ptr noundef null, i32 noundef 0)
+  %25 = load i32, ptr %7, align 4
+  store i32 %25, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-25:                                               ; preds = %21, %20
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+26:                                               ; preds = %22, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -115,20 +134,21 @@ define internal void @traverse_lacons(ptr noundef %0, i32 noundef %1, ptr nounde
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   call void @check_stack_depth()
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.cnfa, ptr %13, i32 0, i32 8
+  %14 = getelementptr inbounds nuw %struct.cnfa, ptr %13, i32 0, i32 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %7, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %11, align 8
   br label %20
 
 20:                                               ; preds = %70, %5
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %struct.carc, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.carc, ptr %21, i32 0, i32 0
   %23 = load i16, ptr %22, align 4
   %24 = sext i16 %23 to i32
   %25 = icmp ne i32 %24, -1
@@ -136,16 +156,17 @@ define internal void @traverse_lacons(ptr noundef %0, i32 noundef %1, ptr nounde
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds %struct.carc, ptr %27, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.carc, ptr %27, i32 0, i32 0
   %29 = load i16, ptr %28, align 4
   %30 = sext i16 %29 to i32
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.cnfa, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.cnfa, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = icmp slt i32 %30, %33
   br i1 %34, label %35, label %61
 
 35:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %36 = load ptr, ptr %8, align 8
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, 1
@@ -158,33 +179,34 @@ define internal void @traverse_lacons(ptr noundef %0, i32 noundef %1, ptr nounde
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct.carc, ptr %43, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.carc, ptr %43, i32 0, i32 0
   %45 = load i16, ptr %44, align 4
   %46 = sext i16 %45 to i32
   %47 = load ptr, ptr %9, align 8
   %48 = load i32, ptr %12, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.regex_arc_t, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.regex_arc_t, ptr %50, i32 0, i32 0
+  %50 = getelementptr inbounds %struct.regex_arc_t, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw %struct.regex_arc_t, ptr %50, i32 0, i32 0
   store i32 %46, ptr %51, align 4
   %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds %struct.carc, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.carc, ptr %52, i32 0, i32 1
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %9, align 8
   %56 = load i32, ptr %12, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr %struct.regex_arc_t, ptr %55, i64 %57
-  %59 = getelementptr inbounds %struct.regex_arc_t, ptr %58, i32 0, i32 1
+  %58 = getelementptr inbounds %struct.regex_arc_t, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw %struct.regex_arc_t, ptr %58, i32 0, i32 1
   store i32 %54, ptr %59, align 4
   br label %60
 
 60:                                               ; preds = %42, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
   br label %69
 
 61:                                               ; preds = %26
   %62 = load ptr, ptr %6, align 8
   %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.carc, ptr %63, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.carc, ptr %63, i32 0, i32 1
   %65 = load i32, ptr %64, align 4
   %66 = load ptr, ptr %8, align 8
   %67 = load ptr, ptr %9, align 8
@@ -197,11 +219,12 @@ define internal void @traverse_lacons(ptr noundef %0, i32 noundef %1, ptr nounde
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr %struct.carc, ptr %71, i32 1
+  %72 = getelementptr inbounds nuw %struct.carc, ptr %71, i32 1
   store ptr %72, ptr %11, align 8
-  br label %20, !llvm.loop !5
+  br label %20, !llvm.loop !4
 
 73:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
@@ -213,46 +236,63 @@ define dso_local void @pg_reg_getoutarcs(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.regex_t, ptr %11, i32 0, i32 6
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.guts, ptr %13, i32 0, i32 5
-  store ptr %14, ptr %9, align 8
-  %15 = load i32, ptr %6, align 4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %26, label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.guts, ptr %14, i32 0, i32 5
+  store ptr %15, ptr %9, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %27, label %18
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %6, align 4
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.cnfa, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp sge i32 %18, %21
-  br i1 %22, label %26, label %23
+18:                                               ; preds = %4
+  %19 = load i32, ptr %6, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.cnfa, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp sge i32 %19, %22
+  br i1 %23, label %27, label %24
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp sle i32 %24, 0
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %18
+  %25 = load i32, ptr %8, align 4
+  %26 = icmp sle i32 %25, 0
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %23, %17, %4
-  br label %32
+27:                                               ; preds = %24, %18, %4
+  store i32 1, ptr %11, align 4
+  br label %33
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   store i32 0, ptr %10, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %8, align 4
-  call void @traverse_lacons(ptr noundef %28, i32 noundef %29, ptr noundef %10, ptr noundef %30, i32 noundef %31)
-  br label %32
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  call void @traverse_lacons(ptr noundef %29, i32 noundef %30, ptr noundef %10, ptr noundef %31, i32 noundef %32)
+  store i32 0, ptr %11, align 4
+  br label %33
 
-32:                                               ; preds = %27, %26
+33:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  %34 = load i32, ptr %11, align 4
+  switch i32 %34, label %36 [
+    i32 0, label %35
+    i32 1, label %35
+  ]
+
+35:                                               ; preds = %33, %33
   ret void
+
+36:                                               ; preds = %33
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -260,16 +300,18 @@ define dso_local i32 @pg_reg_getnumcolors(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.regex_t, ptr %4, i32 0, i32 6
+  %5 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %4, i32 0, i32 6
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.guts, ptr %6, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %struct.guts, ptr %6, i32 0, i32 7
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.colormap, ptr %8, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %struct.colormap, ptr %8, i32 0, i32 3
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
   %12 = trunc i64 %11 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i32 %12
 }
 
@@ -279,43 +321,48 @@ define dso_local i32 @pg_reg_colorisbegin(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.regex_t, ptr %7, i32 0, i32 6
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.guts, ptr %9, i32 0, i32 5
-  store ptr %10, ptr %6, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.cnfa, ptr %12, i32 0, i32 5
-  %14 = getelementptr [2 x i16], ptr %13, i64 0, i64 0
-  %15 = load i16, ptr %14, align 4
-  %16 = sext i16 %15 to i32
-  %17 = icmp eq i32 %11, %16
-  br i1 %17, label %26, label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.guts, ptr %10, i32 0, i32 5
+  store ptr %11, ptr %6, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %struct.cnfa, ptr %13, i32 0, i32 5
+  %15 = getelementptr inbounds [2 x i16], ptr %14, i64 0, i64 0
+  %16 = load i16, ptr %15, align 4
+  %17 = sext i16 %16 to i32
+  %18 = icmp eq i32 %12, %17
+  br i1 %18, label %27, label %19
 
-18:                                               ; preds = %2
-  %19 = load i32, ptr %5, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cnfa, ptr %20, i32 0, i32 5
-  %22 = getelementptr [2 x i16], ptr %21, i64 0, i64 1
-  %23 = load i16, ptr %22, align 2
-  %24 = sext i16 %23 to i32
-  %25 = icmp eq i32 %19, %24
-  br i1 %25, label %26, label %27
+19:                                               ; preds = %2
+  %20 = load i32, ptr %5, align 4
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.cnfa, ptr %21, i32 0, i32 5
+  %23 = getelementptr inbounds [2 x i16], ptr %22, i64 0, i64 1
+  %24 = load i16, ptr %23, align 2
+  %25 = sext i16 %24 to i32
+  %26 = icmp eq i32 %20, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %18, %2
+27:                                               ; preds = %19, %2
   store i32 1, ptr %3, align 4
-  br label %28
+  store i32 1, ptr %7, align 4
+  br label %29
 
-27:                                               ; preds = %18
+28:                                               ; preds = %19
   store i32 0, ptr %3, align 4
-  br label %28
+  store i32 1, ptr %7, align 4
+  br label %29
 
-28:                                               ; preds = %27, %26
-  %29 = load i32, ptr %3, align 4
-  ret i32 %29
+29:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -324,43 +371,48 @@ define dso_local i32 @pg_reg_colorisend(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.regex_t, ptr %7, i32 0, i32 6
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.guts, ptr %9, i32 0, i32 5
-  store ptr %10, ptr %6, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.cnfa, ptr %12, i32 0, i32 6
-  %14 = getelementptr [2 x i16], ptr %13, i64 0, i64 0
-  %15 = load i16, ptr %14, align 8
-  %16 = sext i16 %15 to i32
-  %17 = icmp eq i32 %11, %16
-  br i1 %17, label %26, label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.guts, ptr %10, i32 0, i32 5
+  store ptr %11, ptr %6, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %struct.cnfa, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds [2 x i16], ptr %14, i64 0, i64 0
+  %16 = load i16, ptr %15, align 8
+  %17 = sext i16 %16 to i32
+  %18 = icmp eq i32 %12, %17
+  br i1 %18, label %27, label %19
 
-18:                                               ; preds = %2
-  %19 = load i32, ptr %5, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cnfa, ptr %20, i32 0, i32 6
-  %22 = getelementptr [2 x i16], ptr %21, i64 0, i64 1
-  %23 = load i16, ptr %22, align 2
-  %24 = sext i16 %23 to i32
-  %25 = icmp eq i32 %19, %24
-  br i1 %25, label %26, label %27
+19:                                               ; preds = %2
+  %20 = load i32, ptr %5, align 4
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.cnfa, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds [2 x i16], ptr %22, i64 0, i64 1
+  %24 = load i16, ptr %23, align 2
+  %25 = sext i16 %24 to i32
+  %26 = icmp eq i32 %20, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %18, %2
+27:                                               ; preds = %19, %2
   store i32 1, ptr %3, align 4
-  br label %28
+  store i32 1, ptr %7, align 4
+  br label %29
 
-27:                                               ; preds = %18
+28:                                               ; preds = %19
   store i32 0, ptr %3, align 4
-  br label %28
+  store i32 1, ptr %7, align 4
+  br label %29
 
-28:                                               ; preds = %27, %26
-  %29 = load i32, ptr %3, align 4
-  ret i32 %29
+29:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -369,78 +421,85 @@ define dso_local i32 @pg_reg_getnumcharacters(ptr noundef %0, i32 noundef %1) #0
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.regex_t, ptr %7, i32 0, i32 6
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.guts, ptr %9, i32 0, i32 7
-  store ptr %10, ptr %6, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = icmp sle i32 %11, 0
-  br i1 %12, label %20, label %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.guts, ptr %10, i32 0, i32 7
+  store ptr %11, ptr %6, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = icmp sle i32 %12, 0
+  br i1 %13, label %21, label %14
 
-13:                                               ; preds = %2
-  %14 = load i32, ptr %5, align 4
-  %15 = sext i32 %14 to i64
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.colormap, ptr %16, i32 0, i32 3
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp ugt i64 %15, %18
-  br i1 %19, label %20, label %21
+14:                                               ; preds = %2
+  %15 = load i32, ptr %5, align 4
+  %16 = sext i32 %15 to i64
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.colormap, ptr %17, i32 0, i32 3
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ugt i64 %16, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %13, %2
+21:                                               ; preds = %14, %2
   store i32 -1, ptr %3, align 4
-  br label %53
+  store i32 1, ptr %7, align 4
+  br label %54
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.colormap, ptr %22, i32 0, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %5, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.colordesc, ptr %24, i64 %26
-  %28 = getelementptr inbounds %struct.colordesc, ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 2
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.colormap, ptr %23, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %5, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %struct.colordesc, ptr %25, i64 %27
+  %29 = getelementptr inbounds nuw %struct.colordesc, ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 2
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %21
+33:                                               ; preds = %22
   store i32 -1, ptr %3, align 4
-  br label %53
+  store i32 1, ptr %7, align 4
+  br label %54
 
-33:                                               ; preds = %21
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.colormap, ptr %34, i32 0, i32 5
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %5, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.colordesc, ptr %36, i64 %38
-  %40 = getelementptr inbounds %struct.colordesc, ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %44
+34:                                               ; preds = %22
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %struct.colormap, ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.colordesc, ptr %37, i64 %39
+  %41 = getelementptr inbounds nuw %struct.colordesc, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %33
+44:                                               ; preds = %34
   store i32 -1, ptr %3, align 4
-  br label %53
+  store i32 1, ptr %7, align 4
+  br label %54
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.colormap, ptr %45, i32 0, i32 5
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.colordesc, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.colordesc, ptr %50, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  store i32 %52, ptr %3, align 4
-  br label %53
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.colormap, ptr %46, i32 0, i32 5
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %5, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %struct.colordesc, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %struct.colordesc, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8
+  store i32 %53, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %54
 
-53:                                               ; preds = %44, %43, %32, %20
-  %54 = load i32, ptr %3, align 4
-  ret i32 %54
+54:                                               ; preds = %45, %44, %33, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %55 = load i32, ptr %3, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: nounwind uwtable
@@ -451,118 +510,140 @@ define dso_local void @pg_reg_getcharacters(ptr noundef %0, i32 noundef %1, ptr 
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.regex_t, ptr %11, i32 0, i32 6
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.guts, ptr %13, i32 0, i32 7
-  store ptr %14, ptr %9, align 8
-  %15 = load i32, ptr %6, align 4
-  %16 = icmp sle i32 %15, 0
-  br i1 %16, label %27, label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.pg_regex_t, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.guts, ptr %14, i32 0, i32 7
+  store ptr %15, ptr %9, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = icmp sle i32 %16, 0
+  br i1 %17, label %28, label %18
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.colormap, ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  %23 = icmp ugt i64 %19, %22
-  br i1 %23, label %27, label %24
+18:                                               ; preds = %4
+  %19 = load i32, ptr %6, align 4
+  %20 = sext i32 %19 to i64
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.colormap, ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp ugt i64 %20, %23
+  br i1 %24, label %28, label %25
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr %8, align 4
-  %26 = icmp sle i32 %25, 0
-  br i1 %26, label %27, label %28
+25:                                               ; preds = %18
+  %26 = load i32, ptr %8, align 4
+  %27 = icmp sle i32 %26, 0
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %24, %17, %4
-  br label %69
+28:                                               ; preds = %25, %18, %4
+  store i32 1, ptr %11, align 4
+  br label %71
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.colormap, ptr %29, i32 0, i32 5
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.colordesc, ptr %31, i64 %33
-  %35 = getelementptr inbounds %struct.colordesc, ptr %34, i32 0, i32 5
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 2
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %40
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.colormap, ptr %30, i32 0, i32 5
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds %struct.colordesc, ptr %32, i64 %34
+  %36 = getelementptr inbounds nuw %struct.colordesc, ptr %35, i32 0, i32 5
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, 2
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %28
-  br label %69
+40:                                               ; preds = %29
+  store i32 1, ptr %11, align 4
+  br label %71
 
-40:                                               ; preds = %28
+41:                                               ; preds = %29
   store i32 0, ptr %10, align 4
-  br label %41
+  br label %42
 
-41:                                               ; preds = %66, %40
-  %42 = load i32, ptr %10, align 4
-  %43 = icmp ule i32 %42, 2047
-  br i1 %43, label %44, label %69
+42:                                               ; preds = %67, %41
+  %43 = load i32, ptr %10, align 4
+  %44 = icmp ule i32 %43, 2047
+  br i1 %44, label %45, label %70
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.colormap, ptr %45, i32 0, i32 6
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %10, align 4
-  %49 = sub i32 %48, 0
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr i16, ptr %47, i64 %50
-  %52 = load i16, ptr %51, align 2
-  %53 = sext i16 %52 to i32
-  %54 = load i32, ptr %6, align 4
-  %55 = icmp eq i32 %53, %54
-  br i1 %55, label %56, label %65
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.colormap, ptr %46, i32 0, i32 6
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %10, align 4
+  %50 = sub i32 %49, 0
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %51
+  %53 = load i16, ptr %52, align 2
+  %54 = sext i16 %53 to i32
+  %55 = load i32, ptr %6, align 4
+  %56 = icmp eq i32 %54, %55
+  br i1 %56, label %57, label %66
 
-56:                                               ; preds = %44
-  %57 = load i32, ptr %10, align 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr i32, ptr %58, i32 1
-  store ptr %59, ptr %7, align 8
-  store i32 %57, ptr %58, align 4
-  %60 = load i32, ptr %8, align 4
-  %61 = add i32 %60, -1
-  store i32 %61, ptr %8, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %64
+57:                                               ; preds = %45
+  %58 = load i32, ptr %10, align 4
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw i32, ptr %59, i32 1
+  store ptr %60, ptr %7, align 8
+  store i32 %58, ptr %59, align 4
+  %61 = load i32, ptr %8, align 4
+  %62 = add i32 %61, -1
+  store i32 %62, ptr %8, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %56
-  br label %69
+64:                                               ; preds = %57
+  br label %70
 
-64:                                               ; preds = %56
-  br label %65
-
-65:                                               ; preds = %64, %44
+65:                                               ; preds = %57
   br label %66
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr %10, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %10, align 4
-  br label %41, !llvm.loop !7
+66:                                               ; preds = %65, %45
+  br label %67
 
-69:                                               ; preds = %63, %41, %39, %27
+67:                                               ; preds = %66
+  %68 = load i32, ptr %10, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %10, align 4
+  br label %42, !llvm.loop !6
+
+70:                                               ; preds = %64, %42
+  store i32 0, ptr %11, align 4
+  br label %71
+
+71:                                               ; preds = %70, %40, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  %72 = load i32, ptr %11, align 4
+  switch i32 %72, label %74 [
+    i32 0, label %73
+    i32 1, label %73
+  ]
+
+73:                                               ; preds = %71, %71
   ret void
+
+74:                                               ; preds = %71
+  unreachable
 }
 
-declare void @check_stack_depth() #1
+declare void @check_stack_depth() #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

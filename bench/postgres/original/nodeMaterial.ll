@@ -1,13 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.MaterialState = type { %struct.ScanState, i32, i8, ptr }
 %struct.ScanState = type { %struct.PlanState, ptr, ptr, ptr }
 %struct.PlanState = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Plan = type { i32, double, double, double, i32, i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.Plan = type { i32, i32, double, double, double, i32, i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.Node = type { i32 }
-%struct.EState = type { i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, i8, ptr, i32, ptr, ptr, ptr, ptr }
+%struct.EState = type { i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i8, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, ptr, i32, ptr, ptr, ptr, ptr }
 %struct.TupleTableSlot = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, %struct.ItemPointerData, i32 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
@@ -26,29 +26,31 @@ define dso_local ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
-  %9 = call ptr @newNode(i64 noundef 240, i32 noundef 408)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %9 = call ptr @newNode(i64 noundef 240, i32 noundef 423)
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.MaterialState, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.ScanState, ptr %12, i32 0, i32 0
-  %14 = getelementptr inbounds %struct.PlanState, ptr %13, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.MaterialState, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.ScanState, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.PlanState, ptr %13, i32 0, i32 1
   store ptr %10, ptr %14, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.MaterialState, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.ScanState, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.PlanState, ptr %18, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.MaterialState, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.ScanState, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.PlanState, ptr %18, i32 0, i32 2
   store ptr %15, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.MaterialState, ptr %20, i32 0, i32 0
-  %22 = getelementptr inbounds %struct.ScanState, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.PlanState, ptr %22, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %struct.MaterialState, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.ScanState, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.PlanState, ptr %22, i32 0, i32 3
   store ptr @ExecMaterial, ptr %23, align 8
   %24 = load i32, ptr %6, align 4
   %25 = and i32 %24, 28
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.MaterialState, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.MaterialState, ptr %26, i32 0, i32 1
   store i32 %25, ptr %27, align 8
   %28 = load i32, ptr %6, align 4
   %29 = and i32 %28, 8
@@ -57,7 +59,7 @@ define dso_local ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i32 nound
 
 31:                                               ; preds = %3
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.MaterialState, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.MaterialState, ptr %32, i32 0, i32 1
   %34 = load i32, ptr %33, align 8
   %35 = or i32 %34, 4
   store i32 %35, ptr %33, align 8
@@ -65,16 +67,16 @@ define dso_local ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i32 nound
 
 36:                                               ; preds = %31, %3
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.MaterialState, ptr %37, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.MaterialState, ptr %37, i32 0, i32 2
   store i8 0, ptr %38, align 4
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.MaterialState, ptr %39, i32 0, i32 3
+  %40 = getelementptr inbounds nuw %struct.MaterialState, ptr %39, i32 0, i32 3
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr %6, align 4
   %42 = and i32 %41, -29
   store i32 %42, ptr %6, align 4
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.Plan, ptr %43, i32 0, i32 11
+  %44 = getelementptr inbounds nuw %struct.Plan, ptr %43, i32 0, i32 12
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %8, align 8
   %46 = load ptr, ptr %8, align 8
@@ -82,40 +84,47 @@ define dso_local ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i32 nound
   %48 = load i32, ptr %6, align 4
   %49 = call ptr @ExecInitNode(ptr noundef %46, ptr noundef %47, i32 noundef %48)
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.PlanState, ptr %50, i32 0, i32 9
+  %51 = getelementptr inbounds nuw %struct.PlanState, ptr %50, i32 0, i32 9
   store ptr %49, ptr %51, align 8
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct.MaterialState, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.ScanState, ptr %53, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.MaterialState, ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.ScanState, ptr %53, i32 0, i32 0
   call void @ExecInitResultTupleSlotTL(ptr noundef %54, ptr noundef @TTSOpsMinimalTuple)
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.MaterialState, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %struct.ScanState, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.PlanState, ptr %57, i32 0, i32 17
+  %56 = getelementptr inbounds nuw %struct.MaterialState, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.ScanState, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.PlanState, ptr %57, i32 0, i32 17
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %5, align 8
   %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.MaterialState, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.MaterialState, ptr %60, i32 0, i32 0
   call void @ExecCreateScanSlotFromOuterPlan(ptr noundef %59, ptr noundef %61, ptr noundef @TTSOpsMinimalTuple)
   %62 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret ptr %62
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @newNode(i64 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = load i64, ptr %3, align 8
   %7 = call ptr @palloc0(i64 noundef %6)
   store ptr %7, ptr %5, align 8
   %8 = load i32, ptr %4, align 4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.Node, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.Node, ptr %9, i32 0, i32 0
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret ptr %11
 }
 
@@ -131,288 +140,324 @@ define internal ptr @ExecMaterial(ptr noundef %0) #0 {
   %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr %4, align 8
-  br label %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %15 = load ptr, ptr %3, align 8
+  store ptr %15, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  br label %16
 
-15:                                               ; preds = %1
-  %16 = load volatile i32, ptr @InterruptPending, align 4
-  %17 = icmp ne i32 %16, 0
-  %18 = zext i1 %17 to i32
-  %19 = sext i32 %18 to i64
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %22
+16:                                               ; preds = %1
+  %17 = load volatile i32, ptr @InterruptPending, align 4
+  %18 = icmp ne i32 %17, 0
+  %19 = zext i1 %18 to i32
+  %20 = sext i32 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 0)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %24
 
-21:                                               ; preds = %15
+23:                                               ; preds = %16
   call void @ProcessInterrupts()
-  br label %22
+  br label %24
 
-22:                                               ; preds = %21, %15
-  br label %23
+24:                                               ; preds = %23, %16
+  br label %25
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.MaterialState, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.ScanState, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.PlanState, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %5, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.EState, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
-  store i32 %31, ptr %6, align 4
-  %32 = load i32, ptr %6, align 4
-  %33 = icmp eq i32 %32, 1
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %7, align 1
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.MaterialState, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %8, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %67
+25:                                               ; preds = %24
+  br label %26
 
-40:                                               ; preds = %23
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.MaterialState, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %67
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %struct.MaterialState, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.ScanState, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.PlanState, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %5, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.EState, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  store i32 %34, ptr %6, align 4
+  %35 = load i32, ptr %6, align 4
+  %36 = icmp eq i32 %35, 1
+  %37 = zext i1 %36 to i8
+  store i8 %37, ptr %7, align 1
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw %struct.MaterialState, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %8, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %70
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr @work_mem, align 4
-  %47 = call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %46)
-  store ptr %47, ptr %8, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.MaterialState, ptr %49, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  call void @tuplestore_set_eflags(ptr noundef %48, i32 noundef %51)
+43:                                               ; preds = %26
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds nuw %struct.MaterialState, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %70
+
+48:                                               ; preds = %43
+  %49 = load i32, ptr @work_mem, align 4
+  %50 = call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %49)
+  store ptr %50, ptr %8, align 8
+  %51 = load ptr, ptr %8, align 8
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.MaterialState, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.MaterialState, ptr %52, i32 0, i32 1
   %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, 16
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %63
+  call void @tuplestore_set_eflags(ptr noundef %51, i32 noundef %54)
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.MaterialState, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 16
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %66
 
-57:                                               ; preds = %45
-  %58 = load ptr, ptr %8, align 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.MaterialState, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 8
-  %62 = call i32 @tuplestore_alloc_read_pointer(ptr noundef %58, i32 noundef %61)
-  store i32 %62, ptr %11, align 4
-  br label %63
+60:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %61 = load ptr, ptr %8, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw %struct.MaterialState, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = call i32 @tuplestore_alloc_read_pointer(ptr noundef %61, i32 noundef %64)
+  store i32 %65, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %66
 
-63:                                               ; preds = %57, %45
-  %64 = load ptr, ptr %8, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.MaterialState, ptr %65, i32 0, i32 3
-  store ptr %64, ptr %66, align 8
-  br label %67
+66:                                               ; preds = %60, %48
+  %67 = load ptr, ptr %8, align 8
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds nuw %struct.MaterialState, ptr %68, i32 0, i32 3
+  store ptr %67, ptr %69, align 8
+  br label %70
 
-67:                                               ; preds = %63, %40, %23
-  %68 = load ptr, ptr %8, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %73, label %70
-
-70:                                               ; preds = %67
+70:                                               ; preds = %66, %43, %26
   %71 = load ptr, ptr %8, align 8
-  %72 = call zeroext i1 @tuplestore_ateof(ptr noundef %71)
-  br label %73
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %76, label %73
 
-73:                                               ; preds = %70, %67
-  %74 = phi i1 [ true, %67 ], [ %72, %70 ]
-  %75 = zext i1 %74 to i8
-  store i8 %75, ptr %9, align 1
-  %76 = load i8, ptr %7, align 1
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %94, label %78
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %8, align 8
+  %75 = call zeroext i1 @tuplestore_ateof(ptr noundef %74)
+  br label %76
 
-78:                                               ; preds = %73
-  %79 = load i8, ptr %9, align 1
+76:                                               ; preds = %73, %70
+  %77 = phi i1 [ true, %70 ], [ %75, %73 ]
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr %9, align 1
+  %79 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %94
+  br i1 %80, label %97, label %81
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.MaterialState, ptr %82, i32 0, i32 2
-  %84 = load i8, ptr %83, align 4
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %93, label %86
+81:                                               ; preds = %76
+  %82 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %97
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i8, ptr %7, align 1
-  %89 = trunc i8 %88 to i1
-  %90 = call zeroext i1 @tuplestore_advance(ptr noundef %87, i1 noundef zeroext %89)
-  br i1 %90, label %92, label %91
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %4, align 8
+  %86 = getelementptr inbounds nuw %struct.MaterialState, ptr %85, i32 0, i32 2
+  %87 = load i8, ptr %86, align 4, !range !4, !noundef !5
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %96, label %89
 
-91:                                               ; preds = %86
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %8, align 8
+  %91 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %92 = trunc i8 %91 to i1
+  %93 = call zeroext i1 @tuplestore_advance(ptr noundef %90, i1 noundef zeroext %92)
+  br i1 %93, label %95, label %94
+
+94:                                               ; preds = %89
   store ptr null, ptr %2, align 8
-  br label %155
+  store i32 1, ptr %12, align 4
+  br label %159
 
-92:                                               ; preds = %86
-  br label %93
+95:                                               ; preds = %89
+  br label %96
 
-93:                                               ; preds = %92, %81
+96:                                               ; preds = %95, %84
   store i8 0, ptr %9, align 1
-  br label %94
+  br label %97
 
-94:                                               ; preds = %93, %78, %73
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %struct.MaterialState, ptr %95, i32 0, i32 0
-  %97 = getelementptr inbounds %struct.ScanState, ptr %96, i32 0, i32 0
-  %98 = getelementptr inbounds %struct.PlanState, ptr %97, i32 0, i32 15
-  %99 = load ptr, ptr %98, align 8
-  store ptr %99, ptr %10, align 8
-  %100 = load i8, ptr %9, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %115, label %102
+97:                                               ; preds = %96, %81, %76
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds nuw %struct.MaterialState, ptr %98, i32 0, i32 0
+  %100 = getelementptr inbounds nuw %struct.ScanState, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds nuw %struct.PlanState, ptr %100, i32 0, i32 15
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %10, align 8
+  %103 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %118, label %105
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr %8, align 8
-  %104 = load i8, ptr %7, align 1
-  %105 = trunc i8 %104 to i1
-  %106 = load ptr, ptr %10, align 8
-  %107 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %103, i1 noundef zeroext %105, i1 noundef zeroext false, ptr noundef %106)
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %102
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %8, align 8
+  %107 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %108 = trunc i8 %107 to i1
   %109 = load ptr, ptr %10, align 8
-  store ptr %109, ptr %2, align 8
-  br label %155
+  %110 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %106, i1 noundef zeroext %108, i1 noundef zeroext false, ptr noundef %109)
+  br i1 %110, label %111, label %113
 
-110:                                              ; preds = %102
-  %111 = load i8, ptr %7, align 1
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %113, label %114
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %10, align 8
+  store ptr %112, ptr %2, align 8
+  store i32 1, ptr %12, align 4
+  br label %159
 
-113:                                              ; preds = %110
+113:                                              ; preds = %105
+  %114 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %117
+
+116:                                              ; preds = %113
   store i8 1, ptr %9, align 1
-  br label %114
+  br label %117
 
-114:                                              ; preds = %113, %110
-  br label %115
+117:                                              ; preds = %116, %113
+  br label %118
 
-115:                                              ; preds = %114, %94
-  %116 = load i8, ptr %9, align 1
-  %117 = trunc i8 %116 to i1
-  br i1 %117, label %118, label %152
+118:                                              ; preds = %117, %97
+  %119 = load i8, ptr %9, align 1, !range !4, !noundef !5
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %156
 
-118:                                              ; preds = %115
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds %struct.MaterialState, ptr %119, i32 0, i32 2
-  %121 = load i8, ptr %120, align 4
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %152, label %123
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds nuw %struct.MaterialState, ptr %122, i32 0, i32 2
+  %124 = load i8, ptr %123, align 4, !range !4, !noundef !5
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %156, label %126
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.PlanState, ptr %124, i32 0, i32 9
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %12, align 8
-  %127 = load ptr, ptr %12, align 8
-  %128 = call ptr @ExecProcNode(ptr noundef %127)
-  store ptr %128, ptr %13, align 8
-  %129 = load ptr, ptr %13, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %138, label %131
+126:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct.PlanState, ptr %127, i32 0, i32 9
+  %129 = load ptr, ptr %128, align 8
+  store ptr %129, ptr %13, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = call ptr @ExecProcNode(ptr noundef %130)
+  store ptr %131, ptr %14, align 8
+  %132 = load ptr, ptr %14, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %141, label %134
 
-131:                                              ; preds = %123
-  %132 = load ptr, ptr %13, align 8
-  %133 = getelementptr inbounds %struct.TupleTableSlot, ptr %132, i32 0, i32 1
-  %134 = load i16, ptr %133, align 4
-  %135 = zext i16 %134 to i32
-  %136 = and i32 %135, 2
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %141
+134:                                              ; preds = %126
+  %135 = load ptr, ptr %14, align 8
+  %136 = getelementptr inbounds nuw %struct.TupleTableSlot, ptr %135, i32 0, i32 1
+  %137 = load i16, ptr %136, align 4
+  %138 = zext i16 %137 to i32
+  %139 = and i32 %138, 2
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %144
 
-138:                                              ; preds = %131, %123
-  %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds %struct.MaterialState, ptr %139, i32 0, i32 2
-  store i8 1, ptr %140, align 4
+141:                                              ; preds = %134, %126
+  %142 = load ptr, ptr %4, align 8
+  %143 = getelementptr inbounds nuw %struct.MaterialState, ptr %142, i32 0, i32 2
+  store i8 1, ptr %143, align 4
   store ptr null, ptr %2, align 8
+  store i32 1, ptr %12, align 4
   br label %155
 
-141:                                              ; preds = %131
-  %142 = load ptr, ptr %8, align 8
-  %143 = icmp ne ptr %142, null
-  br i1 %143, label %144, label %147
-
-144:                                              ; preds = %141
+144:                                              ; preds = %134
   %145 = load ptr, ptr %8, align 8
-  %146 = load ptr, ptr %13, align 8
-  call void @tuplestore_puttupleslot(ptr noundef %145, ptr noundef %146)
-  br label %147
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %150
 
-147:                                              ; preds = %144, %141
-  %148 = load ptr, ptr %10, align 8
-  %149 = load ptr, ptr %13, align 8
-  %150 = call ptr @ExecCopySlot(ptr noundef %148, ptr noundef %149)
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %8, align 8
+  %149 = load ptr, ptr %14, align 8
+  call void @tuplestore_puttupleslot(ptr noundef %148, ptr noundef %149)
+  br label %150
+
+150:                                              ; preds = %147, %144
   %151 = load ptr, ptr %10, align 8
-  store ptr %151, ptr %2, align 8
-  br label %155
-
-152:                                              ; preds = %118, %115
-  %153 = load ptr, ptr %10, align 8
-  %154 = call ptr @ExecClearTuple(ptr noundef %153)
+  %152 = load ptr, ptr %14, align 8
+  %153 = call ptr @ExecCopySlot(ptr noundef %151, ptr noundef %152)
+  %154 = load ptr, ptr %10, align 8
   store ptr %154, ptr %2, align 8
+  store i32 1, ptr %12, align 4
   br label %155
 
-155:                                              ; preds = %152, %147, %138, %108, %91
-  %156 = load ptr, ptr %2, align 8
-  ret ptr %156
+155:                                              ; preds = %150, %141
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %159
+
+156:                                              ; preds = %121, %118
+  %157 = load ptr, ptr %10, align 8
+  %158 = call ptr @ExecClearTuple(ptr noundef %157)
+  store ptr %158, ptr %2, align 8
+  store i32 1, ptr %12, align 4
+  br label %159
+
+159:                                              ; preds = %156, %155, %111, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %160 = load ptr, ptr %2, align 8
+  ret ptr %160
 }
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) #1
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) #3
 
-declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndMaterial(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.MaterialState, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.MaterialState, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.MaterialState, ptr %8, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %struct.MaterialState, ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %9, align 8
   call void @tuplestore_end(ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %7, %1
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.MaterialState, ptr %12, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %struct.MaterialState, ptr %12, i32 0, i32 3
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.PlanState, ptr %14, i32 0, i32 9
+  %15 = getelementptr inbounds nuw %struct.PlanState, ptr %14, i32 0, i32 9
   %16 = load ptr, ptr %15, align 8
   call void @ExecEndNode(ptr noundef %16)
   ret void
 }
 
-declare void @tuplestore_end(ptr noundef) #1
+declare void @tuplestore_end(ptr noundef) #3
 
-declare void @ExecEndNode(ptr noundef) #1
+declare void @ExecEndNode(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecMaterialMarkPos(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.MaterialState, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.MaterialState, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %8, label %7
@@ -422,11 +467,11 @@ define dso_local void @ExecMaterialMarkPos(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.MaterialState, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.MaterialState, ptr %9, i32 0, i32 3
   %11 = load ptr, ptr %10, align 8
   call void @tuplestore_copy_read_pointer(ptr noundef %11, i32 noundef 0, i32 noundef 1)
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.MaterialState, ptr %12, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %struct.MaterialState, ptr %12, i32 0, i32 3
   %14 = load ptr, ptr %13, align 8
   call void @tuplestore_trim(ptr noundef %14)
   br label %15
@@ -435,16 +480,16 @@ define dso_local void @ExecMaterialMarkPos(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @tuplestore_copy_read_pointer(ptr noundef, i32 noundef, i32 noundef) #1
+declare void @tuplestore_copy_read_pointer(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @tuplestore_trim(ptr noundef) #1
+declare void @tuplestore_trim(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecMaterialRestrPos(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.MaterialState, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.MaterialState, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %8, label %7
@@ -454,7 +499,7 @@ define dso_local void @ExecMaterialRestrPos(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.MaterialState, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.MaterialState, ptr %9, i32 0, i32 3
   %11 = load ptr, ptr %10, align 8
   call void @tuplestore_copy_read_pointer(ptr noundef %11, i32 noundef 1, i32 noundef 0)
   br label %12
@@ -467,113 +512,131 @@ define dso_local void @ExecMaterialRestrPos(ptr noundef %0) #0 {
 define dso_local void @ExecReScanMaterial(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.PlanState, ptr %4, i32 0, i32 9
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.MaterialState, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %struct.ScanState, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.PlanState, ptr %9, i32 0, i32 15
-  %11 = load ptr, ptr %10, align 8
-  %12 = call ptr @ExecClearTuple(ptr noundef %11)
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.MaterialState, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.PlanState, ptr %5, i32 0, i32 9
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.MaterialState, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.ScanState, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.PlanState, ptr %10, i32 0, i32 15
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @ExecClearTuple(ptr noundef %12)
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.MaterialState, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %55
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.MaterialState, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %23, label %22
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.MaterialState, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %17
-  br label %64
+23:                                               ; preds = %18
+  store i32 1, ptr %4, align 4
+  br label %66
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.PlanState, ptr %24, i32 0, i32 13
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %34, label %28
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw %struct.PlanState, ptr %25, i32 0, i32 13
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %35, label %29
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.MaterialState, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %49
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw %struct.MaterialState, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %50
 
-34:                                               ; preds = %28, %23
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.MaterialState, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  call void @tuplestore_end(ptr noundef %37)
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.MaterialState, ptr %38, i32 0, i32 3
-  store ptr null, ptr %39, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.PlanState, ptr %40, i32 0, i32 13
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %46
+35:                                               ; preds = %29, %24
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw %struct.MaterialState, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  call void @tuplestore_end(ptr noundef %38)
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.MaterialState, ptr %39, i32 0, i32 3
+  store ptr null, ptr %40, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.PlanState, ptr %41, i32 0, i32 13
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %3, align 8
-  call void @ExecReScan(ptr noundef %45)
-  br label %46
+45:                                               ; preds = %35
+  %46 = load ptr, ptr %3, align 8
+  call void @ExecReScan(ptr noundef %46)
+  br label %47
 
-46:                                               ; preds = %44, %34
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.MaterialState, ptr %47, i32 0, i32 2
-  store i8 0, ptr %48, align 4
-  br label %53
+47:                                               ; preds = %45, %35
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.MaterialState, ptr %48, i32 0, i32 2
+  store i8 0, ptr %49, align 4
+  br label %54
 
-49:                                               ; preds = %28
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.MaterialState, ptr %50, i32 0, i32 3
-  %52 = load ptr, ptr %51, align 8
-  call void @tuplestore_rescan(ptr noundef %52)
-  br label %53
+50:                                               ; preds = %29
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds nuw %struct.MaterialState, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8
+  call void @tuplestore_rescan(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %49, %46
-  br label %64
+54:                                               ; preds = %50, %47
+  br label %65
 
-54:                                               ; preds = %1
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.PlanState, ptr %55, i32 0, i32 13
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %61
+55:                                               ; preds = %1
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw %struct.PlanState, ptr %56, i32 0, i32 13
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %3, align 8
-  call void @ExecReScan(ptr noundef %60)
-  br label %61
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %3, align 8
+  call void @ExecReScan(ptr noundef %61)
+  br label %62
 
-61:                                               ; preds = %59, %54
-  %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.MaterialState, ptr %62, i32 0, i32 2
-  store i8 0, ptr %63, align 4
-  br label %64
+62:                                               ; preds = %60, %55
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds nuw %struct.MaterialState, ptr %63, i32 0, i32 2
+  store i8 0, ptr %64, align 4
+  br label %65
 
-64:                                               ; preds = %61, %53, %22
+65:                                               ; preds = %62, %54
+  store i32 0, ptr %4, align 4
+  br label %66
+
+66:                                               ; preds = %65, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  %67 = load i32, ptr %4, align 4
+  switch i32 %67, label %69 [
+    i32 0, label %68
+    i32 1, label %68
+  ]
+
+68:                                               ; preds = %66, %66
   ret void
+
+69:                                               ; preds = %66
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @ExecClearTuple(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ExecClearTuple(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.TupleTableSlot, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct.TupleTableSlot, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.TupleTableSlotOps, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.TupleTableSlotOps, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   call void %7(ptr noundef %8)
@@ -581,32 +644,35 @@ define internal ptr @ExecClearTuple(ptr noundef %0) #0 {
   ret ptr %9
 }
 
-declare void @ExecReScan(ptr noundef) #1
+declare void @ExecReScan(ptr noundef) #3
 
-declare void @tuplestore_rescan(ptr noundef) #1
+declare void @tuplestore_rescan(ptr noundef) #3
 
-declare ptr @palloc0(i64 noundef) #1
+declare ptr @palloc0(i64 noundef) #3
 
-declare void @ProcessInterrupts() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
 
-declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) #1
+declare void @ProcessInterrupts() #3
 
-declare void @tuplestore_set_eflags(ptr noundef, i32 noundef) #1
+declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) #3
 
-declare i32 @tuplestore_alloc_read_pointer(ptr noundef, i32 noundef) #1
+declare void @tuplestore_set_eflags(ptr noundef, i32 noundef) #3
 
-declare zeroext i1 @tuplestore_ateof(ptr noundef) #1
+declare i32 @tuplestore_alloc_read_pointer(ptr noundef, i32 noundef) #3
 
-declare zeroext i1 @tuplestore_advance(ptr noundef, i1 noundef zeroext) #1
+declare zeroext i1 @tuplestore_ateof(ptr noundef) #3
 
-declare zeroext i1 @tuplestore_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) #1
+declare zeroext i1 @tuplestore_advance(ptr noundef, i1 noundef zeroext) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @ExecProcNode(ptr noundef %0) #0 {
+declare zeroext i1 @tuplestore_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ExecProcNode(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.PlanState, ptr %3, i32 0, i32 13
+  %4 = getelementptr inbounds nuw %struct.PlanState, ptr %3, i32 0, i32 13
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %9
@@ -618,25 +684,25 @@ define internal ptr @ExecProcNode(ptr noundef %0) #0 {
 
 9:                                                ; preds = %7, %1
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.PlanState, ptr %10, i32 0, i32 3
+  %11 = getelementptr inbounds nuw %struct.PlanState, ptr %10, i32 0, i32 3
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
   %14 = call ptr %12(ptr noundef %13)
   ret ptr %14
 }
 
-declare void @tuplestore_puttupleslot(ptr noundef, ptr noundef) #1
+declare void @tuplestore_puttupleslot(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @ExecCopySlot(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ExecCopySlot(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.TupleTableSlot, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.TupleTableSlot, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.TupleTableSlotOps, ptr %7, i32 0, i32 7
+  %8 = getelementptr inbounds nuw %struct.TupleTableSlotOps, ptr %7, i32 0, i32 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
@@ -645,13 +711,18 @@ define internal ptr @ExecCopySlot(ptr noundef %0, ptr noundef %1) #0 {
   ret ptr %12
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i8 0, i8 2}
+!5 = !{}

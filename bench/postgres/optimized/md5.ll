@@ -6,17 +6,17 @@ target triple = "x86_64-pc-linux-gnu"
 @md5_paddat = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_md5_init(ptr noundef writeonly captures(none) initializes((0, 92)) %0) local_unnamed_addr #0 {
+define void @pg_md5_init(ptr noundef writeonly captures(none) initializes((0, 92)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   store i32 1732584193, ptr %0, align 8
-  %4 = getelementptr i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %4, align 4
-  %5 = getelementptr i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %5, align 8
-  %6 = getelementptr i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 64, i1 false)
@@ -27,7 +27,7 @@ define dso_local void @pg_md5_init(ptr noundef writeonly captures(none) initiali
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = shl i64 %2, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
@@ -40,11 +40,11 @@ define dso_local void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef 
   %.not = icmp ult i64 %2, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = zext i32 %9 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   br i1 %.not, label %27, label %15
 
 15:                                               ; preds = %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %11, i1 false)
   tail call fastcc void @md5_calc(ptr noundef nonnull %12, ptr noundef nonnull %0)
   %16 = sub i32 128, %9
   %17 = zext i32 %16 to i64
@@ -55,12 +55,12 @@ define dso_local void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef 
   %18 = phi i32 [ %21, %.lr.ph ], [ %16, %15 ]
   %.034 = phi i32 [ %18, %.lr.ph ], [ %10, %15 ]
   %19 = zext i32 %.034 to i64
-  %20 = getelementptr i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   tail call fastcc void @md5_calc(ptr noundef %20, ptr noundef nonnull %0)
   %21 = add i32 %18, 64
   %22 = zext i32 %21 to i64
   %.not32 = icmp ult i64 %2, %22
-  br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !3
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = zext i32 %18 to i64
@@ -72,20 +72,19 @@ define dso_local void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef 
   %23 = trunc i64 %2 to i32
   %24 = sub i32 %23, %.0.lcssa
   store i32 %24, ptr %8, align 8
-  %25 = getelementptr i8, ptr %1, i64 %.pre-phi
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi
   %26 = zext i32 %24 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %12, ptr align 1 %25, i64 %26, i1 false)
-  br label %31
+  br label %30
 
 27:                                               ; preds = %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %2, i1 false)
-  %28 = load i32, ptr %8, align 8
-  %29 = trunc i64 %2 to i32
-  %30 = add i32 %28, %29
-  store i32 %30, ptr %8, align 8
-  br label %31
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %2, i1 false)
+  %28 = trunc i64 %2 to i32
+  %29 = add i32 %9, %28
+  store i32 %29, ptr %8, align 8
+  br label %30
 
-31:                                               ; preds = %27, %._crit_edge
+30:                                               ; preds = %27, %._crit_edge
   ret void
 }
 
@@ -95,11 +94,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8
-  %4 = getelementptr i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %7, %5
   %11 = xor i32 %5, -1
@@ -115,7 +114,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %21 = xor i32 %19, -1
   %22 = and i32 %7, %21
   %23 = or i32 %20, %22
-  %24 = getelementptr i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %9, -389564586
   %27 = add i32 %26, %25
@@ -126,7 +125,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %32 = xor i32 %30, -1
   %33 = and i32 %5, %32
   %34 = or i32 %31, %33
-  %35 = getelementptr i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %7, 606105819
   %38 = add i32 %37, %36
@@ -137,7 +136,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %43 = xor i32 %41, -1
   %44 = and i32 %19, %43
   %45 = or i32 %42, %44
-  %46 = getelementptr i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %5, -1044525330
   %49 = add i32 %48, %47
@@ -148,7 +147,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %54 = xor i32 %52, -1
   %55 = and i32 %30, %54
   %56 = or i32 %53, %55
-  %57 = getelementptr i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, -176418897
   %60 = add i32 %59, %19
@@ -159,7 +158,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %65 = xor i32 %63, -1
   %66 = and i32 %41, %65
   %67 = or i32 %64, %66
-  %68 = getelementptr i8, ptr %0, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1200080426
   %71 = add i32 %70, %30
@@ -170,7 +169,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %76 = xor i32 %74, -1
   %77 = and i32 %52, %76
   %78 = or i32 %75, %77
-  %79 = getelementptr i8, ptr %0, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, -1473231341
   %82 = add i32 %81, %41
@@ -181,7 +180,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %87 = xor i32 %85, -1
   %88 = and i32 %63, %87
   %89 = or i32 %86, %88
-  %90 = getelementptr i8, ptr %0, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, -45705983
   %93 = add i32 %92, %52
@@ -192,7 +191,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %98 = xor i32 %96, -1
   %99 = and i32 %74, %98
   %100 = or i32 %97, %99
-  %101 = getelementptr i8, ptr %0, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1770035416
   %104 = add i32 %103, %63
@@ -203,7 +202,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %109 = xor i32 %107, -1
   %110 = and i32 %85, %109
   %111 = or i32 %108, %110
-  %112 = getelementptr i8, ptr %0, i64 36
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %113, -1958414417
   %115 = add i32 %114, %74
@@ -214,7 +213,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %120 = xor i32 %118, -1
   %121 = and i32 %96, %120
   %122 = or i32 %119, %121
-  %123 = getelementptr i8, ptr %0, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, -42063
   %126 = add i32 %125, %85
@@ -225,7 +224,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %131 = xor i32 %129, -1
   %132 = and i32 %107, %131
   %133 = or i32 %130, %132
-  %134 = getelementptr i8, ptr %0, i64 44
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, -1990404162
   %137 = add i32 %136, %96
@@ -236,7 +235,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %142 = xor i32 %140, -1
   %143 = and i32 %118, %142
   %144 = or i32 %141, %143
-  %145 = getelementptr i8, ptr %0, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %146 = load i32, ptr %145, align 4
   %147 = add i32 %146, 1804603682
   %148 = add i32 %147, %107
@@ -247,7 +246,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %153 = xor i32 %151, -1
   %154 = and i32 %129, %153
   %155 = or i32 %152, %154
-  %156 = getelementptr i8, ptr %0, i64 52
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %157 = load i32, ptr %156, align 4
   %158 = add i32 %157, -40341101
   %159 = add i32 %158, %118
@@ -258,7 +257,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %164 = xor i32 %162, -1
   %165 = and i32 %140, %164
   %166 = or i32 %163, %165
-  %167 = getelementptr i8, ptr %0, i64 56
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %168 = load i32, ptr %167, align 4
   %169 = add i32 %168, -1502002290
   %170 = add i32 %169, %129
@@ -269,7 +268,7 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
   %175 = xor i32 %173, -1
   %176 = and i32 %151, %175
   %177 = or i32 %174, %176
-  %178 = getelementptr i8, ptr %0, i64 60
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %179 = load i32, ptr %178, align 4
   %180 = add i32 %179, 1236535329
   %181 = add i32 %180, %140
@@ -669,31 +668,31 @@ define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @pg_md5_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
+define void @pg_md5_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 64, %4
   %6 = icmp ugt i32 %5, 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = zext i32 %4 to i64
-  %9 = getelementptr i8, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %10 = zext i32 %5 to i64
   br i1 %6, label %11, label %13
 
 11:                                               ; preds = %2
   %12 = add nsw i64 %10, -8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 16 @md5_paddat, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 16 @md5_paddat, i64 %12, i1 false)
   br label %md5_pad.exit
 
 13:                                               ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 16 @md5_paddat, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 16 @md5_paddat, i64 %10, i1 false)
   tail call fastcc void @md5_calc(ptr noundef nonnull %7, ptr noundef nonnull %0)
-  %14 = getelementptr i8, ptr @md5_paddat, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr @md5_paddat, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %7, ptr noundef nonnull align 1 dereferenceable(56) %14, i64 56, i1 false)
   br label %md5_pad.exit
 
 md5_pad.exit:                                     ; preds = %11, %13
-  %15 = getelementptr i8, ptr %0, i64 84
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 4
@@ -708,20 +707,18 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}

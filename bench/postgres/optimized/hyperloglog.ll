@@ -75,21 +75,21 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %2, %8
-  %indvars.iv = phi i64 [ 4, %2 ], [ %indvars.iv.next, %8 ]
-  %4 = shl nuw nsw i64 1, %indvars.iv
-  %5 = uitofp nneg i64 %4 to double
-  %sqrt = tail call double @llvm.sqrt.f64(double %5)
-  %6 = fdiv double 1.040000e+00, %sqrt
-  %7 = fcmp olt double %6, %1
-  br i1 %7, label %9, label %8
+3:                                                ; preds = %4, %2
+  %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 4, %2 ]
+  %exitcond.not = icmp eq i64 %indvars.iv, 16
+  br i1 %exitcond.not, label %.thread, label %4
 
-8:                                                ; preds = %3
+4:                                                ; preds = %3
+  %5 = shl nuw nsw i64 1, %indvars.iv
+  %6 = uitofp nneg i64 %5 to double
+  %sqrt = tail call double @llvm.sqrt.f64(double %6)
+  %7 = fdiv double 1.040000e+00, %sqrt
+  %8 = fcmp olt double %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !5
+  br i1 %8, label %9, label %3
 
-9:                                                ; preds = %3
+9:                                                ; preds = %4
   %10 = trunc nuw nsw i64 %indvars.iv to i8
   %11 = add nsw i8 %10, -17
   %or.cond.i = icmp ult i8 %11, -13
@@ -102,10 +102,10 @@ define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, doubl
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #11
   unreachable
 
-.thread:                                          ; preds = %8, %9
-  %.0.lcssa11 = phi i8 [ %10, %9 ], [ 16, %8 ]
-  store i8 %.0.lcssa11, ptr %0, align 8
-  %15 = zext nneg i8 %.0.lcssa11 to i64
+.thread:                                          ; preds = %3, %9
+  %.07.lcssa12 = phi i8 [ %10, %9 ], [ 16, %3 ]
+  store i8 %.07.lcssa12, ptr %0, align 8
+  %15 = zext nneg i8 %.07.lcssa12 to i64
   %16 = shl nuw nsw i64 1, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %17, align 8
@@ -187,7 +187,7 @@ rho.exit:                                         ; preds = %10, %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
-  %24 = getelementptr i8, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   %25 = load i8, ptr %24, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %.0.i, i8 %25)
   store i8 %., ptr %24, align 1
@@ -198,8 +198,8 @@ rho.exit:                                         ; preds = %10, %12
 define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %.not40 = icmp eq i64 %3, 0
-  br i1 %.not40, label %._crit_edge.thread, label %.lr.ph
+  %.not41 = icmp eq i64 %3, 0
+  br i1 %.not41, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -207,20 +207,20 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %.lr.ph, %5
   %6 = phi i64 [ 0, %.lr.ph ], [ %14, %5 ]
-  %.02233 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
-  %.02432 = phi double [ 0.000000e+00, %.lr.ph ], [ %12, %5 ]
+  %.02234 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
+  %.02433 = phi double [ 0.000000e+00, %.lr.ph ], [ %12, %5 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr i8, ptr %7, i64 %6
+  %8 = getelementptr inbounds i8, ptr %7, i64 %6
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %10) #11
   %11 = fdiv double 1.000000e+00, %ldexp
-  %12 = fadd double %.02432, %11
-  %13 = add i32 %.02233, 1
+  %12 = fadd double %.02433, %11
+  %13 = add i32 %.02234, 1
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %2, align 8
   %16 = icmp ugt i64 %15, %14
-  br i1 %16, label %5, label %._crit_edge, !llvm.loop !7
+  br i1 %16, label %5, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -236,60 +236,60 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %24 = load double, ptr %23, align 8
   %25 = fdiv double %24, 0.000000e+00
   %26 = fcmp ugt double %25, 0.000000e+00
-  br i1 %26, label %41, label %._crit_edge38.thread
+  br i1 %26, label %41, label %._crit_edge39.thread
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not41 = icmp eq i64 %15, 0
-  br i1 %.not41, label %._crit_edge38.thread, label %.lr.ph37
+  %.not42 = icmp eq i64 %15, 0
+  br i1 %.not42, label %._crit_edge39.thread, label %.lr.ph38
 
-.lr.ph37:                                         ; preds = %.preheader
+.lr.ph38:                                         ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %29
 
-29:                                               ; preds = %.lr.ph37, %29
-  %30 = phi i64 [ 0, %.lr.ph37 ], [ %36, %29 ]
-  %.036 = phi i32 [ 0, %.lr.ph37 ], [ %spec.select, %29 ]
-  %.12335 = phi i32 [ 0, %.lr.ph37 ], [ %35, %29 ]
-  %31 = getelementptr i8, ptr %28, i64 %30
+29:                                               ; preds = %.lr.ph38, %29
+  %30 = phi i64 [ 0, %.lr.ph38 ], [ %36, %29 ]
+  %.037 = phi i32 [ 0, %.lr.ph38 ], [ %spec.select, %29 ]
+  %.12336 = phi i32 [ 0, %.lr.ph38 ], [ %35, %29 ]
+  %31 = getelementptr inbounds i8, ptr %28, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   %34 = zext i1 %33 to i32
-  %spec.select = add i32 %.036, %34
-  %35 = add i32 %.12335, 1
+  %spec.select = add i32 %.037, %34
+  %35 = add i32 %.12336, 1
   %36 = sext i32 %35 to i64
   %37 = icmp ugt i64 %15, %36
-  br i1 %37, label %29, label %._crit_edge38, !llvm.loop !8
+  br i1 %37, label %29, label %._crit_edge39, !llvm.loop !6
 
-._crit_edge38:                                    ; preds = %29
+._crit_edge39:                                    ; preds = %29
   %.not = icmp eq i32 %spec.select, 0
-  br i1 %.not, label %._crit_edge38.thread, label %38
+  br i1 %.not, label %._crit_edge39.thread, label %38
 
-38:                                               ; preds = %._crit_edge38
+38:                                               ; preds = %._crit_edge39
   %39 = sitofp i32 %spec.select to double
   %40 = fdiv double %20, %39
-  br label %._crit_edge38.thread.sink.split
+  br label %._crit_edge39.thread.sink.split
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %42 = phi double [ %25, %._crit_edge.thread ], [ %19, %._crit_edge ]
   %43 = fcmp ogt double %42, 0x41A1111111111111
-  br i1 %43, label %44, label %._crit_edge38.thread
+  br i1 %43, label %44, label %._crit_edge39.thread
 
 44:                                               ; preds = %41
   %45 = fmul double %42, 0x3DF0000000000000
   %46 = fsub double 1.000000e+00, %45
-  br label %._crit_edge38.thread.sink.split
+  br label %._crit_edge39.thread.sink.split
 
-._crit_edge38.thread.sink.split:                  ; preds = %38, %44
-  %.sink54 = phi double [ %46, %44 ], [ %40, %38 ]
-  %.sink53 = phi double [ 0xC1F0000000000000, %44 ], [ %20, %38 ]
-  %47 = tail call double @log(double noundef %.sink54) #11
-  %48 = fmul double %47, %.sink53
-  br label %._crit_edge38.thread
+._crit_edge39.thread.sink.split:                  ; preds = %44, %38
+  %.sink55 = phi double [ %40, %38 ], [ %46, %44 ]
+  %.sink54 = phi double [ %20, %38 ], [ 0xC1F0000000000000, %44 ]
+  %47 = tail call double @log(double noundef %.sink55) #11
+  %48 = fmul double %47, %.sink54
+  br label %._crit_edge39.thread
 
-._crit_edge38.thread:                             ; preds = %._crit_edge38.thread.sink.split, %._crit_edge.thread, %.preheader, %41, %._crit_edge38
-  %.025 = phi double [ %19, %._crit_edge38 ], [ %42, %41 ], [ %19, %.preheader ], [ %25, %._crit_edge.thread ], [ %48, %._crit_edge38.thread.sink.split ]
-  ret double %.025
+._crit_edge39.thread:                             ; preds = %._crit_edge39.thread.sink.split, %._crit_edge.thread, %.preheader, %._crit_edge39, %41
+  %.126 = phi double [ %42, %41 ], [ %19, %._crit_edge39 ], [ %19, %.preheader ], [ %25, %._crit_edge.thread ], [ %48, %._crit_edge39.thread.sink.split ]
+  ret double %.126
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -310,12 +310,12 @@ declare double @llvm.sqrt.f64(double) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nofree willreturn }
@@ -323,14 +323,12 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

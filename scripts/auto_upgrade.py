@@ -49,6 +49,7 @@ supported_project = [
     "osqp",
     "php",
     "portaudio",
+    "postgres",
 ]
 
 modify_only = [
@@ -62,6 +63,7 @@ modify_only = [
     "oniguruma",
     "openblas",
     "php",
+    "postgres",
 ]
 
 

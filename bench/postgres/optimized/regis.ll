@@ -72,10 +72,10 @@ define dso_local noundef zeroext i1 @RS_isRegis(ptr noundef %0) local_unnamed_ad
   %.1 = phi i32 [ 4, %4 ], [ %.01726, %15 ], [ 1, %6 ], [ 3, %9 ], [ 2, %11 ], [ 4, %17 ]
   %24 = tail call i32 @pg_mblen(ptr noundef nonnull %.027) #7
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i8, ptr %.027, i64 %25
+  %26 = getelementptr inbounds i8, ptr %.027, i64 %25
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %23
   %28 = icmp eq i32 %.1, 4
@@ -247,10 +247,10 @@ newRegisNode.exit69:                              ; preds = %34
   %73 = lshr i32 %72, 2
   %74 = and i32 %73, 65535
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr i8, ptr %71, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 %75
   %77 = tail call i32 @pg_mblen(ptr noundef nonnull %.05779) #7
   %78 = sext i32 %77 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %.05779, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %.05779, i64 %78, i1 false)
   %79 = tail call i32 @pg_mblen(ptr noundef nonnull %.05779) #7
   %80 = load i32, ptr %.080, align 8
   %81 = shl i32 %79, 2
@@ -285,10 +285,10 @@ newRegisNode.exit69:                              ; preds = %34
   %.3 = phi ptr [ %15, %18 ], [ %35, %38 ], [ %.080, %47 ], [ %.080, %53 ], [ %.080, %70 ], [ %.080, %86 ]
   %96 = tail call i32 @pg_mblen(ptr noundef nonnull %.05779) #7
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i8, ptr %.05779, i64 %97
+  %98 = getelementptr inbounds i8, ptr %.05779, i64 %97
   %99 = load i8, ptr %98, align 1
   %.not = icmp eq i8 %99, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %95
   %100 = icmp eq i32 %.159, 4
@@ -321,7 +321,7 @@ newRegisNode.exit69:                              ; preds = %34
   %110 = getelementptr inbounds nuw i8, ptr %.483, i64 8
   %.4 = load ptr, ptr %110, align 8
   %.not62 = icmp eq ptr %.4, null
-  br i1 %.not62, label %._crit_edge85, label %104, !llvm.loop !8
+  br i1 %.not62, label %._crit_edge85, label %104, !llvm.loop !7
 
 ._crit_edge85:                                    ; preds = %104, %.preheader
   ret void
@@ -348,7 +348,7 @@ define dso_local void @RS_free(ptr noundef captures(none) %0) local_unnamed_addr
   %4 = load ptr, ptr %3, align 8
   tail call void @pfree(ptr noundef nonnull %.07) #7
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %0, align 8
@@ -370,10 +370,10 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %5 = add i32 %.051, 1
   %6 = tail call i32 @pg_mblen(ptr noundef nonnull %.02550) #7
   %7 = sext i32 %6 to i64
-  %8 = getelementptr i8, ptr %.02550, i64 %7
+  %8 = getelementptr inbounds i8, ptr %.02550, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %5, %.lr.ph ]
@@ -398,9 +398,9 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %19 = add nsw i32 %.153, -1
   %20 = tail call i32 @pg_mblen(ptr noundef %.252) #7
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i8, ptr %.252, i64 %21
+  %22 = getelementptr inbounds i8, ptr %.252, i64 %21
   %23 = icmp samesign ugt i32 %.153, 1
-  br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !11
+  br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph55, %15
   %.126 = phi ptr [ %1, %15 ], [ %22, %.lr.ph55 ]
@@ -438,19 +438,19 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
 33:                                               ; preds = %.preheader.i
   %34 = add i32 %.016.i, -1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr i8, ptr %.01520.i, i64 %35
+  %36 = getelementptr inbounds i8, ptr %.01520.i, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr i8, ptr %.359, i64 %35
+  %38 = getelementptr inbounds i8, ptr %.359, i64 %35
   %39 = load i8, ptr %38, align 1
   %.not19.i = icmp eq i8 %37, %39
-  br i1 %.not19.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %.not19.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %33, %.lr.ph.i
   %40 = sext i32 %31 to i64
-  %41 = getelementptr i8, ptr %.01520.i, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.01520.i, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !13
+  br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !12
 
 44:                                               ; preds = %.lr.ph61
   %45 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
@@ -473,19 +473,19 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
 51:                                               ; preds = %.preheader.i36
   %52 = add i32 %.016.i37, -1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr i8, ptr %.01520.i33, i64 %53
+  %54 = getelementptr inbounds i8, ptr %.01520.i33, i64 %53
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr i8, ptr %.359, i64 %53
+  %56 = getelementptr inbounds i8, ptr %.359, i64 %53
   %57 = load i8, ptr %56, align 1
   %.not19.i39 = icmp eq i8 %55, %57
-  br i1 %.not19.i39, label %.preheader.i36, label %.loopexit.i34, !llvm.loop !12
+  br i1 %.not19.i39, label %.preheader.i36, label %.loopexit.i34, !llvm.loop !11
 
 .loopexit.i34:                                    ; preds = %51, %.lr.ph.i32
   %58 = sext i32 %49 to i64
-  %59 = getelementptr i8, ptr %.01520.i33, i64 %58
+  %59 = getelementptr inbounds i8, ptr %.01520.i33, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
-  br i1 %61, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !13
+  br i1 %61, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !12
 
 62:                                               ; preds = %.lr.ph61
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -501,9 +501,9 @@ mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.pr
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @pg_mblen(ptr noundef %.359) #7
   %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %.359, i64 %70
+  %71 = getelementptr inbounds i8, ptr %.359, i64 %70
   %.not31 = icmp eq ptr %68, null
-  br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !14
+  br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !13
 
 mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %26, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
   %.028 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit ], [ false, %.preheader.i36 ], [ false, %.loopexit.i ], [ true, %mb_strchr.exit ], [ false, %26 ]
@@ -515,10 +515,10 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -526,20 +526,19 @@ attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

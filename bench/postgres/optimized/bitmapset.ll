@@ -68,15 +68,15 @@ define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly captures(add
 
 12:                                               ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr [0 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x i64], ptr %10, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr [0 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %.not15 = icmp eq i64 %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not15, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !5
+  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %12, %2, %5
   %.011 = phi i1 [ false, %5 ], [ %.mux, %2 ], [ %.not15, %12 ]
@@ -116,28 +116,28 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly captures
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
-21:                                               ; preds = %30, %17
-  %.017 = phi i32 [ %18, %17 ], [ %31, %30 ]
-  %22 = sext i32 %.017 to i64
-  %23 = getelementptr [0 x i64], ptr %19, i64 0, i64 %22
+21:                                               ; preds = %27, %17
+  %.018 = phi i32 [ %18, %17 ], [ %28, %27 ]
+  %22 = sext i32 %.018 to i64
+  %23 = getelementptr inbounds [0 x i64], ptr %19, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr [0 x i64], ptr %20, i64 0, i64 %22
+  %25 = getelementptr inbounds [0 x i64], ptr %20, i64 0, i64 %22
   %26 = load i64, ptr %25, align 8
-  %.not25 = icmp eq i64 %24, %26
-  br i1 %.not25, label %30, label %27
+  %.not28 = icmp eq i64 %24, %26
+  br i1 %.not28, label %27, label %.loopexit.split.loop.exit
 
 27:                                               ; preds = %21
-  %28 = icmp ugt i64 %24, %26
-  %29 = select i1 %28, i32 1, i32 -1
+  %28 = add i32 %.018, -1
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %21, label %.loopexit, !llvm.loop !6
+
+.loopexit.split.loop.exit:                        ; preds = %21
+  %30 = icmp ugt i64 %24, %26
+  %31 = select i1 %30, i32 1, i32 -1
   br label %.loopexit
 
-30:                                               ; preds = %21
-  %31 = add i32 %.017, -1
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %21, label %.loopexit, !llvm.loop !7
-
-.loopexit:                                        ; preds = %30, %7, %27, %14, %4
-  %.0 = phi i32 [ %6, %4 ], [ %16, %14 ], [ %29, %27 ], [ 1, %7 ], [ 0, %30 ]
+.loopexit:                                        ; preds = %27, %.loopexit.split.loop.exit, %7, %14, %4
+  %.0 = phi i32 [ %6, %4 ], [ %16, %14 ], [ 1, %7 ], [ %31, %.loopexit.split.loop.exit ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -150,7 +150,7 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__func__.bms_make_singleton) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.bms_make_singleton) #11
   unreachable
 
 6:                                                ; preds = %1
@@ -161,14 +161,14 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   %narrow = add nuw nsw i32 %10, 8
   %11 = zext nneg i32 %narrow to i64
   %12 = tail call ptr @palloc0(i64 noundef %11) #11
-  store i32 429, ptr %12, align 8
+  store i32 444, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %9, ptr %13, align 4
   %14 = zext nneg i32 %8 to i64
   %15 = shl nuw i64 1, %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %7 to i64
-  %18 = getelementptr [0 x i64], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i64], ptr %16, i64 0, i64 %17
   store i64 %15, ptr %18, align 8
   ret ptr %12
 }
@@ -238,15 +238,15 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
 
 23:                                               ; preds = %23, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %12 ]
-  %24 = getelementptr [0 x i64], ptr %21, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %21, i64 0, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr [0 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [0 x i64], ptr %22, i64 0, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, %25
   store i64 %28, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !8
+  br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !7
 
 bms_copy.exit.sink.split:                         ; preds = %9, %6
   %.sink40 = phi i32 [ %8, %6 ], [ %11, %9 ]
@@ -295,9 +295,9 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
 18:                                               ; preds = %18, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %5 ]
   %.025 = phi i32 [ %spec.select, %18 ], [ -1, %5 ]
-  %19 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [0 x i64], ptr %16, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr [0 x i64], ptr %17, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %20
   store i64 %23, ptr %21, align 8
@@ -306,7 +306,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   %spec.select = select i1 %.not31, i32 %.025, i32 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %25, label %18, !llvm.loop !9
+  br i1 %exitcond.not, label %25, label %18, !llvm.loop !8
 
 25:                                               ; preds = %18
   %26 = icmp eq i32 %spec.select, -1
@@ -360,9 +360,9 @@ bms_copy.exit:                                    ; preds = %4
 
 18:                                               ; preds = %25, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %19 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [0 x i64], ptr %16, i64 0, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr [0 x i64], ptr %17, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %indvars.iv.i
   %22 = load i64, ptr %21, align 8
   %23 = xor i64 %22, -1
   %24 = and i64 %20, %23
@@ -372,7 +372,7 @@ bms_copy.exit:                                    ; preds = %4
 25:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bms_nonempty_difference.exit, label %18, !llvm.loop !10
+  br i1 %exitcond.not.i, label %bms_nonempty_difference.exit, label %18, !llvm.loop !9
 
 bms_copy.exit33:                                  ; preds = %18, %12
   %26 = sext i32 %7 to i64
@@ -388,41 +388,43 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br i1 %33, label %.preheader, label %.preheader35
 
+.preheader35:                                     ; preds = %bms_copy.exit33
+  %36 = sext i32 %31 to i64
+  br label %46
+
 .preheader:                                       ; preds = %bms_copy.exit33, %.preheader
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.preheader ], [ 0, %bms_copy.exit33 ]
-  %36 = getelementptr [0 x i64], ptr %34, i64 0, i64 %indvars.iv39
-  %37 = load i64, ptr %36, align 8
-  %38 = xor i64 %37, -1
-  %39 = getelementptr [0 x i64], ptr %35, i64 0, i64 %indvars.iv39
-  %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, %38
-  store i64 %41, ptr %39, align 8
+  %37 = getelementptr inbounds nuw [0 x i64], ptr %34, i64 0, i64 %indvars.iv39
+  %38 = load i64, ptr %37, align 8
+  %39 = xor i64 %38, -1
+  %40 = getelementptr inbounds nuw [0 x i64], ptr %35, i64 0, i64 %indvars.iv39
+  %41 = load i64, ptr %40, align 8
+  %42 = and i64 %41, %39
+  store i64 %42, ptr %40, align 8
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %42 = load i32, ptr %13, align 4
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next40, %43
-  br i1 %44, label %.preheader, label %bms_nonempty_difference.exit, !llvm.loop !11
+  %43 = load i32, ptr %13, align 4
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next40, %44
+  br i1 %45, label %.preheader, label %bms_nonempty_difference.exit, !llvm.loop !10
 
-.preheader35:                                     ; preds = %bms_copy.exit33, %.preheader35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %bms_copy.exit33 ]
-  %.0 = phi i32 [ %spec.select, %.preheader35 ], [ -1, %bms_copy.exit33 ]
-  %45 = getelementptr [0 x i64], ptr %34, i64 0, i64 %indvars.iv
-  %46 = load i64, ptr %45, align 8
-  %47 = xor i64 %46, -1
-  %48 = getelementptr [0 x i64], ptr %35, i64 0, i64 %indvars.iv
-  %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, %47
-  store i64 %50, ptr %48, align 8
-  %.not = icmp eq i64 %50, 0
-  %51 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.not, i32 %.0, i32 %51
+46:                                               ; preds = %.preheader35, %46
+  %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %46 ]
+  %.0 = phi i32 [ -1, %.preheader35 ], [ %spec.select, %46 ]
+  %47 = getelementptr inbounds nuw [0 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %48 = load i64, ptr %47, align 8
+  %49 = xor i64 %48, -1
+  %50 = getelementptr inbounds nuw [0 x i64], ptr %35, i64 0, i64 %indvars.iv
+  %51 = load i64, ptr %50, align 8
+  %52 = and i64 %51, %49
+  store i64 %52, ptr %50, align 8
+  %.not = icmp eq i64 %52, 0
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %.not, i32 %.0, i32 %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr %30, align 4
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.preheader35, label %55, !llvm.loop !12
+  %54 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %54, label %46, label %55, !llvm.loop !11
 
-55:                                               ; preds = %.preheader35
+55:                                               ; preds = %46
   %56 = add i32 %spec.select, 1
   store i32 %56, ptr %30, align 4
   br label %bms_nonempty_difference.exit
@@ -458,9 +460,9 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
 
 14:                                               ; preds = %14, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %18, -1
   %20 = and i64 %16, %19
@@ -468,7 +470,7 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %14, !llvm.loop !10
+  br i1 %or.cond, label %.loopexit, label %14, !llvm.loop !9
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
   %.010 = phi i1 [ false, %2 ], [ true, %4 ], [ true, %6 ], [ %.not.not, %14 ]
@@ -501,9 +503,9 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures
 
 14:                                               ; preds = %14, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %18, -1
   %20 = and i64 %16, %19
@@ -511,7 +513,7 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !13
+  br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
   %.010 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %6 ], [ %.not, %14 ]
@@ -526,11 +528,11 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
 4:                                                ; preds = %2
   %5 = icmp ne ptr %1, null
   %. = zext i1 %5 to i32
-  br label %.thread42
+  br label %.thread47
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %.thread42, label %8
+  br i1 %7, label %.thread47, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -538,19 +540,19 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %10, %12
-  %.36 = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
+  %.40 = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %.36, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %.40, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %16
 
-16:                                               ; preds = %32, %8
-  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %8 ]
-  %.026 = phi i32 [ %.2, %32 ], [ 0, %8 ]
-  %17 = getelementptr [0 x i64], ptr %14, i64 0, i64 %indvars.iv
+16:                                               ; preds = %.thread, %8
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %8 ]
+  %.027 = phi i32 [ %.22946, %.thread ], [ 0, %8 ]
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr [0 x i64], ptr %15, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [0 x i64], ptr %15, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = xor i64 %20, -1
   %22 = and i64 %18, %21
@@ -558,50 +560,50 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %16
-  %24 = icmp eq i32 %.026, 1
-  br i1 %24, label %.thread42, label %.thread
+  %24 = icmp eq i32 %.027, 1
+  br i1 %24, label %.thread47, label %.thread52
 
 25:                                               ; preds = %16
   %26 = xor i64 %18, -1
   %27 = and i64 %20, %26
-  %.not35 = icmp eq i64 %27, 0
-  br i1 %.not35, label %32, label %30
+  %.not39 = icmp eq i64 %27, 0
+  br i1 %.not39, label %.thread, label %30
 
-.thread:                                          ; preds = %23
+.thread52:                                        ; preds = %23
   %28 = xor i64 %18, -1
   %29 = and i64 %20, %28
-  %.not3540 = icmp eq i64 %29, 0
-  br i1 %.not3540, label %32, label %.thread42
+  %.not3954 = icmp eq i64 %29, 0
+  br i1 %.not3954, label %.thread, label %.thread47
 
 30:                                               ; preds = %25
-  %31 = icmp eq i32 %.026, 2
-  br i1 %31, label %.thread42, label %32
+  %.not50 = icmp eq i32 %.027, 2
+  br i1 %.not50, label %.thread47, label %.thread
 
-32:                                               ; preds = %.thread, %30, %25
-  %.2 = phi i32 [ %.026, %25 ], [ 1, %30 ], [ 2, %.thread ]
+.thread:                                          ; preds = %.thread52, %25, %30
+  %.22946 = phi i32 [ 1, %30 ], [ %.027, %25 ], [ 2, %.thread52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %33, label %16, !llvm.loop !14
+  br i1 %exitcond.not, label %31, label %16, !llvm.loop !13
 
-33:                                               ; preds = %32
-  %34 = icmp sgt i32 %10, %12
-  br i1 %34, label %35, label %37
+31:                                               ; preds = %.thread
+  %32 = icmp sgt i32 %10, %12
+  br i1 %32, label %33, label %35
 
-35:                                               ; preds = %33
-  %36 = icmp eq i32 %.2, 1
-  %.37 = select i1 %36, i32 3, i32 2
-  br label %.thread42
+33:                                               ; preds = %31
+  %34 = icmp eq i32 %.22946, 1
+  %.41 = select i1 %34, i32 3, i32 2
+  br label %.thread47
 
-37:                                               ; preds = %33
-  br i1 %13, label %38, label %.thread42
+35:                                               ; preds = %31
+  br i1 %13, label %36, label %.thread47
 
-38:                                               ; preds = %37
-  %39 = icmp eq i32 %.2, 2
-  %.38 = select i1 %39, i32 3, i32 1
-  br label %.thread42
+36:                                               ; preds = %35
+  %37 = icmp eq i32 %.22946, 2
+  %.42 = select i1 %37, i32 3, i32 1
+  br label %.thread47
 
-.thread42:                                        ; preds = %.thread, %30, %23, %37, %38, %35, %6, %4
-  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.37, %35 ], [ %.38, %38 ], [ %.2, %37 ], [ 3, %23 ], [ 3, %30 ], [ 3, %.thread ]
+.thread47:                                        ; preds = %.thread52, %23, %30, %35, %36, %33, %6, %4
+  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.41, %33 ], [ %.42, %36 ], [ %.22946, %35 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread52 ]
   ret i32 %.0
 }
 
@@ -614,7 +616,7 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.bms_is_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #11
   unreachable
 
 7:                                                ; preds = %2
@@ -632,7 +634,7 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
   %14 = and i32 %0, 63
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr [0 x i64], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %15, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = zext nneg i32 %14 to i64
   %20 = shl nuw i64 1, %19
@@ -654,7 +656,7 @@ define dso_local i32 @bms_member_index(ptr noundef readonly captures(address_is_
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.bms_is_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #11
   unreachable
 
 7:                                                ; preds = %2
@@ -672,7 +674,7 @@ bms_is_member.exit:                               ; preds = %9
   %13 = and i32 %1, 63
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr [0 x i64], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = zext nneg i32 %13 to i64
   %19 = shl nuw i64 1, %18
@@ -687,7 +689,7 @@ bms_is_member.exit:                               ; preds = %9
 .lr.ph:                                           ; preds = %21, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %21 ]
   %.01923 = phi i32 [ %.1, %28 ], [ 0, %21 ]
-  %22 = getelementptr [0 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %28, label %24
@@ -698,11 +700,11 @@ bms_is_member.exit:                               ; preds = %9
   %27 = add i32 %26, %.01923
   br label %28
 
-28:                                               ; preds = %.lr.ph, %24
+28:                                               ; preds = %24, %.lr.ph
   %.1 = phi i32 [ %27, %24 ], [ %.01923, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %28
   %.pre = load i64, ptr %16, align 8
@@ -745,16 +747,16 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(a
 
 12:                                               ; preds = %12, %5
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr [0 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x i64], ptr %10, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr [0 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %14
   %.not.not = icmp ne i64 %17, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond20 = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond20, label %.loopexit, label %12, !llvm.loop !16
+  br i1 %or.cond20, label %.loopexit, label %12, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %2
   %.013 = phi i1 [ false, %2 ], [ %.not.not, %12 ]
@@ -771,8 +773,8 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not25 = icmp sgt i32 %6, 0
-  br i1 %.not25, label %.lr.ph, label %.loopexit
+  %.not.not30 = icmp sgt i32 %6, 0
+  br i1 %.not.not30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -782,9 +784,9 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %12 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
+11:                                               ; preds = %.lr.ph, %.critedge
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %18
@@ -793,33 +795,33 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 637, ptr noundef nonnull @__func__.bms_overlap_list) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @__func__.bms_overlap_list) #11
   unreachable
 
 18:                                               ; preds = %11
   %19 = lshr i32 %13, 6
   %20 = load i32, ptr %9, align 4
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %22, label %30
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %18
   %23 = and i32 %13, 63
   %24 = zext nneg i32 %19 to i64
-  %25 = getelementptr [0 x i64], ptr %10, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [0 x i64], ptr %10, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = zext nneg i32 %23 to i64
   %28 = shl nuw i64 1, %27
   %29 = and i64 %26, %28
-  %.not22 = icmp eq i64 %29, 0
-  br i1 %.not22, label %30, label %.loopexit
+  %.not27 = icmp eq i64 %29, 0
+  br i1 %.not27, label %.critedge, label %.loopexit
 
-30:                                               ; preds = %18, %22
+.critedge:                                        ; preds = %22, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !16
 
-.loopexit:                                        ; preds = %22, %30, %.preheader, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ true, %22 ], [ false, %30 ]
+.loopexit:                                        ; preds = %.critedge, %22, %.preheader, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ false, %.critedge ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -832,7 +834,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 694, ptr noundef nonnull @__func__.bms_singleton_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 681, ptr noundef nonnull @__func__.bms_singleton_member) #11
   unreachable
 
 6:                                                ; preds = %1
@@ -846,7 +848,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
 10:                                               ; preds = %25, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %6 ]
   %.0 = phi i32 [ %.1, %25 ], [ -1, %6 ]
-  %11 = getelementptr [0 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [0 x i64], ptr %9, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %25, label %13
@@ -862,7 +864,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %17)
   %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 705, ptr noundef nonnull @__func__.bms_singleton_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 692, ptr noundef nonnull @__func__.bms_singleton_member) #11
   unreachable
 
 19:                                               ; preds = %13
@@ -873,11 +875,11 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   %24 = or disjoint i32 %21, %23
   br label %25
 
-25:                                               ; preds = %10, %19
+25:                                               ; preds = %19, %10
   %.1 = phi i32 [ %24, %19 ], [ %.0, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %26, label %10, !llvm.loop !18
+  br i1 %exitcond.not, label %26, label %10, !llvm.loop !17
 
 26:                                               ; preds = %25
   ret i32 %.1
@@ -898,17 +900,17 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 
 8:                                                ; preds = %20, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %4 ]
-  %.017 = phi i32 [ %.1, %20 ], [ -1, %4 ]
-  %9 = getelementptr [0 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %.019 = phi i32 [ %.221.ph, %20 ], [ -1, %4 ]
+  %9 = getelementptr inbounds nuw [0 x i64], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp slt i32 %.017, 0
+  %12 = icmp slt i32 %.019, 0
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %.not21 = icmp samesign ult i64 %13, 2
-  %or.cond = select i1 %12, i1 %.not21, i1 false
+  %.not25 = icmp samesign ult i64 %13, 2
+  %or.cond = select i1 %12, i1 %.not25, i1 false
   br i1 %or.cond, label %14, label %.loopexit
 
 14:                                               ; preds = %11
@@ -919,14 +921,14 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   %19 = or disjoint i32 %16, %18
   br label %20
 
-20:                                               ; preds = %8, %14
-  %.1 = phi i32 [ %19, %14 ], [ %.017, %8 ]
+20:                                               ; preds = %14, %8
+  %.221.ph = phi i32 [ %.019, %8 ], [ %19, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %21, label %8, !llvm.loop !18
 
 21:                                               ; preds = %20
-  store i32 %.1, ptr %1, align 4
+  store i32 %.221.ph, ptr %1, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %2, %21
@@ -950,7 +952,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_n
 7:                                                ; preds = %14, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
   %.011 = phi i32 [ %.1, %14 ], [ 0, %3 ]
-  %8 = getelementptr [0 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [0 x i64], ptr %6, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %14, label %10
@@ -961,11 +963,11 @@ define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_n
   %13 = add i32 %12, %.011
   br label %14
 
-14:                                               ; preds = %7, %10
+14:                                               ; preds = %10, %7
   %.1 = phi i32 [ %13, %10 ], [ %.011, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %14, %1
   %.0 = phi i32 [ 0, %1 ], [ %.1, %14 ]
@@ -985,29 +987,29 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly captur
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %7
 
-7:                                                ; preds = %12, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %3 ]
-  %.013 = phi i32 [ %.1, %12 ], [ 0, %3 ]
-  %8 = getelementptr [0 x i64], ptr %6, i64 0, i64 %indvars.iv
+7:                                                ; preds = %.thread, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %3 ]
+  %.015 = phi i32 [ %.21726, %.thread ], [ 0, %3 ]
+  %8 = getelementptr inbounds nuw [0 x i64], ptr %6, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %12, label %10
+  br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %7
-  %.not17 = icmp eq i32 %.013, 0
+  %.not21 = icmp eq i32 %.015, 0
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
-  %.not18 = icmp samesign ult i64 %11, 2
-  %or.cond = select i1 %.not17, i1 %.not18, i1 false
-  br i1 %or.cond, label %12, label %.loopexit
+  %.not22 = icmp samesign ult i64 %11, 2
+  %or.cond = select i1 %.not21, i1 %.not22, i1 false
+  br i1 %or.cond, label %.thread, label %.loopexit
 
-12:                                               ; preds = %10, %7
-  %.1 = phi i32 [ %.013, %7 ], [ 1, %10 ]
+.thread:                                          ; preds = %7, %10
+  %.21726 = phi i32 [ 1, %10 ], [ %.015, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
 
-.loopexit:                                        ; preds = %12, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ %.1, %12 ], [ 2, %10 ]
+.loopexit:                                        ; preds = %.thread, %10, %1
+  %.0 = phi i32 [ 0, %1 ], [ %.21726, %.thread ], [ 2, %10 ]
   ret i32 %.0
 }
 
@@ -1020,7 +1022,7 @@ define dso_local ptr @bms_add_member(ptr noundef %0, i32 noundef %1) local_unnam
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 836, ptr noundef nonnull @__func__.bms_add_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 823, ptr noundef nonnull @__func__.bms_add_member) #11
   unreachable
 
 7:                                                ; preds = %2
@@ -1035,14 +1037,14 @@ bms_make_singleton.exit:                          ; preds = %7
   %narrow.i = add nuw nsw i32 %12, 8
   %13 = zext nneg i32 %narrow.i to i64
   %14 = tail call ptr @palloc0(i64 noundef %13) #11
-  store i32 429, ptr %14, align 8
+  store i32 444, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %11, ptr %15, align 4
   %16 = zext nneg i32 %10 to i64
   %17 = shl nuw i64 1, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = zext nneg i32 %9 to i64
-  %20 = getelementptr [0 x i64], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [0 x i64], ptr %18, i64 0, i64 %19
   store i64 %17, ptr %20, align 8
   br label %44
 
@@ -1066,13 +1068,13 @@ bms_make_singleton.exit:                          ; preds = %7
 
 32:                                               ; preds = %32, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ %31, %24 ]
-  %33 = getelementptr [0 x i64], ptr %30, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds [0 x i64], ptr %30, i64 0, i64 %indvars.iv
   store i64 0, ptr %33, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %29, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %32, label %.loopexit, !llvm.loop !22
+  br i1 %36, label %32, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %32, %21
   %.022 = phi ptr [ %0, %21 ], [ %28, %32 ]
@@ -1080,7 +1082,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %38 = shl nuw i64 1, %37
   %39 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %40 = zext nneg i32 %9 to i64
-  %41 = getelementptr [0 x i64], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [0 x i64], ptr %39, i64 0, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %38
   store i64 %43, ptr %41, align 8
@@ -1102,19 +1104,19 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 889, ptr noundef nonnull @__func__.bms_del_member) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.bms_del_member) #11
   unreachable
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %35, label %9
+  br i1 %8, label %34, label %9
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp slt i32 %10, %12
-  br i1 %.not, label %13, label %35
+  br i1 %.not, label %13, label %34, !prof !22
 
 13:                                               ; preds = %9
   %14 = and i32 %1, 63
@@ -1123,7 +1125,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %17 = xor i64 %16, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = zext nneg i32 %10 to i64
-  %20 = getelementptr [0 x i64], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [0 x i64], ptr %18, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %17
   store i64 %22, ptr %20, align 8
@@ -1131,7 +1133,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %24 = add nsw i32 %12, -1
   %25 = icmp eq i32 %10, %24
   %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %.preheader.preheader, label %35
+  br i1 %or.cond, label %.preheader.preheader, label %34
 
 .preheader.preheader:                             ; preds = %13
   %26 = lshr i32 %1, 6
@@ -1140,28 +1142,28 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
   %indvars.iv = phi i64 [ %27, %.preheader.preheader ], [ %indvars.iv.next, %29 ]
-  %28 = icmp sgt i64 %indvars.iv, 0
-  br i1 %28, label %29, label %34
+  %28 = icmp slt i64 %indvars.iv, 1
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %30 = getelementptr [0 x i64], ptr %18, i64 0, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [0 x i64], ptr %18, i64 0, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8
-  %.not28 = icmp eq i64 %31, 0
-  br i1 %.not28, label %.preheader, label %32, !llvm.loop !23
+  %.not30 = icmp eq i64 %31, 0
+  br i1 %.not30, label %.preheader, label %32, !llvm.loop !23
 
 32:                                               ; preds = %29
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %33, ptr %11, align 4
-  br label %35
+  br label %34
 
-34:                                               ; preds = %.preheader
+.critedge:                                        ; preds = %.preheader
   tail call void @pfree(ptr noundef nonnull %0) #11
-  br label %35
+  br label %34
 
-35:                                               ; preds = %13, %9, %7, %34, %32
-  %.024 = phi ptr [ %0, %32 ], [ null, %34 ], [ null, %7 ], [ %0, %9 ], [ %0, %13 ]
-  ret ptr %.024
+34:                                               ; preds = %32, %13, %9, %7, %.critedge
+  %.026 = phi ptr [ null, %.critedge ], [ %0, %32 ], [ null, %7 ], [ %0, %9 ], [ %0, %13 ]
+  ret ptr %.026
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1215,9 +1217,9 @@ bms_copy.exit27:                                  ; preds = %14
 
 28:                                               ; preds = %28, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %24 ]
-  %29 = getelementptr [0 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [0 x i64], ptr %26, i64 0, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr [0 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [0 x i64], ptr %27, i64 0, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, %30
   store i64 %33, ptr %31, align 8
@@ -1287,9 +1289,9 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
 
 29:                                               ; preds = %29, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %26 ]
-  %30 = getelementptr [0 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [0 x i64], ptr %27, i64 0, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr [0 x i64], ptr %28, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [0 x i64], ptr %28, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %18, align 4
@@ -1320,7 +1322,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1053, ptr noundef nonnull @__func__.bms_add_range) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.bms_add_range) #11
   unreachable
 
 10:                                               ; preds = %5
@@ -1335,7 +1337,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %17 = shl nsw i64 %16, 3
   %18 = add nsw i64 %17, 8
   %19 = tail call ptr @palloc0(i64 noundef %18) #11
-  store i32 429, ptr %19, align 8
+  store i32 444, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %15, ptr %20, align 4
   br label %.loopexit
@@ -1360,7 +1362,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 33:                                               ; preds = %33, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ %32, %24 ]
-  %34 = getelementptr [0 x i64], ptr %31, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds [0 x i64], ptr %31, i64 0, i64 %indvars.iv
   store i64 0, ptr %34, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %30, align 4
@@ -1384,7 +1386,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %46 = and i64 %45, %notmask51
   %47 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %48 = zext nneg i32 %11 to i64
-  %49 = getelementptr [0 x i64], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [0 x i64], ptr %47, i64 0, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %46
   store i64 %51, ptr %49, align 8
@@ -1393,7 +1395,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 52:                                               ; preds = %.loopexit
   %53 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %54 = zext nneg i32 %38 to i64
-  %55 = getelementptr [0 x i64], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [0 x i64], ptr %53, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, %notmask51
   store i64 %57, ptr %55, align 8
@@ -1419,7 +1421,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %68 = zext nneg i32 %40 to i64
   %69 = lshr i64 -1, %68
   %70 = sext i32 %11 to i64
-  %71 = getelementptr [0 x i64], ptr %53, i64 0, i64 %70
+  %71 = getelementptr inbounds [0 x i64], ptr %53, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %69
   store i64 %73, ptr %71, align 8
@@ -1458,9 +1460,9 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
 14:                                               ; preds = %14, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %7 ]
   %.022 = phi i32 [ %spec.select, %14 ], [ -1, %7 ]
-  %15 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %16
   store i64 %19, ptr %17, align 8
@@ -1506,35 +1508,35 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %11 = icmp sgt i32 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %11, label %.preheader, label %.preheader31
+  br i1 %11, label %.preheader, label %.preheader35
 
-.preheader31:                                     ; preds = %6
+.preheader35:                                     ; preds = %6
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %23
 
 .preheader:                                       ; preds = %6, %.preheader
-  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.preheader ], [ 0, %6 ]
-  %14 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv33
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %6 ]
+  %14 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %indvars.iv37
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, -1
-  %17 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv33
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv37
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %16
   store i64 %19, ptr %17, align 8
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %20 = load i32, ptr %9, align 4
   %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next34, %21
+  %22 = icmp slt i64 %indvars.iv.next38, %21
   br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !28
 
-23:                                               ; preds = %.preheader31, %23
-  %indvars.iv = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next, %23 ]
-  %.0 = phi i32 [ -1, %.preheader31 ], [ %spec.select, %23 ]
-  %24 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv
+23:                                               ; preds = %.preheader35, %23
+  %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %23 ]
+  %.0 = phi i32 [ -1, %.preheader35 ], [ %spec.select, %23 ]
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, -1
-  %27 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %26
   store i64 %29, ptr %27, align 8
@@ -1546,21 +1548,21 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   br i1 %exitcond.not, label %31, label %23, !llvm.loop !29
 
 31:                                               ; preds = %23
-  %32 = icmp eq i32 %spec.select, -1
-  br i1 %32, label %33, label %34
+  %.not34 = icmp eq i32 %spec.select, -1
+  br i1 %.not34, label %.thread, label %32
 
-33:                                               ; preds = %31
+.thread:                                          ; preds = %31
   tail call void @pfree(ptr noundef nonnull %0) #11
   br label %.loopexit
 
-34:                                               ; preds = %31
-  %35 = add nuw i32 %spec.select, 1
-  store i32 %35, ptr %7, align 4
+32:                                               ; preds = %31
+  %33 = add nuw i32 %spec.select, 1
+  store i32 %33, ptr %7, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %34, %4, %2, %33
-  %.027 = phi ptr [ null, %33 ], [ null, %2 ], [ %0, %4 ], [ %0, %34 ], [ %0, %.preheader ]
-  ret ptr %.027
+.loopexit:                                        ; preds = %.preheader, %32, %.thread, %4, %2
+  %.029 = phi ptr [ null, %2 ], [ %0, %4 ], [ null, %.thread ], [ %0, %32 ], [ %0, %.preheader ]
+  ret ptr %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1590,9 +1592,9 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 16:                                               ; preds = %16, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %6 ]
-  %17 = getelementptr [0 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr [0 x i64], ptr %15, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [0 x i64], ptr %15, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = or i64 %20, %18
   store i64 %21, ptr %19, align 8
@@ -1634,28 +1636,28 @@ define dso_local i32 @bms_next_member(ptr noundef readonly captures(address_is_n
   br label %14
 
 14:                                               ; preds = %.lr.ph, %24
-  %.01723 = phi i64 [ %12, %.lr.ph ], [ -1, %24 ]
-  %.01822 = phi i32 [ %8, %.lr.ph ], [ %25, %24 ]
-  %15 = sext i32 %.01822 to i64
-  %16 = getelementptr [0 x i64], ptr %13, i64 0, i64 %15
+  %.01930 = phi i64 [ %12, %.lr.ph ], [ -1, %24 ]
+  %.02129 = phi i32 [ %8, %.lr.ph ], [ %25, %24 ]
+  %15 = sext i32 %.02129 to i64
+  %16 = getelementptr inbounds [0 x i64], ptr %13, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, %.01723
+  %18 = and i64 %17, %.01930
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = shl i32 %.01822, 6
+  %20 = shl i32 %.02129, 6
   %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %18, i1 true)
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = or disjoint i32 %20, %22
   br label %.loopexit
 
 24:                                               ; preds = %14
-  %25 = add nsw i32 %.01822, 1
+  %25 = add nsw i32 %.02129, 1
   %exitcond.not = icmp eq i32 %25, %6
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !31
 
-.loopexit:                                        ; preds = %24, %4, %2, %19
+.loopexit:                                        ; preds = %24, %4, %19, %2
   %.0 = phi i32 [ %23, %19 ], [ -2, %2 ], [ -2, %4 ], [ -2, %24 ]
   ret i32 %.0
 }
@@ -1678,14 +1680,14 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   br label %11
 
 11:                                               ; preds = %5, %7
-  %.021.in = phi i32 [ %10, %7 ], [ %1, %5 ]
-  %.021 = add i32 %.021.in, -1
-  %12 = icmp sgt i32 %.021, -64
+  %.024.in = phi i32 [ %10, %7 ], [ %1, %5 ]
+  %.024 = add i32 %.024.in, -1
+  %12 = icmp sgt i32 %.024, -64
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
-  %13 = sdiv i32 %.021, 64
-  %14 = srem i32 %.021, 64
+  %13 = sdiv i32 %.024, 64
+  %14 = srem i32 %.024, 64
   %15 = sub nsw i32 63, %14
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 -1, %16
@@ -1693,17 +1695,17 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   br label %19
 
 19:                                               ; preds = %.lr.ph, %30
-  %.02028 = phi i64 [ %17, %.lr.ph ], [ -1, %30 ]
-  %.02227 = phi i32 [ %13, %.lr.ph ], [ %31, %30 ]
-  %20 = zext nneg i32 %.02227 to i64
-  %21 = getelementptr [0 x i64], ptr %18, i64 0, i64 %20
+  %.02235 = phi i64 [ %17, %.lr.ph ], [ -1, %30 ]
+  %.02534 = phi i32 [ %13, %.lr.ph ], [ %31, %30 ]
+  %20 = zext nneg i32 %.02534 to i64
+  %21 = getelementptr inbounds nuw [0 x i64], ptr %18, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, %.02028
+  %23 = and i64 %22, %.02235
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %19
-  %25 = shl nuw nsw i32 %.02227, 6
+  %25 = shl nuw nsw i32 %.02534, 6
   %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %23, i1 true)
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = or disjoint i32 %25, %27
@@ -1711,11 +1713,11 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   br label %.loopexit
 
 30:                                               ; preds = %19
-  %31 = add nsw i32 %.02227, -1
-  %32 = icmp sgt i32 %.02227, 0
+  %31 = add nsw i32 %.02534, -1
+  %32 = icmp sgt i32 %.02534, 0
   br i1 %32, label %19, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %30, %11, %2, %24
+.loopexit:                                        ; preds = %30, %11, %24, %2
   %.0 = phi i32 [ %29, %24 ], [ -2, %2 ], [ -2, %11 ], [ -2, %30 ]
   ret i32 %.0
 }
@@ -1784,15 +1786,15 @@ define dso_local range(i32 0, 2) i32 @bitmap_match(ptr noundef readonly captures
 
 15:                                               ; preds = %15, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr [0 x i64], ptr %14, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %.not15.i = icmp eq i64 %17, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond.not = select i1 %.not15.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not, label %15, label %bms_equal.exit, !llvm.loop !5
+  br i1 %or.cond.not, label %15, label %bms_equal.exit, !llvm.loop !4
 
 bms_equal.exit:                                   ; preds = %15, %3, %8
   %.011.i = phi i1 [ false, %8 ], [ %.mux.i, %3 ], [ %.not15.i, %15 ]
@@ -1824,13 +1826,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -1838,38 +1840,38 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}

@@ -69,7 +69,7 @@ define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 158, ptr noundef nonnull @__func__.XLogBeginInsert) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.XLogBeginInsert) #10
   unreachable
 
 5:                                                ; preds = %0
@@ -80,7 +80,7 @@ define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @__func__.XLogBeginInsert) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.XLogBeginInsert) #10
   unreachable
 
 9:                                                ; preds = %5
@@ -90,8 +90,11 @@ define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
 
 declare zeroext i1 @XLogInsertAllowed() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
@@ -107,7 +110,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.XLogEnsureRecordSpace) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.XLogEnsureRecordSpace) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -115,7 +118,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   %8 = add nuw nsw i32 %spec.store.select, 1
   %9 = load i32, ptr @max_registered_buffers, align 4
   %.not = icmp slt i32 %spec.store.select, %9
-  br i1 %.not, label %44, label %10
+  br i1 %.not, label %42, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @registered_buffers, align 8
@@ -126,7 +129,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   store ptr %14, ptr @registered_buffers, align 8
   %16 = load i32, ptr @max_registered_buffers, align 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr %struct.registered_buffer, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw %struct.registered_buffer, ptr %14, i64 %17
   %19 = sub nsw i32 %8, %16
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 8304
@@ -135,66 +138,68 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   %24 = icmp eq i64 %23, 0
   %25 = icmp ult i64 %21, 1025
   %or.cond = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %43
+  br i1 %or.cond, label %26, label %41
 
 26:                                               ; preds = %10
-  %27 = getelementptr i8, ptr %18, i64 %21
-  %28 = icmp ult ptr %18, %27
-  br i1 %28, label %.lr.ph.preheader, label %.loopexit
+  %.not30 = icmp eq i32 %8, %16
+  br i1 %.not30, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %26
-  %29 = zext nneg i32 %8 to i64
-  %30 = mul nuw nsw i64 %29, 8304
-  %31 = add i64 %30, %15
-  %32 = mul nuw nsw i64 %17, 8304
-  %33 = add i64 %31, %32
-  %34 = sext i32 %16 to i64
-  %.neg = mul nsw i64 %34, -8304
-  %35 = add i64 %.neg, %33
-  %36 = add i64 %32, %15
-  %37 = add i64 %36, 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 %37)
-  %38 = xor i64 %15, -1
-  %39 = add i64 %umax, %38
-  %40 = sub i64 %39, %32
-  %41 = and i64 %40, -8
-  %42 = add i64 %41, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %42, i1 false)
+  %27 = zext nneg i32 %8 to i64
+  %28 = mul nuw nsw i64 %27, 8304
+  %29 = add i64 %28, %15
+  %30 = mul nuw nsw i64 %17, 8304
+  %31 = add i64 %29, %30
+  %32 = sext i32 %16 to i64
+  %.neg = mul nsw i64 %32, -8304
+  %33 = add i64 %.neg, %31
+  %34 = add i64 %30, %15
+  %35 = add i64 %34, 8
+  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 %35)
+  %36 = xor i64 %15, -1
+  %37 = add i64 %umax, %36
+  %38 = sub i64 %37, %30
+  %39 = and i64 %38, -8
+  %40 = add i64 %39, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %40, i1 false)
   br label %.loopexit
 
-43:                                               ; preds = %10
+41:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %21, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %26, %43
+.loopexit:                                        ; preds = %.lr.ph.preheader, %26, %41
   store i32 %8, ptr @max_registered_buffers, align 4
-  br label %44
+  br label %42
 
-44:                                               ; preds = %.loopexit, %7
-  %45 = load i32, ptr @max_rdatas, align 4
-  %46 = icmp sgt i32 %spec.store.select4, %45
-  br i1 %46, label %47, label %52
+42:                                               ; preds = %.loopexit, %7
+  %43 = load i32, ptr @max_rdatas, align 4
+  %44 = icmp sgt i32 %spec.store.select4, %43
+  br i1 %44, label %45, label %50
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr @rdatas, align 8
-  %49 = zext nneg i32 %spec.store.select4 to i64
-  %50 = mul nuw nsw i64 %49, 24
-  %51 = tail call ptr @repalloc(ptr noundef %48, i64 noundef %50) #10
-  store ptr %51, ptr @rdatas, align 8
+45:                                               ; preds = %42
+  %46 = load ptr, ptr @rdatas, align 8
+  %47 = zext nneg i32 %spec.store.select4 to i64
+  %48 = mul nuw nsw i64 %47, 24
+  %49 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %48) #10
+  store ptr %49, ptr @rdatas, align 8
   store i32 %spec.store.select4, ptr @max_rdatas, align 4
-  br label %52
+  br label %50
 
-52:                                               ; preds = %47, %44
+50:                                               ; preds = %45, %42
   ret void
 }
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @XLogResetInsertion() local_unnamed_addr #4 {
+define dso_local void @XLogResetInsertion() local_unnamed_addr #5 {
   %1 = load i32, ptr @max_registered_block_id, align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
@@ -206,11 +211,11 @@ define dso_local void @XLogResetInsertion() local_unnamed_addr #4 {
 
 4:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr %struct.registered_buffer, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.registered_buffer, ptr %3, i64 %indvars.iv
   store i8 0, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %4, %0
   store i32 0, ptr @num_rdatas, align 4
@@ -238,7 +243,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
   unreachable
 
 11:                                               ; preds = %6
@@ -249,7 +254,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
 13:                                               ; preds = %11, %3
   %14 = load ptr, ptr @registered_buffers, align 8
   %15 = zext i8 %0 to i64
-  %16 = getelementptr %struct.registered_buffer, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw %struct.registered_buffer, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -261,7 +266,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   %22 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %23 = xor i32 %1, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %BufferGetPage.exit
 
@@ -270,7 +275,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   %29 = add nsw i32 %1, -1
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 13
-  %32 = getelementptr i8, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
   br label %BufferGetPage.exit
 
 BufferGetPage.exit:                               ; preds = %21, %27
@@ -311,13 +316,13 @@ define dso_local void @XLogRegisterBlock(i8 noundef zeroext %0, ptr noundef read
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
   unreachable
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @registered_buffers, align 8
   %18 = zext i8 %0 to i64
-  %19 = getelementptr %struct.registered_buffer, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %struct.registered_buffer, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -338,7 +343,7 @@ define dso_local void @XLogRegisterBlock(i8 noundef zeroext %0, ptr noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogRegisterData(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -354,7 +359,7 @@ define dso_local void @XLogRegisterData(ptr noundef %0, i32 noundef %1) local_un
   %8 = load i32, ptr @num_rdatas, align 4
   %9 = load i32, ptr @max_rdatas, align 4
   %10 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef %9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.XLogRegisterData) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.XLogRegisterData) #10
   unreachable
 
 11:                                               ; preds = %2
@@ -362,7 +367,7 @@ define dso_local void @XLogRegisterData(ptr noundef %0, i32 noundef %1) local_un
   %13 = add nsw i32 %3, 1
   store i32 %13, ptr @num_rdatas, align 4
   %14 = sext i32 %3 to i64
-  %15 = getelementptr %struct.XLogRecData, ptr %12, i64 %14
+  %15 = getelementptr inbounds %struct.XLogRecData, ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -383,9 +388,9 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @registered_buffers, align 8
   %5 = zext i8 %0 to i64
-  %6 = getelementptr %struct.registered_buffer, ptr %4, i64 %5
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
+  %6 = getelementptr inbounds nuw %struct.registered_buffer, ptr %4, i64 %5
+  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %3
@@ -393,7 +398,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   tail call void @llvm.assume(i1 %10)
   %11 = zext i8 %0 to i32
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %11) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 417, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 416, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
   unreachable
 
 13:                                               ; preds = %3
@@ -409,7 +414,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   %19 = load i32, ptr @num_rdatas, align 4
   %20 = load i32, ptr @max_rdatas, align 4
   %21 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %19, i32 noundef %20) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 428, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
   unreachable
 
 22:                                               ; preds = %13
@@ -427,7 +432,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   %30 = zext i8 %0 to i32
   %31 = load i32, ptr %23, align 8
   %32 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.8, i32 noundef 65535, i32 noundef %30, i32 noundef %31, i32 noundef %2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
   unreachable
 
 33:                                               ; preds = %22
@@ -435,7 +440,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   %35 = add nsw i32 %14, 1
   store i32 %35, ptr @num_rdatas, align 4
   %36 = sext i32 %14 to i64
-  %37 = getelementptr %struct.XLogRecData, ptr %34, i64 %36
+  %37 = getelementptr inbounds %struct.XLogRecData, ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -451,7 +456,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @XLogSetRecordFlags(i8 noundef zeroext %0) local_unnamed_addr #6 {
+define dso_local void @XLogSetRecordFlags(i8 noundef zeroext %0) local_unnamed_addr #7 {
   %2 = load i8, ptr @curinsert_flags, align 1
   %3 = or i8 %2, %0
   store i8 %3, ptr @curinsert_flags, align 1
@@ -470,7 +475,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.XLogInsert) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.XLogInsert) #10
   unreachable
 
 9:                                                ; preds = %2
@@ -483,7 +488,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %10) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__func__.XLogInsert) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.XLogInsert) #10
   unreachable
 
 15:                                               ; preds = %9
@@ -511,25 +516,27 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 
 26:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr %struct.registered_buffer, ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw %struct.registered_buffer, ptr %25, i64 %indvars.iv.i
   store i8 0, ptr %27, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %XLogResetInsertion.exit, label %26, !llvm.loop !5
+  br i1 %exitcond.not.i, label %XLogResetInsertion.exit, label %26, !llvm.loop !4
 
 28:                                               ; preds = %.preheader, %XLogRecordAssemble.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   call void @GetFullPageWriteInfo(ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %29 = load i64, ptr %4, align 8
-  %30 = load i8, ptr %5, align 1
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %31 = trunc nuw i8 %30 to i1
   %32 = load ptr, ptr @hdr_scratch, align 8
-  %33 = getelementptr i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr null, ptr @hdr_rdt, align 8
   store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @hdr_rdt, i64 8), align 8
   %34 = load ptr, ptr @wal_consistency_checking, align 8
-  %35 = getelementptr i8, ptr %34, i64 %19
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %19
+  %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
+  %37 = trunc nuw i8 %36 to i1
   %spec.select.i = select i1 %37, i8 %20, i8 %1
   %38 = load i32, ptr @max_registered_block_id, align 4
   %39 = icmp sgt i32 %38, 0
@@ -551,12 +558,12 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %.0157221.i = phi ptr [ null, %.lr.ph.i13 ], [ %.1158.i, %203 ]
   %.0159220.i = phi ptr [ @hdr_rdt, %.lr.ph.i13 ], [ %.1160.i, %203 ]
   %.sroa.032.0219.i = phi i16 [ undef, %.lr.ph.i13 ], [ %.sroa.032.1.i, %203 ]
-  %.sroa.4.0218.i = phi i16 [ undef, %.lr.ph.i13 ], [ %.sroa.4.1.i, %203 ]
-  %.sroa.11.0217.i = phi i8 [ undef, %.lr.ph.i13 ], [ %.sroa.11.1.i, %203 ]
+  %.sroa.6.0218.i = phi i16 [ undef, %.lr.ph.i13 ], [ %.sroa.6.1.i, %203 ]
+  %.sroa.13.0217.i = phi i8 [ undef, %.lr.ph.i13 ], [ %.sroa.13.1.i, %203 ]
   %.0167216.i = phi ptr [ %33, %.lr.ph.i13 ], [ %.1168.i, %203 ]
-  %45 = getelementptr %struct.registered_buffer, ptr %44, i64 %indvars.iv.i14
-  %46 = load i8, ptr %45, align 8
-  %47 = trunc i8 %46 to i1
+  %45 = getelementptr inbounds nuw %struct.registered_buffer, ptr %44, i64 %indvars.iv.i14
+  %46 = load i8, ptr %45, align 8, !range !6, !noundef !7
+  %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %203
 
 48:                                               ; preds = %42
@@ -589,7 +596,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 
 61:                                               ; preds = %59, %55, %53, %48
   %.331 = phi i64 [ %.129, %55 ], [ %.129, %53 ], [ %.129, %48 ], [ %spec.select, %59 ]
-  %.0174.shrunk.i = phi i1 [ true, %55 ], [ false, %53 ], [ true, %48 ], [ false, %59 ]
+  %.0173.i = phi i1 [ true, %55 ], [ false, %53 ], [ true, %48 ], [ false, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
@@ -598,12 +605,12 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 65:                                               ; preds = %61
   %66 = and i8 %50, 16
   %.not186.i = icmp ne i8 %66, 0
-  %67 = xor i1 %.0174.shrunk.i, true
+  %67 = xor i1 %.0173.i, true
   %spec.select194.i = or i1 %.not186.i, %67
   br label %68
 
 68:                                               ; preds = %65, %61
-  %.0173.i = phi i1 [ false, %61 ], [ %spec.select194.i, %65 ]
+  %.0174.i = phi i1 [ false, %61 ], [ %spec.select194.i, %65 ]
   %69 = trunc i64 %indvars.iv.i14 to i8
   %70 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %71 = load i32, ptr %70, align 8
@@ -611,8 +618,8 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %73 = and i8 %50, 6
   %74 = icmp eq i8 %73, 6
   %75 = or i8 %72, 64
-  %.sroa.2.0.i = select i1 %74, i8 %75, i8 %72
-  %76 = or i1 %41, %.0174.shrunk.i
+  %.sroa.4.0.i = select i1 %74, i8 %75, i8 %72
+  %76 = or i1 %41, %.0173.i
   br i1 %76, label %77, label %158
 
 77:                                               ; preds = %68
@@ -640,39 +647,39 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br label %90
 
 90:                                               ; preds = %85, %81, %77
-  %.sroa.4.3.i = phi i16 [ 0, %81 ], [ 0, %77 ], [ %spec.select195.i, %85 ]
-  %.sroa.0.3.i = phi i16 [ 0, %81 ], [ 0, %77 ], [ %spec.select196.i, %85 ]
+  %.sroa.6.4.i = phi i16 [ 0, %81 ], [ 0, %77 ], [ %spec.select195.i, %85 ]
+  %.sroa.0.4.i = phi i16 [ 0, %81 ], [ 0, %77 ], [ %spec.select196.i, %85 ]
   %91 = load i32, ptr @wal_compression, align 4
   %.not188.i = icmp eq i32 %91, 0
   br i1 %.not188.i, label %._crit_edge238.i, label %92
 
 ._crit_edge238.i:                                 ; preds = %90
-  %.pre239.i = zext i16 %.sroa.0.3.i to i32
+  %.pre239.i = zext i16 %.sroa.0.4.i to i32
   br label %118
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %45, i64 104
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
-  %94 = zext i16 %.sroa.0.3.i to i32
+  %94 = zext i16 %.sroa.0.4.i to i32
   %95 = sub nsw i32 8192, %94
-  %.not.i.i = icmp eq i16 %.sroa.0.3.i, 0
+  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #10
+  %.not.i.i = icmp eq i16 %.sroa.0.4.i, 0
   br i1 %.not.i.i, label %105, label %96
 
 96:                                               ; preds = %92
-  %97 = zext i16 %.sroa.4.3.i to i64
+  %97 = zext i16 %.sroa.6.4.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %79, i64 %97, i1 false)
-  %98 = zext i16 %.sroa.4.3.i to i32
-  %99 = getelementptr i8, ptr %3, i64 %97
+  %98 = zext i16 %.sroa.6.4.i to i32
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 %97
   %100 = add nuw nsw i32 %94, %98
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr i8, ptr %79, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %79, i64 %101
   %103 = sub nsw i32 8192, %100
   %104 = sext i32 %103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %102, i64 %104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull align 1 %102, i64 %104, i1 false)
   br label %105
 
 105:                                              ; preds = %96, %92
-  %.022.i.i = phi i32 [ 2, %96 ], [ 0, %92 ]
+  %.020.i.i = phi i32 [ 2, %96 ], [ 0, %92 ]
   %.0.i.i = phi ptr [ %3, %96 ], [ %79, %92 ]
   switch i32 %91, label %XLogCompressBackupBlock.exit.i [
     i32 1, label %112
@@ -684,20 +691,20 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %107)
   %108 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
   unreachable
 
 109:                                              ; preds = %105
   %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %110)
   %111 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 996, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 995, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
   unreachable
 
 112:                                              ; preds = %105
   %113 = call i32 @pglz_compress(ptr noundef %.0.i.i, i32 noundef %95, ptr noundef nonnull %93, ptr noundef %21) #10
   %114 = icmp sgt i32 %113, -1
-  %115 = add nuw i32 %113, %.022.i.i
+  %115 = add nuw i32 %113, %.020.i.i
   %116 = icmp slt i32 %115, %95
   %or.cond.i.i = select i1 %114, i1 %116, i1 false
   %117 = trunc i32 %113 to i16
@@ -706,22 +713,22 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 
 XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %.1200.i = phi i16 [ 0, %105 ], [ %spec.select201.i, %112 ]
-  %.024.i.i = phi i1 [ false, %105 ], [ %or.cond.i.i, %112 ]
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
+  %.022.i.i = phi i1 [ false, %105 ], [ %or.cond.i.i, %112 ]
+  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #10
   br label %118
 
 118:                                              ; preds = %XLogCompressBackupBlock.exit.i, %._crit_edge238.i
   %.pre-phi.i = phi i32 [ %.pre239.i, %._crit_edge238.i ], [ %94, %XLogCompressBackupBlock.exit.i ]
   %.0.i = phi i16 [ 0, %._crit_edge238.i ], [ %.1200.i, %XLogCompressBackupBlock.exit.i ]
-  %.1165.i = phi i1 [ false, %._crit_edge238.i ], [ %.024.i.i, %XLogCompressBackupBlock.exit.i ]
-  %119 = or i8 %.sroa.2.0.i, 16
+  %.1165.i = phi i1 [ false, %._crit_edge238.i ], [ %.022.i.i, %XLogCompressBackupBlock.exit.i ]
+  %119 = or i8 %.sroa.4.0.i, 16
   %120 = add i32 %.1, 1
   %121 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %121, ptr %.0159220.i, align 8
-  %122 = icmp ne i16 %.sroa.0.3.i, 0
+  %122 = icmp ne i16 %.sroa.0.4.i, 0
   %123 = zext i1 %122 to i8
   %124 = or disjoint i8 %123, 2
-  %.sroa.11.3.i = select i1 %.0174.shrunk.i, i8 %124, i8 %123
+  %.sroa.13.3.i = select i1 %.0173.i, i8 %124, i8 %123
   br i1 %.1165.i, label %125, label %139
 
 125:                                              ; preds = %118
@@ -733,25 +740,25 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   ]
 
 127:                                              ; preds = %125
-  %128 = or disjoint i8 %.sroa.11.3.i, 4
+  %128 = or disjoint i8 %.sroa.13.3.i, 4
   br label %135
 
 129:                                              ; preds = %125
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %130)
   %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 740, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 739, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
   unreachable
 
 132:                                              ; preds = %125
   %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %133)
   %134 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 748, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 747, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
   unreachable
 
 135:                                              ; preds = %127, %125
-  %.sroa.11.4.i = phi i8 [ %.sroa.11.3.i, %125 ], [ %128, %127 ]
+  %.sroa.13.4.i = phi i8 [ %.sroa.13.3.i, %125 ], [ %128, %127 ]
   %136 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %137 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %136, ptr %137, align 8
@@ -767,18 +774,18 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   br label %153
 
 142:                                              ; preds = %139
-  %143 = sub nsw i16 8192, %.sroa.0.3.i
+  %143 = sub nsw i16 8192, %.sroa.0.4.i
   %144 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %79, ptr %144, align 8
-  %145 = zext i16 %.sroa.4.3.i to i32
+  %145 = zext i16 %.sroa.6.4.i to i32
   %146 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store i32 %145, ptr %146, align 8
-  %147 = getelementptr i8, ptr %45, i64 80
+  %147 = getelementptr inbounds nuw i8, ptr %45, i64 80
   store ptr %147, ptr %121, align 8
   %148 = add nuw nsw i32 %.pre-phi.i, %145
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr i8, ptr %79, i64 %149
-  %151 = getelementptr i8, ptr %45, i64 88
+  %150 = getelementptr inbounds nuw i8, ptr %79, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store ptr %150, ptr %151, align 8
   %152 = sub nsw i32 8192, %148
   br label %153
@@ -786,10 +793,10 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
 153:                                              ; preds = %142, %140, %135
   %.sink241.i = phi i64 [ 72, %140 ], [ 96, %142 ], [ 72, %135 ]
   %.sink.i = phi i32 [ 8192, %140 ], [ %152, %142 ], [ %138, %135 ]
-  %.sroa.11.5.i = phi i8 [ %.sroa.11.3.i, %140 ], [ %.sroa.11.3.i, %142 ], [ %.sroa.11.4.i, %135 ]
+  %.sroa.13.5.i = phi i8 [ %.sroa.13.3.i, %140 ], [ %.sroa.13.3.i, %142 ], [ %.sroa.13.4.i, %135 ]
   %.sroa.032.3.i = phi i16 [ 8192, %140 ], [ %143, %142 ], [ %.0.i, %135 ]
   %.3162.i = phi ptr [ %121, %140 ], [ %147, %142 ], [ %121, %135 ]
-  %154 = getelementptr i8, ptr %45, i64 %.sink241.i
+  %154 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink241.i
   store i32 %.sink.i, ptr %154, align 8
   %155 = zext i16 %.sroa.032.3.i to i64
   %156 = add i64 %.0154223.i, %155
@@ -798,18 +805,18 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
 
 158:                                              ; preds = %153, %68
   %.3 = phi i32 [ %120, %153 ], [ %.1, %68 ]
-  %.sroa.2.1.i = phi i8 [ %119, %153 ], [ %.sroa.2.0.i, %68 ]
-  %.sroa.11.2.i = phi i8 [ %.sroa.11.5.i, %153 ], [ %.sroa.11.0217.i, %68 ]
-  %.sroa.4.2.i = phi i16 [ %.sroa.4.3.i, %153 ], [ %.sroa.4.0218.i, %68 ]
+  %.sroa.4.1.i = phi i8 [ %119, %153 ], [ %.sroa.4.0.i, %68 ]
+  %.sroa.13.2.i = phi i8 [ %.sroa.13.5.i, %153 ], [ %.sroa.13.0217.i, %68 ]
+  %.sroa.6.2.i = phi i16 [ %.sroa.6.4.i, %153 ], [ %.sroa.6.0218.i, %68 ]
   %.sroa.032.2.i = phi i16 [ %.sroa.032.3.i, %153 ], [ %.sroa.032.0219.i, %68 ]
-  %.sroa.0.2.i = phi i16 [ %.sroa.0.3.i, %153 ], [ 0, %68 ]
+  %.sroa.0.2.i = phi i16 [ %.sroa.0.4.i, %153 ], [ 0, %68 ]
   %.0164.i = phi i1 [ %157, %153 ], [ true, %68 ]
   %.2161.i = phi ptr [ %.3162.i, %153 ], [ %.0159220.i, %68 ]
   %.2.i = phi i64 [ %156, %153 ], [ %.0154223.i, %68 ]
-  br i1 %.0173.i, label %159, label %169
+  br i1 %.0174.i, label %159, label %169
 
 159:                                              ; preds = %158
-  %160 = or i8 %.sroa.2.1.i, 32
+  %160 = or i8 %.sroa.4.1.i, 32
   %161 = load i32, ptr %62, align 8
   %162 = trunc i32 %161 to i16
   %163 = zext i32 %161 to i64
@@ -822,8 +829,8 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   br label %169
 
 169:                                              ; preds = %159, %158
-  %.sroa.1141.0.i = phi i16 [ %162, %159 ], [ 0, %158 ]
-  %.sroa.2.2.i = phi i8 [ %160, %159 ], [ %.sroa.2.1.i, %158 ]
+  %.sroa.1341.0.i = phi i16 [ %162, %159 ], [ 0, %158 ]
+  %.sroa.4.2.i = phi i8 [ %160, %159 ], [ %.sroa.4.1.i, %158 ]
   %.4163.i = phi ptr [ %168, %159 ], [ %.2161.i, %158 ]
   %.3.i = phi i64 [ %164, %159 ], [ %.2.i, %158 ]
   %.not189.i = icmp eq ptr %.0157221.i, null
@@ -851,35 +858,35 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %185 = load i32, ptr %171, align 4
   %186 = load i32, ptr %174, align 4
   %187 = icmp eq i32 %185, %186
-  %188 = or i8 %.sroa.2.2.i, -128
-  %spec.select197.i = select i1 %187, i8 %188, i8 %.sroa.2.2.i
+  %188 = or i8 %.sroa.4.2.i, -128
+  %spec.select197.i = select i1 %187, i8 %188, i8 %.sroa.4.2.i
   br label %189
 
 189:                                              ; preds = %184, %178, %170, %169
-  %.sroa.2.3.i = phi i8 [ %.sroa.2.2.i, %178 ], [ %.sroa.2.2.i, %170 ], [ %.sroa.2.2.i, %169 ], [ %spec.select197.i, %184 ]
+  %.sroa.4.3.i = phi i8 [ %.sroa.4.2.i, %178 ], [ %.sroa.4.2.i, %170 ], [ %.sroa.4.2.i, %169 ], [ %spec.select197.i, %184 ]
   %.0166.i = phi i1 [ false, %178 ], [ false, %170 ], [ false, %169 ], [ %187, %184 ]
   store i8 %69, ptr %.0167216.i, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 1
-  store i8 %.sroa.2.3.i, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.1141.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 2
-  store i16 %.sroa.1141.0.i, ptr %.sroa.1141.0..sroa_idx.i, align 1
-  %190 = getelementptr i8, ptr %.0167216.i, i64 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 1
+  store i8 %.sroa.4.3.i, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.1341.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 2
+  store i16 %.sroa.1341.0.i, ptr %.sroa.1341.0..sroa_idx.i, align 1
+  %190 = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 4
   br i1 %76, label %191, label %195
 
 191:                                              ; preds = %189
   store i16 %.sroa.032.2.i, ptr %190, align 1
-  %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %.0167216.i, i64 6
-  store i16 %.sroa.4.2.i, ptr %.sroa.4.0..sroa_idx.i, align 1
-  %.sroa.11.0..sroa_idx.i = getelementptr i8, ptr %.0167216.i, i64 8
-  store i8 %.sroa.11.2.i, ptr %.sroa.11.0..sroa_idx.i, align 1
-  %192 = getelementptr i8, ptr %.0167216.i, i64 9
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 6
+  store i16 %.sroa.6.2.i, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 8
+  store i8 %.sroa.13.2.i, ptr %.sroa.13.0..sroa_idx.i, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 9
   %.not190.i = icmp eq i16 %.sroa.0.2.i, 0
   %brmerge.i = or i1 %.not190.i, %.0164.i
   br i1 %brmerge.i, label %195, label %193
 
 193:                                              ; preds = %191
   store i16 %.sroa.0.2.i, ptr %192, align 1
-  %194 = getelementptr i8, ptr %.0167216.i, i64 11
+  %194 = getelementptr inbounds nuw i8, ptr %.0167216.i, i64 11
   br label %195
 
 195:                                              ; preds = %193, %191, %189
@@ -889,7 +896,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
 196:                                              ; preds = %195
   %197 = getelementptr inbounds nuw i8, ptr %45, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.2169.i, ptr noundef nonnull align 4 dereferenceable(12) %197, i64 12, i1 false)
-  %198 = getelementptr i8, ptr %.2169.i, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %.2169.i, i64 12
   br label %199
 
 199:                                              ; preds = %196, %195
@@ -897,7 +904,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %200 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %201 = load i32, ptr %200, align 4
   store i32 %201, ptr %.3170.i, align 1
-  %202 = getelementptr i8, ptr %.3170.i, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %.3170.i, i64 4
   %.pre.i = load ptr, ptr @registered_buffers, align 8
   %.pre236.i = load i32, ptr @max_registered_block_id, align 4
   br label %203
@@ -908,8 +915,8 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %204 = phi i32 [ %.pre236.i, %199 ], [ %43, %42 ]
   %205 = phi ptr [ %.pre.i, %199 ], [ %44, %42 ]
   %.1168.i = phi ptr [ %202, %199 ], [ %.0167216.i, %42 ]
-  %.sroa.11.1.i = phi i8 [ %.sroa.11.2.i, %199 ], [ %.sroa.11.0217.i, %42 ]
-  %.sroa.4.1.i = phi i16 [ %.sroa.4.2.i, %199 ], [ %.sroa.4.0218.i, %42 ]
+  %.sroa.13.1.i = phi i8 [ %.sroa.13.2.i, %199 ], [ %.sroa.13.0217.i, %42 ]
+  %.sroa.6.1.i = phi i16 [ %.sroa.6.2.i, %199 ], [ %.sroa.6.0218.i, %42 ]
   %.sroa.032.1.i = phi i16 [ %.sroa.032.2.i, %199 ], [ %.sroa.032.0219.i, %42 ]
   %.1160.i = phi ptr [ %.4163.i, %199 ], [ %.0159220.i, %42 ]
   %.1158.i = phi ptr [ %45, %199 ], [ %.0157221.i, %42 ]
@@ -917,7 +924,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %206 = sext i32 %204 to i64
   %207 = icmp slt i64 %indvars.iv.next.i15, %206
-  br i1 %207, label %42, label %._crit_edge.i, !llvm.loop !7
+  br i1 %207, label %42, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %203, %28
   %.028 = phi i64 [ 0, %28 ], [ %.230, %203 ]
@@ -934,11 +941,11 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   br i1 %or.cond5.i, label %213, label %217
 
 213:                                              ; preds = %._crit_edge.i
-  %214 = getelementptr i8, ptr %.0167.lcssa.i, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %.0167.lcssa.i, i64 1
   store i8 -3, ptr %.0167.lcssa.i, align 1
   %215 = load i16, ptr @replorigin_session_origin, align 2
   store i16 %215, ptr %214, align 1
-  %216 = getelementptr i8, ptr %.0167.lcssa.i, i64 3
+  %216 = getelementptr inbounds nuw i8, ptr %.0167.lcssa.i, i64 3
   br label %217
 
 217:                                              ; preds = %213, %._crit_edge.i
@@ -948,10 +955,10 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
 
 219:                                              ; preds = %217
   %220 = call i32 @GetTopTransactionIdIfAny() #10
-  %221 = getelementptr i8, ptr %.4171.i, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %.4171.i, i64 1
   store i8 -4, ptr %.4171.i, align 1
   store i32 %220, ptr %221, align 1
-  %222 = getelementptr i8, ptr %.4171.i, i64 5
+  %222 = getelementptr inbounds nuw i8, ptr %.4171.i, i64 5
   br label %223
 
 223:                                              ; preds = %219, %217
@@ -974,23 +981,23 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %231 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
   %232 = load i64, ptr @mainrdata_len, align 8
   %233 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.14, i64 noundef %232, i32 noundef -1) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 875, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
   unreachable
 
 234:                                              ; preds = %227
   %235 = trunc nuw i64 %224 to i32
-  %236 = getelementptr i8, ptr %.5172.i, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.5172.i, i64 1
   store i8 -2, ptr %.5172.i, align 1
   store i32 %235, ptr %236, align 1
-  %237 = getelementptr i8, ptr %.5172.i, i64 5
+  %237 = getelementptr inbounds nuw i8, ptr %.5172.i, i64 5
   br label %243
 
 238:                                              ; preds = %225
-  %239 = getelementptr i8, ptr %.5172.i, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %.5172.i, i64 1
   store i8 -1, ptr %.5172.i, align 1
   %240 = load i64, ptr @mainrdata_len, align 8
   %241 = trunc i64 %240 to i8
-  %242 = getelementptr i8, ptr %.5172.i, i64 2
+  %242 = getelementptr inbounds nuw i8, ptr %.5172.i, i64 2
   store i8 %241, ptr %239, align 1
   br label %243
 
@@ -1017,9 +1024,9 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %254 = and i64 %252, 4294967295
   %255 = add i64 %254, %.4.i
   %256 = load ptr, ptr @pg_comp_crc32c, align 8
-  %257 = getelementptr i8, ptr %249, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %258 = add nsw i64 %254, -24
-  %259 = call i32 %256(i32 noundef -1, ptr noundef %257, i64 noundef %258) #10
+  %259 = call i32 %256(i32 noundef -1, ptr noundef nonnull %257, i64 noundef %258) #10
   %.0153226.i = load ptr, ptr @hdr_rdt, align 8
   %.not183227.i = icmp eq ptr %.0153226.i, null
   br i1 %.not183227.i, label %._crit_edge232.i, label %.lr.ph231.i
@@ -1036,7 +1043,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %266 = call i32 %260(i32 noundef %.0156228.i, ptr noundef %262, i64 noundef %265) #10
   %.0153.i = load ptr, ptr %.0153229.i, align 8
   %.not183.i = icmp eq ptr %.0153.i, null
-  br i1 %.not183.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !8
+  br i1 %.not183.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !9
 
 ._crit_edge232.i:                                 ; preds = %.lr.ph231.i, %248
   %.0156.lcssa.i = phi i32 [ %259, %248 ], [ %266, %.lr.ph231.i ]
@@ -1050,7 +1057,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %112, %105
   %271 = zext i8 %0 to i32
   %272 = zext i8 %spec.select.i to i32
   %273 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, i64 noundef %255, i32 noundef 1069547520, i32 noundef %271, i32 noundef %272) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 920, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 919, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
   unreachable
 
 XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
@@ -1069,8 +1076,10 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   store i32 %.0156.lcssa.i, ptr %280, align 4
   %281 = load i8, ptr @curinsert_flags, align 1
   %282 = call i64 @XLogInsertRecord(ptr noundef nonnull @hdr_rdt, i64 noundef %.028, i8 noundef zeroext %281, i32 noundef %.027, i1 noundef zeroext %218) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   %283 = icmp eq i64 %282, 0
-  br i1 %283, label %28, label %284, !llvm.loop !9
+  br i1 %283, label %28, label %284, !llvm.loop !10
 
 284:                                              ; preds = %XLogRecordAssemble.exit
   %285 = load i32, ptr @max_registered_block_id, align 4
@@ -1084,11 +1093,11 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
 
 288:                                              ; preds = %288, %.lr.ph.i17
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i20, %288 ]
-  %289 = getelementptr %struct.registered_buffer, ptr %287, i64 %indvars.iv.i19
+  %289 = getelementptr inbounds nuw %struct.registered_buffer, ptr %287, i64 %indvars.iv.i19
   store i8 0, ptr %289, align 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i18
-  br i1 %exitcond.not.i21, label %XLogResetInsertion.exit, label %288, !llvm.loop !5
+  br i1 %exitcond.not.i21, label %XLogResetInsertion.exit, label %288, !llvm.loop !4
 
 XLogResetInsertion.exit:                          ; preds = %288, %26, %284, %22
   %.0 = phi i64 [ 40, %22 ], [ %282, %284 ], [ 40, %26 ], [ %282, %288 ]
@@ -1109,6 +1118,8 @@ declare i64 @XLogInsertRecord(ptr noundef, i64 noundef, i8 noundef zeroext, i32 
 define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   call void @GetFullPageWriteInfo(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %5, label %11
@@ -1117,7 +1128,7 @@ define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) 
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -1126,13 +1137,13 @@ define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) 
   %13 = add nsw i32 %0, -1
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 13
-  %16 = getelementptr i8, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   br label %BufferGetPage.exit
 
 BufferGetPage.exit:                               ; preds = %5, %11
   %.0.i.i = phi ptr [ %10, %5 ], [ %16, %11 ]
-  %17 = load i8, ptr %3, align 1
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %BufferGetPage.exit
@@ -1147,6 +1158,8 @@ BufferGetPage.exit:                               ; preds = %5, %11
 
 23:                                               ; preds = %19, %22
   %.0 = phi i1 [ false, %22 ], [ true, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   ret i1 %.0
 }
 
@@ -1162,6 +1175,7 @@ define dso_local i64 @XLogSaveBufferForHint(i32 noundef %0, i1 noundef zeroext %
   br i1 %.not, label %51, label %9
 
 9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #10
   %10 = icmp slt i32 %0, 0
   br i1 %10, label %BufferGetBlock.exit, label %BufferGetBlock.exit.thread
 
@@ -1169,8 +1183,11 @@ BufferGetBlock.exit:                              ; preds = %9
   %11 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %12 = xor i32 %0, -1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   br i1 %1, label %BufferGetPage.exit, label %30
 
 BufferGetBlock.exit.thread:                       ; preds = %9
@@ -1178,7 +1195,10 @@ BufferGetBlock.exit.thread:                       ; preds = %9
   %17 = add nsw i32 %0, -1
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 13
-  %20 = getelementptr i8, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   br i1 %1, label %BufferGetPage.exit, label %30
 
 BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit.thread, %BufferGetBlock.exit
@@ -1190,10 +1210,10 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
   %25 = zext i16 %22 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %.0.i2124, i64 %25, i1 false)
   %26 = zext i16 %24 to i64
-  %27 = getelementptr i8, ptr %3, i64 %26
-  %28 = getelementptr i8, ptr %.0.i2124, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i2124, i64 %26
   %29 = sub nsw i64 8192, %26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %28, i64 %29, i1 false)
   br label %31
 
 30:                                               ; preds = %BufferGetBlock.exit.thread, %BufferGetBlock.exit
@@ -1224,7 +1244,7 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %39)
   %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %36
@@ -1246,6 +1266,10 @@ XLogRegisterBlock.exit:                           ; preds = %36
   store i32 0, ptr %49, align 8
   store i8 1, ptr %41, align 8
   %50 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -96)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #10
   br label %51
 
 51:                                               ; preds = %XLogRegisterBlock.exit, %2
@@ -1278,7 +1302,7 @@ define dso_local range(i64 1, 0) i64 @log_newpage(ptr noundef readonly captures(
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %8
@@ -1323,7 +1347,7 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
   %spec.select = select i1 %5, i8 9, i8 1
   %7 = load i32, ptr @max_registered_buffers, align 4
   %.not.i = icmp sgt i32 %7, 31
-  br i1 %.not.i, label %37, label %8
+  br i1 %.not.i, label %35, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @registered_buffers, align 8
@@ -1332,7 +1356,7 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.registered_buffer, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.registered_buffer, ptr %10, i64 %13
   %15 = sub nsw i32 32, %12
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 8304
@@ -1344,160 +1368,159 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
   br i1 %or.cond.i, label %22, label %.loopexit.i.sink.split
 
 22:                                               ; preds = %8
-  %23 = getelementptr i8, ptr %14, i64 %17
-  %24 = icmp ult ptr %14, %23
-  br i1 %24, label %.lr.ph.preheader.i, label %.loopexit.i
+  %.not30.i = icmp eq i32 %12, 32
+  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %22
-  %25 = add i64 %11, 265728
-  %26 = mul nuw nsw i64 %13, 8304
-  %27 = add i64 %25, %26
-  %28 = sext i32 %12 to i64
-  %.neg.i = mul nsw i64 %28, -8304
-  %29 = add i64 %27, %.neg.i
-  %30 = add i64 %11, 8
-  %31 = add i64 %30, %26
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %29, i64 %31)
-  %32 = xor i64 %11, -1
-  %33 = sub i64 %32, %26
-  %34 = add i64 %33, %umax.i
-  %35 = and i64 %34, -8
-  %36 = add i64 %35, 8
+  %23 = add i64 %11, 265728
+  %24 = mul nuw nsw i64 %13, 8304
+  %25 = add i64 %23, %24
+  %26 = sext i32 %12 to i64
+  %.neg.i = mul nsw i64 %26, -8304
+  %27 = add i64 %25, %.neg.i
+  %28 = add i64 %11, 8
+  %29 = add i64 %28, %24
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %27, i64 %29)
+  %30 = xor i64 %11, -1
+  %31 = sub i64 %30, %24
+  %32 = add i64 %31, %umax.i
+  %33 = and i64 %32, -8
+  %34 = add i64 %33, 8
   br label %.loopexit.i.sink.split
 
 .loopexit.i.sink.split:                           ; preds = %8, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %36, %.lr.ph.preheader.i ], [ %17, %8 ]
+  %.sink = phi i64 [ %34, %.lr.ph.preheader.i ], [ %17, %8 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %.sink, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %22
   store i32 32, ptr @max_registered_buffers, align 4
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.loopexit.i, %6
-  %38 = load i32, ptr @max_rdatas, align 4
-  %39 = icmp slt i32 %38, 20
-  br i1 %39, label %40, label %XLogEnsureRecordSpace.exit
+35:                                               ; preds = %.loopexit.i, %6
+  %36 = load i32, ptr @max_rdatas, align 4
+  %37 = icmp slt i32 %36, 20
+  br i1 %37, label %38, label %XLogEnsureRecordSpace.exit
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr @rdatas, align 8
-  %42 = tail call ptr @repalloc(ptr noundef %41, i64 noundef 480) #10
-  store ptr %42, ptr @rdatas, align 8
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @rdatas, align 8
+  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #10
+  store ptr %40, ptr @rdatas, align 8
   store i32 20, ptr @max_rdatas, align 4
   br label %XLogEnsureRecordSpace.exit
 
-XLogEnsureRecordSpace.exit:                       ; preds = %37, %40
-  %43 = icmp sgt i32 %2, 0
-  br i1 %43, label %.lr.ph36.preheader, label %._crit_edge
+XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
+  %41 = icmp sgt i32 %2, 0
+  br i1 %41, label %.lr.ph36.preheader, label %._crit_edge
 
 .lr.ph36.preheader:                               ; preds = %XLogEnsureRecordSpace.exit
-  %44 = zext nneg i32 %2 to i64
+  %42 = zext nneg i32 %2 to i64
   br label %.lr.ph36
 
-.loopexit:                                        ; preds = %92, %77
-  %45 = icmp sgt i32 %2, %79
-  br i1 %45, label %.lr.ph36, label %._crit_edge, !llvm.loop !10
+.loopexit:                                        ; preds = %90, %75
+  %43 = icmp sgt i32 %2, %77
+  br i1 %43, label %.lr.ph36, label %._crit_edge, !llvm.loop !11
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.loopexit
-  %.02835 = phi i32 [ %79, %.loopexit ], [ 0, %.lr.ph36.preheader ]
+  %.02835 = phi i32 [ %77, %.loopexit ], [ 0, %.lr.ph36.preheader ]
   tail call void @XLogBeginInsert()
   %max_registered_block_id.promoted = load i32, ptr @max_registered_block_id, align 4
-  %46 = load i32, ptr @max_registered_buffers, align 4
-  %47 = load ptr, ptr @registered_buffers, align 8
-  %48 = sext i32 %.02835 to i64
-  %49 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
-  %smax = zext nneg i32 %49 to i64
-  br label %50
+  %44 = load i32, ptr @max_registered_buffers, align 4
+  %45 = load ptr, ptr @registered_buffers, align 8
+  %46 = sext i32 %.02835 to i64
+  %47 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %smax = zext nneg i32 %47 to i64
+  br label %48
 
-50:                                               ; preds = %.lr.ph36, %XLogRegisterBlock.exit
-  %indvars.iv38 = phi i64 [ %48, %.lr.ph36 ], [ %indvars.iv.next39, %XLogRegisterBlock.exit ]
+48:                                               ; preds = %.lr.ph36, %XLogRegisterBlock.exit
+  %indvars.iv38 = phi i64 [ %46, %.lr.ph36 ], [ %indvars.iv.next39, %XLogRegisterBlock.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %XLogRegisterBlock.exit ]
-  %51 = phi i32 [ %max_registered_block_id.promoted, %.lr.ph36 ], [ %61, %XLogRegisterBlock.exit ]
-  %52 = getelementptr i32, ptr %3, i64 %indvars.iv38
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr ptr, ptr %4, i64 %indvars.iv38
-  %55 = load ptr, ptr %54, align 8
-  %56 = sext i32 %51 to i64
-  %.not.i30 = icmp slt i64 %indvars.iv, %56
-  br i1 %.not.i30, label %60, label %57
+  %49 = phi i32 [ %max_registered_block_id.promoted, %.lr.ph36 ], [ %59, %XLogRegisterBlock.exit ]
+  %50 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv38
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv38
+  %53 = load ptr, ptr %52, align 8
+  %54 = sext i32 %49 to i64
+  %.not.i30 = icmp slt i64 %indvars.iv, %54
+  br i1 %.not.i30, label %58, label %55
 
-57:                                               ; preds = %50
-  %58 = trunc i64 %indvars.iv to i32
-  %59 = add nuw nsw i32 %58, 1
-  store i32 %59, ptr @max_registered_block_id, align 4
-  br label %60
+55:                                               ; preds = %48
+  %56 = trunc i64 %indvars.iv to i32
+  %57 = add nuw nsw i32 %56, 1
+  store i32 %57, ptr @max_registered_block_id, align 4
+  br label %58
 
-60:                                               ; preds = %57, %50
-  %61 = phi i32 [ %59, %57 ], [ %51, %50 ]
+58:                                               ; preds = %55, %48
+  %59 = phi i32 [ %57, %55 ], [ %49, %48 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %smax
-  br i1 %exitcond.not, label %62, label %XLogRegisterBlock.exit
+  br i1 %exitcond.not, label %60, label %XLogRegisterBlock.exit
 
-62:                                               ; preds = %60
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+60:                                               ; preds = %58
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %61)
+  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
   unreachable
 
-XLogRegisterBlock.exit:                           ; preds = %60
-  %65 = getelementptr %struct.registered_buffer, ptr %47, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %1, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 20
-  store i32 %53, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %55, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  store i8 %spec.select, ptr %70, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store i32 0, ptr %73, align 8
-  store i8 1, ptr %65, align 8
+XLogRegisterBlock.exit:                           ; preds = %58
+  %63 = getelementptr inbounds nuw %struct.registered_buffer, ptr %45, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i32 %1, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  store i32 %51, ptr %66, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  store ptr %53, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  store i8 %spec.select, ptr %68, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  store i32 0, ptr %71, align 8
+  store i8 1, ptr %63, align 8
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = icmp samesign ult i64 %indvars.iv, 31
-  %75 = icmp slt i64 %indvars.iv.next39, %44
-  %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %50, label %77, !llvm.loop !11
+  %72 = icmp samesign ult i64 %indvars.iv, 31
+  %73 = icmp slt i64 %indvars.iv.next39, %42
+  %74 = select i1 %72, i1 %73, i1 false
+  br i1 %74, label %48, label %75, !llvm.loop !12
 
-77:                                               ; preds = %XLogRegisterBlock.exit
-  %78 = trunc nsw i64 %indvars.iv38 to i32
-  %79 = trunc nsw i64 %indvars.iv.next39 to i32
-  %80 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
-  %.not = icmp sgt i32 %.02835, %78
+75:                                               ; preds = %XLogRegisterBlock.exit
+  %76 = trunc nsw i64 %indvars.iv38 to i32
+  %77 = trunc nsw i64 %indvars.iv.next39 to i32
+  %78 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
+  %.not = icmp sgt i32 %.02835, %76
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %77
-  %81 = lshr i64 %80, 32
-  %82 = trunc nuw i64 %81 to i32
-  %83 = trunc i64 %80 to i32
+.lr.ph:                                           ; preds = %75
+  %79 = lshr i64 %78, 32
+  %80 = trunc nuw i64 %79 to i32
+  %81 = trunc i64 %78 to i32
   %sext = shl i64 %indvars.iv38, 32
-  %84 = ashr exact i64 %sext, 32
-  br label %85
+  %82 = ashr exact i64 %sext, 32
+  br label %83
 
-85:                                               ; preds = %.lr.ph, %92
-  %indvars.iv43 = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next44, %92 ]
-  %86 = getelementptr ptr, ptr %4, i64 %indvars.iv43
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr i8, ptr %87, i64 14
-  %.val = load i16, ptr %88, align 2
-  %89 = icmp eq i16 %.val, 0
-  br i1 %89, label %92, label %90
+83:                                               ; preds = %.lr.ph, %90
+  %indvars.iv43 = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next44, %90 ]
+  %84 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv43
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr i8, ptr %85, i64 14
+  %.val = load i16, ptr %86, align 2
+  %87 = icmp eq i16 %.val, 0
+  br i1 %87, label %90, label %88
 
-90:                                               ; preds = %85
-  store i32 %82, ptr %87, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store i32 %83, ptr %91, align 4
-  br label %92
+88:                                               ; preds = %83
+  store i32 %80, ptr %85, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  store i32 %81, ptr %89, align 4
+  br label %90
 
-92:                                               ; preds = %85, %90
+90:                                               ; preds = %83, %88
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
-  %93 = icmp slt i64 %indvars.iv43, %84
-  br i1 %93, label %85, label %.loopexit, !llvm.loop !12
+  %91 = icmp slt i64 %indvars.iv43, %82
+  br i1 %91, label %83, label %.loopexit, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %XLogEnsureRecordSpace.exit
   ret void
@@ -1515,7 +1538,7 @@ define dso_local range(i64 1, 0) i64 @log_newpage_buffer(i32 noundef %0, i1 noun
   %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %9 = xor i32 %0, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %BufferGetPage.exit
 
@@ -1524,15 +1547,21 @@ define dso_local range(i64 1, 0) i64 @log_newpage_buffer(i32 noundef %0, i1 noun
   %15 = add nsw i32 %0, -1
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 13
-  %18 = getelementptr i8, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %17
   br label %BufferGetPage.exit
 
 BufferGetPage.exit:                               ; preds = %7, %13
   %.0.i.i = phi ptr [ %12, %7 ], [ %18, %13 ]
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %19 = load i32, ptr %4, align 4
   %20 = load i32, ptr %5, align 4
   %21 = call i64 @log_newpage(ptr noundef nonnull %3, i32 noundef %19, i32 noundef %20, ptr noundef %.0.i.i, i1 noundef zeroext %1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
   ret i64 %21
 }
 
@@ -1542,7 +1571,7 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
   %spec.select = select i1 %4, i8 9, i8 1
   %7 = load i32, ptr @max_registered_buffers, align 4
   %.not.i = icmp sgt i32 %7, 31
-  br i1 %.not.i, label %37, label %8
+  br i1 %.not.i, label %35, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @registered_buffers, align 8
@@ -1551,7 +1580,7 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.registered_buffer, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.registered_buffer, ptr %10, i64 %13
   %15 = sub nsw i32 32, %12
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 8304
@@ -1563,256 +1592,261 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %or.cond.i, label %22, label %.loopexit.i.sink.split
 
 22:                                               ; preds = %8
-  %23 = getelementptr i8, ptr %14, i64 %17
-  %24 = icmp ult ptr %14, %23
-  br i1 %24, label %.lr.ph.preheader.i, label %.loopexit.i
+  %.not30.i = icmp eq i32 %12, 32
+  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %22
-  %25 = add i64 %11, 265728
-  %26 = mul nuw nsw i64 %13, 8304
-  %27 = add i64 %25, %26
-  %28 = sext i32 %12 to i64
-  %.neg.i = mul nsw i64 %28, -8304
-  %29 = add i64 %27, %.neg.i
-  %30 = add i64 %11, 8
-  %31 = add i64 %30, %26
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %29, i64 %31)
-  %32 = xor i64 %11, -1
-  %33 = sub i64 %32, %26
-  %34 = add i64 %33, %umax.i
-  %35 = and i64 %34, -8
-  %36 = add i64 %35, 8
+  %23 = add i64 %11, 265728
+  %24 = mul nuw nsw i64 %13, 8304
+  %25 = add i64 %23, %24
+  %26 = sext i32 %12 to i64
+  %.neg.i = mul nsw i64 %26, -8304
+  %27 = add i64 %25, %.neg.i
+  %28 = add i64 %11, 8
+  %29 = add i64 %28, %24
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %27, i64 %29)
+  %30 = xor i64 %11, -1
+  %31 = sub i64 %30, %24
+  %32 = add i64 %31, %umax.i
+  %33 = and i64 %32, -8
+  %34 = add i64 %33, 8
   br label %.loopexit.i.sink.split
 
 .loopexit.i.sink.split:                           ; preds = %8, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %36, %.lr.ph.preheader.i ], [ %17, %8 ]
+  %.sink = phi i64 [ %34, %.lr.ph.preheader.i ], [ %17, %8 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %.sink, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %22
   store i32 32, ptr @max_registered_buffers, align 4
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.loopexit.i, %5
-  %38 = load i32, ptr @max_rdatas, align 4
-  %39 = icmp slt i32 %38, 20
-  br i1 %39, label %40, label %XLogEnsureRecordSpace.exit
+35:                                               ; preds = %.loopexit.i, %5
+  %36 = load i32, ptr @max_rdatas, align 4
+  %37 = icmp slt i32 %36, 20
+  br i1 %37, label %38, label %XLogEnsureRecordSpace.exit
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr @rdatas, align 8
-  %42 = tail call ptr @repalloc(ptr noundef %41, i64 noundef 480) #10
-  store ptr %42, ptr @rdatas, align 8
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @rdatas, align 8
+  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #10
+  store ptr %40, ptr @rdatas, align 8
   store i32 20, ptr @max_rdatas, align 4
   br label %XLogEnsureRecordSpace.exit
 
-XLogEnsureRecordSpace.exit:                       ; preds = %37, %40
-  %43 = icmp ult i32 %2, %3
-  br i1 %43, label %.lr.ph51, label %._crit_edge52
+XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
+  %41 = icmp ult i32 %2, %3
+  br i1 %41, label %.lr.ph55, label %.loopexit
 
-.lr.ph51:                                         ; preds = %XLogEnsureRecordSpace.exit, %._crit_edge49
-  %.03350 = phi i32 [ %70, %._crit_edge49 ], [ %2, %XLogEnsureRecordSpace.exit ]
-  %44 = load volatile i32, ptr @InterruptPending, align 4
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %46, label %45
+.lr.ph55:                                         ; preds = %XLogEnsureRecordSpace.exit, %._crit_edge53
+  %.03554 = phi i32 [ %68, %._crit_edge53 ], [ %2, %XLogEnsureRecordSpace.exit ]
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #10
+  %42 = load volatile i32, ptr @InterruptPending, align 4
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %44, label %43, !prof !14
 
-45:                                               ; preds = %.lr.ph51
+43:                                               ; preds = %.lr.ph55
   tail call void @ProcessInterrupts() #10
-  br label %46
+  br label %44
 
-46:                                               ; preds = %.lr.ph51, %45
-  %47 = icmp ult i32 %.03350, %3
-  br i1 %47, label %.lr.ph, label %._crit_edge52
+44:                                               ; preds = %43, %.lr.ph55
+  %45 = icmp ult i32 %.03554, %3
+  br i1 %45, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %46, %69
-  %.03140 = phi i32 [ %.132, %69 ], [ 0, %46 ]
-  %.13439 = phi i32 [ %70, %69 ], [ %.03350, %46 ]
-  %48 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13439, i32 noundef 0, ptr noundef null) #10
-  tail call void @LockBuffer(i32 noundef %48, i32 noundef 2) #10
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %56
+.lr.ph:                                           ; preds = %44, %67
+  %.03344 = phi i32 [ %.134, %67 ], [ 0, %44 ]
+  %.13643 = phi i32 [ %68, %67 ], [ %.03554, %44 ]
+  %46 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13643, i32 noundef 0, ptr noundef null) #10
+  tail call void @LockBuffer(i32 noundef %46, i32 noundef 2) #10
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %54
 
-50:                                               ; preds = %.lr.ph
-  %51 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %52 = xor i32 %48, -1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr ptr, ptr %51, i64 %53
-  %55 = load ptr, ptr %54, align 8
+48:                                               ; preds = %.lr.ph
+  %49 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %50 = xor i32 %46, -1
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %53 = load ptr, ptr %52, align 8
   br label %BufferGetPage.exit
 
-56:                                               ; preds = %.lr.ph
-  %57 = load ptr, ptr @BufferBlocks, align 8
-  %58 = add nsw i32 %48, -1
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 13
-  %61 = getelementptr i8, ptr %57, i64 %60
+54:                                               ; preds = %.lr.ph
+  %55 = load ptr, ptr @BufferBlocks, align 8
+  %56 = add nsw i32 %46, -1
+  %57 = sext i32 %56 to i64
+  %58 = shl nsw i64 %57, 13
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %58
   br label %BufferGetPage.exit
 
-BufferGetPage.exit:                               ; preds = %50, %56
-  %.0.i.i = phi ptr [ %55, %50 ], [ %61, %56 ]
-  %62 = getelementptr i8, ptr %.0.i.i, i64 14
-  %.val = load i16, ptr %62, align 2
-  %63 = icmp eq i16 %.val, 0
-  br i1 %63, label %68, label %64
+BufferGetPage.exit:                               ; preds = %48, %54
+  %.0.i.i = phi ptr [ %53, %48 ], [ %59, %54 ]
+  %60 = getelementptr i8, ptr %.0.i.i, i64 14
+  %.val = load i16, ptr %60, align 2
+  %61 = icmp eq i16 %.val, 0
+  br i1 %61, label %66, label %62
 
-64:                                               ; preds = %BufferGetPage.exit
-  %65 = add nsw i32 %.03140, 1
-  %66 = sext i32 %.03140 to i64
-  %67 = getelementptr [32 x i32], ptr %6, i64 0, i64 %66
-  store i32 %48, ptr %67, align 4
-  br label %69
+62:                                               ; preds = %BufferGetPage.exit
+  %63 = add nsw i32 %.03344, 1
+  %64 = sext i32 %.03344 to i64
+  %65 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %64
+  store i32 %46, ptr %65, align 4
+  br label %67
 
-68:                                               ; preds = %BufferGetPage.exit
-  tail call void @UnlockReleaseBuffer(i32 noundef %48) #10
-  br label %69
+66:                                               ; preds = %BufferGetPage.exit
+  tail call void @UnlockReleaseBuffer(i32 noundef %46) #10
+  br label %67
 
-69:                                               ; preds = %68, %64
-  %.132 = phi i32 [ %.03140, %68 ], [ %65, %64 ]
-  %70 = add nuw i32 %.13439, 1
-  %71 = icmp slt i32 %.132, 32
-  %72 = icmp ult i32 %70, %3
-  %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+67:                                               ; preds = %66, %62
+  %.134 = phi i32 [ %.03344, %66 ], [ %63, %62 ]
+  %68 = add nuw i32 %.13643, 1
+  %69 = icmp slt i32 %.134, 32
+  %70 = icmp ult i32 %68, %3
+  %71 = select i1 %69, i1 %70, i1 false
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %69
-  %74 = icmp eq i32 %.132, 0
-  br i1 %74, label %._crit_edge52, label %75
+._crit_edge:                                      ; preds = %67
+  %72 = icmp eq i32 %.134, 0
+  br i1 %72, label %.thread, label %73
 
-75:                                               ; preds = %._crit_edge
+.thread:                                          ; preds = %44, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
+  br label %.loopexit
+
+73:                                               ; preds = %._crit_edge
   tail call void @XLogBeginInsert()
-  %76 = load volatile i32, ptr @CritSectionCount, align 4
-  %77 = add i32 %76, 1
-  store volatile i32 %77, ptr @CritSectionCount, align 4
-  %78 = icmp sgt i32 %.132, 0
-  br i1 %78, label %.lr.ph44.preheader, label %._crit_edge45.thread
+  %74 = load volatile i32, ptr @CritSectionCount, align 4
+  %75 = add i32 %74, 1
+  store volatile i32 %75, ptr @CritSectionCount, align 4
+  %76 = icmp sgt i32 %.134, 0
+  br i1 %76, label %.lr.ph48.preheader, label %._crit_edge49.thread
 
-._crit_edge45.thread:                             ; preds = %75
-  %79 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
-  br label %._crit_edge49
+._crit_edge49.thread:                             ; preds = %73
+  %77 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
+  br label %._crit_edge53
 
-.lr.ph44.preheader:                               ; preds = %75
-  %wide.trip.count = zext nneg i32 %.132 to i64
-  br label %.lr.ph44
+.lr.ph48.preheader:                               ; preds = %73
+  %wide.trip.count = zext nneg i32 %.134 to i64
+  br label %.lr.ph48
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %XLogRegisterBuffer.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
-  %80 = getelementptr [32 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4
-  tail call void @MarkBufferDirty(i32 noundef %81) #10
-  %82 = trunc nuw nsw i64 %indvars.iv to i32
-  %83 = and i32 %82, 255
-  %84 = load i32, ptr @max_registered_block_id, align 4
-  %.not.i36 = icmp sgt i32 %84, %83
-  br i1 %.not.i36, label %92, label %85
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %XLogRegisterBuffer.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
+  %78 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %79 = load i32, ptr %78, align 4
+  tail call void @MarkBufferDirty(i32 noundef %79) #10
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
+  %81 = and i32 %80, 255
+  %82 = load i32, ptr @max_registered_block_id, align 4
+  %.not.i38 = icmp sgt i32 %82, %81
+  br i1 %.not.i38, label %90, label %83
 
-85:                                               ; preds = %.lr.ph44
-  %86 = load i32, ptr @max_registered_buffers, align 4
-  %.not15.i = icmp sgt i32 %86, %83
-  br i1 %.not15.i, label %90, label %87
+83:                                               ; preds = %.lr.ph48
+  %84 = load i32, ptr @max_registered_buffers, align 4
+  %.not15.i = icmp sgt i32 %84, %81
+  br i1 %.not15.i, label %88, label %85
 
-87:                                               ; preds = %85
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
+85:                                               ; preds = %83
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %86)
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
   unreachable
 
-90:                                               ; preds = %85
-  %91 = add nuw nsw i32 %83, 1
-  store i32 %91, ptr @max_registered_block_id, align 4
-  br label %92
+88:                                               ; preds = %83
+  %89 = add nuw nsw i32 %81, 1
+  store i32 %89, ptr @max_registered_block_id, align 4
+  br label %90
 
-92:                                               ; preds = %90, %.lr.ph44
-  %93 = load ptr, ptr @registered_buffers, align 8
-  %94 = and i64 %indvars.iv, 255
-  %95 = getelementptr %struct.registered_buffer, ptr %93, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 20
-  tail call void @BufferGetTag(i32 noundef %81, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98) #10
-  %99 = icmp slt i32 %81, 0
-  br i1 %99, label %100, label %106
+90:                                               ; preds = %88, %.lr.ph48
+  %91 = load ptr, ptr @registered_buffers, align 8
+  %92 = and i64 %indvars.iv, 255
+  %93 = getelementptr inbounds nuw %struct.registered_buffer, ptr %91, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 20
+  tail call void @BufferGetTag(i32 noundef %79, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #10
+  %97 = icmp slt i32 %79, 0
+  br i1 %97, label %98, label %104
 
-100:                                              ; preds = %92
-  %101 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %102 = xor i32 %81, -1
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr ptr, ptr %101, i64 %103
-  %105 = load ptr, ptr %104, align 8
+98:                                               ; preds = %90
+  %99 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %100 = xor i32 %79, -1
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %103 = load ptr, ptr %102, align 8
   br label %XLogRegisterBuffer.exit
 
-106:                                              ; preds = %92
-  %107 = load ptr, ptr @BufferBlocks, align 8
-  %108 = add nsw i32 %81, -1
-  %109 = sext i32 %108 to i64
-  %110 = shl nsw i64 %109, 13
-  %111 = getelementptr i8, ptr %107, i64 %110
+104:                                              ; preds = %90
+  %105 = load ptr, ptr @BufferBlocks, align 8
+  %106 = add nsw i32 %79, -1
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 13
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
   br label %XLogRegisterBuffer.exit
 
-XLogRegisterBuffer.exit:                          ; preds = %100, %106
-  %.0.i.i.i = phi ptr [ %105, %100 ], [ %111, %106 ]
-  %112 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr %.0.i.i.i, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  store i8 %spec.select, ptr %113, align 1
-  %114 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  %115 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  store ptr %114, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store i32 0, ptr %116, align 8
-  store i8 1, ptr %95, align 8
+XLogRegisterBuffer.exit:                          ; preds = %98, %104
+  %.0.i.i.i = phi ptr [ %103, %98 ], [ %109, %104 ]
+  %110 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  store ptr %.0.i.i.i, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store i8 %spec.select, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %93, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %93, i64 48
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  store i32 0, ptr %114, align 8
+  store i8 1, ptr %93, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !16
 
-._crit_edge45:                                    ; preds = %XLogRegisterBuffer.exit
-  %117 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
-  %118 = lshr i64 %117, 32
-  %119 = trunc nuw i64 %118 to i32
-  %120 = trunc i64 %117 to i32
-  %wide.trip.count58 = zext nneg i32 %.132 to i64
-  br label %121
+._crit_edge49:                                    ; preds = %XLogRegisterBuffer.exit
+  %115 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
+  %116 = lshr i64 %115, 32
+  %117 = trunc nuw i64 %116 to i32
+  %118 = trunc i64 %115 to i32
+  %wide.trip.count60 = zext nneg i32 %.134 to i64
+  br label %119
 
-121:                                              ; preds = %._crit_edge45, %BufferGetPage.exit38
-  %indvars.iv55 = phi i64 [ 0, %._crit_edge45 ], [ %indvars.iv.next56, %BufferGetPage.exit38 ]
-  %122 = getelementptr [32 x i32], ptr %6, i64 0, i64 %indvars.iv55
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp slt i32 %123, 0
-  br i1 %124, label %125, label %131
+119:                                              ; preds = %._crit_edge49, %BufferGetPage.exit40
+  %indvars.iv57 = phi i64 [ 0, %._crit_edge49 ], [ %indvars.iv.next58, %BufferGetPage.exit40 ]
+  %120 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv57
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %123, label %129
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %127 = xor i32 %123, -1
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr ptr, ptr %126, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  br label %BufferGetPage.exit38
+123:                                              ; preds = %119
+  %124 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %125 = xor i32 %121, -1
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  br label %BufferGetPage.exit40
 
-131:                                              ; preds = %121
-  %132 = load ptr, ptr @BufferBlocks, align 8
-  %133 = add nsw i32 %123, -1
-  %134 = sext i32 %133 to i64
-  %135 = shl nsw i64 %134, 13
-  %136 = getelementptr i8, ptr %132, i64 %135
-  br label %BufferGetPage.exit38
+129:                                              ; preds = %119
+  %130 = load ptr, ptr @BufferBlocks, align 8
+  %131 = add nsw i32 %121, -1
+  %132 = sext i32 %131 to i64
+  %133 = shl nsw i64 %132, 13
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
+  br label %BufferGetPage.exit40
 
-BufferGetPage.exit38:                             ; preds = %125, %131
-  %.0.i.i37 = phi ptr [ %130, %125 ], [ %136, %131 ]
-  store i32 %119, ptr %.0.i.i37, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i37, i64 4
-  store i32 %120, ptr %137, align 4
-  tail call void @UnlockReleaseBuffer(i32 noundef %123) #10
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %121, !llvm.loop !15
+BufferGetPage.exit40:                             ; preds = %123, %129
+  %.0.i.i39 = phi ptr [ %128, %123 ], [ %134, %129 ]
+  store i32 %117, ptr %.0.i.i39, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 4
+  store i32 %118, ptr %135, align 4
+  tail call void @UnlockReleaseBuffer(i32 noundef %121) #10
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
+  br i1 %exitcond61.not, label %._crit_edge53, label %119, !llvm.loop !17
 
-._crit_edge49:                                    ; preds = %BufferGetPage.exit38, %._crit_edge45.thread
-  %138 = load volatile i32, ptr @CritSectionCount, align 4
-  %139 = add i32 %138, -1
-  store volatile i32 %139, ptr @CritSectionCount, align 4
-  %140 = icmp ult i32 %70, %3
-  br i1 %140, label %.lr.ph51, label %._crit_edge52, !llvm.loop !16
+._crit_edge53:                                    ; preds = %BufferGetPage.exit40, %._crit_edge49.thread
+  %136 = load volatile i32, ptr @CritSectionCount, align 4
+  %137 = add i32 %136, -1
+  store volatile i32 %137, ptr @CritSectionCount, align 4
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
+  %138 = icmp ult i32 %68, %3
+  br i1 %138, label %.lr.ph55, label %.loopexit
 
-._crit_edge52:                                    ; preds = %46, %._crit_edge49, %._crit_edge, %XLogEnsureRecordSpace.exit
+.loopexit:                                        ; preds = %._crit_edge53, %XLogEnsureRecordSpace.exit, %.thread
   ret void
 }
 
@@ -1892,52 +1926,47 @@ declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #1
 declare i32 @pglz_compress(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

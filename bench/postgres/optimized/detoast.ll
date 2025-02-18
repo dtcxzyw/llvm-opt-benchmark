@@ -16,110 +16,109 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @detoast_external_attr(ptr noundef %0) local_unnamed_addr #0 {
-  %.pre = load i8, ptr %0, align 1
-  %2 = icmp eq i8 %.pre, 1
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %9, %1
-  %3 = phi i1 [ %2, %1 ], [ true, %9 ]
   %.tr = phi ptr [ %0, %1 ], [ %.sroa.0.0.copyload, %9 ]
-  br i1 %3, label %4, label %.loopexit
+  %2 = load i8, ptr %.tr, align 1
+  %3 = icmp eq i8 %2, 1
+  br i1 %3, label %4, label %56
 
 4:                                                ; preds = %tailrecurse
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 1
   %6 = load i8, ptr %5, align 1
-  switch i8 %6, label %49 [
+  switch i8 %6, label %48 [
     i8 18, label %7
     i8 1, label %9
   ]
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @toast_fetch_datum(ptr noundef nonnull %.tr)
-  br label %.loopexit
+  br label %56
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %10, align 1
   %11 = load i8, ptr %.sroa.0.0.copyload, align 1
-  %12 = icmp eq i8 %11, 1
-  br i1 %12, label %tailrecurse, label %13
+  %12 = zext i8 %11 to i32
+  %.not44 = icmp eq i8 %11, 1
+  br i1 %.not44, label %tailrecurse, label %13
 
 13:                                               ; preds = %9
-  %14 = zext i8 %11 to i32
-  %15 = and i32 %14, 1
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %18, label %16
+  %14 = and i32 %12, 1
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %17, label %15
 
-16:                                               ; preds = %13
-  %17 = lshr i32 %14, 1
-  br label %21
+15:                                               ; preds = %13
+  %16 = lshr i32 %12, 1
+  br label %20
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %.sroa.0.0.copyload, align 4
-  %20 = lshr i32 %19, 2
-  br label %21
+17:                                               ; preds = %13
+  %18 = load i32, ptr %.sroa.0.0.copyload, align 4
+  %19 = lshr i32 %18, 2
+  br label %20
 
-21:                                               ; preds = %16, %18
-  %22 = phi i32 [ %17, %16 ], [ %20, %18 ]
-  %23 = zext nneg i32 %22 to i64
-  %24 = tail call ptr @palloc(i64 noundef %23) #6
-  %25 = load i8, ptr %.sroa.0.0.copyload, align 1
-  %26 = zext i8 %25 to i32
-  %27 = icmp eq i8 %25, 1
-  br i1 %27, label %28, label %37
+20:                                               ; preds = %15, %17
+  %21 = phi i32 [ %16, %15 ], [ %19, %17 ]
+  %22 = zext nneg i32 %21 to i64
+  %23 = tail call ptr @palloc(i64 noundef %22) #6
+  %24 = load i8, ptr %.sroa.0.0.copyload, align 1
+  %25 = zext i8 %24 to i32
+  %26 = icmp eq i8 %24, 1
+  br i1 %26, label %27, label %36
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 1
-  %32 = and i8 %30, -2
-  %33 = icmp eq i8 %32, 2
-  %or.cond = or i1 %31, %33
-  %34 = icmp eq i8 %30, 18
-  %35 = select i1 %34, i64 18, i64 2
-  %36 = select i1 %or.cond, i64 10, i64 %35
-  br label %47
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 1
+  %31 = and i8 %29, -2
+  %32 = icmp eq i8 %31, 2
+  %or.cond = or i1 %30, %32
+  %33 = icmp eq i8 %29, 18
+  %34 = select i1 %33, i64 18, i64 2
+  %35 = select i1 %or.cond, i64 10, i64 %34
+  br label %46
 
-37:                                               ; preds = %21
-  %38 = and i32 %26, 1
-  %.not40 = icmp eq i32 %38, 0
-  br i1 %.not40, label %41, label %39
+36:                                               ; preds = %20
+  %37 = and i32 %25, 1
+  %.not43 = icmp eq i32 %37, 0
+  br i1 %.not43, label %40, label %38
 
-39:                                               ; preds = %37
-  %40 = lshr i32 %26, 1
-  br label %44
+38:                                               ; preds = %36
+  %39 = lshr i32 %25, 1
+  br label %43
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %.sroa.0.0.copyload, align 4
-  %43 = lshr i32 %42, 2
-  br label %44
+40:                                               ; preds = %36
+  %41 = load i32, ptr %.sroa.0.0.copyload, align 4
+  %42 = lshr i32 %41, 2
+  br label %43
 
-44:                                               ; preds = %41, %39
-  %45 = phi i32 [ %40, %39 ], [ %43, %41 ]
-  %46 = zext nneg i32 %45 to i64
-  br label %47
+43:                                               ; preds = %40, %38
+  %44 = phi i32 [ %39, %38 ], [ %42, %40 ]
+  %45 = zext nneg i32 %44 to i64
+  br label %46
 
-47:                                               ; preds = %44, %28
-  %48 = phi i64 [ %36, %28 ], [ %46, %44 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %48, i1 false)
-  br label %.loopexit
+46:                                               ; preds = %43, %27
+  %47 = phi i64 [ %35, %27 ], [ %45, %43 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %47, i1 false)
+  br label %56
 
-49:                                               ; preds = %4
-  %50 = and i8 %6, -2
-  %51 = icmp eq i8 %50, 2
-  br i1 %51, label %52, label %.loopexit
+48:                                               ; preds = %4
+  %49 = and i8 %6, -2
+  %50 = icmp eq i8 %49, 2
+  br i1 %50, label %51, label %56
 
-52:                                               ; preds = %49
-  %53 = ptrtoint ptr %.tr to i64
-  %54 = tail call ptr @DatumGetEOHP(i64 noundef %53) #6
-  %55 = tail call i64 @EOH_get_flat_size(ptr noundef %54) #6
-  %56 = tail call ptr @palloc(i64 noundef %55) #6
-  tail call void @EOH_flatten_into(ptr noundef %54, ptr noundef %56, i64 noundef %55) #6
-  br label %.loopexit
+51:                                               ; preds = %48
+  %52 = ptrtoint ptr %.tr to i64
+  %53 = tail call ptr @DatumGetEOHP(i64 noundef %52) #6
+  %54 = tail call i64 @EOH_get_flat_size(ptr noundef %53) #6
+  %55 = tail call ptr @palloc(i64 noundef %54) #6
+  tail call void @EOH_flatten_into(ptr noundef %53, ptr noundef %55, i64 noundef %54) #6
+  br label %56
 
-.loopexit:                                        ; preds = %tailrecurse, %7, %52, %47, %49
-  %.0 = phi ptr [ %8, %7 ], [ %24, %47 ], [ %56, %52 ], [ %.tr, %49 ], [ %.tr, %tailrecurse ]
-  ret ptr %.0
+56:                                               ; preds = %46, %tailrecurse, %7, %51, %48
+  %.1 = phi ptr [ %8, %7 ], [ %55, %51 ], [ %.tr, %48 ], [ %.tr, %tailrecurse ], [ %23, %46 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -144,13 +143,13 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captu
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %12, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
-  %13 = and i32 %.sroa.2.0.copyload, 1073741823
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
+  %13 = and i32 %.sroa.4.0.copyload, 1073741823
   %14 = add nuw nsw i32 %13, 4
   %15 = zext nneg i32 %14 to i64
   %16 = tail call ptr @palloc(i64 noundef %15) #6
@@ -164,12 +163,12 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captu
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %11
-  %23 = tail call ptr @table_open(i32 noundef %.sroa.5.0.copyload, i32 noundef 1) #6
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 312
+  %23 = tail call ptr @table_open(i32 noundef %.sroa.7.0.copyload, i32 noundef 1) #6
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 320
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 320
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %23, i32 noundef %.sroa.4.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #6
+  tail call void %27(ptr noundef %23, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #6
   tail call void @table_close(ptr noundef %23, i32 noundef 1) #6
   br label %28
 
@@ -207,7 +206,7 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 3
   %11 = icmp eq i8 %10, 2
-  br i1 %11, label %12, label %toast_decompress_datum.exit57
+  br i1 %11, label %12, label %toast_decompress_datum.exit58
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -236,14 +235,14 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
 toast_decompress_datum.exit:                      ; preds = %16, %18
   %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ]
   tail call void @pfree(ptr noundef nonnull %8) #6
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %24, align 1
   %25 = tail call ptr @detoast_attr(ptr noundef %.sroa.0.0.copyload)
   %26 = icmp eq ptr %25, %.sroa.0.0.copyload
-  br i1 %26, label %27, label %toast_decompress_datum.exit57
+  br i1 %26, label %27, label %toast_decompress_datum.exit58
 
 27:                                               ; preds = %23
   %28 = load i8, ptr %25, align 1
@@ -265,8 +264,8 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 
 40:                                               ; preds = %27
   %41 = and i32 %29, 1
-  %.not51 = icmp eq i32 %41, 0
-  br i1 %.not51, label %44, label %42
+  %.not52 = icmp eq i32 %41, 0
+  br i1 %.not52, label %44, label %42
 
 42:                                               ; preds = %40
   %43 = lshr i32 %29, 1
@@ -296,16 +295,16 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %59 = icmp eq i8 %58, 1
   %60 = and i8 %58, -2
   %61 = icmp eq i8 %60, 2
-  %or.cond55 = or i1 %59, %61
+  %or.cond56 = or i1 %59, %61
   %62 = icmp eq i8 %58, 18
   %63 = select i1 %62, i64 18, i64 2
-  %64 = select i1 %or.cond55, i64 10, i64 %63
+  %64 = select i1 %or.cond56, i64 10, i64 %63
   br label %75
 
 65:                                               ; preds = %50
   %66 = and i32 %54, 1
-  %.not52 = icmp eq i32 %66, 0
-  br i1 %.not52, label %69, label %67
+  %.not53 = icmp eq i32 %66, 0
+  br i1 %.not53, label %69, label %67
 
 67:                                               ; preds = %65
   %68 = lshr i32 %54, 1
@@ -324,16 +323,16 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 75:                                               ; preds = %72, %56
   %76 = phi i64 [ %64, %56 ], [ %74, %72 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %25, i64 %76, i1 false)
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
 77:                                               ; preds = %4
   %78 = and i8 %6, -2
   %79 = icmp eq i8 %78, 2
-  br i1 %79, label %80, label %.thread60
+  br i1 %79, label %80, label %.thread61
 
 80:                                               ; preds = %77
   %81 = tail call ptr @detoast_external_attr(ptr noundef nonnull %0)
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
 82:                                               ; preds = %1
   %83 = zext i8 %2 to i32
@@ -352,11 +351,11 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 
 90:                                               ; preds = %86
   %91 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %0) #6
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
 92:                                               ; preds = %86
   %93 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %0) #6
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
 94:                                               ; preds = %86
   %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -368,9 +367,9 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 97:                                               ; preds = %82
   %98 = and i32 %83, 1
   %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %toast_decompress_datum.exit57, label %.thread60
+  br i1 %.not, label %toast_decompress_datum.exit58, label %.thread61
 
-.thread60:                                        ; preds = %77, %97
+.thread61:                                        ; preds = %77, %97
   %99 = phi i32 [ %83, %97 ], [ 1, %77 ]
   %100 = lshr i32 %99, 1
   %101 = zext nneg i32 %100 to i64
@@ -383,10 +382,10 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %107, ptr nonnull align 1 %108, i64 %102, i1 false)
-  br label %toast_decompress_datum.exit57
+  br label %toast_decompress_datum.exit58
 
-toast_decompress_datum.exit57:                    ; preds = %92, %90, %75, %23, %.thread60, %97, %80, %7, %toast_decompress_datum.exit
-  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %52, %75 ], [ %25, %23 ], [ %81, %80 ], [ %104, %.thread60 ], [ %0, %97 ], [ %93, %92 ], [ %91, %90 ]
+toast_decompress_datum.exit58:                    ; preds = %92, %90, %23, %75, %.thread61, %97, %80, %7, %toast_decompress_datum.exit
+  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %81, %80 ], [ %104, %.thread61 ], [ %0, %97 ], [ %52, %75 ], [ %25, %23 ], [ %93, %92 ], [ %91, %90 ]
   ret ptr %.0
 }
 
@@ -405,99 +404,99 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   unreachable
 
 .lr.ph.split:                                     ; preds = %3, %tailrecurse
-  %.tr8496 = phi i32 [ %.059, %tailrecurse ], [ %2, %3 ]
-  %.tr95 = phi ptr [ %.sroa.0.0.copyload, %tailrecurse ], [ %0, %3 ]
-  %8 = icmp slt i32 %.tr8496, 0
+  %.tr90102 = phi i32 [ %.060, %tailrecurse ], [ %2, %3 ]
+  %.tr101 = phi ptr [ %.sroa.0.0.copyload, %tailrecurse ], [ %0, %3 ]
+  %8 = icmp slt i32 %.tr90102, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 range(i32 0, -2147483648) %1, i32 range(i32 0, -2147483648) %.tr8496)
+  %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 range(i32 0, -2147483648) %1, i32 range(i32 0, -2147483648) %.tr90102)
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  %spec.select81 = select i1 %11, i32 -1, i32 %12
-  %spec.select82 = select i1 %11, i32 -1, i32 %.tr8496
+  %spec.select87 = select i1 %11, i32 -1, i32 %12
+  %spec.select88 = select i1 %11, i32 -1, i32 %.tr90102
   br label %13
 
 13:                                               ; preds = %9, %.lr.ph.split
-  %.079 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select81, %9 ]
-  %.059 = phi i32 [ %.tr8496, %.lr.ph.split ], [ %spec.select82, %9 ]
-  %14 = load i8, ptr %.tr95, align 1
+  %.082 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select87, %9 ]
+  %.060 = phi i32 [ %.tr90102, %.lr.ph.split ], [ %spec.select88, %9 ]
+  %14 = load i8, ptr %.tr101, align 1
   %15 = icmp eq i8 %14, 1
-  br i1 %15, label %16, label %.loopexit
+  br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.tr95, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.tr101, i64 1
   %18 = load i8, ptr %17, align 1
-  switch i8 %18, label %.split103 [
+  switch i8 %18, label %.split109 [
     i8 18, label %.split
     i8 1, label %tailrecurse
   ]
 
 .split:                                           ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %.tr95, i64 2
-  %.sroa.07.0.copyload = load i32, ptr %19, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr95, i64 6
-  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %20 = and i32 %.sroa.2.0.copyload, 1073741823
-  %21 = add i32 %.sroa.07.0.copyload, -4
+  %19 = getelementptr inbounds nuw i8, ptr %.tr101, i64 2
+  %.sroa.08.0.copyload = load i32, ptr %19, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr101, i64 6
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
+  %20 = and i32 %.sroa.4.0.copyload, 1073741823
+  %21 = add i32 %.sroa.08.0.copyload, -4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %25, label %23
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %.split
-  %24 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef %1, i32 noundef %.059)
-  br label %104
+  %24 = icmp sgt i32 %.082, -1
+  br i1 %24, label %25, label %31
 
-25:                                               ; preds = %.split
-  %26 = icmp sgt i32 %.079, -1
-  br i1 %26, label %27, label %33
+25:                                               ; preds = %23
+  %26 = icmp ult i32 %.sroa.4.0.copyload, 1073741824
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %.sroa.2.0.copyload, 1073741824
-  br i1 %28, label %29, label %31
+  %28 = tail call i32 @pglz_maximum_compressed_size(i32 noundef %.082, i32 noundef %20) #6
+  br label %29
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @pglz_maximum_compressed_size(i32 noundef %.079, i32 noundef %20) #6
-  br label %31
+29:                                               ; preds = %27, %25
+  %.062 = phi i32 [ %28, %27 ], [ %20, %25 ]
+  %30 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr101, i32 noundef 0, i32 noundef %.062)
+  br label %.thread
 
-31:                                               ; preds = %29, %27
-  %.060 = phi i32 [ %30, %29 ], [ %20, %27 ]
-  %32 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef 0, i32 noundef %.060)
-  br label %.loopexit
+31:                                               ; preds = %23
+  %32 = tail call fastcc ptr @toast_fetch_datum(ptr noundef nonnull %.tr101)
+  br label %.thread
 
-33:                                               ; preds = %25
-  %34 = tail call fastcc ptr @toast_fetch_datum(ptr noundef nonnull %.tr95)
-  br label %.loopexit
+33:                                               ; preds = %.split
+  %34 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr101, i32 noundef %1, i32 noundef %.060)
+  br label %104
 
 tailrecurse:                                      ; preds = %16
-  %35 = getelementptr inbounds nuw i8, ptr %.tr95, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.tr101, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %35, align 1
   br label %.lr.ph.split
 
-.split103:                                        ; preds = %16
+.split109:                                        ; preds = %16
   %36 = and i8 %18, -2
   %37 = icmp eq i8 %36, 2
-  br i1 %37, label %38, label %.loopexit
+  br i1 %37, label %38, label %.thread
 
-38:                                               ; preds = %.split103
-  %39 = tail call ptr @detoast_external_attr(ptr noundef nonnull %.tr95)
-  br label %.loopexit
+38:                                               ; preds = %.split109
+  %39 = tail call ptr @detoast_external_attr(ptr noundef nonnull %.tr101)
+  br label %.thread
 
-.loopexit:                                        ; preds = %13, %.split103, %38, %31, %33
-  %.061 = phi ptr [ %32, %31 ], [ %34, %33 ], [ %39, %38 ], [ %.tr95, %.split103 ], [ %.tr95, %13 ]
-  %40 = load i8, ptr %.061, align 1
+.thread:                                          ; preds = %13, %31, %29, %.split109, %38
+  %.2 = phi ptr [ %39, %38 ], [ %.tr101, %.split109 ], [ %32, %31 ], [ %30, %29 ], [ %.tr101, %13 ]
+  %40 = load i8, ptr %.2, align 1
   %41 = and i8 %40, 3
   %42 = icmp eq i8 %41, 2
   br i1 %42, label %43, label %76
 
-43:                                               ; preds = %.loopexit
-  %44 = icmp sgt i32 %.079, -1
-  %45 = getelementptr inbounds nuw i8, ptr %.061, i64 4
+43:                                               ; preds = %.thread
+  %44 = icmp sgt i32 %.082, -1
+  %45 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %46 = load i32, ptr %45, align 4
   br i1 %44, label %47, label %66
 
 47:                                               ; preds = %43
   %48 = and i32 %46, 1073741823
-  %.not.i = icmp samesign ult i32 %.079, %48
+  %.not.i = icmp samesign ult i32 %.082, %48
   %49 = lshr i32 %46, 30
   br i1 %.not.i, label %58, label %50
 
@@ -508,11 +507,11 @@ tailrecurse:                                      ; preds = %16
   ]
 
 51:                                               ; preds = %50
-  %52 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.061) #6
+  %52 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #6
   br label %toast_decompress_datum_slice.exit
 
 53:                                               ; preds = %50
-  %54 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.061) #6
+  %54 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #6
   br label %toast_decompress_datum_slice.exit
 
 55:                                               ; preds = %50
@@ -529,11 +528,11 @@ tailrecurse:                                      ; preds = %16
   ]
 
 59:                                               ; preds = %58
-  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef range(i32 0, -2147483648) %.079) #6
+  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #6
   br label %toast_decompress_datum_slice.exit
 
 61:                                               ; preds = %58
-  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef range(i32 0, -2147483648) %.079) #6
+  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #6
   br label %toast_decompress_datum_slice.exit
 
 63:                                               ; preds = %58
@@ -551,11 +550,11 @@ tailrecurse:                                      ; preds = %16
   ]
 
 68:                                               ; preds = %66
-  %69 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.061) #6
+  %69 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #6
   br label %toast_decompress_datum_slice.exit
 
 70:                                               ; preds = %66
-  %71 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.061) #6
+  %71 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #6
   br label %toast_decompress_datum_slice.exit
 
 72:                                               ; preds = %66
@@ -566,21 +565,21 @@ tailrecurse:                                      ; preds = %16
   unreachable
 
 toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, %53, %51
-  %.2 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %54, %53 ], [ %52, %51 ], [ %71, %70 ], [ %69, %68 ]
-  %.not = icmp eq ptr %.061, %.tr95
+  %.4 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %54, %53 ], [ %52, %51 ], [ %71, %70 ], [ %69, %68 ]
+  %.not = icmp eq ptr %.2, %.tr101
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %toast_decompress_datum_slice.exit
-  tail call void @pfree(ptr noundef nonnull %.061) #6
+  tail call void @pfree(ptr noundef nonnull %.2) #6
   br label %76
 
-76:                                               ; preds = %toast_decompress_datum_slice.exit, %75, %.loopexit
-  %.162 = phi ptr [ %.2, %75 ], [ %.2, %toast_decompress_datum_slice.exit ], [ %.061, %.loopexit ]
-  %77 = load i8, ptr %.162, align 1
+76:                                               ; preds = %toast_decompress_datum_slice.exit, %75, %.thread
+  %.3 = phi ptr [ %.2, %.thread ], [ %.4, %75 ], [ %.4, %toast_decompress_datum_slice.exit ]
+  %77 = load i8, ptr %.3, align 1
   %78 = zext i8 %77 to i32
   %79 = and i32 %78, 1
-  %.not72 = icmp eq i32 %79, 0
-  br i1 %.not72, label %83, label %80
+  %.not75 = icmp eq i32 %79, 0
+  br i1 %.not75, label %83, label %80
 
 80:                                               ; preds = %76
   %81 = lshr i32 %78, 1
@@ -588,49 +587,49 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %87
 
 83:                                               ; preds = %76
-  %84 = load i32, ptr %.162, align 4
+  %84 = load i32, ptr %.3, align 4
   %85 = lshr i32 %84, 2
   %86 = add nsw i32 %85, -4
   br label %87
 
 87:                                               ; preds = %83, %80
-  %.064 = phi i32 [ %82, %80 ], [ %86, %83 ]
+  %.067 = phi i32 [ %82, %80 ], [ %86, %83 ]
   %88 = phi i64 [ 1, %80 ], [ 4, %83 ]
-  %.not73 = icmp slt i32 %1, %.064
-  br i1 %.not73, label %89, label %94
+  %.not76 = icmp slt i32 %1, %.067
+  br i1 %.not76, label %89, label %94
 
 89:                                               ; preds = %87
-  %90 = icmp slt i32 %.059, 0
-  %91 = icmp sgt i32 %.079, %.064
+  %90 = icmp slt i32 %.060, 0
+  %91 = icmp sgt i32 %.082, %.067
   %or.cond = or i1 %90, %91
-  %92 = sub nsw i32 %.064, %1
-  %spec.select = select i1 %or.cond, i32 %92, i32 %.059
+  %92 = sub nsw i32 %.067, %1
+  %spec.select = select i1 %or.cond, i32 %92, i32 %.060
   %93 = zext nneg i32 %1 to i64
   br label %94
 
 94:                                               ; preds = %89, %87
-  %.1 = phi i32 [ 0, %87 ], [ %spec.select, %89 ]
-  %.058 = phi i64 [ 0, %87 ], [ %93, %89 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.162, i64 %88
-  %96 = add i32 %.1, 4
+  %.161 = phi i32 [ 0, %87 ], [ %spec.select, %89 ]
+  %.059 = phi i64 [ 0, %87 ], [ %93, %89 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.3, i64 %88
+  %96 = add i32 %.161, 4
   %97 = sext i32 %96 to i64
   %98 = tail call ptr @palloc(i64 noundef %97) #6
   %99 = shl i32 %96, 2
   store i32 %99, ptr %98, align 4
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %101 = getelementptr i8, ptr %95, i64 %.058
-  %102 = sext i32 %.1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr align 1 %101, i64 %102, i1 false)
-  %.not74 = icmp eq ptr %.162, %.tr95
-  br i1 %.not74, label %104, label %103
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 %.059
+  %102 = sext i32 %.161 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr nonnull align 1 %101, i64 %102, i1 false)
+  %.not77 = icmp eq ptr %.3, %.tr101
+  br i1 %.not77, label %104, label %103
 
 103:                                              ; preds = %94
-  tail call void @pfree(ptr noundef nonnull %.162) #6
+  tail call void @pfree(ptr noundef nonnull %.3) #6
   br label %104
 
-104:                                              ; preds = %94, %103, %23
-  %.0 = phi ptr [ %24, %23 ], [ %98, %103 ], [ %98, %94 ]
-  ret ptr %.0
+104:                                              ; preds = %33, %94, %103
+  %.1 = phi ptr [ %34, %33 ], [ %98, %103 ], [ %98, %94 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: cold
@@ -662,13 +661,13 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %14, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
-  %15 = and i32 %.sroa.3.0.copyload, 1073741823
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 1
+  %15 = and i32 %.sroa.5.0.copyload, 1073741823
   %.not = icmp samesign ult i32 %1, %15
   %spec.select = select i1 %.not, i32 %2, i32 0
   %spec.select36 = select i1 %.not, i32 %1, i32 0
@@ -695,12 +694,12 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %13
-  %30 = tail call ptr @table_open(i32 noundef %.sroa.7.0.copyload, i32 noundef 1) #6
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 312
+  %30 = tail call ptr @table_open(i32 noundef %.sroa.9.0.copyload, i32 noundef 1) #6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 320
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 320
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %30, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #6
+  tail call void %34(ptr noundef %30, i32 noundef %.sroa.8.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #6
   tail call void @table_close(ptr noundef %30, i32 noundef 1) #6
   br label %35
 
@@ -808,9 +807,9 @@ define dso_local i64 @toast_datum_size(i64 noundef %0) local_unnamed_addr #0 {
   ]
 
 8:                                                ; preds = %.lr.ph
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
-  %9 = and i32 %.sroa.1.0.copyload, 1073741823
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
+  %9 = and i32 %.sroa.3.0.copyload, 1073741823
   %10 = zext nneg i32 %9 to i64
   br label %30
 
@@ -875,19 +874,18 @@ declare ptr @lz4_decompress_datum_slice(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

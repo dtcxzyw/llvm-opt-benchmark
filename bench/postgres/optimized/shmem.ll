@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
+%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 
 @ShmemSegHdr = internal unnamed_addr global ptr null, align 8
 @ShmemBase = internal unnamed_addr global ptr null, align 8
@@ -34,7 +34,7 @@ define dso_local void @InitShmemAccess(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr @ShmemBase, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   store ptr %4, ptr @ShmemEnd, align 8
   ret void
 }
@@ -55,19 +55,19 @@ define dso_local void @InitShmemAllocation() local_unnamed_addr #1 {
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 8389) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef 8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.ShmemAllocUnlocked) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.ShmemAllocUnlocked) #9
   unreachable
 
 ShmemAllocUnlocked.exit:                          ; preds = %0
   store i64 %4, ptr %2, align 8
   %12 = load ptr, ptr @ShmemBase, align 8
-  %13 = getelementptr i8, ptr %12, i64 %3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %3
   store ptr %13, ptr @ShmemLock, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
   %14 = load ptr, ptr @ShmemLock, align 8
   store i8 0, ptr %14, align 1
   %15 = load i64, ptr %2, align 8
-  %16 = getelementptr i8, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = ptrtoint ptr %16 to i64
   %18 = add i64 %17, 127
   %19 = and i64 %18, -128
@@ -79,6 +79,9 @@ ShmemAllocUnlocked.exit:                          ; preds = %0
   store ptr null, ptr @ShmemIndex, align 8
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ShmemAllocUnlocked(i64 noundef %0) local_unnamed_addr #1 {
@@ -98,28 +101,31 @@ define dso_local ptr @ShmemAllocUnlocked(i64 noundef %0) local_unnamed_addr #1 {
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 8389) #9
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.ShmemAllocUnlocked) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.ShmemAllocUnlocked) #9
   unreachable
 
 15:                                               ; preds = %1
   store i64 %7, ptr %5, align 8
   %16 = load ptr, ptr @ShmemBase, align 8
-  %17 = getelementptr i8, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %6
   ret ptr %17
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @ShmemAlloc(i64 noundef %0) local_unnamed_addr #1 {
   %2 = add i64 %0, 127
   %3 = and i64 %2, -128
   %4 = load ptr, ptr @ShmemLock, align 8
-  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i8 1, ptr elementtype(i8) %4) #9, !srcloc !6
+  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i8 1, ptr elementtype(i8) %4) #9, !srcloc !5
   %.not.i = icmp eq i8 %5, 0
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @ShmemLock, align 8
-  %8 = tail call i32 @s_lock(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
+  %8 = tail call i32 @s_lock(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
   br label %9
 
 9:                                                ; preds = %6, %1
@@ -134,13 +140,13 @@ define dso_local nonnull ptr @ShmemAlloc(i64 noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr @ShmemBase, align 8
-  %18 = getelementptr i8, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %12
   store i64 %13, ptr %11, align 8
   br label %ShmemAllocRaw.exit
 
 ShmemAllocRaw.exit:                               ; preds = %9, %16
   %.0.i = phi ptr [ %18, %16 ], [ null, %9 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %19 = load ptr, ptr @ShmemLock, align 8
   store i8 0, ptr %19, align 1
   %.not = icmp eq ptr %.0.i, null
@@ -151,7 +157,7 @@ ShmemAllocRaw.exit:                               ; preds = %9, %16
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 @errcode(i32 noundef 8389) #9
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__.ShmemAlloc) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.ShmemAlloc) #9
   unreachable
 
 24:                                               ; preds = %ShmemAllocRaw.exit
@@ -159,26 +165,26 @@ ShmemAllocRaw.exit:                               ; preds = %9, %16
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #4
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ShmemAllocNoError(i64 noundef %0) #1 {
   %2 = add i64 %0, 127
   %3 = and i64 %2, -128
   %4 = load ptr, ptr @ShmemLock, align 8
-  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i8 1, ptr elementtype(i8) %4) #9, !srcloc !6
+  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i8 1, ptr elementtype(i8) %4) #9, !srcloc !5
   %.not.i = icmp eq i8 %5, 0
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @ShmemLock, align 8
-  %8 = tail call i32 @s_lock(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
+  %8 = tail call i32 @s_lock(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
   br label %9
 
 9:                                                ; preds = %6, %1
@@ -193,20 +199,20 @@ define dso_local ptr @ShmemAllocNoError(i64 noundef %0) #1 {
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr @ShmemBase, align 8
-  %18 = getelementptr i8, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %12
   store i64 %13, ptr %11, align 8
   br label %ShmemAllocRaw.exit
 
 ShmemAllocRaw.exit:                               ; preds = %9, %16
   %.0.i = phi ptr [ %18, %16 ], [ null, %9 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %19 = load ptr, ptr @ShmemLock, align 8
   store i8 0, ptr %19, align 1
   ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @ShmemBase, align 8
   %3 = icmp uge ptr %0, %2
   %4 = load ptr, ptr @ShmemEnd, align 8
@@ -219,11 +225,12 @@ define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone captures(addr
 define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
   %2 = alloca %struct.HASHCTL, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 48, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 72, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #9
   %5 = tail call i64 @hash_select_dirsize(i64 noundef 64) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %5, ptr %6, align 8
@@ -233,20 +240,22 @@ define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
   store ptr @ShmemAllocNoError, ptr %8, align 8
   %9 = call i64 @hash_get_shared_size(ptr noundef nonnull %2, i32 noundef 2588) #9
   %10 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %9, ptr noundef nonnull %1)
-  %11 = load i8, ptr %1, align 1
-  %12 = trunc i8 %11 to i1
+  %11 = load i8, ptr %1, align 1, !range !7, !noundef !8
+  %12 = trunc nuw i8 %11 to i1
   %spec.select.i = select i1 %12, i32 6684, i32 2588
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %10, ptr %13, align 8
   %14 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 64, ptr noundef nonnull %2, i32 noundef %spec.select.i) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #9
   store ptr %14, ptr @ShmemIndex, align 8
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef initializes((16, 32), (72, 80)) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
   %7 = tail call i64 @hash_select_dirsize(i64 noundef %2) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %7, ptr %8, align 8
@@ -257,31 +266,32 @@ define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef 
   %11 = or i32 %4, 2564
   %12 = tail call i64 @hash_get_shared_size(ptr noundef %3, i32 noundef %11) #9
   %13 = call ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %12, ptr noundef nonnull %6)
-  %14 = load i8, ptr %6, align 1
-  %15 = trunc i8 %14 to i1
+  %14 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %15 = trunc nuw i8 %14 to i1
   %16 = or i32 %4, 6660
   %spec.select = select i1 %15, i32 %16, i32 %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %13, ptr %17, align 8
   %18 = call ptr @hash_create(ptr noundef %0, i64 noundef %1, ptr noundef %3, i32 noundef %spec.select) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
   ret ptr %18
 }
 
-declare i64 @hash_select_dirsize(i64 noundef) local_unnamed_addr #3
+declare i64 @hash_select_dirsize(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @MainLWLockArray, align 8
-  %5 = getelementptr i8, ptr %4, i64 128
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #9
   %7 = load ptr, ptr @ShmemIndex, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %19
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @ShmemSegHdr, align 8
-  %10 = load i8, ptr @IsUnderPostmaster, align 1
-  %11 = trunc i8 %10 to i1
+  %10 = load i8, ptr @IsUnderPostmaster, align 1, !range !7, !noundef !8
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
@@ -308,18 +318,18 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @MainLWLockArray, align 8
-  %23 = getelementptr i8, ptr %22, i64 128
-  tail call void @LWLockRelease(ptr noundef %23) #9
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  tail call void @LWLockRelease(ptr noundef nonnull %23) #9
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 @errcode(i32 noundef 8389) #9
   %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 438, ptr noundef nonnull @__func__.ShmemInitStruct) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 432, ptr noundef nonnull @__func__.ShmemInitStruct) #9
   unreachable
 
 27:                                               ; preds = %19
-  %28 = load i8, ptr %2, align 1
-  %29 = trunc i8 %28 to i1
+  %28 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %27
@@ -330,13 +340,13 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @MainLWLockArray, align 8
-  %35 = getelementptr i8, ptr %34, i64 128
-  tail call void @LWLockRelease(ptr noundef %35) #9
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
+  tail call void @LWLockRelease(ptr noundef nonnull %35) #9
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %36)
   %37 = load i64, ptr %31, align 8
   %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %0, i64 noundef %1, i64 noundef %37) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 454, ptr noundef nonnull @__func__.ShmemInitStruct) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__func__.ShmemInitStruct) #9
   unreachable
 
 39:                                               ; preds = %30
@@ -348,13 +358,13 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
   %43 = add i64 %1, 127
   %44 = and i64 %43, -128
   %45 = load ptr, ptr @ShmemLock, align 8
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #9, !srcloc !6
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #9, !srcloc !5
   %.not.i = icmp eq i8 %46, 0
   br i1 %.not.i, label %50, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr @ShmemLock, align 8
-  %49 = tail call i32 @s_lock(ptr noundef %48, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
+  %49 = tail call i32 @s_lock(ptr noundef %48, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__func__.ShmemAllocRaw) #9
   br label %50
 
 50:                                               ; preds = %47, %42
@@ -369,13 +379,13 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr @ShmemBase, align 8
-  %59 = getelementptr i8, ptr %58, i64 %53
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %53
   store i64 %54, ptr %52, align 8
   br label %ShmemAllocRaw.exit
 
 ShmemAllocRaw.exit:                               ; preds = %50, %57
   %.0.i = phi ptr [ %59, %57 ], [ null, %50 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %60 = load ptr, ptr @ShmemLock, align 8
   store i8 0, ptr %60, align 1
   %61 = icmp eq ptr %.0.i, null
@@ -385,13 +395,13 @@ ShmemAllocRaw.exit:                               ; preds = %50, %57
   %63 = load ptr, ptr @ShmemIndex, align 8
   %64 = tail call ptr @hash_search(ptr noundef %63, ptr noundef %0, i32 noundef 2, ptr noundef null) #9
   %65 = load ptr, ptr @MainLWLockArray, align 8
-  %66 = getelementptr i8, ptr %65, i64 128
-  tail call void @LWLockRelease(ptr noundef %66) #9
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 128
+  tail call void @LWLockRelease(ptr noundef nonnull %66) #9
   %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %67)
   %68 = tail call i32 @errcode(i32 noundef 8389) #9
   %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0, i64 noundef %1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.ShmemInitStruct) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 467, ptr noundef nonnull @__func__.ShmemInitStruct) #9
   unreachable
 
 70:                                               ; preds = %ShmemAllocRaw.exit
@@ -406,20 +416,20 @@ ShmemAllocRaw.exit:                               ; preds = %50, %57
 74:                                               ; preds = %39, %70, %18
   %.0 = phi ptr [ %.029, %18 ], [ %41, %39 ], [ %.0.i, %70 ]
   %75 = load ptr, ptr @MainLWLockArray, align 8
-  %76 = getelementptr i8, ptr %75, i64 128
-  tail call void @LWLockRelease(ptr noundef %76) #9
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 128
+  tail call void @LWLockRelease(ptr noundef nonnull %76) #9
   ret ptr %.0
 }
 
-declare i64 @hash_get_shared_size(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @hash_get_shared_size(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #4
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @add_size(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
@@ -432,7 +442,7 @@ define dso_local noundef i64 @add_size(i64 noundef %0, i64 noundef %1) local_unn
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 261) #9
   %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.add_size) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.add_size) #9
   unreachable
 
 9:                                                ; preds = %2
@@ -456,7 +466,7 @@ define dso_local noundef i64 @mul_size(i64 noundef %0, i64 noundef %1) local_unn
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 261) #9
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 522, ptr noundef nonnull @__func__.mul_size) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.mul_size) #9
   unreachable
 
 10:                                               ; preds = %5
@@ -475,10 +485,13 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
   %7 = load ptr, ptr @MainLWLockArray, align 8
-  %8 = getelementptr i8, ptr %7, i64 128
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 1) #9
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 1) #9
   %10 = load ptr, ptr @ShmemIndex, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %10) #9
   store i32 0, ptr %4, align 4
@@ -519,7 +532,7 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   call void @tuplestore_putvalues(ptr noundef %32, ptr noundef %33, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %34 = call ptr @hash_seq_search(ptr noundef nonnull %2) #9
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %17, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %31, %17 ]
@@ -557,55 +570,53 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   %56 = load ptr, ptr %46, align 8
   call void @tuplestore_putvalues(ptr noundef %55, ptr noundef %56, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %57 = load ptr, ptr @MainLWLockArray, align 8
-  %58 = getelementptr i8, ptr %57, i64 128
-  call void @LWLockRelease(ptr noundef %58) #9
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
+  call void @LWLockRelease(ptr noundef nonnull %58) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   ret i64 0
 }
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #3
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #4
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #4
 
-declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #6
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { cold nounwind }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2150573799}
-!6 = !{i64 2241378, i64 2241394}
-!7 = !{i64 2150575802}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!4 = !{i64 2150657892}
+!5 = !{i64 2301452, i64 2301468}
+!6 = !{i64 2150659895}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}

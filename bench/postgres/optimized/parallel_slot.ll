@@ -36,10 +36,10 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, pr
 
 .lr.ph.split.us.i:                                ; preds = %17, %.lr.ph.split.us.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next26.i, %17 ]
-  %10 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv25.i
+  %10 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv25.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph.split.us.i
@@ -50,15 +50,15 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, pr
 17:                                               ; preds = %14, %.lr.ph.split.us.i
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26.i, %umax
-  br i1 %exitcond.not, label %find_matching_idle_slot.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !5
+  br i1 %exitcond.not, label %find_matching_idle_slot.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %30
   %18 = phi i32 [ %31, %30 ], [ %9, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.lr.ph.i ]
-  %19 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
+  %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %.lr.ph.split.i
@@ -81,7 +81,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, pr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
-  br i1 %33, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !5
+  br i1 %33, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !6
 
 find_matching_idle_slot.exit:                     ; preds = %26, %14
   %.012.i.in = phi i64 [ %indvars.iv25.i, %14 ], [ %indvars.iv.i, %26 ]
@@ -95,7 +95,7 @@ find_matching_idle_slot.exit.find_matching_idle_slot.exit.thread_crit_edge: ; pr
 
 36:                                               ; preds = %find_matching_idle_slot.exit
   %37 = and i64 %.012.i.in, 2147483647
-  %38 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 1, ptr %39, align 8
   br label %137
@@ -111,10 +111,10 @@ find_matching_idle_slot.exit.thread:              ; preds = %30, %17, %find_matc
 
 41:                                               ; preds = %49, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %49 ]
-  %42 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i34
+  %42 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i34
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i8, ptr %43, align 8
-  %45 = trunc i8 %44 to i1
+  %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %41
@@ -125,13 +125,13 @@ find_matching_idle_slot.exit.thread:              ; preds = %30, %17, %find_matc
 49:                                               ; preds = %46, %41
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i36, label %41, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.lr.ph.i36, label %41, !llvm.loop !8
 
 find_unconnected_slot.exit:                       ; preds = %46
   %50 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %50, ptr noundef %1)
   %51 = and i64 %indvars.iv.i34, 4294967295
-  %52 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 1, ptr %53, align 8
   br label %137
@@ -140,19 +140,19 @@ find_unconnected_slot.exit:                       ; preds = %46
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %57 ], [ 0, %49 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i38, 5
   %54 = getelementptr i8, ptr %8, i64 %.idx.i
-  %55 = load i8, ptr %54, align 8
-  %56 = trunc i8 %55 to i1
+  %55 = load i8, ptr %54, align 8, !range !4, !noundef !5
+  %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %find_any_idle_slot.exit
 
 57:                                               ; preds = %.lr.ph.i36
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !8
+  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !9
 
 find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
   %58 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %59 = and i64 %indvars.iv.i38, 4294967295
-  %60 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void @disconnectDatabase(ptr noundef %61) #9
   store ptr null, ptr %60, align 8
@@ -162,26 +162,26 @@ find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
   br label %137
 
 find_any_idle_slot.exit.thread.thread:            ; preds = %wait_on_slots.exit, %find_matching_idle_slot.exit.thread, %wait_on_slots.exit.thread67, %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
   br label %wait_on_slots.exit.thread
 
 find_any_idle_slot.exit.thread:                   ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   br label %63
 
 63:                                               ; preds = %81, %find_any_idle_slot.exit.thread
   %indvars.iv.i42 = phi i64 [ 0, %find_any_idle_slot.exit.thread ], [ %indvars.iv.next.i43, %81 ]
-  %.04560.i = phi i32 [ 0, %find_any_idle_slot.exit.thread ], [ %.146.i, %81 ]
-  %.04759.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.148.i, %81 ]
-  %64 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i42
+  %.05073.i = phi i32 [ 0, %find_any_idle_slot.exit.thread ], [ %.151.i, %81 ]
+  %.05372.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.154.i, %81 ]
+  %64 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i42
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @PQsocket(ptr noundef %65) #9
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %81, label %68
 
 68:                                               ; preds = %63
-  %69 = icmp eq ptr %.04759.i, null
+  %69 = icmp eq ptr %.05372.i, null
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -189,35 +189,35 @@ find_any_idle_slot.exit.thread:                   ; preds = %57
   br label %72
 
 72:                                               ; preds = %70, %68
-  %.2.i = phi ptr [ %71, %70 ], [ %.04759.i, %68 ]
+  %.255.i = phi ptr [ %71, %70 ], [ %.05372.i, %68 ]
   %73 = and i32 %66, 63
   %74 = zext nneg i32 %73 to i64
   %75 = shl nuw i64 1, %74
   %76 = lshr i32 %66, 6
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr [16 x i64], ptr %3, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = or i64 %79, %75
   store i64 %80, ptr %78, align 8
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %66, i32 %.04560.i)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %66, i32 %.05073.i)
   br label %81
 
 81:                                               ; preds = %72, %63
-  %.148.i = phi ptr [ %.04759.i, %63 ], [ %.2.i, %72 ]
-  %.146.i = phi i32 [ %.04560.i, %63 ], [ %spec.select.i, %72 ]
+  %.154.i = phi ptr [ %.255.i, %72 ], [ %.05372.i, %63 ]
+  %.151.i = phi i32 [ %spec.select.i, %72 ], [ %.05073.i, %63 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %82 = load i32, ptr %0, align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next.i43, %83
-  br i1 %84, label %63, label %._crit_edge.i, !llvm.loop !9
+  br i1 %84, label %63, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %81
-  %85 = add nuw i32 %.146.i, 1
-  %86 = icmp eq ptr %.148.i, null
+  %85 = add nuw i32 %.151.i, 1
+  %86 = icmp eq ptr %.154.i, null
   br i1 %86, label %wait_on_slots.exit.thread, label %87
 
 87:                                               ; preds = %._crit_edge.i
-  call void @SetCancelConn(ptr noundef nonnull %.148.i) #9
+  call void @SetCancelConn(ptr noundef nonnull %.154.i) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   %88 = load volatile i32, ptr @CancelRequested, align 4
@@ -238,8 +238,8 @@ find_any_idle_slot.exit.thread:                   ; preds = %57
 
 .critedge.i.i:                                    ; preds = %.preheader.i.i
   %95 = load volatile i32, ptr @CancelRequested, align 4
-  %.not10.i.i = icmp eq i32 %95, 0
-  br i1 %.not10.i.i, label %96, label %select_loop.exit.thread.i
+  %.not12.i.i = icmp eq i32 %95, 0
+  br i1 %.not12.i.i, label %96, label %select_loop.exit.thread.i
 
 96:                                               ; preds = %.critedge.i.i
   %97 = icmp eq i32 %89, 0
@@ -258,24 +258,24 @@ select_loop.exit.i:                               ; preds = %96
   call void @ResetCancelConn() #9
   %98 = load i32, ptr %0, align 8
   %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph67.i, label %wait_on_slots.exit.thread67
+  br i1 %99, label %.lr.ph80.i, label %wait_on_slots.exit.thread67
 
 wait_on_slots.exit.thread67:                      ; preds = %select_loop.exit.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
   br label %find_any_idle_slot.exit.thread.thread
 
-.lr.ph67.i:                                       ; preds = %select_loop.exit.i, %.loopexit.i
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.loopexit.i ], [ 0, %select_loop.exit.i ]
-  %100 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv71.i
+.lr.ph80.i:                                       ; preds = %select_loop.exit.i, %.loopexit.i
+  %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.loopexit.i ], [ 0, %select_loop.exit.i ]
+  %100 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv84.i
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 @PQsocket(ptr noundef %101) #9
   %103 = icmp sgt i32 %102, -1
   br i1 %103, label %104, label %116
 
-104:                                              ; preds = %.lr.ph67.i
+104:                                              ; preds = %.lr.ph80.i
   %105 = lshr i32 %102, 6
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr [16 x i64], ptr %3, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = and i32 %102, 63
   %110 = zext nneg i32 %109 to i64
@@ -289,56 +289,56 @@ wait_on_slots.exit.thread67:                      ; preds = %select_loop.exit.i
   %115 = call i32 @PQconsumeInput(ptr noundef %114) #9
   br label %116
 
-116:                                              ; preds = %113, %104, %.lr.ph67.i
+116:                                              ; preds = %113, %104, %.lr.ph80.i
   %117 = load ptr, ptr %100, align 8
   %118 = call i32 @PQisBusy(ptr noundef %117) #9
-  %.not5463.i = icmp eq i32 %118, 0
-  br i1 %.not5463.i, label %.lr.ph65.i, label %.loopexit.i
+  %.not6176.i = icmp eq i32 %118, 0
+  br i1 %.not6176.i, label %.lr.ph78.i, label %.loopexit.i
 
-.lr.ph65.i:                                       ; preds = %116
+.lr.ph78.i:                                       ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %100, i64 24
   br label %121
 
-121:                                              ; preds = %processQueryResult.exit.i, %.lr.ph65.i
+121:                                              ; preds = %130, %.lr.ph78.i
   %122 = load ptr, ptr %100, align 8
   %123 = call ptr @PQgetResult(ptr noundef %122) #9
-  %.not55.i = icmp eq ptr %123, null
-  br i1 %.not55.i, label %131, label %124
+  %.not62.i = icmp eq ptr %123, null
+  br i1 %.not62.i, label %.thread65.i, label %124
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %119, align 8
   %126 = load ptr, ptr %100, align 8
   %127 = load ptr, ptr %120, align 8
   %128 = call zeroext i1 %125(ptr noundef nonnull %123, ptr noundef %126, ptr noundef %127) #9
-  br i1 %128, label %processQueryResult.exit.i, label %wait_on_slots.exit.thread
+  br i1 %128, label %130, label %wait_on_slots.exit.thread
 
-processQueryResult.exit.i:                        ; preds = %124
-  call void @PQclear(ptr noundef nonnull %123) #9
-  %129 = load ptr, ptr %100, align 8
-  %130 = call i32 @PQisBusy(ptr noundef %129) #9
-  %.not54.i = icmp eq i32 %130, 0
-  br i1 %.not54.i, label %121, label %.loopexit.i
-
-131:                                              ; preds = %121
-  %132 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i8 0, ptr %132, align 8
+.thread65.i:                                      ; preds = %121
+  %129 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store i8 0, ptr %129, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %processQueryResult.exit.i, %131, %116
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
+130:                                              ; preds = %124
+  call void @PQclear(ptr noundef nonnull %123) #9
+  %131 = load ptr, ptr %100, align 8
+  %132 = call i32 @PQisBusy(ptr noundef %131) #9
+  %.not61.i = icmp eq i32 %132, 0
+  br i1 %.not61.i, label %121, label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %130, %.thread65.i, %116
+  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %133 = load i32, ptr %0, align 8
   %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next72.i, %134
-  br i1 %135, label %.lr.ph67.i, label %wait_on_slots.exit, !llvm.loop !10
+  %135 = icmp slt i64 %indvars.iv.next85.i, %134
+  br i1 %135, label %.lr.ph80.i, label %wait_on_slots.exit, !llvm.loop !11
 
 wait_on_slots.exit.thread:                        ; preds = %._crit_edge.i, %124, %select_loop.exit.thread.i, %find_any_idle_slot.exit.thread.thread
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
   br label %137
 
 wait_on_slots.exit:                               ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
   %136 = icmp sgt i32 %133, 0
   br i1 %136, label %.lr.ph.i, label %find_any_idle_slot.exit.thread.thread
 
@@ -347,11 +347,14 @@ wait_on_slots.exit:                               ; preds = %.loopexit.i
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @connect_slot(ptr noundef captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -369,8 +372,8 @@ define internal fastcc void @connect_slot(ptr noundef captures(none) %0, i32 nou
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
+  %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
   %19 = tail call ptr @connectDatabase(ptr noundef %13, ptr noundef %15, i1 noundef zeroext %18, i1 noundef zeroext false, i1 noundef zeroext true) #9
   store ptr %19, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
@@ -395,8 +398,8 @@ define internal fastcc void @connect_slot(ptr noundef captures(none) %0, i32 nou
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %6, align 8
-  %31 = load i8, ptr %16, align 8
-  %32 = trunc i8 %31 to i1
+  %31 = load i8, ptr %16, align 8, !range !4, !noundef !5
+  %32 = trunc nuw i8 %31 to i1
   tail call void @executeCommand(ptr noundef %30, ptr noundef nonnull %28, i1 noundef zeroext %32) #9
   br label %33
 
@@ -404,7 +407,10 @@ define internal fastcc void @connect_slot(ptr noundef captures(none) %0, i32 nou
   ret void
 }
 
-declare void @disconnectDatabase(ptr noundef) local_unnamed_addr #1
+declare void @disconnectDatabase(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ParallelSlotsSetup(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -425,7 +431,7 @@ define dso_local noundef ptr @ParallelSlotsSetup(i32 noundef %0, ptr noundef %1,
   ret ptr %10
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ParallelSlotsAdoptConn(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -440,10 +446,10 @@ define dso_local void @ParallelSlotsAdoptConn(ptr noundef captures(none) %0, ptr
 
 6:                                                ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %7 = getelementptr [0 x %struct.ParallelSlot], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %5, i64 0, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
+  %9 = load i8, ptr %8, align 8, !range !4, !noundef !5
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
@@ -454,11 +460,11 @@ define dso_local void @ParallelSlotsAdoptConn(ptr noundef captures(none) %0, ptr
 14:                                               ; preds = %11, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_unconnected_slot.exit.thread, label %6, !llvm.loop !7
+  br i1 %exitcond.not.i, label %find_unconnected_slot.exit.thread, label %6, !llvm.loop !8
 
 find_unconnected_slot.exit:                       ; preds = %11
   %15 = and i64 %indvars.iv.i, 4294967295
-  %16 = getelementptr [0 x %struct.ParallelSlot], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %5, i64 0, i64 %15
   store ptr %1, ptr %16, align 8
   br label %17
 
@@ -483,7 +489,7 @@ define dso_local void @ParallelSlotsTerminate(ptr noundef readonly captures(none
 5:                                                ; preds = %.lr.ph, %11
   %6 = phi i32 [ %2, %.lr.ph ], [ %12, %11 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %7 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -498,7 +504,7 @@ define dso_local void @ParallelSlotsTerminate(ptr noundef readonly captures(none
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %5, label %._crit_edge, !llvm.loop !11
+  br i1 %14, label %5, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %11, %1
   ret void
@@ -517,7 +523,7 @@ define dso_local noundef zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef cap
 5:                                                ; preds = %.lr.ph, %27
   %6 = phi i32 [ %2, %.lr.ph ], [ %28, %27 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %7 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %27, label %10
@@ -556,7 +562,7 @@ processQueryResult.exit.i:                        ; preds = %21, %15
   %22 = load ptr, ptr %7, align 8
   %23 = tail call ptr @PQgetResult(ptr noundef %22) #9
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %consumeQueryResult.exit, label %15, !llvm.loop !12
+  br i1 %.not.i, label %consumeQueryResult.exit, label %15, !llvm.loop !13
 
 consumeQueryResult.exit:                          ; preds = %processQueryResult.exit.i
   tail call void @ResetCancelConn() #9
@@ -575,7 +581,7 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %28 to i64
   %.not = icmp slt i64 %indvars.iv.next, %29
-  br i1 %.not, label %5, label %._crit_edge, !llvm.loop !13
+  br i1 %.not, label %5, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %consumeQueryResult.exit, %27, %1
   %.lcssa = phi i1 [ true, %1 ], [ true, %27 ], [ false, %consumeQueryResult.exit ]
@@ -586,111 +592,106 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
 define dso_local noundef zeroext i1 @TableCommandResultHandler(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @PQresultStatus(ptr noundef %0) #9
   %.not = icmp eq i32 %4, 1
-  br i1 %.not, label %12, label %5
+  br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @PQresultErrorField(ptr noundef %0, i32 noundef 67) #9
   %7 = tail call ptr @PQdb(ptr noundef %1) #9
   %8 = tail call ptr @PQerrorMessage(ptr noundef %1) #9
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %7, ptr noundef %8) #9
-  %.not9 = icmp eq ptr %6, null
-  br i1 %.not9, label %12, label %9
+  %.not10 = icmp eq ptr %6, null
+  br i1 %.not10, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.1) #10
-  %.not10 = icmp eq i32 %10, 0
-  br i1 %.not10, label %12, label %11
+  %.not11 = icmp eq i32 %10, 0
+  br i1 %.not11, label %.thread, label %11
 
 11:                                               ; preds = %9
   tail call void @PQclear(ptr noundef %0) #9
-  br label %12
+  br label %.thread
 
-12:                                               ; preds = %3, %9, %5, %11
-  %.0 = phi i1 [ false, %11 ], [ true, %5 ], [ true, %9 ], [ true, %3 ]
-  ret i1 %.0
+.thread:                                          ; preds = %5, %9, %3, %11
+  %.1 = phi i1 [ false, %11 ], [ true, %3 ], [ true, %9 ], [ true, %5 ]
+  ret i1 %.1
 }
 
-declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
+declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQresultErrorField(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @PQresultErrorField(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @PQdb(ptr noundef) local_unnamed_addr #1
+declare ptr @PQdb(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
+declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #1
+declare void @PQclear(ptr noundef) local_unnamed_addr #2
 
-declare ptr @connectDatabase(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @connectDatabase(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @PQsocket(ptr noundef) local_unnamed_addr #1
+declare i32 @PQsocket(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare void @executeCommand(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare void @executeCommand(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @SetCancelConn(ptr noundef) local_unnamed_addr #1
+declare void @SetCancelConn(ptr noundef) local_unnamed_addr #2
 
-declare void @ResetCancelConn() local_unnamed_addr #1
+declare void @ResetCancelConn() local_unnamed_addr #2
 
-declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #1
+declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PQisBusy(ptr noundef) local_unnamed_addr #1
+declare i32 @PQisBusy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #1
+declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind willreturn memory(none) }
 attributes #12 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

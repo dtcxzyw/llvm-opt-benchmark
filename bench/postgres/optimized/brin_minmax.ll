@@ -3,7 +3,7 @@ source_filename = "bench/postgres/original/brin_minmax.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -22,7 +22,7 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   store i16 2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 1, ptr %6, align 2
-  %7 = getelementptr i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = ptrtoint ptr %7 to i64
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
@@ -31,7 +31,7 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   store ptr %11, ptr %12, align 8
   %13 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = getelementptr i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %15, align 8
   store ptr %13, ptr %14, align 8
   %16 = ptrtoint ptr %5 to i64
@@ -47,138 +47,141 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load i16, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = sext i16 %12 to i64
-  %17 = add nsw i64 %16, -1
-  %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %20 = load i8, ptr %19, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %39
+  %15 = sext i16 %12 to i64
+  %16 = load i32, ptr %14, align 8
+  %17 = sext i32 %16 to i64
+  %18 = shl nsw i64 %17, 4
+  %19 = getelementptr i8, ptr %14, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -76
+  %21 = getelementptr %struct.FormData_pg_attribute, ptr %20, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %42
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 86
-  %24 = load i8, ptr %23, align 2
-  %25 = trunc i8 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %27 = load i16, ptr %26, align 4
-  %28 = sext i16 %27 to i32
-  %29 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %25, i32 noundef %28) #4
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %31 = load ptr, ptr %30, align 8
-  store i64 %29, ptr %31, align 8
-  %32 = load i8, ptr %23, align 2
-  %33 = trunc i8 %32 to i1
-  %34 = load i16, ptr %26, align 4
-  %35 = sext i16 %34 to i32
-  %36 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %33, i32 noundef %35) #4
-  %37 = load ptr, ptr %30, align 8
-  %38 = getelementptr i8, ptr %37, i64 8
-  store i64 %36, ptr %38, align 8
-  store i8 0, ptr %19, align 1
-  br label %87
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 82
+  %27 = load i8, ptr %26, align 2, !range !4, !noundef !5
+  %28 = trunc nuw i8 %27 to i1
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %30 = load i16, ptr %29, align 4
+  %31 = sext i16 %30 to i32
+  %32 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %28, i32 noundef %31) #4
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %34 = load ptr, ptr %33, align 8
+  store i64 %32, ptr %34, align 8
+  %35 = load i8, ptr %26, align 2, !range !4, !noundef !5
+  %36 = trunc nuw i8 %35 to i1
+  %37 = load i16, ptr %29, align 4
+  %38 = sext i16 %37 to i32
+  %39 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %36, i32 noundef %38) #4
+  %40 = load ptr, ptr %33, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 %39, ptr %41, align 8
+  store i8 0, ptr %22, align 1
+  br label %90
 
-39:                                               ; preds = %1
-  %40 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %41 = load i32, ptr %40, align 4
-  %42 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %41, i16 noundef zeroext 1)
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i64, ptr %44, align 8
-  %46 = tail call i64 @FunctionCall2Coll(ptr noundef %42, i32 noundef %11, i64 noundef %9, i64 noundef %45) #4
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %62
+42:                                               ; preds = %1
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %44, i16 noundef zeroext 1)
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i64, ptr %47, align 8
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #4
+  %50 = icmp ne i64 %49, 0
+  br i1 %50, label %51, label %65
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds nuw i8, ptr %18, i64 86
-  %50 = load i8, ptr %49, align 2
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %56, label %52
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 82
+  %53 = load i8, ptr %52, align 2, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %59, label %55
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %43, align 8
-  %54 = load i64, ptr %53, align 8
-  %55 = inttoptr i64 %54 to ptr
-  tail call void @pfree(ptr noundef %55) #4
-  %.pre = load i8, ptr %49, align 2
-  %.pre49 = trunc i8 %.pre to i1
-  br label %56
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %46, align 8
+  %57 = load i64, ptr %56, align 8
+  %58 = inttoptr i64 %57 to ptr
+  tail call void @pfree(ptr noundef %58) #4
+  %.pre = load i8, ptr %52, align 2, !range !4
+  %.pre49 = trunc nuw i8 %.pre to i1
+  br label %59
 
-56:                                               ; preds = %52, %48
-  %.pre-phi = phi i1 [ %.pre49, %52 ], [ true, %48 ]
-  %57 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %58 = load i16, ptr %57, align 4
-  %59 = sext i16 %58 to i32
-  %60 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi, i32 noundef %59) #4
-  %61 = load ptr, ptr %43, align 8
-  store i64 %60, ptr %61, align 8
-  br label %62
+59:                                               ; preds = %55, %51
+  %.pre-phi = phi i1 [ %.pre49, %55 ], [ true, %51 ]
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %61 = load i16, ptr %60, align 4
+  %62 = sext i16 %61 to i32
+  %63 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi, i32 noundef %62) #4
+  %64 = load ptr, ptr %46, align 8
+  store i64 %63, ptr %64, align 8
+  br label %65
 
-62:                                               ; preds = %56, %39
-  %63 = load i32, ptr %40, align 4
-  %64 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %63, i16 noundef zeroext 5)
-  %65 = load ptr, ptr %43, align 8
-  %66 = getelementptr i8, ptr %65, i64 8
-  %67 = load i64, ptr %66, align 8
-  %68 = tail call i64 @FunctionCall2Coll(ptr noundef %64, i32 noundef %11, i64 noundef %9, i64 noundef %67) #4
-  %.not = icmp eq i64 %68, 0
-  br i1 %.not, label %85, label %69
+65:                                               ; preds = %59, %42
+  %66 = load i32, ptr %43, align 4
+  %67 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %66, i16 noundef zeroext 5)
+  %68 = load ptr, ptr %46, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i64, ptr %69, align 8
+  %71 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %67, i32 noundef %11, i64 noundef %9, i64 noundef %70) #4
+  %.not = icmp eq i64 %71, 0
+  br i1 %.not, label %88, label %72
 
-69:                                               ; preds = %62
-  %70 = getelementptr inbounds nuw i8, ptr %18, i64 86
-  %71 = load i8, ptr %70, align 2
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %78, label %73
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 82
+  %74 = load i8, ptr %73, align 2, !range !4, !noundef !5
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %81, label %76
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %43, align 8
-  %75 = getelementptr i8, ptr %74, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = inttoptr i64 %76 to ptr
-  tail call void @pfree(ptr noundef %77) #4
-  %.pre48 = load i8, ptr %70, align 2
-  %.pre50 = trunc i8 %.pre48 to i1
-  br label %78
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %46, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = inttoptr i64 %79 to ptr
+  tail call void @pfree(ptr noundef %80) #4
+  %.pre48 = load i8, ptr %73, align 2, !range !4
+  %.pre50 = trunc nuw i8 %.pre48 to i1
+  br label %81
 
-78:                                               ; preds = %73, %69
-  %.pre-phi51 = phi i1 [ %.pre50, %73 ], [ true, %69 ]
-  %79 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %80 = load i16, ptr %79, align 4
-  %81 = sext i16 %80 to i32
-  %82 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi51, i32 noundef %81) #4
-  %83 = load ptr, ptr %43, align 8
-  %84 = getelementptr i8, ptr %83, i64 8
-  store i64 %82, ptr %84, align 8
-  br label %85
+81:                                               ; preds = %76, %72
+  %.pre-phi51 = phi i1 [ %.pre50, %76 ], [ true, %72 ]
+  %82 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %83 = load i16, ptr %82, align 4
+  %84 = sext i16 %83 to i32
+  %85 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi51, i32 noundef %84) #4
+  %86 = load ptr, ptr %46, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store i64 %85, ptr %87, align 8
+  br label %88
 
-85:                                               ; preds = %78, %62
-  %.1 = phi i1 [ true, %78 ], [ %47, %62 ]
-  %86 = zext i1 %.1 to i64
-  br label %87
+88:                                               ; preds = %81, %65
+  %.1 = phi i1 [ true, %81 ], [ %50, %65 ]
+  %89 = zext i1 %.1 to i64
+  br label %90
 
-87:                                               ; preds = %85, %22
-  %.0 = phi i64 [ 1, %22 ], [ %86, %85 ]
+90:                                               ; preds = %88, %25
+  %.0 = phi i64 [ 1, %25 ], [ %89, %88 ]
   ret i64 %.0
 }
 
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc nonnull ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
-  %8 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -197,7 +200,7 @@ define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly ca
   store i32 0, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %17, label %14, !llvm.loop !5
+  br i1 %exitcond.not, label %17, label %14, !llvm.loop !6
 
 17:                                               ; preds = %14
   store i32 %2, ptr %11, align 8
@@ -208,51 +211,55 @@ define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly ca
   %20 = zext i16 %3 to i32
   %21 = add nsw i32 %20, -1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [5 x %struct.FmgrInfo], ptr %19, i64 0, i64 %22
+  %23 = getelementptr inbounds [5 x %struct.FmgrInfo], ptr %19, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %53
+  br i1 %26, label %27, label %57
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 360
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i32, ptr %31, i64 %7
+  %32 = getelementptr inbounds i32, ptr %31, i64 %7
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = zext i32 %33 to i64
-  %.idx = mul nsw i64 %7, 104
-  %37 = getelementptr i8, ptr %35, i64 92
-  %38 = getelementptr i8, ptr %37, i64 %.idx
-  %39 = load i32, ptr %38, align 4
-  %40 = zext i32 %39 to i64
-  %41 = zext i32 %2 to i64
-  %42 = sext i16 %3 to i64
-  %43 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %36, i64 noundef %40, i64 noundef %41, i64 noundef %42) #4
-  %.not35 = icmp eq ptr %43, null
-  br i1 %.not35, label %44, label %48
-
-44:                                               ; preds = %27
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %45)
-  %46 = load i32, ptr %38, align 4
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %46, i32 noundef %2, i32 noundef %33) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 303, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #4
-  unreachable
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = shl nsw i64 %37, 4
+  %39 = getelementptr i8, ptr %35, i64 %38
+  %40 = zext i32 %33 to i64
+  %.idx = mul nsw i64 %7, 100
+  %41 = getelementptr i8, ptr %39, i64 92
+  %42 = getelementptr i8, ptr %41, i64 %.idx
+  %43 = load i32, ptr %42, align 4
+  %44 = zext i32 %43 to i64
+  %45 = zext i32 %2 to i64
+  %46 = sext i16 %3 to i64
+  %47 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %40, i64 noundef %44, i64 noundef %45, i64 noundef %46) #4
+  %.not35 = icmp eq ptr %47, null
+  br i1 %.not35, label %48, label %52
 
 48:                                               ; preds = %27
-  %49 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %43, i16 noundef signext 7) #4
-  %50 = trunc i64 %49 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %43) #4
-  %51 = tail call i32 @get_opcode(i32 noundef %50) #4
-  %52 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %51, ptr noundef %23, ptr noundef %52) #4
-  br label %53
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %49)
+  %50 = load i32, ptr %42, align 4
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %50, i32 noundef %2, i32 noundef %33) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #4
+  unreachable
 
-53:                                               ; preds = %48, %18
+52:                                               ; preds = %27
+  %53 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %47, i16 noundef signext 7) #4
+  %54 = trunc i64 %53 to i32
+  tail call void @ReleaseSysCache(ptr noundef nonnull %47) #4
+  %55 = tail call i32 @get_opcode(i32 noundef %54) #4
+  %56 = load ptr, ptr %0, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %55, ptr noundef nonnull %23, ptr noundef %56) #4
+  br label %57
+
+57:                                               ; preds = %52, %18
   ret ptr %23
 }
 
@@ -265,10 +272,10 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -294,7 +301,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
+  %26 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
   br label %51
 
 27:                                               ; preds = %1
@@ -302,25 +309,25 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %51, label %33
 
 33:                                               ; preds = %27
   %34 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 4)
   %35 = load ptr, ptr %29, align 8
-  %36 = getelementptr i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
+  %38 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
   br label %51
 
 39:                                               ; preds = %1, %1
   %40 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
   br label %51
 
 46:                                               ; preds = %1
@@ -329,7 +336,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %48 = load i16, ptr %19, align 2
   %49 = zext i16 %48 to i32
   %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %49) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 197, ptr noundef nonnull @__func__.brin_minmax_consistent) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.brin_minmax_consistent) #4
   unreachable
 
 51:                                               ; preds = %27, %39, %33, %21
@@ -349,10 +356,10 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -360,94 +367,97 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %13 = load i16, ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = sext i16 %13 to i64
-  %18 = add nsw i64 %17, -1
-  %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %21, i16 noundef zeroext 1)
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = sext i16 %13 to i64
+  %17 = load i32, ptr %15, align 8
+  %18 = sext i32 %17 to i64
+  %19 = shl nsw i64 %18, 4
+  %20 = getelementptr i8, ptr %15, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -76
+  %22 = getelementptr %struct.FormData_pg_attribute, ptr %21, i64 %16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 68
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %24, i16 noundef zeroext 1)
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %27, align 8
-  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %28) #4
-  %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %46, label %30
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %30, align 8
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #4
+  %.not = icmp eq i64 %32, 0
+  br i1 %.not, label %49, label %33
 
-30:                                               ; preds = %1
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 86
-  %32 = load i8, ptr %31, align 2
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %38, label %34
+33:                                               ; preds = %1
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 82
+  %35 = load i8, ptr %34, align 2, !range !4, !noundef !5
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %41, label %37
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %26, align 8
-  %36 = load i64, ptr %35, align 8
-  %37 = inttoptr i64 %36 to ptr
-  tail call void @pfree(ptr noundef %37) #4
-  %.pre = load i8, ptr %31, align 2
-  %.pre37 = trunc i8 %.pre to i1
-  br label %38
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %29, align 8
+  %39 = load i64, ptr %38, align 8
+  %40 = inttoptr i64 %39 to ptr
+  tail call void @pfree(ptr noundef %40) #4
+  %.pre = load i8, ptr %34, align 2, !range !4
+  %.pre37 = trunc nuw i8 %.pre to i1
+  br label %41
 
-38:                                               ; preds = %34, %30
-  %.pre-phi38 = phi i1 [ %.pre37, %34 ], [ true, %30 ]
-  %39 = load ptr, ptr %23, align 8
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %42 = load i16, ptr %41, align 4
-  %43 = sext i16 %42 to i32
-  %44 = tail call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext %.pre-phi38, i32 noundef %43) #4
-  %45 = load ptr, ptr %26, align 8
-  store i64 %44, ptr %45, align 8
-  br label %46
+41:                                               ; preds = %37, %33
+  %.pre-phi38 = phi i1 [ %.pre37, %37 ], [ true, %33 ]
+  %42 = load ptr, ptr %26, align 8
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %45 = load i16, ptr %44, align 4
+  %46 = sext i16 %45 to i32
+  %47 = tail call i64 @datumCopy(i64 noundef %43, i1 noundef zeroext %.pre-phi38, i32 noundef %46) #4
+  %48 = load ptr, ptr %29, align 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-46:                                               ; preds = %38, %1
-  %47 = load i32, ptr %20, align 4
-  %48 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %13, i32 noundef %47, i16 noundef zeroext 5)
-  %49 = load ptr, ptr %23, align 8
-  %50 = getelementptr i8, ptr %49, i64 8
-  %51 = load i64, ptr %50, align 8
+49:                                               ; preds = %41, %1
+  %50 = load i32, ptr %23, align 4
+  %51 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %13, i32 noundef %50, i16 noundef zeroext 5)
   %52 = load ptr, ptr %26, align 8
-  %53 = getelementptr i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %12, i64 noundef %51, i64 noundef %54) #4
-  %.not34 = icmp eq i64 %55, 0
-  br i1 %.not34, label %75, label %56
+  %55 = load ptr, ptr %29, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %51, i32 noundef %12, i64 noundef %54, i64 noundef %57) #4
+  %.not34 = icmp eq i64 %58, 0
+  br i1 %.not34, label %78, label %59
 
-56:                                               ; preds = %46
-  %57 = getelementptr inbounds nuw i8, ptr %19, i64 86
-  %58 = load i8, ptr %57, align 2
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %65, label %60
+59:                                               ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 82
+  %61 = load i8, ptr %60, align 2, !range !4, !noundef !5
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %68, label %63
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %26, align 8
-  %62 = getelementptr i8, ptr %61, i64 8
-  %63 = load i64, ptr %62, align 8
-  %64 = inttoptr i64 %63 to ptr
-  tail call void @pfree(ptr noundef %64) #4
-  %.pre35 = load i8, ptr %57, align 2
-  %.pre36 = trunc i8 %.pre35 to i1
-  br label %65
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %29, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = inttoptr i64 %66 to ptr
+  tail call void @pfree(ptr noundef %67) #4
+  %.pre35 = load i8, ptr %60, align 2, !range !4
+  %.pre36 = trunc nuw i8 %.pre35 to i1
+  br label %68
 
-65:                                               ; preds = %60, %56
-  %.pre-phi = phi i1 [ %.pre36, %60 ], [ true, %56 ]
-  %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr i8, ptr %66, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %70 = load i16, ptr %69, align 4
-  %71 = sext i16 %70 to i32
-  %72 = tail call i64 @datumCopy(i64 noundef %68, i1 noundef zeroext %.pre-phi, i32 noundef %71) #4
-  %73 = load ptr, ptr %26, align 8
-  %74 = getelementptr i8, ptr %73, i64 8
-  store i64 %72, ptr %74, align 8
-  br label %75
+68:                                               ; preds = %63, %59
+  %.pre-phi = phi i1 [ %.pre36, %63 ], [ true, %59 ]
+  %69 = load ptr, ptr %26, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %73 = load i16, ptr %72, align 4
+  %74 = sext i16 %73 to i32
+  %75 = tail call i64 @datumCopy(i64 noundef %71, i1 noundef zeroext %.pre-phi, i32 noundef %74) #4
+  %76 = load ptr, ptr %29, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i64 %75, ptr %77, align 8
+  br label %78
 
-75:                                               ; preds = %65, %46
+78:                                               ; preds = %68, %49
   ret i64 0
 }
 
@@ -464,19 +474,20 @@ declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { nounwind }
 attributes #5 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

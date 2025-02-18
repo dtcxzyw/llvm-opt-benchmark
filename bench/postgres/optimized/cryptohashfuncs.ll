@@ -26,7 +26,9 @@ define dso_local i64 @md5_text(ptr noundef readonly captures(none) %0) local_unn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #4
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #6
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store ptr null, ptr %3, align 8
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -69,38 +71,46 @@ define dso_local i64 @md5_text(ptr noundef readonly captures(none) %0) local_unn
   %.not12 = icmp eq i8 %33, 0
   %.v = select i1 %.not12, i64 4, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
-  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
+  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %31
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %37)
-  %38 = call i32 @errcode(i32 noundef 2600) #4
+  %38 = call i32 @errcode(i32 noundef 2600) #6
   %39 = load ptr, ptr %3, align 8
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #4
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 49, ptr noundef nonnull @__func__.md5_text) #4
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #6
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 49, ptr noundef nonnull @__func__.md5_text) #6
   unreachable
 
 41:                                               ; preds = %31
-  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #4
+  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
   %43 = ptrtoint ptr %42 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2) #6
   ret i64 %43
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i1 @pg_md5_hash(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+
+declare zeroext i1 @pg_md5_hash(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @md5_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -109,7 +119,9 @@ define dso_local i64 @md5_bytea(ptr noundef readonly captures(none) %0) local_un
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #4
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #6
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store ptr null, ptr %3, align 8
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -152,21 +164,23 @@ define dso_local i64 @md5_bytea(ptr noundef readonly captures(none) %0) local_un
   %.not12 = icmp eq i8 %33, 0
   %.v = select i1 %.not12, i64 4, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
-  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
+  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %31
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %37)
-  %38 = call i32 @errcode(i32 noundef 2600) #4
+  %38 = call i32 @errcode(i32 noundef 2600) #6
   %39 = load ptr, ptr %3, align 8
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #4
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.md5_bytea) #4
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #6
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.md5_bytea) #6
   unreachable
 
 41:                                               ; preds = %31
-  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #4
+  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
   %43 = ptrtoint ptr %42 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2) #6
   ret i64 %43
 }
 
@@ -175,14 +189,14 @@ define dso_local i64 @sha224_bytea(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = tail call fastcc ptr @cryptohash_internal(i32 noundef 2, ptr noundef %5)
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cryptohash_internal(i32 noundef range(i32 2, 6) %0, ptr noundef %1) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @cryptohash_internal(i32 noundef range(i32 2, 6) %0, ptr noundef %1) unnamed_addr #4 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %2 = sext i32 %switch.tableidx to i64
@@ -193,7 +207,7 @@ switch.lookup:
   %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %4 = add nuw nsw i32 %switch.load, 4
   %5 = zext nneg i32 %4 to i64
-  %6 = tail call ptr @palloc0(i64 noundef %5) #4
+  %6 = tail call ptr @palloc0(i64 noundef %5) #6
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i32
   %9 = icmp eq i8 %7, 1
@@ -231,17 +245,17 @@ switch.lookup:
 
 30:                                               ; preds = %21, %25, %10
   %31 = phi i64 [ %18, %10 ], [ %24, %21 ], [ %29, %25 ]
-  %32 = tail call ptr @pg_cryptohash_create(i32 noundef %0) #4
-  %33 = tail call i32 @pg_cryptohash_init(ptr noundef %32) #4
+  %32 = tail call ptr @pg_cryptohash_create(i32 noundef %0) #6
+  %33 = tail call i32 @pg_cryptohash_init(ptr noundef %32) #6
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %30
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %36)
-  %37 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load37, ptr noundef %37) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.cryptohash_internal) #4
+  %37 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #6
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load37, ptr noundef %37) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
 39:                                               ; preds = %30
@@ -249,35 +263,35 @@ switch.lookup:
   %.not33 = icmp eq i8 %40, 0
   %.v = select i1 %.not33, i64 4, i64 1
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
-  %42 = tail call i32 @pg_cryptohash_update(ptr noundef %32, ptr noundef nonnull %41, i64 noundef %31) #4
+  %42 = tail call i32 @pg_cryptohash_update(ptr noundef %32, ptr noundef nonnull %41, i64 noundef %31) #6
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %39
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %45)
-  %46 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load37, ptr noundef %46) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.cryptohash_internal) #4
+  %46 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #6
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load37, ptr noundef %46) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %50 = zext nneg i32 %switch.load to i64
-  %51 = tail call i32 @pg_cryptohash_final(ptr noundef %32, ptr noundef nonnull %49, i64 noundef %50) #4
+  %51 = tail call i32 @pg_cryptohash_final(ptr noundef %32, ptr noundef nonnull %49, i64 noundef %50) #6
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %48
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load37, ptr noundef %55) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 127, ptr noundef nonnull @__func__.cryptohash_internal) #4
+  %55 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #6
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load37, ptr noundef %55) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 127, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
 57:                                               ; preds = %48
-  tail call void @pg_cryptohash_free(ptr noundef %32) #4
+  tail call void @pg_cryptohash_free(ptr noundef %32) #6
   %58 = shl nuw nsw i32 %4, 2
   store i32 %58, ptr %6, align 4
   ret ptr %6
@@ -288,7 +302,7 @@ define dso_local i64 @sha256_bytea(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = tail call fastcc ptr @cryptohash_internal(i32 noundef 3, ptr noundef %5)
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
@@ -299,7 +313,7 @@ define dso_local i64 @sha384_bytea(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = tail call fastcc ptr @cryptohash_internal(i32 noundef 4, ptr noundef %5)
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
@@ -310,42 +324,43 @@ define dso_local i64 @sha512_bytea(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = tail call fastcc ptr @cryptohash_internal(i32 noundef 5, ptr noundef %5)
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #1
+declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
 
-declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #1
+declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #1
+declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
+declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { cold nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

@@ -25,7 +25,7 @@ define dso_local void @ExceptionalCondition(ptr noundef %0, ptr noundef %1, i32 
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11, %3
-  %15 = call i32 @getpid() #4
+  %15 = call i32 @getpid() #5
   call void (ptr, ...) @write_stderr(ptr noundef @.str, i32 noundef %15)
   br label %21
 
@@ -33,22 +33,26 @@ define dso_local void @ExceptionalCondition(ptr noundef %0, ptr noundef %1, i32 
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
-  %20 = call i32 @getpid() #4
+  %20 = call i32 @getpid() #5
   call void (ptr, ...) @write_stderr(ptr noundef @.str.1, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20)
   br label %21
 
 21:                                               ; preds = %16, %14
   %22 = load ptr, ptr @stderr, align 8
   %23 = call i32 @fflush(ptr noundef %22)
+  call void @llvm.lifetime.start.p0(i64 800, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %24 = getelementptr inbounds [100 x ptr], ptr %7, i64 0, i64 0
   %25 = call i32 @backtrace(ptr noundef %24, i32 noundef 100)
   store i32 %25, ptr %8, align 4
   %26 = getelementptr inbounds [100 x ptr], ptr %7, i64 0, i64 0
   %27 = load i32, ptr %8, align 4
   %28 = load ptr, ptr @stderr, align 8
-  %29 = call i32 @fileno(ptr noundef %28) #4
-  call void @backtrace_symbols_fd(ptr noundef %26, i32 noundef %27, i32 noundef %29) #4
-  call void @abort() #5
+  %29 = call i32 @fileno(ptr noundef %28) #5
+  call void @backtrace_symbols_fd(ptr noundef %26, i32 noundef %27, i32 noundef %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 800, ptr %7) #5
+  call void @abort() #6
   unreachable
 }
 
@@ -59,6 +63,9 @@ declare i32 @getpid() #2
 
 declare i32 @fflush(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 declare i32 @backtrace(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
@@ -67,20 +74,23 @@ declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) #2
 ; Function Attrs: nounwind
 declare i32 @fileno(ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: noreturn nounwind
-declare void @abort() #3
+declare void @abort() #4
 
-attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}

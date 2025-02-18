@@ -26,6 +26,7 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
   br label %15
 
 8:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %9
 
@@ -43,6 +44,7 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
   call void @join_path_components(ptr noundef nonnull %3, ptr noundef %.sink, ptr noundef nonnull %0) #5
   call void @canonicalize_path(ptr noundef nonnull %3) #5
   %14 = call ptr @pstrdup(ptr noundef nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
   br label %15
 
 15:                                               ; preds = %13, %6
@@ -52,14 +54,20 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @get_parent_directory(ptr noundef) local_unnamed_addr #1
 
 declare void @join_path_components(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @canonicalize_path(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
@@ -82,10 +90,9 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
 
 16:                                               ; preds = %13, %11
   store ptr @.str.3, ptr %4, align 8
-  br label %79
+  br label %78
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
   %18 = load i8, ptr %0, align 1
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %20, label %22
@@ -95,6 +102,7 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   br label %AbsoluteConfigLocation.exit
 
 22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %25, label %23
 
@@ -112,145 +120,139 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   call void @join_path_components(ptr noundef nonnull %6, ptr noundef %.sink.i, ptr noundef nonnull %0) #5
   call void @canonicalize_path(ptr noundef nonnull %6) #5
   %28 = call ptr @pstrdup(ptr noundef nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
   br label %AbsoluteConfigLocation.exit
 
 AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   %.0.i = phi ptr [ %21, %20 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   %29 = call ptr @AllocateDir(ptr noundef %.0.i) #5
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %37
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %AbsoluteConfigLocation.exit
   %32 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #5
-  br i1 %32, label %33, label %.thread80
+  br i1 %32, label %33, label %73
 
 33:                                               ; preds = %31
   %34 = call i32 @errcode_for_file_access() #5
   %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %.0.i) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 101, ptr noundef nonnull @__func__.GetConfFilesInDir) #5
-  br label %.thread80
+  br label %73
 
-.thread80:                                        ; preds = %31, %33
-  %36 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, ptr noundef %.0.i) #5
-  store ptr %36, ptr %4, align 8
-  br label %78
-
-37:                                               ; preds = %AbsoluteConfigLocation.exit
-  %38 = call ptr @palloc(i64 noundef 256) #5
+36:                                               ; preds = %AbsoluteConfigLocation.exit
+  %37 = call ptr @palloc(i64 noundef 256) #5
   store i32 0, ptr %3, align 4
-  %39 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not8587 = icmp eq ptr %39, null
-  br i1 %.not8587, label %.outer._crit_edge, label %.lr.ph
+  %38 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
+  %.not88 = icmp eq ptr %38, null
+  br i1 %.not88, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %.outer
-  %40 = phi ptr [ %70, %.outer ], [ %39, %37 ]
-  %.061.ph89 = phi i32 [ %.2, %.outer ], [ 32, %37 ]
-  %.163.ph88 = phi ptr [ %.3, %.outer ], [ %38, %37 ]
-  br label %41
+.lr.ph:                                           ; preds = %36, %67
+  %39 = phi ptr [ %68, %67 ], [ %38, %36 ]
+  %.06390 = phi i32 [ %.1, %67 ], [ 32, %36 ]
+  %.16589 = phi ptr [ %.266, %67 ], [ %37, %36 ]
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 19
+  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #6
+  %42 = icmp ult i64 %41, 6
+  br i1 %42, label %67, label %43, !llvm.loop !4
 
-41:                                               ; preds = %.lr.ph, %.backedge
-  %42 = phi ptr [ %40, %.lr.ph ], [ %46, %.backedge ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 19
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #6
-  %45 = icmp ult i64 %44, 6
-  br i1 %45, label %.backedge, label %47
+43:                                               ; preds = %.lr.ph
+  %44 = load i8, ptr %40, align 1
+  %45 = icmp eq i8 %44, 46
+  br i1 %45, label %67, label %46, !llvm.loop !4
 
-.backedge:                                        ; preds = %41, %47, %50
-  %46 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.outer._crit_edge, label %41, !llvm.loop !5
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %41
+  %48 = getelementptr inbounds i8, ptr %47, i64 -5
+  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(6) @.str.6) #6
+  %.not76 = icmp eq i32 %49, 0
+  br i1 %.not76, label %50, label %67, !llvm.loop !4
 
-47:                                               ; preds = %41
-  %48 = load i8, ptr %43, align 1
-  %49 = icmp eq i8 %48, 46
-  br i1 %49, label %.backedge, label %50
-
-50:                                               ; preds = %47
-  %51 = getelementptr i8, ptr %43, i64 %44
-  %52 = getelementptr i8, ptr %51, i64 -5
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(6) @.str.6) #6
-  %.not73 = icmp eq i32 %53, 0
-  br i1 %.not73, label %54, label %.backedge
-
-54:                                               ; preds = %50
-  call void @join_path_components(ptr noundef nonnull %7, ptr noundef %.0.i, ptr noundef nonnull %43) #5
+50:                                               ; preds = %46
+  call void @join_path_components(ptr noundef nonnull %7, ptr noundef %.0.i, ptr noundef nonnull %40) #5
   call void @canonicalize_path(ptr noundef nonnull %7) #5
-  %55 = call i32 @get_dirent_type(ptr noundef nonnull %7, ptr noundef nonnull %42, i1 noundef zeroext true, i32 noundef %2) #5
-  switch i32 %55, label %56 [
-    i32 0, label %75
-    i32 3, label %.outer
+  %51 = call i32 @get_dirent_type(ptr noundef nonnull %7, ptr noundef nonnull %39, i1 noundef zeroext true, i32 noundef %2) #5
+  switch i32 %51, label %53 [
+    i32 0, label %.thread
+    i32 3, label %67
   ]
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr %3, align 4
-  %.not75 = icmp slt i32 %57, %.061.ph89
-  br i1 %.not75, label %63, label %58
+.thread:                                          ; preds = %50
+  %52 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
+  store ptr %52, ptr %4, align 8
+  call void @pfree(ptr noundef %.16589) #5
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  br label %75
 
-58:                                               ; preds = %56
-  %59 = add i32 %.061.ph89, 32
-  %60 = sext i32 %59 to i64
-  %61 = shl nsw i64 %60, 3
-  %62 = call ptr @repalloc(ptr noundef %.163.ph88, i64 noundef %61) #5
-  br label %63
+53:                                               ; preds = %50
+  %54 = load i32, ptr %3, align 4
+  %.not78 = icmp slt i32 %54, %.06390
+  br i1 %.not78, label %60, label %55
 
-63:                                               ; preds = %58, %56
-  %.264 = phi ptr [ %62, %58 ], [ %.163.ph88, %56 ]
-  %.1 = phi i32 [ %59, %58 ], [ %.061.ph89, %56 ]
-  %64 = call ptr @pstrdup(ptr noundef nonnull %7) #5
+55:                                               ; preds = %53
+  %56 = add i32 %.06390, 32
+  %57 = sext i32 %56 to i64
+  %58 = shl nsw i64 %57, 3
+  %59 = call ptr @repalloc(ptr noundef %.16589, i64 noundef %58) #5
+  br label %60
+
+60:                                               ; preds = %55, %53
+  %.367 = phi ptr [ %59, %55 ], [ %.16589, %53 ]
+  %.2 = phi i32 [ %56, %55 ], [ %.06390, %53 ]
+  %61 = call ptr @pstrdup(ptr noundef nonnull %7) #5
+  %62 = load i32, ptr %3, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %.367, i64 %63
+  store ptr %61, ptr %64, align 8
   %65 = load i32, ptr %3, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr ptr, ptr %.264, i64 %66
-  store ptr %64, ptr %67, align 8
-  %68 = load i32, ptr %3, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %3, align 4
-  br label %.outer
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %3, align 4
+  br label %67
 
-.outer:                                           ; preds = %54, %63
-  %.3 = phi ptr [ %.264, %63 ], [ %.163.ph88, %54 ]
-  %.2 = phi i32 [ %.1, %63 ], [ %.061.ph89, %54 ]
-  %70 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not85 = icmp eq ptr %70, null
-  br i1 %.not85, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
+67:                                               ; preds = %60, %50, %46, %43, %.lr.ph
+  %.266 = phi ptr [ %.16589, %.lr.ph ], [ %.16589, %43 ], [ %.16589, %46 ], [ %.367, %60 ], [ %.16589, %50 ]
+  %.1 = phi i32 [ %.06390, %.lr.ph ], [ %.06390, %43 ], [ %.06390, %46 ], [ %.2, %60 ], [ %.06390, %50 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  %68 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.outer._crit_edge:                                ; preds = %.outer, %.backedge, %37
-  %.163.ph.lcssa84 = phi ptr [ %38, %37 ], [ %.163.ph88, %.backedge ], [ %.3, %.outer ]
-  %71 = load i32, ptr %3, align 4
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %.thread
+._crit_edge:                                      ; preds = %67, %36
+  %.165.lcssa = phi ptr [ %37, %36 ], [ %.266, %67 ]
+  %69 = load i32, ptr %3, align 4
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %75
 
-73:                                               ; preds = %.outer._crit_edge
-  %74 = zext nneg i32 %71 to i64
-  call void @pg_qsort(ptr noundef %.163.ph.lcssa84, i64 noundef %74, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #5
-  br label %.thread
+71:                                               ; preds = %._crit_edge
+  %72 = zext nneg i32 %69 to i64
+  call void @pg_qsort(ptr noundef %.165.lcssa, i64 noundef %72, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #5
+  br label %75
 
-75:                                               ; preds = %54
-  %76 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
-  store ptr %76, ptr %4, align 8
-  call void @pfree(ptr noundef %.163.ph88) #5
-  br label %.thread
+73:                                               ; preds = %31, %33
+  %74 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, ptr noundef %.0.i) #5
+  store ptr %74, ptr %4, align 8
+  br label %77
 
-.thread:                                          ; preds = %75, %73, %.outer._crit_edge
-  %.06278 = phi ptr [ null, %75 ], [ %.163.ph.lcssa84, %.outer._crit_edge ], [ %.163.ph.lcssa84, %73 ]
-  %77 = call i32 @FreeDir(ptr noundef nonnull %29) #5
+75:                                               ; preds = %.thread, %._crit_edge, %71
+  %.064.ph = phi ptr [ null, %.thread ], [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %71 ]
+  %76 = call i32 @FreeDir(ptr noundef nonnull %29) #5
+  br label %77
+
+77:                                               ; preds = %73, %75
+  %.06486 = phi ptr [ %.064.ph, %75 ], [ null, %73 ]
+  call void @pfree(ptr noundef %.0.i) #5
   br label %78
 
-78:                                               ; preds = %.thread80, %.thread
-  %.06279 = phi ptr [ %.06278, %.thread ], [ null, %.thread80 ]
-  call void @pfree(ptr noundef %.0.i) #5
-  br label %79
-
-79:                                               ; preds = %78, %16
-  %.0 = phi ptr [ null, %16 ], [ %.06279, %78 ]
+78:                                               ; preds = %77, %16
+  %.0 = phi ptr [ null, %16 ], [ %.06486, %77 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -271,7 +273,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -285,26 +287,19 @@ declare i32 @pg_qsort_strcmp(ptr noundef, ptr noundef) #1
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

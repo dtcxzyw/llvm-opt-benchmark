@@ -58,33 +58,34 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @dsm_postmaster_startup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1036 x i8], align 16
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8
   %4 = load i32, ptr @dynamic_shared_memory_type, align 4
   %5 = icmp eq i32 %4, 4
-  br i1 %5, label %6, label %27
+  br i1 %5, label %6, label %28
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1036, ptr nonnull %2)
   %7 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.11) #12
   %8 = tail call ptr @ReadDir(ptr noundef %7, ptr noundef nonnull @.str.11) #12
   %.not5.i = icmp eq ptr %8, null
   br i1 %.not5.i, label %dsm_cleanup_for_mmap.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %24
-  %9 = phi ptr [ %25, %24 ], [ %8, %6 ]
+.lr.ph.i:                                         ; preds = %6, %25
+  %9 = phi ptr [ %26, %25 ], [ %8, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #13
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %24
+  br i1 %12, label %13, label %25
 
 13:                                               ; preds = %.lr.ph.i
+  call void @llvm.lifetime.start.p0(i64 1036, ptr nonnull %2) #12
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1036, ptr noundef nonnull @.str.13, ptr noundef nonnull %10) #12
   %15 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
   %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %2) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @__func__.dsm_cleanup_for_mmap) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.dsm_cleanup_for_mmap) #12
   br label %18
 
 18:                                               ; preds = %16, %13
@@ -97,92 +98,102 @@ define dso_local void @dsm_postmaster_startup(ptr noundef %0) local_unnamed_addr
   call void @llvm.assume(i1 %21)
   %22 = call i32 @errcode_for_file_access() #12
   %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %2) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__func__.dsm_cleanup_for_mmap) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 343, ptr noundef nonnull @__func__.dsm_cleanup_for_mmap) #12
   unreachable
 
-24:                                               ; preds = %18, %.lr.ph.i
-  %25 = call ptr @ReadDir(ptr noundef %7, ptr noundef nonnull @.str.11) #12
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %dsm_cleanup_for_mmap.exit, label %.lr.ph.i, !llvm.loop !5
+24:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 1036, ptr nonnull %2) #12
+  br label %25
 
-dsm_cleanup_for_mmap.exit:                        ; preds = %24, %6
-  %26 = call i32 @FreeDir(ptr noundef %7) #12
-  call void @llvm.lifetime.end.p0(i64 1036, ptr nonnull %2)
-  br label %27
+25:                                               ; preds = %24, %.lr.ph.i
+  %26 = call ptr @ReadDir(ptr noundef %7, ptr noundef nonnull @.str.11) #12
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %dsm_cleanup_for_mmap.exit, label %.lr.ph.i, !llvm.loop !4
 
-27:                                               ; preds = %dsm_cleanup_for_mmap.exit, %1
-  %28 = load i32, ptr @MaxBackends, align 4
-  %29 = mul i32 %28, 5
-  %30 = add i32 %29, 64
-  %31 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
-  br i1 %31, label %32, label %34
+dsm_cleanup_for_mmap.exit:                        ; preds = %25, %6
+  %27 = call i32 @FreeDir(ptr noundef %7) #12
+  br label %28
 
-32:                                               ; preds = %27
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %30) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.dsm_postmaster_startup) #12
-  br label %34
+28:                                               ; preds = %dsm_cleanup_for_mmap.exit, %1
+  %29 = load i32, ptr @MaxBackends, align 4
+  %30 = mul i32 %29, 5
+  %31 = add i32 %30, 64
+  %32 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %27, %32
-  %35 = zext i32 %30 to i64
-  %36 = mul nuw nsw i64 %35, 40
-  %37 = add nuw nsw i64 %36, 16
+33:                                               ; preds = %28
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__func__.dsm_postmaster_startup) #12
+  br label %35
+
+35:                                               ; preds = %33, %28
+  %36 = zext i32 %31 to i64
+  %37 = mul nuw nsw i64 %36, 40
+  %38 = add nuw nsw i64 %37, 16
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %34
-  %38 = call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #12
-  %39 = shl i32 %38, 1
-  store i32 %39, ptr @dsm_control_handle, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.backedge.backedge, label %41
+.backedge:                                        ; preds = %.backedge.backedge, %35
+  %39 = call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #12
+  %40 = shl i32 %39, 1
+  store i32 %40, ptr @dsm_control_handle, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.backedge.backedge, label %42
 
-.backedge.backedge:                               ; preds = %.backedge, %41
+.backedge.backedge:                               ; preds = %.backedge, %42
   br label %.backedge
 
-41:                                               ; preds = %.backedge
-  %42 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %39, i64 noundef %37, ptr noundef nonnull @dsm_control_impl_private, ptr noundef nonnull %3, ptr noundef nonnull @dsm_control_mapped_size, i32 noundef 21) #12
-  br i1 %42, label %43, label %.backedge.backedge
+42:                                               ; preds = %.backedge
+  %43 = call zeroext i1 @dsm_impl_op(i32 noundef 0, i32 noundef %40, i64 noundef %38, ptr noundef nonnull @dsm_control_impl_private, ptr noundef nonnull %3, ptr noundef nonnull @dsm_control_mapped_size, i32 noundef 21) #12
+  br i1 %43, label %44, label %.backedge.backedge
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %3, align 8
-  store ptr %44, ptr @dsm_control, align 8
-  %45 = ptrtoint ptr %0 to i64
-  call void @on_shmem_exit(ptr noundef nonnull @dsm_postmaster_shutdown, i64 noundef %45) #12
-  %46 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %3, align 8
+  store ptr %45, ptr @dsm_control, align 8
+  %46 = ptrtoint ptr %0 to i64
+  call void @on_shmem_exit(ptr noundef nonnull @dsm_postmaster_shutdown, i64 noundef %46) #12
+  %47 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr @dsm_control_handle, align 4
-  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %48, i64 noundef %37) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.dsm_postmaster_startup) #12
-  br label %50
+48:                                               ; preds = %44
+  %49 = load i32, ptr @dsm_control_handle, align 4
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %49, i64 noundef %38) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.dsm_postmaster_startup) #12
+  br label %51
 
-50:                                               ; preds = %43, %47
-  %51 = load i32, ptr @dsm_control_handle, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %51, ptr %52, align 8
-  %53 = load ptr, ptr @dsm_control, align 8
-  store i32 -1706017486, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %30, ptr %55, align 8
+51:                                               ; preds = %48, %44
+  %52 = load i32, ptr @dsm_control_handle, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %52, ptr %53, align 8
+  %54 = load ptr, ptr @dsm_control, align 8
+  store i32 -1706017486, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 %31, ptr %56, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i1 @dsm_impl_op(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #3
 
-declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @dsm_impl_op(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @dsm_postmaster_shutdown(i32 %0, i64 noundef %1) #0 {
@@ -190,8 +201,12 @@ define internal void @dsm_postmaster_shutdown(i32 %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   store i64 0, ptr %6, align 8
   %7 = inttoptr i64 %1 to ptr
   %8 = load ptr, ptr @dsm_control, align 8
@@ -231,14 +246,14 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
 
 24:                                               ; preds = %dsm_control_segment_sane.exit.thread
   %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
   br label %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %26 = phi ptr [ %8, %.lr.ph.preheader ], [ %42, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr [0 x %struct.dsm_control_item], ptr %27, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %27, i64 0, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
@@ -256,10 +271,10 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
 
 37:                                               ; preds = %35
   %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %33) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
   br label %39
 
-39:                                               ; preds = %35, %37
+39:                                               ; preds = %37, %35
   %40 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %33, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 15) #12
   %.pre = load ptr, ptr @dsm_control, align 8
   br label %41
@@ -268,7 +283,7 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
   %42 = phi ptr [ %26, %32 ], [ %26, %.lr.ph ], [ %.pre, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %43 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
@@ -277,10 +292,10 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
 44:                                               ; preds = %._crit_edge
   %45 = load i32, ptr @dsm_control_handle, align 4
   %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %45) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 409, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @__func__.dsm_postmaster_shutdown) #12
   br label %47
 
-47:                                               ; preds = %._crit_edge, %44
+47:                                               ; preds = %44, %._crit_edge
   %48 = load ptr, ptr @dsm_control, align 8
   store ptr %48, ptr %3, align 8
   %49 = load i32, ptr @dsm_control_handle, align 4
@@ -291,7 +306,11 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
   store i32 0, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %24, %dsm_control_segment_sane.exit.thread, %47
+53:                                               ; preds = %dsm_control_segment_sane.exit.thread, %24, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 }
 
@@ -303,11 +322,17 @@ define dso_local void @dsm_cleanup_using_control_segment(i32 noundef %0) local_u
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr null, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   store i64 0, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   store i64 0, ptr %7, align 8
   %8 = call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %0, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 14) #12
   br i1 %8, label %9, label %45
@@ -349,7 +374,7 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 
 26:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %27 = getelementptr [0 x %struct.dsm_control_item], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %25, i64 0, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
@@ -367,17 +392,17 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 
 36:                                               ; preds = %34
   %37 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %32, i32 noundef %29) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @__func__.dsm_cleanup_using_control_segment) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 294, ptr noundef nonnull @__func__.dsm_cleanup_using_control_segment) #12
   br label %38
 
-38:                                               ; preds = %34, %36
+38:                                               ; preds = %36, %34
   %39 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %32, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef 15) #12
   br label %40
 
 40:                                               ; preds = %31, %26, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %40, %24
   %41 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
@@ -385,20 +410,26 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 
 42:                                               ; preds = %._crit_edge
   %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.dsm_cleanup_using_control_segment) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @__func__.dsm_cleanup_using_control_segment) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %42, %._crit_edge, %dsm_control_segment_sane.exit, %9, %13, %15
-  %.sink = phi i32 [ 2, %15 ], [ 2, %13 ], [ 2, %9 ], [ 2, %dsm_control_segment_sane.exit ], [ 3, %._crit_edge ], [ 3, %42 ]
+.sink.split:                                      ; preds = %._crit_edge, %42, %dsm_control_segment_sane.exit, %9, %13, %15
+  %.sink = phi i32 [ 2, %15 ], [ 2, %13 ], [ 2, %9 ], [ 2, %dsm_control_segment_sane.exit ], [ 3, %42 ], [ 3, %._crit_edge ]
   %44 = call zeroext i1 @dsm_impl_op(i32 noundef %.sink, i32 noundef %0, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 15) #12
   br label %45
 
 45:                                               ; preds = %.sink.split, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2251799813685248, 2251799812636673) i64 @dsm_estimate_size() local_unnamed_addr #3 {
+define dso_local range(i64 -2251799813685248, 2251799812636673) i64 @dsm_estimate_size() local_unnamed_addr #4 {
   %1 = load i32, ptr @min_dynamic_shared_memory, align 4
   %2 = sext i32 %1 to i64
   %3 = shl nsw i64 %2, 20
@@ -411,14 +442,15 @@ define dso_local void @dsm_shmem_init() local_unnamed_addr #0 {
   %2 = load i32, ptr @min_dynamic_shared_memory, align 4
   %3 = sext i32 %2 to i64
   %4 = shl nsw i64 %3, 20
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #12
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %0
   %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef %4, ptr noundef nonnull %1) #12
   store ptr %7, ptr @dsm_main_space_begin, align 8
-  %8 = load i8, ptr %1, align 1
-  %9 = trunc i8 %8 to i1
+  %8 = load i8, ptr %1, align 1, !range !8, !noundef !9
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %12, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
@@ -428,19 +460,21 @@ define dso_local void @dsm_shmem_init() local_unnamed_addr #0 {
   call void @FreePageManagerPut(ptr noundef %7, i64 noundef 1, i64 noundef %11) #12
   br label %12
 
-12:                                               ; preds = %0, %.preheader.preheader, %6
+12:                                               ; preds = %6, %.preheader.preheader, %0
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #12
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr @dsm_main_space_begin, align 8
   %.b72 = load i1, ptr @dsm_init_done, align 1
@@ -505,8 +539,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %27 = zext i1 %.not73 to i64
   %spec.select = add nuw nsw i64 %25, %27
   %28 = load ptr, ptr @MainLWLockArray, align 8
-  %29 = getelementptr i8, ptr %28, i64 4352
-  %30 = tail call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4352
+  %30 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %29, i32 noundef 0) #12
   %31 = call zeroext i1 @FreePageManagerGet(ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %3) #12
   br i1 %31, label %32, label %40
 
@@ -514,7 +548,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %33 = load ptr, ptr @dsm_main_space_begin, align 8
   %34 = load i64, ptr %3, align 8
   %35 = shl i64 %34, 12
-  %36 = getelementptr i8, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %36, ptr %37, align 8
   %38 = shl i64 %spec.select, 12
@@ -524,8 +558,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 40:                                               ; preds = %24
   %41 = load ptr, ptr @MainLWLockArray, align 8
-  %42 = getelementptr i8, ptr %41, i64 4352
-  call void @LWLockRelease(ptr noundef %42) #12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %42) #12
   br label %.thread93
 
 .thread93:                                        ; preds = %dsm_create_descriptor.exit, %40
@@ -551,8 +585,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @MainLWLockArray, align 8
-  %53 = getelementptr i8, ptr %52, i64 4352
-  %54 = call zeroext i1 @LWLockAcquire(ptr noundef %53, i32 noundef 0) #12
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4352
+  %54 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %53, i32 noundef 0) #12
   br label %55
 
 55:                                               ; preds = %32, %51
@@ -608,7 +642,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = getelementptr [0 x %struct.dsm_control_item], ptr %87, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %87, i64 0, i64 %indvars.iv
   store i32 %86, ptr %88, align 8
   %89 = getelementptr i8, ptr %84, i64 20
   %90 = getelementptr i8, ptr %89, i64 %.idx81
@@ -625,7 +659,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 95:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %60, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %60, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %95
   %96 = zext i32 %58 to i64
@@ -646,14 +680,14 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %102 = load i64, ptr %3, align 8
   call void @FreePageManagerPut(ptr noundef %4, i64 noundef %102, i64 noundef %.06690) #12
   %103 = load ptr, ptr @MainLWLockArray, align 8
-  %104 = getelementptr i8, ptr %103, i64 4352
-  call void @LWLockRelease(ptr noundef %104) #12
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %104) #12
   br label %112
 
 .critedge:                                        ; preds = %100
   %105 = load ptr, ptr @MainLWLockArray, align 8
-  %106 = getelementptr i8, ptr %105, i64 4352
-  call void @LWLockRelease(ptr noundef %106) #12
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %106) #12
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %108 = load i32, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -688,7 +722,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   call void @llvm.assume(i1 %123)
   %124 = call i32 @errcode(i32 noundef 197) #12
   %125 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.dsm_create) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__func__.dsm_create) #12
   unreachable
 
 126:                                              ; preds = %._crit_edge
@@ -722,7 +756,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %147 = load i32, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %149 = zext i32 %58 to i64
-  %150 = getelementptr [0 x %struct.dsm_control_item], ptr %148, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %148, i64 0, i64 %149
   store i32 %147, ptr %150, align 8
   %.idx76 = mul nuw nsw i64 %149, 40
   %151 = getelementptr i8, ptr %145, i64 20
@@ -743,26 +777,27 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 .sink.split:                                      ; preds = %83, %144
   %160 = load ptr, ptr @MainLWLockArray, align 8
-  %161 = getelementptr i8, ptr %160, i64 4352
-  call void @LWLockRelease(ptr noundef %161) #12
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %161) #12
   br label %162
 
 162:                                              ; preds = %.sink.split, %116
   %.065 = phi ptr [ null, %116 ], [ %11, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret ptr %.065
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
@@ -773,7 +808,7 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
   store i1 true, ptr @dsm_init_done, align 1
   br label %3
 
-3:                                                ; preds = %2, %1
+3:                                                ; preds = %1, %2
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
   %.not354356 = icmp eq ptr %4, @dsm_segment_list
@@ -791,14 +826,14 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 693, ptr noundef nonnull @__func__.dsm_attach) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 692, ptr noundef nonnull @__func__.dsm_attach) #12
   unreachable
 
 select.unfold:                                    ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not35 = icmp eq ptr %12, @dsm_segment_list
-  br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %3
   %13 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -848,8 +883,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %0, ptr %30, align 8
   %31 = load ptr, ptr @MainLWLockArray, align 8
-  %32 = getelementptr i8, ptr %31, i64 4352
-  %33 = tail call zeroext i1 @LWLockAcquire(ptr noundef %32, i32 noundef 0) #12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4352
+  %33 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %32, i32 noundef 0) #12
   %34 = load ptr, ptr @dsm_control, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
@@ -863,7 +898,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 38:                                               ; preds = %.lr.ph47, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %65 ]
-  %39 = getelementptr [0 x %struct.dsm_control_item], ptr %37, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %37, i64 0, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp ult i32 %41, 2
@@ -893,7 +928,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %55 = getelementptr i8, ptr %54, i64 %.idx
   %56 = load i64, ptr %55, align 8
   %57 = shl i64 %56, 12
-  %58 = getelementptr i8, ptr %53, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %58, ptr %59, align 8
   %60 = getelementptr i8, ptr %34, i64 32
@@ -907,12 +942,12 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 65:                                               ; preds = %43, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !12
 
 .loopexit:                                        ; preds = %65, %dsm_create_descriptor.exit, %46, %52
   %66 = load ptr, ptr @MainLWLockArray, align 8
-  %67 = getelementptr i8, ptr %66, i64 4352
-  tail call void @LWLockRelease(ptr noundef %67) #12
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4352
+  tail call void @LWLockRelease(ptr noundef nonnull %67) #12
   %68 = load i32, ptr %23, align 4
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %70, label %71
@@ -952,15 +987,15 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %.val44 = phi ptr [ %.val, %.lr.ph ], [ %.val43, %1 ]
   %6 = load ptr, ptr %.val44, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr i8, ptr %.val44, i64 -16
+  %7 = getelementptr inbounds i8, ptr %.val44, i64 -16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %.val44, i64 -8
+  %9 = getelementptr inbounds i8, ptr %.val44, i64 -8
   %10 = load i64, ptr %9, align 8
   tail call void @pfree(ptr noundef nonnull %7) #12
   tail call void %8(ptr noundef nonnull %0, i64 noundef %10) #12
   %.val = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %.val, null
-  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %12 = load volatile i32, ptr @InterruptHoldoffCount, align 4
@@ -997,8 +1032,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @MainLWLockArray, align 8
-  %31 = getelementptr i8, ptr %30, i64 4352
-  %32 = tail call zeroext i1 @LWLockAcquire(ptr noundef %31, i32 noundef 0) #12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4352
+  %32 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %31, i32 noundef 0) #12
   %33 = load ptr, ptr @dsm_control, align 8
   %34 = zext i32 %28 to i64
   %.idx = mul nuw nsw i64 %34, 40
@@ -1009,8 +1044,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %38, ptr %36, align 4
   store i32 -1, ptr %27, align 4
   %39 = load ptr, ptr @MainLWLockArray, align 8
-  %40 = getelementptr i8, ptr %39, i64 4352
-  tail call void @LWLockRelease(ptr noundef %40) #12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4352
+  tail call void @LWLockRelease(ptr noundef nonnull %40) #12
   %41 = icmp eq i32 %38, 1
   br i1 %41, label %42, label %71
 
@@ -1029,8 +1064,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %46, %42
   %51 = load ptr, ptr @MainLWLockArray, align 8
-  %52 = getelementptr i8, ptr %51, i64 4352
-  %53 = tail call zeroext i1 @LWLockAcquire(ptr noundef %52, i32 noundef 0) #12
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4352
+  %53 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %52, i32 noundef 0) #12
   %54 = load i32, ptr %43, align 8
   %55 = and i32 %54, 1
   %.not42 = icmp eq i32 %55, 0
@@ -1040,7 +1075,7 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %57 = load ptr, ptr @dsm_main_space_begin, align 8
   %58 = load ptr, ptr @dsm_control, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = getelementptr [0 x %struct.dsm_control_item], ptr %59, i64 0, i64 %34
+  %60 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %59, i64 0, i64 %34
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -1054,8 +1089,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %68 = getelementptr i8, ptr %67, i64 %.idx
   store i32 0, ptr %68, align 4
   %69 = load ptr, ptr @MainLWLockArray, align 8
-  %70 = getelementptr i8, ptr %69, i64 4352
-  tail call void @LWLockRelease(ptr noundef %70) #12
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4352
+  tail call void @LWLockRelease(ptr noundef nonnull %70) #12
   br label %71
 
 71:                                               ; preds = %29, %65, %46, %26
@@ -1096,7 +1131,7 @@ define dso_local void @dsm_backend_shutdown() local_unnamed_addr #0 {
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %5, @dsm_segment_list
   %spec.select.i = or i1 %6, %7
-  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1105,6 +1140,7 @@ define dso_local void @dsm_backend_shutdown() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
   %2 = load ptr, ptr @dsm_control, align 8
   store ptr %2, ptr %1, align 8
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
@@ -1120,7 +1156,7 @@ define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %7, @dsm_segment_list
   %spec.select.i = or i1 %8, %9
-  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %spec.select.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.not = icmp eq ptr %2, null
@@ -1132,6 +1168,7 @@ define dso_local void @dsm_detach_all() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %10, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
   ret void
 }
 
@@ -1164,15 +1201,16 @@ define dso_local void @dsm_unpin_mapping(ptr noundef initializes((16, 24)) %0) l
   ret void
 }
 
-declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsm_pin_segment(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr @MainLWLockArray, align 8
-  %4 = getelementptr i8, ptr %3, i64 4352
-  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0) #12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4352
+  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #12
   %6 = load ptr, ptr @dsm_control, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
@@ -1180,15 +1218,15 @@ define dso_local void @dsm_pin_segment(ptr noundef readonly captures(none) %0) l
   %.idx = mul nuw nsw i64 %9, 40
   %10 = getelementptr i8, ptr %6, i64 48
   %11 = getelementptr i8, ptr %10, i64 %.idx
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 8, !range !8, !noundef !9
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %1
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 968, ptr noundef nonnull @__func__.dsm_pin_segment) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 967, ptr noundef nonnull @__func__.dsm_pin_segment) #12
   unreachable
 
 17:                                               ; preds = %1
@@ -1230,12 +1268,13 @@ define dso_local void @dsm_pin_segment(ptr noundef readonly captures(none) %0) l
   %38 = getelementptr i8, ptr %37, i64 %.idx9
   store ptr %34, ptr %38, align 8
   %39 = load ptr, ptr @MainLWLockArray, align 8
-  %40 = getelementptr i8, ptr %39, i64 4352
-  call void @LWLockRelease(ptr noundef %40) #12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %40) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret void
 }
 
-declare void @dsm_impl_pin_segment(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dsm_impl_pin_segment(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
@@ -1243,8 +1282,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = load ptr, ptr @MainLWLockArray, align 8
-  %6 = getelementptr i8, ptr %5, i64 4352
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef %6, i32 noundef 0) #12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4352
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #12
   %8 = load ptr, ptr @dsm_control, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
@@ -1258,7 +1297,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %13 = getelementptr [0 x %struct.dsm_control_item], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %11, i64 0, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 2
@@ -1272,13 +1311,13 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %20, %1
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1017, ptr noundef nonnull @__func__.dsm_unpin_segment) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1016, ptr noundef nonnull @__func__.dsm_unpin_segment) #12
   unreachable
 
 23:                                               ; preds = %17
@@ -1286,15 +1325,15 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %.idx = mul nuw nsw i64 %24, 40
   %25 = getelementptr i8, ptr %8, i64 48
   %26 = getelementptr i8, ptr %25, i64 %.idx
-  %27 = load i8, ptr %26, align 8
-  %28 = trunc i8 %27 to i1
+  %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %23
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %30)
   %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1019, ptr noundef nonnull @__func__.dsm_unpin_segment) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1018, ptr noundef nonnull @__func__.dsm_unpin_segment) #12
   unreachable
 
 32:                                               ; preds = %23
@@ -1321,13 +1360,16 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr i8, ptr %44, i64 %.idx
   store i8 0, ptr %45, align 8
   %46 = load ptr, ptr @MainLWLockArray, align 8
-  %47 = getelementptr i8, ptr %46, i64 4352
-  tail call void @LWLockRelease(ptr noundef %47) #12
-  br i1 %43, label %48, label %73
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4352
+  tail call void @LWLockRelease(ptr noundef nonnull %47) #12
+  br i1 %43, label %48, label %74
 
 48:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr null, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store i64 0, ptr %4, align 8
   br i1 %.not, label %49, label %55
 
@@ -1337,18 +1379,18 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @MainLWLockArray, align 8
-  %53 = getelementptr i8, ptr %52, i64 4352
-  %54 = call zeroext i1 @LWLockAcquire(ptr noundef %53, i32 noundef 0) #12
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4352
+  %54 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %53, i32 noundef 0) #12
   br label %67
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr @MainLWLockArray, align 8
-  %57 = getelementptr i8, ptr %56, i64 4352
-  %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef %57, i32 noundef 0) #12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4352
+  %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 0) #12
   %59 = load ptr, ptr @dsm_main_space_begin, align 8
   %60 = load ptr, ptr @dsm_control, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = getelementptr [0 x %struct.dsm_control_item], ptr %61, i64 0, i64 %24
+  %62 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %61, i64 0, i64 %24
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -1362,18 +1404,24 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %70 = getelementptr i8, ptr %69, i64 %.idx
   store i32 0, ptr %70, align 4
   %71 = load ptr, ptr @MainLWLockArray, align 8
-  %72 = getelementptr i8, ptr %71, i64 4352
-  call void @LWLockRelease(ptr noundef %72) #12
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %72) #12
   br label %73
 
-73:                                               ; preds = %49, %67, %37
+73:                                               ; preds = %67, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  br label %74
+
+74:                                               ; preds = %73, %37
   ret void
 }
 
-declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dsm_impl_unpin_segment(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @dsm_find_mapping(i32 noundef %0) local_unnamed_addr #4 {
+define dso_local ptr @dsm_find_mapping(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not91013 = icmp eq ptr %2, @dsm_segment_list
@@ -1391,7 +1439,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, @dsm_segment_list
-  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !17
 
 select.unfold._crit_edge:                         ; preds = %.lr.ph, %select.unfold, %1
   %.0 = phi ptr [ null, %1 ], [ null, %select.unfold ], [ %.sroa.0.011, %.lr.ph ]
@@ -1399,21 +1447,21 @@ select.unfold._crit_edge:                         ; preds = %.lr.ph, %select.unf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @dsm_segment_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local ptr @dsm_segment_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @dsm_segment_map_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local i64 @dsm_segment_map_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @dsm_segment_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local i32 @dsm_segment_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -1434,7 +1482,7 @@ define dso_local void @on_dsm_detach(ptr noundef captures(none) %0, ptr noundef 
   ret void
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1444,29 +1492,29 @@ define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr n
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
-  %storemerge17.sink = phi ptr [ %6, %16 ], [ %5, %3 ]
-  %.sroa.8.015 = phi ptr [ %storemerge17.sink, %16 ], [ %4, %3 ]
-  %6 = load ptr, ptr %storemerge17.sink, align 8
-  %7 = getelementptr i8, ptr %storemerge17.sink, i64 -16
+  %storemerge23.sink = phi ptr [ %6, %16 ], [ %5, %3 ]
+  %.sroa.10.021 = phi ptr [ %storemerge23.sink, %16 ], [ %4, %3 ]
+  %6 = load ptr, ptr %storemerge23.sink, align 8
+  %7 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr i8, ptr %storemerge17.sink, i64 -8
+  %11 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr i8, ptr %storemerge17.sink, i64 -16
-  store ptr %6, ptr %.sroa.8.015, align 8
+  %15 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -16
+  store ptr %6, ptr %.sroa.10.021, align 8
   tail call void @pfree(ptr noundef nonnull %15) #12
   br label %.loopexit
 
-16:                                               ; preds = %.lr.ph, %10
-  %.not8 = icmp eq ptr %6, null
-  br i1 %.not8, label %.loopexit, label %.lr.ph, !llvm.loop !17
+16:                                               ; preds = %10, %.lr.ph
+  %.not10 = icmp eq ptr %6, null
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %16, %3, %14
   ret void
@@ -1491,11 +1539,11 @@ define dso_local void @reset_on_dsm_detach() local_unnamed_addr #0 {
   %.val12 = phi ptr [ %.val, %.lr.ph ], [ %.val11, %.preheader ]
   %4 = load ptr, ptr %.val12, align 8
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr i8, ptr %.val12, i64 -16
-  tail call void @pfree(ptr noundef %5) #12
+  %5 = getelementptr inbounds i8, ptr %.val12, i64 -16
+  tail call void @pfree(ptr noundef nonnull %5) #12
   %.val = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %.val, null
-  br i1 %6, label %select.unfold, label %.lr.ph, !llvm.loop !18
+  br i1 %6, label %select.unfold, label %.lr.ph, !llvm.loop !19
 
 select.unfold:                                    ; preds = %.lr.ph, %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 28
@@ -1503,29 +1551,29 @@ select.unfold:                                    ; preds = %.lr.ph, %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, @dsm_segment_list
-  br i1 %.not10, label %select.unfold._crit_edge, label %.preheader, !llvm.loop !19
+  br i1 %.not10, label %select.unfold._crit_edge, label %.preheader, !llvm.loop !20
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   ret void
 }
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #3
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #3
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #3
 
-declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @ResOwnerReleaseDSM(i64 noundef %0) #0 {
@@ -1545,60 +1593,55 @@ define internal ptr @ResOwnerPrintDSM(i64 noundef %0) #0 {
   ret ptr %5
 }
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

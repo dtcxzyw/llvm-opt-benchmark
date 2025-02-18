@@ -22,10 +22,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [26 x i8] c"pg_log_standby_snapshot()\00", align 1
 @__func__.pg_log_standby_snapshot = private unnamed_addr constant [24 x i8] c"pg_log_standby_snapshot\00", align 1
 @wal_level = external local_unnamed_addr global i32, align 4
-@.str.10 = private unnamed_addr constant [67 x i8] c"pg_log_standby_snapshot() can only be used if wal_level >= replica\00", align 1
+@.str.10 = private unnamed_addr constant [71 x i8] c"pg_log_standby_snapshot() can only be used if \22wal_level\22 >= \22replica\22\00", align 1
 @__func__.pg_create_restore_point = private unnamed_addr constant [24 x i8] c"pg_create_restore_point\00", align 1
 @.str.11 = private unnamed_addr constant [54 x i8] c"WAL level not sufficient for creating a restore point\00", align 1
-@.str.12 = private unnamed_addr constant [65 x i8] c"wal_level must be set to \22replica\22 or \22logical\22 at server start.\00", align 1
+@.str.12 = private unnamed_addr constant [67 x i8] c"\22wal_level\22 must be set to \22replica\22 or \22logical\22 at server start.\00", align 1
 @.str.13 = private unnamed_addr constant [57 x i8] c"value too long for restore point (maximum %d characters)\00", align 1
 @__func__.pg_current_wal_lsn = private unnamed_addr constant [19 x i8] c"pg_current_wal_lsn\00", align 1
 @__func__.pg_current_wal_insert_lsn = private unnamed_addr constant [26 x i8] c"pg_current_wal_insert_lsn\00", align 1
@@ -78,7 +78,7 @@ define dso_local i64 @pg_backup_start(ptr noundef readonly captures(none) %0) lo
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #9
-  %6 = getelementptr i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @get_backup_status() #9
   %9 = tail call ptr @text_to_cstring(ptr noundef %5) #9
@@ -90,7 +90,7 @@ define dso_local i64 @pg_backup_start(ptr noundef readonly captures(none) %0) lo
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 325) #9
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @__func__.pg_backup_start) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.pg_backup_start) #9
   unreachable
 
 15:                                               ; preds = %1
@@ -131,40 +131,49 @@ define dso_local i64 @pg_backup_start(ptr noundef readonly captures(none) %0) lo
   ret i64 %32
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @get_backup_status() local_unnamed_addr #1
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
+declare i32 @get_backup_status() local_unnamed_addr #2
+
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @makeStringInfo() local_unnamed_addr #1
+declare ptr @makeStringInfo() local_unnamed_addr #2
 
-declare void @register_persistent_abort_backup_handler() local_unnamed_addr #1
+declare void @register_persistent_abort_backup_handler() local_unnamed_addr #2
 
-declare void @do_pg_backup_start(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @do_pg_backup_start(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [3 x i64], align 16
   %4 = alloca [3 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -177,7 +186,7 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %10)
   %11 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.pg_backup_stop) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.pg_backup_stop) #9
   unreachable
 
 12:                                               ; preds = %1
@@ -190,7 +199,7 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %15 = call i32 @errcode(i32 noundef 325) #9
   %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
   %17 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @__func__.pg_backup_stop) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.pg_backup_stop) #9
   unreachable
 
 18:                                               ; preds = %12
@@ -224,29 +233,32 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr i8, ptr %36, i64 16
   %.val = load ptr, ptr %37, align 8
   %38 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret i64 %38
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @do_pg_backup_stop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare void @do_pg_backup_stop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @build_backup_content(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @build_backup_content(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_switch_wal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -259,7 +271,7 @@ define dso_local i64 @pg_switch_wal(ptr noundef readnone captures(none) %0) loca
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 190, ptr noundef nonnull @__func__.pg_switch_wal) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.pg_switch_wal) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -267,9 +279,9 @@ define dso_local i64 @pg_switch_wal(ptr noundef readnone captures(none) %0) loca
   ret i64 %9
 }
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
 
-declare i64 @RequestXLogSwitch(i1 noundef zeroext) local_unnamed_addr #1
+declare i64 @RequestXLogSwitch(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_log_standby_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -282,7 +294,7 @@ define dso_local i64 @pg_log_standby_snapshot(ptr noundef readnone captures(none
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull @__func__.pg_log_standby_snapshot) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.pg_log_standby_snapshot) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -295,7 +307,7 @@ define dso_local i64 @pg_log_standby_snapshot(ptr noundef readnone captures(none
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 325) #9
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.pg_log_standby_snapshot) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull @__func__.pg_log_standby_snapshot) #9
   unreachable
 
 15:                                               ; preds = %8
@@ -303,7 +315,7 @@ define dso_local i64 @pg_log_standby_snapshot(ptr noundef readnone captures(none
   ret i64 %16
 }
 
-declare i64 @LogStandbySnapshot() local_unnamed_addr #1
+declare i64 @LogStandbySnapshot() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -320,7 +332,7 @@ define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none
   %9 = tail call i32 @errcode(i32 noundef 325) #9
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %11 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.pg_create_restore_point) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 243, ptr noundef nonnull @__func__.pg_create_restore_point) #9
   unreachable
 
 12:                                               ; preds = %1
@@ -334,7 +346,7 @@ define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none
   %17 = tail call i32 @errcode(i32 noundef 325) #9
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #9
   %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.12) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.pg_create_restore_point) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.pg_create_restore_point) #9
   unreachable
 
 20:                                               ; preds = %12
@@ -348,7 +360,7 @@ define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none
   tail call void @llvm.assume(i1 %25)
   %26 = tail call i32 @errcode(i32 noundef 50856066) #9
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i32 noundef 63) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 261, ptr noundef nonnull @__func__.pg_create_restore_point) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__.pg_create_restore_point) #9
   unreachable
 
 28:                                               ; preds = %20
@@ -357,9 +369,9 @@ define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i64 @XLogRestorePoint(ptr noundef) local_unnamed_addr #1
+declare i64 @XLogRestorePoint(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_wal_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -372,7 +384,7 @@ define dso_local i64 @pg_current_wal_lsn(ptr noundef readnone captures(none) %0)
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 287, ptr noundef nonnull @__func__.pg_current_wal_lsn) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.pg_current_wal_lsn) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -380,7 +392,7 @@ define dso_local i64 @pg_current_wal_lsn(ptr noundef readnone captures(none) %0)
   ret i64 %9
 }
 
-declare i64 @GetXLogWriteRecPtr() local_unnamed_addr #1
+declare i64 @GetXLogWriteRecPtr() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_wal_insert_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -393,7 +405,7 @@ define dso_local i64 @pg_current_wal_insert_lsn(ptr noundef readnone captures(no
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.pg_current_wal_insert_lsn) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 303, ptr noundef nonnull @__func__.pg_current_wal_insert_lsn) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -401,7 +413,7 @@ define dso_local i64 @pg_current_wal_insert_lsn(ptr noundef readnone captures(no
   ret i64 %9
 }
 
-declare i64 @GetXLogInsertRecPtr() local_unnamed_addr #1
+declare i64 @GetXLogInsertRecPtr() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_wal_flush_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -414,7 +426,7 @@ define dso_local i64 @pg_current_wal_flush_lsn(ptr noundef readnone captures(non
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.pg_current_wal_flush_lsn) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.pg_current_wal_flush_lsn) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -422,7 +434,7 @@ define dso_local i64 @pg_current_wal_flush_lsn(ptr noundef readnone captures(non
   ret i64 %9
 }
 
-declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #1
+declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_last_wal_receive_lsn(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
@@ -439,7 +451,7 @@ define dso_local i64 @pg_last_wal_receive_lsn(ptr noundef writeonly captures(non
   ret i64 %2
 }
 
-declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_last_wal_replay_lsn(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
@@ -456,7 +468,7 @@ define dso_local i64 @pg_last_wal_replay_lsn(ptr noundef writeonly captures(none
   ret i64 %2
 }
 
-declare i64 @GetXLogReplayRecPtr(ptr noundef) local_unnamed_addr #1
+declare i64 @GetXLogReplayRecPtr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_walfile_name_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -465,6 +477,9 @@ define dso_local i64 @pg_walfile_name_offset(ptr noundef readonly captures(none)
   %4 = alloca [2 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #9
   %7 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %7, label %8, label %13
 
@@ -474,7 +489,7 @@ define dso_local i64 @pg_walfile_name_offset(ptr noundef readonly captures(none)
   %10 = tail call i32 @errcode(i32 noundef 325) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %12 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @__func__.pg_walfile_name_offset) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 391, ptr noundef nonnull @__func__.pg_walfile_name_offset) #9
   unreachable
 
 13:                                               ; preds = %1
@@ -511,22 +526,26 @@ define dso_local i64 @pg_walfile_name_offset(ptr noundef readonly captures(none)
   %38 = getelementptr i8, ptr %37, i64 16
   %.val = load ptr, ptr %38, align 8
   %39 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
   ret i64 %39
 }
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #1
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #2
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
+declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #2
 
-declare i32 @GetWALInsertionTimeLine() local_unnamed_addr #1
+declare i32 @GetWALInsertionTimeLine() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_walfile_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
   %5 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %5, label %6, label %11
 
@@ -536,7 +555,7 @@ define dso_local i64 @pg_walfile_name(ptr noundef readonly captures(none) %0) lo
   %8 = tail call i32 @errcode(i32 noundef 325) #9
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
   %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 454, ptr noundef nonnull @__func__.pg_walfile_name) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 449, ptr noundef nonnull @__func__.pg_walfile_name) #9
   unreachable
 
 11:                                               ; preds = %1
@@ -554,6 +573,7 @@ define dso_local i64 @pg_walfile_name(ptr noundef readonly captures(none) %0) lo
   %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %15, i32 noundef %20, i32 noundef %22) #9
   %24 = call ptr @cstring_to_text(ptr noundef nonnull %2) #9
   %25 = ptrtoint ptr %24 to i64
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
   ret i64 %25
 }
 
@@ -571,7 +591,12 @@ define dso_local i64 @pg_split_walfile_name(ptr noundef %0) local_unnamed_addr #
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
   %13 = tail call ptr @text_to_cstring(ptr noundef %12) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #9
   store i16 0, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #9
   %14 = tail call ptr @pstrdup(ptr noundef %13) #9
   %15 = load i8, ptr %14, align 1
   %.not14 = icmp eq i8 %15, 0
@@ -582,10 +607,10 @@ define dso_local i64 @pg_split_walfile_name(ptr noundef %0) local_unnamed_addr #
   %.015 = phi ptr [ %18, %.lr.ph ], [ %14, %1 ]
   %17 = tail call zeroext i8 @pg_toupper(i8 noundef zeroext %16) #9
   store i8 %17, ptr %.015, align 1
-  %18 = getelementptr i8, ptr %.015, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #11
@@ -602,18 +627,18 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 @errcode(i32 noundef 50856066) #9
   %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %13) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 492, ptr noundef nonnull @__func__.pg_split_walfile_name) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 487, ptr noundef nonnull @__func__.pg_split_walfile_name) #9
   unreachable
 
 27:                                               ; preds = %IsXLogFileName.exit
   %28 = load i32, ptr @wal_segment_size, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %30 = load i32, ptr %2, align 4
   %31 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   %32 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %7) #9
   %.not13 = icmp eq i32 %32, 1
   br i1 %.not13, label %36, label %33
@@ -622,7 +647,7 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %34)
   %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.pg_split_walfile_name) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 492, ptr noundef nonnull @__func__.pg_split_walfile_name) #9
   unreachable
 
 36:                                               ; preds = %27
@@ -645,18 +670,23 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   %51 = getelementptr i8, ptr %50, i64 16
   %.val = load ptr, ptr %51, align 8
   %52 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret i64 %52
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @pg_toupper(i8 noundef zeroext) local_unnamed_addr #1
+declare zeroext i8 @pg_toupper(i8 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @numeric_in(ptr noundef) #1
+declare i64 @numeric_in(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_wal_replay_pause(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -669,7 +699,7 @@ define dso_local noundef i64 @pg_wal_replay_pause(ptr noundef readnone captures(
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 529, ptr noundef nonnull @__func__.pg_wal_replay_pause) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 524, ptr noundef nonnull @__func__.pg_wal_replay_pause) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -682,7 +712,7 @@ define dso_local noundef i64 @pg_wal_replay_pause(ptr noundef readnone captures(
   %12 = tail call i32 @errcode(i32 noundef 325) #9
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22) #9
   %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.pg_wal_replay_pause) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 531, ptr noundef nonnull @__func__.pg_wal_replay_pause) #9
   unreachable
 
 15:                                               ; preds = %8
@@ -691,11 +721,11 @@ define dso_local noundef i64 @pg_wal_replay_pause(ptr noundef readnone captures(
   ret i64 0
 }
 
-declare zeroext i1 @PromoteIsTriggered() local_unnamed_addr #1
+declare zeroext i1 @PromoteIsTriggered() local_unnamed_addr #2
 
-declare void @SetRecoveryPause(i1 noundef zeroext) local_unnamed_addr #1
+declare void @SetRecoveryPause(i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @WakeupRecovery() local_unnamed_addr #1
+declare void @WakeupRecovery() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_wal_replay_resume(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -708,7 +738,7 @@ define dso_local noundef i64 @pg_wal_replay_resume(ptr noundef readnone captures
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.pg_wal_replay_resume) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.pg_wal_replay_resume) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -721,7 +751,7 @@ define dso_local noundef i64 @pg_wal_replay_resume(ptr noundef readnone captures
   %12 = tail call i32 @errcode(i32 noundef 325) #9
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22) #9
   %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 566, ptr noundef nonnull @__func__.pg_wal_replay_resume) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 561, ptr noundef nonnull @__func__.pg_wal_replay_resume) #9
   unreachable
 
 15:                                               ; preds = %8
@@ -740,7 +770,7 @@ define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr noundef readno
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 583, ptr noundef nonnull @__func__.pg_is_wal_replay_paused) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.pg_is_wal_replay_paused) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -750,7 +780,7 @@ define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr noundef readno
   ret i64 %11
 }
 
-declare i32 @GetRecoveryPauseState() local_unnamed_addr #1
+declare i32 @GetRecoveryPauseState() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_get_wal_replay_pause_state(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -763,7 +793,7 @@ define dso_local i64 @pg_get_wal_replay_pause_state(ptr noundef readnone capture
   %5 = tail call i32 @errcode(i32 noundef 325) #9
   %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
   %7 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 606, ptr noundef nonnull @__func__.pg_get_wal_replay_pause_state) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 601, ptr noundef nonnull @__func__.pg_get_wal_replay_pause_state) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -799,7 +829,7 @@ define dso_local i64 @pg_last_xact_replay_timestamp(ptr noundef writeonly captur
   ret i64 %2
 }
 
-declare i64 @GetLatestXTime() local_unnamed_addr #1
+declare i64 @GetLatestXTime() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -812,22 +842,22 @@ define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr noundef readnone cap
 define dso_local i64 @pg_wal_lsn_diff(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @pg_lsn_mi, i32 noundef 0, i64 noundef %3, i64 noundef %5) #9
   ret i64 %6
 }
 
-declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @pg_lsn_mi(ptr noundef) #1
+declare i64 @pg_lsn_mi(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %.not19 = icmp eq i64 %3, 0
-  %4 = getelementptr i8, ptr %0, i64 48
+  %.not23 = icmp eq i64 %3, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = tail call zeroext i1 @RecoveryInProgress() #9
@@ -839,7 +869,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   %10 = tail call i32 @errcode(i32 noundef 325) #9
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
   %12 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 681, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 13:                                               ; preds = %1
@@ -851,7 +881,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode(i32 noundef 50331778) #9
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 19:                                               ; preds = %13
@@ -864,27 +894,27 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 @errcode_for_file_access() #9
   %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.30) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 699, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 694, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 25:                                               ; preds = %19
   %26 = tail call i32 @FreeFile(ptr noundef nonnull %20) #9
-  %.not15 = icmp eq i32 %26, 0
-  br i1 %.not15, label %31, label %27
+  %.not17 = icmp eq i32 %26, 0
+  br i1 %.not17, label %31, label %27
 
 27:                                               ; preds = %25
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 @errcode_for_file_access() #9
   %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.30) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 705, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 700, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 31:                                               ; preds = %25
   %32 = load i32, ptr @PostmasterPid, align 4
   %33 = tail call i32 @kill(i32 noundef %32, i32 noundef 10) #9
-  %.not16 = icmp eq i32 %33, 0
-  br i1 %.not16, label %39, label %34
+  %.not18 = icmp eq i32 %33, 0
+  br i1 %.not18, label %39, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i32 @unlink(ptr noundef nonnull @.str.30) #9
@@ -892,11 +922,11 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 517) #9
   %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 713, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 39:                                               ; preds = %31
-  br i1 %.not19, label %.loopexit, label %.preheader
+  br i1 %.not23, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %39
   %40 = mul i32 %6, 10
@@ -904,12 +934,12 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 42:                                               ; preds = %49
-  %43 = add nuw nsw i32 %.01220, 1
+  %43 = add nuw nsw i32 %.01424, 1
   %exitcond.not = icmp eq i32 %43, %40
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %42
-  %.01220 = phi i32 [ %43, %42 ], [ 0, %.preheader ]
+  %.01424 = phi i32 [ %43, %42 ], [ 0, %.preheader ]
   %44 = load ptr, ptr @MyLatch, align 8
   tail call void @ResetLatch(ptr noundef %44) #9
   %45 = tail call zeroext i1 @RecoveryInProgress() #9
@@ -917,19 +947,19 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
 
 46:                                               ; preds = %.lr.ph
   %47 = load volatile i32, ptr @InterruptPending, align 4
-  %.not17 = icmp eq i32 %47, 0
-  br i1 %.not17, label %49, label %48
+  %.not19 = icmp eq i32 %47, 0
+  br i1 %.not19, label %49, label %48, !prof !7
 
 48:                                               ; preds = %46
   tail call void @ProcessInterrupts() #9
   br label %49
 
-49:                                               ; preds = %46, %48
+49:                                               ; preds = %48, %46
   %50 = load ptr, ptr @MyLatch, align 8
-  %51 = tail call i32 @WaitLatch(ptr noundef %50, i32 noundef 25, i64 noundef 100, i32 noundef 134217770) #9
+  %51 = tail call i32 @WaitLatch(ptr noundef %50, i32 noundef 25, i64 noundef 100, i32 noundef 134217771) #9
   %52 = and i32 %51, 16
-  %.not18 = icmp eq i32 %52, 0
-  br i1 %.not18, label %42, label %53
+  %.not20 = icmp eq i32 %52, 0
+  br i1 %.not20, label %42, label %53
 
 53:                                               ; preds = %49
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
@@ -938,7 +968,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #9
   %57 = tail call i32 @set_errcontext_domain(ptr noundef null) #9
   %58 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.36) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 741, ptr noundef nonnull @__func__.pg_promote) #9
   unreachable
 
 ._crit_edge:                                      ; preds = %42, %.preheader
@@ -948,75 +978,69 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
 60:                                               ; preds = %._crit_edge
   %61 = and i64 %5, 2147483647
   %62 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %61, i32 noundef %6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 753, ptr noundef nonnull @__func__.pg_promote) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 748, ptr noundef nonnull @__func__.pg_promote) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %60, %._crit_edge, %39
-  %.0 = phi i64 [ 1, %39 ], [ 0, %._crit_edge ], [ 0, %60 ], [ 1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %60, %39
+  %.0 = phi i64 [ 1, %39 ], [ 0, %60 ], [ 0, %._crit_edge ], [ 1, %.lr.ph ]
   ret i64 %.0
 }
 
-declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #1
+declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
-declare i32 @FreeFile(ptr noundef) local_unnamed_addr #1
+declare i32 @FreeFile(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #1
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
+declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}

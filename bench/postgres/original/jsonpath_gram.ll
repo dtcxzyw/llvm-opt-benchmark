@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.2 = type { ptr, ptr, i32, i32 }
 %struct.anon.3 = type { i32, ptr }
 %struct.anon = type { ptr, ptr }
-%struct.regex_t = type { i32, i64, i64, i32, ptr, i32, ptr, ptr }
+%struct.pg_regex_t = type { i32, i64, i64, i32, ptr, i32, ptr, ptr }
 %struct.ForEachState = type { ptr, i32 }
 %struct.List = type { i32, i32, i32, ptr, [0 x %union.ListCell] }
 %struct.anon.0 = type { i32, ptr }
@@ -49,1742 +49,1876 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [31 x i8] c"invalid regular expression: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
+define dso_local i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca %union.YYSTYPE, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
+  %9 = alloca %union.YYSTYPE, align 8
   %10 = alloca i32, align 4
-  %11 = alloca i64, align 8
-  %12 = alloca [200 x i8], align 16
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca [200 x %union.YYSTYPE], align 16
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca [200 x i8], align 16
+  %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i32, align 4
-  %19 = alloca i32, align 4
+  %17 = alloca [200 x %union.YYSTYPE], align 16
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  %21 = alloca %union.YYSTYPE, align 8
+  %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  %23 = alloca i64, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca i64, align 8
-  %27 = alloca i64, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca %union.ListCell, align 8
-  %31 = alloca %union.ListCell, align 8
-  %32 = alloca %union.ListCell, align 8
+  %23 = alloca %union.YYSTYPE, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i64, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
   %33 = alloca %union.ListCell, align 8
   %34 = alloca %union.ListCell, align 8
   %35 = alloca %union.ListCell, align 8
-  %36 = alloca ptr, align 8
+  %36 = alloca %union.ListCell, align 8
   %37 = alloca %union.ListCell, align 8
-  %38 = alloca i32, align 4
-  %39 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @jsonpath_yyparse.yyval_default, i64 16, i1 false)
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 4
+  %38 = alloca %union.ListCell, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca %union.ListCell, align 8
+  %41 = alloca i32, align 4
+  %42 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 @jsonpath_yyparse.yyval_default, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   store i32 0, ptr %10, align 4
-  store i64 200, ptr %11, align 8
-  %40 = getelementptr inbounds [200 x i8], ptr %12, i64 0, i64 0
-  store ptr %40, ptr %13, align 8
-  %41 = load ptr, ptr %13, align 8
-  store ptr %41, ptr %14, align 8
-  %42 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %15, i64 0, i64 0
-  store ptr %42, ptr %16, align 8
-  %43 = load ptr, ptr %16, align 8
-  store ptr %43, ptr %17, align 8
-  store i32 -2, ptr %20, align 4
-  store i32 0, ptr %22, align 4
-  store i32 -2, ptr %6, align 4
-  br label %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store i64 200, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %43 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
+  store ptr %43, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %44 = load ptr, ptr %15, align 8
+  store ptr %44, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 3200, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %45 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %17, i64 0, i64 0
+  store ptr %45, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %46 = load ptr, ptr %18, align 8
+  store ptr %46, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #7
+  store i32 -2, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  store i32 0, ptr %24, align 4
+  store i32 -2, ptr %8, align 4
+  br label %50
 
-44:                                               ; preds = %904, %785, %213
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr i8, ptr %45, i32 1
-  store ptr %46, ptr %14, align 8
-  br label %47
+47:                                               ; preds = %927, %805, %225
+  %48 = load ptr, ptr %16, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %16, align 8
+  br label %50
 
-47:                                               ; preds = %44, %2
-  %48 = load i32, ptr %9, align 4
-  %49 = trunc i32 %48 to i8
-  %50 = load ptr, ptr %14, align 8
-  store i8 %49, ptr %50, align 1
-  %51 = load ptr, ptr %13, align 8
-  %52 = load i64, ptr %11, align 8
-  %53 = getelementptr i8, ptr %51, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load ptr, ptr %14, align 8
-  %56 = icmp ule ptr %54, %55
-  br i1 %56, label %57, label %133
+50:                                               ; preds = %47, %3
+  %51 = load i32, ptr %11, align 4
+  %52 = trunc i32 %51 to i8
+  %53 = load ptr, ptr %16, align 8
+  store i8 %52, ptr %53, align 1
+  %54 = load ptr, ptr %15, align 8
+  %55 = load i64, ptr %13, align 8
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
+  %57 = getelementptr inbounds i8, ptr %56, i64 -1
+  %58 = load ptr, ptr %16, align 8
+  %59 = icmp ule ptr %57, %58
+  br i1 %59, label %60, label %144
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %14, align 8
-  %59 = load ptr, ptr %13, align 8
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = add i64 %62, 1
-  store i64 %63, ptr %23, align 8
-  %64 = load i64, ptr %11, align 8
-  %65 = icmp sle i64 10000, %64
-  br i1 %65, label %66, label %67
+60:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  %61 = load ptr, ptr %16, align 8
+  %62 = load ptr, ptr %15, align 8
+  %63 = ptrtoint ptr %61 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %25, align 8
+  %67 = load i64, ptr %13, align 8
+  %68 = icmp sle i64 10000, %67
+  br i1 %68, label %69, label %70
 
-66:                                               ; preds = %57
-  br label %910
+69:                                               ; preds = %60
+  store i32 4, ptr %30, align 4
+  br label %141
 
-67:                                               ; preds = %57
-  %68 = load i64, ptr %11, align 8
-  %69 = mul i64 %68, 2
-  store i64 %69, ptr %11, align 8
-  %70 = load i64, ptr %11, align 8
-  %71 = icmp slt i64 10000, %70
-  br i1 %71, label %72, label %73
+70:                                               ; preds = %60
+  %71 = load i64, ptr %13, align 8
+  %72 = mul i64 %71, 2
+  store i64 %72, ptr %13, align 8
+  %73 = load i64, ptr %13, align 8
+  %74 = icmp slt i64 10000, %73
+  br i1 %74, label %75, label %76
 
-72:                                               ; preds = %67
-  store i64 10000, ptr %11, align 8
-  br label %73
+75:                                               ; preds = %70
+  store i64 10000, ptr %13, align 8
+  br label %76
 
-73:                                               ; preds = %72, %67
-  %74 = load ptr, ptr %13, align 8
-  store ptr %74, ptr %24, align 8
-  %75 = load i64, ptr %11, align 8
-  %76 = mul i64 %75, 17
-  %77 = add i64 %76, 15
-  %78 = call ptr @palloc(i64 noundef %77)
-  store ptr %78, ptr %25, align 8
-  %79 = load ptr, ptr %25, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %82, label %81
+76:                                               ; preds = %75, %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %77 = load ptr, ptr %15, align 8
+  store ptr %77, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %78 = load i64, ptr %13, align 8
+  %79 = mul i64 %78, 17
+  %80 = add i64 %79, 15
+  %81 = call ptr @palloc(i64 noundef %80)
+  store ptr %81, ptr %27, align 8
+  %82 = load ptr, ptr %27, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %85, label %84
 
-81:                                               ; preds = %73
-  br label %910
+84:                                               ; preds = %76
+  store i32 4, ptr %30, align 4
+  br label %122
 
-82:                                               ; preds = %73
-  br label %83
+85:                                               ; preds = %76
+  br label %86
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %25, align 8
-  %85 = load ptr, ptr %13, align 8
-  %86 = load i64, ptr %23, align 8
-  %87 = mul i64 %86, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 1 %85, i64 %87, i1 false)
-  %88 = load ptr, ptr %25, align 8
-  store ptr %88, ptr %13, align 8
-  %89 = load i64, ptr %11, align 8
+86:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %87 = load ptr, ptr %27, align 8
+  %88 = load ptr, ptr %15, align 8
+  %89 = load i64, ptr %25, align 8
   %90 = mul i64 %89, 1
-  %91 = add i64 %90, 15
-  store i64 %91, ptr %26, align 8
-  %92 = load i64, ptr %26, align 8
-  %93 = sdiv i64 %92, 16
-  %94 = load ptr, ptr %25, align 8
-  %95 = getelementptr %union.yyalloc, ptr %94, i64 %93
-  store ptr %95, ptr %25, align 8
-  br label %96
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 1 %88, i64 %90, i1 false)
+  %91 = load ptr, ptr %27, align 8
+  store ptr %91, ptr %15, align 8
+  %92 = load i64, ptr %13, align 8
+  %93 = mul i64 %92, 1
+  %94 = add i64 %93, 15
+  store i64 %94, ptr %28, align 8
+  %95 = load i64, ptr %28, align 8
+  %96 = sdiv i64 %95, 16
+  %97 = load ptr, ptr %27, align 8
+  %98 = getelementptr inbounds %union.yyalloc, ptr %97, i64 %96
+  store ptr %98, ptr %27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  br label %99
 
-96:                                               ; preds = %83
-  br label %97
+99:                                               ; preds = %86
+  br label %100
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr %25, align 8
-  %99 = load ptr, ptr %16, align 8
-  %100 = load i64, ptr %23, align 8
-  %101 = mul i64 %100, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr align 8 %99, i64 %101, i1 false)
-  %102 = load ptr, ptr %25, align 8
-  store ptr %102, ptr %16, align 8
-  %103 = load i64, ptr %11, align 8
-  %104 = mul i64 %103, 16
-  %105 = add i64 %104, 15
-  store i64 %105, ptr %27, align 8
-  %106 = load i64, ptr %27, align 8
-  %107 = sdiv i64 %106, 16
-  %108 = load ptr, ptr %25, align 8
-  %109 = getelementptr %union.yyalloc, ptr %108, i64 %107
-  store ptr %109, ptr %25, align 8
-  br label %110
+100:                                              ; preds = %99
+  br label %101
 
-110:                                              ; preds = %97
-  %111 = load ptr, ptr %24, align 8
-  %112 = getelementptr inbounds [200 x i8], ptr %12, i64 0, i64 0
-  %113 = icmp ne ptr %111, %112
-  br i1 %113, label %114, label %116
+101:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  %102 = load ptr, ptr %27, align 8
+  %103 = load ptr, ptr %18, align 8
+  %104 = load i64, ptr %25, align 8
+  %105 = mul i64 %104, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 8 %103, i64 %105, i1 false)
+  %106 = load ptr, ptr %27, align 8
+  store ptr %106, ptr %18, align 8
+  %107 = load i64, ptr %13, align 8
+  %108 = mul i64 %107, 16
+  %109 = add i64 %108, 15
+  store i64 %109, ptr %29, align 8
+  %110 = load i64, ptr %29, align 8
+  %111 = sdiv i64 %110, 16
+  %112 = load ptr, ptr %27, align 8
+  %113 = getelementptr inbounds %union.yyalloc, ptr %112, i64 %111
+  store ptr %113, ptr %27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %114
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %24, align 8
-  call void @pfree(ptr noundef %115)
-  br label %116
+114:                                              ; preds = %101
+  br label %115
 
-116:                                              ; preds = %114, %110
-  %117 = load ptr, ptr %13, align 8
-  %118 = load i64, ptr %23, align 8
-  %119 = getelementptr i8, ptr %117, i64 %118
-  %120 = getelementptr i8, ptr %119, i64 -1
-  store ptr %120, ptr %14, align 8
-  %121 = load ptr, ptr %16, align 8
-  %122 = load i64, ptr %23, align 8
-  %123 = getelementptr %union.YYSTYPE, ptr %121, i64 %122
-  %124 = getelementptr %union.YYSTYPE, ptr %123, i64 -1
-  store ptr %124, ptr %17, align 8
-  %125 = load ptr, ptr %13, align 8
-  %126 = load i64, ptr %11, align 8
-  %127 = getelementptr i8, ptr %125, i64 %126
-  %128 = getelementptr i8, ptr %127, i64 -1
-  %129 = load ptr, ptr %14, align 8
-  %130 = icmp ule ptr %128, %129
-  br i1 %130, label %131, label %132
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %26, align 8
+  %117 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
+  %118 = icmp ne ptr %116, %117
+  br i1 %118, label %119, label %121
 
-131:                                              ; preds = %116
-  br label %909
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %26, align 8
+  call void @pfree(ptr noundef %120)
+  br label %121
 
-132:                                              ; preds = %116
-  br label %133
+121:                                              ; preds = %119, %115
+  store i32 0, ptr %30, align 4
+  br label %122
 
-133:                                              ; preds = %132, %47
-  %134 = load i32, ptr %9, align 4
-  %135 = icmp eq i32 %134, 5
-  br i1 %135, label %136, label %137
-
-136:                                              ; preds = %133
-  br label %908
-
-137:                                              ; preds = %133
-  br label %138
-
-138:                                              ; preds = %137
-  %139 = load i32, ptr %9, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr [180 x i16], ptr @yypact, i64 0, i64 %140
-  %142 = load i16, ptr %141, align 2
-  %143 = sext i16 %142 to i32
-  store i32 %143, ptr %18, align 4
-  %144 = load i32, ptr %18, align 4
-  %145 = icmp eq i32 %144, -47
-  br i1 %145, label %146, label %147
-
-146:                                              ; preds = %138
-  br label %217
-
-147:                                              ; preds = %138
-  %148 = load i32, ptr %6, align 4
-  %149 = icmp eq i32 %148, -2
-  br i1 %149, label %150, label %154
-
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %4, align 8
-  %152 = load ptr, ptr %5, align 8
-  %153 = call i32 @jsonpath_yylex(ptr noundef %7, ptr noundef %151, ptr noundef %152)
-  store i32 %153, ptr %6, align 4
-  br label %154
-
-154:                                              ; preds = %150, %147
-  %155 = load i32, ptr %6, align 4
-  %156 = icmp sle i32 %155, 0
-  br i1 %156, label %157, label %158
-
-157:                                              ; preds = %154
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %20, align 4
-  br label %178
-
-158:                                              ; preds = %154
-  %159 = load i32, ptr %6, align 4
-  %160 = icmp eq i32 %159, 256
-  br i1 %160, label %161, label %162
-
-161:                                              ; preds = %158
-  store i32 257, ptr %6, align 4
-  store i32 1, ptr %20, align 4
-  br label %848
-
-162:                                              ; preds = %158
-  %163 = load i32, ptr %6, align 4
-  %164 = icmp sle i32 0, %163
-  br i1 %164, label %165, label %174
-
-165:                                              ; preds = %162
-  %166 = load i32, ptr %6, align 4
-  %167 = icmp sle i32 %166, 306
-  br i1 %167, label %168, label %174
-
-168:                                              ; preds = %165
-  %169 = load i32, ptr %6, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr [307 x i8], ptr @yytranslate, i64 0, i64 %170
-  %172 = load i8, ptr %171, align 1
-  %173 = sext i8 %172 to i32
-  br label %175
-
-174:                                              ; preds = %165, %162
-  br label %175
-
-175:                                              ; preds = %174, %168
-  %176 = phi i32 [ %173, %168 ], [ 2, %174 ]
-  store i32 %176, ptr %20, align 4
-  br label %177
-
-177:                                              ; preds = %175
-  br label %178
-
-178:                                              ; preds = %177, %157
-  %179 = load i32, ptr %20, align 4
-  %180 = load i32, ptr %18, align 4
-  %181 = add i32 %180, %179
-  store i32 %181, ptr %18, align 4
-  %182 = load i32, ptr %18, align 4
-  %183 = icmp slt i32 %182, 0
-  br i1 %183, label %195, label %184
-
-184:                                              ; preds = %178
-  %185 = load i32, ptr %18, align 4
-  %186 = icmp slt i32 239, %185
-  br i1 %186, label %195, label %187
-
-187:                                              ; preds = %184
-  %188 = load i32, ptr %18, align 4
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %189
-  %191 = load i16, ptr %190, align 2
-  %192 = sext i16 %191 to i32
-  %193 = load i32, ptr %20, align 4
-  %194 = icmp ne i32 %192, %193
-  br i1 %194, label %195, label %196
-
-195:                                              ; preds = %187, %184, %178
-  br label %217
-
-196:                                              ; preds = %187
-  %197 = load i32, ptr %18, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr [240 x i16], ptr @yytable, i64 0, i64 %198
-  %200 = load i16, ptr %199, align 2
-  %201 = sext i16 %200 to i32
-  store i32 %201, ptr %18, align 4
-  %202 = load i32, ptr %18, align 4
-  %203 = icmp sle i32 %202, 0
-  br i1 %203, label %204, label %207
-
-204:                                              ; preds = %196
-  %205 = load i32, ptr %18, align 4
-  %206 = sub i32 0, %205
-  store i32 %206, ptr %18, align 4
-  br label %227
-
-207:                                              ; preds = %196
-  %208 = load i32, ptr %10, align 4
-  %209 = icmp ne i32 %208, 0
-  br i1 %209, label %210, label %213
-
-210:                                              ; preds = %207
-  %211 = load i32, ptr %10, align 4
-  %212 = add i32 %211, -1
-  store i32 %212, ptr %10, align 4
-  br label %213
-
-213:                                              ; preds = %210, %207
-  %214 = load i32, ptr %18, align 4
-  store i32 %214, ptr %9, align 4
-  %215 = load ptr, ptr %17, align 8
-  %216 = getelementptr %union.YYSTYPE, ptr %215, i32 1
-  store ptr %216, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %216, ptr align 8 %7, i64 16, i1 false)
-  store i32 -2, ptr %6, align 4
-  br label %44
-
-217:                                              ; preds = %195, %146
-  %218 = load i32, ptr %9, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr [180 x i8], ptr @yydefact, i64 0, i64 %219
-  %221 = load i8, ptr %220, align 1
-  %222 = sext i8 %221 to i32
-  store i32 %222, ptr %18, align 4
-  %223 = load i32, ptr %18, align 4
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %226
-
-225:                                              ; preds = %217
-  br label %787
-
-226:                                              ; preds = %217
-  br label %227
-
-227:                                              ; preds = %226, %204
-  %228 = load i32, ptr %18, align 4
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr [137 x i8], ptr @yyr2, i64 0, i64 %229
-  %231 = load i8, ptr %230, align 1
-  %232 = sext i8 %231 to i32
-  store i32 %232, ptr %22, align 4
-  %233 = load ptr, ptr %17, align 8
-  %234 = load i32, ptr %22, align 4
-  %235 = sub i32 1, %234
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr %union.YYSTYPE, ptr %233, i64 %236
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %237, i64 16, i1 false)
-  %238 = load i32, ptr %18, align 4
-  switch i32 %238, label %729 [
-    i32 2, label %239
-    i32 3, label %256
-    i32 4, label %258
-    i32 5, label %262
-    i32 6, label %266
-    i32 7, label %267
-    i32 8, label %268
-    i32 9, label %269
-    i32 10, label %273
-    i32 11, label %275
-    i32 12, label %277
-    i32 13, label %279
-    i32 14, label %283
-    i32 15, label %287
-    i32 16, label %291
-    i32 17, label %292
-    i32 18, label %293
-    i32 19, label %294
-    i32 20, label %295
-    i32 21, label %296
-    i32 22, label %297
-    i32 23, label %301
-    i32 24, label %306
-    i32 25, label %310
-    i32 26, label %321
-    i32 27, label %329
-    i32 28, label %337
-    i32 29, label %342
-    i32 30, label %347
-    i32 31, label %355
-    i32 32, label %366
-    i32 33, label %379
-    i32 34, label %383
-    i32 35, label %387
-    i32 36, label %391
-    i32 37, label %393
-    i32 38, label %395
-    i32 39, label %397
-    i32 40, label %404
-    i32 41, label %416
-    i32 42, label %428
-    i32 43, label %436
-    i32 44, label %441
-    i32 45, label %445
-    i32 46, label %450
-    i32 47, label %455
-    i32 48, label %463
-    i32 49, label %471
-    i32 50, label %479
-    i32 51, label %487
-    i32 52, label %495
-    i32 53, label %500
-    i32 54, label %508
-    i32 55, label %515
-    i32 56, label %523
-    i32 57, label %525
-    i32 58, label %530
-    i32 59, label %536
-    i32 60, label %537
-    i32 61, label %539
-    i32 62, label %547
-    i32 63, label %555
-    i32 64, label %559
-    i32 65, label %561
-    i32 66, label %565
-    i32 67, label %569
-    i32 68, label %574
-    i32 69, label %579
-    i32 70, label %635
-    i32 71, label %640
-    i32 72, label %645
-    i32 73, label %650
-    i32 74, label %655
-    i32 75, label %660
-    i32 76, label %664
-    i32 77, label %669
-    i32 78, label %674
-    i32 79, label %681
-    i32 80, label %689
-    i32 81, label %693
-    i32 82, label %694
-    i32 83, label %698
-    i32 84, label %702
-    i32 85, label %703
-    i32 86, label %707
-    i32 87, label %711
-    i32 88, label %712
-    i32 124, label %716
-    i32 125, label %717
-    i32 126, label %718
-    i32 127, label %719
-    i32 128, label %720
-    i32 129, label %721
-    i32 130, label %722
-    i32 131, label %723
-    i32 132, label %724
-    i32 133, label %725
-    i32 134, label %726
-    i32 135, label %727
-    i32 136, label %728
+122:                                              ; preds = %84, %121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  %123 = load i32, ptr %30, align 4
+  switch i32 %123, label %141 [
+    i32 0, label %124
   ]
 
-239:                                              ; preds = %227
-  %240 = call ptr @palloc(i64 noundef 16)
-  %241 = load ptr, ptr %4, align 8
-  store ptr %240, ptr %241, align 8
-  %242 = load ptr, ptr %17, align 8
-  %243 = getelementptr %union.YYSTYPE, ptr %242, i64 0
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr %4, align 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %struct.JsonPathParseResult, ptr %246, i32 0, i32 0
-  store ptr %244, ptr %247, align 8
-  %248 = load ptr, ptr %17, align 8
-  %249 = getelementptr %union.YYSTYPE, ptr %248, i64 -1
-  %250 = load i8, ptr %249, align 8
-  %251 = trunc i8 %250 to i1
-  %252 = load ptr, ptr %4, align 8
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds %struct.JsonPathParseResult, ptr %253, i32 0, i32 1
-  %255 = zext i1 %251 to i8
-  store i8 %255, ptr %254, align 8
-  br label %730
+124:                                              ; preds = %122
+  %125 = load ptr, ptr %15, align 8
+  %126 = load i64, ptr %25, align 8
+  %127 = getelementptr inbounds i8, ptr %125, i64 %126
+  %128 = getelementptr inbounds i8, ptr %127, i64 -1
+  store ptr %128, ptr %16, align 8
+  %129 = load ptr, ptr %18, align 8
+  %130 = load i64, ptr %25, align 8
+  %131 = getelementptr inbounds %union.YYSTYPE, ptr %129, i64 %130
+  %132 = getelementptr inbounds %union.YYSTYPE, ptr %131, i64 -1
+  store ptr %132, ptr %19, align 8
+  %133 = load ptr, ptr %15, align 8
+  %134 = load i64, ptr %13, align 8
+  %135 = getelementptr inbounds i8, ptr %133, i64 %134
+  %136 = getelementptr inbounds i8, ptr %135, i64 -1
+  %137 = load ptr, ptr %16, align 8
+  %138 = icmp ule ptr %136, %137
+  br i1 %138, label %139, label %140
 
-256:                                              ; preds = %227
-  %257 = load ptr, ptr %4, align 8
-  store ptr null, ptr %257, align 8
-  br label %730
+139:                                              ; preds = %124
+  store i32 9, ptr %30, align 4
+  br label %141
 
-258:                                              ; preds = %227
-  %259 = load ptr, ptr %17, align 8
-  %260 = getelementptr %union.YYSTYPE, ptr %259, i64 0
-  %261 = load ptr, ptr %260, align 8
-  store ptr %261, ptr %21, align 8
-  br label %730
+140:                                              ; preds = %124
+  store i32 0, ptr %30, align 4
+  br label %141
 
-262:                                              ; preds = %227
-  %263 = load ptr, ptr %17, align 8
-  %264 = getelementptr %union.YYSTYPE, ptr %263, i64 0
+141:                                              ; preds = %139, %69, %140, %122
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  %142 = load i32, ptr %30, align 4
+  switch i32 %142, label %998 [
+    i32 0, label %143
+    i32 9, label %932
+    i32 4, label %933
+  ]
+
+143:                                              ; preds = %141
+  br label %144
+
+144:                                              ; preds = %143, %50
+  %145 = load i32, ptr %11, align 4
+  %146 = icmp eq i32 %145, 5
+  br i1 %146, label %147, label %148
+
+147:                                              ; preds = %144
+  br label %931
+
+148:                                              ; preds = %144
+  br label %149
+
+149:                                              ; preds = %148
+  %150 = load i32, ptr %11, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds [180 x i16], ptr @yypact, i64 0, i64 %151
+  %153 = load i16, ptr %152, align 2
+  %154 = sext i16 %153 to i32
+  store i32 %154, ptr %20, align 4
+  %155 = load i32, ptr %20, align 4
+  %156 = icmp eq i32 %155, -47
+  br i1 %156, label %157, label %158
+
+157:                                              ; preds = %149
+  br label %229
+
+158:                                              ; preds = %149
+  %159 = load i32, ptr %8, align 4
+  %160 = icmp eq i32 %159, -2
+  br i1 %160, label %161, label %166
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %5, align 8
+  %163 = load ptr, ptr %6, align 8
+  %164 = load ptr, ptr %7, align 8
+  %165 = call i32 @jsonpath_yylex(ptr noundef %9, ptr noundef %162, ptr noundef %163, ptr noundef %164)
+  store i32 %165, ptr %8, align 4
+  br label %166
+
+166:                                              ; preds = %161, %158
+  %167 = load i32, ptr %8, align 4
+  %168 = icmp sle i32 %167, 0
+  br i1 %168, label %169, label %170
+
+169:                                              ; preds = %166
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %22, align 4
+  br label %190
+
+170:                                              ; preds = %166
+  %171 = load i32, ptr %8, align 4
+  %172 = icmp eq i32 %171, 256
+  br i1 %172, label %173, label %174
+
+173:                                              ; preds = %170
+  store i32 257, ptr %8, align 4
+  store i32 1, ptr %22, align 4
+  br label %870
+
+174:                                              ; preds = %170
+  %175 = load i32, ptr %8, align 4
+  %176 = icmp sle i32 0, %175
+  br i1 %176, label %177, label %186
+
+177:                                              ; preds = %174
+  %178 = load i32, ptr %8, align 4
+  %179 = icmp sle i32 %178, 306
+  br i1 %179, label %180, label %186
+
+180:                                              ; preds = %177
+  %181 = load i32, ptr %8, align 4
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds [307 x i8], ptr @yytranslate, i64 0, i64 %182
+  %184 = load i8, ptr %183, align 1
+  %185 = sext i8 %184 to i32
+  br label %187
+
+186:                                              ; preds = %177, %174
+  br label %187
+
+187:                                              ; preds = %186, %180
+  %188 = phi i32 [ %185, %180 ], [ 2, %186 ]
+  store i32 %188, ptr %22, align 4
+  br label %189
+
+189:                                              ; preds = %187
+  br label %190
+
+190:                                              ; preds = %189, %169
+  %191 = load i32, ptr %22, align 4
+  %192 = load i32, ptr %20, align 4
+  %193 = add i32 %192, %191
+  store i32 %193, ptr %20, align 4
+  %194 = load i32, ptr %20, align 4
+  %195 = icmp slt i32 %194, 0
+  br i1 %195, label %207, label %196
+
+196:                                              ; preds = %190
+  %197 = load i32, ptr %20, align 4
+  %198 = icmp slt i32 239, %197
+  br i1 %198, label %207, label %199
+
+199:                                              ; preds = %196
+  %200 = load i32, ptr %20, align 4
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds [240 x i16], ptr @yycheck, i64 0, i64 %201
+  %203 = load i16, ptr %202, align 2
+  %204 = sext i16 %203 to i32
+  %205 = load i32, ptr %22, align 4
+  %206 = icmp ne i32 %204, %205
+  br i1 %206, label %207, label %208
+
+207:                                              ; preds = %199, %196, %190
+  br label %229
+
+208:                                              ; preds = %199
+  %209 = load i32, ptr %20, align 4
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds [240 x i16], ptr @yytable, i64 0, i64 %210
+  %212 = load i16, ptr %211, align 2
+  %213 = sext i16 %212 to i32
+  store i32 %213, ptr %20, align 4
+  %214 = load i32, ptr %20, align 4
+  %215 = icmp sle i32 %214, 0
+  br i1 %215, label %216, label %219
+
+216:                                              ; preds = %208
+  %217 = load i32, ptr %20, align 4
+  %218 = sub i32 0, %217
+  store i32 %218, ptr %20, align 4
+  br label %239
+
+219:                                              ; preds = %208
+  %220 = load i32, ptr %12, align 4
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %225
+
+222:                                              ; preds = %219
+  %223 = load i32, ptr %12, align 4
+  %224 = add i32 %223, -1
+  store i32 %224, ptr %12, align 4
+  br label %225
+
+225:                                              ; preds = %222, %219
+  %226 = load i32, ptr %20, align 4
+  store i32 %226, ptr %11, align 4
+  %227 = load ptr, ptr %19, align 8
+  %228 = getelementptr inbounds nuw %union.YYSTYPE, ptr %227, i32 1
+  store ptr %228, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %228, ptr align 8 %9, i64 16, i1 false)
+  store i32 -2, ptr %8, align 4
+  br label %47
+
+229:                                              ; preds = %207, %157
+  %230 = load i32, ptr %11, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds [180 x i8], ptr @yydefact, i64 0, i64 %231
+  %233 = load i8, ptr %232, align 1
+  %234 = sext i8 %233 to i32
+  store i32 %234, ptr %20, align 4
+  %235 = load i32, ptr %20, align 4
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %237, label %238
+
+237:                                              ; preds = %229
+  br label %807
+
+238:                                              ; preds = %229
+  br label %239
+
+239:                                              ; preds = %238, %216
+  %240 = load i32, ptr %20, align 4
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds [137 x i8], ptr @yyr2, i64 0, i64 %241
+  %243 = load i8, ptr %242, align 1
+  %244 = sext i8 %243 to i32
+  store i32 %244, ptr %24, align 4
+  %245 = load ptr, ptr %19, align 8
+  %246 = load i32, ptr %24, align 4
+  %247 = sub i32 1, %246
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds %union.YYSTYPE, ptr %245, i64 %248
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %249, i64 16, i1 false)
+  %250 = load i32, ptr %20, align 4
+  switch i32 %250, label %749 [
+    i32 2, label %251
+    i32 3, label %268
+    i32 4, label %270
+    i32 5, label %274
+    i32 6, label %278
+    i32 7, label %279
+    i32 8, label %280
+    i32 9, label %281
+    i32 10, label %285
+    i32 11, label %287
+    i32 12, label %289
+    i32 13, label %291
+    i32 14, label %295
+    i32 15, label %299
+    i32 16, label %303
+    i32 17, label %304
+    i32 18, label %305
+    i32 19, label %306
+    i32 20, label %307
+    i32 21, label %308
+    i32 22, label %309
+    i32 23, label %313
+    i32 24, label %318
+    i32 25, label %322
+    i32 26, label %333
+    i32 27, label %341
+    i32 28, label %349
+    i32 29, label %354
+    i32 30, label %359
+    i32 31, label %367
+    i32 32, label %381
+    i32 33, label %397
+    i32 34, label %401
+    i32 35, label %405
+    i32 36, label %409
+    i32 37, label %411
+    i32 38, label %413
+    i32 39, label %415
+    i32 40, label %422
+    i32 41, label %434
+    i32 42, label %446
+    i32 43, label %454
+    i32 44, label %459
+    i32 45, label %463
+    i32 46, label %468
+    i32 47, label %473
+    i32 48, label %481
+    i32 49, label %489
+    i32 50, label %497
+    i32 51, label %505
+    i32 52, label %513
+    i32 53, label %518
+    i32 54, label %526
+    i32 55, label %533
+    i32 56, label %541
+    i32 57, label %543
+    i32 58, label %548
+    i32 59, label %554
+    i32 60, label %555
+    i32 61, label %557
+    i32 62, label %565
+    i32 63, label %573
+    i32 64, label %577
+    i32 65, label %579
+    i32 66, label %583
+    i32 67, label %587
+    i32 68, label %592
+    i32 69, label %597
+    i32 70, label %655
+    i32 71, label %660
+    i32 72, label %665
+    i32 73, label %670
+    i32 74, label %675
+    i32 75, label %680
+    i32 76, label %684
+    i32 77, label %689
+    i32 78, label %694
+    i32 79, label %701
+    i32 80, label %709
+    i32 81, label %713
+    i32 82, label %714
+    i32 83, label %718
+    i32 84, label %722
+    i32 85, label %723
+    i32 86, label %727
+    i32 87, label %731
+    i32 88, label %732
+    i32 124, label %736
+    i32 125, label %737
+    i32 126, label %738
+    i32 127, label %739
+    i32 128, label %740
+    i32 129, label %741
+    i32 130, label %742
+    i32 131, label %743
+    i32 132, label %744
+    i32 133, label %745
+    i32 134, label %746
+    i32 135, label %747
+    i32 136, label %748
+  ]
+
+251:                                              ; preds = %239
+  %252 = call ptr @palloc(i64 noundef 16)
+  %253 = load ptr, ptr %5, align 8
+  store ptr %252, ptr %253, align 8
+  %254 = load ptr, ptr %19, align 8
+  %255 = getelementptr inbounds %union.YYSTYPE, ptr %254, i64 0
+  %256 = load ptr, ptr %255, align 8
+  %257 = load ptr, ptr %5, align 8
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds nuw %struct.JsonPathParseResult, ptr %258, i32 0, i32 0
+  store ptr %256, ptr %259, align 8
+  %260 = load ptr, ptr %19, align 8
+  %261 = getelementptr inbounds %union.YYSTYPE, ptr %260, i64 -1
+  %262 = load i8, ptr %261, align 8, !range !4, !noundef !5
+  %263 = trunc i8 %262 to i1
+  %264 = load ptr, ptr %5, align 8
   %265 = load ptr, ptr %264, align 8
-  store ptr %265, ptr %21, align 8
-  br label %730
+  %266 = getelementptr inbounds nuw %struct.JsonPathParseResult, ptr %265, i32 0, i32 1
+  %267 = zext i1 %263 to i8
+  store i8 %267, ptr %266, align 8
+  br label %750
 
-266:                                              ; preds = %227
-  store i8 0, ptr %21, align 8
-  br label %730
+268:                                              ; preds = %239
+  %269 = load ptr, ptr %5, align 8
+  store ptr null, ptr %269, align 8
+  br label %750
 
-267:                                              ; preds = %227
-  store i8 1, ptr %21, align 8
-  br label %730
+270:                                              ; preds = %239
+  %271 = load ptr, ptr %19, align 8
+  %272 = getelementptr inbounds %union.YYSTYPE, ptr %271, i64 0
+  %273 = load ptr, ptr %272, align 8
+  store ptr %273, ptr %23, align 8
+  br label %750
 
-268:                                              ; preds = %227
-  store i8 1, ptr %21, align 8
-  br label %730
+274:                                              ; preds = %239
+  %275 = load ptr, ptr %19, align 8
+  %276 = getelementptr inbounds %union.YYSTYPE, ptr %275, i64 0
+  %277 = load ptr, ptr %276, align 8
+  store ptr %277, ptr %23, align 8
+  br label %750
 
-269:                                              ; preds = %227
-  %270 = load ptr, ptr %17, align 8
-  %271 = getelementptr %union.YYSTYPE, ptr %270, i64 0
-  %272 = call ptr @makeItemString(ptr noundef %271)
-  store ptr %272, ptr %21, align 8
-  br label %730
+278:                                              ; preds = %239
+  store i8 0, ptr %23, align 8
+  br label %750
 
-273:                                              ; preds = %227
-  %274 = call ptr @makeItemString(ptr noundef null)
-  store ptr %274, ptr %21, align 8
-  br label %730
+279:                                              ; preds = %239
+  store i8 1, ptr %23, align 8
+  br label %750
 
-275:                                              ; preds = %227
-  %276 = call ptr @makeItemBool(i1 noundef zeroext true)
-  store ptr %276, ptr %21, align 8
-  br label %730
+280:                                              ; preds = %239
+  store i8 1, ptr %23, align 8
+  br label %750
 
-277:                                              ; preds = %227
-  %278 = call ptr @makeItemBool(i1 noundef zeroext false)
-  store ptr %278, ptr %21, align 8
-  br label %730
+281:                                              ; preds = %239
+  %282 = load ptr, ptr %19, align 8
+  %283 = getelementptr inbounds %union.YYSTYPE, ptr %282, i64 0
+  %284 = call ptr @makeItemString(ptr noundef %283)
+  store ptr %284, ptr %23, align 8
+  br label %750
 
-279:                                              ; preds = %227
-  %280 = load ptr, ptr %17, align 8
-  %281 = getelementptr %union.YYSTYPE, ptr %280, i64 0
-  %282 = call ptr @makeItemNumeric(ptr noundef %281)
-  store ptr %282, ptr %21, align 8
-  br label %730
+285:                                              ; preds = %239
+  %286 = call ptr @makeItemString(ptr noundef null)
+  store ptr %286, ptr %23, align 8
+  br label %750
 
-283:                                              ; preds = %227
-  %284 = load ptr, ptr %17, align 8
-  %285 = getelementptr %union.YYSTYPE, ptr %284, i64 0
-  %286 = call ptr @makeItemNumeric(ptr noundef %285)
-  store ptr %286, ptr %21, align 8
-  br label %730
+287:                                              ; preds = %239
+  %288 = call ptr @makeItemBool(i1 noundef zeroext true)
+  store ptr %288, ptr %23, align 8
+  br label %750
 
-287:                                              ; preds = %227
-  %288 = load ptr, ptr %17, align 8
-  %289 = getelementptr %union.YYSTYPE, ptr %288, i64 0
-  %290 = call ptr @makeItemVariable(ptr noundef %289)
-  store ptr %290, ptr %21, align 8
-  br label %730
+289:                                              ; preds = %239
+  %290 = call ptr @makeItemBool(i1 noundef zeroext false)
+  store ptr %290, ptr %23, align 8
+  br label %750
 
-291:                                              ; preds = %227
-  store i32 8, ptr %21, align 8
-  br label %730
+291:                                              ; preds = %239
+  %292 = load ptr, ptr %19, align 8
+  %293 = getelementptr inbounds %union.YYSTYPE, ptr %292, i64 0
+  %294 = call ptr @makeItemNumeric(ptr noundef %293)
+  store ptr %294, ptr %23, align 8
+  br label %750
 
-292:                                              ; preds = %227
-  store i32 9, ptr %21, align 8
-  br label %730
+295:                                              ; preds = %239
+  %296 = load ptr, ptr %19, align 8
+  %297 = getelementptr inbounds %union.YYSTYPE, ptr %296, i64 0
+  %298 = call ptr @makeItemNumeric(ptr noundef %297)
+  store ptr %298, ptr %23, align 8
+  br label %750
 
-293:                                              ; preds = %227
-  store i32 10, ptr %21, align 8
-  br label %730
+299:                                              ; preds = %239
+  %300 = load ptr, ptr %19, align 8
+  %301 = getelementptr inbounds %union.YYSTYPE, ptr %300, i64 0
+  %302 = call ptr @makeItemVariable(ptr noundef %301)
+  store ptr %302, ptr %23, align 8
+  br label %750
 
-294:                                              ; preds = %227
-  store i32 11, ptr %21, align 8
-  br label %730
+303:                                              ; preds = %239
+  store i32 8, ptr %23, align 8
+  br label %750
 
-295:                                              ; preds = %227
-  store i32 12, ptr %21, align 8
-  br label %730
+304:                                              ; preds = %239
+  store i32 9, ptr %23, align 8
+  br label %750
 
-296:                                              ; preds = %227
-  store i32 13, ptr %21, align 8
-  br label %730
+305:                                              ; preds = %239
+  store i32 10, ptr %23, align 8
+  br label %750
 
-297:                                              ; preds = %227
-  %298 = load ptr, ptr %17, align 8
-  %299 = getelementptr %union.YYSTYPE, ptr %298, i64 -1
-  %300 = load ptr, ptr %299, align 8
-  store ptr %300, ptr %21, align 8
-  br label %730
+306:                                              ; preds = %239
+  store i32 11, ptr %23, align 8
+  br label %750
 
-301:                                              ; preds = %227
-  %302 = load ptr, ptr %17, align 8
-  %303 = getelementptr %union.YYSTYPE, ptr %302, i64 -1
-  %304 = load ptr, ptr %303, align 8
-  %305 = call ptr @makeItemUnary(i32 noundef 30, ptr noundef %304)
-  store ptr %305, ptr %21, align 8
-  br label %730
+307:                                              ; preds = %239
+  store i32 12, ptr %23, align 8
+  br label %750
 
-306:                                              ; preds = %227
-  %307 = load ptr, ptr %17, align 8
-  %308 = getelementptr %union.YYSTYPE, ptr %307, i64 0
-  %309 = load ptr, ptr %308, align 8
-  store ptr %309, ptr %21, align 8
-  br label %730
+308:                                              ; preds = %239
+  store i32 13, ptr %23, align 8
+  br label %750
 
-310:                                              ; preds = %227
-  %311 = load ptr, ptr %17, align 8
-  %312 = getelementptr %union.YYSTYPE, ptr %311, i64 -1
-  %313 = load i32, ptr %312, align 8
-  %314 = load ptr, ptr %17, align 8
-  %315 = getelementptr %union.YYSTYPE, ptr %314, i64 -2
+309:                                              ; preds = %239
+  %310 = load ptr, ptr %19, align 8
+  %311 = getelementptr inbounds %union.YYSTYPE, ptr %310, i64 -1
+  %312 = load ptr, ptr %311, align 8
+  store ptr %312, ptr %23, align 8
+  br label %750
+
+313:                                              ; preds = %239
+  %314 = load ptr, ptr %19, align 8
+  %315 = getelementptr inbounds %union.YYSTYPE, ptr %314, i64 -1
   %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr %17, align 8
-  %318 = getelementptr %union.YYSTYPE, ptr %317, i64 0
-  %319 = load ptr, ptr %318, align 8
-  %320 = call ptr @makeItemBinary(i32 noundef %313, ptr noundef %316, ptr noundef %319)
-  store ptr %320, ptr %21, align 8
-  br label %730
+  %317 = call ptr @makeItemUnary(i32 noundef 30, ptr noundef %316)
+  store ptr %317, ptr %23, align 8
+  br label %750
 
-321:                                              ; preds = %227
-  %322 = load ptr, ptr %17, align 8
-  %323 = getelementptr %union.YYSTYPE, ptr %322, i64 -2
-  %324 = load ptr, ptr %323, align 8
-  %325 = load ptr, ptr %17, align 8
-  %326 = getelementptr %union.YYSTYPE, ptr %325, i64 0
-  %327 = load ptr, ptr %326, align 8
-  %328 = call ptr @makeItemBinary(i32 noundef 4, ptr noundef %324, ptr noundef %327)
-  store ptr %328, ptr %21, align 8
-  br label %730
+318:                                              ; preds = %239
+  %319 = load ptr, ptr %19, align 8
+  %320 = getelementptr inbounds %union.YYSTYPE, ptr %319, i64 0
+  %321 = load ptr, ptr %320, align 8
+  store ptr %321, ptr %23, align 8
+  br label %750
 
-329:                                              ; preds = %227
-  %330 = load ptr, ptr %17, align 8
-  %331 = getelementptr %union.YYSTYPE, ptr %330, i64 -2
-  %332 = load ptr, ptr %331, align 8
-  %333 = load ptr, ptr %17, align 8
-  %334 = getelementptr %union.YYSTYPE, ptr %333, i64 0
-  %335 = load ptr, ptr %334, align 8
-  %336 = call ptr @makeItemBinary(i32 noundef 5, ptr noundef %332, ptr noundef %335)
-  store ptr %336, ptr %21, align 8
-  br label %730
+322:                                              ; preds = %239
+  %323 = load ptr, ptr %19, align 8
+  %324 = getelementptr inbounds %union.YYSTYPE, ptr %323, i64 -1
+  %325 = load i32, ptr %324, align 8
+  %326 = load ptr, ptr %19, align 8
+  %327 = getelementptr inbounds %union.YYSTYPE, ptr %326, i64 -2
+  %328 = load ptr, ptr %327, align 8
+  %329 = load ptr, ptr %19, align 8
+  %330 = getelementptr inbounds %union.YYSTYPE, ptr %329, i64 0
+  %331 = load ptr, ptr %330, align 8
+  %332 = call ptr @makeItemBinary(i32 noundef %325, ptr noundef %328, ptr noundef %331)
+  store ptr %332, ptr %23, align 8
+  br label %750
 
-337:                                              ; preds = %227
-  %338 = load ptr, ptr %17, align 8
-  %339 = getelementptr %union.YYSTYPE, ptr %338, i64 0
-  %340 = load ptr, ptr %339, align 8
-  %341 = call ptr @makeItemUnary(i32 noundef 6, ptr noundef %340)
-  store ptr %341, ptr %21, align 8
-  br label %730
+333:                                              ; preds = %239
+  %334 = load ptr, ptr %19, align 8
+  %335 = getelementptr inbounds %union.YYSTYPE, ptr %334, i64 -2
+  %336 = load ptr, ptr %335, align 8
+  %337 = load ptr, ptr %19, align 8
+  %338 = getelementptr inbounds %union.YYSTYPE, ptr %337, i64 0
+  %339 = load ptr, ptr %338, align 8
+  %340 = call ptr @makeItemBinary(i32 noundef 4, ptr noundef %336, ptr noundef %339)
+  store ptr %340, ptr %23, align 8
+  br label %750
 
-342:                                              ; preds = %227
-  %343 = load ptr, ptr %17, align 8
-  %344 = getelementptr %union.YYSTYPE, ptr %343, i64 -3
-  %345 = load ptr, ptr %344, align 8
-  %346 = call ptr @makeItemUnary(i32 noundef 7, ptr noundef %345)
-  store ptr %346, ptr %21, align 8
-  br label %730
+341:                                              ; preds = %239
+  %342 = load ptr, ptr %19, align 8
+  %343 = getelementptr inbounds %union.YYSTYPE, ptr %342, i64 -2
+  %344 = load ptr, ptr %343, align 8
+  %345 = load ptr, ptr %19, align 8
+  %346 = getelementptr inbounds %union.YYSTYPE, ptr %345, i64 0
+  %347 = load ptr, ptr %346, align 8
+  %348 = call ptr @makeItemBinary(i32 noundef 5, ptr noundef %344, ptr noundef %347)
+  store ptr %348, ptr %23, align 8
+  br label %750
 
-347:                                              ; preds = %227
-  %348 = load ptr, ptr %17, align 8
-  %349 = getelementptr %union.YYSTYPE, ptr %348, i64 -3
-  %350 = load ptr, ptr %349, align 8
-  %351 = load ptr, ptr %17, align 8
-  %352 = getelementptr %union.YYSTYPE, ptr %351, i64 0
-  %353 = load ptr, ptr %352, align 8
-  %354 = call ptr @makeItemBinary(i32 noundef 41, ptr noundef %350, ptr noundef %353)
-  store ptr %354, ptr %21, align 8
-  br label %730
+349:                                              ; preds = %239
+  %350 = load ptr, ptr %19, align 8
+  %351 = getelementptr inbounds %union.YYSTYPE, ptr %350, i64 0
+  %352 = load ptr, ptr %351, align 8
+  %353 = call ptr @makeItemUnary(i32 noundef 6, ptr noundef %352)
+  store ptr %353, ptr %23, align 8
+  br label %750
 
-355:                                              ; preds = %227
-  %356 = load ptr, ptr %17, align 8
-  %357 = getelementptr %union.YYSTYPE, ptr %356, i64 -2
-  %358 = load ptr, ptr %357, align 8
-  %359 = load ptr, ptr %17, align 8
-  %360 = getelementptr %union.YYSTYPE, ptr %359, i64 0
-  %361 = load ptr, ptr %5, align 8
-  %362 = call zeroext i1 @makeItemLikeRegex(ptr noundef %358, ptr noundef %360, ptr noundef null, ptr noundef %28, ptr noundef %361)
-  br i1 %362, label %364, label %363
+354:                                              ; preds = %239
+  %355 = load ptr, ptr %19, align 8
+  %356 = getelementptr inbounds %union.YYSTYPE, ptr %355, i64 -3
+  %357 = load ptr, ptr %356, align 8
+  %358 = call ptr @makeItemUnary(i32 noundef 7, ptr noundef %357)
+  store ptr %358, ptr %23, align 8
+  br label %750
 
-363:                                              ; preds = %355
-  br label %909
+359:                                              ; preds = %239
+  %360 = load ptr, ptr %19, align 8
+  %361 = getelementptr inbounds %union.YYSTYPE, ptr %360, i64 -3
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %19, align 8
+  %364 = getelementptr inbounds %union.YYSTYPE, ptr %363, i64 0
+  %365 = load ptr, ptr %364, align 8
+  %366 = call ptr @makeItemBinary(i32 noundef 41, ptr noundef %362, ptr noundef %365)
+  store ptr %366, ptr %23, align 8
+  br label %750
 
-364:                                              ; preds = %355
-  %365 = load ptr, ptr %28, align 8
-  store ptr %365, ptr %21, align 8
-  br label %730
+367:                                              ; preds = %239
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  %368 = load ptr, ptr %19, align 8
+  %369 = getelementptr inbounds %union.YYSTYPE, ptr %368, i64 -2
+  %370 = load ptr, ptr %369, align 8
+  %371 = load ptr, ptr %19, align 8
+  %372 = getelementptr inbounds %union.YYSTYPE, ptr %371, i64 0
+  %373 = load ptr, ptr %6, align 8
+  %374 = call zeroext i1 @makeItemLikeRegex(ptr noundef %370, ptr noundef %372, ptr noundef null, ptr noundef %31, ptr noundef %373)
+  br i1 %374, label %376, label %375
 
-366:                                              ; preds = %227
-  %367 = load ptr, ptr %17, align 8
-  %368 = getelementptr %union.YYSTYPE, ptr %367, i64 -4
-  %369 = load ptr, ptr %368, align 8
-  %370 = load ptr, ptr %17, align 8
-  %371 = getelementptr %union.YYSTYPE, ptr %370, i64 -2
-  %372 = load ptr, ptr %17, align 8
-  %373 = getelementptr %union.YYSTYPE, ptr %372, i64 0
-  %374 = load ptr, ptr %5, align 8
-  %375 = call zeroext i1 @makeItemLikeRegex(ptr noundef %369, ptr noundef %371, ptr noundef %373, ptr noundef %29, ptr noundef %374)
-  br i1 %375, label %377, label %376
+375:                                              ; preds = %367
+  store i32 9, ptr %30, align 4
+  br label %378
 
-376:                                              ; preds = %366
-  br label %909
+376:                                              ; preds = %367
+  %377 = load ptr, ptr %31, align 8
+  store ptr %377, ptr %23, align 8
+  store i32 0, ptr %30, align 4
+  br label %378
 
-377:                                              ; preds = %366
-  %378 = load ptr, ptr %29, align 8
-  store ptr %378, ptr %21, align 8
-  br label %730
+378:                                              ; preds = %375, %376
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  %379 = load i32, ptr %30, align 4
+  switch i32 %379, label %998 [
+    i32 0, label %380
+    i32 9, label %932
+  ]
 
-379:                                              ; preds = %227
-  %380 = load ptr, ptr %17, align 8
-  %381 = getelementptr %union.YYSTYPE, ptr %380, i64 0
-  %382 = call ptr @makeItemString(ptr noundef %381)
-  store ptr %382, ptr %21, align 8
-  br label %730
+380:                                              ; preds = %378
+  br label %750
 
-383:                                              ; preds = %227
-  %384 = load ptr, ptr %17, align 8
-  %385 = getelementptr %union.YYSTYPE, ptr %384, i64 0
-  %386 = call ptr @makeItemVariable(ptr noundef %385)
-  store ptr %386, ptr %21, align 8
-  br label %730
+381:                                              ; preds = %239
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %382 = load ptr, ptr %19, align 8
+  %383 = getelementptr inbounds %union.YYSTYPE, ptr %382, i64 -4
+  %384 = load ptr, ptr %383, align 8
+  %385 = load ptr, ptr %19, align 8
+  %386 = getelementptr inbounds %union.YYSTYPE, ptr %385, i64 -2
+  %387 = load ptr, ptr %19, align 8
+  %388 = getelementptr inbounds %union.YYSTYPE, ptr %387, i64 0
+  %389 = load ptr, ptr %6, align 8
+  %390 = call zeroext i1 @makeItemLikeRegex(ptr noundef %384, ptr noundef %386, ptr noundef %388, ptr noundef %32, ptr noundef %389)
+  br i1 %390, label %392, label %391
 
-387:                                              ; preds = %227
-  %388 = load ptr, ptr %17, align 8
-  %389 = getelementptr %union.YYSTYPE, ptr %388, i64 0
-  %390 = load ptr, ptr %389, align 8
-  store ptr %390, ptr %21, align 8
-  br label %730
+391:                                              ; preds = %381
+  store i32 9, ptr %30, align 4
+  br label %394
 
-391:                                              ; preds = %227
-  %392 = call ptr @makeItemType(i32 noundef 27)
-  store ptr %392, ptr %21, align 8
-  br label %730
+392:                                              ; preds = %381
+  %393 = load ptr, ptr %32, align 8
+  store ptr %393, ptr %23, align 8
+  store i32 0, ptr %30, align 4
+  br label %394
 
-393:                                              ; preds = %227
-  %394 = call ptr @makeItemType(i32 noundef 26)
-  store ptr %394, ptr %21, align 8
-  br label %730
+394:                                              ; preds = %391, %392
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  %395 = load i32, ptr %30, align 4
+  switch i32 %395, label %998 [
+    i32 0, label %396
+    i32 9, label %932
+  ]
 
-395:                                              ; preds = %227
-  %396 = call ptr @makeItemType(i32 noundef 40)
-  store ptr %396, ptr %21, align 8
-  br label %730
+396:                                              ; preds = %394
+  br label %750
 
-397:                                              ; preds = %227
-  %398 = load ptr, ptr %17, align 8
-  %399 = getelementptr %union.YYSTYPE, ptr %398, i64 0
-  %400 = load ptr, ptr %399, align 8
-  store ptr %400, ptr %30, align 8
-  %401 = getelementptr inbounds %union.ListCell, ptr %30, i32 0, i32 0
-  %402 = load ptr, ptr %401, align 8
-  %403 = call ptr @list_make1_impl(i32 noundef 1, ptr %402)
-  store ptr %403, ptr %21, align 8
-  br label %730
+397:                                              ; preds = %239
+  %398 = load ptr, ptr %19, align 8
+  %399 = getelementptr inbounds %union.YYSTYPE, ptr %398, i64 0
+  %400 = call ptr @makeItemString(ptr noundef %399)
+  store ptr %400, ptr %23, align 8
+  br label %750
 
-404:                                              ; preds = %227
-  %405 = load ptr, ptr %17, align 8
-  %406 = getelementptr %union.YYSTYPE, ptr %405, i64 -2
-  %407 = load ptr, ptr %406, align 8
-  store ptr %407, ptr %31, align 8
-  %408 = load ptr, ptr %17, align 8
-  %409 = getelementptr %union.YYSTYPE, ptr %408, i64 0
-  %410 = load ptr, ptr %409, align 8
-  store ptr %410, ptr %32, align 8
-  %411 = getelementptr inbounds %union.ListCell, ptr %31, i32 0, i32 0
-  %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds %union.ListCell, ptr %32, i32 0, i32 0
-  %414 = load ptr, ptr %413, align 8
-  %415 = call ptr @list_make2_impl(i32 noundef 1, ptr %412, ptr %414)
-  store ptr %415, ptr %21, align 8
-  br label %730
+401:                                              ; preds = %239
+  %402 = load ptr, ptr %19, align 8
+  %403 = getelementptr inbounds %union.YYSTYPE, ptr %402, i64 0
+  %404 = call ptr @makeItemVariable(ptr noundef %403)
+  store ptr %404, ptr %23, align 8
+  br label %750
 
-416:                                              ; preds = %227
-  %417 = load ptr, ptr %17, align 8
-  %418 = getelementptr %union.YYSTYPE, ptr %417, i64 -2
-  %419 = load ptr, ptr %418, align 8
-  store ptr %419, ptr %33, align 8
-  %420 = load ptr, ptr %17, align 8
-  %421 = getelementptr %union.YYSTYPE, ptr %420, i64 0
-  %422 = load ptr, ptr %421, align 8
-  store ptr %422, ptr %34, align 8
-  %423 = getelementptr inbounds %union.ListCell, ptr %33, i32 0, i32 0
-  %424 = load ptr, ptr %423, align 8
-  %425 = getelementptr inbounds %union.ListCell, ptr %34, i32 0, i32 0
-  %426 = load ptr, ptr %425, align 8
-  %427 = call ptr @list_make2_impl(i32 noundef 1, ptr %424, ptr %426)
-  store ptr %427, ptr %21, align 8
-  br label %730
+405:                                              ; preds = %239
+  %406 = load ptr, ptr %19, align 8
+  %407 = getelementptr inbounds %union.YYSTYPE, ptr %406, i64 0
+  %408 = load ptr, ptr %407, align 8
+  store ptr %408, ptr %23, align 8
+  br label %750
 
-428:                                              ; preds = %227
-  %429 = load ptr, ptr %17, align 8
-  %430 = getelementptr %union.YYSTYPE, ptr %429, i64 -1
-  %431 = load ptr, ptr %430, align 8
-  %432 = load ptr, ptr %17, align 8
-  %433 = getelementptr %union.YYSTYPE, ptr %432, i64 0
-  %434 = load ptr, ptr %433, align 8
-  %435 = call ptr @lappend(ptr noundef %431, ptr noundef %434)
-  store ptr %435, ptr %21, align 8
-  br label %730
+409:                                              ; preds = %239
+  %410 = call ptr @makeItemType(i32 noundef 27)
+  store ptr %410, ptr %23, align 8
+  br label %750
 
-436:                                              ; preds = %227
-  %437 = load ptr, ptr %17, align 8
-  %438 = getelementptr %union.YYSTYPE, ptr %437, i64 0
-  %439 = load ptr, ptr %438, align 8
-  %440 = call ptr @makeItemList(ptr noundef %439)
-  store ptr %440, ptr %21, align 8
-  br label %730
+411:                                              ; preds = %239
+  %412 = call ptr @makeItemType(i32 noundef 26)
+  store ptr %412, ptr %23, align 8
+  br label %750
 
-441:                                              ; preds = %227
-  %442 = load ptr, ptr %17, align 8
-  %443 = getelementptr %union.YYSTYPE, ptr %442, i64 -1
+413:                                              ; preds = %239
+  %414 = call ptr @makeItemType(i32 noundef 40)
+  store ptr %414, ptr %23, align 8
+  br label %750
+
+415:                                              ; preds = %239
+  %416 = load ptr, ptr %19, align 8
+  %417 = getelementptr inbounds %union.YYSTYPE, ptr %416, i64 0
+  %418 = load ptr, ptr %417, align 8
+  store ptr %418, ptr %33, align 8
+  %419 = getelementptr inbounds nuw %union.ListCell, ptr %33, i32 0, i32 0
+  %420 = load ptr, ptr %419, align 8
+  %421 = call ptr @list_make1_impl(i32 noundef 1, ptr %420)
+  store ptr %421, ptr %23, align 8
+  br label %750
+
+422:                                              ; preds = %239
+  %423 = load ptr, ptr %19, align 8
+  %424 = getelementptr inbounds %union.YYSTYPE, ptr %423, i64 -2
+  %425 = load ptr, ptr %424, align 8
+  store ptr %425, ptr %34, align 8
+  %426 = load ptr, ptr %19, align 8
+  %427 = getelementptr inbounds %union.YYSTYPE, ptr %426, i64 0
+  %428 = load ptr, ptr %427, align 8
+  store ptr %428, ptr %35, align 8
+  %429 = getelementptr inbounds nuw %union.ListCell, ptr %34, i32 0, i32 0
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds nuw %union.ListCell, ptr %35, i32 0, i32 0
+  %432 = load ptr, ptr %431, align 8
+  %433 = call ptr @list_make2_impl(i32 noundef 1, ptr %430, ptr %432)
+  store ptr %433, ptr %23, align 8
+  br label %750
+
+434:                                              ; preds = %239
+  %435 = load ptr, ptr %19, align 8
+  %436 = getelementptr inbounds %union.YYSTYPE, ptr %435, i64 -2
+  %437 = load ptr, ptr %436, align 8
+  store ptr %437, ptr %36, align 8
+  %438 = load ptr, ptr %19, align 8
+  %439 = getelementptr inbounds %union.YYSTYPE, ptr %438, i64 0
+  %440 = load ptr, ptr %439, align 8
+  store ptr %440, ptr %37, align 8
+  %441 = getelementptr inbounds nuw %union.ListCell, ptr %36, i32 0, i32 0
+  %442 = load ptr, ptr %441, align 8
+  %443 = getelementptr inbounds nuw %union.ListCell, ptr %37, i32 0, i32 0
   %444 = load ptr, ptr %443, align 8
-  store ptr %444, ptr %21, align 8
-  br label %730
+  %445 = call ptr @list_make2_impl(i32 noundef 1, ptr %442, ptr %444)
+  store ptr %445, ptr %23, align 8
+  br label %750
 
-445:                                              ; preds = %227
-  %446 = load ptr, ptr %17, align 8
-  %447 = getelementptr %union.YYSTYPE, ptr %446, i64 0
-  %448 = load ptr, ptr %447, align 8
-  %449 = call ptr @makeItemUnary(i32 noundef 19, ptr noundef %448)
-  store ptr %449, ptr %21, align 8
-  br label %730
+446:                                              ; preds = %239
+  %447 = load ptr, ptr %19, align 8
+  %448 = getelementptr inbounds %union.YYSTYPE, ptr %447, i64 -1
+  %449 = load ptr, ptr %448, align 8
+  %450 = load ptr, ptr %19, align 8
+  %451 = getelementptr inbounds %union.YYSTYPE, ptr %450, i64 0
+  %452 = load ptr, ptr %451, align 8
+  %453 = call ptr @lappend(ptr noundef %449, ptr noundef %452)
+  store ptr %453, ptr %23, align 8
+  br label %750
 
-450:                                              ; preds = %227
-  %451 = load ptr, ptr %17, align 8
-  %452 = getelementptr %union.YYSTYPE, ptr %451, i64 0
-  %453 = load ptr, ptr %452, align 8
-  %454 = call ptr @makeItemUnary(i32 noundef 20, ptr noundef %453)
-  store ptr %454, ptr %21, align 8
-  br label %730
+454:                                              ; preds = %239
+  %455 = load ptr, ptr %19, align 8
+  %456 = getelementptr inbounds %union.YYSTYPE, ptr %455, i64 0
+  %457 = load ptr, ptr %456, align 8
+  %458 = call ptr @makeItemList(ptr noundef %457)
+  store ptr %458, ptr %23, align 8
+  br label %750
 
-455:                                              ; preds = %227
-  %456 = load ptr, ptr %17, align 8
-  %457 = getelementptr %union.YYSTYPE, ptr %456, i64 -2
-  %458 = load ptr, ptr %457, align 8
-  %459 = load ptr, ptr %17, align 8
-  %460 = getelementptr %union.YYSTYPE, ptr %459, i64 0
-  %461 = load ptr, ptr %460, align 8
-  %462 = call ptr @makeItemBinary(i32 noundef 14, ptr noundef %458, ptr noundef %461)
-  store ptr %462, ptr %21, align 8
-  br label %730
+459:                                              ; preds = %239
+  %460 = load ptr, ptr %19, align 8
+  %461 = getelementptr inbounds %union.YYSTYPE, ptr %460, i64 -1
+  %462 = load ptr, ptr %461, align 8
+  store ptr %462, ptr %23, align 8
+  br label %750
 
-463:                                              ; preds = %227
-  %464 = load ptr, ptr %17, align 8
-  %465 = getelementptr %union.YYSTYPE, ptr %464, i64 -2
+463:                                              ; preds = %239
+  %464 = load ptr, ptr %19, align 8
+  %465 = getelementptr inbounds %union.YYSTYPE, ptr %464, i64 0
   %466 = load ptr, ptr %465, align 8
-  %467 = load ptr, ptr %17, align 8
-  %468 = getelementptr %union.YYSTYPE, ptr %467, i64 0
-  %469 = load ptr, ptr %468, align 8
-  %470 = call ptr @makeItemBinary(i32 noundef 15, ptr noundef %466, ptr noundef %469)
-  store ptr %470, ptr %21, align 8
-  br label %730
+  %467 = call ptr @makeItemUnary(i32 noundef 19, ptr noundef %466)
+  store ptr %467, ptr %23, align 8
+  br label %750
 
-471:                                              ; preds = %227
-  %472 = load ptr, ptr %17, align 8
-  %473 = getelementptr %union.YYSTYPE, ptr %472, i64 -2
-  %474 = load ptr, ptr %473, align 8
-  %475 = load ptr, ptr %17, align 8
-  %476 = getelementptr %union.YYSTYPE, ptr %475, i64 0
-  %477 = load ptr, ptr %476, align 8
-  %478 = call ptr @makeItemBinary(i32 noundef 16, ptr noundef %474, ptr noundef %477)
-  store ptr %478, ptr %21, align 8
-  br label %730
+468:                                              ; preds = %239
+  %469 = load ptr, ptr %19, align 8
+  %470 = getelementptr inbounds %union.YYSTYPE, ptr %469, i64 0
+  %471 = load ptr, ptr %470, align 8
+  %472 = call ptr @makeItemUnary(i32 noundef 20, ptr noundef %471)
+  store ptr %472, ptr %23, align 8
+  br label %750
 
-479:                                              ; preds = %227
-  %480 = load ptr, ptr %17, align 8
-  %481 = getelementptr %union.YYSTYPE, ptr %480, i64 -2
-  %482 = load ptr, ptr %481, align 8
-  %483 = load ptr, ptr %17, align 8
-  %484 = getelementptr %union.YYSTYPE, ptr %483, i64 0
-  %485 = load ptr, ptr %484, align 8
-  %486 = call ptr @makeItemBinary(i32 noundef 17, ptr noundef %482, ptr noundef %485)
-  store ptr %486, ptr %21, align 8
-  br label %730
+473:                                              ; preds = %239
+  %474 = load ptr, ptr %19, align 8
+  %475 = getelementptr inbounds %union.YYSTYPE, ptr %474, i64 -2
+  %476 = load ptr, ptr %475, align 8
+  %477 = load ptr, ptr %19, align 8
+  %478 = getelementptr inbounds %union.YYSTYPE, ptr %477, i64 0
+  %479 = load ptr, ptr %478, align 8
+  %480 = call ptr @makeItemBinary(i32 noundef 14, ptr noundef %476, ptr noundef %479)
+  store ptr %480, ptr %23, align 8
+  br label %750
 
-487:                                              ; preds = %227
-  %488 = load ptr, ptr %17, align 8
-  %489 = getelementptr %union.YYSTYPE, ptr %488, i64 -2
-  %490 = load ptr, ptr %489, align 8
-  %491 = load ptr, ptr %17, align 8
-  %492 = getelementptr %union.YYSTYPE, ptr %491, i64 0
-  %493 = load ptr, ptr %492, align 8
-  %494 = call ptr @makeItemBinary(i32 noundef 18, ptr noundef %490, ptr noundef %493)
-  store ptr %494, ptr %21, align 8
-  br label %730
+481:                                              ; preds = %239
+  %482 = load ptr, ptr %19, align 8
+  %483 = getelementptr inbounds %union.YYSTYPE, ptr %482, i64 -2
+  %484 = load ptr, ptr %483, align 8
+  %485 = load ptr, ptr %19, align 8
+  %486 = getelementptr inbounds %union.YYSTYPE, ptr %485, i64 0
+  %487 = load ptr, ptr %486, align 8
+  %488 = call ptr @makeItemBinary(i32 noundef 15, ptr noundef %484, ptr noundef %487)
+  store ptr %488, ptr %23, align 8
+  br label %750
 
-495:                                              ; preds = %227
-  %496 = load ptr, ptr %17, align 8
-  %497 = getelementptr %union.YYSTYPE, ptr %496, i64 0
-  %498 = load ptr, ptr %497, align 8
-  %499 = call ptr @makeItemBinary(i32 noundef 39, ptr noundef %498, ptr noundef null)
-  store ptr %499, ptr %21, align 8
-  br label %730
+489:                                              ; preds = %239
+  %490 = load ptr, ptr %19, align 8
+  %491 = getelementptr inbounds %union.YYSTYPE, ptr %490, i64 -2
+  %492 = load ptr, ptr %491, align 8
+  %493 = load ptr, ptr %19, align 8
+  %494 = getelementptr inbounds %union.YYSTYPE, ptr %493, i64 0
+  %495 = load ptr, ptr %494, align 8
+  %496 = call ptr @makeItemBinary(i32 noundef 16, ptr noundef %492, ptr noundef %495)
+  store ptr %496, ptr %23, align 8
+  br label %750
 
-500:                                              ; preds = %227
-  %501 = load ptr, ptr %17, align 8
-  %502 = getelementptr %union.YYSTYPE, ptr %501, i64 -2
+497:                                              ; preds = %239
+  %498 = load ptr, ptr %19, align 8
+  %499 = getelementptr inbounds %union.YYSTYPE, ptr %498, i64 -2
+  %500 = load ptr, ptr %499, align 8
+  %501 = load ptr, ptr %19, align 8
+  %502 = getelementptr inbounds %union.YYSTYPE, ptr %501, i64 0
   %503 = load ptr, ptr %502, align 8
-  %504 = load ptr, ptr %17, align 8
-  %505 = getelementptr %union.YYSTYPE, ptr %504, i64 0
-  %506 = load ptr, ptr %505, align 8
-  %507 = call ptr @makeItemBinary(i32 noundef 39, ptr noundef %503, ptr noundef %506)
-  store ptr %507, ptr %21, align 8
-  br label %730
+  %504 = call ptr @makeItemBinary(i32 noundef 17, ptr noundef %500, ptr noundef %503)
+  store ptr %504, ptr %23, align 8
+  br label %750
 
-508:                                              ; preds = %227
-  %509 = load ptr, ptr %17, align 8
-  %510 = getelementptr %union.YYSTYPE, ptr %509, i64 0
+505:                                              ; preds = %239
+  %506 = load ptr, ptr %19, align 8
+  %507 = getelementptr inbounds %union.YYSTYPE, ptr %506, i64 -2
+  %508 = load ptr, ptr %507, align 8
+  %509 = load ptr, ptr %19, align 8
+  %510 = getelementptr inbounds %union.YYSTYPE, ptr %509, i64 0
   %511 = load ptr, ptr %510, align 8
-  store ptr %511, ptr %35, align 8
-  %512 = getelementptr inbounds %union.ListCell, ptr %35, i32 0, i32 0
-  %513 = load ptr, ptr %512, align 8
-  %514 = call ptr @list_make1_impl(i32 noundef 1, ptr %513)
-  store ptr %514, ptr %21, align 8
-  br label %730
+  %512 = call ptr @makeItemBinary(i32 noundef 18, ptr noundef %508, ptr noundef %511)
+  store ptr %512, ptr %23, align 8
+  br label %750
 
-515:                                              ; preds = %227
-  %516 = load ptr, ptr %17, align 8
-  %517 = getelementptr %union.YYSTYPE, ptr %516, i64 -2
-  %518 = load ptr, ptr %517, align 8
-  %519 = load ptr, ptr %17, align 8
-  %520 = getelementptr %union.YYSTYPE, ptr %519, i64 0
+513:                                              ; preds = %239
+  %514 = load ptr, ptr %19, align 8
+  %515 = getelementptr inbounds %union.YYSTYPE, ptr %514, i64 0
+  %516 = load ptr, ptr %515, align 8
+  %517 = call ptr @makeItemBinary(i32 noundef 39, ptr noundef %516, ptr noundef null)
+  store ptr %517, ptr %23, align 8
+  br label %750
+
+518:                                              ; preds = %239
+  %519 = load ptr, ptr %19, align 8
+  %520 = getelementptr inbounds %union.YYSTYPE, ptr %519, i64 -2
   %521 = load ptr, ptr %520, align 8
-  %522 = call ptr @lappend(ptr noundef %518, ptr noundef %521)
-  store ptr %522, ptr %21, align 8
-  br label %730
+  %522 = load ptr, ptr %19, align 8
+  %523 = getelementptr inbounds %union.YYSTYPE, ptr %522, i64 0
+  %524 = load ptr, ptr %523, align 8
+  %525 = call ptr @makeItemBinary(i32 noundef 39, ptr noundef %521, ptr noundef %524)
+  store ptr %525, ptr %23, align 8
+  br label %750
 
-523:                                              ; preds = %227
-  %524 = call ptr @makeItemType(i32 noundef 21)
-  store ptr %524, ptr %21, align 8
-  br label %730
+526:                                              ; preds = %239
+  %527 = load ptr, ptr %19, align 8
+  %528 = getelementptr inbounds %union.YYSTYPE, ptr %527, i64 0
+  %529 = load ptr, ptr %528, align 8
+  store ptr %529, ptr %38, align 8
+  %530 = getelementptr inbounds nuw %union.ListCell, ptr %38, i32 0, i32 0
+  %531 = load ptr, ptr %530, align 8
+  %532 = call ptr @list_make1_impl(i32 noundef 1, ptr %531)
+  store ptr %532, ptr %23, align 8
+  br label %750
 
-525:                                              ; preds = %227
-  %526 = load ptr, ptr %17, align 8
-  %527 = getelementptr %union.YYSTYPE, ptr %526, i64 -1
-  %528 = load ptr, ptr %527, align 8
-  %529 = call ptr @makeIndexArray(ptr noundef %528)
-  store ptr %529, ptr %21, align 8
-  br label %730
+533:                                              ; preds = %239
+  %534 = load ptr, ptr %19, align 8
+  %535 = getelementptr inbounds %union.YYSTYPE, ptr %534, i64 -2
+  %536 = load ptr, ptr %535, align 8
+  %537 = load ptr, ptr %19, align 8
+  %538 = getelementptr inbounds %union.YYSTYPE, ptr %537, i64 0
+  %539 = load ptr, ptr %538, align 8
+  %540 = call ptr @lappend(ptr noundef %536, ptr noundef %539)
+  store ptr %540, ptr %23, align 8
+  br label %750
 
-530:                                              ; preds = %227
-  %531 = load ptr, ptr %17, align 8
-  %532 = getelementptr %union.YYSTYPE, ptr %531, i64 0
-  %533 = getelementptr inbounds %struct.JsonPathString, ptr %532, i32 0, i32 0
-  %534 = load ptr, ptr %533, align 8
-  %535 = call i32 @pg_strtoint32(ptr noundef %534)
-  store i32 %535, ptr %21, align 8
-  br label %730
+541:                                              ; preds = %239
+  %542 = call ptr @makeItemType(i32 noundef 21)
+  store ptr %542, ptr %23, align 8
+  br label %750
 
-536:                                              ; preds = %227
-  store i32 -1, ptr %21, align 8
-  br label %730
+543:                                              ; preds = %239
+  %544 = load ptr, ptr %19, align 8
+  %545 = getelementptr inbounds %union.YYSTYPE, ptr %544, i64 -1
+  %546 = load ptr, ptr %545, align 8
+  %547 = call ptr @makeIndexArray(ptr noundef %546)
+  store ptr %547, ptr %23, align 8
+  br label %750
 
-537:                                              ; preds = %227
-  %538 = call ptr @makeAny(i32 noundef 0, i32 noundef -1)
-  store ptr %538, ptr %21, align 8
-  br label %730
+548:                                              ; preds = %239
+  %549 = load ptr, ptr %19, align 8
+  %550 = getelementptr inbounds %union.YYSTYPE, ptr %549, i64 0
+  %551 = getelementptr inbounds nuw %struct.JsonPathString, ptr %550, i32 0, i32 0
+  %552 = load ptr, ptr %551, align 8
+  %553 = call i32 @pg_strtoint32(ptr noundef %552)
+  store i32 %553, ptr %23, align 8
+  br label %750
 
-539:                                              ; preds = %227
-  %540 = load ptr, ptr %17, align 8
-  %541 = getelementptr %union.YYSTYPE, ptr %540, i64 -1
-  %542 = load i32, ptr %541, align 8
-  %543 = load ptr, ptr %17, align 8
-  %544 = getelementptr %union.YYSTYPE, ptr %543, i64 -1
-  %545 = load i32, ptr %544, align 8
-  %546 = call ptr @makeAny(i32 noundef %542, i32 noundef %545)
-  store ptr %546, ptr %21, align 8
-  br label %730
+554:                                              ; preds = %239
+  store i32 -1, ptr %23, align 8
+  br label %750
 
-547:                                              ; preds = %227
-  %548 = load ptr, ptr %17, align 8
-  %549 = getelementptr %union.YYSTYPE, ptr %548, i64 -3
-  %550 = load i32, ptr %549, align 8
-  %551 = load ptr, ptr %17, align 8
-  %552 = getelementptr %union.YYSTYPE, ptr %551, i64 -1
-  %553 = load i32, ptr %552, align 8
-  %554 = call ptr @makeAny(i32 noundef %550, i32 noundef %553)
-  store ptr %554, ptr %21, align 8
-  br label %730
+555:                                              ; preds = %239
+  %556 = call ptr @makeAny(i32 noundef 0, i32 noundef -1)
+  store ptr %556, ptr %23, align 8
+  br label %750
 
-555:                                              ; preds = %227
-  %556 = load ptr, ptr %17, align 8
-  %557 = getelementptr %union.YYSTYPE, ptr %556, i64 0
-  %558 = load ptr, ptr %557, align 8
-  store ptr %558, ptr %21, align 8
-  br label %730
+557:                                              ; preds = %239
+  %558 = load ptr, ptr %19, align 8
+  %559 = getelementptr inbounds %union.YYSTYPE, ptr %558, i64 -1
+  %560 = load i32, ptr %559, align 8
+  %561 = load ptr, ptr %19, align 8
+  %562 = getelementptr inbounds %union.YYSTYPE, ptr %561, i64 -1
+  %563 = load i32, ptr %562, align 8
+  %564 = call ptr @makeAny(i32 noundef %560, i32 noundef %563)
+  store ptr %564, ptr %23, align 8
+  br label %750
 
-559:                                              ; preds = %227
-  %560 = call ptr @makeItemType(i32 noundef 22)
-  store ptr %560, ptr %21, align 8
-  br label %730
+565:                                              ; preds = %239
+  %566 = load ptr, ptr %19, align 8
+  %567 = getelementptr inbounds %union.YYSTYPE, ptr %566, i64 -3
+  %568 = load i32, ptr %567, align 8
+  %569 = load ptr, ptr %19, align 8
+  %570 = getelementptr inbounds %union.YYSTYPE, ptr %569, i64 -1
+  %571 = load i32, ptr %570, align 8
+  %572 = call ptr @makeAny(i32 noundef %568, i32 noundef %571)
+  store ptr %572, ptr %23, align 8
+  br label %750
 
-561:                                              ; preds = %227
-  %562 = load ptr, ptr %17, align 8
-  %563 = getelementptr %union.YYSTYPE, ptr %562, i64 0
-  %564 = load ptr, ptr %563, align 8
-  store ptr %564, ptr %21, align 8
-  br label %730
+573:                                              ; preds = %239
+  %574 = load ptr, ptr %19, align 8
+  %575 = getelementptr inbounds %union.YYSTYPE, ptr %574, i64 0
+  %576 = load ptr, ptr %575, align 8
+  store ptr %576, ptr %23, align 8
+  br label %750
 
-565:                                              ; preds = %227
-  %566 = load ptr, ptr %17, align 8
-  %567 = getelementptr %union.YYSTYPE, ptr %566, i64 0
-  %568 = load ptr, ptr %567, align 8
-  store ptr %568, ptr %21, align 8
-  br label %730
+577:                                              ; preds = %239
+  %578 = call ptr @makeItemType(i32 noundef 22)
+  store ptr %578, ptr %23, align 8
+  br label %750
 
-569:                                              ; preds = %227
-  %570 = load ptr, ptr %17, align 8
-  %571 = getelementptr %union.YYSTYPE, ptr %570, i64 -2
-  %572 = load i32, ptr %571, align 8
-  %573 = call ptr @makeItemType(i32 noundef %572)
-  store ptr %573, ptr %21, align 8
-  br label %730
-
-574:                                              ; preds = %227
-  %575 = load ptr, ptr %17, align 8
-  %576 = getelementptr %union.YYSTYPE, ptr %575, i64 -1
-  %577 = load ptr, ptr %576, align 8
-  %578 = call ptr @makeItemUnary(i32 noundef 29, ptr noundef %577)
-  store ptr %578, ptr %21, align 8
-  br label %730
-
-579:                                              ; preds = %227
-  %580 = load ptr, ptr %17, align 8
-  %581 = getelementptr %union.YYSTYPE, ptr %580, i64 -1
+579:                                              ; preds = %239
+  %580 = load ptr, ptr %19, align 8
+  %581 = getelementptr inbounds %union.YYSTYPE, ptr %580, i64 0
   %582 = load ptr, ptr %581, align 8
-  %583 = call i32 @list_length(ptr noundef %582)
-  %584 = icmp eq i32 %583, 0
-  br i1 %584, label %585, label %587
+  store ptr %582, ptr %23, align 8
+  br label %750
 
-585:                                              ; preds = %579
-  %586 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef null, ptr noundef null)
-  store ptr %586, ptr %21, align 8
-  br label %634
+583:                                              ; preds = %239
+  %584 = load ptr, ptr %19, align 8
+  %585 = getelementptr inbounds %union.YYSTYPE, ptr %584, i64 0
+  %586 = load ptr, ptr %585, align 8
+  store ptr %586, ptr %23, align 8
+  br label %750
 
-587:                                              ; preds = %579
-  %588 = load ptr, ptr %17, align 8
-  %589 = getelementptr %union.YYSTYPE, ptr %588, i64 -1
-  %590 = load ptr, ptr %589, align 8
-  %591 = call i32 @list_length(ptr noundef %590)
-  %592 = icmp eq i32 %591, 1
-  br i1 %592, label %593, label %600
+587:                                              ; preds = %239
+  %588 = load ptr, ptr %19, align 8
+  %589 = getelementptr inbounds %union.YYSTYPE, ptr %588, i64 -2
+  %590 = load i32, ptr %589, align 8
+  %591 = call ptr @makeItemType(i32 noundef %590)
+  store ptr %591, ptr %23, align 8
+  br label %750
 
-593:                                              ; preds = %587
-  %594 = load ptr, ptr %17, align 8
-  %595 = getelementptr %union.YYSTYPE, ptr %594, i64 -1
-  %596 = load ptr, ptr %595, align 8
-  %597 = call ptr @list_nth_cell(ptr noundef %596, i32 noundef 0)
-  %598 = load ptr, ptr %597, align 8
-  %599 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef %598, ptr noundef null)
-  store ptr %599, ptr %21, align 8
-  br label %633
+592:                                              ; preds = %239
+  %593 = load ptr, ptr %19, align 8
+  %594 = getelementptr inbounds %union.YYSTYPE, ptr %593, i64 -1
+  %595 = load ptr, ptr %594, align 8
+  %596 = call ptr @makeItemUnary(i32 noundef 29, ptr noundef %595)
+  store ptr %596, ptr %23, align 8
+  br label %750
 
-600:                                              ; preds = %587
-  %601 = load ptr, ptr %17, align 8
-  %602 = getelementptr %union.YYSTYPE, ptr %601, i64 -1
-  %603 = load ptr, ptr %602, align 8
-  %604 = call i32 @list_length(ptr noundef %603)
-  %605 = icmp eq i32 %604, 2
-  br i1 %605, label %606, label %618
+597:                                              ; preds = %239
+  %598 = load ptr, ptr %19, align 8
+  %599 = getelementptr inbounds %union.YYSTYPE, ptr %598, i64 -1
+  %600 = load ptr, ptr %599, align 8
+  %601 = call i32 @list_length(ptr noundef %600)
+  %602 = icmp eq i32 %601, 0
+  br i1 %602, label %603, label %605
 
-606:                                              ; preds = %600
-  %607 = load ptr, ptr %17, align 8
-  %608 = getelementptr %union.YYSTYPE, ptr %607, i64 -1
-  %609 = load ptr, ptr %608, align 8
-  %610 = call ptr @list_nth_cell(ptr noundef %609, i32 noundef 0)
-  %611 = load ptr, ptr %610, align 8
-  %612 = load ptr, ptr %17, align 8
-  %613 = getelementptr %union.YYSTYPE, ptr %612, i64 -1
+603:                                              ; preds = %597
+  %604 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef null, ptr noundef null)
+  store ptr %604, ptr %23, align 8
+  br label %654
+
+605:                                              ; preds = %597
+  %606 = load ptr, ptr %19, align 8
+  %607 = getelementptr inbounds %union.YYSTYPE, ptr %606, i64 -1
+  %608 = load ptr, ptr %607, align 8
+  %609 = call i32 @list_length(ptr noundef %608)
+  %610 = icmp eq i32 %609, 1
+  br i1 %610, label %611, label %618
+
+611:                                              ; preds = %605
+  %612 = load ptr, ptr %19, align 8
+  %613 = getelementptr inbounds %union.YYSTYPE, ptr %612, i64 -1
   %614 = load ptr, ptr %613, align 8
-  %615 = call ptr @list_nth_cell(ptr noundef %614, i32 noundef 1)
+  %615 = call ptr @list_nth_cell(ptr noundef %614, i32 noundef 0)
   %616 = load ptr, ptr %615, align 8
-  %617 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef %611, ptr noundef %616)
-  store ptr %617, ptr %21, align 8
-  br label %632
+  %617 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef %616, ptr noundef null)
+  store ptr %617, ptr %23, align 8
+  br label %653
 
-618:                                              ; preds = %600
-  br label %619
+618:                                              ; preds = %605
+  %619 = load ptr, ptr %19, align 8
+  %620 = getelementptr inbounds %union.YYSTYPE, ptr %619, i64 -1
+  %621 = load ptr, ptr %620, align 8
+  %622 = call i32 @list_length(ptr noundef %621)
+  %623 = icmp eq i32 %622, 2
+  br i1 %623, label %624, label %636
 
-619:                                              ; preds = %618
-  br label %620
+624:                                              ; preds = %618
+  %625 = load ptr, ptr %19, align 8
+  %626 = getelementptr inbounds %union.YYSTYPE, ptr %625, i64 -1
+  %627 = load ptr, ptr %626, align 8
+  %628 = call ptr @list_nth_cell(ptr noundef %627, i32 noundef 0)
+  %629 = load ptr, ptr %628, align 8
+  %630 = load ptr, ptr %19, align 8
+  %631 = getelementptr inbounds %union.YYSTYPE, ptr %630, i64 -1
+  %632 = load ptr, ptr %631, align 8
+  %633 = call ptr @list_nth_cell(ptr noundef %632, i32 noundef 1)
+  %634 = load ptr, ptr %633, align 8
+  %635 = call ptr @makeItemBinary(i32 noundef 46, ptr noundef %629, ptr noundef %634)
+  store ptr %635, ptr %23, align 8
+  br label %652
 
-620:                                              ; preds = %619
-  %621 = load ptr, ptr %5, align 8
-  store ptr %621, ptr %36, align 8
-  %622 = load ptr, ptr %36, align 8
-  %623 = call zeroext i1 @errsave_start(ptr noundef %622, ptr noundef null)
-  br i1 %623, label %624, label %629
+636:                                              ; preds = %618
+  br label %637
 
-624:                                              ; preds = %620
-  %625 = call i32 @errcode(i32 noundef 16801924)
-  %626 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef @.str.1)
-  %627 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.2)
-  %628 = load ptr, ptr %36, align 8
-  call void @errsave_finish(ptr noundef %628, ptr noundef @.str.3, i32 noundef 267, ptr noundef @__func__.jsonpath_yyparse)
-  br label %629
+637:                                              ; preds = %636
+  br label %638
 
-629:                                              ; preds = %624, %620
-  br label %630
+638:                                              ; preds = %637
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  %639 = load ptr, ptr %6, align 8
+  store ptr %639, ptr %39, align 8
+  %640 = load ptr, ptr %39, align 8
+  %641 = call zeroext i1 @errsave_start(ptr noundef %640, ptr noundef null)
+  br i1 %641, label %642, label %647
 
-630:                                              ; preds = %629
-  store i32 0, ptr %3, align 4
-  br label %972
+642:                                              ; preds = %638
+  %643 = call i32 @errcode(i32 noundef 16801924)
+  %644 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef @.str.1)
+  %645 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.2)
+  %646 = load ptr, ptr %39, align 8
+  call void @errsave_finish(ptr noundef %646, ptr noundef @.str.3, i32 noundef 269, ptr noundef @__func__.jsonpath_yyparse)
+  br label %647
 
-631:                                              ; No predecessors!
-  br label %632
+647:                                              ; preds = %642, %638
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  br label %648
 
-632:                                              ; preds = %631, %606
-  br label %633
+648:                                              ; preds = %647
+  br label %649
 
-633:                                              ; preds = %632, %593
-  br label %634
+649:                                              ; preds = %648
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %30, align 4
+  br label %998
 
-634:                                              ; preds = %633, %585
-  br label %730
+650:                                              ; No predecessors!
+  br label %651
 
-635:                                              ; preds = %227
-  %636 = load ptr, ptr %17, align 8
-  %637 = getelementptr %union.YYSTYPE, ptr %636, i64 -1
-  %638 = load ptr, ptr %637, align 8
-  %639 = call ptr @makeItemUnary(i32 noundef 37, ptr noundef %638)
-  store ptr %639, ptr %21, align 8
-  br label %730
+651:                                              ; preds = %650
+  br label %652
 
-640:                                              ; preds = %227
-  %641 = load ptr, ptr %17, align 8
-  %642 = getelementptr %union.YYSTYPE, ptr %641, i64 -1
-  %643 = load ptr, ptr %642, align 8
-  %644 = call ptr @makeItemUnary(i32 noundef 50, ptr noundef %643)
-  store ptr %644, ptr %21, align 8
-  br label %730
+652:                                              ; preds = %651, %624
+  br label %653
 
-645:                                              ; preds = %227
-  %646 = load ptr, ptr %17, align 8
-  %647 = getelementptr %union.YYSTYPE, ptr %646, i64 -1
-  %648 = load ptr, ptr %647, align 8
-  %649 = call ptr @makeItemUnary(i32 noundef 51, ptr noundef %648)
-  store ptr %649, ptr %21, align 8
-  br label %730
+653:                                              ; preds = %652, %611
+  br label %654
 
-650:                                              ; preds = %227
-  %651 = load ptr, ptr %17, align 8
-  %652 = getelementptr %union.YYSTYPE, ptr %651, i64 -1
-  %653 = load ptr, ptr %652, align 8
-  %654 = call ptr @makeItemUnary(i32 noundef 52, ptr noundef %653)
-  store ptr %654, ptr %21, align 8
-  br label %730
+654:                                              ; preds = %653, %603
+  br label %750
 
-655:                                              ; preds = %227
-  %656 = load ptr, ptr %17, align 8
-  %657 = getelementptr %union.YYSTYPE, ptr %656, i64 -1
+655:                                              ; preds = %239
+  %656 = load ptr, ptr %19, align 8
+  %657 = getelementptr inbounds %union.YYSTYPE, ptr %656, i64 -1
   %658 = load ptr, ptr %657, align 8
-  %659 = call ptr @makeItemUnary(i32 noundef 53, ptr noundef %658)
-  store ptr %659, ptr %21, align 8
-  br label %730
+  %659 = call ptr @makeItemUnary(i32 noundef 37, ptr noundef %658)
+  store ptr %659, ptr %23, align 8
+  br label %750
 
-660:                                              ; preds = %227
-  %661 = load ptr, ptr %17, align 8
-  %662 = getelementptr %union.YYSTYPE, ptr %661, i64 0
-  %663 = call ptr @makeItemNumeric(ptr noundef %662)
-  store ptr %663, ptr %21, align 8
-  br label %730
+660:                                              ; preds = %239
+  %661 = load ptr, ptr %19, align 8
+  %662 = getelementptr inbounds %union.YYSTYPE, ptr %661, i64 -1
+  %663 = load ptr, ptr %662, align 8
+  %664 = call ptr @makeItemUnary(i32 noundef 50, ptr noundef %663)
+  store ptr %664, ptr %23, align 8
+  br label %750
 
-664:                                              ; preds = %227
-  %665 = load ptr, ptr %17, align 8
-  %666 = getelementptr %union.YYSTYPE, ptr %665, i64 0
-  %667 = call ptr @makeItemNumeric(ptr noundef %666)
-  %668 = call ptr @makeItemUnary(i32 noundef 19, ptr noundef %667)
-  store ptr %668, ptr %21, align 8
-  br label %730
+665:                                              ; preds = %239
+  %666 = load ptr, ptr %19, align 8
+  %667 = getelementptr inbounds %union.YYSTYPE, ptr %666, i64 -1
+  %668 = load ptr, ptr %667, align 8
+  %669 = call ptr @makeItemUnary(i32 noundef 51, ptr noundef %668)
+  store ptr %669, ptr %23, align 8
+  br label %750
 
-669:                                              ; preds = %227
-  %670 = load ptr, ptr %17, align 8
-  %671 = getelementptr %union.YYSTYPE, ptr %670, i64 0
-  %672 = call ptr @makeItemNumeric(ptr noundef %671)
-  %673 = call ptr @makeItemUnary(i32 noundef 20, ptr noundef %672)
-  store ptr %673, ptr %21, align 8
-  br label %730
+670:                                              ; preds = %239
+  %671 = load ptr, ptr %19, align 8
+  %672 = getelementptr inbounds %union.YYSTYPE, ptr %671, i64 -1
+  %673 = load ptr, ptr %672, align 8
+  %674 = call ptr @makeItemUnary(i32 noundef 52, ptr noundef %673)
+  store ptr %674, ptr %23, align 8
+  br label %750
 
-674:                                              ; preds = %227
-  %675 = load ptr, ptr %17, align 8
-  %676 = getelementptr %union.YYSTYPE, ptr %675, i64 0
-  %677 = load ptr, ptr %676, align 8
-  store ptr %677, ptr %37, align 8
-  %678 = getelementptr inbounds %union.ListCell, ptr %37, i32 0, i32 0
-  %679 = load ptr, ptr %678, align 8
-  %680 = call ptr @list_make1_impl(i32 noundef 1, ptr %679)
-  store ptr %680, ptr %21, align 8
-  br label %730
+675:                                              ; preds = %239
+  %676 = load ptr, ptr %19, align 8
+  %677 = getelementptr inbounds %union.YYSTYPE, ptr %676, i64 -1
+  %678 = load ptr, ptr %677, align 8
+  %679 = call ptr @makeItemUnary(i32 noundef 53, ptr noundef %678)
+  store ptr %679, ptr %23, align 8
+  br label %750
 
-681:                                              ; preds = %227
-  %682 = load ptr, ptr %17, align 8
-  %683 = getelementptr %union.YYSTYPE, ptr %682, i64 -2
-  %684 = load ptr, ptr %683, align 8
-  %685 = load ptr, ptr %17, align 8
-  %686 = getelementptr %union.YYSTYPE, ptr %685, i64 0
-  %687 = load ptr, ptr %686, align 8
-  %688 = call ptr @lappend(ptr noundef %684, ptr noundef %687)
-  store ptr %688, ptr %21, align 8
-  br label %730
+680:                                              ; preds = %239
+  %681 = load ptr, ptr %19, align 8
+  %682 = getelementptr inbounds %union.YYSTYPE, ptr %681, i64 0
+  %683 = call ptr @makeItemNumeric(ptr noundef %682)
+  store ptr %683, ptr %23, align 8
+  br label %750
 
-689:                                              ; preds = %227
-  %690 = load ptr, ptr %17, align 8
-  %691 = getelementptr %union.YYSTYPE, ptr %690, i64 0
-  %692 = load ptr, ptr %691, align 8
-  store ptr %692, ptr %21, align 8
-  br label %730
+684:                                              ; preds = %239
+  %685 = load ptr, ptr %19, align 8
+  %686 = getelementptr inbounds %union.YYSTYPE, ptr %685, i64 0
+  %687 = call ptr @makeItemNumeric(ptr noundef %686)
+  %688 = call ptr @makeItemUnary(i32 noundef 19, ptr noundef %687)
+  store ptr %688, ptr %23, align 8
+  br label %750
 
-693:                                              ; preds = %227
-  store ptr null, ptr %21, align 8
-  br label %730
+689:                                              ; preds = %239
+  %690 = load ptr, ptr %19, align 8
+  %691 = getelementptr inbounds %union.YYSTYPE, ptr %690, i64 0
+  %692 = call ptr @makeItemNumeric(ptr noundef %691)
+  %693 = call ptr @makeItemUnary(i32 noundef 20, ptr noundef %692)
+  store ptr %693, ptr %23, align 8
+  br label %750
 
-694:                                              ; preds = %227
-  %695 = load ptr, ptr %17, align 8
-  %696 = getelementptr %union.YYSTYPE, ptr %695, i64 0
-  %697 = call ptr @makeItemNumeric(ptr noundef %696)
-  store ptr %697, ptr %21, align 8
-  br label %730
+694:                                              ; preds = %239
+  %695 = load ptr, ptr %19, align 8
+  %696 = getelementptr inbounds %union.YYSTYPE, ptr %695, i64 0
+  %697 = load ptr, ptr %696, align 8
+  store ptr %697, ptr %40, align 8
+  %698 = getelementptr inbounds nuw %union.ListCell, ptr %40, i32 0, i32 0
+  %699 = load ptr, ptr %698, align 8
+  %700 = call ptr @list_make1_impl(i32 noundef 1, ptr %699)
+  store ptr %700, ptr %23, align 8
+  br label %750
 
-698:                                              ; preds = %227
-  %699 = load ptr, ptr %17, align 8
-  %700 = getelementptr %union.YYSTYPE, ptr %699, i64 0
-  %701 = load ptr, ptr %700, align 8
-  store ptr %701, ptr %21, align 8
-  br label %730
+701:                                              ; preds = %239
+  %702 = load ptr, ptr %19, align 8
+  %703 = getelementptr inbounds %union.YYSTYPE, ptr %702, i64 -2
+  %704 = load ptr, ptr %703, align 8
+  %705 = load ptr, ptr %19, align 8
+  %706 = getelementptr inbounds %union.YYSTYPE, ptr %705, i64 0
+  %707 = load ptr, ptr %706, align 8
+  %708 = call ptr @lappend(ptr noundef %704, ptr noundef %707)
+  store ptr %708, ptr %23, align 8
+  br label %750
 
-702:                                              ; preds = %227
-  store ptr null, ptr %21, align 8
-  br label %730
+709:                                              ; preds = %239
+  %710 = load ptr, ptr %19, align 8
+  %711 = getelementptr inbounds %union.YYSTYPE, ptr %710, i64 0
+  %712 = load ptr, ptr %711, align 8
+  store ptr %712, ptr %23, align 8
+  br label %750
 
-703:                                              ; preds = %227
-  %704 = load ptr, ptr %17, align 8
-  %705 = getelementptr %union.YYSTYPE, ptr %704, i64 0
-  %706 = call ptr @makeItemString(ptr noundef %705)
-  store ptr %706, ptr %21, align 8
-  br label %730
+713:                                              ; preds = %239
+  store ptr null, ptr %23, align 8
+  br label %750
 
-707:                                              ; preds = %227
-  %708 = load ptr, ptr %17, align 8
-  %709 = getelementptr %union.YYSTYPE, ptr %708, i64 0
-  %710 = load ptr, ptr %709, align 8
-  store ptr %710, ptr %21, align 8
-  br label %730
+714:                                              ; preds = %239
+  %715 = load ptr, ptr %19, align 8
+  %716 = getelementptr inbounds %union.YYSTYPE, ptr %715, i64 0
+  %717 = call ptr @makeItemNumeric(ptr noundef %716)
+  store ptr %717, ptr %23, align 8
+  br label %750
 
-711:                                              ; preds = %227
-  store ptr null, ptr %21, align 8
-  br label %730
+718:                                              ; preds = %239
+  %719 = load ptr, ptr %19, align 8
+  %720 = getelementptr inbounds %union.YYSTYPE, ptr %719, i64 0
+  %721 = load ptr, ptr %720, align 8
+  store ptr %721, ptr %23, align 8
+  br label %750
 
-712:                                              ; preds = %227
-  %713 = load ptr, ptr %17, align 8
-  %714 = getelementptr %union.YYSTYPE, ptr %713, i64 0
-  %715 = call ptr @makeItemKey(ptr noundef %714)
-  store ptr %715, ptr %21, align 8
-  br label %730
+722:                                              ; preds = %239
+  store ptr null, ptr %23, align 8
+  br label %750
 
-716:                                              ; preds = %227
-  store i32 33, ptr %21, align 8
-  br label %730
+723:                                              ; preds = %239
+  %724 = load ptr, ptr %19, align 8
+  %725 = getelementptr inbounds %union.YYSTYPE, ptr %724, i64 0
+  %726 = call ptr @makeItemString(ptr noundef %725)
+  store ptr %726, ptr %23, align 8
+  br label %750
 
-717:                                              ; preds = %227
-  store i32 32, ptr %21, align 8
-  br label %730
+727:                                              ; preds = %239
+  %728 = load ptr, ptr %19, align 8
+  %729 = getelementptr inbounds %union.YYSTYPE, ptr %728, i64 0
+  %730 = load ptr, ptr %729, align 8
+  store ptr %730, ptr %23, align 8
+  br label %750
 
-718:                                              ; preds = %227
-  store i32 31, ptr %21, align 8
-  br label %730
+731:                                              ; preds = %239
+  store ptr null, ptr %23, align 8
+  br label %750
 
-719:                                              ; preds = %227
-  store i32 34, ptr %21, align 8
-  br label %730
+732:                                              ; preds = %239
+  %733 = load ptr, ptr %19, align 8
+  %734 = getelementptr inbounds %union.YYSTYPE, ptr %733, i64 0
+  %735 = call ptr @makeItemKey(ptr noundef %734)
+  store ptr %735, ptr %23, align 8
+  br label %750
 
-720:                                              ; preds = %227
-  store i32 36, ptr %21, align 8
-  br label %730
+736:                                              ; preds = %239
+  store i32 33, ptr %23, align 8
+  br label %750
 
-721:                                              ; preds = %227
-  store i32 35, ptr %21, align 8
-  br label %730
+737:                                              ; preds = %239
+  store i32 32, ptr %23, align 8
+  br label %750
 
-722:                                              ; preds = %227
-  store i32 38, ptr %21, align 8
-  br label %730
+738:                                              ; preds = %239
+  store i32 31, ptr %23, align 8
+  br label %750
 
-723:                                              ; preds = %227
-  store i32 43, ptr %21, align 8
-  br label %730
+739:                                              ; preds = %239
+  store i32 34, ptr %23, align 8
+  br label %750
 
-724:                                              ; preds = %227
-  store i32 44, ptr %21, align 8
-  br label %730
+740:                                              ; preds = %239
+  store i32 36, ptr %23, align 8
+  br label %750
 
-725:                                              ; preds = %227
-  store i32 45, ptr %21, align 8
-  br label %730
+741:                                              ; preds = %239
+  store i32 35, ptr %23, align 8
+  br label %750
 
-726:                                              ; preds = %227
-  store i32 47, ptr %21, align 8
-  br label %730
+742:                                              ; preds = %239
+  store i32 38, ptr %23, align 8
+  br label %750
 
-727:                                              ; preds = %227
-  store i32 48, ptr %21, align 8
-  br label %730
+743:                                              ; preds = %239
+  store i32 43, ptr %23, align 8
+  br label %750
 
-728:                                              ; preds = %227
-  store i32 49, ptr %21, align 8
-  br label %730
+744:                                              ; preds = %239
+  store i32 44, ptr %23, align 8
+  br label %750
 
-729:                                              ; preds = %227
-  br label %730
+745:                                              ; preds = %239
+  store i32 45, ptr %23, align 8
+  br label %750
 
-730:                                              ; preds = %729, %728, %727, %726, %725, %724, %723, %722, %721, %720, %719, %718, %717, %716, %712, %711, %707, %703, %702, %698, %694, %693, %689, %681, %674, %669, %664, %660, %655, %650, %645, %640, %635, %634, %574, %569, %565, %561, %559, %555, %547, %539, %537, %536, %530, %525, %523, %515, %508, %500, %495, %487, %479, %471, %463, %455, %450, %445, %441, %436, %428, %416, %404, %397, %395, %393, %391, %387, %383, %379, %377, %364, %347, %342, %337, %329, %321, %310, %306, %301, %297, %296, %295, %294, %293, %292, %291, %287, %283, %279, %277, %275, %273, %269, %268, %267, %266, %262, %258, %256, %239
-  %731 = load i32, ptr %22, align 4
-  %732 = load ptr, ptr %17, align 8
-  %733 = sext i32 %731 to i64
-  %734 = sub i64 0, %733
-  %735 = getelementptr %union.YYSTYPE, ptr %732, i64 %734
-  store ptr %735, ptr %17, align 8
-  %736 = load i32, ptr %22, align 4
-  %737 = load ptr, ptr %14, align 8
-  %738 = sext i32 %736 to i64
-  %739 = sub i64 0, %738
-  %740 = getelementptr i8, ptr %737, i64 %739
-  store ptr %740, ptr %14, align 8
-  store i32 0, ptr %22, align 4
-  %741 = load ptr, ptr %17, align 8
-  %742 = getelementptr %union.YYSTYPE, ptr %741, i32 1
-  store ptr %742, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %742, ptr align 8 %21, i64 16, i1 false)
-  %743 = load i32, ptr %18, align 4
-  %744 = sext i32 %743 to i64
-  %745 = getelementptr [137 x i8], ptr @yyr1, i64 0, i64 %744
-  %746 = load i8, ptr %745, align 1
-  %747 = sext i8 %746 to i32
-  %748 = sub i32 %747, 68
-  store i32 %748, ptr %38, align 4
-  %749 = load i32, ptr %38, align 4
-  %750 = sext i32 %749 to i64
-  %751 = getelementptr [28 x i16], ptr @yypgoto, i64 0, i64 %750
-  %752 = load i16, ptr %751, align 2
-  %753 = sext i16 %752 to i32
-  %754 = load ptr, ptr %14, align 8
-  %755 = load i8, ptr %754, align 1
-  %756 = zext i8 %755 to i32
-  %757 = add i32 %753, %756
-  store i32 %757, ptr %39, align 4
-  %758 = load i32, ptr %39, align 4
-  %759 = icmp sle i32 0, %758
-  br i1 %759, label %760, label %779
+746:                                              ; preds = %239
+  store i32 47, ptr %23, align 8
+  br label %750
 
-760:                                              ; preds = %730
-  %761 = load i32, ptr %39, align 4
-  %762 = icmp sle i32 %761, 239
-  br i1 %762, label %763, label %779
+747:                                              ; preds = %239
+  store i32 48, ptr %23, align 8
+  br label %750
 
-763:                                              ; preds = %760
-  %764 = load i32, ptr %39, align 4
-  %765 = sext i32 %764 to i64
-  %766 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %765
-  %767 = load i16, ptr %766, align 2
-  %768 = sext i16 %767 to i32
-  %769 = load ptr, ptr %14, align 8
-  %770 = load i8, ptr %769, align 1
-  %771 = zext i8 %770 to i32
-  %772 = icmp eq i32 %768, %771
-  br i1 %772, label %773, label %779
+748:                                              ; preds = %239
+  store i32 49, ptr %23, align 8
+  br label %750
 
-773:                                              ; preds = %763
-  %774 = load i32, ptr %39, align 4
-  %775 = sext i32 %774 to i64
-  %776 = getelementptr [240 x i16], ptr @yytable, i64 0, i64 %775
-  %777 = load i16, ptr %776, align 2
-  %778 = sext i16 %777 to i32
-  br label %785
+749:                                              ; preds = %239
+  br label %750
 
-779:                                              ; preds = %763, %760, %730
-  %780 = load i32, ptr %38, align 4
-  %781 = sext i32 %780 to i64
-  %782 = getelementptr [28 x i8], ptr @yydefgoto, i64 0, i64 %781
-  %783 = load i8, ptr %782, align 1
-  %784 = zext i8 %783 to i32
-  br label %785
+750:                                              ; preds = %749, %748, %747, %746, %745, %744, %743, %742, %741, %740, %739, %738, %737, %736, %732, %731, %727, %723, %722, %718, %714, %713, %709, %701, %694, %689, %684, %680, %675, %670, %665, %660, %655, %654, %592, %587, %583, %579, %577, %573, %565, %557, %555, %554, %548, %543, %541, %533, %526, %518, %513, %505, %497, %489, %481, %473, %468, %463, %459, %454, %446, %434, %422, %415, %413, %411, %409, %405, %401, %397, %396, %380, %359, %354, %349, %341, %333, %322, %318, %313, %309, %308, %307, %306, %305, %304, %303, %299, %295, %291, %289, %287, %285, %281, %280, %279, %278, %274, %270, %268, %251
+  %751 = load i32, ptr %24, align 4
+  %752 = load ptr, ptr %19, align 8
+  %753 = sext i32 %751 to i64
+  %754 = sub i64 0, %753
+  %755 = getelementptr inbounds %union.YYSTYPE, ptr %752, i64 %754
+  store ptr %755, ptr %19, align 8
+  %756 = load i32, ptr %24, align 4
+  %757 = load ptr, ptr %16, align 8
+  %758 = sext i32 %756 to i64
+  %759 = sub i64 0, %758
+  %760 = getelementptr inbounds i8, ptr %757, i64 %759
+  store ptr %760, ptr %16, align 8
+  store i32 0, ptr %24, align 4
+  %761 = load ptr, ptr %19, align 8
+  %762 = getelementptr inbounds nuw %union.YYSTYPE, ptr %761, i32 1
+  store ptr %762, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %762, ptr align 8 %23, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #7
+  %763 = load i32, ptr %20, align 4
+  %764 = sext i32 %763 to i64
+  %765 = getelementptr inbounds [137 x i8], ptr @yyr1, i64 0, i64 %764
+  %766 = load i8, ptr %765, align 1
+  %767 = sext i8 %766 to i32
+  %768 = sub i32 %767, 68
+  store i32 %768, ptr %41, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #7
+  %769 = load i32, ptr %41, align 4
+  %770 = sext i32 %769 to i64
+  %771 = getelementptr inbounds [28 x i16], ptr @yypgoto, i64 0, i64 %770
+  %772 = load i16, ptr %771, align 2
+  %773 = sext i16 %772 to i32
+  %774 = load ptr, ptr %16, align 8
+  %775 = load i8, ptr %774, align 1
+  %776 = zext i8 %775 to i32
+  %777 = add i32 %773, %776
+  store i32 %777, ptr %42, align 4
+  %778 = load i32, ptr %42, align 4
+  %779 = icmp sle i32 0, %778
+  br i1 %779, label %780, label %799
 
-785:                                              ; preds = %779, %773
-  %786 = phi i32 [ %778, %773 ], [ %784, %779 ]
-  store i32 %786, ptr %9, align 4
-  br label %44
+780:                                              ; preds = %750
+  %781 = load i32, ptr %42, align 4
+  %782 = icmp sle i32 %781, 239
+  br i1 %782, label %783, label %799
 
-787:                                              ; preds = %225
-  %788 = load i32, ptr %6, align 4
-  %789 = icmp eq i32 %788, -2
-  br i1 %789, label %790, label %791
+783:                                              ; preds = %780
+  %784 = load i32, ptr %42, align 4
+  %785 = sext i32 %784 to i64
+  %786 = getelementptr inbounds [240 x i16], ptr @yycheck, i64 0, i64 %785
+  %787 = load i16, ptr %786, align 2
+  %788 = sext i16 %787 to i32
+  %789 = load ptr, ptr %16, align 8
+  %790 = load i8, ptr %789, align 1
+  %791 = zext i8 %790 to i32
+  %792 = icmp eq i32 %788, %791
+  br i1 %792, label %793, label %799
 
-790:                                              ; preds = %787
-  br label %806
+793:                                              ; preds = %783
+  %794 = load i32, ptr %42, align 4
+  %795 = sext i32 %794 to i64
+  %796 = getelementptr inbounds [240 x i16], ptr @yytable, i64 0, i64 %795
+  %797 = load i16, ptr %796, align 2
+  %798 = sext i16 %797 to i32
+  br label %805
 
-791:                                              ; preds = %787
-  %792 = load i32, ptr %6, align 4
-  %793 = icmp sle i32 0, %792
-  br i1 %793, label %794, label %803
+799:                                              ; preds = %783, %780, %750
+  %800 = load i32, ptr %41, align 4
+  %801 = sext i32 %800 to i64
+  %802 = getelementptr inbounds [28 x i8], ptr @yydefgoto, i64 0, i64 %801
+  %803 = load i8, ptr %802, align 1
+  %804 = zext i8 %803 to i32
+  br label %805
 
-794:                                              ; preds = %791
-  %795 = load i32, ptr %6, align 4
-  %796 = icmp sle i32 %795, 306
-  br i1 %796, label %797, label %803
+805:                                              ; preds = %799, %793
+  %806 = phi i32 [ %798, %793 ], [ %804, %799 ]
+  store i32 %806, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #7
+  br label %47
 
-797:                                              ; preds = %794
-  %798 = load i32, ptr %6, align 4
-  %799 = sext i32 %798 to i64
-  %800 = getelementptr [307 x i8], ptr @yytranslate, i64 0, i64 %799
-  %801 = load i8, ptr %800, align 1
-  %802 = sext i8 %801 to i32
-  br label %804
+807:                                              ; preds = %237
+  %808 = load i32, ptr %8, align 4
+  %809 = icmp eq i32 %808, -2
+  br i1 %809, label %810, label %811
 
-803:                                              ; preds = %794, %791
-  br label %804
+810:                                              ; preds = %807
+  br label %826
 
-804:                                              ; preds = %803, %797
-  %805 = phi i32 [ %802, %797 ], [ 2, %803 ]
-  br label %806
+811:                                              ; preds = %807
+  %812 = load i32, ptr %8, align 4
+  %813 = icmp sle i32 0, %812
+  br i1 %813, label %814, label %823
 
-806:                                              ; preds = %804, %790
-  %807 = phi i32 [ -2, %790 ], [ %805, %804 ]
-  store i32 %807, ptr %20, align 4
-  %808 = load i32, ptr %10, align 4
-  %809 = icmp ne i32 %808, 0
-  br i1 %809, label %815, label %810
+814:                                              ; preds = %811
+  %815 = load i32, ptr %8, align 4
+  %816 = icmp sle i32 %815, 306
+  br i1 %816, label %817, label %823
 
-810:                                              ; preds = %806
-  %811 = load i32, ptr %8, align 4
-  %812 = add i32 %811, 1
-  store i32 %812, ptr %8, align 4
-  %813 = load ptr, ptr %4, align 8
-  %814 = load ptr, ptr %5, align 8
-  call void @jsonpath_yyerror(ptr noundef %813, ptr noundef %814, ptr noundef @.str.4)
-  br label %815
+817:                                              ; preds = %814
+  %818 = load i32, ptr %8, align 4
+  %819 = sext i32 %818 to i64
+  %820 = getelementptr inbounds [307 x i8], ptr @yytranslate, i64 0, i64 %819
+  %821 = load i8, ptr %820, align 1
+  %822 = sext i8 %821 to i32
+  br label %824
 
-815:                                              ; preds = %810, %806
-  %816 = load i32, ptr %10, align 4
-  %817 = icmp eq i32 %816, 3
-  br i1 %817, label %818, label %831
+823:                                              ; preds = %814, %811
+  br label %824
 
-818:                                              ; preds = %815
-  %819 = load i32, ptr %6, align 4
-  %820 = icmp sle i32 %819, 0
-  br i1 %820, label %821, label %826
+824:                                              ; preds = %823, %817
+  %825 = phi i32 [ %822, %817 ], [ 2, %823 ]
+  br label %826
 
-821:                                              ; preds = %818
-  %822 = load i32, ptr %6, align 4
-  %823 = icmp eq i32 %822, 0
-  br i1 %823, label %824, label %825
+826:                                              ; preds = %824, %810
+  %827 = phi i32 [ -2, %810 ], [ %825, %824 ]
+  store i32 %827, ptr %22, align 4
+  %828 = load i32, ptr %12, align 4
+  %829 = icmp ne i32 %828, 0
+  br i1 %829, label %836, label %830
 
-824:                                              ; preds = %821
-  br label %909
+830:                                              ; preds = %826
+  %831 = load i32, ptr %10, align 4
+  %832 = add i32 %831, 1
+  store i32 %832, ptr %10, align 4
+  %833 = load ptr, ptr %5, align 8
+  %834 = load ptr, ptr %6, align 8
+  %835 = load ptr, ptr %7, align 8
+  call void @jsonpath_yyerror(ptr noundef %833, ptr noundef %834, ptr noundef %835, ptr noundef @.str.4)
+  br label %836
 
-825:                                              ; preds = %821
-  br label %830
+836:                                              ; preds = %830, %826
+  %837 = load i32, ptr %12, align 4
+  %838 = icmp eq i32 %837, 3
+  br i1 %838, label %839, label %853
 
-826:                                              ; preds = %818
-  %827 = load i32, ptr %20, align 4
-  %828 = load ptr, ptr %4, align 8
-  %829 = load ptr, ptr %5, align 8
-  call void @yydestruct(ptr noundef @.str.5, i32 noundef %827, ptr noundef %7, ptr noundef %828, ptr noundef %829)
-  store i32 -2, ptr %6, align 4
-  br label %830
+839:                                              ; preds = %836
+  %840 = load i32, ptr %8, align 4
+  %841 = icmp sle i32 %840, 0
+  br i1 %841, label %842, label %847
 
-830:                                              ; preds = %826, %825
-  br label %831
+842:                                              ; preds = %839
+  %843 = load i32, ptr %8, align 4
+  %844 = icmp eq i32 %843, 0
+  br i1 %844, label %845, label %846
 
-831:                                              ; preds = %830, %815
-  br label %848
+845:                                              ; preds = %842
+  br label %932
 
-832:                                              ; No predecessors!
-  %833 = load i32, ptr %8, align 4
-  %834 = add i32 %833, 1
-  store i32 %834, ptr %8, align 4
-  %835 = load i32, ptr %22, align 4
-  %836 = load ptr, ptr %17, align 8
-  %837 = sext i32 %835 to i64
-  %838 = sub i64 0, %837
-  %839 = getelementptr %union.YYSTYPE, ptr %836, i64 %838
-  store ptr %839, ptr %17, align 8
-  %840 = load i32, ptr %22, align 4
-  %841 = load ptr, ptr %14, align 8
-  %842 = sext i32 %840 to i64
-  %843 = sub i64 0, %842
-  %844 = getelementptr i8, ptr %841, i64 %843
-  store ptr %844, ptr %14, align 8
-  store i32 0, ptr %22, align 4
-  %845 = load ptr, ptr %14, align 8
-  %846 = load i8, ptr %845, align 1
-  %847 = zext i8 %846 to i32
-  store i32 %847, ptr %9, align 4
-  br label %848
+846:                                              ; preds = %842
+  br label %852
 
-848:                                              ; preds = %832, %831, %161
-  store i32 3, ptr %10, align 4
-  br label %849
+847:                                              ; preds = %839
+  %848 = load i32, ptr %22, align 4
+  %849 = load ptr, ptr %5, align 8
+  %850 = load ptr, ptr %6, align 8
+  %851 = load ptr, ptr %7, align 8
+  call void @yydestruct(ptr noundef @.str.5, i32 noundef %848, ptr noundef %9, ptr noundef %849, ptr noundef %850, ptr noundef %851)
+  store i32 -2, ptr %8, align 4
+  br label %852
 
-849:                                              ; preds = %888, %848
-  %850 = load i32, ptr %9, align 4
-  %851 = sext i32 %850 to i64
-  %852 = getelementptr [180 x i16], ptr @yypact, i64 0, i64 %851
-  %853 = load i16, ptr %852, align 2
-  %854 = sext i16 %853 to i32
-  store i32 %854, ptr %18, align 4
-  %855 = load i32, ptr %18, align 4
-  %856 = icmp eq i32 %855, -47
-  br i1 %856, label %883, label %857
+852:                                              ; preds = %847, %846
+  br label %853
 
-857:                                              ; preds = %849
-  %858 = load i32, ptr %18, align 4
-  %859 = add i32 %858, 1
-  store i32 %859, ptr %18, align 4
-  %860 = load i32, ptr %18, align 4
-  %861 = icmp sle i32 0, %860
-  br i1 %861, label %862, label %882
+853:                                              ; preds = %852, %836
+  br label %870
 
-862:                                              ; preds = %857
-  %863 = load i32, ptr %18, align 4
-  %864 = icmp sle i32 %863, 239
-  br i1 %864, label %865, label %882
+854:                                              ; No predecessors!
+  %855 = load i32, ptr %10, align 4
+  %856 = add i32 %855, 1
+  store i32 %856, ptr %10, align 4
+  %857 = load i32, ptr %24, align 4
+  %858 = load ptr, ptr %19, align 8
+  %859 = sext i32 %857 to i64
+  %860 = sub i64 0, %859
+  %861 = getelementptr inbounds %union.YYSTYPE, ptr %858, i64 %860
+  store ptr %861, ptr %19, align 8
+  %862 = load i32, ptr %24, align 4
+  %863 = load ptr, ptr %16, align 8
+  %864 = sext i32 %862 to i64
+  %865 = sub i64 0, %864
+  %866 = getelementptr inbounds i8, ptr %863, i64 %865
+  store ptr %866, ptr %16, align 8
+  store i32 0, ptr %24, align 4
+  %867 = load ptr, ptr %16, align 8
+  %868 = load i8, ptr %867, align 1
+  %869 = zext i8 %868 to i32
+  store i32 %869, ptr %11, align 4
+  br label %870
 
-865:                                              ; preds = %862
-  %866 = load i32, ptr %18, align 4
-  %867 = sext i32 %866 to i64
-  %868 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %867
-  %869 = load i16, ptr %868, align 2
-  %870 = sext i16 %869 to i32
-  %871 = icmp eq i32 %870, 1
-  br i1 %871, label %872, label %882
+870:                                              ; preds = %854, %853, %173
+  store i32 3, ptr %12, align 4
+  br label %871
 
-872:                                              ; preds = %865
-  %873 = load i32, ptr %18, align 4
-  %874 = sext i32 %873 to i64
-  %875 = getelementptr [240 x i16], ptr @yytable, i64 0, i64 %874
-  %876 = load i16, ptr %875, align 2
-  %877 = sext i16 %876 to i32
-  store i32 %877, ptr %18, align 4
-  %878 = load i32, ptr %18, align 4
-  %879 = icmp slt i32 0, %878
-  br i1 %879, label %880, label %881
+871:                                              ; preds = %910, %870
+  %872 = load i32, ptr %11, align 4
+  %873 = sext i32 %872 to i64
+  %874 = getelementptr inbounds [180 x i16], ptr @yypact, i64 0, i64 %873
+  %875 = load i16, ptr %874, align 2
+  %876 = sext i16 %875 to i32
+  store i32 %876, ptr %20, align 4
+  %877 = load i32, ptr %20, align 4
+  %878 = icmp eq i32 %877, -47
+  br i1 %878, label %905, label %879
 
-880:                                              ; preds = %872
+879:                                              ; preds = %871
+  %880 = load i32, ptr %20, align 4
+  %881 = add i32 %880, 1
+  store i32 %881, ptr %20, align 4
+  %882 = load i32, ptr %20, align 4
+  %883 = icmp sle i32 0, %882
+  br i1 %883, label %884, label %904
+
+884:                                              ; preds = %879
+  %885 = load i32, ptr %20, align 4
+  %886 = icmp sle i32 %885, 239
+  br i1 %886, label %887, label %904
+
+887:                                              ; preds = %884
+  %888 = load i32, ptr %20, align 4
+  %889 = sext i32 %888 to i64
+  %890 = getelementptr inbounds [240 x i16], ptr @yycheck, i64 0, i64 %889
+  %891 = load i16, ptr %890, align 2
+  %892 = sext i16 %891 to i32
+  %893 = icmp eq i32 %892, 1
+  br i1 %893, label %894, label %904
+
+894:                                              ; preds = %887
+  %895 = load i32, ptr %20, align 4
+  %896 = sext i32 %895 to i64
+  %897 = getelementptr inbounds [240 x i16], ptr @yytable, i64 0, i64 %896
+  %898 = load i16, ptr %897, align 2
+  %899 = sext i16 %898 to i32
+  store i32 %899, ptr %20, align 4
+  %900 = load i32, ptr %20, align 4
+  %901 = icmp slt i32 0, %900
+  br i1 %901, label %902, label %903
+
+902:                                              ; preds = %894
+  br label %927
+
+903:                                              ; preds = %894
   br label %904
 
-881:                                              ; preds = %872
-  br label %882
+904:                                              ; preds = %903, %887, %884, %879
+  br label %905
 
-882:                                              ; preds = %881, %865, %862, %857
-  br label %883
+905:                                              ; preds = %904, %871
+  %906 = load ptr, ptr %16, align 8
+  %907 = load ptr, ptr %15, align 8
+  %908 = icmp eq ptr %906, %907
+  br i1 %908, label %909, label %910
 
-883:                                              ; preds = %882, %849
-  %884 = load ptr, ptr %14, align 8
-  %885 = load ptr, ptr %13, align 8
-  %886 = icmp eq ptr %884, %885
-  br i1 %886, label %887, label %888
+909:                                              ; preds = %905
+  br label %932
 
-887:                                              ; preds = %883
-  br label %909
+910:                                              ; preds = %905
+  %911 = load i32, ptr %11, align 4
+  %912 = sext i32 %911 to i64
+  %913 = getelementptr inbounds [180 x i8], ptr @yystos, i64 0, i64 %912
+  %914 = load i8, ptr %913, align 1
+  %915 = sext i8 %914 to i32
+  %916 = load ptr, ptr %19, align 8
+  %917 = load ptr, ptr %5, align 8
+  %918 = load ptr, ptr %6, align 8
+  %919 = load ptr, ptr %7, align 8
+  call void @yydestruct(ptr noundef @.str.6, i32 noundef %915, ptr noundef %916, ptr noundef %917, ptr noundef %918, ptr noundef %919)
+  %920 = load ptr, ptr %19, align 8
+  %921 = getelementptr inbounds %union.YYSTYPE, ptr %920, i64 -1
+  store ptr %921, ptr %19, align 8
+  %922 = load ptr, ptr %16, align 8
+  %923 = getelementptr inbounds i8, ptr %922, i64 -1
+  store ptr %923, ptr %16, align 8
+  %924 = load ptr, ptr %16, align 8
+  %925 = load i8, ptr %924, align 1
+  %926 = zext i8 %925 to i32
+  store i32 %926, ptr %11, align 4
+  br label %871
 
-888:                                              ; preds = %883
-  %889 = load i32, ptr %9, align 4
-  %890 = sext i32 %889 to i64
-  %891 = getelementptr [180 x i8], ptr @yystos, i64 0, i64 %890
-  %892 = load i8, ptr %891, align 1
-  %893 = sext i8 %892 to i32
-  %894 = load ptr, ptr %17, align 8
-  %895 = load ptr, ptr %4, align 8
-  %896 = load ptr, ptr %5, align 8
-  call void @yydestruct(ptr noundef @.str.6, i32 noundef %893, ptr noundef %894, ptr noundef %895, ptr noundef %896)
-  %897 = load ptr, ptr %17, align 8
-  %898 = getelementptr %union.YYSTYPE, ptr %897, i64 -1
-  store ptr %898, ptr %17, align 8
-  %899 = load ptr, ptr %14, align 8
-  %900 = getelementptr i8, ptr %899, i64 -1
-  store ptr %900, ptr %14, align 8
-  %901 = load ptr, ptr %14, align 8
-  %902 = load i8, ptr %901, align 1
-  %903 = zext i8 %902 to i32
-  store i32 %903, ptr %9, align 4
-  br label %849
+927:                                              ; preds = %902
+  %928 = load ptr, ptr %19, align 8
+  %929 = getelementptr inbounds nuw %union.YYSTYPE, ptr %928, i32 1
+  store ptr %929, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %929, ptr align 8 %9, i64 16, i1 false)
+  %930 = load i32, ptr %20, align 4
+  store i32 %930, ptr %11, align 4
+  br label %47
 
-904:                                              ; preds = %880
-  %905 = load ptr, ptr %17, align 8
-  %906 = getelementptr %union.YYSTYPE, ptr %905, i32 1
-  store ptr %906, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %906, ptr align 8 %7, i64 16, i1 false)
-  %907 = load i32, ptr %18, align 4
-  store i32 %907, ptr %9, align 4
-  br label %44
+931:                                              ; preds = %147
+  store i32 0, ptr %21, align 4
+  br label %937
 
-908:                                              ; preds = %136
-  store i32 0, ptr %19, align 4
-  br label %913
+932:                                              ; preds = %394, %378, %141, %909, %845
+  store i32 1, ptr %21, align 4
+  br label %937
 
-909:                                              ; preds = %887, %824, %376, %363, %131
-  store i32 1, ptr %19, align 4
-  br label %913
+933:                                              ; preds = %141
+  %934 = load ptr, ptr %5, align 8
+  %935 = load ptr, ptr %6, align 8
+  %936 = load ptr, ptr %7, align 8
+  call void @jsonpath_yyerror(ptr noundef %934, ptr noundef %935, ptr noundef %936, ptr noundef @.str.7)
+  store i32 2, ptr %21, align 4
+  br label %937
 
-910:                                              ; preds = %81, %66
-  %911 = load ptr, ptr %4, align 8
-  %912 = load ptr, ptr %5, align 8
-  call void @jsonpath_yyerror(ptr noundef %911, ptr noundef %912, ptr noundef @.str.7)
-  store i32 2, ptr %19, align 4
-  br label %913
+937:                                              ; preds = %933, %932, %931
+  %938 = load i32, ptr %8, align 4
+  %939 = icmp ne i32 %938, -2
+  br i1 %939, label %940, label %959
 
-913:                                              ; preds = %910, %909, %908
-  %914 = load i32, ptr %6, align 4
-  %915 = icmp ne i32 %914, -2
-  br i1 %915, label %916, label %934
+940:                                              ; preds = %937
+  %941 = load i32, ptr %8, align 4
+  %942 = icmp sle i32 0, %941
+  br i1 %942, label %943, label %952
 
-916:                                              ; preds = %913
-  %917 = load i32, ptr %6, align 4
-  %918 = icmp sle i32 0, %917
-  br i1 %918, label %919, label %928
+943:                                              ; preds = %940
+  %944 = load i32, ptr %8, align 4
+  %945 = icmp sle i32 %944, 306
+  br i1 %945, label %946, label %952
 
-919:                                              ; preds = %916
-  %920 = load i32, ptr %6, align 4
-  %921 = icmp sle i32 %920, 306
-  br i1 %921, label %922, label %928
+946:                                              ; preds = %943
+  %947 = load i32, ptr %8, align 4
+  %948 = sext i32 %947 to i64
+  %949 = getelementptr inbounds [307 x i8], ptr @yytranslate, i64 0, i64 %948
+  %950 = load i8, ptr %949, align 1
+  %951 = sext i8 %950 to i32
+  br label %953
 
-922:                                              ; preds = %919
-  %923 = load i32, ptr %6, align 4
-  %924 = sext i32 %923 to i64
-  %925 = getelementptr [307 x i8], ptr @yytranslate, i64 0, i64 %924
-  %926 = load i8, ptr %925, align 1
-  %927 = sext i8 %926 to i32
-  br label %929
+952:                                              ; preds = %943, %940
+  br label %953
 
-928:                                              ; preds = %919, %916
-  br label %929
+953:                                              ; preds = %952, %946
+  %954 = phi i32 [ %951, %946 ], [ 2, %952 ]
+  store i32 %954, ptr %22, align 4
+  %955 = load i32, ptr %22, align 4
+  %956 = load ptr, ptr %5, align 8
+  %957 = load ptr, ptr %6, align 8
+  %958 = load ptr, ptr %7, align 8
+  call void @yydestruct(ptr noundef @.str.8, i32 noundef %955, ptr noundef %9, ptr noundef %956, ptr noundef %957, ptr noundef %958)
+  br label %959
 
-929:                                              ; preds = %928, %922
-  %930 = phi i32 [ %927, %922 ], [ 2, %928 ]
-  store i32 %930, ptr %20, align 4
-  %931 = load i32, ptr %20, align 4
-  %932 = load ptr, ptr %4, align 8
-  %933 = load ptr, ptr %5, align 8
-  call void @yydestruct(ptr noundef @.str.8, i32 noundef %931, ptr noundef %7, ptr noundef %932, ptr noundef %933)
-  br label %934
-
-934:                                              ; preds = %929, %913
-  %935 = load i32, ptr %22, align 4
-  %936 = load ptr, ptr %17, align 8
-  %937 = sext i32 %935 to i64
-  %938 = sub i64 0, %937
-  %939 = getelementptr %union.YYSTYPE, ptr %936, i64 %938
-  store ptr %939, ptr %17, align 8
-  %940 = load i32, ptr %22, align 4
-  %941 = load ptr, ptr %14, align 8
-  %942 = sext i32 %940 to i64
-  %943 = sub i64 0, %942
-  %944 = getelementptr i8, ptr %941, i64 %943
-  store ptr %944, ptr %14, align 8
-  br label %945
-
-945:                                              ; preds = %949, %934
-  %946 = load ptr, ptr %14, align 8
-  %947 = load ptr, ptr %13, align 8
-  %948 = icmp ne ptr %946, %947
-  br i1 %948, label %949, label %964
-
-949:                                              ; preds = %945
-  %950 = load ptr, ptr %14, align 8
-  %951 = load i8, ptr %950, align 1
-  %952 = zext i8 %951 to i32
-  %953 = sext i32 %952 to i64
-  %954 = getelementptr [180 x i8], ptr @yystos, i64 0, i64 %953
-  %955 = load i8, ptr %954, align 1
-  %956 = sext i8 %955 to i32
-  %957 = load ptr, ptr %17, align 8
-  %958 = load ptr, ptr %4, align 8
-  %959 = load ptr, ptr %5, align 8
-  call void @yydestruct(ptr noundef @.str.9, i32 noundef %956, ptr noundef %957, ptr noundef %958, ptr noundef %959)
-  %960 = load ptr, ptr %17, align 8
-  %961 = getelementptr %union.YYSTYPE, ptr %960, i64 -1
-  store ptr %961, ptr %17, align 8
-  %962 = load ptr, ptr %14, align 8
-  %963 = getelementptr i8, ptr %962, i64 -1
-  store ptr %963, ptr %14, align 8
-  br label %945, !llvm.loop !5
-
-964:                                              ; preds = %945
-  %965 = load ptr, ptr %13, align 8
-  %966 = getelementptr inbounds [200 x i8], ptr %12, i64 0, i64 0
-  %967 = icmp ne ptr %965, %966
-  br i1 %967, label %968, label %970
-
-968:                                              ; preds = %964
-  %969 = load ptr, ptr %13, align 8
-  call void @pfree(ptr noundef %969)
+959:                                              ; preds = %953, %937
+  %960 = load i32, ptr %24, align 4
+  %961 = load ptr, ptr %19, align 8
+  %962 = sext i32 %960 to i64
+  %963 = sub i64 0, %962
+  %964 = getelementptr inbounds %union.YYSTYPE, ptr %961, i64 %963
+  store ptr %964, ptr %19, align 8
+  %965 = load i32, ptr %24, align 4
+  %966 = load ptr, ptr %16, align 8
+  %967 = sext i32 %965 to i64
+  %968 = sub i64 0, %967
+  %969 = getelementptr inbounds i8, ptr %966, i64 %968
+  store ptr %969, ptr %16, align 8
   br label %970
 
-970:                                              ; preds = %968, %964
-  %971 = load i32, ptr %19, align 4
-  store i32 %971, ptr %3, align 4
-  br label %972
+970:                                              ; preds = %974, %959
+  %971 = load ptr, ptr %16, align 8
+  %972 = load ptr, ptr %15, align 8
+  %973 = icmp ne ptr %971, %972
+  br i1 %973, label %974, label %990
 
-972:                                              ; preds = %970, %630
-  %973 = load i32, ptr %3, align 4
-  ret i32 %973
+974:                                              ; preds = %970
+  %975 = load ptr, ptr %16, align 8
+  %976 = load i8, ptr %975, align 1
+  %977 = zext i8 %976 to i32
+  %978 = sext i32 %977 to i64
+  %979 = getelementptr inbounds [180 x i8], ptr @yystos, i64 0, i64 %978
+  %980 = load i8, ptr %979, align 1
+  %981 = sext i8 %980 to i32
+  %982 = load ptr, ptr %19, align 8
+  %983 = load ptr, ptr %5, align 8
+  %984 = load ptr, ptr %6, align 8
+  %985 = load ptr, ptr %7, align 8
+  call void @yydestruct(ptr noundef @.str.9, i32 noundef %981, ptr noundef %982, ptr noundef %983, ptr noundef %984, ptr noundef %985)
+  %986 = load ptr, ptr %19, align 8
+  %987 = getelementptr inbounds %union.YYSTYPE, ptr %986, i64 -1
+  store ptr %987, ptr %19, align 8
+  %988 = load ptr, ptr %16, align 8
+  %989 = getelementptr inbounds i8, ptr %988, i64 -1
+  store ptr %989, ptr %16, align 8
+  br label %970, !llvm.loop !6
+
+990:                                              ; preds = %970
+  %991 = load ptr, ptr %15, align 8
+  %992 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
+  %993 = icmp ne ptr %991, %992
+  br i1 %993, label %994, label %996
+
+994:                                              ; preds = %990
+  %995 = load ptr, ptr %15, align 8
+  call void @pfree(ptr noundef %995)
+  br label %996
+
+996:                                              ; preds = %994, %990
+  %997 = load i32, ptr %21, align 4
+  store i32 %997, ptr %4, align 4
+  store i32 1, ptr %30, align 4
+  br label %998
+
+998:                                              ; preds = %996, %649, %394, %378, %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 3200, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 200, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %999 = load i32, ptr %4, align 4
+  ret i32 %999
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @palloc(i64 noundef) #2
+declare ptr @palloc(i64 noundef) #3
 
-declare void @pfree(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @jsonpath_yylex(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @pfree(ptr noundef) #3
+
+declare i32 @jsonpath_yylex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @makeItemString(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -1798,23 +1932,24 @@ define internal ptr @makeItemString(ptr noundef %0) #0 {
   %9 = call ptr @makeItemType(i32 noundef 1)
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.JsonPathString, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.JsonPathString, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.JsonPathParseItem, ptr %13, i32 0, i32 2
-  %15 = getelementptr inbounds %struct.anon.3, ptr %14, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %13, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.anon.3, ptr %14, i32 0, i32 1
   store ptr %12, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.JsonPathString, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.JsonPathString, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %17, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.JsonPathParseItem, ptr %19, i32 0, i32 2
-  %21 = getelementptr inbounds %struct.anon.3, ptr %20, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %19, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.anon.3, ptr %20, i32 0, i32 0
   store i32 %18, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %8, %6
   %23 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %23
 }
 
@@ -1824,15 +1959,17 @@ define internal ptr @makeItemBool(i1 noundef zeroext %0) #0 {
   %3 = alloca ptr, align 8
   %4 = zext i1 %0 to i8
   store i8 %4, ptr %2, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %5 = call ptr @makeItemType(i32 noundef 3)
   store ptr %5, ptr %3, align 8
-  %6 = load i8, ptr %2, align 1
+  %6 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.JsonPathParseItem, ptr %8, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %8, i32 0, i32 2
   %10 = zext i1 %7 to i8
   store i8 %10, ptr %9, align 8
   %11 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %11
 }
 
@@ -1841,10 +1978,11 @@ define internal ptr @makeItemNumeric(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = call ptr @makeItemType(i32 noundef 2)
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.JsonPathString, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.JsonPathString, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @CStringGetDatum(ptr noundef %7)
   %9 = call i64 @ObjectIdGetDatum(i32 noundef 0)
@@ -1852,9 +1990,10 @@ define internal ptr @makeItemNumeric(ptr noundef %0) #0 {
   %11 = call i64 @DirectFunctionCall3Coll(ptr noundef @numeric_in, i32 noundef 0, i64 noundef %8, i64 noundef %9, i64 noundef %10)
   %12 = call ptr @DatumGetNumeric(i64 noundef %11)
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.JsonPathParseItem, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %13, i32 0, i32 2
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %15
 }
 
@@ -1863,23 +2002,25 @@ define internal ptr @makeItemVariable(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = call ptr @makeItemType(i32 noundef 28)
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.JsonPathString, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.JsonPathString, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.JsonPathParseItem, ptr %8, i32 0, i32 2
-  %10 = getelementptr inbounds %struct.anon.3, ptr %9, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %8, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.anon.3, ptr %9, i32 0, i32 1
   store ptr %7, ptr %10, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.JsonPathString, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.JsonPathString, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.anon.3, ptr %15, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.anon.3, ptr %15, i32 0, i32 0
   store i32 %13, ptr %16, align 8
   %17 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %17
 }
 
@@ -1889,81 +2030,87 @@ define internal ptr @makeItemUnary(i32 noundef %0, ptr noundef %1) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp eq i32 %7, 19
-  br i1 %8, label %9, label %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp eq i32 %8, 19
+  br i1 %9, label %10, label %22
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.JsonPathParseItem, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 2
-  br i1 %13, label %14, label %21
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 2
+  br i1 %14, label %15, label %22
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.JsonPathParseItem, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %21, label %19
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %3, align 8
-  br label %52
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8
+  store ptr %21, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %53
 
-21:                                               ; preds = %14, %9, %2
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp eq i32 %22, 20
-  br i1 %23, label %24, label %45
+22:                                               ; preds = %15, %10, %2
+  %23 = load i32, ptr %4, align 4
+  %24 = icmp eq i32 %23, 20
+  br i1 %24, label %25, label %46
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.JsonPathParseItem, ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %29, label %45
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 2
+  br i1 %29, label %30, label %46
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.JsonPathParseItem, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %45, label %34
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %46, label %35
 
-34:                                               ; preds = %29
-  %35 = call ptr @makeItemType(i32 noundef 2)
-  store ptr %35, ptr %6, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.JsonPathParseItem, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i64 @NumericGetDatum(ptr noundef %38)
-  %40 = call i64 @DirectFunctionCall1Coll(ptr noundef @numeric_uminus, i32 noundef 0, i64 noundef %39)
-  %41 = call ptr @DatumGetNumeric(i64 noundef %40)
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.JsonPathParseItem, ptr %42, i32 0, i32 2
-  store ptr %41, ptr %43, align 8
-  %44 = load ptr, ptr %6, align 8
-  store ptr %44, ptr %3, align 8
-  br label %52
+35:                                               ; preds = %30
+  %36 = call ptr @makeItemType(i32 noundef 2)
+  store ptr %36, ptr %6, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i64 @NumericGetDatum(ptr noundef %39)
+  %41 = call i64 @DirectFunctionCall1Coll(ptr noundef @numeric_uminus, i32 noundef 0, i64 noundef %40)
+  %42 = call ptr @DatumGetNumeric(i64 noundef %41)
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %43, i32 0, i32 2
+  store ptr %42, ptr %44, align 8
+  %45 = load ptr, ptr %6, align 8
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %53
 
-45:                                               ; preds = %29, %24, %21
-  %46 = load i32, ptr %4, align 4
-  %47 = call ptr @makeItemType(i32 noundef %46)
-  store ptr %47, ptr %6, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.JsonPathParseItem, ptr %49, i32 0, i32 2
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %6, align 8
-  store ptr %51, ptr %3, align 8
-  br label %52
+46:                                               ; preds = %30, %25, %22
+  %47 = load i32, ptr %4, align 4
+  %48 = call ptr @makeItemType(i32 noundef %47)
+  store ptr %48, ptr %6, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %50, i32 0, i32 2
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %6, align 8
+  store ptr %52, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %53
 
-52:                                               ; preds = %45, %34, %19
-  %53 = load ptr, ptr %3, align 8
-  ret ptr %53
+53:                                               ; preds = %46, %35, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %54 = load ptr, ptr %3, align 8
+  ret ptr %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1975,20 +2122,22 @@ define internal ptr @makeItemBinary(i32 noundef %0, ptr noundef %1, ptr noundef 
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %8 = load i32, ptr %4, align 4
   %9 = call ptr @makeItemType(i32 noundef %8)
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.JsonPathParseItem, ptr %11, i32 0, i32 2
-  %13 = getelementptr inbounds %struct.anon, ptr %12, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 0
   store ptr %10, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.JsonPathParseItem, ptr %15, i32 0, i32 2
-  %17 = getelementptr inbounds %struct.anon, ptr %16, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 1
   store ptr %14, ptr %17, align 8
   %18 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret ptr %18
 }
 
@@ -2004,262 +2153,319 @@ define internal zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr noundef %1, pt
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  %16 = alloca %struct.regex_t, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.pg_regex_t, align 8
+  %18 = alloca ptr, align 8
   %19 = alloca i32, align 4
-  %20 = alloca [100 x i8], align 16
-  %21 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca [100 x i8], align 16
+  %22 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %22 = call ptr @makeItemType(i32 noundef 42)
-  store ptr %22, ptr %12, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds %struct.JsonPathParseItem, ptr %24, i32 0, i32 2
-  %26 = getelementptr inbounds %struct.anon.2, ptr %25, i32 0, i32 0
-  store ptr %23, ptr %26, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.JsonPathString, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds %struct.JsonPathParseItem, ptr %30, i32 0, i32 2
-  %32 = getelementptr inbounds %struct.anon.2, ptr %31, i32 0, i32 1
-  store ptr %29, ptr %32, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.JsonPathString, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds %struct.JsonPathParseItem, ptr %36, i32 0, i32 2
-  %38 = getelementptr inbounds %struct.anon.2, ptr %37, i32 0, i32 2
-  store i32 %35, ptr %38, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds %struct.JsonPathParseItem, ptr %39, i32 0, i32 2
-  %41 = getelementptr inbounds %struct.anon.2, ptr %40, i32 0, i32 3
-  store i32 0, ptr %41, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %23 = call ptr @makeItemType(i32 noundef 42)
+  store ptr %23, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %25, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.anon.2, ptr %26, i32 0, i32 0
+  store ptr %24, ptr %27, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.JsonPathString, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %31, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.anon.2, ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.JsonPathString, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %struct.anon.2, ptr %38, i32 0, i32 2
+  store i32 %36, ptr %39, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %40, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %struct.anon.2, ptr %41, i32 0, i32 3
+  store i32 0, ptr %42, align 4
   store i32 0, ptr %13, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %120, %5
-  %43 = load ptr, ptr %9, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %51
+43:                                               ; preds = %123, %5
+  %44 = load ptr, ptr %9, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %13, align 4
-  %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds %struct.JsonPathString, ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp slt i32 %46, %49
-  br label %51
+46:                                               ; preds = %43
+  %47 = load i32, ptr %13, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds nuw %struct.JsonPathString, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp slt i32 %47, %50
+  br label %52
 
-51:                                               ; preds = %45, %42
-  %52 = phi i1 [ false, %42 ], [ %50, %45 ]
-  br i1 %52, label %53, label %123
+52:                                               ; preds = %46, %43
+  %53 = phi i1 [ false, %43 ], [ %51, %46 ]
+  br i1 %53, label %54, label %126
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct.JsonPathString, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %13, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %56, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i32
-  switch i32 %61, label %92 [
-    i32 105, label %62
-    i32 115, label %68
-    i32 109, label %74
-    i32 120, label %80
-    i32 113, label %86
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds nuw %struct.JsonPathString, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr %13, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %57, i64 %59
+  %61 = load i8, ptr %60, align 1
+  %62 = sext i8 %61 to i32
+  switch i32 %62, label %93 [
+    i32 105, label %63
+    i32 115, label %69
+    i32 109, label %75
+    i32 120, label %81
+    i32 113, label %87
   ]
 
-62:                                               ; preds = %53
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.JsonPathParseItem, ptr %63, i32 0, i32 2
-  %65 = getelementptr inbounds %struct.anon.2, ptr %64, i32 0, i32 3
-  %66 = load i32, ptr %65, align 4
-  %67 = or i32 %66, 1
-  store i32 %67, ptr %65, align 4
-  br label %119
+63:                                               ; preds = %54
+  %64 = load ptr, ptr %12, align 8
+  %65 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %64, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %struct.anon.2, ptr %65, i32 0, i32 3
+  %67 = load i32, ptr %66, align 4
+  %68 = or i32 %67, 1
+  store i32 %68, ptr %66, align 4
+  br label %122
 
-68:                                               ; preds = %53
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct.JsonPathParseItem, ptr %69, i32 0, i32 2
-  %71 = getelementptr inbounds %struct.anon.2, ptr %70, i32 0, i32 3
-  %72 = load i32, ptr %71, align 4
-  %73 = or i32 %72, 2
-  store i32 %73, ptr %71, align 4
-  br label %119
+69:                                               ; preds = %54
+  %70 = load ptr, ptr %12, align 8
+  %71 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %70, i32 0, i32 2
+  %72 = getelementptr inbounds nuw %struct.anon.2, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4
+  %74 = or i32 %73, 2
+  store i32 %74, ptr %72, align 4
+  br label %122
 
-74:                                               ; preds = %53
-  %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct.JsonPathParseItem, ptr %75, i32 0, i32 2
-  %77 = getelementptr inbounds %struct.anon.2, ptr %76, i32 0, i32 3
-  %78 = load i32, ptr %77, align 4
-  %79 = or i32 %78, 4
-  store i32 %79, ptr %77, align 4
-  br label %119
+75:                                               ; preds = %54
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds nuw %struct.anon.2, ptr %77, i32 0, i32 3
+  %79 = load i32, ptr %78, align 4
+  %80 = or i32 %79, 4
+  store i32 %80, ptr %78, align 4
+  br label %122
 
-80:                                               ; preds = %53
-  %81 = load ptr, ptr %12, align 8
-  %82 = getelementptr inbounds %struct.JsonPathParseItem, ptr %81, i32 0, i32 2
-  %83 = getelementptr inbounds %struct.anon.2, ptr %82, i32 0, i32 3
-  %84 = load i32, ptr %83, align 4
-  %85 = or i32 %84, 8
-  store i32 %85, ptr %83, align 4
-  br label %119
+81:                                               ; preds = %54
+  %82 = load ptr, ptr %12, align 8
+  %83 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %82, i32 0, i32 2
+  %84 = getelementptr inbounds nuw %struct.anon.2, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 4
+  %86 = or i32 %85, 8
+  store i32 %86, ptr %84, align 4
+  br label %122
 
-86:                                               ; preds = %53
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds %struct.JsonPathParseItem, ptr %87, i32 0, i32 2
-  %89 = getelementptr inbounds %struct.anon.2, ptr %88, i32 0, i32 3
-  %90 = load i32, ptr %89, align 4
-  %91 = or i32 %90, 16
-  store i32 %91, ptr %89, align 4
-  br label %119
+87:                                               ; preds = %54
+  %88 = load ptr, ptr %12, align 8
+  %89 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %88, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct.anon.2, ptr %89, i32 0, i32 3
+  %91 = load i32, ptr %90, align 4
+  %92 = or i32 %91, 16
+  store i32 %92, ptr %90, align 4
+  br label %122
 
-92:                                               ; preds = %53
-  br label %93
-
-93:                                               ; preds = %92
+93:                                               ; preds = %54
   br label %94
 
 94:                                               ; preds = %93
-  %95 = load ptr, ptr %11, align 8
-  store ptr %95, ptr %15, align 8
-  %96 = load ptr, ptr %15, align 8
-  %97 = call zeroext i1 @errsave_start(ptr noundef %96, ptr noundef null)
-  br i1 %97, label %98, label %116
+  br label %95
 
-98:                                               ; preds = %94
-  %99 = call i32 @errcode(i32 noundef 16801924)
-  %100 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef @.str.1)
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct.JsonPathString, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %13, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr i8, ptr %103, i64 %105
-  %107 = call i32 @pg_mblen(ptr noundef %106)
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.JsonPathString, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %13, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr i8, ptr %110, i64 %112
-  %114 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.12, i32 noundef %107, ptr noundef %113)
-  %115 = load ptr, ptr %15, align 8
-  call void @errsave_finish(ptr noundef %115, ptr noundef @.str.3, i32 noundef 600, ptr noundef @__func__.makeItemLikeRegex)
-  br label %116
+95:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %96 = load ptr, ptr %11, align 8
+  store ptr %96, ptr %15, align 8
+  %97 = load ptr, ptr %15, align 8
+  %98 = call zeroext i1 @errsave_start(ptr noundef %97, ptr noundef null)
+  br i1 %98, label %99, label %117
 
-116:                                              ; preds = %98, %94
+99:                                               ; preds = %95
+  %100 = call i32 @errcode(i32 noundef 16801924)
+  %101 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef @.str.1)
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw %struct.JsonPathString, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = load i32, ptr %13, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %104, i64 %106
+  %108 = call i32 @pg_mblen(ptr noundef %107)
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds nuw %struct.JsonPathString, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = load i32, ptr %13, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  %115 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.12, i32 noundef %108, ptr noundef %114)
+  %116 = load ptr, ptr %15, align 8
+  call void @errsave_finish(ptr noundef %116, ptr noundef @.str.3, i32 noundef 602, ptr noundef @__func__.makeItemLikeRegex)
   br label %117
 
-117:                                              ; preds = %116
-  store i1 false, ptr %6, align 1
-  br label %173
+117:                                              ; preds = %99, %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %118
 
-118:                                              ; No predecessors!
+118:                                              ; preds = %117
   br label %119
 
-119:                                              ; preds = %118, %86, %80, %74, %68, %62
-  br label %120
-
-120:                                              ; preds = %119
-  %121 = load i32, ptr %13, align 4
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %13, align 4
-  br label %42, !llvm.loop !7
-
-123:                                              ; preds = %51
-  %124 = load ptr, ptr %12, align 8
-  %125 = getelementptr inbounds %struct.JsonPathParseItem, ptr %124, i32 0, i32 2
-  %126 = getelementptr inbounds %struct.anon.2, ptr %125, i32 0, i32 3
-  %127 = load i32, ptr %126, align 4
-  %128 = load ptr, ptr %11, align 8
-  %129 = call zeroext i1 @jspConvertRegexFlags(i32 noundef %127, ptr noundef %14, ptr noundef %128)
-  br i1 %129, label %131, label %130
-
-130:                                              ; preds = %123
+119:                                              ; preds = %118
   store i1 false, ptr %6, align 1
-  br label %173
+  store i32 1, ptr %16, align 4
+  br label %184
 
-131:                                              ; preds = %123
-  %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds %struct.JsonPathString, ptr %132, i32 0, i32 1
-  %134 = load i32, ptr %133, align 8
-  %135 = add i32 %134, 1
-  %136 = sext i32 %135 to i64
-  %137 = mul i64 %136, 4
-  %138 = call ptr @palloc(i64 noundef %137)
-  store ptr %138, ptr %17, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct.JsonPathString, ptr %139, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %17, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds %struct.JsonPathString, ptr %143, i32 0, i32 1
-  %145 = load i32, ptr %144, align 8
-  %146 = call i32 @pg_mb2wchar_with_len(ptr noundef %141, ptr noundef %142, i32 noundef %145)
-  store i32 %146, ptr %18, align 4
-  %147 = load ptr, ptr %17, align 8
-  %148 = load i32, ptr %18, align 4
-  %149 = sext i32 %148 to i64
-  %150 = load i32, ptr %14, align 4
-  %151 = call i32 @pg_regcomp(ptr noundef %16, ptr noundef %147, i64 noundef %149, i32 noundef %150, i32 noundef 100)
-  store i32 %151, ptr %19, align 4
-  %152 = icmp ne i32 %151, 0
-  br i1 %152, label %153, label %170
+120:                                              ; No predecessors!
+  br label %121
 
-153:                                              ; preds = %131
-  %154 = load i32, ptr %19, align 4
-  %155 = getelementptr inbounds [100 x i8], ptr %20, i64 0, i64 0
-  %156 = call i64 @pg_regerror(i32 noundef %154, ptr noundef %16, ptr noundef %155, i64 noundef 100)
-  br label %157
+121:                                              ; preds = %120
+  br label %122
 
-157:                                              ; preds = %153
-  br label %158
+122:                                              ; preds = %121, %87, %81, %75, %69, %63
+  br label %123
 
-158:                                              ; preds = %157
-  %159 = load ptr, ptr %11, align 8
-  store ptr %159, ptr %21, align 8
-  %160 = load ptr, ptr %21, align 8
-  %161 = call zeroext i1 @errsave_start(ptr noundef %160, ptr noundef null)
-  br i1 %161, label %162, label %167
+123:                                              ; preds = %122
+  %124 = load i32, ptr %13, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %13, align 4
+  br label %43, !llvm.loop !8
 
-162:                                              ; preds = %158
-  %163 = call i32 @errcode(i32 noundef 302252162)
-  %164 = getelementptr inbounds [100 x i8], ptr %20, i64 0, i64 0
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13, ptr noundef %164)
-  %166 = load ptr, ptr %21, align 8
-  call void @errsave_finish(ptr noundef %166, ptr noundef @.str.3, i32 noundef 629, ptr noundef @__func__.makeItemLikeRegex)
-  br label %167
+126:                                              ; preds = %52
+  %127 = load ptr, ptr %12, align 8
+  %128 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %127, i32 0, i32 2
+  %129 = getelementptr inbounds nuw %struct.anon.2, ptr %128, i32 0, i32 3
+  %130 = load i32, ptr %129, align 4
+  %131 = load ptr, ptr %11, align 8
+  %132 = call zeroext i1 @jspConvertRegexFlags(i32 noundef %130, ptr noundef %14, ptr noundef %131)
+  br i1 %132, label %134, label %133
 
-167:                                              ; preds = %162, %158
-  br label %168
-
-168:                                              ; preds = %167
+133:                                              ; preds = %126
   store i1 false, ptr %6, align 1
-  br label %173
+  store i32 1, ptr %16, align 4
+  br label %184
 
-169:                                              ; No predecessors!
+134:                                              ; preds = %126
+  call void @llvm.lifetime.start.p0(i64 64, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #7
+  %135 = load ptr, ptr %8, align 8
+  %136 = getelementptr inbounds nuw %struct.JsonPathString, ptr %135, i32 0, i32 1
+  %137 = load i32, ptr %136, align 8
+  %138 = add i32 %137, 1
+  %139 = sext i32 %138 to i64
+  %140 = mul i64 %139, 4
+  %141 = call ptr @palloc(i64 noundef %140)
+  store ptr %141, ptr %18, align 8
+  %142 = load ptr, ptr %8, align 8
+  %143 = getelementptr inbounds nuw %struct.JsonPathString, ptr %142, i32 0, i32 0
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %18, align 8
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds nuw %struct.JsonPathString, ptr %146, i32 0, i32 1
+  %148 = load i32, ptr %147, align 8
+  %149 = call i32 @pg_mb2wchar_with_len(ptr noundef %144, ptr noundef %145, i32 noundef %148)
+  store i32 %149, ptr %19, align 4
+  %150 = load ptr, ptr %18, align 8
+  %151 = load i32, ptr %19, align 4
+  %152 = sext i32 %151 to i64
+  %153 = load i32, ptr %14, align 4
+  %154 = call i32 @pg_regcomp(ptr noundef %17, ptr noundef %150, i64 noundef %152, i32 noundef %153, i32 noundef 100)
+  store i32 %154, ptr %20, align 4
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %178
+
+156:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 100, ptr %21) #7
+  %157 = load i32, ptr %20, align 4
+  %158 = getelementptr inbounds [100 x i8], ptr %21, i64 0, i64 0
+  %159 = call i64 @pg_regerror(i32 noundef %157, ptr noundef %17, ptr noundef %158, i64 noundef 100)
+  br label %160
+
+160:                                              ; preds = %156
+  br label %161
+
+161:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %162 = load ptr, ptr %11, align 8
+  store ptr %162, ptr %22, align 8
+  %163 = load ptr, ptr %22, align 8
+  %164 = call zeroext i1 @errsave_start(ptr noundef %163, ptr noundef null)
+  br i1 %164, label %165, label %170
+
+165:                                              ; preds = %161
+  %166 = call i32 @errcode(i32 noundef 302252162)
+  %167 = getelementptr inbounds [100 x i8], ptr %21, i64 0, i64 0
+  %168 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13, ptr noundef %167)
+  %169 = load ptr, ptr %22, align 8
+  call void @errsave_finish(ptr noundef %169, ptr noundef @.str.3, i32 noundef 631, ptr noundef @__func__.makeItemLikeRegex)
   br label %170
 
-170:                                              ; preds = %169, %131
-  call void @pg_regfree(ptr noundef %16)
-  %171 = load ptr, ptr %12, align 8
-  %172 = load ptr, ptr %10, align 8
-  store ptr %171, ptr %172, align 8
-  store i1 true, ptr %6, align 1
-  br label %173
+170:                                              ; preds = %165, %161
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %171
 
-173:                                              ; preds = %170, %168, %130, %117
-  %174 = load i1, ptr %6, align 1
-  ret i1 %174
+171:                                              ; preds = %170
+  br label %172
+
+172:                                              ; preds = %171
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
+  br label %175
+
+173:                                              ; No predecessors!
+  br label %174
+
+174:                                              ; preds = %173
+  store i32 0, ptr %16, align 4
+  br label %175
+
+175:                                              ; preds = %174, %172
+  call void @llvm.lifetime.end.p0(i64 100, ptr %21) #7
+  %176 = load i32, ptr %16, align 4
+  switch i32 %176, label %179 [
+    i32 0, label %177
+  ]
+
+177:                                              ; preds = %175
+  br label %178
+
+178:                                              ; preds = %177, %134
+  call void @pg_regfree(ptr noundef %17)
+  store i32 0, ptr %16, align 4
+  br label %179
+
+179:                                              ; preds = %178, %175
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr %17) #7
+  %180 = load i32, ptr %16, align 4
+  switch i32 %180, label %184 [
+    i32 0, label %181
+  ]
+
+181:                                              ; preds = %179
+  %182 = load ptr, ptr %12, align 8
+  %183 = load ptr, ptr %10, align 8
+  store ptr %182, ptr %183, align 8
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %16, align 4
+  br label %184
+
+184:                                              ; preds = %181, %179, %133, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %185 = load i1, ptr %6, align 1
+  ret i1 %185
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2267,6 +2473,7 @@ define internal ptr @makeItemType(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = call ptr @palloc(i64 noundef 40)
   store ptr %4, ptr %3, align 8
   br label %5
@@ -2276,33 +2483,38 @@ define internal ptr @makeItemType(i32 noundef %0) #0 {
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
   %9 = sext i32 %8 to i64
-  %10 = icmp ne i64 %9, 0
-  br i1 %10, label %11, label %12
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %5
+12:                                               ; preds = %5
   call void @ProcessInterrupts()
-  br label %12
-
-12:                                               ; preds = %11, %5
   br label %13
 
-13:                                               ; preds = %12
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.JsonPathParseItem, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
+13:                                               ; preds = %12, %5
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load i32, ptr %2, align 4
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.JsonPathParseItem, ptr %17, i32 0, i32 1
-  store ptr null, ptr %18, align 8
+  %18 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %17, i32 0, i32 0
+  store i32 %16, ptr %18, align 8
   %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+  %20 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %19, i32 0, i32 1
+  store ptr null, ptr %20, align 8
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %21
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) #2
+declare ptr @list_make1_impl(i32 noundef, ptr) #3
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) #2
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) #3
 
-declare ptr @lappend(ptr noundef, ptr noundef) #2
+declare ptr @lappend(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @makeItemList(ptr noundef %0) #0 {
@@ -2311,116 +2523,133 @@ define internal ptr @makeItemList(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca %struct.ForEachState, align 8
-  %8 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.ForEachState, align 8
+  %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @list_nth_cell(ptr noundef %9, i32 noundef 0)
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %5, align 8
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call i32 @list_length(ptr noundef %12)
-  %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @list_nth_cell(ptr noundef %10, i32 noundef 0)
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %5, align 8
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call i32 @list_length(ptr noundef %13)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %4, align 8
-  store ptr %16, ptr %2, align 8
-  br label %72
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %4, align 8
+  store ptr %17, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %74
 
-17:                                               ; preds = %1
-  br label %18
+18:                                               ; preds = %1
+  br label %19
 
-18:                                               ; preds = %23, %17
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.JsonPathParseItem, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %27
+19:                                               ; preds = %24, %18
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.JsonPathParseItem, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %5, align 8
-  br label %18, !llvm.loop !8
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %5, align 8
+  br label %19, !llvm.loop !9
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %3, align 8
-  %29 = call { ptr, i32 } @for_each_from_setup(ptr noundef %28, i32 noundef 1)
-  %30 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 0
-  %31 = extractvalue { ptr, i32 } %29, 0
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 1
-  %33 = extractvalue { ptr, i32 } %29, 1
-  store i32 %33, ptr %32, align 8
-  br label %34
+28:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #7
+  %29 = load ptr, ptr %3, align 8
+  %30 = call { ptr, i32 } @for_each_from_setup(ptr noundef %29, i32 noundef 1)
+  %31 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 0
+  %32 = extractvalue { ptr, i32 } %30, 0
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 1
+  %34 = extractvalue { ptr, i32 } %30, 1
+  store i32 %34, ptr %33, align 8
+  br label %35
 
-34:                                               ; preds = %66, %27
-  %35 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %55
+35:                                               ; preds = %68, %28
+  %36 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %56
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.List, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp slt i32 %40, %44
-  br i1 %45, label %46, label %55
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %struct.List, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp slt i32 %41, %45
+  br i1 %46, label %47, label %56
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.List, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %52 = load i32, ptr %51, align 8
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %union.ListCell, ptr %50, i64 %53
-  store ptr %54, ptr %6, align 8
-  br label %56
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.List, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %union.ListCell, ptr %51, i64 %54
+  store ptr %55, ptr %6, align 8
+  br label %57
 
-55:                                               ; preds = %38, %34
+56:                                               ; preds = %39, %35
   store ptr null, ptr %6, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %46
-  %57 = phi i32 [ 1, %46 ], [ 0, %55 ]
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %70
+57:                                               ; preds = %56, %47
+  %58 = phi i32 [ 1, %47 ], [ 0, %56 ]
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %61, label %60
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %8, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.JsonPathParseItem, ptr %63, i32 0, i32 1
-  store ptr %62, ptr %64, align 8
-  %65 = load ptr, ptr %8, align 8
-  store ptr %65, ptr %5, align 8
-  br label %66
-
-66:                                               ; preds = %59
-  %67 = getelementptr inbounds %struct.ForEachState, ptr %7, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 8
-  br label %34, !llvm.loop !9
-
-70:                                               ; preds = %56
-  %71 = load ptr, ptr %4, align 8
-  store ptr %71, ptr %2, align 8
+60:                                               ; preds = %57
+  store i32 4, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #7
   br label %72
 
-72:                                               ; preds = %70, %15
-  %73 = load ptr, ptr %2, align 8
-  ret ptr %73
+61:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %9, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %65, i32 0, i32 1
+  store ptr %64, ptr %66, align 8
+  %67 = load ptr, ptr %9, align 8
+  store ptr %67, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %68
+
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds nuw %struct.ForEachState, ptr %8, i32 0, i32 1
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8
+  br label %35, !llvm.loop !10
+
+72:                                               ; preds = %60
+  %73 = load ptr, ptr %4, align 8
+  store ptr %73, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %74
+
+74:                                               ; preds = %72, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %75 = load ptr, ptr %2, align 8
+  ret ptr %75
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2432,117 +2661,132 @@ define internal ptr @makeIndexArray(ptr noundef %0) #0 {
   %6 = alloca %struct.ForEachState, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %8 = call ptr @makeItemType(i32 noundef 23)
   store ptr %8, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
   store i32 0, ptr %5, align 4
   %9 = load ptr, ptr %2, align 8
   %10 = call i32 @list_length(ptr noundef %9)
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.JsonPathParseItem, ptr %11, i32 0, i32 2
-  %13 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
   store i32 %10, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.anon.0, ptr %15, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.anon.0, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = mul i64 16, %18
   %20 = call ptr @palloc(i64 noundef %19)
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.JsonPathParseItem, ptr %21, i32 0, i32 2
-  %23 = getelementptr inbounds %struct.anon.0, ptr %22, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %21, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.anon.0, ptr %22, i32 0, i32 1
   store ptr %20, ptr %23, align 8
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #7
+  %24 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
   %25 = load ptr, ptr %2, align 8
   store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
   store i32 0, ptr %26, align 8
-  br label %27
+  %27 = getelementptr i8, ptr %6, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %27, i8 0, i64 4, i1 false)
+  br label %28
 
-27:                                               ; preds = %80, %1
-  %28 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %48
+28:                                               ; preds = %82, %1
+  %29 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %49
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.List, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp slt i32 %33, %37
-  br i1 %38, label %39, label %48
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.List, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp slt i32 %34, %38
+  br i1 %39, label %40, label %49
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.List, ptr %41, i32 0, i32 3
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr %union.ListCell, ptr %43, i64 %46
-  store ptr %47, ptr %4, align 8
-  br label %49
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.List, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds %union.ListCell, ptr %44, i64 %47
+  store ptr %48, ptr %4, align 8
+  br label %50
 
-48:                                               ; preds = %31, %27
+49:                                               ; preds = %32, %28
   store ptr null, ptr %4, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %39
-  %50 = phi i32 [ 1, %39 ], [ 0, %48 ]
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %84
+50:                                               ; preds = %49, %40
+  %51 = phi i32 [ 1, %40 ], [ 0, %49 ]
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %54, label %53
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %4, align 8
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %7, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.JsonPathParseItem, ptr %55, i32 0, i32 2
-  %57 = getelementptr inbounds %struct.anon, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.JsonPathParseItem, ptr %59, i32 0, i32 2
-  %61 = getelementptr inbounds %struct.anon.0, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %5, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr %struct.anon.4, ptr %62, i64 %64
-  %66 = getelementptr inbounds %struct.anon.4, ptr %65, i32 0, i32 0
-  store ptr %58, ptr %66, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct.JsonPathParseItem, ptr %67, i32 0, i32 2
-  %69 = getelementptr inbounds %struct.anon, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.JsonPathParseItem, ptr %71, i32 0, i32 2
-  %73 = getelementptr inbounds %struct.anon.0, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = load i32, ptr %5, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %5, align 4
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr %struct.anon.4, ptr %74, i64 %77
-  %79 = getelementptr inbounds %struct.anon.4, ptr %78, i32 0, i32 1
-  store ptr %70, ptr %79, align 8
-  br label %80
+53:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #7
+  br label %86
 
-80:                                               ; preds = %52
-  %81 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %81, align 8
-  br label %27, !llvm.loop !10
+54:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %7, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %57, i32 0, i32 2
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %61, i32 0, i32 2
+  %63 = getelementptr inbounds nuw %struct.anon.0, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %5, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %struct.anon.4, ptr %64, i64 %66
+  %68 = getelementptr inbounds nuw %struct.anon.4, ptr %67, i32 0, i32 0
+  store ptr %60, ptr %68, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %69, i32 0, i32 2
+  %71 = getelementptr inbounds nuw %struct.anon, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds nuw %struct.anon.0, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %5, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %5, align 4
+  %79 = sext i32 %77 to i64
+  %80 = getelementptr inbounds %struct.anon.4, ptr %76, i64 %79
+  %81 = getelementptr inbounds nuw %struct.anon.4, ptr %80, i32 0, i32 1
+  store ptr %72, ptr %81, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %82
 
-84:                                               ; preds = %49
-  %85 = load ptr, ptr %3, align 8
-  ret ptr %85
+82:                                               ; preds = %54
+  %83 = getelementptr inbounds nuw %struct.ForEachState, ptr %6, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 8
+  br label %28, !llvm.loop !11
+
+86:                                               ; preds = %53
+  %87 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %87
 }
 
-declare i32 @pg_strtoint32(ptr noundef) #2
+declare i32 @pg_strtoint32(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @makeAny(i32 noundef %0, i32 noundef %1) #0 {
@@ -2551,6 +2795,7 @@ define internal ptr @makeAny(i32 noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %6 = call ptr @makeItemType(i32 noundef 24)
   store ptr %6, ptr %5, align 8
   %7 = load i32, ptr %3, align 4
@@ -2567,8 +2812,8 @@ define internal ptr @makeAny(i32 noundef %0, i32 noundef %1) #0 {
 12:                                               ; preds = %11, %9
   %13 = phi i32 [ %10, %9 ], [ -1, %11 ]
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.anon.1, ptr %15, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.anon.1, ptr %15, i32 0, i32 0
   store i32 %13, ptr %16, align 8
   %17 = load i32, ptr %4, align 4
   %18 = icmp sge i32 %17, 0
@@ -2584,15 +2829,16 @@ define internal ptr @makeAny(i32 noundef %0, i32 noundef %1) #0 {
 22:                                               ; preds = %21, %19
   %23 = phi i32 [ %20, %19 ], [ -1, %21 ]
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.JsonPathParseItem, ptr %24, i32 0, i32 2
-  %26 = getelementptr inbounds %struct.anon.1, ptr %25, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.anon.1, ptr %25, i32 0, i32 1
   store i32 %23, ptr %26, align 4
   %27 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @list_length(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @list_length(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2601,7 +2847,7 @@ define internal i32 @list_length(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.List, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.List, ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   br label %10
 
@@ -2613,69 +2859,73 @@ define internal i32 @list_length(ptr noundef %0) #0 {
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @list_nth_cell(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.List, ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %struct.List, ptr %5, i32 0, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %union.ListCell, ptr %7, i64 %9
+  %10 = getelementptr inbounds %union.ListCell, ptr %7, i64 %9
   ret ptr %10
 }
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) #2
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) #3
 
-declare i32 @errcode(i32 noundef) #2
+declare i32 @errcode(i32 noundef) #3
 
-declare i32 @errmsg(ptr noundef, ...) #2
+declare i32 @errmsg(ptr noundef, ...) #3
 
-declare i32 @errdetail(ptr noundef, ...) #2
+declare i32 @errdetail(ptr noundef, ...) #3
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @makeItemKey(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = load ptr, ptr %2, align 8
   %5 = call ptr @makeItemString(ptr noundef %4)
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.JsonPathParseItem, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.JsonPathParseItem, ptr %6, i32 0, i32 0
   store i32 25, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %8
 }
 
-declare void @jsonpath_yyerror(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @jsonpath_yyerror(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
+define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %14, label %13
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
-13:                                               ; preds = %5
-  store ptr @.str.11, ptr %6, align 8
-  br label %14
+15:                                               ; preds = %6
+  store ptr @.str.11, ptr %7, align 8
+  br label %16
 
-14:                                               ; preds = %13, %5
+16:                                               ; preds = %15, %6
   ret void
 }
 
@@ -2687,115 +2937,131 @@ define dso_local zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr noundef %1
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
   store i32 3, ptr %8, align 4
-  %10 = load i32, ptr %5, align 4
-  %11 = and i32 %10, 1
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %16
+  %11 = load i32, ptr %5, align 4
+  %12 = and i32 %11, 1
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %3
-  %14 = load i32, ptr %8, align 4
-  %15 = or i32 %14, 8
-  store i32 %15, ptr %8, align 4
-  br label %16
+14:                                               ; preds = %3
+  %15 = load i32, ptr %8, align 4
+  %16 = or i32 %15, 8
+  store i32 %16, ptr %8, align 4
+  br label %17
 
-16:                                               ; preds = %13, %3
-  %17 = load i32, ptr %5, align 4
-  %18 = and i32 %17, 16
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %25
+17:                                               ; preds = %14, %3
+  %18 = load i32, ptr %5, align 4
+  %19 = and i32 %18, 16
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %16
-  %21 = load i32, ptr %8, align 4
-  %22 = and i32 %21, -4
-  store i32 %22, ptr %8, align 4
-  %23 = load i32, ptr %8, align 4
-  %24 = or i32 %23, 4
-  store i32 %24, ptr %8, align 4
-  br label %57
+21:                                               ; preds = %17
+  %22 = load i32, ptr %8, align 4
+  %23 = and i32 %22, -4
+  store i32 %23, ptr %8, align 4
+  %24 = load i32, ptr %8, align 4
+  %25 = or i32 %24, 4
+  store i32 %25, ptr %8, align 4
+  br label %60
 
-25:                                               ; preds = %16
-  %26 = load i32, ptr %5, align 4
-  %27 = and i32 %26, 2
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %32, label %29
+26:                                               ; preds = %17
+  %27 = load i32, ptr %5, align 4
+  %28 = and i32 %27, 2
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %33, label %30
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %8, align 4
-  %31 = or i32 %30, 64
-  store i32 %31, ptr %8, align 4
-  br label %32
+30:                                               ; preds = %26
+  %31 = load i32, ptr %8, align 4
+  %32 = or i32 %31, 64
+  store i32 %32, ptr %8, align 4
+  br label %33
 
-32:                                               ; preds = %29, %25
-  %33 = load i32, ptr %5, align 4
-  %34 = and i32 %33, 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %39
+33:                                               ; preds = %30, %26
+  %34 = load i32, ptr %5, align 4
+  %35 = and i32 %34, 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %8, align 4
-  %38 = or i32 %37, 128
-  store i32 %38, ptr %8, align 4
-  br label %39
+37:                                               ; preds = %33
+  %38 = load i32, ptr %8, align 4
+  %39 = or i32 %38, 128
+  store i32 %39, ptr %8, align 4
+  br label %40
 
-39:                                               ; preds = %36, %32
-  %40 = load i32, ptr %5, align 4
-  %41 = and i32 %40, 8
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %56
+40:                                               ; preds = %37, %33
+  %41 = load i32, ptr %5, align 4
+  %42 = and i32 %41, 8
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %59
 
-43:                                               ; preds = %39
-  br label %44
-
-44:                                               ; preds = %43
+44:                                               ; preds = %40
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %7, align 8
-  store ptr %46, ptr %9, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = call zeroext i1 @errsave_start(ptr noundef %47, ptr noundef null)
-  br i1 %48, label %49, label %53
+  br label %46
 
-49:                                               ; preds = %45
-  %50 = call i32 @errcode(i32 noundef 1088)
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
-  %52 = load ptr, ptr %9, align 8
-  call void @errsave_finish(ptr noundef %52, ptr noundef @.str.3, i32 noundef 677, ptr noundef @__func__.jspConvertRegexFlags)
-  br label %53
+46:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %47 = load ptr, ptr %7, align 8
+  store ptr %47, ptr %9, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = call zeroext i1 @errsave_start(ptr noundef %48, ptr noundef null)
+  br i1 %49, label %50, label %54
 
-53:                                               ; preds = %49, %45
+50:                                               ; preds = %46
+  %51 = call i32 @errcode(i32 noundef 1088)
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
+  %53 = load ptr, ptr %9, align 8
+  call void @errsave_finish(ptr noundef %53, ptr noundef @.str.3, i32 noundef 679, ptr noundef @__func__.jspConvertRegexFlags)
   br label %54
 
-54:                                               ; preds = %53
-  store i1 false, ptr %4, align 1
-  br label %60
+54:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %55
 
-55:                                               ; No predecessors!
+55:                                               ; preds = %54
   br label %56
 
-56:                                               ; preds = %55, %39
-  br label %57
+56:                                               ; preds = %55
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %63
 
-57:                                               ; preds = %56, %20
-  %58 = load i32, ptr %8, align 4
-  %59 = load ptr, ptr %6, align 8
-  store i32 %58, ptr %59, align 4
-  store i1 true, ptr %4, align 1
+57:                                               ; No predecessors!
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58, %40
   br label %60
 
-60:                                               ; preds = %57, %54
-  %61 = load i1, ptr %4, align 1
-  ret i1 %61
+60:                                               ; preds = %59, %21
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %6, align 8
+  store i32 %61, ptr %62, align 4
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %63
+
+63:                                               ; preds = %60, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %64 = load i1, ptr %4, align 1
+  ret i1 %64
 }
 
-declare void @ProcessInterrupts() #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetNumeric(i64 noundef %0) #0 {
+declare void @ProcessInterrupts() #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetNumeric(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2804,12 +3070,12 @@ define internal ptr @DatumGetNumeric(i64 noundef %0) #0 {
   ret ptr %5
 }
 
-declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-declare i64 @numeric_in(ptr noundef) #2
+declare i64 @numeric_in(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @CStringGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @CStringGetDatum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2817,8 +3083,8 @@ define internal i64 @CStringGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ObjectIdGetDatum(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2826,8 +3092,8 @@ define internal i64 @ObjectIdGetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -2835,10 +3101,10 @@ define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
   ret i64 %4
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) #2
+declare ptr @pg_detoast_datum(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2846,8 +3112,8 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PointerGetDatum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2855,12 +3121,12 @@ define internal i64 @PointerGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) #3
 
-declare i64 @numeric_uminus(ptr noundef) #2
+declare i64 @numeric_uminus(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @NumericGetDatum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @NumericGetDatum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2868,47 +3134,58 @@ define internal i64 @NumericGetDatum(ptr noundef %0) #0 {
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal { ptr, i32 } @for_each_from_setup(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { ptr, i32 } @for_each_from_setup(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca %struct.ForEachState, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = getelementptr inbounds %struct.ForEachState, ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.ForEachState, ptr %3, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.ForEachState, ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.ForEachState, ptr %3, i32 0, i32 1
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 8
-  %10 = load { ptr, i32 }, ptr %3, align 8
-  ret { ptr, i32 } %10
+  %10 = getelementptr i8, ptr %3, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 4, i1 false)
+  %11 = load { ptr, i32 }, ptr %3, align 8
+  ret { ptr, i32 } %11
 }
 
-declare i32 @pg_mblen(ptr noundef) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @pg_mb2wchar_with_len(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @pg_mblen(ptr noundef) #3
 
-declare i32 @pg_regcomp(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @pg_mb2wchar_with_len(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i64 @pg_regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @pg_regcomp(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) #3
 
-declare void @pg_regfree(ptr noundef) #2
+declare i64 @pg_regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare void @pg_regfree(ptr noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

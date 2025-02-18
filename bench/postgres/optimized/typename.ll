@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ecpg_type_name = private unnamed_addr constant [32 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.12, ptr @.str.10, ptr @.str.11, ptr @.str.13, ptr poison, ptr @.str.16, ptr @.str.15, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str, ptr @.str.20, ptr poison, ptr poison, ptr poison, ptr @.str, ptr poison, ptr @.str.14], align 8
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef nonnull ptr @ecpg_type_name(i32 noundef %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @ecpg_type_name(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 32
   br i1 %2, label %switch.hole_check, label %3
@@ -52,7 +52,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %10 [
     i32 16, label %11
     i32 21, label %2
@@ -101,7 +101,7 @@ define dso_local range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   switch i32 %0, label %15 [
     i32 20, label %14
     i32 1186, label %13
@@ -150,15 +150,13 @@ define dso_local range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 no
   ret i32 %.0
 }
 
-attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

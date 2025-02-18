@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FunctionCallInfoBaseData = type { ptr, ptr, ptr, i32, i8, i16, [0 x %struct.NullableDatum] }
 %struct.NullableDatum = type { i64, i8 }
 
-@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
+@Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_euc_jp_to_sjis.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @pg_finfo_sjis_to_euc_jp.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
 @pg_finfo_euc_jp_to_mic.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
@@ -60,68 +60,81 @@ define i64 @euc_jp_to_sjis(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 1, i32 noundef 35)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @euc_jp2sjis(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetCString(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetCString(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -129,8 +142,8 @@ define internal ptr @DatumGetCString(i64 noundef %0) #0 {
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @DatumGetInt32(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -138,8 +151,8 @@ define internal i32 @DatumGetInt32(i64 noundef %0) #0 {
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @DatumGetBool(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -147,7 +160,7 @@ define internal zeroext i1 @DatumGetBool(i64 noundef %0) #0 {
   ret i1 %4
 }
 
-declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 {
@@ -167,8 +180,13 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   store i32 %2, ptr %7, align 4
   %16 = zext i1 %3 to i8
   store i8 %16, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %17 = load ptr, ptr %5, align 8
   store ptr %17, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   br label %18
 
 18:                                               ; preds = %214, %40, %4
@@ -194,7 +212,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr %8, align 1
+  %34 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %37
 
@@ -204,23 +222,23 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 37:                                               ; preds = %33
   %38 = load ptr, ptr %5, align 8
   %39 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %38, i32 noundef %39) #3
+  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %38, i32 noundef %39) #6
   unreachable
 
 40:                                               ; preds = %30
   %41 = load i32, ptr %10, align 4
   %42 = trunc i32 %41 to i8
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
   store ptr %44, ptr %6, align 8
   store i8 %42, ptr %43, align 1
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr i8, ptr %45, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i32 1
   store ptr %46, ptr %5, align 8
   %47 = load i32, ptr %7, align 4
   %48 = add i32 %47, -1
   store i32 %48, ptr %7, align 4
-  br label %18, !llvm.loop !4
+  br label %18, !llvm.loop !5
 
 49:                                               ; preds = %21
   %50 = load ptr, ptr %5, align 8
@@ -232,7 +250,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %49
-  %56 = load i8, ptr %8, align 1
+  %56 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %59
 
@@ -242,7 +260,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 59:                                               ; preds = %55
   %60 = load ptr, ptr %5, align 8
   %61 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %60, i32 noundef %61) #3
+  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %60, i32 noundef %61) #6
   unreachable
 
 62:                                               ; preds = %49
@@ -252,10 +270,10 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr i8, ptr %66, i64 1
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr i8, ptr %69, i32 1
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
   store ptr %70, ptr %6, align 8
   store i8 %68, ptr %69, align 1
   br label %214
@@ -267,12 +285,12 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr i8, ptr %75, i64 1
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   store i32 %78, ptr %10, align 4
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr i8, ptr %79, i64 2
+  %80 = getelementptr inbounds i8, ptr %79, i64 2
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   store i32 %82, ptr %11, align 4
@@ -299,7 +317,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %99 = add i32 %98, 116
   %100 = trunc i32 %99 to i8
   %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr i8, ptr %101, i32 1
+  %102 = getelementptr inbounds nuw i8, ptr %101, i32 1
   store ptr %102, ptr %6, align 8
   store i8 %100, ptr %101, align 1
   %103 = load i32, ptr %11, align 4
@@ -322,20 +340,22 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %114 = sub i32 %103, %113
   %115 = trunc i32 %114 to i8
   %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr i8, ptr %116, i32 1
+  %117 = getelementptr inbounds nuw i8, ptr %116, i32 1
   store ptr %117, ptr %6, align 8
   store i8 %115, ptr %116, align 1
   br label %159
 
 118:                                              ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   store i32 0, ptr %14, align 4
   br label %119
 
 119:                                              ; preds = %155, %118
   %120 = load i32, ptr %14, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %121
-  %123 = getelementptr inbounds %struct.anon, ptr %122, i32 0, i32 2
+  %122 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %121
+  %123 = getelementptr inbounds nuw %struct.anon, ptr %122, i32 0, i32 2
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, 65535
   store i32 %125, ptr %15, align 4
@@ -345,11 +365,11 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 128:                                              ; preds = %119
   %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr i8, ptr %129, i32 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i32 1
   store ptr %130, ptr %6, align 8
   store i8 -127, ptr %129, align 1
   %131 = load ptr, ptr %6, align 8
-  %132 = getelementptr i8, ptr %131, i32 1
+  %132 = getelementptr inbounds nuw i8, ptr %131, i32 1
   store ptr %132, ptr %6, align 8
   store i8 -84, ptr %131, align 1
   br label %158
@@ -363,8 +383,8 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 137:                                              ; preds = %133
   %138 = load i32, ptr %14, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %139
-  %141 = getelementptr inbounds %struct.anon, ptr %140, i32 0, i32 1
+  %140 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %139
+  %141 = getelementptr inbounds nuw %struct.anon, ptr %140, i32 0, i32 1
   %142 = load i16, ptr %141, align 2
   %143 = zext i16 %142 to i32
   store i32 %143, ptr %12, align 4
@@ -372,14 +392,14 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %145 = ashr i32 %144, 8
   %146 = trunc i32 %145 to i8
   %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr i8, ptr %147, i32 1
+  %148 = getelementptr inbounds nuw i8, ptr %147, i32 1
   store ptr %148, ptr %6, align 8
   store i8 %146, ptr %147, align 1
   %149 = load i32, ptr %12, align 4
   %150 = and i32 %149, 255
   %151 = trunc i32 %150 to i8
   %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr i8, ptr %152, i32 1
+  %153 = getelementptr inbounds nuw i8, ptr %152, i32 1
   store ptr %153, ptr %6, align 8
   store i8 %151, ptr %152, align 1
   br label %158
@@ -394,6 +414,8 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %119
 
 158:                                              ; preds = %137, %128
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
   br label %159
 
 159:                                              ; preds = %158, %112
@@ -401,7 +423,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 160:                                              ; preds = %71
   %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr i8, ptr %161, i64 1
+  %162 = getelementptr inbounds i8, ptr %161, i64 1
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   store i32 %164, ptr %11, align 4
@@ -429,7 +451,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %182 = add i32 %181, 111
   %183 = trunc i32 %182 to i8
   %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr i8, ptr %184, i32 1
+  %185 = getelementptr inbounds nuw i8, ptr %184, i32 1
   store ptr %185, ptr %6, align 8
   store i8 %183, ptr %184, align 1
   br label %197
@@ -444,7 +466,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %193 = add i32 %189, %192
   %194 = trunc i32 %193 to i8
   %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr i8, ptr %195, i32 1
+  %196 = getelementptr inbounds nuw i8, ptr %195, i32 1
   store ptr %196, ptr %6, align 8
   store i8 %194, ptr %195, align 1
   br label %197
@@ -470,7 +492,7 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %209 = sub i32 %198, %208
   %210 = trunc i32 %209 to i8
   %211 = load ptr, ptr %6, align 8
-  %212 = getelementptr i8, ptr %211, i32 1
+  %212 = getelementptr inbounds nuw i8, ptr %211, i32 1
   store ptr %212, ptr %6, align 8
   store i8 %210, ptr %211, align 1
   br label %213
@@ -482,13 +504,13 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %215 = load i32, ptr %13, align 4
   %216 = load ptr, ptr %5, align 8
   %217 = sext i32 %215 to i64
-  %218 = getelementptr i8, ptr %216, i64 %217
+  %218 = getelementptr inbounds i8, ptr %216, i64 %217
   store ptr %218, ptr %5, align 8
   %219 = load i32, ptr %13, align 4
   %220 = load i32, ptr %7, align 4
   %221 = sub i32 %220, %219
   store i32 %221, ptr %7, align 4
-  br label %18, !llvm.loop !4
+  br label %18, !llvm.loop !5
 
 222:                                              ; preds = %58, %36, %18
   %223 = load ptr, ptr %6, align 8
@@ -499,17 +521,25 @@ define internal i32 @euc_jp2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %227 = ptrtoint ptr %225 to i64
   %228 = sub i64 %226, %227
   %229 = trunc i64 %228 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %229
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Int32GetDatum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Int32GetDatum(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @sjis_to_euc_jp(ptr noundef %0) #0 {
@@ -520,63 +550,73 @@ define i64 @sjis_to_euc_jp(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 35, i32 noundef 1)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @sjis2euc_jp(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
@@ -598,8 +638,15 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   store i32 %2, ptr %7, align 4
   %16 = zext i1 %3 to i8
   store i8 %16, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %17 = load ptr, ptr %5, align 8
   store ptr %17, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   br label %18
 
 18:                                               ; preds = %297, %40, %4
@@ -625,7 +672,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr %8, align 1
+  %34 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %37
 
@@ -635,23 +682,23 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 37:                                               ; preds = %33
   %38 = load ptr, ptr %5, align 8
   %39 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %38, i32 noundef %39) #3
+  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %38, i32 noundef %39) #6
   unreachable
 
 40:                                               ; preds = %30
   %41 = load i32, ptr %10, align 4
   %42 = trunc i32 %41 to i8
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
   store ptr %44, ptr %6, align 8
   store i8 %42, ptr %43, align 1
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr i8, ptr %45, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i32 1
   store ptr %46, ptr %5, align 8
   %47 = load i32, ptr %7, align 4
   %48 = add i32 %47, -1
   store i32 %48, ptr %7, align 4
-  br label %18, !llvm.loop !6
+  br label %18, !llvm.loop !7
 
 49:                                               ; preds = %21
   %50 = load ptr, ptr %5, align 8
@@ -663,7 +710,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %49
-  %56 = load i8, ptr %8, align 1
+  %56 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %59
 
@@ -673,7 +720,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 59:                                               ; preds = %55
   %60 = load ptr, ptr %5, align 8
   %61 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %60, i32 noundef %61) #3
+  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %60, i32 noundef %61) #6
   unreachable
 
 62:                                               ; preds = %49
@@ -688,20 +735,20 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr i8, ptr %69, i32 1
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
   store ptr %70, ptr %6, align 8
   store i8 -114, ptr %69, align 1
   %71 = load i32, ptr %10, align 4
   %72 = trunc i32 %71 to i8
   %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr i8, ptr %73, i32 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i32 1
   store ptr %74, ptr %6, align 8
   store i8 %72, ptr %73, align 1
   br label %297
 
 75:                                               ; preds = %65, %62
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr i8, ptr %76, i64 1
+  %77 = getelementptr inbounds i8, ptr %76, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   store i32 %79, ptr %11, align 4
@@ -726,8 +773,8 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 90:                                               ; preds = %117, %89
   %91 = load i32, ptr %12, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %92
-  %94 = getelementptr inbounds %struct.anon, ptr %93, i32 0, i32 0
+  %93 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %92
+  %94 = getelementptr inbounds nuw %struct.anon, ptr %93, i32 0, i32 0
   %95 = load i16, ptr %94, align 8
   %96 = zext i16 %95 to i32
   store i32 %96, ptr %14, align 4
@@ -747,8 +794,8 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 104:                                              ; preds = %100
   %105 = load i32, ptr %12, align 4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %106
-  %108 = getelementptr inbounds %struct.anon, ptr %107, i32 0, i32 1
+  %107 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %106
+  %108 = getelementptr inbounds nuw %struct.anon, ptr %107, i32 0, i32 1
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
   store i32 %110, ptr %13, align 4
@@ -789,7 +836,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %132 = add i32 %128, %131
   %133 = trunc i32 %132 to i8
   %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr i8, ptr %134, i32 1
+  %135 = getelementptr inbounds nuw i8, ptr %134, i32 1
   store ptr %135, ptr %6, align 8
   store i8 %133, ptr %134, align 1
   %136 = load i32, ptr %11, align 4
@@ -803,7 +850,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %144 = add i32 %140, %143
   %145 = trunc i32 %144 to i8
   %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr i8, ptr %146, i32 1
+  %147 = getelementptr inbounds nuw i8, ptr %146, i32 1
   store ptr %147, ptr %6, align 8
   store i8 %145, ptr %146, align 1
   br label %296
@@ -830,11 +877,11 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 160:                                              ; preds = %157, %151
   %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr i8, ptr %161, i32 1
+  %162 = getelementptr inbounds nuw i8, ptr %161, i32 1
   store ptr %162, ptr %6, align 8
   store i8 -94, ptr %161, align 1
   %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr i8, ptr %163, i32 1
+  %164 = getelementptr inbounds nuw i8, ptr %163, i32 1
   store ptr %164, ptr %6, align 8
   store i8 -82, ptr %163, align 1
   br label %295
@@ -863,7 +910,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %181 = add i32 %177, %180
   %182 = trunc i32 %181 to i8
   %183 = load ptr, ptr %6, align 8
-  %184 = getelementptr i8, ptr %183, i32 1
+  %184 = getelementptr inbounds nuw i8, ptr %183, i32 1
   store ptr %184, ptr %6, align 8
   store i8 %182, ptr %183, align 1
   %185 = load i32, ptr %11, align 4
@@ -877,7 +924,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %193 = add i32 %189, %192
   %194 = trunc i32 %193 to i8
   %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr i8, ptr %195, i32 1
+  %196 = getelementptr inbounds nuw i8, ptr %195, i32 1
   store ptr %196, ptr %6, align 8
   store i8 %194, ptr %195, align 1
   br label %294
@@ -894,7 +941,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %6, align 8
-  %205 = getelementptr i8, ptr %204, i32 1
+  %205 = getelementptr inbounds nuw i8, ptr %204, i32 1
   store ptr %205, ptr %6, align 8
   store i8 -113, ptr %204, align 1
   %206 = load i32, ptr %10, align 4
@@ -910,7 +957,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %215 = add i32 %211, %214
   %216 = trunc i32 %215 to i8
   %217 = load ptr, ptr %6, align 8
-  %218 = getelementptr i8, ptr %217, i32 1
+  %218 = getelementptr inbounds nuw i8, ptr %217, i32 1
   store ptr %218, ptr %6, align 8
   store i8 %216, ptr %217, align 1
   %219 = load i32, ptr %11, align 4
@@ -924,7 +971,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %227 = add i32 %223, %226
   %228 = trunc i32 %227 to i8
   %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr i8, ptr %229, i32 1
+  %230 = getelementptr inbounds nuw i8, ptr %229, i32 1
   store ptr %230, ptr %6, align 8
   store i8 %228, ptr %229, align 1
   br label %293
@@ -941,8 +988,8 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 235:                                              ; preds = %288, %234
   %236 = load i32, ptr %12, align 4
   %237 = sext i32 %236 to i64
-  %238 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %237
-  %239 = getelementptr inbounds %struct.anon, ptr %238, i32 0, i32 1
+  %238 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %237
+  %239 = getelementptr inbounds nuw %struct.anon, ptr %238, i32 0, i32 1
   %240 = load i16, ptr %239, align 2
   %241 = zext i16 %240 to i32
   store i32 %241, ptr %14, align 4
@@ -962,8 +1009,8 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 249:                                              ; preds = %245
   %250 = load i32, ptr %12, align 4
   %251 = sext i32 %250 to i64
-  %252 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %251
-  %253 = getelementptr inbounds %struct.anon, ptr %252, i32 0, i32 2
+  %252 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %251
+  %253 = getelementptr inbounds nuw %struct.anon, ptr %252, i32 0, i32 2
   %254 = load i32, ptr %253, align 4
   store i32 %254, ptr %13, align 4
   %255 = load i32, ptr %13, align 4
@@ -972,7 +1019,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 257:                                              ; preds = %249
   %258 = load ptr, ptr %6, align 8
-  %259 = getelementptr i8, ptr %258, i32 1
+  %259 = getelementptr inbounds nuw i8, ptr %258, i32 1
   store ptr %259, ptr %6, align 8
   store i8 -113, ptr %258, align 1
   %260 = load i32, ptr %13, align 4
@@ -981,7 +1028,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %263 = or i32 128, %262
   %264 = trunc i32 %263 to i8
   %265 = load ptr, ptr %6, align 8
-  %266 = getelementptr i8, ptr %265, i32 1
+  %266 = getelementptr inbounds nuw i8, ptr %265, i32 1
   store ptr %266, ptr %6, align 8
   store i8 %264, ptr %265, align 1
   %267 = load i32, ptr %13, align 4
@@ -989,7 +1036,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %269 = or i32 128, %268
   %270 = trunc i32 %269 to i8
   %271 = load ptr, ptr %6, align 8
-  %272 = getelementptr i8, ptr %271, i32 1
+  %272 = getelementptr inbounds nuw i8, ptr %271, i32 1
   store ptr %272, ptr %6, align 8
   store i8 %270, ptr %271, align 1
   br label %286
@@ -1000,7 +1047,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %276 = or i32 128, %275
   %277 = trunc i32 %276 to i8
   %278 = load ptr, ptr %6, align 8
-  %279 = getelementptr i8, ptr %278, i32 1
+  %279 = getelementptr inbounds nuw i8, ptr %278, i32 1
   store ptr %279, ptr %6, align 8
   store i8 %277, ptr %278, align 1
   %280 = load i32, ptr %13, align 4
@@ -1008,7 +1055,7 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %282 = or i32 128, %281
   %283 = trunc i32 %282 to i8
   %284 = load ptr, ptr %6, align 8
-  %285 = getelementptr i8, ptr %284, i32 1
+  %285 = getelementptr inbounds nuw i8, ptr %284, i32 1
   store ptr %285, ptr %6, align 8
   store i8 %283, ptr %284, align 1
   br label %286
@@ -1047,13 +1094,13 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %298 = load i32, ptr %15, align 4
   %299 = load ptr, ptr %5, align 8
   %300 = sext i32 %298 to i64
-  %301 = getelementptr i8, ptr %299, i64 %300
+  %301 = getelementptr inbounds i8, ptr %299, i64 %300
   store ptr %301, ptr %5, align 8
   %302 = load i32, ptr %15, align 4
   %303 = load i32, ptr %7, align 4
   %304 = sub i32 %303, %302
   store i32 %304, ptr %7, align 4
-  br label %18, !llvm.loop !6
+  br label %18, !llvm.loop !7
 
 305:                                              ; preds = %58, %36, %18
   %306 = load ptr, ptr %6, align 8
@@ -1064,6 +1111,13 @@ define internal i32 @sjis2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %310 = ptrtoint ptr %308 to i64
   %311 = sub i64 %309, %310
   %312 = trunc i64 %311 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %312
 }
 
@@ -1076,63 +1130,73 @@ define i64 @euc_jp_to_mic(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 1, i32 noundef 7)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @euc_jp2mic(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
@@ -1150,8 +1214,11 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   store i32 %2, ptr %7, align 4
   %12 = zext i1 %3 to i8
   store i8 %12, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   br label %14
 
 14:                                               ; preds = %98, %36, %4
@@ -1177,7 +1244,7 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr %8, align 1
+  %30 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %33
 
@@ -1187,23 +1254,23 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %5, align 8
   %35 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %34, i32 noundef %35) #3
+  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %34, i32 noundef %35) #6
   unreachable
 
 36:                                               ; preds = %26
   %37 = load i32, ptr %10, align 4
   %38 = trunc i32 %37 to i8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr i8, ptr %39, i32 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i32 1
   store ptr %40, ptr %6, align 8
   store i8 %38, ptr %39, align 1
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr i8, ptr %41, i32 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
   store ptr %42, ptr %5, align 8
   %43 = load i32, ptr %7, align 4
   %44 = add i32 %43, -1
   store i32 %44, ptr %7, align 4
-  br label %14, !llvm.loop !7
+  br label %14, !llvm.loop !8
 
 45:                                               ; preds = %17
   %46 = load ptr, ptr %5, align 8
@@ -1215,7 +1282,7 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %45
-  %52 = load i8, ptr %8, align 1
+  %52 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %55
 
@@ -1225,7 +1292,7 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %5, align 8
   %57 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %56, i32 noundef %57) #3
+  call void @report_invalid_encoding(i32 noundef 1, ptr noundef %56, i32 noundef %57) #6
   unreachable
 
 58:                                               ; preds = %45
@@ -1235,14 +1302,14 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr i8, ptr %62, i32 1
+  %63 = getelementptr inbounds nuw i8, ptr %62, i32 1
   store ptr %63, ptr %6, align 8
   store i8 -119, ptr %62, align 1
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr i8, ptr %64, i64 1
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr i8, ptr %67, i32 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i32 1
   store ptr %68, ptr %6, align 8
   store i8 %66, ptr %67, align 1
   br label %98
@@ -1254,41 +1321,41 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr i8, ptr %73, i32 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i32 1
   store ptr %74, ptr %6, align 8
   store i8 -108, ptr %73, align 1
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr i8, ptr %75, i64 1
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr i8, ptr %78, i32 1
+  %79 = getelementptr inbounds nuw i8, ptr %78, i32 1
   store ptr %79, ptr %6, align 8
   store i8 %77, ptr %78, align 1
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr i8, ptr %80, i64 2
+  %81 = getelementptr inbounds i8, ptr %80, i64 2
   %82 = load i8, ptr %81, align 1
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr i8, ptr %83, i32 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i32 1
   store ptr %84, ptr %6, align 8
   store i8 %82, ptr %83, align 1
   br label %97
 
 85:                                               ; preds = %69
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr i8, ptr %86, i32 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i32 1
   store ptr %87, ptr %6, align 8
   store i8 -110, ptr %86, align 1
   %88 = load i32, ptr %10, align 4
   %89 = trunc i32 %88 to i8
   %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr i8, ptr %90, i32 1
+  %91 = getelementptr inbounds nuw i8, ptr %90, i32 1
   store ptr %91, ptr %6, align 8
   store i8 %89, ptr %90, align 1
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr i8, ptr %92, i64 1
+  %93 = getelementptr inbounds i8, ptr %92, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr i8, ptr %95, i32 1
+  %96 = getelementptr inbounds nuw i8, ptr %95, i32 1
   store ptr %96, ptr %6, align 8
   store i8 %94, ptr %95, align 1
   br label %97
@@ -1300,13 +1367,13 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %99 = load i32, ptr %11, align 4
   %100 = load ptr, ptr %5, align 8
   %101 = sext i32 %99 to i64
-  %102 = getelementptr i8, ptr %100, i64 %101
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
   store ptr %102, ptr %5, align 8
   %103 = load i32, ptr %11, align 4
   %104 = load i32, ptr %7, align 4
   %105 = sub i32 %104, %103
   store i32 %105, ptr %7, align 4
-  br label %14, !llvm.loop !7
+  br label %14, !llvm.loop !8
 
 106:                                              ; preds = %54, %32, %14
   %107 = load ptr, ptr %6, align 8
@@ -1317,6 +1384,9 @@ define internal i32 @euc_jp2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = trunc i64 %112 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %113
 }
 
@@ -1329,63 +1399,73 @@ define i64 @mic_to_euc_jp(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 7, i32 noundef 1)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @mic2euc_jp(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
@@ -1403,8 +1483,11 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   store i32 %2, ptr %7, align 4
   %12 = zext i1 %3 to i8
   store i8 %12, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   br label %14
 
 14:                                               ; preds = %108, %36, %4
@@ -1430,7 +1513,7 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr %8, align 1
+  %30 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %33
 
@@ -1440,23 +1523,23 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %5, align 8
   %35 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %34, i32 noundef %35) #3
+  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %34, i32 noundef %35) #6
   unreachable
 
 36:                                               ; preds = %26
   %37 = load i32, ptr %10, align 4
   %38 = trunc i32 %37 to i8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr i8, ptr %39, i32 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i32 1
   store ptr %40, ptr %6, align 8
   store i8 %38, ptr %39, align 1
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr i8, ptr %41, i32 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
   store ptr %42, ptr %5, align 8
   %43 = load i32, ptr %7, align 4
   %44 = add i32 %43, -1
   store i32 %44, ptr %7, align 4
-  br label %14, !llvm.loop !8
+  br label %14, !llvm.loop !9
 
 45:                                               ; preds = %17
   %46 = load ptr, ptr %5, align 8
@@ -1468,7 +1551,7 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %45
-  %52 = load i8, ptr %8, align 1
+  %52 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %55
 
@@ -1478,7 +1561,7 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %5, align 8
   %57 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %56, i32 noundef %57) #3
+  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %56, i32 noundef %57) #6
   unreachable
 
 58:                                               ; preds = %45
@@ -1488,14 +1571,14 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr i8, ptr %62, i32 1
+  %63 = getelementptr inbounds nuw i8, ptr %62, i32 1
   store ptr %63, ptr %6, align 8
   store i8 -114, ptr %62, align 1
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr i8, ptr %64, i64 1
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr i8, ptr %67, i32 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i32 1
   store ptr %68, ptr %6, align 8
   store i8 %66, ptr %67, align 1
   br label %108
@@ -1507,21 +1590,21 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr i8, ptr %73, i32 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i32 1
   store ptr %74, ptr %6, align 8
   store i8 -113, ptr %73, align 1
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr i8, ptr %75, i64 1
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr i8, ptr %78, i32 1
+  %79 = getelementptr inbounds nuw i8, ptr %78, i32 1
   store ptr %79, ptr %6, align 8
   store i8 %77, ptr %78, align 1
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr i8, ptr %80, i64 2
+  %81 = getelementptr inbounds i8, ptr %80, i64 2
   %82 = load i8, ptr %81, align 1
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr i8, ptr %83, i32 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i32 1
   store ptr %84, ptr %6, align 8
   store i8 %82, ptr %83, align 1
   br label %107
@@ -1533,23 +1616,23 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr i8, ptr %89, i64 1
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr i8, ptr %92, i32 1
+  %93 = getelementptr inbounds nuw i8, ptr %92, i32 1
   store ptr %93, ptr %6, align 8
   store i8 %91, ptr %92, align 1
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr i8, ptr %94, i64 2
+  %95 = getelementptr inbounds i8, ptr %94, i64 2
   %96 = load i8, ptr %95, align 1
   %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr i8, ptr %97, i32 1
+  %98 = getelementptr inbounds nuw i8, ptr %97, i32 1
   store ptr %98, ptr %6, align 8
   store i8 %96, ptr %97, align 1
   br label %106
 
 99:                                               ; preds = %85
-  %100 = load i8, ptr %8, align 1
+  %100 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %103
 
@@ -1559,7 +1642,7 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %5, align 8
   %105 = load i32, ptr %7, align 4
-  call void @report_untranslatable_char(i32 noundef 7, i32 noundef 1, ptr noundef %104, i32 noundef %105) #3
+  call void @report_untranslatable_char(i32 noundef 7, i32 noundef 1, ptr noundef %104, i32 noundef %105) #6
   unreachable
 
 106:                                              ; preds = %88
@@ -1572,13 +1655,13 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %109 = load i32, ptr %11, align 4
   %110 = load ptr, ptr %5, align 8
   %111 = sext i32 %109 to i64
-  %112 = getelementptr i8, ptr %110, i64 %111
+  %112 = getelementptr inbounds i8, ptr %110, i64 %111
   store ptr %112, ptr %5, align 8
   %113 = load i32, ptr %11, align 4
   %114 = load i32, ptr %7, align 4
   %115 = sub i32 %114, %113
   store i32 %115, ptr %7, align 4
-  br label %14, !llvm.loop !8
+  br label %14, !llvm.loop !9
 
 116:                                              ; preds = %102, %54, %32, %14
   %117 = load ptr, ptr %6, align 8
@@ -1589,6 +1672,9 @@ define internal i32 @mic2euc_jp(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
   %123 = trunc i64 %122 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %123
 }
 
@@ -1601,63 +1687,73 @@ define i64 @sjis_to_mic(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 35, i32 noundef 7)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @sjis2mic(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
@@ -1678,8 +1774,14 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   store i32 %2, ptr %7, align 4
   %15 = zext i1 %3 to i8
   store i8 %15, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %16 = load ptr, ptr %5, align 8
   store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   br label %17
 
 17:                                               ; preds = %346, %4
@@ -1703,17 +1805,17 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr i8, ptr %30, i32 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i32 1
   store ptr %31, ptr %6, align 8
   store i8 -119, ptr %30, align 1
   %32 = load i32, ptr %10, align 4
   %33 = trunc i32 %32 to i8
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr i8, ptr %34, i32 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i32 1
   store ptr %35, ptr %6, align 8
   store i8 %33, ptr %34, align 1
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr i8, ptr %36, i32 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i32 1
   store ptr %37, ptr %5, align 8
   %38 = load i32, ptr %7, align 4
   %39 = add i32 %38, -1
@@ -1755,7 +1857,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 61:                                               ; preds = %58, %52
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr i8, ptr %62, i64 1
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = icmp sge i32 %65, 64
@@ -1763,7 +1865,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr i8, ptr %68, i64 1
+  %69 = getelementptr inbounds i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = icmp sle i32 %71, 126
@@ -1771,7 +1873,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 73:                                               ; preds = %67, %61
   %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr i8, ptr %74, i64 1
+  %75 = getelementptr inbounds i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = icmp sge i32 %77, 128
@@ -1779,14 +1881,14 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr i8, ptr %80, i64 1
+  %81 = getelementptr inbounds i8, ptr %80, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = icmp sle i32 %83, 252
   br i1 %84, label %92, label %85
 
 85:                                               ; preds = %79, %73, %58, %55, %46
-  %86 = load i8, ptr %8, align 1
+  %86 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %89
 
@@ -1796,12 +1898,12 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 89:                                               ; preds = %85
   %90 = load ptr, ptr %5, align 8
   %91 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %90, i32 noundef %91) #3
+  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %90, i32 noundef %91) #6
   unreachable
 
 92:                                               ; preds = %79, %67
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr i8, ptr %93, i64 1
+  %94 = getelementptr inbounds i8, ptr %93, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   store i32 %96, ptr %11, align 4
@@ -1826,8 +1928,8 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 107:                                              ; preds = %134, %106
   %108 = load i32, ptr %12, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %109
-  %111 = getelementptr inbounds %struct.anon, ptr %110, i32 0, i32 0
+  %110 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %109
+  %111 = getelementptr inbounds nuw %struct.anon, ptr %110, i32 0, i32 0
   %112 = load i16, ptr %111, align 8
   %113 = zext i16 %112 to i32
   store i32 %113, ptr %14, align 4
@@ -1847,8 +1949,8 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 121:                                              ; preds = %117
   %122 = load i32, ptr %12, align 4
   %123 = sext i32 %122 to i64
-  %124 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %123
-  %125 = getelementptr inbounds %struct.anon, ptr %124, i32 0, i32 1
+  %124 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %123
+  %125 = getelementptr inbounds nuw %struct.anon, ptr %124, i32 0, i32 1
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
   store i32 %127, ptr %13, align 4
@@ -1880,7 +1982,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr i8, ptr %142, i32 1
+  %143 = getelementptr inbounds nuw i8, ptr %142, i32 1
   store ptr %143, ptr %6, align 8
   store i8 -110, ptr %142, align 1
   %144 = load i32, ptr %10, align 4
@@ -1893,7 +1995,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %151 = add i32 %147, %150
   %152 = trunc i32 %151 to i8
   %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr i8, ptr %153, i32 1
+  %154 = getelementptr inbounds nuw i8, ptr %153, i32 1
   store ptr %154, ptr %6, align 8
   store i8 %152, ptr %153, align 1
   %155 = load i32, ptr %11, align 4
@@ -1907,7 +2009,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %163 = add i32 %159, %162
   %164 = trunc i32 %163 to i8
   %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr i8, ptr %165, i32 1
+  %166 = getelementptr inbounds nuw i8, ptr %165, i32 1
   store ptr %166, ptr %6, align 8
   store i8 %164, ptr %165, align 1
   br label %321
@@ -1934,15 +2036,15 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 179:                                              ; preds = %176, %170
   %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr i8, ptr %180, i32 1
+  %181 = getelementptr inbounds nuw i8, ptr %180, i32 1
   store ptr %181, ptr %6, align 8
   store i8 -110, ptr %180, align 1
   %182 = load ptr, ptr %6, align 8
-  %183 = getelementptr i8, ptr %182, i32 1
+  %183 = getelementptr inbounds nuw i8, ptr %182, i32 1
   store ptr %183, ptr %6, align 8
   store i8 -94, ptr %182, align 1
   %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr i8, ptr %184, i32 1
+  %185 = getelementptr inbounds nuw i8, ptr %184, i32 1
   store ptr %185, ptr %6, align 8
   store i8 -82, ptr %184, align 1
   br label %320
@@ -1959,7 +2061,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 192:                                              ; preds = %189
   %193 = load ptr, ptr %6, align 8
-  %194 = getelementptr i8, ptr %193, i32 1
+  %194 = getelementptr inbounds nuw i8, ptr %193, i32 1
   store ptr %194, ptr %6, align 8
   store i8 -110, ptr %193, align 1
   %195 = load i32, ptr %10, align 4
@@ -1975,7 +2077,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %204 = add i32 %200, %203
   %205 = trunc i32 %204 to i8
   %206 = load ptr, ptr %6, align 8
-  %207 = getelementptr i8, ptr %206, i32 1
+  %207 = getelementptr inbounds nuw i8, ptr %206, i32 1
   store ptr %207, ptr %6, align 8
   store i8 %205, ptr %206, align 1
   %208 = load i32, ptr %11, align 4
@@ -1989,7 +2091,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %216 = add i32 %212, %215
   %217 = trunc i32 %216 to i8
   %218 = load ptr, ptr %6, align 8
-  %219 = getelementptr i8, ptr %218, i32 1
+  %219 = getelementptr inbounds nuw i8, ptr %218, i32 1
   store ptr %219, ptr %6, align 8
   store i8 %217, ptr %218, align 1
   br label %319
@@ -2006,7 +2108,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %6, align 8
-  %228 = getelementptr i8, ptr %227, i32 1
+  %228 = getelementptr inbounds nuw i8, ptr %227, i32 1
   store ptr %228, ptr %6, align 8
   store i8 -108, ptr %227, align 1
   %229 = load i32, ptr %10, align 4
@@ -2022,7 +2124,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %238 = add i32 %234, %237
   %239 = trunc i32 %238 to i8
   %240 = load ptr, ptr %6, align 8
-  %241 = getelementptr i8, ptr %240, i32 1
+  %241 = getelementptr inbounds nuw i8, ptr %240, i32 1
   store ptr %241, ptr %6, align 8
   store i8 %239, ptr %240, align 1
   %242 = load i32, ptr %11, align 4
@@ -2036,7 +2138,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %250 = add i32 %246, %249
   %251 = trunc i32 %250 to i8
   %252 = load ptr, ptr %6, align 8
-  %253 = getelementptr i8, ptr %252, i32 1
+  %253 = getelementptr inbounds nuw i8, ptr %252, i32 1
   store ptr %253, ptr %6, align 8
   store i8 %251, ptr %252, align 1
   br label %318
@@ -2053,8 +2155,8 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 258:                                              ; preds = %313, %257
   %259 = load i32, ptr %12, align 4
   %260 = sext i32 %259 to i64
-  %261 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %260
-  %262 = getelementptr inbounds %struct.anon, ptr %261, i32 0, i32 1
+  %261 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %260
+  %262 = getelementptr inbounds nuw %struct.anon, ptr %261, i32 0, i32 1
   %263 = load i16, ptr %262, align 2
   %264 = zext i16 %263 to i32
   store i32 %264, ptr %14, align 4
@@ -2074,8 +2176,8 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 272:                                              ; preds = %268
   %273 = load i32, ptr %12, align 4
   %274 = sext i32 %273 to i64
-  %275 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %274
-  %276 = getelementptr inbounds %struct.anon, ptr %275, i32 0, i32 2
+  %275 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %274
+  %276 = getelementptr inbounds nuw %struct.anon, ptr %275, i32 0, i32 2
   %277 = load i32, ptr %276, align 4
   store i32 %277, ptr %13, align 4
   %278 = load i32, ptr %13, align 4
@@ -2084,7 +2186,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 280:                                              ; preds = %272
   %281 = load ptr, ptr %6, align 8
-  %282 = getelementptr i8, ptr %281, i32 1
+  %282 = getelementptr inbounds nuw i8, ptr %281, i32 1
   store ptr %282, ptr %6, align 8
   store i8 -108, ptr %281, align 1
   %283 = load i32, ptr %13, align 4
@@ -2093,7 +2195,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %286 = or i32 128, %285
   %287 = trunc i32 %286 to i8
   %288 = load ptr, ptr %6, align 8
-  %289 = getelementptr i8, ptr %288, i32 1
+  %289 = getelementptr inbounds nuw i8, ptr %288, i32 1
   store ptr %289, ptr %6, align 8
   store i8 %287, ptr %288, align 1
   %290 = load i32, ptr %13, align 4
@@ -2101,14 +2203,14 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %292 = or i32 128, %291
   %293 = trunc i32 %292 to i8
   %294 = load ptr, ptr %6, align 8
-  %295 = getelementptr i8, ptr %294, i32 1
+  %295 = getelementptr inbounds nuw i8, ptr %294, i32 1
   store ptr %295, ptr %6, align 8
   store i8 %293, ptr %294, align 1
   br label %311
 
 296:                                              ; preds = %272
   %297 = load ptr, ptr %6, align 8
-  %298 = getelementptr i8, ptr %297, i32 1
+  %298 = getelementptr inbounds nuw i8, ptr %297, i32 1
   store ptr %298, ptr %6, align 8
   store i8 -110, ptr %297, align 1
   %299 = load i32, ptr %13, align 4
@@ -2116,7 +2218,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %301 = or i32 128, %300
   %302 = trunc i32 %301 to i8
   %303 = load ptr, ptr %6, align 8
-  %304 = getelementptr i8, ptr %303, i32 1
+  %304 = getelementptr inbounds nuw i8, ptr %303, i32 1
   store ptr %304, ptr %6, align 8
   store i8 %302, ptr %303, align 1
   %305 = load i32, ptr %13, align 4
@@ -2124,7 +2226,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %307 = or i32 128, %306
   %308 = trunc i32 %307 to i8
   %309 = load ptr, ptr %6, align 8
-  %310 = getelementptr i8, ptr %309, i32 1
+  %310 = getelementptr inbounds nuw i8, ptr %309, i32 1
   store ptr %310, ptr %6, align 8
   store i8 %308, ptr %309, align 1
   br label %311
@@ -2158,7 +2260,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 321:                                              ; preds = %320, %141
   %322 = load ptr, ptr %5, align 8
-  %323 = getelementptr i8, ptr %322, i64 2
+  %323 = getelementptr inbounds i8, ptr %322, i64 2
   store ptr %323, ptr %5, align 8
   %324 = load i32, ptr %7, align 4
   %325 = sub i32 %324, 2
@@ -2171,7 +2273,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %328, label %329, label %336
 
 329:                                              ; preds = %326
-  %330 = load i8, ptr %8, align 1
+  %330 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %331 = trunc i8 %330 to i1
   br i1 %331, label %332, label %333
 
@@ -2181,18 +2283,18 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 333:                                              ; preds = %329
   %334 = load ptr, ptr %5, align 8
   %335 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %334, i32 noundef %335) #3
+  call void @report_invalid_encoding(i32 noundef 35, ptr noundef %334, i32 noundef %335) #6
   unreachable
 
 336:                                              ; preds = %326
   %337 = load i32, ptr %10, align 4
   %338 = trunc i32 %337 to i8
   %339 = load ptr, ptr %6, align 8
-  %340 = getelementptr i8, ptr %339, i32 1
+  %340 = getelementptr inbounds nuw i8, ptr %339, i32 1
   store ptr %340, ptr %6, align 8
   store i8 %338, ptr %339, align 1
   %341 = load ptr, ptr %5, align 8
-  %342 = getelementptr i8, ptr %341, i32 1
+  %342 = getelementptr inbounds nuw i8, ptr %341, i32 1
   store ptr %342, ptr %5, align 8
   %343 = load i32, ptr %7, align 4
   %344 = add i32 %343, -1
@@ -2203,7 +2305,7 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br label %346
 
 346:                                              ; preds = %345, %29
-  br label %17, !llvm.loop !9
+  br label %17, !llvm.loop !10
 
 347:                                              ; preds = %332, %88, %17
   %348 = load ptr, ptr %6, align 8
@@ -2214,6 +2316,12 @@ define internal i32 @sjis2mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %352 = ptrtoint ptr %350 to i64
   %353 = sub i64 %351, %352
   %354 = trunc i64 %353 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %354
 }
 
@@ -2226,63 +2334,73 @@ define i64 @mic_to_sjis(ptr noundef %0) #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
-  %10 = getelementptr [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
-  %11 = getelementptr inbounds %struct.NullableDatum, ptr %10, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %8, i32 0, i32 6
+  %10 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %9, i64 0, i64 2
+  %11 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @DatumGetCString(i64 noundef %12)
   store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
-  %16 = getelementptr [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
-  %17 = getelementptr inbounds %struct.NullableDatum, ptr %16, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %14, i32 0, i32 6
+  %16 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %15, i64 0, i64 3
+  %17 = getelementptr inbounds nuw %struct.NullableDatum, ptr %16, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @DatumGetCString(i64 noundef %18)
   store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
-  %22 = getelementptr [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
-  %23 = getelementptr inbounds %struct.NullableDatum, ptr %22, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %21, i64 0, i64 4
+  %23 = getelementptr inbounds nuw %struct.NullableDatum, ptr %22, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @DatumGetInt32(i64 noundef %24)
   store i32 %25, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
-  %28 = getelementptr [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
-  %29 = getelementptr inbounds %struct.NullableDatum, ptr %28, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 5
+  %29 = getelementptr inbounds nuw %struct.NullableDatum, ptr %28, i32 0, i32 0
   %30 = load i64, ptr %29, align 8
   %31 = call zeroext i1 @DatumGetBool(i64 noundef %30)
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
-  %35 = getelementptr [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
-  %36 = getelementptr inbounds %struct.NullableDatum, ptr %35, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %struct.NullableDatum, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
   %38 = call i32 @DatumGetInt32(i64 noundef %37)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
-  %41 = getelementptr [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
-  %42 = getelementptr inbounds %struct.NullableDatum, ptr %41, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %39, i32 0, i32 6
+  %41 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %40, i64 0, i64 1
+  %42 = getelementptr inbounds nuw %struct.NullableDatum, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @DatumGetInt32(i64 noundef %43)
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
-  %47 = getelementptr [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
-  %48 = getelementptr inbounds %struct.NullableDatum, ptr %47, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.FunctionCallInfoBaseData, ptr %45, i32 0, i32 6
+  %47 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %46, i64 0, i64 4
+  %48 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
   %50 = call i32 @DatumGetInt32(i64 noundef %49)
   call void @check_encoding_conversion_args(i32 noundef %38, i32 noundef %44, i32 noundef %50, i32 noundef 7, i32 noundef 35)
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %53 = load i32, ptr %5, align 4
-  %54 = load i8, ptr %6, align 1
+  %54 = load i8, ptr %6, align 1, !range !3, !noundef !4
   %55 = trunc i8 %54 to i1
   %56 = call i32 @mic2sjis(ptr noundef %51, ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55)
   store i32 %56, ptr %7, align 4
   %57 = load i32, ptr %7, align 4
   %58 = call i64 @Int32GetDatum(i32 noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i64 %58
 }
 
@@ -2304,8 +2422,13 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   store i32 %2, ptr %7, align 4
   %16 = zext i1 %3 to i8
   store i8 %16, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %17 = load ptr, ptr %5, align 8
   store ptr %17, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   br label %18
 
 18:                                               ; preds = %229, %40, %4
@@ -2331,7 +2454,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr %8, align 1
+  %34 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %37
 
@@ -2341,23 +2464,23 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 37:                                               ; preds = %33
   %38 = load ptr, ptr %5, align 8
   %39 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %38, i32 noundef %39) #3
+  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %38, i32 noundef %39) #6
   unreachable
 
 40:                                               ; preds = %30
   %41 = load i32, ptr %10, align 4
   %42 = trunc i32 %41 to i8
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
   store ptr %44, ptr %6, align 8
   store i8 %42, ptr %43, align 1
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr i8, ptr %45, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i32 1
   store ptr %46, ptr %5, align 8
   %47 = load i32, ptr %7, align 4
   %48 = add i32 %47, -1
   store i32 %48, ptr %7, align 4
-  br label %18, !llvm.loop !10
+  br label %18, !llvm.loop !11
 
 49:                                               ; preds = %21
   %50 = load ptr, ptr %5, align 8
@@ -2369,7 +2492,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %49
-  %56 = load i8, ptr %8, align 1
+  %56 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %59
 
@@ -2379,7 +2502,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 59:                                               ; preds = %55
   %60 = load ptr, ptr %5, align 8
   %61 = load i32, ptr %7, align 4
-  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %60, i32 noundef %61) #3
+  call void @report_invalid_encoding(i32 noundef 7, ptr noundef %60, i32 noundef %61) #6
   unreachable
 
 62:                                               ; preds = %49
@@ -2389,10 +2512,10 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr i8, ptr %66, i64 1
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr i8, ptr %69, i32 1
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
   store ptr %70, ptr %6, align 8
   store i8 %68, ptr %69, align 1
   br label %229
@@ -2404,12 +2527,12 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr i8, ptr %75, i64 1
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   store i32 %78, ptr %10, align 4
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr i8, ptr %79, i64 2
+  %80 = getelementptr inbounds i8, ptr %79, i64 2
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   store i32 %82, ptr %11, align 4
@@ -2437,7 +2560,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %100 = add i32 %99, 111
   %101 = trunc i32 %100 to i8
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr i8, ptr %102, i32 1
+  %103 = getelementptr inbounds nuw i8, ptr %102, i32 1
   store ptr %103, ptr %6, align 8
   store i8 %101, ptr %102, align 1
   br label %115
@@ -2452,7 +2575,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %111 = add i32 %107, %110
   %112 = trunc i32 %111 to i8
   %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr i8, ptr %113, i32 1
+  %114 = getelementptr inbounds nuw i8, ptr %113, i32 1
   store ptr %114, ptr %6, align 8
   store i8 %112, ptr %113, align 1
   br label %115
@@ -2478,7 +2601,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %127 = sub i32 %116, %126
   %128 = trunc i32 %127 to i8
   %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr i8, ptr %129, i32 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i32 1
   store ptr %130, ptr %6, align 8
   store i8 %128, ptr %129, align 1
   br label %228
@@ -2489,13 +2612,15 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br i1 %133, label %134, label %220
 
 134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr i8, ptr %135, i64 1
+  %136 = getelementptr inbounds i8, ptr %135, i64 1
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
   store i32 %138, ptr %10, align 4
   %139 = load ptr, ptr %5, align 8
-  %140 = getelementptr i8, ptr %139, i64 2
+  %140 = getelementptr inbounds i8, ptr %139, i64 2
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i32
   store i32 %142, ptr %11, align 4
@@ -2522,7 +2647,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %159 = add i32 %158, 116
   %160 = trunc i32 %159 to i8
   %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr i8, ptr %161, i32 1
+  %162 = getelementptr inbounds nuw i8, ptr %161, i32 1
   store ptr %162, ptr %6, align 8
   store i8 %160, ptr %161, align 1
   %163 = load i32, ptr %11, align 4
@@ -2545,7 +2670,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %174 = sub i32 %163, %173
   %175 = trunc i32 %174 to i8
   %176 = load ptr, ptr %6, align 8
-  %177 = getelementptr i8, ptr %176, i32 1
+  %177 = getelementptr inbounds nuw i8, ptr %176, i32 1
   store ptr %177, ptr %6, align 8
   store i8 %175, ptr %176, align 1
   br label %219
@@ -2557,8 +2682,8 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 179:                                              ; preds = %215, %178
   %180 = load i32, ptr %14, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %181
-  %183 = getelementptr inbounds %struct.anon, ptr %182, i32 0, i32 2
+  %182 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %181
+  %183 = getelementptr inbounds nuw %struct.anon, ptr %182, i32 0, i32 2
   %184 = load i32, ptr %183, align 4
   %185 = and i32 %184, 65535
   store i32 %185, ptr %15, align 4
@@ -2568,11 +2693,11 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 
 188:                                              ; preds = %179
   %189 = load ptr, ptr %6, align 8
-  %190 = getelementptr i8, ptr %189, i32 1
+  %190 = getelementptr inbounds nuw i8, ptr %189, i32 1
   store ptr %190, ptr %6, align 8
   store i8 -127, ptr %189, align 1
   %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr i8, ptr %191, i32 1
+  %192 = getelementptr inbounds nuw i8, ptr %191, i32 1
   store ptr %192, ptr %6, align 8
   store i8 -84, ptr %191, align 1
   br label %218
@@ -2586,8 +2711,8 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 197:                                              ; preds = %193
   %198 = load i32, ptr %14, align 4
   %199 = sext i32 %198 to i64
-  %200 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %199
-  %201 = getelementptr inbounds %struct.anon, ptr %200, i32 0, i32 1
+  %200 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %199
+  %201 = getelementptr inbounds nuw %struct.anon, ptr %200, i32 0, i32 1
   %202 = load i16, ptr %201, align 2
   %203 = zext i16 %202 to i32
   store i32 %203, ptr %12, align 4
@@ -2595,14 +2720,14 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %205 = ashr i32 %204, 8
   %206 = trunc i32 %205 to i8
   %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr i8, ptr %207, i32 1
+  %208 = getelementptr inbounds nuw i8, ptr %207, i32 1
   store ptr %208, ptr %6, align 8
   store i8 %206, ptr %207, align 1
   %209 = load i32, ptr %12, align 4
   %210 = and i32 %209, 255
   %211 = trunc i32 %210 to i8
   %212 = load ptr, ptr %6, align 8
-  %213 = getelementptr i8, ptr %212, i32 1
+  %213 = getelementptr inbounds nuw i8, ptr %212, i32 1
   store ptr %213, ptr %6, align 8
   store i8 %211, ptr %212, align 1
   br label %218
@@ -2620,10 +2745,12 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   br label %219
 
 219:                                              ; preds = %218, %172
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
   br label %227
 
 220:                                              ; preds = %131
-  %221 = load i8, ptr %8, align 1
+  %221 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %222 = trunc i8 %221 to i1
   br i1 %222, label %223, label %224
 
@@ -2633,7 +2760,7 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
 224:                                              ; preds = %220
   %225 = load ptr, ptr %5, align 8
   %226 = load i32, ptr %7, align 4
-  call void @report_untranslatable_char(i32 noundef 7, i32 noundef 35, ptr noundef %225, i32 noundef %226) #3
+  call void @report_untranslatable_char(i32 noundef 7, i32 noundef 35, ptr noundef %225, i32 noundef %226) #6
   unreachable
 
 227:                                              ; preds = %219
@@ -2646,13 +2773,13 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %230 = load i32, ptr %13, align 4
   %231 = load ptr, ptr %5, align 8
   %232 = sext i32 %230 to i64
-  %233 = getelementptr i8, ptr %231, i64 %232
+  %233 = getelementptr inbounds i8, ptr %231, i64 %232
   store ptr %233, ptr %5, align 8
   %234 = load i32, ptr %13, align 4
   %235 = load i32, ptr %7, align 4
   %236 = sub i32 %235, %234
   store i32 %236, ptr %7, align 4
-  br label %18, !llvm.loop !10
+  br label %18, !llvm.loop !11
 
 237:                                              ; preds = %223, %58, %36, %18
   %238 = load ptr, ptr %6, align 8
@@ -2663,11 +2790,16 @@ define internal i32 @mic2sjis(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1
   %242 = ptrtoint ptr %240 to i64
   %243 = sub i64 %241, %242
   %244 = trunc i64 %243 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %244
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @DatumGetPointer(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -2676,28 +2808,32 @@ define internal ptr @DatumGetPointer(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: noreturn
-declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) #2
+declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) #4
 
-declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: noreturn
-declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
